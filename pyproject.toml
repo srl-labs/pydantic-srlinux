@@ -1,0 +1,11 @@
+[project]
+name = "pydantic-srlinux"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = "~=3.12"
+dependencies = [
+    "pydantify==0.6.1",
+    "pyyaml>=6.0.2",
+    "rich>=13.9.4",
+]
