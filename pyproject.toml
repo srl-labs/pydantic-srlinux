@@ -9,3 +9,6 @@ dependencies = [
     "pyyaml>=6.0.2",
     "rich>=13.9.4",
 ]
+
+[tool.uv.sources]
+pydantify = { path = "../../../../../../../home/romandodin/projects/hellt/pydantify", editable = true }

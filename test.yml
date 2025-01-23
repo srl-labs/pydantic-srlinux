@@ -1,0 +1,4723 @@
+modules:
+  srl_nokia-aaa-password.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-aaa-password
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-password.yang
+    prefix: srl-aaa-password
+  srl_nokia-aaa-radius.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-aaa-types
+      prefix: srl-aaa-types
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-aaa-radius
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-radius.yang
+    prefix: srl-aaa-radius
+  srl_nokia-aaa-tacacs.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-aaa-types
+      prefix: srl-aaa-types
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-aaa-tacacs
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-tacacs.yang
+    prefix: srl-aaa-tacacs
+  srl_nokia-aaa-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-aaa-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-types.yang
+    prefix: srl-aaa-types
+  srl_nokia-aaa.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-aaa-types
+      prefix: srl-aaa-types
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-aaa-tacacs
+      prefix: srl-aaa-tacacs
+    - module: srl_nokia-aaa-password
+      prefix: srl-aaa-password
+    - module: srl_nokia-aaa-radius
+      prefix: srl-aaa-radius
+    - module: srl_nokia-gnsi-credentialz
+      prefix: srl-gnsi-credentialz
+    name: srl_nokia-aaa
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa.yang
+    prefix: srl-aaa
+  srl_nokia-acl-policers.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-qos:qos
+    - node: /srl_nokia-qos:qos/srl_nokia-qos:interfaces/srl_nokia-qos:interface/srl_nokia-qos:input
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-qos
+      prefix: srl_nokia-qos
+    - module: srl_nokia-qos-policers
+      prefix: srl_nokia-qos-policers
+    name: srl_nokia-acl-policers
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-policers.yang
+    prefix: srl_nokia-acl-policers
+  srl_nokia-acl-qos.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-qos:qos/srl_nokia-qos:classifiers
+    - node: /srl_nokia-qos:qos/srl_nokia-qos:interfaces/srl_nokia-qos:interface/srl_nokia-qos:input/srl_nokia-qos:classifiers
+    imports:
+    - module: srl_nokia-acl
+      prefix: srl_nokia-acl
+    - module: srl_nokia-qos
+      prefix: srl_nokia-qos
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-acl-qos
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-qos.yang
+    prefix: srl_nokia-acl-qos
+  srl_nokia-acl.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system/srl_nokia-system:control-plane-traffic/srl_nokia-system:input
+    imports:
+    - module: srl_nokia-packet-match-types
+      prefix: srl_nokia-pkt-match-types
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-qos
+      prefix: srl_nokia-qos
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-acl
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl.yang
+    prefix: srl_nokia-acl
+  srl_nokia-aft.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-ip-route-tables
+      prefix: srl_nokia-rt
+    name: srl_nokia-aft
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aft.yang
+    prefix: srl_nokia-aft
+  srl_nokia-aggregate-routes.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-policy-types
+      prefix: srl_nokia-pol-types
+    name: srl_nokia-aggregate-routes
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aggregate-routes.yang
+    prefix: srl_nokia-aggregate-routes
+  srl_nokia-app-mgmt.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    name: srl_nokia-app-mgmt
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-app-mgmt.yang
+    prefix: srl_nokia-app-mgmt
+  srl_nokia-bfd.yang:
+    augmented_by:
+    - srl_nokia-micro-bfd.yang
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-te-policies
+      prefix: srl_nokia-te-policies
+    name: srl_nokia-bfd
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-bfd.yang
+    prefix: srl_nokia-bfd
+  srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:bgp-evpn/srl_bgp-evpn:bgp-instance/srl_bgp-evpn:mpls/srl_bgp-evpn:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-bgp-evpn
+      prefix: srl_bgp-evpn
+    name: srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations.yang
+    prefix: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-multicast-destinations
+  srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:bgp-evpn/srl_bgp-evpn:bgp-instance/srl_bgp-evpn:mpls/srl_bgp-evpn:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-bgp-evpn
+      prefix: srl_bgp-evpn
+    name: srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics.yang
+    prefix: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-statistics
+  srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:bgp-evpn/srl_bgp-evpn:bgp-instance/srl_bgp-evpn:mpls/srl_bgp-evpn:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-bgp-evpn
+      prefix: srl_bgp-evpn
+    name: srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations.yang
+    prefix: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-unicast-destinations
+  srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:bgp-evpn/srl_bgp-evpn:bgp-instance/srl_bgp-evpn:vpws-attachment-circuits/srl_bgp-evpn:remote/srl_bgp-evpn:remote-attachment-circuit
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-bgp-evpn
+      prefix: srl_bgp-evpn
+    name: srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac.yang
+    prefix: srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
+  srl_nokia-bgp-evpn.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:bgp-evpn
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-bgp-vpn
+      prefix: srl_bgp-vpn
+    - module: srl_nokia-bgp
+      prefix: srl-bgp
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-routing-pol
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-bgp-evpn
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn.yang
+    prefix: srl_nokia-bgp-evpn
+  srl_nokia-bgp-ipvpn.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:bgp-ipvpn
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-bgp-vpn
+      prefix: srl_bgp-vpn
+    - module: srl_nokia-bgp
+      prefix: srl-bgp
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-routing-pol
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-bgp-ipvpn
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-ipvpn.yang
+    prefix: srl_nokia-bgp-ipvpn
+  srl_nokia-bgp-vpn.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-bgp
+      prefix: srl-bgp
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-policy-types
+      prefix: srl_nokia-pol-types
+    name: srl_nokia-bgp-vpn
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-vpn.yang
+    prefix: srl_nokia-bgp-vpn
+  srl_nokia-bgp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    - node: /srl_nokia-system:system/srl_nokia-system-protocols:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-segment-routing
+      prefix: srl_nokia-sr
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    - module: srl_nokia-system-protocols
+      prefix: srl_nokia-system-protocols
+    - module: srl_nokia-keychains
+      prefix: srl-keychain
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-bgp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp.yang
+    prefix: srl_nokia-bgp
+  srl_nokia-boot.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-interfaces
+      prefix: srl-if
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-boot
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-boot.yang
+    prefix: srl-boot
+  srl_nokia-bridge-table-mac-duplication-entries.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:bridge-table/srl_nokia-netinst:mac-duplication
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-bridge-table-mac-duplication-entries
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-duplication-entries.yang
+    prefix: srl_nokia-bridge-table-mac-duplication-entries
+  srl_nokia-bridge-table-mac-duplication.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-bridge-table-mac-duplication
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-duplication.yang
+    prefix: srl_nokia-bridge-table-mac-duplication
+  srl_nokia-bridge-table-mac-learning-entries.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:bridge-table/srl_nokia-netinst:mac-learning
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-bridge-table-mac-learning-entries
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-learning-entries.yang
+    prefix: srl_nokia-bridge-table-mac-learning-entries
+  srl_nokia-bridge-table-mac-learning.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-bridge-table-mac-learning
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-learning.yang
+    prefix: srl_nokia-bridge-table-mac-learning
+  srl_nokia-bridge-table-mac-limit.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-bridge-table-mac-limit
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-limit.yang
+    prefix: srl_nokia-bridge-table-mac-limit
+  srl_nokia-bridge-table-mac-table.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-bridge-table-mac-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-table.yang
+    prefix: srl_nokia-bridge-table-mac-table
+  srl_nokia-bridge-table-proxy-arp-nd.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-routing-pol
+    name: srl_nokia-bridge-table-proxy-arp-nd
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-proxy-arp-nd.yang
+    prefix: srl_nokia-bridge-table-proxy-arp-nd
+  srl_nokia-bridge-table-reserved-macs.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-bridge-table-reserved-macs
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-reserved-macs.yang
+    prefix: srl_nokia-bridge-table-reserved-macs
+  srl_nokia-bridge-table-shg.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-bridge-table-shg
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-shg.yang
+    prefix: srl_nokia-bridge-table-shg
+  srl_nokia-bridge-table-static-mac.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-bridge-table-static-mac
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-static-mac.yang
+    prefix: srl_nokia-bridge-table-static-mac
+  srl_nokia-bridge-table.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-bridge-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table.yang
+    prefix: srl_nokia-bridge-table
+  srl_nokia-common.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-common
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/common/srl_nokia-common.yang
+    prefix: srl_nokia-comm
+  srl_nokia-configuration-role.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl-configuration:configuration
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-configuration
+      prefix: srl-configuration
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-aaa
+      prefix: srl-aaa
+    name: srl_nokia-configuration-role
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration-role.yang
+    prefix: srl_nokia-configuration-role
+  srl_nokia-configuration.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-gnsi-pathz
+      prefix: srl-gnsi-pathz
+    name: srl_nokia-configuration
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration.yang
+    prefix: srl-config
+  srl_nokia-connection-point-bridge-table-mac-duplication-entries.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:connection-point/srl_nokia-netinst:bridge-table/srl_nokia-netinst:mac-duplication
+    imports:
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces-bridge-table-mac-duplication-entries
+      prefix: srl_nokia-interfaces-bridge-table-mac-duplication-entries
+    name: srl_nokia-connection-point-bridge-table-mac-duplication-entries
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-duplication-entries.yang
+    prefix: srl_nokia-connection-point-bridge-table-mac-duplication-entries
+  srl_nokia-connection-point-bridge-table-mac-learning-entries.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:connection-point/srl_nokia-netinst:bridge-table/srl_nokia-netinst:mac-learning
+    imports:
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces-bridge-table-mac-learning-entries
+      prefix: srl_nokia-interfaces-bridge-table-mac-learning-entries
+    name: srl_nokia-connection-point-bridge-table-mac-learning-entries
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-learning-entries.yang
+    prefix: srl_nokia-connection-point-bridge-table-mac-learning-entries
+  srl_nokia-connection-point-bridge-table-mac-table.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:connection-point/srl_nokia-netinst:bridge-table
+    imports:
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces-bridge-table-mac-table
+      prefix: srl_nokia-interfaces-bridge-table-mac-table
+    name: srl_nokia-connection-point-bridge-table-mac-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-table.yang
+    prefix: srl_nokia-connection-point-bridge-table-mac-table
+  srl_nokia-connection-point-bridge-table-statistics.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:connection-point/srl_nokia-netinst:bridge-table
+    imports:
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces-bridge-table-statistics
+      prefix: srl_nokia-interfaces-bridge-table-statistics
+    name: srl_nokia-connection-point-bridge-table-statistics
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-statistics.yang
+    prefix: srl_nokia-connection-point-bridge-table-statistics
+  srl_nokia-connection-point-pseudowires.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-tunnel
+      prefix: srl_nokia-tunnel
+    - module: srl_nokia-pw-tunnel
+      prefix: srl_nokia-pw-tunnel
+    name: srl_nokia-connection-point-pseudowires
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-pseudowires.yang
+    prefix: srl_nokia-connection-point-pseudowires
+  srl_nokia-dhcp-server.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-dhcp-server
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-dhcp-server.yang
+    prefix: srl-dhcp-server
+  srl_nokia-dns.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-dns
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-dns.yang
+    prefix: srl_nokia-dns
+  srl_nokia-dot1x.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:ethernet
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-dot1x
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-dot1x.yang
+    prefix: srl_nokia-dot1x
+  srl_nokia-ethcfm-types.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-ethcfm-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm-types.yang
+    prefix: srl_nokia-ethcfm-types
+  srl_nokia-ethcfm.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-ethcfm-types
+      prefix: srl_nokia-ethcfm-types
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    name: srl_nokia-ethcfm
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm.yang
+    prefix: srl_nokia-ethcfm
+  srl_nokia-event-handler.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-aaa
+      prefix: srl-aaa
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-event-handler
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-event-handler.yang
+    prefix: srl-event-handler
+  srl_nokia-extensions.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-extensions
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/common/srl_nokia-extensions.yang
+    prefix: srl_nokia-ext
+  srl_nokia-features.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-features
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/common/srl_nokia-features.yang
+    prefix: srl_nokia-feat
+  srl_nokia-ftp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-ftp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ftp.yang
+    prefix: srl_nokia-ftp
+  srl_nokia-gnmi.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-gnmi
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnmi.yang
+    prefix: srl-gnmi
+  srl_nokia-gnsi-authz.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl-aaa:aaa/srl-aaa:authorization
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-aaa
+      prefix: srl-aaa
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-gnsi-authz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-authz.yang
+    prefix: srl-gnsi-authz
+  srl_nokia-gnsi-certz.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl-tls:tls/srl-tls:server-profile
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-tls
+      prefix: srl-tls
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-gnsi-certz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-certz.yang
+    prefix: srl-gnsi-certz
+  srl_nokia-gnsi-credentialz.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl-ssh:ssh-server
+    - node: /srl-system:system/srl-ssh:ssh-server
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-ssh
+      prefix: srl-ssh
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-gnsi-credentialz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-credentialz.yang
+    prefix: srl-gnsi-credentialz
+  srl_nokia-gnsi-pathz.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl-grpc:grpc-server
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-grpc
+      prefix: srl-grpc
+    - module: srl_nokia-aaa
+      prefix: srl-aaa
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-gnsi-pathz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-pathz.yang
+    prefix: srl-gnsi-pathz
+  srl_nokia-gribi.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-netinst:network-instance/srl-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    name: srl_nokia-gribi
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gribi.yang
+    prefix: srl-gribi
+  srl_nokia-grpc.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-tls
+      prefix: srl-tls
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-gnsi-authz
+      prefix: srl-gnsi-authz
+    - module: srl_nokia-gnsi-certz
+      prefix: srl-gnsi-certz
+    - module: srl_nokia-gnmi
+      prefix: srl-gnmi
+    - module: srl_nokia-gribi
+      prefix: srl-gribi
+    - module: srl_nokia-p4rt
+      prefix: srl-p4rt
+    name: srl_nokia-grpc
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-grpc.yang
+    prefix: srl-grpc
+  srl_nokia-icmp.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-icmp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-icmp.yang
+    prefix: srl_nokia-icmp
+  srl_nokia-if-ip.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-if-ip
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-if-ip.yang
+    prefix: srl_nokia-if-ip
+  srl_nokia-if-mpls.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-if-ip
+      prefix: srl_nokia-if-ip
+    name: srl_nokia-if-mpls
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-if-mpls.yang
+    prefix: srl_nokia-if-mpls
+  srl_nokia-igmp-snooping.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-igmp-types
+      prefix: srl_nokia-igmp-types
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-igmp-snooping
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp-snooping.yang
+    prefix: srl_nokia-igmp-snooping
+  srl_nokia-igmp-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-igmp-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp-types.yang
+    prefix: srl_nokia-igmp-types
+  srl_nokia-igmp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-igmp-types
+      prefix: srl_nokia-igmp-types
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-igmp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp.yang
+    prefix: srl_nokia-igmp
+  srl_nokia-interfaces-bridge-table-mac-duplication-entries.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:bridge-table/srl_nokia-if:mac-duplication
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-interfaces-bridge-table-mac-duplication-entries
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-duplication-entries.yang
+    prefix: srl_nokia-interfaces-bridge-table-mac-duplication-entries
+  srl_nokia-interfaces-bridge-table-mac-learning-entries.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:bridge-table/srl_nokia-if:mac-learning
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-interfaces-bridge-table-mac-learning-entries
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-learning-entries.yang
+    prefix: srl_nokia-interfaces-bridge-table-mac-learning-entries
+  srl_nokia-interfaces-bridge-table-mac-table.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-interfaces-bridge-table-mac-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-table.yang
+    prefix: srl_nokia-interfaces-bridge-table-mac-table
+  srl_nokia-interfaces-bridge-table-statistics.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-interfaces-bridge-table-statistics
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-statistics.yang
+    prefix: srl_nokia-if-bt
+  srl_nokia-interfaces-bridge-table-stp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-stp-types
+      prefix: srl_nokia-stp-types
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-interfaces-bridge-table-stp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-stp.yang
+    prefix: srl_nokia-interfaces-bridge-table-stp
+  srl_nokia-interfaces-bridge-table.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-interfaces-bridge-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table.yang
+    prefix: srl_nokia-if-bt
+  srl_nokia-interfaces-dco.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:transceiver
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-terminal-device
+      prefix: srl_nokia-term-dev
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-interfaces-dco
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-dco.yang
+    prefix: srl_nokia-if-dco
+  srl_nokia-interfaces-ethernet-segment-association.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-interfaces-ethernet-segment-association
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ethernet-segment-association.yang
+    prefix: srl_nokia-interfaces-ethernet-segment-association
+  srl_nokia-interfaces-ip-dhcp-relay.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    name: srl_nokia-interfaces-ip-dhcp-relay
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-relay.yang
+    prefix: srl_nokia-if-ip-dhcp-relay
+  srl_nokia-interfaces-ip-dhcp-server.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-interfaces-ip-dhcp-relay
+      prefix: srl_nokia-dhcp-relay
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-interfaces-ip-dhcp-server
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-server.yang
+    prefix: srl_nokia-if-ip-dhcp-server
+  srl_nokia-interfaces-ip-dhcp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-interfaces-ip-dhcp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp.yang
+    prefix: srl_nokia-if-ip-dhcp
+  srl_nokia-interfaces-ip-vrrp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4/srl_nokia-if:address
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6/srl_nokia-if:address
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-keychains
+      prefix: srl-keychain
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-interfaces-ip-vrrp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-vrrp.yang
+    prefix: srl_nokia-if-ip-vrrp
+  srl_nokia-interfaces-l2cp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:ethernet
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-interfaces-lag
+      prefix: srl_nokia-if-lag
+    - module: srl_nokia-lacp
+      prefix: srl_nokia-lacp
+    - module: srl_nokia-lldp
+      prefix: srl_nokia-lldp
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-interfaces-l2cp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-l2cp.yang
+    prefix: srl_nokia-interfaces-l2cp
+  srl_nokia-interfaces-lag.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-interfaces-lag
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-lag.yang
+    prefix: srl_nokia-if-lag
+  srl_nokia-interfaces-local-mirror-destination.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-interfaces-local-mirror-destination
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-local-mirror-destination.yang
+    prefix: srl_nokia-if-local-mirror-dest
+  srl_nokia-interfaces-nbr-evpn.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4/srl_nokia-if-ip-nbr:arp
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6/srl_nokia-if-ip-nbr:neighbor-discovery
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-interfaces-nbr
+      prefix: srl_nokia-if-ip-nbr
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-routing-pol
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-interfaces-nbr-evpn
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-evpn.yang
+    prefix: srl_nokia-if-ip-nbr-evpn
+  srl_nokia-interfaces-nbr-virtual-ip-discovery.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4/srl_nokia-if-ip-nbr:arp
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6/srl_nokia-if-ip-nbr:neighbor-discovery
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces-nbr
+      prefix: srl_nokia-if-ip-nbr
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-interfaces-nbr-virtual-ip-discovery
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-virtual-ip-discovery.yang
+    prefix: srl_nokia-if-ip-nbr-virtual-ip-discovery
+  srl_nokia-interfaces-nbr.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv4
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-routing-pol
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-ip-route-tables
+      prefix: srl_nokia-route-tbl
+    name: srl_nokia-interfaces-nbr
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr.yang
+    prefix: srl_nokia-if-ip-nbr
+  srl_nokia-interfaces-p4rt.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-interfaces-p4rt
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-p4rt.yang
+    prefix: srl_nokia-if-p4rt
+  srl_nokia-interfaces-router-adv.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface/srl_nokia-if:ipv6
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-interfaces-router-adv
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-router-adv.yang
+    prefix: srl_nokia-if-ip-ra
+  srl_nokia-interfaces-vlans.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface
+    - node: /srl_nokia-if:interface
+    - node: /srl_nokia-if:interface
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-interfaces-vlans
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vlans.yang
+    prefix: srl_nokia-if-vlan
+  srl_nokia-interfaces-vxdp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-if:interface
+    - node: /srl-if:interface/srl-if:subinterface
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl-if
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-interfaces-vxdp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vxdp.yang
+    prefix: srl-if-vxdp
+  srl_nokia-interfaces.yang:
+    augmented_by:
+    - srl_nokia-dot1x.yang
+    - srl_nokia-platform-healthz.yang
+    - srl_nokia-ethcfm.yang
+    - srl_nokia-ra_guard.yang
+    - srl_nokia-packet-link-qual.yang
+    - srl_nokia-interfaces-nbr-evpn.yang
+    - srl_nokia-interfaces-l2cp.yang
+    - srl_nokia-interfaces-ip-dhcp-relay.yang
+    - srl_nokia-interfaces-p4rt.yang
+    - srl_nokia-interfaces-dco.yang
+    - srl_nokia-interfaces-ip-vrrp.yang
+    - srl_nokia-interfaces-router-adv.yang
+    - srl_nokia-interfaces-bridge-table-stp.yang
+    - srl_nokia-interfaces-nbr-virtual-ip-discovery.yang
+    - srl_nokia-interfaces-bridge-table-mac-duplication-entries.yang
+    - srl_nokia-interfaces-bridge-table-statistics.yang
+    - srl_nokia-interfaces-ip-dhcp.yang
+    - srl_nokia-interfaces-vlans.yang
+    - srl_nokia-interfaces-nbr.yang
+    - srl_nokia-interfaces-local-mirror-destination.yang
+    - srl_nokia-lacp.yang
+    - srl_nokia-interfaces-ip-dhcp-server.yang
+    - srl_nokia-if-mpls.yang
+    - srl_nokia-interfaces-vxdp.yang
+    - srl_nokia-interfaces-bridge-table-mac-table.yang
+    - srl_nokia-interfaces-bridge-table-mac-learning-entries.yang
+    - srl_nokia-interfaces-lag.yang
+    - srl_nokia-interfaces-ethernet-segment-association.yang
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-if-ip
+      prefix: srl_nokia-if-ip
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces-bridge-table
+      prefix: srl_nokia-if-bt
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-lc
+    - module: srl_nokia-platform
+      prefix: srl_nokia-plat
+    name: srl_nokia-interfaces
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces.yang
+    prefix: srl_nokia-if
+  srl_nokia-ip-route-tables.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:route-table
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex/srl-lc-fib:fib-table
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-control:control/srl_nokia-platform-control-fp:forwarding-plane/srl_nokia-platform-control-fp:fib-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    - module: srl_nokia-platform-control
+      prefix: srl_nokia-platform-control
+    - module: srl_nokia-platform-control-fp
+      prefix: srl_nokia-platform-control-fp
+    - module: srl_nokia-platform-linecard-fib
+      prefix: srl-lc-fib
+    name: srl_nokia-ip-route-tables
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ip-route-tables.yang
+    prefix: srl_nokia-ip-route-tables
+  srl_nokia-ippm-source-udp-pool.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    name: srl_nokia-ippm-source-udp-pool
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-ippm-source-udp-pool.yang
+    prefix: srl_nokia-ippm-source-udp-pool
+  srl_nokia-isis-lsdb-types.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-isis-lsdb-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-lsdb-types.yang
+    prefix: srl_nokia-isis-lsdb-types
+  srl_nokia-isis-lsdb.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-isis-lsdb-types
+      prefix: srl_nokia-isis-lsdb-types
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-isis-lsdb
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-lsdb.yang
+    prefix: srl_nokia-isis-lsdb
+  srl_nokia-isis-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-isis-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-types.yang
+    prefix: srl_nokia-isis-types
+  srl_nokia-isis.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: ietf-yang-types
+      prefix: yang
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-keychains
+      prefix: srl-keychain
+    - module: srl_nokia-traffic-engineering
+      prefix: srl_nokia-te
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    - module: srl_nokia-segment-routing
+      prefix: srl_nokia-segrt
+    - module: srl_nokia-ldp
+      prefix: srl_nokia-ldp
+    - module: srl_nokia-isis-lsdb
+      prefix: srl_nokia-isis-lsdb
+    - module: srl_nokia-isis-types
+      prefix: srl_nokia-isis-types
+    name: srl_nokia-isis
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis.yang
+    prefix: srl_nokia-isis
+  srl_nokia-json-rpc.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-tls
+      prefix: srl-tls
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-json-rpc
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-json-rpc.yang
+    prefix: srl-json-rpc
+  srl_nokia-keychains.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-keychains
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-keychains.yang
+    prefix: srl_nokia-keychains
+  srl_nokia-lacp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-if:interface/srl_nokia-if-lag:lag/srl_nokia-if-lag:member
+    - node: /srl_nokia-system:system
+    - node: /srl_nokia-if:interface/srl_nokia-if-lag:lag
+    imports:
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-interfaces-lag
+      prefix: srl_nokia-if-lag
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-lacp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-lacp.yang
+    prefix: srl_nokia-lacp
+  srl_nokia-lawful-intercept.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-system
+      prefix: srl-system
+    name: srl_nokia-lawful-intercept
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lawful-intercept.yang
+    prefix: srl_nokia-lawful-interecept
+  srl_nokia-ldp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-ldp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ldp.yang
+    prefix: srl_nokia-ldp
+  srl_nokia-license.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-license
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-license.yang
+    prefix: srl_nokia-license
+  srl_nokia-link-measurement.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-ippm-source-udp-pool
+      prefix: srl_nokia-source-udp
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-qos
+      prefix: srl_nokia-qos
+    name: srl_nokia-link-measurement
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-link-measurement.yang
+    prefix: srl_nokia-link-measurement
+  srl_nokia-linux.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-linux
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-linux.yang
+    prefix: srl_nokia-linux
+  srl_nokia-lldp-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-lldp-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lldp-types.yang
+    prefix: srl_nokia-lldp-types
+  srl_nokia-lldp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-lldp-types
+      prefix: nokia-lldp-types
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-lldp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lldp.yang
+    prefix: srl_nokia-lldp
+  srl_nokia-load-balancing.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-load-balancing
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-load-balancing.yang
+    prefix: srl_nokia-lb
+  srl_nokia-logging.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-logging
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-logging.yang
+    prefix: srl_nokia-logging
+  srl_nokia-lsp-ping-trace.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-lsp-ping-trace
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-lsp-ping-trace.yang
+    prefix: srl_nokia-lsp-ping-trace
+  srl_nokia-macsec.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-transport-security:transport-security
+    imports:
+    - module: srl_nokia-transport-security
+      prefix: srl_nokia-transport-security
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-keychains
+      prefix: srl-keychain
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-macsec
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-macsec.yang
+    prefix: srl_nokia-macsec
+  srl_nokia-maintenance-mode.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-bgp
+      prefix: srl-bgp
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    name: srl_nokia-maintenance-mode
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-maintenance-mode.yang
+    prefix: srl-m-mode
+  srl_nokia-maintenance-policies.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-maintenance-policies
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-maintenance-policies.yang
+    prefix: srl_nokia-maintenance-policies
+  srl_nokia-micro-bfd.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-bfd:bfd
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-bfd
+      prefix: srl_nokia-bfd
+    name: srl_nokia-micro-bfd
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-micro-bfd.yang
+    prefix: srl_nokia-micro-bfd
+  srl_nokia-mirroring.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-acl
+      prefix: srl-acl
+    name: srl_nokia-mirroring
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mirroring.yang
+    prefix: srl_nokia-mirroring
+  srl_nokia-mld-snooping.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-igmp-types
+      prefix: srl_nokia-igmp-types
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-mld-snooping
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld-snooping.yang
+    prefix: srl_nokia-mld-snooping
+  srl_nokia-mld.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-igmp-types
+      prefix: srl_nokia-igmp-types
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-mld
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld.yang
+    prefix: srl_nokia-mld
+  srl_nokia-mpls-label-management.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-mpls-label-management
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-label-management.yang
+    prefix: srl_nokia-mplslbl
+  srl_nokia-mpls-route-tables.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:route-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-ip-route-tables
+      prefix: srl_nokia-ip-tables
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-bgp-vpn
+      prefix: srl_nokia-bgp-vpn
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-system-network-instance
+      prefix: srl_nokia-system-netinst
+    - module: srl_nokia-system-network-instance-bgp-evpn-ethernet-segments
+      prefix: srl_nokia-eth-seg
+    name: srl_nokia-mpls-route-tables
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls-route-tables.yang
+    prefix: srl_nokia-mpls-route-tables
+  srl_nokia-mpls-services-evpn-label-management.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system/srl_nokia-mplslbl:mpls/srl_nokia-mplslbl:services
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    name: srl_nokia-mpls-services-evpn-label-management
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-evpn-label-management.yang
+    prefix: srl_nokia-mplsservicesbtevpnlbl
+  srl_nokia-mpls-services-network-instance-label-management.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system/srl_nokia-mplslbl:mpls/srl_nokia-mplslbl:services
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    name: srl_nokia-mpls-services-network-instance-label-management
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-network-instance-label-management.yang
+    prefix: srl_nokia-mplsserviceslbl
+  srl_nokia-mpls.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-next-hop-groups
+      prefix: srl_nokia-nhg
+    - module: srl_nokia-ip-route-tables
+      prefix: srl_nokia-ip-table
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    name: srl_nokia-mpls
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls.yang
+    prefix: srl_nokia-mpls
+  srl_nokia-mtu.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-mtu
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mtu.yang
+    prefix: srl-mtu
+  srl_nokia-multicast-mfib-tables.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:multicast-forwarding-information-base
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-multicast-mfib-tables
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-multicast-mfib-tables.yang
+    prefix: srl_nokia-multicast-mfib-tables
+  srl_nokia-mvpn-l3.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-policy-types
+      prefix: srl_nokia-pol-types
+    - module: srl_nokia-bgp-vpn
+      prefix: srl_nokia-bgp-vpn
+    name: srl_nokia-mvpn-l3
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mvpn-l3.yang
+    prefix: srl_nokia-mvpn-l3
+  srl_nokia-netconf-server.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-ssh
+      prefix: srl-ssh
+    name: srl_nokia-netconf-server
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-netconf-server.yang
+    prefix: srl-netconf-server
+  srl_nokia-network-instance-mtu.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-network-instance-mtu
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-network-instance-mtu.yang
+    prefix: srl-netinst-mtu
+  srl_nokia-network-instance.yang:
+    augmented_by:
+    - srl_nokia-seamless-bfd.yang
+    - srl_nokia-gribi.yang
+    - srl_nokia-pim.yang
+    - srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations.yang
+    - srl_nokia-stp.yang
+    - srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics.yang
+    - srl_nokia-segment-routing.yang
+    - srl_nokia-policy-forwarding.yang
+    - srl_nokia-mld.yang
+    - srl_nokia-mvpn-l3.yang
+    - srl_nokia-isis.yang
+    - srl_nokia-bgp.yang
+    - srl_nokia-bridge-table-mac-duplication-entries.yang
+    - srl_nokia-mpls.yang
+    - srl_nokia-mpls-route-tables.yang
+    - srl_nokia-linux.yang
+    - srl_nokia-ldp.yang
+    - srl_nokia-tunnel-tables.yang
+    - srl_nokia-rib-bgp.yang
+    - srl_nokia-aft.yang
+    - srl_nokia-tcp-udp.yang
+    - srl_nokia-traffic-engineering.yang
+    - srl_nokia-igmp-snooping.yang
+    - srl_nokia-te-policies.yang
+    - srl_nokia-mld-snooping.yang
+    - srl_nokia-bgp-evpn.yang
+    - srl_nokia-aggregate-routes.yang
+    - srl_nokia-ospf.yang
+    - srl_nokia-next-hop-groups.yang
+    - srl_nokia-connection-point-bridge-table-mac-table.yang
+    - srl_nokia-ip-route-tables.yang
+    - srl_nokia-bridge-table-proxy-arp-nd.yang
+    - srl_nokia-bridge-table-static-mac.yang
+    - srl_nokia-bgp-vpn.yang
+    - srl_nokia-pcep.yang
+    - srl_nokia-connection-point-bridge-table-mac-learning-entries.yang
+    - srl_nokia-connection-point-bridge-table-statistics.yang
+    - srl_nokia-maintenance-policies.yang
+    - srl_nokia-bridge-table-mac-learning-entries.yang
+    - srl_nokia-bridge-table-mac-table.yang
+    - srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations.yang
+    - srl_nokia-static-routes.yang
+    - srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac.yang
+    - srl_nokia-bridge-table-reserved-macs.yang
+    - srl_nokia-bgp-ipvpn.yang
+    - srl_nokia-ni-gre.yang
+    - srl_nokia-igmp.yang
+    - srl_nokia-network-instance-mtu.yang
+    - srl_nokia-connection-point-bridge-table-mac-duplication-entries.yang
+    - srl_nokia-multicast-mfib-tables.yang
+    - srl_nokia-table-connections.yang
+    - srl_nokia-sync-ptp.yang
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-icmp
+      prefix: srl_nokia-icmp
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-bridge-table
+      prefix: srl_nokia-bridge-table
+    - module: srl_nokia-bridge-table-mac-learning
+      prefix: srl_nokia-bridge-table-mac-learning
+    - module: srl_nokia-bridge-table-mac-duplication
+      prefix: srl_nokia-bridge-table-mac-duplication
+    - module: srl_nokia-bridge-table-mac-limit
+      prefix: srl_nokia-bridge-table-mac-limit
+    - module: srl_nokia-bridge-table-shg
+      prefix: srl_nokia-bridge-table-shg
+    - module: srl_nokia-connection-point-pseudowires
+      prefix: srl_nokia-connection-point-pseudowires
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    name: srl_nokia-network-instance
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-network-instance.yang
+    prefix: srl_nokia-netinst
+  srl_nokia-next-hop-groups.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-next-hop-groups
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-next-hop-groups.yang
+    prefix: srl_nokia-next-hop-groups
+  srl_nokia-ni-gre.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-policy-forwarding
+      prefix: srl_nokia-pf
+    name: srl_nokia-ni-gre
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ni-gre.yang
+    prefix: srl_nokia-gre
+  srl_nokia-ntp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-timezone
+      prefix: srl-tz
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-ntp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ntp.yang
+    prefix: srl_nokia-ntp
+  srl_nokia-oam-pm-ethcfm.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam/srl_nokia-oam:performance-monitoring
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    - module: srl_nokia-oam-pm
+      prefix: srl_nokia-oam-pm
+    - module: srl_nokia-oam-pm-types
+      prefix: srl_nokia-pm-types
+    - module: srl_nokia-ethcfm-types
+      prefix: srl_nokia-ethcfm-types
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-ethcfm
+      prefix: srl_nokia-ethcfm
+    name: srl_nokia-oam-pm-ethcfm
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-oam-pm-ethcfm.yang
+    prefix: srl_nokia-oam-pm-ethcfm
+  srl_nokia-oam-pm-ip.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam/srl_nokia-oam:performance-monitoring
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-ippm-source-udp-pool
+      prefix: srl_nokia-source-udp
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    - module: srl_nokia-oam-pm
+      prefix: srl_nokia-oam-pm
+    - module: srl_nokia-oam-pm-types
+      prefix: srl_nokia-pm-types
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-net-inst
+    - module: srl_nokia-qos
+      prefix: srl_nokia-qos
+    name: srl_nokia-oam-pm-ip
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-oam-pm-ip.yang
+    prefix: srl_nokia-oam-pm-ip
+  srl_nokia-oam-pm-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-oam-pm-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam-pm-types.yang
+    prefix: srl_nokia-oam-pm-types
+  srl_nokia-oam-pm.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-oam-pm-types
+      prefix: srl_nokia-pm-types
+    name: srl_nokia-oam-pm
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam-pm.yang
+    prefix: srl_nokia-oam-pm
+  srl_nokia-oam.yang:
+    augmented_by:
+    - srl_nokia-service-activation-testhead.yang
+    - srl_nokia-lsp-ping-trace.yang
+    - srl_nokia-twamp.yang
+    - srl_nokia-ippm-source-udp-pool.yang
+    - srl_nokia-stamp.yang
+    - srl_nokia-link-measurement.yang
+    - srl_nokia-oam-pm-ip.yang
+    - srl_nokia-ethcfm.yang
+    - srl_nokia-oam-pm-ethcfm.yang
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-oam
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam.yang
+    prefix: srl_nokia-oam
+  srl_nokia-openconfig.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl-system:management
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-system
+      prefix: srl-system
+    name: srl_nokia-openconfig
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-openconfig.yang
+    prefix: srl_nokia-openconfig
+  srl_nokia-ospf-lsdb.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: ietf-yang-types
+      prefix: yang
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-ospf-types
+      prefix: srl_nokia-ospf-types
+    name: srl_nokia-ospf-lsdb
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf-lsdb.yang
+    prefix: srl_nokia-ospf-lsdb
+  srl_nokia-ospf-types.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: ietf-yang-types
+      prefix: yang
+    name: srl_nokia-ospf-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf-types.yang
+    prefix: srl_nokia-ospf-types
+  srl_nokia-ospf.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: ietf-yang-types
+      prefix: yang
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-keychains
+      prefix: srl_nokia-keychains
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-ospf-types
+      prefix: srl_nokia-ospf-types
+    - module: srl_nokia-traffic-engineering
+      prefix: srl_nokia-te
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-ldp
+      prefix: srl_nokia-ldp
+    name: srl_nokia-ospf
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf.yang
+    prefix: srl_nokia-ospf
+  srl_nokia-ospfv3-lsas.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: ietf-yang-types
+      prefix: yang
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-ospf-types
+      prefix: srl_nokia-ospf-types
+    name: srl_nokia-ospfv3-lsas
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospfv3-lsas.yang
+    prefix: srl_nokia-ospfv3-lsas
+  srl_nokia-p4rt.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-p4rt
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-p4rt.yang
+    prefix: srl-p4rt
+  srl_nokia-packet-link-qual.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    - node: /srl-if:interface
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl-if
+    name: srl_nokia-packet-link-qual
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-packet-link-qual.yang
+    prefix: srl_nokia-plq
+  srl_nokia-packet-match-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-packet-match-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-packet-match-types.yang
+    prefix: srl_nokia-pkt-match-types
+  srl_nokia-pcep.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-traffic-engineering
+      prefix: srl_nokia-te
+    - module: srl_nokia-tls
+      prefix: srl-tls
+    - module: srl_nokia-keychains
+      prefix: srl_nokia-keychains
+    name: srl_nokia-pcep
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pcep.yang
+    prefix: srl_nokia-pcep
+  srl_nokia-pim.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-routing-policy
+      prefix: srl-rpol
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-mvpn-l3
+      prefix: srl_nokia-mvpn
+    name: srl_nokia-pim
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pim.yang
+    prefix: srl_nokia-pim
+  srl_nokia-platform-acl.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-res-mon:resource-monitoring
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    - module: srl_nokia-platform-resource-monitoring
+      prefix: srl_nokia-platform-res-mon
+    - module: srl_nokia-features
+      prefix: srl_feat
+    name: srl_nokia-platform-acl
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-acl.yang
+    prefix: srl_nokia-platform-acl
+  srl_nokia-platform-cgroup.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform/srl-platform-control:control
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-platform-control
+      prefix: srl-platform-control
+    name: srl_nokia-platform-cgroup
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cgroup.yang
+    prefix: srl_nokia-platform-cgroup
+  srl_nokia-platform-chassis.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-chassis
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-chassis.yang
+    prefix: srl_nokia-platform-chassis
+  srl_nokia-platform-control-fp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-control:control
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-control
+      prefix: srl_nokia-platform-control
+    name: srl_nokia-platform-control-fp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control-fp.yang
+    prefix: srl_nokia-platform-control-fp
+  srl_nokia-platform-control.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-control
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control.yang
+    prefix: srl_nokia-platform-control
+  srl_nokia-platform-cpu.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform/srl-platform-control:control
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-platform-control
+      prefix: srl-platform-control
+    name: srl_nokia-platform-cpu
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cpu.yang
+    prefix: srl_nokia-platform-cpu
+  srl_nokia-platform-datapath-resources.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-res-mon:resource-monitoring
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex/srl_nokia-platform-lc:pipeline
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    - module: srl_nokia-platform-resource-monitoring
+      prefix: srl_nokia-platform-res-mon
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-platform-datapath-resources
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-datapath-resources.yang
+    prefix: srl_nokia-platform-datapath-resources
+  srl_nokia-platform-disk.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform/srl-platform-control:control
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-platform-control
+      prefix: srl-platform-control
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-disk
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-disk.yang
+    prefix: srl_nokia-platform-disk
+  srl_nokia-platform-fabric.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-fabric
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fabric.yang
+    prefix: srl_nokia-platform-fabric
+  srl_nokia-platform-fan.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-fan
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fan.yang
+    prefix: srl_nokia-platform-fan
+  srl_nokia-platform-healthz.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform/srl-platform-control:control
+    - node: /srl-platform:platform/srl-platform-chassis:chassis
+    - node: /srl-platform:platform/srl-platform-fabric:fabric
+    - node: /srl-platform:platform/srl-platform-fan:fan-tray
+    - node: /srl-platform:platform/srl-platform-lc:linecard
+    - node: /srl-platform:platform/srl-platform-psu:power-supply
+    - node: /srl-interfaces:interface/srl-interfaces:transceiver
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-platform-control
+      prefix: srl-platform-control
+    - module: srl_nokia-platform-chassis
+      prefix: srl-platform-chassis
+    - module: srl_nokia-platform-fabric
+      prefix: srl-platform-fabric
+    - module: srl_nokia-platform-fan
+      prefix: srl-platform-fan
+    - module: srl_nokia-platform-lc
+      prefix: srl-platform-lc
+    - module: srl_nokia-platform-psu
+      prefix: srl-platform-psu
+    - module: srl_nokia-interfaces
+      prefix: srl-interfaces
+    name: srl_nokia-platform-healthz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-healthz.yang
+    prefix: srl_nokia-platform-healthz
+  srl_nokia-platform-lc.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-platform-pipeline-counters
+      prefix: srl-platform-pipeline
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-lc
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-lc.yang
+    prefix: srl_nokia-platform-lc
+  srl_nokia-platform-linecard-fib.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    name: srl_nokia-platform-linecard-fib
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-linecard-fib.yang
+    prefix: srl_nokia-platform-lc-fib
+  srl_nokia-platform-memory.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform/srl-platform-control:control
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-platform-control
+      prefix: srl-platform-control
+    - module: srl_nokia-common
+      prefix: srl-comm
+    name: srl_nokia-platform-memory
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-memory.yang
+    prefix: srl_nokia-platform-memory
+  srl_nokia-platform-mtu.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-res-mon:resource-monitoring
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    - module: srl_nokia-platform-resource-monitoring
+      prefix: srl_nokia-platform-res-mon
+    - module: srl_nokia-features
+      prefix: srl_feat
+    name: srl_nokia-platform-mtu
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-mtu.yang
+    prefix: srl_nokia-platform-mtu
+  srl_nokia-platform-p4rt.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-platform-p4rt
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-p4rt.yang
+    prefix: srl_nokia-platform-p4rt
+  srl_nokia-platform-pipeline-counters.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-pipeline-counters
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-pipeline-counters.yang
+    prefix: srl_nokia-platform-host-interface-pipeline
+  srl_nokia-platform-psu.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-psu
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-psu.yang
+    prefix: srl_nokia-platform-psu
+  srl_nokia-platform-qos.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-res-mon:resource-monitoring
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    - module: srl_nokia-platform-resource-monitoring
+      prefix: srl_nokia-platform-res-mon
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-platform-qos
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-qos.yang
+    prefix: srl_nokia-platform-qos
+  srl_nokia-platform-redundancy.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-redundancy
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-redundancy.yang
+    prefix: srl_nokia-platform-redundancy
+  srl_nokia-platform-resource-mgmt.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-resource-mgmt
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-mgmt.yang
+    prefix: srl_nokia-platform-res-mgmt
+  srl_nokia-platform-resource-monitoring.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    name: srl_nokia-platform-resource-monitoring
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-monitoring.yang
+    prefix: srl_nokia-platform-res-monitor
+  srl_nokia-platform-secure-boot.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform/srl-platform:trust
+    imports:
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform-secure-boot
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-secure-boot.yang
+    prefix: srl_nokia-platform-secure-boot
+  srl_nokia-platform-tcam.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-res-mon:resource-monitoring
+    - node: /srl_nokia-platform:platform/srl_nokia-platform-lc:linecard/srl_nokia-platform-lc:forwarding-complex
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-platform
+      prefix: srl_nokia-platform
+    - module: srl_nokia-platform-lc
+      prefix: srl_nokia-platform-lc
+    - module: srl_nokia-platform-resource-monitoring
+      prefix: srl_nokia-platform-res-mon
+    - module: srl_nokia-features
+      prefix: srl_feat
+    name: srl_nokia-platform-tcam
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tcam.yang
+    prefix: srl_nokia-platform-tcam
+  srl_nokia-platform-tpm.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-platform:platform/srl-platform:trust
+    imports:
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-platform
+      prefix: srl-platform
+    - module: srl_nokia-common
+      prefix: srl-comm
+    name: srl_nokia-platform-tpm
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tpm.yang
+    prefix: srl_nokia-platform-tpm
+  srl_nokia-platform-vxdp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-plat:platform
+    - node: /srl-plat:platform/srl-plat-chassis:chassis
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-platform
+      prefix: srl-plat
+    - module: srl_nokia-platform-chassis
+      prefix: srl-plat-chassis
+    - module: srl_nokia-platform-cpu
+      prefix: srl-cpu
+    name: srl_nokia-platform-vxdp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-vxdp.yang
+    prefix: srl_nokia-platform-vxdp
+  srl_nokia-platform.yang:
+    augmented_by:
+    - srl_nokia-ip-route-tables.yang
+    - srl_nokia-platform-p4rt.yang
+    - srl_nokia-platform-control.yang
+    - srl_nokia-platform-cgroup.yang
+    - srl_nokia-platform-redundancy.yang
+    - srl_nokia-platform-resource-mgmt.yang
+    - srl_nokia-platform-qos.yang
+    - srl_nokia-platform-healthz.yang
+    - srl_nokia-platform-resource-monitoring.yang
+    - srl_nokia-platform-linecard-fib.yang
+    - srl_nokia-platform-cpu.yang
+    - srl_nokia-platform-lc.yang
+    - srl_nokia-platform-mtu.yang
+    - srl_nokia-platform-fabric.yang
+    - srl_nokia-platform-fan.yang
+    - srl_nokia-platform-disk.yang
+    - srl_nokia-platform-acl.yang
+    - srl_nokia-platform-datapath-resources.yang
+    - srl_nokia-platform-memory.yang
+    - srl_nokia-platform-secure-boot.yang
+    - srl_nokia-platform-vxdp.yang
+    - srl_nokia-platform-control-fp.yang
+    - srl_nokia-platform-chassis.yang
+    - srl_nokia-platform-tpm.yang
+    - srl_nokia-platform-psu.yang
+    - srl_nokia-platform-tcam.yang
+    augments: []
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-platform
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform.yang
+    prefix: srl_nokia-platform
+  srl_nokia-policy-forwarding.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-packet-match-types
+      prefix: srl_nokia-pkt-match-types
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-policy-forwarding
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-policy-forwarding.yang
+    prefix: srl_nokia-pol-fwd
+  srl_nokia-policy-types.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-policy-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-policy-types.yang
+    prefix: srl_nokia-pol-types
+  srl_nokia-pw-tunnel.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tunnel:tunnel
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-tunnel
+      prefix: srl_nokia-tunnel
+    name: srl_nokia-pw-tunnel
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-pw-tunnel.yang
+    prefix: srl_nokia-pw-tunnel
+  srl_nokia-qos-policers.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-qos-policers
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-qos-policers.yang
+    prefix: srl_nokia-qos-policers
+  srl_nokia-qos.yang:
+    augmented_by:
+    - srl_nokia-acl-qos.yang
+    - srl_nokia-acl-policers.yang
+    augments:
+    - node: /srl_nokia-system:system/srl_nokia-system:control-plane-traffic/srl_nokia-system:output
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-interfaces-vlans
+      prefix: srl_nokia-if-vlans
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-qos-policers
+      prefix: srl_nokia-qos-policers
+    name: srl_nokia-qos
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-qos.yang
+    prefix: srl_nokia-qos
+  srl_nokia-ra_guard.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system
+    - node: /srl_nokia-if:interface/srl_nokia-if:subinterface
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-interfaces-vlans
+      prefix: srl_nokia-if-vlan
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-routing-policy
+      prefix: srl_rpol
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-ra_guard
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ra_guard.yang
+    prefix: srl_nokia-ra_guard
+  srl_nokia-rib-bgp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-ip-route-tables
+      prefix: srl_nokia-rt
+    name: srl_nokia-rib-bgp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-rib-bgp.yang
+    prefix: srl_nokia-rib-bgp-routes
+  srl_nokia-routing-policy.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-policy-types
+      prefix: srl_nokia-pol-types
+    - module: srl_nokia-ospf-types
+      prefix: srl_nokia-ospf-types
+    - module: srl_nokia-isis-types
+      prefix: srl_nokia-isis-types
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-routing-policy
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-routing-policy.yang
+    prefix: srl_rpol
+  srl_nokia-seamless-bfd.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-seamless-bfd
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-seamless-bfd.yang
+    prefix: srl_nokia-seamless-bfd
+  srl_nokia-segment-routing.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-segment-routing
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-segment-routing.yang
+    prefix: srl_nokia-sr
+  srl_nokia-service-activation-testhead-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-service-activation-testhead-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-service-activation-testhead-types.yang
+    prefix: srl_nokia-service-activation-testhead-types
+  srl_nokia-service-activation-testhead.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-ethcfm
+      prefix: srl_nokia-ethcfm
+    - module: srl_nokia-ethcfm-types
+      prefix: srl_nokia-ethcfm-types
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-net-inst
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    - module: srl_nokia-service-activation-testhead-types
+      prefix: srl_nokia-sath-types
+    name: srl_nokia-service-activation-testhead
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-service-activation-testhead.yang
+    prefix: srl_nokia-service-activation-testhead
+  srl_nokia-sflow.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-sflow
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-sflow.yang
+    prefix: srl_nokia-sflow
+  srl_nokia-ssh.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-ssh
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ssh.yang
+    prefix: srl_nokia-ssh
+  srl_nokia-stamp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    name: srl_nokia-stamp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-stamp.yang
+    prefix: srl_nokia-stamp
+  srl_nokia-static-routes.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-next-hop-groups
+      prefix: srl_nokia-nhg
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-routing-pol
+    - module: srl_nokia-policy-types
+      prefix: srl_nokia-pol-types
+    name: srl_nokia-static-routes
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-static-routes.yang
+    prefix: srl_nokia-static-routes
+  srl_nokia-stp-types.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-stp-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-stp-types.yang
+    prefix: srl_nokia-stp-types
+  srl_nokia-stp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-stp-types
+      prefix: srl_nokia-stp-types
+    name: srl_nokia-stp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-stp.yang
+    prefix: srl_nokia-stp
+  srl_nokia-sync-freq.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-sync-types
+      prefix: srl_nokia-sync-types
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-sync-freq
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-freq.yang
+    prefix: srl_nokia-sync-freq
+  srl_nokia-sync-interfaces.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-sync-interfaces
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-interfaces.yang
+    prefix: srl_nokia-sync-interfaces
+  srl_nokia-sync-ptp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-sync-types
+      prefix: srl_nokia-sync-types
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-sync-ptp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-ptp.yang
+    prefix: srl_nokia-sync-ptp
+  srl_nokia-sync-types.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-sync-types
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-types.yang
+    prefix: srl_nokia-sync-types
+  srl_nokia-sync.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-sync-ptp
+      prefix: srl_nokia-sync-ptp
+    - module: srl_nokia-sync-freq
+      prefix: srl_nokia-sync-freq
+    - module: srl_nokia-sync-interfaces
+      prefix: srl_nokia-sync-interfaces
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-sync
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync.yang
+    prefix: srl_nokia-sync
+  srl_nokia-system-banner.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    name: srl_nokia-system-banner
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-banner.yang
+    prefix: srl_nokia-system-banner
+  srl_nokia-system-bridge-table-evpn-mpls-multicast-tep.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl_nokia-system-bridge-table:bridge-table/srl_nokia-system-bridge-table-evpn:evpn
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-system-bridge-table
+      prefix: srl_nokia-system-bridge-table
+    - module: srl_nokia-system-bridge-table-evpn
+      prefix: srl_nokia-system-bridge-table-evpn
+    name: srl_nokia-system-bridge-table-evpn-mpls-multicast-tep
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn-mpls-multicast-tep.yang
+    prefix: srl_nokia-system-bridge-table-evpn-mpls-multicast-tep
+  srl_nokia-system-bridge-table-evpn.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl_nokia-system-bridge-table:bridge-table
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-system-bridge-table
+      prefix: srl_nokia-system-bridge-table
+    name: srl_nokia-system-bridge-table-evpn
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn.yang
+    prefix: srl_nokia-system-bridge-table-evpn
+  srl_nokia-system-bridge-table-proxy-arp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system/srl_nokia-system-bridge-table:bridge-table
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system-bridge-table
+      prefix: srl_nokia-system-bridge-table
+    - module: srl_nokia-bridge-table-proxy-arp-nd
+      prefix: srl_nokia-bridge-table-proxy-arp-nd
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-system-bridge-table-proxy-arp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-proxy-arp.yang
+    prefix: srl_nokia-system-bridge-table-proxy-arp
+  srl_nokia-system-bridge-table.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-system-bridge-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table.yang
+    prefix: srl_nokia-system-bridge-table
+  srl_nokia-system-datapath.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-system-datapath
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-datapath.yang
+    prefix: srl_nokia-sys-datapath
+  srl_nokia-system-info.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: openconfig-metadata
+      prefix: oc-meta
+    name: srl_nokia-system-info
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-info.yang
+    prefix: srl_nokia-system-info
+  srl_nokia-system-multicast-mfib-table.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    name: srl_nokia-system-multicast-mfib-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast-mfib-table.yang
+    prefix: srl_nokia-system-multicast-mfib-table
+  srl_nokia-system-multicast.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-system-multicast
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast.yang
+    prefix: srl_nokia-system-multicast
+  srl_nokia-system-name.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    name: srl_nokia-system-name
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-name.yang
+    prefix: srl_nokia-system-name
+  srl_nokia-system-network-instance-bgp-evpn-ethernet-segments.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system/srl_nokia-system-network-instance:network-instance/srl_nokia-system-network-instance:protocols/srl_nokia-system-network-instance:evpn
+    imports:
+    - module: srl_nokia-system-network-instance-bgp-vpn
+      prefix: srl_nokia-system-bgp-vpn
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-rib-bgp
+      prefix: srl_nokia-rib-bgp-routes
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-system-network-instance
+      prefix: srl_nokia-system-network-instance
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-system-network-instance-bgp-evpn-ethernet-segments
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-ethernet-segments.yang
+    prefix: srl_nokia-system-bgp-evpn-ethernet-segments
+  srl_nokia-system-network-instance-bgp-evpn-multicast.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system/srl_nokia-system-network-instance:network-instance/srl_nokia-system-network-instance:protocols/srl_nokia-system-network-instance:evpn
+    imports:
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-system-network-instance
+      prefix: srl_nokia-system-network-instance
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-system-network-instance-bgp-evpn-multicast
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-multicast.yang
+    prefix: srl_nokia-system-bgp-evpn-multicast
+  srl_nokia-system-network-instance-bgp-vpn.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system/srl_nokia-system-network-instance:network-instance/srl_nokia-system-network-instance:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-system-network-instance
+      prefix: srl_nokia-system-network-instance
+    name: srl_nokia-system-network-instance-bgp-vpn
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-vpn.yang
+    prefix: srl_nokia-system-bgp-vpn
+  srl_nokia-system-network-instance.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-bgp-vpn
+      prefix: srl_nokia-bgp-vpn
+    - module: srl_nokia-rib-bgp
+      prefix: srl_nokia-rib-bgp-routes
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-system-network-instance
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance.yang
+    prefix: srl_nokia-system-netinst
+  srl_nokia-system-protocols.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    name: srl_nokia-system-protocols
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-protocols.yang
+    prefix: srl_nokia-system-protocols
+  srl_nokia-system-snmp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-network-instance
+      prefix: srl-netinst
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-system-snmp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-snmp.yang
+    prefix: srl_nokia-snmp
+  srl_nokia-system-utilization.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-system-utilization
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-utilization.yang
+    prefix: srl_nokia-sys-util
+  srl_nokia-system.yang:
+    augmented_by:
+    - srl_nokia-dot1x.yang
+    - srl_nokia-gnsi-credentialz.yang
+    - srl_nokia-gnsi-certz.yang
+    - srl_nokia-gnsi-authz.yang
+    - srl_nokia-grpc.yang
+    - srl_nokia-gnsi-pathz.yang
+    - srl_nokia-bgp.yang
+    - srl_nokia-qos.yang
+    - srl_nokia-system-protocols.yang
+    - srl_nokia-openconfig.yang
+    - srl_nokia-dns.yang
+    - srl_nokia-mirroring.yang
+    - srl_nokia-system-datapath.yang
+    - srl_nokia-system-bridge-table-evpn.yang
+    - srl_nokia-mpls-services-evpn-label-management.yang
+    - srl_nokia-system-name.yang
+    - srl_nokia-aaa.yang
+    - srl_nokia-license.yang
+    - srl_nokia-load-balancing.yang
+    - srl_nokia-sflow.yang
+    - srl_nokia-system-network-instance.yang
+    - srl_nokia-ssh.yang
+    - srl_nokia-netconf-server.yang
+    - srl_nokia-event-handler.yang
+    - srl_nokia-lldp.yang
+    - srl_nokia-boot.yang
+    - srl_nokia-configuration-role.yang
+    - srl_nokia-tls.yang
+    - srl_nokia-system-network-instance-bgp-evpn-ethernet-segments.yang
+    - srl_nokia-system-bridge-table-proxy-arp.yang
+    - srl_nokia-logging.yang
+    - srl_nokia-ra_guard.yang
+    - srl_nokia-system-bridge-table.yang
+    - srl_nokia-ftp.yang
+    - srl_nokia-keychains.yang
+    - srl_nokia-app-mgmt.yang
+    - srl_nokia-mpls-label-management.yang
+    - srl_nokia-system-snmp.yang
+    - srl_nokia-configuration.yang
+    - srl_nokia-dhcp-server.yang
+    - srl_nokia-packet-link-qual.yang
+    - srl_nokia-json-rpc.yang
+    - srl_nokia-mpls-services-network-instance-label-management.yang
+    - srl_nokia-system-banner.yang
+    - srl_nokia-system-info.yang
+    - srl_nokia-system-bridge-table-evpn-mpls-multicast-tep.yang
+    - srl_nokia-system-utilization.yang
+    - srl_nokia-maintenance-mode.yang
+    - srl_nokia-system-multicast-mfib-table.yang
+    - srl_nokia-system-multicast.yang
+    - srl_nokia-ntp.yang
+    - srl_nokia-system-network-instance-bgp-evpn-multicast.yang
+    - srl_nokia-lawful-intercept.yang
+    - srl_nokia-system-network-instance-bgp-vpn.yang
+    - srl_nokia-mtu.yang
+    - srl_nokia-sync.yang
+    - srl_nokia-acl.yang
+    - srl_nokia-interfaces-l2cp.yang
+    - srl_nokia-lacp.yang
+    augments: []
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    name: srl_nokia-system
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system.yang
+    prefix: srl_nokia-system
+  srl_nokia-table-connections.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-ni:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-rpol
+    - module: srl_nokia-policy-types
+      prefix: srl_nokia-pol-types
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-ni
+    name: srl_nokia-table-connections
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-table-connections.yang
+    prefix: srl_nokia-tblconn
+  srl_nokia-tcp-udp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tcp-udp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tcp-udp.yang
+    prefix: srl_nokia-tcp-udp
+  srl_nokia-te-policies.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-system
+      prefix: srl_nokia-system
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-mpls-label-management
+      prefix: srl_nokia-mplslbl
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-maintenance-policies
+      prefix: srl_nokia-maint-pol
+    - module: srl_nokia-traffic-engineering
+      prefix: srl_nokia-te
+    - module: srl_nokia-routing-policy
+      prefix: srl_nokia-routing-pol
+    name: srl_nokia-te-policies
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-te-policies.yang
+    prefix: srl_nokia-te-policies
+  srl_nokia-terminal-device.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-terminal-device
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-terminal-device.yang
+    prefix: srl_nokia-term-dev
+  srl_nokia-timezone.yang:
+    augmented_by: []
+    augments: []
+    imports: []
+    name: srl_nokia-timezone
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-timezone.yang
+    prefix: srl_nokia-timezone
+  srl_nokia-tls.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-system:system
+    imports:
+    - module: srl_nokia-system
+      prefix: srl-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-tls
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tls.yang
+    prefix: srl_nokia-tls
+  srl_nokia-tools-aaa.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-aaa
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-aaa.yang
+    prefix: srl-tools-aaa
+  srl_nokia-tools-acl.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-qos:qos
+    - node: /srl_nokia-tools-qos:qos/srl_nokia-tools-qos:interfaces/srl_nokia-tools-qos:interface/srl_nokia-tools-qos:input
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-tools-interfaces
+      prefix: srl_nokia-tools-if
+    - module: srl_nokia-tools-qos
+      prefix: srl_nokia-tools-qos
+    name: srl_nokia-tools-acl
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-tools-acl.yang
+    prefix: srl_nokia-tools-acl
+  srl_nokia-tools-app-mgmt.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    name: srl_nokia-tools-app-mgmt
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-app-mgmt.yang
+    prefix: srl_nokia-tools-app-mgmt
+  srl_nokia-tools-bfd.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-bfd
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-tools-bfd.yang
+    prefix: srl_nokia-tools-bfd
+  srl_nokia-tools-bgp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    name: srl_nokia-tools-bgp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bgp.yang
+    prefix: srl_nokia-tools-bgp
+  srl_nokia-tools-boot.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-boot
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-boot.yang
+    prefix: srl-tools-boot
+  srl_nokia-tools-bridge-table-mac-duplication.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    name: srl_nokia-tools-bridge-table-mac-duplication
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-duplication.yang
+    prefix: srl_nokia-tools-bridge-table-mac-duplication
+  srl_nokia-tools-bridge-table-mac-learning.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    name: srl_nokia-tools-bridge-table-mac-learning
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-learning.yang
+    prefix: srl_nokia-tools-bridge-table-mac-learning
+  srl_nokia-tools-bridge-table-proxy-arp-nd.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    name: srl_nokia-tools-bridge-table-proxy-arp-nd
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-proxy-arp-nd.yang
+    prefix: srl_nokia-tools-bridge-table-proxy-arp-nd
+  srl_nokia-tools-cgroup.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    name: srl_nokia-tools-cgroup
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-cgroup.yang
+    prefix: srl-tools-cgroup
+  srl_nokia-tools-configuration.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-tools-gnsi-pathz
+      prefix: srl-tools-gnsi-pathz
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-configuration
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-configuration.yang
+    prefix: srl-tools-config
+  srl_nokia-tools-connection-point-bridge-table-mac-duplication.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:connection-point/srl_nokia-tools-netinst:bridge-table
+    imports:
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-tools-interfaces-bridge-table-mac-duplication
+      prefix: srl_nokia-tools-interfaces-bridge-table-mac-duplication
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tools-connection-point-bridge-table-mac-duplication
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-duplication.yang
+    prefix: srl_nokia-tools-connection-point-bridge-table-mac-duplication
+  srl_nokia-tools-connection-point-bridge-table-mac-learning.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:connection-point/srl_nokia-tools-netinst:bridge-table
+    imports:
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-tools-interfaces-bridge-table-mac-learning
+      prefix: srl_nokia-tools-interfaces-bridge-table-mac-learning
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tools-connection-point-bridge-table-mac-learning
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-learning.yang
+    prefix: srl_nokia-tools-connection-point-bridge-table-mac-learning
+  srl_nokia-tools-dhcp-relay.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia_tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl_nokia_tools-system
+    name: srl_nokia-tools-dhcp-relay
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-relay.yang
+    prefix: srl_nokia-tools-dhcp-relay
+  srl_nokia-tools-dhcp-server.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia_tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl_nokia_tools-system
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tools-dhcp-server
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-server.yang
+    prefix: srl_nokia-tools-dhcp-server
+  srl_nokia-tools-ethcfm.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-oam:oam
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-ethcfm-types
+      prefix: srl_nokia-ethcfm-types
+    - module: srl_nokia-tools-oam
+      prefix: srl_nokia-tools-oam
+    name: srl_nokia-tools-ethcfm
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-ethcfm.yang
+    prefix: srl_nokia-tools-ethcfm
+  srl_nokia-tools-event-handler.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-tools-event-handler
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-event-handler.yang
+    prefix: srl-tools-event-handler
+  srl_nokia-tools-gnoi-healthz.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    name: srl_nokia-tools-gnoi-healthz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnoi-healthz.yang
+    prefix: srl_nokia-tools-gnoi-healthz
+  srl_nokia-tools-gnoi.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-tools-gnoi-healthz
+      prefix: srl-tools-gnoi-healthz
+    name: srl_nokia-tools-gnoi
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnoi.yang
+    prefix: srl_nokia-tools-gnoi
+  srl_nokia-tools-gnsi-authz.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system/srl-tools-aaa:aaa/srl-tools-aaa:authorization
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-tools-aaa
+      prefix: srl-tools-aaa
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-gnsi-authz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-authz.yang
+    prefix: srl-tools-gnsi-authz
+  srl_nokia-tools-gnsi-certz.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system/srl-tools-tls:tls/srl-tools-tls:server-profile
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-tools-tls
+      prefix: srl-tools-tls
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-gnsi-certz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-certz.yang
+    prefix: srl-tools-gnsi-certz
+  srl_nokia-tools-gnsi-pathz.yang:
+    augmented_by: []
+    augments: []
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-gnsi-pathz
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-pathz.yang
+    prefix: srl-tools-gnsi-pathz
+  srl_nokia-tools-grpc.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-gnoi
+      prefix: srl-tools-gnoi
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    name: srl_nokia-tools-grpc
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-grpc.yang
+    prefix: srl_nokia-tools-grpc
+  srl_nokia-tools-icmp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance
+    imports:
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    name: srl_nokia-tools-icmp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-icmp.yang
+    prefix: srl_nokia-tools-icmp
+  srl_nokia-tools-igmp-snooping.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-igmp-snooping
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp-snooping.yang
+    prefix: srl_nokia-tools-igmp-snooping
+  srl_nokia-tools-igmp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-igmp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp.yang
+    prefix: srl_nokia-tools-igmp
+  srl_nokia-tools-interfaces-bridge-table-mac-duplication.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:bridge-table
+    imports:
+    - module: srl_nokia-tools-interfaces
+      prefix: srl_nokia_tools-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tools-interfaces-bridge-table-mac-duplication
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-duplication.yang
+    prefix: srl_nokia-tools-interfaces-bridge-table-mac-duplication
+  srl_nokia-tools-interfaces-bridge-table-mac-learning.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:bridge-table
+    imports:
+    - module: srl_nokia-tools-interfaces
+      prefix: srl_nokia_tools-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tools-interfaces-bridge-table-mac-learning
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-learning.yang
+    prefix: srl_nokia-tools-interfaces-bridge-table-mac-learning
+  srl_nokia-tools-interfaces-ip-dhcp-relay.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:ipv4
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:ipv6
+    imports:
+    - module: srl_nokia-tools-interfaces
+      prefix: srl_nokia_tools-if
+    name: srl_nokia-tools-interfaces-ip-dhcp-relay
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-dhcp-relay.yang
+    prefix: srl_nokia-tools-interfaces-ip-dhcp-relay
+  srl_nokia-tools-interfaces-ip-vrrp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:ipv4/srl_nokia_tools-if:address
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:ipv6/srl_nokia_tools-if:address
+    imports:
+    - module: srl_nokia-tools-interfaces
+      prefix: srl_nokia_tools-if
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-interfaces-ip-vrrp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-vrrp.yang
+    prefix: srl_nokia-tools-interfaces-ip-vrrp
+  srl_nokia-tools-interfaces-nbr-virtual-ip-discovery.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-if:interface/srl_nokia-tools-if:subinterface/srl_nokia-tools-if:ipv4/srl_nokia-tools-if-nbr:arp
+    - node: /srl_nokia-tools-if:interface/srl_nokia-tools-if:subinterface/srl_nokia-tools-if:ipv6/srl_nokia-tools-if-nbr:neighbor-discovery
+    imports:
+    - module: srl_nokia-tools-interfaces
+      prefix: srl_nokia-tools-if
+    - module: srl_nokia-tools-interfaces-nbr
+      prefix: srl_nokia-tools-if-nbr
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-interfaces-nbr-virtual-ip-discovery
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr-virtual-ip-discovery.yang
+    prefix: srl_nokia-tools-if-nbr-virtual-ip-discovery
+  srl_nokia-tools-interfaces-nbr.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:ipv4
+    - node: /srl_nokia_tools-if:interface/srl_nokia_tools-if:subinterface/srl_nokia_tools-if:ipv6
+    imports:
+    - module: srl_nokia-tools-interfaces
+      prefix: srl_nokia_tools-if
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tools-interfaces-nbr
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr.yang
+    prefix: srl_nokia-tools-if-nbr
+  srl_nokia-tools-interfaces-packet-link-qual.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-if:interface
+    imports:
+    - module: srl_nokia-tools-interfaces
+      prefix: srl-tools-if
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-interfaces-packet-link-qual
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-packet-link-qual.yang
+    prefix: srl_nokia-tools-if-packet-link-qual
+  srl_nokia-tools-interfaces.yang:
+    augmented_by:
+    - srl_nokia-tools-interfaces-ip-vrrp.yang
+    - srl_nokia-tools-interfaces-packet-link-qual.yang
+    - srl_nokia-tools-interfaces-nbr-virtual-ip-discovery.yang
+    - srl_nokia-tools-interfaces-bridge-table-mac-learning.yang
+    - srl_nokia-tools-interfaces-ip-dhcp-relay.yang
+    - srl_nokia-tools-interfaces-bridge-table-mac-duplication.yang
+    - srl_nokia-tools-interfaces-nbr.yang
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    name: srl_nokia-tools-interfaces
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces.yang
+    prefix: srl_nokia-tools-if
+  srl_nokia-tools-isis.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    name: srl_nokia-tools-isis
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-isis.yang
+    prefix: srl_nokia-tools-isis
+  srl_nokia-tools-l2cp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-l2cp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-l2cp.yang
+    prefix: srl_nokia-tools-l2cp
+  srl_nokia-tools-ldp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-ldp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ldp.yang
+    prefix: srl_nokia-tools-ldp
+  srl_nokia-tools-lldp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    name: srl_nokia-tools-lldp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-lldp.yang
+    prefix: srl_nokia-tools-lldp
+  srl_nokia-tools-lsp-ping-trace.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-oam
+      prefix: srl_nokia-tools-oam
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-lsp-ping-trace
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-lsp-ping-trace.yang
+    prefix: srl_nokia-tools-lsp-ping-trace
+  srl_nokia-tools-mirroring.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-tools-mirroring
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-mirroring.yang
+    prefix: srl_nokia-tools-mirroring
+  srl_nokia-tools-mld-snooping.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-mld-snooping
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld-snooping.yang
+    prefix: srl_nokia-tools-mld-snooping
+  srl_nokia-tools-mld.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-mld
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld.yang
+    prefix: srl_nokia-tools-mld
+  srl_nokia-tools-netconf-server.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-netconf-server
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-netconf-server.yang
+    prefix: srl-tools-netconf-server
+  srl_nokia-tools-network-instance.yang:
+    augmented_by:
+    - srl_nokia-tools-bgp.yang
+    - srl_nokia-tools-mld.yang
+    - srl_nokia-tools-isis.yang
+    - srl_nokia-tools-connection-point-bridge-table-mac-learning.yang
+    - srl_nokia-tools-igmp-snooping.yang
+    - srl_nokia-tools-pim.yang
+    - srl_nokia-tools-connection-point-bridge-table-mac-duplication.yang
+    - srl_nokia-tools-te-policies.yang
+    - srl_nokia-tools-ldp.yang
+    - srl_nokia-tools-ospf.yang
+    - srl_nokia-tools-mld-snooping.yang
+    - srl_nokia-tools-route-table.yang
+    - srl_nokia-tools-icmp.yang
+    - srl_nokia-tools-bridge-table-mac-duplication.yang
+    - srl_nokia-tools-igmp.yang
+    - srl_nokia-tools-bridge-table-proxy-arp-nd.yang
+    - srl_nokia-tools-bridge-table-mac-learning.yang
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-network-instance
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-network-instance.yang
+    prefix: srl_nokia-tools-network-instance
+  srl_nokia-tools-oam-pm-ethcfm.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-oam:oam/srl_nokia-tools-oam:performance-monitoring
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-tools-oam
+      prefix: srl_nokia-tools-oam
+    name: srl_nokia-tools-oam-pm-ethcfm
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-oam-pm-ethcfm.yang
+    prefix: srl_nokia-tools-oam-pm-ethcfm
+  srl_nokia-tools-oam-pm-ip.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-oam:oam/srl_nokia-tools-oam:performance-monitoring
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-tools-oam
+      prefix: srl_nokia-tools-oam
+    name: srl_nokia-tools-oam-pm-ip
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-oam-pm-ip.yang
+    prefix: srl_nokia-tools-oam-pm-ip
+  srl_nokia-tools-oam.yang:
+    augmented_by:
+    - srl_nokia-tools-service-activation-testhead.yang
+    - srl_nokia-tools-lsp-ping-trace.yang
+    - srl_nokia-tools-twamp.yang
+    - srl_nokia-tools-oam-pm-ip.yang
+    - srl_nokia-tools-ethcfm.yang
+    - srl_nokia-tools-oam-pm-ethcfm.yang
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-oam
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-oam.yang
+    prefix: srl_nokia-tools-oam
+  srl_nokia-tools-ospf.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: ietf-yang-types
+      prefix: yang
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-ospf-types
+      prefix: srl_nokia-ospf-types
+    name: srl_nokia-tools-ospf
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ospf.yang
+    prefix: srl_nokia-tools-ospf
+  srl_nokia-tools-packet-trace.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-packet-trace
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-packet-trace.yang
+    prefix: srl_nokia-tools-packet-trace
+  srl_nokia-tools-pim.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance/srl_nokia-tools-netinst:protocols
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-pim
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-pim.yang
+    prefix: srl_nokia-tools-pim
+  srl_nokia-tools-platform-attestation.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-platform:platform/srl-tools-platform:trust
+    imports:
+    - module: srl_nokia-tools-platform
+      prefix: srl-tools-platform
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-platform-attestation
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-attestation.yang
+    prefix: srl_nokia-tools-platform-attestation
+  srl_nokia-tools-platform-redundancy.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-platform:platform
+    imports:
+    - module: srl_nokia-tools-platform
+      prefix: srl-tools-platform
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-platform-redundancy
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-redundancy.yang
+    prefix: srl_nokia-tools-platform-redundancy
+  srl_nokia-tools-platform-secure-boot.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-platform:platform/srl-tools-platform:trust
+    imports:
+    - module: srl_nokia-tools-platform
+      prefix: srl-tools-platform
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-platform-secure-boot
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-secure-boot.yang
+    prefix: srl_nokia-tools-platform-secure-boot
+  srl_nokia-tools-platform.yang:
+    augmented_by:
+    - srl_nokia-tools-platform-attestation.yang
+    - srl_nokia-tools-platform-redundancy.yang
+    - srl_nokia-tools-platform-secure-boot.yang
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-platform
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform.yang
+    prefix: srl_nokia-tools-platform
+  srl_nokia-tools-qos-policers.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-qos:qos/srl_nokia-tools-qos:interfaces/srl_nokia-tools-qos:interface/srl_nokia-tools-qos:input
+    imports:
+    - module: srl_nokia-tools-qos
+      prefix: srl_nokia-tools-qos
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-qos-policers
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-tools-qos-policers.yang
+    prefix: srl_nokia-tools-qos-policers
+  srl_nokia-tools-qos.yang:
+    augmented_by:
+    - srl_nokia-tools-qos-policers.yang
+    - srl_nokia-tools-acl.yang
+    augments: []
+    imports:
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-qos
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-tools-qos.yang
+    prefix: srl_nokia-tools-qos
+  srl_nokia-tools-route-table.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-route-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-route-table.yang
+    prefix: srl_nokia-tools-route-table
+  srl_nokia-tools-service-activation-testhead.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-oam
+      prefix: srl_nokia-tools-oam
+    name: srl_nokia-tools-service-activation-testhead
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-service-activation-testhead.yang
+    prefix: srl_nokia-tools-service-activation-testhead
+  srl_nokia-tools-sync.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    name: srl_nokia-tools-sync
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-tools-sync.yang
+    prefix: srl_nokia-tools-sync
+  srl_nokia-tools-system.yang:
+    augmented_by:
+    - srl_nokia-tools-gnsi-certz.yang
+    - srl_nokia-tools-grpc.yang
+    - srl_nokia-tools-gnsi-authz.yang
+    - srl_nokia-tools-netconf-server.yang
+    - srl_nokia-tools-dhcp-relay.yang
+    - srl_nokia-tools-l2cp.yang
+    - srl_nokia-tools-event-handler.yang
+    - srl_nokia-tools-aaa.yang
+    - srl_nokia-tools-cgroup.yang
+    - srl_nokia-tools-packet-trace.yang
+    - srl_nokia-tools-boot.yang
+    - srl_nokia-tools-app-mgmt.yang
+    - srl_nokia-tools-tls.yang
+    - srl_nokia-tools-lldp.yang
+    - srl_nokia-tools-dhcp-server.yang
+    - srl_nokia-tools-mirroring.yang
+    - srl_nokia-tools-configuration.yang
+    - srl_nokia-tools-sync.yang
+    augments: []
+    imports: []
+    name: srl_nokia-tools-system
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-system.yang
+    prefix: srl_nokia-tools-system
+  srl_nokia-tools-te-policies.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-netinst:network-instance
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-network-instance
+      prefix: srl_nokia-tools-netinst
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-tools-te-policies
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-te-policies.yang
+    prefix: srl_nokia-tools-te-policies
+  srl_nokia-tools-tls.yang:
+    augmented_by: []
+    augments:
+    - node: /srl-tools-system:system
+    imports:
+    - module: srl_nokia-tools-system
+      prefix: srl-tools-system
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    name: srl_nokia-tools-tls
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-tls.yang
+    prefix: srl-tools-tls
+  srl_nokia-tools-tunnel.yang:
+    augmented_by:
+    - srl_nokia-tools-vxlan-tunnel.yang
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-tools-tunnel
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tools-tunnel.yang
+    prefix: srl_nokia-tools-tunnel
+  srl_nokia-tools-twamp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-oam:oam
+    imports:
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-tools-oam
+      prefix: srl_nokia-tools-oam
+    name: srl_nokia-tools-twamp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-twamp.yang
+    prefix: srl_nokia-tools-twamp
+  srl_nokia-tools-vxlan-tunnel.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tools-tunnel:tunnel
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tools-tunnel
+      prefix: srl_nokia-tools-tunnel
+    - module: srl_nokia-features
+      prefix: srl-feat
+    name: srl_nokia-tools-vxlan-tunnel
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tools-vxlan-tunnel.yang
+    prefix: srl_nokia-tools-vxlan-tunnel
+  srl_nokia-traffic-engineering.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:protocols/srl_nokia-netinst:directly-connected
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    name: srl_nokia-traffic-engineering
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-traffic-engineering.yang
+    prefix: srl_nokia-te
+  srl_nokia-transport-security.yang:
+    augmented_by:
+    - srl_nokia-macsec.yang
+    augments: []
+    imports:
+    - module: srl_nokia-extensions
+      prefix: srl-ext
+    - module: srl_nokia-common
+      prefix: srl-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    name: srl_nokia-transport-security
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-transport-security.yang
+    prefix: srl_nokia-security
+  srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tunnel-if:tunnel-interface/srl_nokia-tunnel-if:vxlan-interface/srl_nokia-tunnel-if:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tunnel-interfaces
+      prefix: srl_nokia-tunnel-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations.yang
+    prefix: srl_nokia-tunnel-if-vxlan-if-bt-multicast-destinations
+  srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tunnel-if:tunnel-interface/srl_nokia-tunnel-if:vxlan-interface/srl_nokia-tunnel-if:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tunnel-interfaces
+      prefix: srl_nokia-tunnel-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations.yang
+    prefix: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations
+  srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tunnel-if:tunnel-interface/srl_nokia-tunnel-if:vxlan-interface/srl_nokia-tunnel-if:bridge-table/srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations:unicast-destinations/srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations:es-destination
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tunnel-interfaces
+      prefix: srl_nokia-tunnel-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations
+      prefix: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations
+    name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang
+    prefix: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations-vteps
+  srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tunnel-if:tunnel-interface/srl_nokia-tunnel-if:vxlan-interface/srl_nokia-tunnel-if:bridge-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-tunnel-interfaces
+      prefix: srl_nokia-tunnel-if
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table.yang
+    prefix: srl_nokia-tunnel-if-vxlan-if-bt
+  srl_nokia-tunnel-interfaces.yang:
+    augmented_by:
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations.yang
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations.yang
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table.yang
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-interfaces
+      prefix: srl_nokia-if
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-tunnel
+      prefix: srl_nokia-tunnel
+    name: srl_nokia-tunnel-interfaces
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces.yang
+    prefix: srl_nokia-tunnel-if
+  srl_nokia-tunnel-tables.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-netinst:network-instance/srl_nokia-netinst:tunnel-table
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-ip-route-tables
+      prefix: srl_nokia-rt
+    name: srl_nokia-tunnel-tables
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tunnel-tables.yang
+    prefix: srl_nokia-tunnel-tables
+  srl_nokia-tunnel.yang:
+    augmented_by:
+    - srl_nokia-pw-tunnel.yang
+    - srl_nokia-vxlan-tunnel-vtep.yang
+    augments: []
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    name: srl_nokia-tunnel
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel.yang
+    prefix: srl_nokia-tunnel
+  srl_nokia-twamp.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-oam:oam
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-network-instance
+      prefix: srl_nokia-netinst
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-oam
+      prefix: srl_nokia-oam
+    name: srl_nokia-twamp
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-twamp.yang
+    prefix: srl_nokia-twamp
+  srl_nokia-vxlan-tunnel-vtep.yang:
+    augmented_by: []
+    augments:
+    - node: /srl_nokia-tunnel:tunnel
+    imports:
+    - module: srl_nokia-common
+      prefix: srl_nokia-comm
+    - module: srl_nokia-features
+      prefix: srl_nokia-feat
+    - module: srl_nokia-extensions
+      prefix: srl_nokia-ext
+    - module: srl_nokia-tunnel
+      prefix: srl_nokia-tunnel
+    name: srl_nokia-vxlan-tunnel-vtep
+    path: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-vxlan-tunnel-vtep.yang
+    prefix: srl_nokia-vxlan-tunnel

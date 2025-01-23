@@ -23,6 +23,7 @@ class YangModule(BaseModel):
     prefix: str
     imports: List[YangImport]
     augments: List[YangAugment]
+    augmented_by: List[str] = []
 
 
 class YangFileCollection(BaseModel):
@@ -73,6 +74,27 @@ def process_yang_files(directory: str) -> YangFileCollection:
                 file_path = os.path.join(root, file)
                 yang_files[file] = parse_yang_file(file_path)
 
+    # Second pass: process augmentations
+    for module_file, module in yang_files.items():
+        for augment in module.augments:
+            prefix_match = re.match(r"/([^:]+):", augment.node)
+            if prefix_match:
+                augment_prefix = prefix_match.group(1)
+                # Find the corresponding module from imports
+                for imp in module.imports:
+                    if imp.prefix == augment_prefix:
+                        augmented_module = imp.module + ".yang"
+                        if augmented_module in yang_files:
+                            # Add the current module to the augmented_by list
+                            if (
+                                module_file
+                                not in yang_files[augmented_module].augmented_by
+                            ):
+                                yang_files[augmented_module].augmented_by.append(
+                                    module_file
+                                )
+                        break
+
     return YangFileCollection(modules=yang_files)
 
 
@@ -106,8 +128,8 @@ def main() -> None:
     result = process_yang_files(yang_directory)
 
     # print(result.model_dump_json(indent=2))
-    # yaml.dump(result.model_dump(), sys.stdout)
-    yaml.dump(analyze_import_prefixes(result), sys.stdout)
+    yaml.dump(result.model_dump(), sys.stdout)
+    # yaml.dump(analyze_import_prefixes(result), sys.stdout)
 
 
 if __name__ == "__main__":

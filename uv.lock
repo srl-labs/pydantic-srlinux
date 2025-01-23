@@ -433,7 +433,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "pydantify", specifier = "==0.6.1" },
+    { name = "pydantify", editable = "../../../../../../../home/romandodin/projects/hellt/pydantify" },
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "rich", specifier = ">=13.9.4" },
 ]
@@ -441,7 +441,7 @@ requires-dist = [
 [[package]]
 name = "pydantify"
 version = "0.6.1"
-source = { registry = "https://pypi.org/simple" }
+source = { editable = "../../../../../../../home/romandodin/projects/hellt/pydantify" }
 dependencies = [
     { name = "datamodel-code-generator" },
     { name = "psutil" },
@@ -451,9 +451,16 @@ dependencies = [
     { name = "setuptools" },
     { name = "typing-extensions" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/21/db/cc52923900df6b5d174a5769319d07d1474a2941aab08988c14605e8f6c1/pydantify-0.6.1.tar.gz", hash = "sha256:6ec545d8f8944b8260468538cdf2c60346dff11e87a7c5415c155b51acf33948", size = 47942 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/c4/ab/ed766de0c924b3eca85e07b34e3dd040bba3f325215c1088c1c15ea2f0db/pydantify-0.6.1-py3-none-any.whl", hash = "sha256:27e87a027d514be55bfeb1ef2638c5703a0ac1b7adb7d0fb79f204c6f23b922a", size = 21051 },
+
+[package.metadata]
+requires-dist = [
+    { name = "datamodel-code-generator", specifier = "==0.25.8" },
+    { name = "psutil", specifier = ">=6.0.0" },
+    { name = "pyang", specifier = "==2.6.1" },
+    { name = "pydantic", specifier = "==2.9.0" },
+    { name = "requests", specifier = ">=2.32.3" },
+    { name = "setuptools", specifier = ">=74.0.0" },
+    { name = "typing-extensions", specifier = ">=4.12.2" },
 ]
 
 [[package]]
