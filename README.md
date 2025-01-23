@@ -2,7 +2,13 @@
 
 **This is an experiment.**
 
-## Generation
+## Generate YANG mapping file
+
+```bash
+./yang_map.py --dir ~/projects/nokia/srlinux-yang-models --version v24.10.1
+```
+
+## Pydantic Generation
 
 ```bash
 # change the base repo dir path and the srl version

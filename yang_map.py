@@ -1,11 +1,12 @@
+#!/usr/bin/env python
+import argparse
 import os
 import re
-import sys
-from typing import Dict, List, Optional
+import subprocess
+from typing import Dict, List
 
 import yaml
 from pydantic import BaseModel
-from rich import print
 
 
 class YangImport(BaseModel):
@@ -120,15 +121,25 @@ def analyze_import_prefixes(
 
 
 def main() -> None:
-    p = "~/projects/nokia/srlinux-yang-models/srlinux-yang-models/srl_nokia"
-    yang_directory = os.path.expanduser(p)
-    # yang_directory = (
-    #     "/home/romandodin/projects/nokia/srlinux-yang-models/srlinux-yang-models/test"
-    # )
+    parser = argparse.ArgumentParser(
+        description="Process YANG files from SR Linux models"
+    )
+    parser.add_argument("--dir", required=True, help="Path to the repository directory")
+    parser.add_argument("--version", required=True, help="Version to checkout")
+
+    args = parser.parse_args()
+
+    # Checkout the specified version
+    subprocess.run(["git", "-C", args.dir, "checkout", args.version], check=True)
+
+    yang_directory = os.path.join(
+        os.path.expanduser(args.dir), "srlinux-yang-models", "srl_nokia"
+    )
     result = process_yang_files(yang_directory)
 
     # print(result.model_dump_json(indent=2))
-    yaml.dump(result.model_dump(), sys.stdout)
+    with open("yang_map.yml", "w") as f:
+        yaml.dump(result.model_dump(), f)
     # yaml.dump(analyze_import_prefixes(result), sys.stdout)
 
 
