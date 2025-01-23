@@ -7,822 +7,14 @@ from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
 
 
-class AcceptModeLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Accept-modeLeaf")]
-    """
-    Allows ssh,ping,traceroute to be accepted on the virtual
-    IP address
-    """
-
-
-class AcceptModeLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Accept-modeLeaf2")]
-    """
-    Allows ssh,ping,traceroute to be accepted on the virtual
-    IP address
-    """
-
-
-class AddressLeaf5(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^[a-zA-Z0-9]{4}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}\\.[a-zA-Z0-9]$).*$",
-            title="AddressLeaf5",
-        ),
-    ]
-    """
-    PCI address of the interface, unpopulated if interface is not present on PCI
-
-    Unpopulated if interface is not available for PCI passthrough. This format follows the extended Domain:Bus:Device.Function (or BDF) notation. In most cases domain will be padded with four 0000's.
-    """
-
-
-class AdminKeyLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=65535, title="Admin-keyLeaf")]
-    """
-    Configure the LACP admin-key to be advertised by the local system.
-    If this value is not specified a value starting from 32768 is automatically
-    assigned by the system.
-    """
-
-
-class AdvertiseIntervalLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1000, le=40950, title="Advertise-intervalLeaf")]
-    """
-    The interval between VRRP messages in milliseconds
-    """
-
-
-class AdvertiseIntervalLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1000, le=40950, title="Advertise-intervalLeaf2")]
-    """
-    The interval between VRRP messages in milliseconds
-    """
-
-
-class AggregatableLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="AggregatableLeaf")]
-    """
-    A true value indicates that the participant will allow
-    the link to be used as part of the aggregate. A false
-    value indicates the link should be used as an individual
-    link
-    """
-
-
 class AgingLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     root: Annotated[int, Field(ge=0, le=18446744073709551615, title="AgingLeaf")]
     """
     remaining age time for learnt macs
-    """
-
-
-class AllowDirectedBroadcastLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Allow-directed-broadcastLeaf")]
-    """
-    When this is set to true the software is allowed to re-broadcast targeted broadcast IPv4 packets on this subinterface
-
-    Detailed handling of subnet broadcast is as follows:
-
-    If a targeted broadcast packet is received on subinterface X that has the matching subnet then it is delivered to the CPM and CPM will reply to an ICMP echo.
-
-    If a targeted broadcast packet is received on subinterface X but the matching subnet is associated with subinterface Y, and subinterface Y is configured with allow-directed-broadcasts=false then it is delivered to the CPM and CPM replies to an ICMP echo per above, but it does not re-broadcast the packet on subinterface Y.
-
-    If a targeted broadcast packet is received on subinterface X but the matching subnet is associated with subinterface Y, and subinterface Y is configured with allow-directed-broadcasts=true then it is delivered to the CPM and CPM replies to an ICMP echo per above, and CPM also re-broadcasts the packet on subinterface Y.
-    """
-
-
-class AlphanumericType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$"
-        ),
-    ]
-    """
-    A simple, one-line string that does not contain any control characters
-    """
-
-
-class AnycastGwLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Anycast-gwLeaf")]
-    """
-    This designates the associated IPv4 address as an anycast-gateway IPv4 address of the subinterface.
-
-    When this parameter is set to true:
-    - The IPv4 address is associated with the anycast-gw MAC address in the same subinterface. ARP Requests received for the anycast-gw IPv4 address
-      will be replied using this anycast-gw MAC address.
-    - The IPv4 address can have duplicate IPv4 addresses in other IRB subinterfaces of routers attached to the same broadcast domain.
-      Because of that ARP duplicate-address-detection procedures do not apply to anycast-gw IP addresses.
-    """
-
-
-class AnycastGwLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Anycast-gwLeaf2")]
-    """
-    This designates the associated IPv6 address as an anycast-gateway IPv6 address of the subinterface.
-
-    When this parameter is set to true:
-    - The IPv6 address is associated with the anycast-gw MAC address in the same subinterface. Neighbor Solicitations received for the anycast-gw IPv6 address
-      will be replied using this anycast-gw MAC address.
-    - The IPv6 address can have duplicate IPv6 addresses in other IRB subinterfaces of routers attached to the same broadcast domain.
-      Because of that, ND duplicate-address-detection procedures do not apply to anycast-gw IP addresses.
-    """
-
-
-class AuthenticatePortLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Authenticate-portLeaf")]
-    """
-    Enable IEEE802.1X port control on an interface
-    """
-
-
-class AuthenticatorInitiatedLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Authenticator-initiatedLeaf")]
-    """
-    When true the authenticator sends an EAP-Request/EAP-Identity to the Supplicant
-    """
-
-
-class AutoNegotiateLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Auto-negotiateLeaf")]
-    """
-    When set to true the interface uses auto-negotiation for speed, duplex and flow-control settings.
-
-    When set to false, the transmission parameters are specified manually.
-    """
-
-
-class AutonomousFlagLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Autonomous-flagLeaf")]
-    """
-    When this is set in the prefix information option hosts can use the prefix for stateless address autoconfiguration (SLAAC). 
-    """
-
-
-class AverageLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf"),
-    ]
-    """
-    Average BER received on the optical channel
-    """
-
-
-class AverageLeaf10(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf10"),
-    ]
-    """
-    Indicates the average Polarization Dependent Loss received on the optical channel
-    """
-
-
-class AverageLeaf11(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf11"),
-    ]
-    """
-    Indicates the average SOP-ROC received on the optical channel
-    """
-
-
-class AverageLeaf13(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf13"),
-    ]
-    """
-    Average power transmitted on the optical channel
-    """
-
-
-class AverageLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf2"),
-    ]
-    """
-    Average SNR received on the optical channel
-    """
-
-
-class AverageLeaf3(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf3"),
-    ]
-    """
-    Average SNR received on the optical channel
-    """
-
-
-class AverageLeaf4(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="AverageLeaf4")]
-    """
-    Average chromatic dispersion received on the optical channel
-    """
-
-
-class AverageLeaf5(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf5"),
-    ]
-    """
-    Average differential group delay received on the optical channel
-    """
-
-
-class AverageLeaf6(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="AverageLeaf6")]
-    """
-    Average frequency offset received on the optical channel
-    """
-
-
-class AverageLeaf7(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf7"),
-    ]
-    """
-    Average quality received on the optical channel
-    """
-
-
-class AverageLeaf8(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf8"),
-    ]
-    """
-    Average power received on the optical channel
-    """
-
-
-class AverageLeaf9(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="AverageLeaf9"),
-    ]
-    """
-    Indicates the average total power received on the optical channel
-    """
-
-
-class BroadcastRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=132000000, title="Broadcast-rateLeaf")]
-    """
-    The maximum rate allowed for ingress broadcast frames on the interface
-
-    The rate can be set in multiple of 64kbps. If the rate is configured to any value
-    in the 1-127 kbps range, the effective rate will be 64kbps and shown in the
-    operational rate. If any value in the 128-191 range, the effective rate will be
-    128kbps and shown in the operational rate, and so on for higher rates. When the
-    rate is set to zero, all the broadcast traffic in the interface is discarded.
-
-    The maximum rate that can be effectively configured in 7220 D4/D5 platforms is
-    132000000. When a configured percentage exceeds that value, the maximum supported
-    rate is set and shown in the operational-broadcast-rate.
-    """
-
-
-class CollectDetailedStatsLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Collect-detailed-statsLeaf")]
-    """
-    Set to false to disable detailed statistics collection on the routed (non IRB) subinterface
-
-    By default detailed statistics are collected for each routed (non IRB) subinterface
-    """
-
-
-class CollectIrbStatsLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Collect-irb-statsLeaf")]
-    """
-    Set to false to disable statistics collection on the IRB subinterface
-
-    By default basic statistics are collected for each IRB subinterface
-    """
-
-
-class CollectingLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="CollectingLeaf")]
-    """
-    If true, the participant is collecting incoming frames
-    on the link, otherwise false
-    """
-
-
-class Counter64Type(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
-    """
-    The counter64 type represents a non-negative integer
-    that monotonically increases until it reaches a
-    maximum value of 2^64-1 (18446744073709551615 decimal),
-    when it wraps around and starts increasing again from zero.
-
-    Counters have no defined 'initial' value, and thus, a
-    single value of a counter has (in general) no information
-    content.  Discontinuities in the monotonically increasing
-    value normally occur at re-initialization of the
-    management system, and at other times as specified in the
-    description of a schema node using this type.  If such
-    other times can occur, for example, the creation of
-    a schema node of type counter64 at times other than
-    re-initialization, then a corresponding schema node
-    should be defined, with an appropriate type, to indicate
-    the last discontinuity.
-
-    The counter64 type should not be used for configuration
-    schema nodes.  A default statement SHOULD NOT be used in
-    combination with the type counter64.
-
-    In the value set and its semantics, this type is equivalent
-    to the Counter64 type of the SMIv2.
-    """
-
-
-class CurrentHopLimitLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Current-hop-limitLeaf")]
-    """
-    The current hop limit to advertise in the router advertisement messages.
-    """
-
-
-class CurrentLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf"),
-    ]
-    """
-    Current BER received on the optical channel
-    """
-
-
-class CurrentLeaf10(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf10"),
-    ]
-    """
-    Indicates the current Polarization Dependent Loss received on the optical channel
-    """
-
-
-class CurrentLeaf11(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf11"),
-    ]
-    """
-    Indicates the current SOP-ROC received on the optical channel
-    """
-
-
-class CurrentLeaf13(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf13"),
-    ]
-    """
-    Current power transmitted on the optical channel
-    """
-
-
-class CurrentLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf2"),
-    ]
-    """
-    Current SNR received on the optical channel
-    """
-
-
-class CurrentLeaf3(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf3"),
-    ]
-    """
-    Current SNR received on the optical channel
-    """
-
-
-class CurrentLeaf4(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="CurrentLeaf4")]
-    """
-    Current chromatic dispersion received on the optical channel
-    """
-
-
-class CurrentLeaf5(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf5"),
-    ]
-    """
-    Current differential group delay received on the optical channel
-    """
-
-
-class CurrentLeaf6(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="CurrentLeaf6")]
-    """
-    Current frequency offset received on the optical channel
-    """
-
-
-class CurrentLeaf7(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf7"),
-    ]
-    """
-    Current quality received on the optical channel
-    """
-
-
-class CurrentLeaf8(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf8"),
-    ]
-    """
-    Current power received on the optical channel
-    """
-
-
-class CurrentLeaf9(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="CurrentLeaf9"),
-    ]
-    """
-    Indicates the current total power received on the optical channel
-    """
-
-
-class DacLinkTrainingLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Dac-link-trainingLeaf")]
-    """
-    If the system detects that the transceiver is connected to a DAC cable then a true setting enables link training for better link stability. The link training setting must be the same at both ends of the DAC cable or else the link may not come up.
-    """
-
-
-class DatapathProgrammingLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Datapath-programmingLeaf")]
-    """
-    When set to true, the host route is programmed in the datapath
-    """
-
-
-class DatapathProgrammingLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Datapath-programmingLeaf2")]
-    """
-    When set to true, the host route is programmed in the datapath
-    """
-
-
-class DateAndTimeType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$"
-        ),
-    ]
-    """
-    The date-and-time type is a profile of the ISO 8601
-    standard for representation of dates and times using the
-    Gregorian calendar.  The profile is defined by the
-    date-time production in Section 5.6 of RFC 3339.
-
-    The date-and-time type is compatible with the dateTime XML
-    schema type with the following notable exceptions:
-
-    (a) The date-and-time type does not allow negative years.
-
-    (b) The date-and-time time-offset -00:00 indicates an unknown
-        time zone (see RFC 3339) while -00:00 and +00:00 and Z
-        all represent the same time zone in dateTime.
-
-    (c) The canonical format (see below) of data-and-time values
-        differs from the canonical format used by the dateTime XML
-        schema type, which requires all times to be in UTC using
-        the time-offset 'Z'.
-
-    This type is not equivalent to the DateAndTime textual
-    convention of the SMIv2 since RFC 3339 uses a different
-    separator between full-date and full-time and provides
-    higher resolution of time-secfrac.
-
-    The canonical format for date-and-time values with a known time
-    zone uses a numeric time zone offset that is calculated using
-    the device's configured known offset to UTC time.  A change of
-    the device's offset to UTC time will cause date-and-time values
-    to change accordingly.  Such changes might happen periodically
-    in case a server follows automatically daylight saving time
-    (DST) time zone offset changes.  The canonical format for
-    date-and-time values with an unknown time zone (usually
-    referring to the notion of local time) uses the time-offset
-    -00:00.
-    """
-
-
-class DdmEventsLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Ddm-eventsLeaf")]
-    """
-    Controls the reporting of DDM events
-
-    When set to true, log events related to the Digital Diagnostic Monitoring (DDM) capabilities of the transceiver are generated.
-
-    When set to false, no DDM-related log events are generated for this port/transceiver.
-
-    When read from state this leaf always returns false (even if the configured value is true) when the Ethernet port is a copper/RJ45 port.
-    """
-
-
-class DescriptionType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(max_length=255, min_length=1)]
-    """
-    A user provided description string
-    """
-
-
-class DesignatedForwarderLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Designated-forwarderLeaf")]
-    """
-    The value of this leaf indicates if the interface is the designated
-    forwarder for the ethernet-segment on the network-instance.
-    """
-
-
-class DeviceIdLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Device-idLeaf")]
-    """
-    PCI device ID
-
-    This field is the two byte device ID reported over PCI.
-    """
-
-
-class DeviceIdLeaf2(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Device-idLeaf2")]
-    """
-    PCI device ID
-
-    This field is the two byte device ID reported over PCI.
-    """
-
-
-class DeviceNameLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Device-nameLeaf")]
-    """
-    PCI device name
-    """
-
-
-class DeviceNameLeaf2(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Device-nameLeaf2")]
-    """
-    PCI device name
-    """
-
-
-class DeviceNameLeaf3(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(max_length=10, min_length=0, title="Device-nameLeaf3")]
-    """
-    Slow path device name of this interface in Linux
-
-    This is the interface name that can be used to look at this interface within Linux.
-
-    If not specified it is auto-derived by the system.
-    """
-
-
-class DisableIpTimestampingLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Disable-ip-timestampingLeaf")]
-    """
-    Disables timestamping of PTP over IP messages on this port
-
-    For platforms supporting PTP functionality, any transiting PTP over IP packets are timestamped in hardware by default, regardless of whether PTP is enabled on the system. To avoid unwanted correction-field updates of PTP transit packets on ports (ports involved in PTP packet transit only), this command can be used to disabled the timestmaping.
-    """
-
-
-class DiscardUnknownSrcMacLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Discard-unknown-src-macLeaf")]
-    """
-    Discard frames with unknown source mac addresses. The source mac address of
-    the discarded frame is never learned when this command is enabled.
-    """
-
-
-class DispersionLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-50000, le=50000, title="DispersionLeaf")]
-    """
-    Residual chromatic dispersion compensation
-    """
-
-
-class DistributingLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="DistributingLeaf")]
-    """
-    When true, the participant is distributing outgoing
-    frames; when false, distribution is disabled
     """
 
 
@@ -875,360 +67,10 @@ class DomainNameType(RootModel[str]):
     """
 
 
-class DomainLeaf(RootModel[DomainNameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DomainNameType, Field(title="DomainLeaf")]
-    """
-    The server domain name
-    """
-
-
-class DomainLeaf2(RootModel[DomainNameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DomainNameType, Field(title="DomainLeaf2")]
-    """
-    The server domain name
-    """
-
-
-class DoubleTaggedLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Double-taggedLeaf")]
-    """
-    tunnel double tagged dot1x PDUs through the interface
-    """
-
-
-class DownLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=86400000, title="DownLeaf")]
-    """
-    Holds link down events for the configured time
-
-    The hold-time down behavior is triggered with events that try to bring the ethernet interface
-    down and can change quickly. It is not triggered with an admin-state disable event or interface
-    disable due to other internal reasons (such as fabric unavailability). When running, the
-    interface will not be brought down till the timer expires. The typical use of the hold-time down
-    is to provide stability and avoid the protocols to advertise/withdraw messages if there are
-    flapping optics. The hold-time down is aborted if the user does admin-state disable or if the
-    interface is disabled due to other internal reasons that prevent the traffic to be forwarded
-    on the interface.
-    """
-
-
-class DuplicateAddressDetectionLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Duplicate-address-detectionLeaf")]
-    """
-    If set to true IPv4 Address Conflict Detection per RFC 5227 is performed on the IPv4 address assigned to the subinterface
-    """
-
-
-class DuplicateAddressDetectionLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Duplicate-address-detectionLeaf2")]
-    """
-    Enables Duplicate Addres Detection on all tentative addresses
-
-    This applies to link-local and global unicast addresses. Only one transmission is done; there are no retransmissions.
-
-    Must be true on an IPv6 subinterface that has dhcp-client enabled.
-    """
-
-
-class EgressSamplingRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=2000000, title="Egress-sampling-rateLeaf")]
-    """
-    Specify sFlow Egress packet sample rate.
-    This value is the rate at which traffic will be sampled at a rate of 1:N received packets.
-    """
-
-
-class EndLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-50000, le=50000, title="EndLeaf")]
-    """
-    Upper bound of the dispersion compensation range
-    """
-
-
-class EsManagedLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Es-managedLeaf")]
-    """
-    The value of this leaf indicates if the interface is managed
-    by the ethernet-segment on the network-instance.
-    """
-
-
-class EthernetPmdLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Ethernet-pmdLeaf")]
-    """
-    Specifies the Ethernet compliance code of the transceiver associated with the port
-    """
-
-
-class ExpectedRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=18446744073709551615, title="Expected-rateLeaf")
-    ]
-    """
-    Expected rate of the test
-
-    This is the computed or
-    observed rate that the service expected to be maintained
-    throughout the qualification duration.
-    """
-
-
-class ExponentLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="ExponentLeaf")]
-    """
-    Signal-degrade exponent
-    """
-
-
-class ExponentLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="ExponentLeaf2")]
-    """
-    Signal-failure exponent
-    """
-
-
-class ExponentLeaf3(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="ExponentLeaf3")]
-    """
-    Signal-degrade exponent
-    """
-
-
-class ExponentLeaf4(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="ExponentLeaf4")]
-    """
-    Signal-failure exponent
-    """
-
-
-class FailedComplexListType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str, Field(pattern="^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$")
-    ]
-
-
-class FailedSlotsLeafList(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=16, title="Failed-slotsLeafList")]
-    """
-    The list of slot IDs corresponding to the linecards that did not successfully program the mac
-    """
-
-
-class FaultConditionLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Fault-conditionLeaf")]
-    """
-    Indicates if a fault condition exists in the transceiver.
-    """
-
-
-class ForwardingViableLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Forwarding-viableLeaf")]
-    """
-    If true:
-    this LAG member link should be used for the transmission of traffic if all other LAG/port attributes allow it.
-
-    If false:
-    this LAG member link should not be used for the transmission of traffic.
-
-    In all cases:
-    This LAG member link should process any received frames when it is an active member link.  L2 protocols such as LLDP, LACP and micro-BFD should continue to be sent and processed.
-    """
-
-
-class FunctionalTypeLeaf(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="Functional-typeLeaf")]
-    """
-    Indicates the module functional type which will be deployed for this interface
-
-    This refines the set of leaves available within the transceiver configuration.
-    """
-
-
-class Gauge64Type(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
-    """
-    The gauge64 type represents a non-negative integer, which
-    may increase or decrease, but shall never exceed a maximum
-    value, nor fall below a minimum value.  The maximum value
-    cannot be greater than 2^64-1 (18446744073709551615), and
-    the minimum value cannot be smaller than 0.  The value of
-    a gauge64 has its maximum value whenever the information
-    being modeled is greater than or equal to its maximum
-    value, and has its minimum value whenever the information
-    being modeled is smaller than or equal to its minimum value.
-    If the information being modeled subsequently decreases
-    below (increases above) the maximum (minimum) value, the
-    gauge64 also decreases (increases).
-
-    In the value set and its semantics, this type is equivalent
-    to the CounterBasedGauge64 SMIv2 textual convention defined
-    in RFC 2856
-    """
-
-
-class HalfLifeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=2000, title="Half-lifeLeaf")]
-    """
-    Half-life decay time
-    """
-
-
-class HighAlarmConditionLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="High-alarm-conditionLeaf")]
-    """
-    High alarm threshold condition
-
-    Set to true whenever the temperature is above the high-alarm-threshold and set to false whenever the temperature is below the high-alarm-threshold
-    """
-
-
-class HighAlarmConditionLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="High-alarm-conditionLeaf2")]
-    """
-    High alarm threshold condition.
-
-    Set to true whenever the module voltage is above the high-alarm-threshold and set to false whenever the module voltage is below the high-alarm-threshold
-    """
-
-
-class HighAlarmThresholdLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
-            title="High-alarm-thresholdLeaf2",
-        ),
-    ]
-    """
-    High alarm threshold.
-
-    Read from the installed transceiver
-    """
-
-
-class HighWarningConditionLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="High-warning-conditionLeaf")]
-    """
-    High warning threshold condition.
-
-    Set to true whenever the temperature is above the high-warning-threshold and set to false whenever the temperature is below the high-warning-threshold
-    """
-
-
-class HighWarningConditionLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="High-warning-conditionLeaf2")]
-    """
-    High warning threshold condition.
-
-    Set to true whenever the module voltage is above the high-warning-threshold and set to false whenever the module voltage is below the high-warning-threshold
-    """
-
-
-class HighWarningThresholdLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
-            title="High-warning-thresholdLeaf2",
-        ),
-    ]
-    """
-    High warning threshold.
-
-    Read from the installed transceiver
-    """
-
-
 class HoldDownTimeRemainingLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     root: Annotated[
         int, Field(ge=0, le=18446744073709551615, title="Hold-down-time-remainingLeaf")
@@ -1238,405 +80,16 @@ class HoldDownTimeRemainingLeaf1(RootModel[int]):
     """
 
 
-class IdLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=4294967295, title="IdLeaf2")]
-    """
-    The numeric identifier used by the controller to address the interface
-
-    This ID is the interface ifIndex by default, or is assigned by an
-    external-to-the-device entity (e.g., an SDN management system) to
-    establish an externally deterministic numeric reference for the interface.
-
-    The programming entity must ensure that the ID is unique within the
-    required context.
-
-    Note that this identifier is used only when a numeric reference to the
-    interface is required, it does not replace the unique name assigned to
-    the interface.
-    """
-
-
-class IfindexLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295, title="IfindexLeaf")]
-    """
-    System-wide persistent unique ifIndex assigned to the interface
-    """
-
-
-class IfindexLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295, title="IfindexLeaf2")]
-    """
-    System-wide persistent unique ifIndex assigned to the subinterface
-    """
-
-
-class InBpsLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=18446744073709551615, title="In-bpsLeaf")]
-    """
-    The ingress bandwidth utilization of the port
-    """
-
-
-class IndexLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=10)]
-    """
-    Index of the physical channel or lane
-    """
-
-
-class IndexLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=1, title="IndexLeaf2")]
-    """
-    Index of the optical channel
-    """
-
-
-class IndexLeaf3(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295)]
-    """
-    Index of the current logical channel
-    """
-
-
-class IndexLeaf4(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=9999, title="IndexLeaf4")]
-    """
-    The index of the subinterface, or logical interface number
-    """
-
-
-class IngressSamplingRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=2000000, title="Ingress-sampling-rateLeaf")]
-    """
-    Specify sFlow Ingress packet sample rate.
-    This value is the rate at which traffic will be sampled at a rate of 1:N received packets.
-    """
-
-
-class InitDelayLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=65535, title="Init-delayLeaf")]
-    """
-    Initialization delay in seconds before a router that
-    just rebooted will preempt an existing master router.
-    Only applicable if preempt is enabled
-    """
-
-
-class InitDelayLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=65535, title="Init-delayLeaf2")]
-    """
-    Initialization delay in seconds before a router that
-    just rebooted will preempt an existing master router.
-    Only applicable if preempt is enabled
-    """
-
-
-class InnerTpidLeaf(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="Inner-tpidLeaf")]
-    """
-    Optionally override the inner tag protocol identifier field (TPID)
-
-    The configured tpid is used by the action configured by 'vlan-stack-action'
-    when modifying the VLAN stack.
-    """
-
-
-class InnerTpidLeaf2(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="Inner-tpidLeaf2")]
-    """
-    Optionally override the inner tag protocol identifier field (TPID)
-
-    The configured tpid is used by the action configured by 'vlan-stack-action'
-    when modifying the VLAN stack.
-    """
-
-
-class InterfaceNameType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: str
-
-
-class IpMtuLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1280, le=9486, title="Ip-mtuLeaf")]
-    """
-    IP MTU of the subinterface in bytes.
-
-    Includes the IP header but excludes Ethernet encapsulation.
-
-    IP MTU specifies the maximum sized IPv4 or IPv6 packet that can be transmitted on the subinterface. If an IPv4 or IPv6 packet exceeds this size it is dropped and this may result in the generation of an ICMP error message back to the source.
-
-    The default IP MTU for a subinterface is taken from /system/mtu/default-ip-mtu.  For the mgmt0 and mgmt0-standby subinterfaces the default is the associated interface MTU minus the Ethernet encapsulation overhead.
-
-    The IP MTU is not configurable for subinterfaces of loopback interfaces.
-
-    The 7220 IXR-D1, 7220 IXR-D2, 7220 IXR-D3, 7220 IXR-D4, 7220 IXR-D5, 7220 IXR-H2, 7220 IXR-H3, and 7220 IXR-H4 systems support a maximum IP MTU of 9398 bytes.
-
-    The 7730 SXR systems support a maximum IP MTU of 9394 bytes.
-
-    Each 7250 IXR IMM supports a maximum of 4 different IP MTU values. 7220 IXR systems do not have any limit on the maximum number of different IP MTU values.
-    """
-
-
-class IpMtuLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1280, le=9486, title="Ip-mtuLeaf2")]
-    """
-    The IP MTU to advertise in the router advertisement messages and that hosts should associate with the link on which these messages are received.
-
-    If no value is specified the option is not included.
-    """
-
-
-class Ipv4PrefixType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$"
-        ),
-    ]
-    """
-    An IPv4 prefix represented in dotted quad notation followed by a slash and a CIDR mask (0 <= mask <= 32).
-    """
-
-
-class Ipv4Type(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$"
-        ),
-    ]
-
-
-class Ipv6PrefixType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$"
-        ),
-    ]
-    """
-    An IPv6 prefix represented in full, shortened, or mixed shortened format followed by a slash and CIDR mask (0 <= mask <=
-    128).
-    """
-
-
-class Ipv6Type(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$"
-        ),
-    ]
-
-
-class IsRouterLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Is-routerLeaf")]
-    """
-    Indicates that the neighbor node claims to be a router (R bit in the Neighbor Advertisement message)
-    """
-
-
-class L2MtuLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1450, le=9500, title="L2-mtuLeaf")]
-    """
-    Layer-2 MTU of the subinterface in bytes.
-
-    Includes the Ethernet header and VLAN tags, and excludes 4-bytes FCS.
-
-    L2 MTU specifies the maximum sized Ethernet frame that can be transmitted on the subinterface. If a frame exceeds this size it is discarded. If the l2-mtu of the subinterface exceeds the port-mtu of the associated
-    interface, the subinterface will remain operationally down.
-
-    The default value for a subinterface is taken from /system/mtu/default-l2-mtu. The L2 MTU is only configurable for bridged subinterfaces.
-
-    The 7220 IXR-D1, 7220 IXR-D2, 7220 IXR-D3, 7220 IXR-D4, 7220 IXR-D5, 7220 IXR-H2, 7220 IXR-H3, and 7220 IXR-H4 systems support a maximum L2 MTU of 9412 bytes and minimum of 1500 bytes.
-
-    The 7730 SXR systems support a maximum L2 MTU of 9408 bytes.
-
-    All other systems support a maximum L2 MTU of 9500 and minimum of 1500 bytes.
-    """
-
-
-class LacpFallbackTimeoutLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=4, le=3600, title="Lacp-fallback-timeoutLeaf")]
-    """
-    Specifies the LACP-fallback timeout interval in seconds
-    """
-
-
-class LacpPortPriorityLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Lacp-port-priorityLeaf")]
-    """
-    Configure the port priority for LACP.  This value is used to  determine which port should be activated with LACP fallback mode. Lower values are more preferred.
-    """
-
-
-class LacpPortPriorityLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Lacp-port-priorityLeaf2")]
-    """
-    Configure the port priority for LACP.  This value is used to  determine which port should be activated with LACP fallback mode. Lower values are more preferred.
-    """
-
-
-class LagSpeedLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295, title="Lag-speedLeaf")]
-    """
-    reports current aggregate bandwidth speed of the associated LAG
-    """
-
-
-class LastFailedComplexesLeafList(RootModel[FailedComplexListType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[FailedComplexListType, Field(title="Last-failed-complexesLeafList")]
-    """
-    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
-    """
-
-
-class LastFailedComplexesLeafList2(RootModel[FailedComplexListType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        FailedComplexListType, Field(title="Last-failed-complexesLeafList2")
-    ]
-    """
-    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
-    """
-
-
 class LastReportedDynamicDelayLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     root: Annotated[
         int, Field(ge=0, le=2147483647, title="Last-reported-dynamic-delayLeaf")
     ]
     """
     Indicates the last delay measurement reported to the routing engine
-    """
-
-
-class LatestValueLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(
-            ge=-9.223372036854776e18, le=9.223372036854776e18, title="Latest-valueLeaf2"
-        ),
-    ]
-    """
-    The current voltage reading of the transceiver module (in Volts)
-    """
-
-
-class LearnUnsolicitedLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Learn-unsolicitedLeaf")]
-    """
-    If set to true an ARP entry should be learned from any received ARP packets.
-    """
-
-
-class LinkLossForwardingLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Link-loss-forwardingLeaf")]
-    """
-    Indicates whether link-loss-forwarding is enabled in the interface
-
-    When enabled, faults can be propagated to the devices connected to this interface. It is supported on interfaces
-    with a single non-tagged subinterface that is associated to a network-instance of type vpws. On VPWS services,
-    the propagation of faults from a connection-point to the opposite connection-point is known as Link Loss
-    Forwarding and requires setting this command to true and the standby-signaling command to the type of propagation
-    signaling to be used with the connected Customer Equipment.
     """
 
 
@@ -1647,986 +100,23 @@ class LinuxContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     device_name: Annotated[
-        DeviceNameLeaf3, Field(None, alias="srl_nokia-interfaces-vxdp:device-name")
-    ]
-
-
-class LocalFileType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[str, Field(pattern="^(?=^(/[0-9A-Za-z_\\-\\.]+)+$).*$")]
-    """
-    A regular expression matching a local file
-    """
-
-
-class LogOnlyLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Log-onlyLeaf")]
-    """
-    Generate only a log message when limit is reached
-
-    When set to true, neighbor entries are still being learned after
-    exceeding the max-entries limit.
-    """
-
-
-class LogicalChannelLeaf(RootModel[IndexLeaf3]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[IndexLeaf3, Field(title="Logical-channelLeaf")]
-    """
-    Logical channel associated to this optical channel
-
-    This is used to assist with the openconfig management of DCO using logical channels
-    """
-
-
-class LowAlarmConditionLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Low-alarm-conditionLeaf")]
-    """
-    Low alarm threshold condition.
-
-    Set to true whenever the temperature is below the low-alarm-threshold and set to false whenever the temperature is above the low-alarm-threshold
-    """
-
-
-class LowAlarmConditionLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Low-alarm-conditionLeaf2")]
-    """
-    Low alarm threshold condition.
-
-    Set to true whenever the module voltage is below the low-alarm-threshold and set to false whenever the module voltage is above the low-alarm-threshold
-    """
-
-
-class LowAlarmThresholdLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
+        Optional[str],
         Field(
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
-            title="Low-alarm-thresholdLeaf2",
+            alias="srl_nokia-interfaces-vxdp:device-name",
+            max_length=10,
+            min_length=0,
+            title="Device-nameLeaf3",
         ),
-    ]
+    ] = None
     """
-    Low alarm threshold.
+    Slow path device name of this interface in Linux
 
-    Read from the installed transceiver
-    """
-
-
-class LowWarningConditionLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Low-warning-conditionLeaf")]
-    """
-    Low warning threshold condition.
-
-    Set to true whenever the temperature is below the low-warning-threshold and set to false whenever the temperature is above the low-warning-threshold
-    """
-
-
-class LowWarningConditionLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Low-warning-conditionLeaf2")]
-    """
-    Low warning threshold condition.
-
-    Set to true whenever the module voltage is below the low-warning-threshold and set to false whenever the module voltage is above the low-warning-threshold
-    """
-
-
-class LowWarningThresholdLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
-            title="Low-warning-thresholdLeaf2",
-        ),
-    ]
-    """
-    Low warning threshold .
-
-    Read from the installed transceiver
-    """
-
-
-class MacAddressType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[str, Field(pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$")]
-    """
-    The mac-address type represents an IEEE 802 MAC address.
-    The canonical representation uses lowercase characters.
-
-    In the value set and its semantics, this type is equivalent
-    to the MacAddress textual convention of the SMIv2.
-    """
-
-
-class MacLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="MacLeaf")]
-    """
-    Source MAC address of a host that is authorized to use this interface
-    """
-
-
-class MacLeaf3(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: MacAddressType
-    """
-    Host MAC address
-    """
-
-
-class MajorRevisionLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Major-revisionLeaf")]
-    """
-    Major revision number
-    """
-
-
-class ManagedConfigurationFlagLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Managed-configuration-flagLeaf")]
-    """
-    When this is set the M-bit is set in the router advertisement messages, indicating that hosts should use DHCPv6 to obtain IPv6 addresses.
-    """
-
-
-class MasterInheritIntervalLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Master-inherit-intervalLeaf")]
-    """
-    Learn VRRP advertisement interval from master
-    """
-
-
-class MasterInheritIntervalLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Master-inherit-intervalLeaf2")]
-    """
-    Learn VRRP advertisement interval from master
-    """
-
-
-class MaxAdvertisementIntervalLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=4, le=1800, title="Max-advertisement-intervalLeaf")]
-    """
-    The maximum time between sending router advertisement messages to the all-nodes multicast address.
-
-    Each subinterface has its own timer. Whenever the timer fires the message is sent and then the timer is reset to a uniformly distributed random value between min-advertisement-interval and max-advertisement-interval. The RA message can be sent before timer expiry in response to a RS message.
-    """
-
-
-class MaxAuthenticationRequestsLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=10, title="Max-authentication-requestsLeaf")]
-    """
-    Maximum number of RADIUS retries before the authentication fails
-
-    In the case of challenge response, if the supplicant does not respond
-    the authenticator will retransmit the challenge without going to the radius server.
-    This parameter will be used toward supplicant as well when the challenge respond is
-    dropped.
-    """
-
-
-class MaxEntriesLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295, title="Max-entriesLeaf")]
-    """
-    The maximum number of neighbor entries allowed on the subinterface
-
-    If not configured, the amount of neighbor entries on the subinterface
-    is only limited by the total amount of entries supported by the router.
-    """
-
-
-class MaxRequestsLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=10, title="Max-requestsLeaf")]
-    """
-    Maximum number of times an EAPoL request packet is retransmitted to the supplicant before the authentication session fails
-    """
-
-
-class MaxSuppressTimeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=43200, title="Max-suppress-timeLeaf")]
-    """
-    Maximum suppression time
-    """
-
-
-class MaximumEntriesLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=8192, title="Maximum-entriesLeaf")]
-    """
-    Maximum number of mac addresses allowed in the bridge-table.
-    """
-
-
-class MaximumLeaf10(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf10"),
-    ]
-    """
-    Maximum power received on the optical channel
-    """
-
-
-class MaximumLeaf11(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf11"),
-    ]
-    """
-    Indicates the maximum total power received on the optical channel
-    """
-
-
-class MaximumLeaf12(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf12"),
-    ]
-    """
-    Indicates the maximum Polarization Dependent Loss received on the optical channel
-    """
-
-
-class MaximumLeaf13(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf13"),
-    ]
-    """
-    Indicates the maximum SOP-ROC received on the optical channel
-    """
-
-
-class MaximumLeaf14(RootModel[Gauge64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Gauge64Type, Field(title="MaximumLeaf14")]
-    """
-    Indicates the maximum Media Frame Rate Error Count received on the optical channel
-    """
-
-
-class MaximumLeaf15(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf15"),
-    ]
-    """
-    Maximum power transmitted on the optical channel
-    """
-
-
-class MaximumLeaf16(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf16"),
-    ]
-    """
-    Maximum configurable transmit power for the equipped optical module
-    """
-
-
-class MaximumLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-100000, le=100000, title="MaximumLeaf2")]
-    """
-    Chromatic dispersion sweep range maximum
-
-    This has different defaults based on the setting of the operational-mode.
-    """
-
-
-class MaximumLeaf3(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf3"),
-    ]
-    """
-    Maximum BER received on the optical channel
-    """
-
-
-class MaximumLeaf4(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf4"),
-    ]
-    """
-    Maximum SNR received on the optical channel
-    """
-
-
-class MaximumLeaf5(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf5"),
-    ]
-    """
-    Maximum SNR received on the optical channel
-    """
-
-
-class MaximumLeaf6(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="MaximumLeaf6")]
-    """
-    Maximum chromatic dispersion received on the optical channel
-    """
-
-
-class MaximumLeaf7(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf7"),
-    ]
-    """
-    Maximum differential group delay received on the optical channel
-    """
-
-
-class MaximumLeaf8(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="MaximumLeaf8")]
-    """
-    Maximum frequency offset received on the optical channel
-    """
-
-
-class MaximumLeaf9(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MaximumLeaf9"),
-    ]
-    """
-    Maximum quality received on the optical channel
-    """
-
-
-class MdLevelsOrderedTypeType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-        regex_engine="python-re",
-    )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^(0|0 1|0 1 2|0 1 2 3|0 1 2 3 4|0 1 2 3 4 5|0 1 2 3 4 5 6|0 1 2 3 4 5 6 7)$).*$"
-        ),
-    ]
-    """
-    Forced ascending order of the maintenance domain levels from 0 to 7 starting
-
-    This forces the allowable maintenance domain levels within the range of 0..7 in ascending order, starting
-    at 0.  Partial ranges can be entered and must start at 0 separated by space.
-    For example, 0 1 2 3 4 would be acceptable based on the regular expression pattern match.
-    However, 0 2 3 4 would cause an error condition because the numbers are not contiguous.  This pattern does
-    not allow trailing spaces after the last numerical value.
-    """
-
-
-class MicrobfdEnabledLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Microbfd-enabledLeaf")]
-    """
-    Indicates if microBFD is currently used in the determination of the member-link oper-status
-    """
-
-
-class MinAdvertisementIntervalLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=3, le=1350, title="Min-advertisement-intervalLeaf")]
-    """
-    The minimum time between sending router advertisement messages to the all-nodes multicast address.
-
-    Each subinterface has its own timer. Whenever the timer fires the message is sent and then the timer is reset to a uniformly distributed random value between min-advertisement-interval and max-advertisement-interval. The RA message can be sent before timer expiry in response to a RS message.
-    """
-
-
-class MinLinksLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=64, title="Min-linksLeaf")]
-    """
-    Specifies the mininum number of member
-    interfaces that must be active for the aggregate interface
-    to be available
-    """
-
-
-class MinimumLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-100000, le=0, title="MinimumLeaf")]
-    """
-    Chromatic dispersion sweep range minimum
-
-    This has different defaults based on the setting of the operational-mode.  This value is usually a large negative number
-    """
-
-
-class MinimumLeaf10(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf10"),
-    ]
-    """
-    Indicates the minimum total power received on the optical channel
-    """
-
-
-class MinimumLeaf11(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf11"),
-    ]
-    """
-    Indicates the minimum Polarization Dependent Loss received on the optical channel
-    """
-
-
-class MinimumLeaf12(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf12"),
-    ]
-    """
-    Indicates the minimum SOP-ROC received on the optical channel
-    """
-
-
-class MinimumLeaf13(RootModel[Gauge64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Gauge64Type, Field(title="MinimumLeaf13")]
-    """
-    Indicates the minimum Media Frame Rate Error Count received on the optical channel
-    """
-
-
-class MinimumLeaf14(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf14"),
-    ]
-    """
-    Minimum power transmitted on the optical channel
-    """
-
-
-class MinimumLeaf15(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf15"),
-    ]
-    """
-    Minimum configurable transmit power for the equipped optical module
-    """
-
-
-class MinimumLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf2"),
-    ]
-    """
-    Minimum BER received on the optical channel
-    """
-
-
-class MinimumLeaf3(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf3"),
-    ]
-    """
-    Minimum SNR received on the optical channel
-    """
-
-
-class MinimumLeaf4(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf4"),
-    ]
-    """
-    Minimum SNR received on the optical channel
-    """
-
-
-class MinimumLeaf5(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="MinimumLeaf5")]
-    """
-    Minimum chromatic dispersion received on the optical channel
-    """
-
-
-class MinimumLeaf6(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf6"),
-    ]
-    """
-    Minimum differential group delay received on the optical channel
-    """
-
-
-class MinimumLeaf7(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2147483648, le=2147483647, title="MinimumLeaf7")]
-    """
-    Minimum frequency offset received on the optical channel
-    """
-
-
-class MinimumLeaf8(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf8"),
-    ]
-    """
-    Minimum quality received on the optical channel
-    """
-
-
-class MinimumLeaf9(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(ge=-9.223372036854776e18, le=9.223372036854776e18, title="MinimumLeaf9"),
-    ]
-    """
-    Minimum power received on the optical channel
-    """
-
-
-class MinorRevisionLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Minor-revisionLeaf")]
-    """
-    Minor revision number
-    """
-
-
-class ModelNumberLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Model-numberLeaf")]
-    """
-    Model information for the adapter
-
-    This is the information as read from the EEPROM of the part.  The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
-    """
-
-
-class MplsMtuLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1284, le=9496, title="Mpls-mtuLeaf")]
-    """
-    MPLS MTU of the subinterface in bytes, including the transmitted label stack.
-
-    MPLS MTU specifies the maximum sized MPLS packet that can be transmitted on the subinterface. If an MPLS packet containing any payload exceeds this size then it is dropped. If the payload of the dropped packet is IPv4 or IPv6 then this may also result in the generation of an ICMP error message that is either tunneled or sent back to the source.
-
-    The default MPLS MTU for a subinterface is taken from /system/mtu/default-mpls-mtu.
-
-    The MPLS MTU is not configurable for subinterfaces of loopback interfaces.
-
-    The 7730 SXR systems support a maximum MPLS MTU of 9404 bytes.
-
-    Each 7250 IXR IMM supports a maximum of 4 different MPLS MTU values.
-    """
-
-
-class MstInstanceLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295, title="Mst-instanceLeaf")]
-    """
-    Name of the subinterface bound to this mstp-policy
-    """
-
-
-class MtuLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1450, le=9500, title="MtuLeaf")]
-    """
-    Port MTU in bytes including ethernet overhead but excluding 4-bytes FCS
-
-    If a transmitted packet exceeds this size it is dropped.
-    The default value for ethernet-x interfaces is taken from /system/mtu/default-port-mtu. For the mgmt0 and mgmt0-standby interfaces the default is 1514 bytes, but the value can be changed for each interface individually.
-    Port MTU is not configurable for loopback interfaces or irb interfaces. For irb interfaces, if the size of the ip packets to be routed to a mac-vrf has to be restricted, the subinterface.ip-mtu should be configured instead.
-    The max mtu for the mgmt0 and mgmt0-standby interfaces is 9216.
-    The 7220 IXR-D1, 7220 IXR-D2, 7220 IXR-D3, 7220 IXR-D4, 7220 IXR-D5, 7220 IXR-H2, 7220 IXR-H3, and 7220 IXR-H4 systems support a maximum port MTU of 9412 bytes and minimum of 1500 bytes.
-    The 7730 SXR systems support a maximum port MTU of 9408 bytes and minimum of 1500 bytes.
-    All other systems support a maximum port MTU of 9500 and minimum of 1500 bytes.
-    Each 7250 IXR IMM supports a maximum of 8 different port MTU values. 7220 IXR systems do not have any limit on the maximum number of different port MTU values.
-    """
-
-
-class MulticastRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=132000000, title="Multicast-rateLeaf")]
-    """
-    The maximum rate allowed for ingress multicast frames on the interface
-
-    The rate can be set in multiple of 64kbps. If the rate is configured to any value
-    in the 1-127 kbps range, the effective rate will be 64kbps and shown in the
-    operational rate. If any value in the 128-191 range, the effective rate will be
-    128kbps and shown in the operational rate, and so on for higher rates. When the
-    rate is set to zero, all the multicast traffic in the interface is discarded.
-
-    The maximum rate that can be effectively configured in 7220 D4/D5 platforms is
-    132000000. When a configured percentage exceeds that value, the maximum supported
-    rate is set and shown in the operational-multicast-rate.
-    """
-
-
-class MultiplierLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="MultiplierLeaf")]
-    """
-    Signal-degrade multiplier
-    """
-
-
-class MultiplierLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="MultiplierLeaf2")]
-    """
-    Signal-failure multiplier
-    """
-
-
-class MultiplierLeaf3(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="MultiplierLeaf3")]
-    """
-    Signal-degrade multiplier
-    """
-
-
-class MultiplierLeaf4(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=9, title="MultiplierLeaf4")]
-    """
-    Signal-failure multiplier
-    """
-
-
-class NameLeaf3(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="NameLeaf3")]
-    """
-    The system assigned name of the subinterface.
-
-    It is formed by taking the base interface name and appending a dot (.) and the subinterface index number. For example, ethernet-2/1.0
-    """
-
-
-class NameType(RootModel[AlphanumericType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: AlphanumericType
-    """
-    A user provided name
-    """
-
-
-class NumPhysicalChannelsLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=8, title="Num-physical-channelsLeaf")]
-    """
-    Sets the number of lanes or physical channels assigned to this interface or to the set of interfaces within this breakout group
-
-    This leaf can be used to distinguish between transceivers that provide the same port-speed or breakout-configuration but using different PMAs.
-    For example, if a port supports two transceivers providing 100G optical signal but one uses CAUI4 and the other uses 100GAUI-2, then this leaf
-    can be set to 4 for the CAUI4 transceiver and 2 for the 100GAUI-2 transceiver.
-    Similarly, a transceiver that provides a breakout of 4 ports of 100G using 4 x 100GAUI2 would set this leaf to 8 but a transceiver using 4 x 100GAUI-1 would have this leaf set to 4.
-
-    If not set, then the default shall be as follows:
-       1 is used for 10G, 25G
-       2 is used for 50G
-       4 is used for 40G, 100G, 2x50G, 1x100G, 4x10G, 4x25G
-       6 is used for 3x100G (digital coherent optics)
-       8 is used for 200G, 400G, 800G, 2x100G, 4x100G, 8x50G
-    """
-
-
-class OnLinkFlagLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="On-link-flagLeaf")]
-    """
-    When this is set in the prefix information option hosts can use the prefix for on-link determination.
-    """
-
-
-class OperIntervalLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Oper-intervalLeaf")]
-    """
-    The operational advertisement interval between VRRP messages
-    """
-
-
-class OperIntervalLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Oper-intervalLeaf2")]
-    """
-    The operational advertisement interval between VRRP messages
-    """
-
-
-class OperKeyLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Oper-keyLeaf")]
-    """
-    Current operational value of the key for the aggregate
-    interface
-    """
-
-
-class OperationalBroadcastRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=4294967295, title="Operational-broadcast-rateLeaf")
-    ]
-    """
-    The operational maximum rate for ingress broadcast frames programmed on the interface
-    """
-
-
-class OperationalMulticastRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=4294967295, title="Operational-multicast-rateLeaf")
-    ]
-    """
-    The operational maximum rate for ingress multicast frames programmed on the interface
-    """
-
-
-class OperationalPriorityLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Operational-priorityLeaf")]
-    """
-    Reports the current VRRP operational priority.
-    """
-
-
-class OperationalPriorityLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Operational-priorityLeaf2")]
-    """
-    Reports the current VRRP operational priority.
-    """
-
-
-class OperationalUnknownUnicastRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=4294967295, title="Operational-unknown-unicast-rateLeaf")
-    ]
-    """
-    The operational maximum rate for ingress unknown unicast frames programmed on the interface
-    """
-
-
-class OpticalDwdmFrequencyType(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=191100000, le=196150000)]
-    """
-    Specifies the frequency of a tuneable DWDM optical interface
+    This is the interface name that can be used to look at this interface within Linux.
 
-    Note that tunable DWDM optical interfaces operate at specific frequencies on grids. Traditionally, these have used the 100 GHz or 50 GHz grid but newer interfaces can support other grids such as 75 GHz, 33 GHz, 25 GHz, 12.5 GHz, 6.25 GHz and 3.125 GHz.  In addition, some interfaces allow for fine tuning of the frequency to values off grid.
+    If not specified it is auto-derived by the system.
     """
 
 
@@ -2637,218 +127,55 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
-    )
-    current: Annotated[
-        CurrentLeaf3, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf3, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf4, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf5, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class OtherConfigurationFlagLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Other-configuration-flagLeaf")]
-    """
-    When this is set the O-bit is set in the router advertisement messages, indicating that hosts should use DHCPv6 to obtain other configuration information (besides addresses).
-    """
-
-
-class OutBpsLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=18446744073709551615, title="Out-bpsLeaf")]
-    """
-    The egress bandwidth utilization of the port
-    """
-
-
-class OuterTpidLeaf(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="Outer-tpidLeaf")]
-    """
-    Optionally override the outer tag protocol identifier field (TPID)
-
-    The configured tpid is used by the action configured by 'vlan-stack-action'
-    when modifying the VLAN stack.
-    """
-
-
-class OuterTpidLeaf2(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="Outer-tpidLeaf2")]
-    """
-    Optionally override the outer tag protocol identifier field (TPID)
-
-    The configured tpid is used by the action configured by 'vlan-stack-action'
-    when modifying the VLAN stack.
-    """
-
-
-class OwnerLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="OwnerLeaf")]
-    """
-    VRRP instance is owner or not
-    """
-
-
-class OwnerLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="OwnerLeaf2")]
-    """
-    VRRP instance is owner or not
-    """
-
-
-class PacketLinkQualificationIdType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        str,
+    current: Annotated[
+        Optional[float],
         Field(
-            pattern="^(?=^[<>A-Za-z0-9!@#$%^&()|+=`~.,'/_:;?-][<>A-Za-z0-9 !@#$%^&()|+=`~.,'/_:;?-]*$).*$"
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf3",
         ),
-    ]
+    ] = None
     """
-    Packet link qualification test ID
+    Current SNR received on the optical channel
     """
-
-
-class PacketsDroppedLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=18446744073709551615, title="Packets-droppedLeaf")
-    ]
+    average: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf3",
+        ),
+    ] = None
     """
-    Number of packets dropped
+    Average SNR received on the optical channel
     """
-
-
-class PacketsErrorLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=18446744073709551615, title="Packets-errorLeaf")
-    ]
+    minimum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf4",
+        ),
+    ] = None
     """
-    Number of packets transmitted that experienced corruption
+    Minimum SNR received on the optical channel
     """
-
-
-class PacketsReceivedLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=18446744073709551615, title="Packets-receivedLeaf")
-    ]
+    maximum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf5",
+        ),
+    ] = None
     """
-    Number of packets received
-    """
-
-
-class PacketsSentLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=18446744073709551615, title="Packets-sentLeaf")]
-    """
-    Number of packets sent
-    """
-
-
-class ParentIdLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=18446744073709551615, title="Parent-idLeaf")]
-    """
-    The numeric ID used by the controller to address the ASIC this interface resides on
-
-    This is the ID configured at /platform/linecard/forwarding-complex/p4rt/id.
-
-    This ID may be referred to as a 'device', 'node' or 'target' by the P4RT
-    specification.
-
-    Each switching ASIC (i.e., node) is addressed by the external entity
-    based on its numeric identifier.
-    """
-
-
-class PartnerIdLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="Partner-idLeaf")]
-    """
-    MAC address representing the protocol partner's interface
-    system ID
-    """
-
-
-class PartnerKeyLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Partner-keyLeaf")]
-    """
-    Operational value of the protocol partner's key
-    """
-
-
-class PartnerPortNumLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Partner-port-numLeaf")]
-    """
-    Port number of the partner (remote) port for this member
-    port
-    """
-
-
-class PhyGroupMembersLeafList(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Phy-group-membersLeafList")]
-    """
-    The group of interfaces sharing a phy with this interface
-
-    On the 7220 IXR-D2 and 7220 IXR-D2L platforms this group of interfaces must be set to the same speed, either 1/10G or 25G.
-    """
-
-
-class PhysicalChannelLeafList(RootModel[IndexLeaf]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[IndexLeaf, Field(title="Physical-channelLeafList")]
-    """
-    The list of transceiver channels associated with this port
+    Maximum SNR received on the optical channel
     """
 
 
@@ -2859,28 +186,55 @@ class PolarizationDependentLossContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     current: Annotated[
-        CurrentLeaf10, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf10, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf11, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf12, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class PortNumLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Port-numLeaf")]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf10",
+        ),
+    ] = None
     """
-    Port number of the local (actor) aggregation member
+    Indicates the current Polarization Dependent Loss received on the optical channel
+    """
+    average: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf10",
+        ),
+    ] = None
+    """
+    Indicates the average Polarization Dependent Loss received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf11",
+        ),
+    ] = None
+    """
+    Indicates the minimum Polarization Dependent Loss received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf12",
+        ),
+    ] = None
+    """
+    Indicates the maximum Polarization Dependent Loss received on the optical channel
     """
 
 
@@ -2891,19 +245,56 @@ class PowerContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     current: Annotated[
-        CurrentLeaf8, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf8",
+        ),
+    ] = None
+    """
+    Current power received on the optical channel
+    """
     average: Annotated[
-        AverageLeaf8, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf8",
+        ),
+    ] = None
+    """
+    Average power received on the optical channel
+    """
     minimum: Annotated[
-        MinimumLeaf9, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf9",
+        ),
+    ] = None
+    """
+    Minimum power received on the optical channel
+    """
     maximum: Annotated[
-        MaximumLeaf10, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf10",
+        ),
+    ] = None
+    """
+    Maximum power received on the optical channel
+    """
 
 
 class PowerContainer2(BaseModel):
@@ -2913,74 +304,62 @@ class PowerContainer2(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     current: Annotated[
-        CurrentLeaf13, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf13",
+        ),
+    ] = None
+    """
+    Current power transmitted on the optical channel
+    """
     average: Annotated[
-        AverageLeaf13, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf13",
+        ),
+    ] = None
+    """
+    Average power transmitted on the optical channel
+    """
     minimum: Annotated[
-        MinimumLeaf14, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf14",
+        ),
+    ] = None
+    """
+    Minimum power transmitted on the optical channel
+    """
     maximum: Annotated[
-        MaximumLeaf15, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class PreemptDelayLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=65535, title="Preempt-delayLeaf")]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf15",
+        ),
+    ] = None
     """
-    Delay in seconds before a router preempts an existing
-    master router, only applicable if preempt is enabled
-    """
-
-
-class PreemptDelayLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=65535, title="Preempt-delayLeaf2")]
-    """
-    Delay in seconds before a router preempts an existing
-    master router, only applicable if preempt is enabled
-    """
-
-
-class PreemptLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="PreemptLeaf")]
-    """
-    Enable VRRP master pre-emption.
-    If enabled, router with higher priority can assume
-    master role.
-    If disabled, router can only become master if no
-    other master is present
-    """
-
-
-class PreemptLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="PreemptLeaf2")]
-    """
-    Enable VRRP master pre-emption.
-    If enabled, router with higher priority can assume
-    master role.
-    If disabled, router can only become master if no
-    other master is present
+    Maximum power transmitted on the optical channel
     """
 
 
 class PreferredLifetimeLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     root: Annotated[int, Field(ge=0, le=4294967295, title="Preferred-lifetimeLeaf")]
     """
@@ -2997,6 +376,7 @@ class PrimaryLeaf(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
 
 
@@ -3009,145 +389,26 @@ class PrimaryLeaf2(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-
-
-class PriorityDecrementLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Priority-decrementLeaf")]
-    """
-    For each tracked interface that is down then the priority
-    is decremented by the specific amount to a minimum value of 0
-    """
-
-
-class PriorityDecrementLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Priority-decrementLeaf2")]
-    """
-    For each tracked interface that is down then the priority
-    is decremented by the specific amount to a minimum value of 0
-    """
-
-
-class PriorityLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=254, title="PriorityLeaf")]
-    """
-    Base VRRP Priority for associated Virtual Address
-    """
-
-
-class PriorityLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=254, title="PriorityLeaf2")]
-    """
-    Base VRRP Priority for associated Virtual Address
-    """
-
-
-class ProbeIntervalLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=86400, title="Probe-intervalLeaf")]
-    """
-    Configure the ARP probe interval at which the system sends an ARP request for the
-    virtual IPv4 address.
-
-    The default value of zero determines that the system sends an ARP Request for the
-    virtual IPv4 only when the address is configured. The creation of the ARP entry for
-    the virtual IPv4 address will in this case rely on the server sending a Gratuitous ARP
-    for the virtual IPv4 address. When the value is set to a non-zero interval, the system
-    sends a periodic ARP Request at the configured interval and irrespective of the ARP entry
-    being already created.
-    """
-
-
-class ProbeIntervalLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=86400, title="Probe-intervalLeaf2")]
-    """
-    Configure the probe interval at which the system sends a Neighbor Solicitation (NS) for
-    the virtual IPv6 address.
-
-    The default value of zero determines that the system sends a NS for the
-    virtual IPv6 only when the address is configured. The creation of the Neighbor entry for
-    the virtual IPv6 address will in this case rely on the server sending an unsolicited
-    Neighbor Advertisement for the virtual IPv6 address. When the value is set to a non-zero interval, the system
-    sends a periodic NS at the configured interval and irrespective of the Neighbor entry
-    being already created.
-    """
-
-
-class ProxyArpLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Proxy-arpLeaf")]
-    """
-    When set to true, the router replies with its own MAC to ARP Request destined to any host.
-    """
-
-
-class ProxyNdLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Proxy-ndLeaf")]
-    """
-    When set to true, the router replies with its own MAC to Neighbor Solicitations destined to any host.
-    """
-
-
-class PtpAsymmetryLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=-2147483648, le=2147483647, title="Ptp-asymmetryLeaf")
-    ]
-    """
-    This command configures the PTP asymmetry delay on the Ethernet port
-
-    This command is used to correct known asymmetry as part of time of day or phase
-    recovery using PTP packets on both local and downstream PTP clocks.
-    """
 
 
 class PtpTimestampingContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     disable_ip_timestamping: Annotated[
-        DisableIpTimestampingLeaf,
-        Field(None, alias="srl_nokia-interfaces:disable-ip-timestamping"),
-    ]
-
-
-class QualificationRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        int, Field(ge=0, le=18446744073709551615, title="Qualification-rateLeaf")
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:disable-ip-timestamping",
+            title="Disable-ip-timestampingLeaf",
+        ),
+    ] = None
     """
-    Observed rate of the test
+    Disables timestamping of PTP over IP messages on this port
 
-    This is the computed or
-    observed rate that the service expected to be maintained
-    throughout the qualification duration.
+    For platforms supporting PTP functionality, any transiting PTP over IP packets are timestamped in hardware by default, regardless of whether PTP is enabled on the system. To avoid unwanted correction-field updates of PTP transit packets on ports (ports involved in PTP packet transit only), this command can be used to disabled the timestmaping.
     """
 
 
@@ -3158,288 +419,55 @@ class QualityContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
-    )
-    current: Annotated[
-        CurrentLeaf7, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf7, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf8, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf9, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class QuietPeriodLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=3600, title="Quiet-periodLeaf")]
-    """
-    Time to wait after a failed session when no EAPoL frames are processed
-    """
-
-
-class RadiusPolicyLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Radius-policyLeaf")]
-    """
-    RADIUS policy used for 802.1x authentication
-    """
-
-
-class RangeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295, title="RangeLeaf")]
-    """
-    The positive or negative offset that can be applied when using frequency fine tuning
-
-    The offset is from a frequency of one of the grids supported by the equipped optical module.
-    """
-
-
-class ReachableTimeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=30, le=3600, title="Reachable-timeLeaf")]
-    """
-    The period of time that a dynamic IPv6 neighbor cache entry is considered reachable after a reachability confirmation event
-
-    After this time expires the neighbor state moves to STALE.
-    """
-
-
-class ReachableTimeLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=3600000, title="Reachable-timeLeaf2")]
-    """
-    The time, in milliseconds, that is advertised as the reachable time in RA messages and that hosts use for the ICMPv6 Neighbor Unreachability Detection algorithm. A value of zero means unspecified by this router.
-    """
-
-
-class ReauthenticateIntervalLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Reauthenticate-intervalLeaf")]
-    """
-    Enable periodic re-authentication of the device connected to this port
-
-    Send out a identity request once every unit seconds.
-    Setting a value of 0 disables re-authentication on this port.
-    """
-
-
-class ReceiveLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="ReceiveLeaf")]
-    """
-    When this is true PAUSE frames received on this interface are accepted and processed, and, if auto-negotiation is enabled it also causes the capability to receive PAUSE frames to be signaled to the peer (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports).
-
-    When this is false PAUSE frames received on this interface are ignored, and, if auto-negotiation is enabled it causes the capability to receive PAUSE frames to be signaled to the peer as non-support (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports)
-    """
-
-
-class ReloadDelayLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=86400, title="Reload-delayLeaf")]
-    """
-    Configure reload-delay timer for Ethernet interfaces.
-
-    The reload-delay timer starts when the associated XDP interface state is learned. While the timer is
-    running, the interface transceiver laser is disabled to avoid attracting traffic from the connected
-    device at the other end of the interface. The reload-delay timer should be used in multi-homing
-    interfaces and be set to a value long enough to allow the system to recover all the network protocols
-    upon reboot, before start attracting traffic from the multi-homed device.
-    """
-
-
-class ResolutionLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4294967295, title="ResolutionLeaf")]
-    """
-    The resolution that can be used for frequency fine tuning.
-    """
-
-
-class RestrictedNameType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        str,
+    current: Annotated[
+        Optional[float],
         Field(
-            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$"
-        ),
-    ]
-    """
-    A simple, one-line string that does not contain any control characters, and is Linux-safe.
-    """
-
-
-class RetransmitIntervalLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Retransmit-intervalLeaf")]
-    """
-    How long the interface waits for a response before restarting authentication
-
-    How long the interface waits for a response from an EAPoL Start before restarting 802.1X authentication on the port.
-    """
-
-
-class RetransmitTimeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=1800000, title="Retransmit-timeLeaf")]
-    """
-    The time, in milliseconds, that is advertised as the retrans-timer in RA messages and that hosts use for address resolution and the Neighbor Unreachability Detection algorithm. It represents the time between retransmitted NS messages. A value of zero means unspecified by this router.
-    """
-
-
-class ReuseThresholdLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=20000, title="Reuse-thresholdLeaf")]
-    """
-    Threshold which port-up state is no longer suppressed
-    """
-
-
-class RouterLifetimeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=9000, title="Router-lifetimeLeaf")]
-    """
-    The lifetime in seconds that is advertised as the router lifetime in RA messages. This indicates the time period for which the advertising router can be used as a default router/gateway. A value of 0 means the router should not be used as a default gateway.
-    """
-
-
-class RxElectricalSnrXPolarizationLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(
+            alias="srl_nokia-interfaces-dco:current",
             ge=-9.223372036854776e18,
             le=9.223372036854776e18,
-            title="Rx-electrical-snr-x-polarizationLeaf",
+            title="CurrentLeaf7",
         ),
-    ]
+    ] = None
     """
-    Indicates the network received electrical SNR (Signal-to-Noise Ratio) of X polarization.
+    Current quality received on the optical channel
     """
-
-
-class RxElectricalSnrYPolarizationLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
+    average: Annotated[
+        Optional[float],
         Field(
+            alias="srl_nokia-interfaces-dco:average",
             ge=-9.223372036854776e18,
             le=9.223372036854776e18,
-            title="Rx-electrical-snr-y-polarizationLeaf",
+            title="AverageLeaf7",
         ),
-    ]
+    ] = None
     """
-    Indicates the network received electrical SNR (Signal-to-Noise Ratio) of Y polarization.
+    Average quality received on the optical channel
     """
-
-
-class RxLosThreshLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-3000, le=-1300, title="Rx-los-threshLeaf")]
-    """
-    Average input power LOS threshold
-    """
-
-
-class RxOpticalSnrXPolarizationLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
+    minimum: Annotated[
+        Optional[float],
         Field(
+            alias="srl_nokia-interfaces-dco:minimum",
             ge=-9.223372036854776e18,
             le=9.223372036854776e18,
-            title="Rx-optical-snr-x-polarizationLeaf",
+            title="MinimumLeaf8",
         ),
-    ]
+    ] = None
     """
-    Indicates the network received estimated optical SNR (Signal-to-Noise Ratio) of X polarization.
+    Minimum quality received on the optical channel
     """
-
-
-class RxOpticalSnrYPolarizationLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
+    maximum: Annotated[
+        Optional[float],
         Field(
+            alias="srl_nokia-interfaces-dco:maximum",
             ge=-9.223372036854776e18,
             le=9.223372036854776e18,
-            title="Rx-optical-snr-y-polarizationLeaf",
+            title="MaximumLeaf9",
         ),
-    ]
+    ] = None
     """
-    Indicates the network received estimated optical SNR (Signal-to-Noise Ratio) of Y polarization.
-    """
-
-
-class RxQualityMarginLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
-            title="Rx-quality-marginLeaf",
-        ),
-    ]
-    """
-    Indicates the received quality margin.
-    """
-
-
-class SerialNumberLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Serial-numberLeaf")]
-    """
-    Transceiver serial number
-
-    This is the information as read from the EEPROM of the part.
+    Maximum quality received on the optical channel
     """
 
 
@@ -3450,11 +478,24 @@ class SignalDegradeContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    exponent: Annotated[ExponentLeaf, Field(5, alias="srl_nokia-interfaces:exponent")]
+    exponent: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:exponent", ge=1, le=9, title="ExponentLeaf"),
+    ] = 5
+    """
+    Signal-degrade exponent
+    """
     multiplier: Annotated[
-        MultiplierLeaf, Field(1, alias="srl_nokia-interfaces:multiplier")
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:multiplier", ge=1, le=9, title="MultiplierLeaf"
+        ),
+    ] = 1
+    """
+    Signal-degrade multiplier
+    """
 
 
 class SignalDegradeContainer2(BaseModel):
@@ -3464,11 +505,24 @@ class SignalDegradeContainer2(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    exponent: Annotated[ExponentLeaf3, Field(5, alias="srl_nokia-interfaces:exponent")]
+    exponent: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:exponent", ge=1, le=9, title="ExponentLeaf3"),
+    ] = 5
+    """
+    Signal-degrade exponent
+    """
     multiplier: Annotated[
-        MultiplierLeaf3, Field(1, alias="srl_nokia-interfaces:multiplier")
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:multiplier", ge=1, le=9, title="MultiplierLeaf3"
+        ),
+    ] = 1
+    """
+    Signal-degrade multiplier
+    """
 
 
 class SignalFailureContainer(BaseModel):
@@ -3478,11 +532,24 @@ class SignalFailureContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    exponent: Annotated[ExponentLeaf2, Field(5, alias="srl_nokia-interfaces:exponent")]
+    exponent: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:exponent", ge=1, le=9, title="ExponentLeaf2"),
+    ] = 5
+    """
+    Signal-failure exponent
+    """
     multiplier: Annotated[
-        MultiplierLeaf2, Field(1, alias="srl_nokia-interfaces:multiplier")
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:multiplier", ge=1, le=9, title="MultiplierLeaf2"
+        ),
+    ] = 1
+    """
+    Signal-failure multiplier
+    """
 
 
 class SignalFailureContainer2(BaseModel):
@@ -3492,113 +559,23 @@ class SignalFailureContainer2(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    exponent: Annotated[ExponentLeaf4, Field(5, alias="srl_nokia-interfaces:exponent")]
+    exponent: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:exponent", ge=1, le=9, title="ExponentLeaf4"),
+    ] = 5
+    """
+    Signal-failure exponent
+    """
     multiplier: Annotated[
-        MultiplierLeaf4, Field(1, alias="srl_nokia-interfaces:multiplier")
-    ]
-
-
-class SingleTaggedLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Single-taggedLeaf")]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:multiplier", ge=1, le=9, title="MultiplierLeaf4"
+        ),
+    ] = 1
     """
-    tunnel single tagged dot1x PDUs through the interface
-    """
-
-
-class SlotLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=16)]
-    """
-    Numeric identifier for the linecard
-    """
-
-
-class SocketCpusLeafList(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Socket-cpusLeafList")]
-    """
-    List of CPUs present on the socket this interface is attached to
-    """
-
-
-class SocketCpusLeafList2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="Socket-cpusLeafList2")]
-    """
-    List of CPUs present on the socket this interface is attached to
-    """
-
-
-class SocketIdLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Socket-idLeaf")]
-    """
-    Socket this interface is physically or logically attached to
-
-    This field is not populated for interfaces that have no socket preference - e.g. veth, tap.
-    """
-
-
-class SocketIdLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=255, title="Socket-idLeaf2")]
-    """
-    Socket this interface is physically or logically attached to
-
-    This field is not populated for interfaces that have no socket preference - e.g. veth, tap.
-    """
-
-
-class SquelchLevelsLeaf(RootModel[MdLevelsOrderedTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MdLevelsOrderedTypeType, Field(title="Squelch-levelsLeaf")]
-    """
-    Contiguous ETH-CFM Maintenance Domain levels silently discarded at ingress, matching subinterface and level
-
-    ETH-CFM packets ingressing a subinterface that match the definition of the subinterface and have an ETH-CFM level
-    that is part of the squelching configuration will be silently discarded without processing. The lookup is an exact
-    match of the subinterface followed immediately by the ETH-CFM etype 0x8902 and a level equal to any configured squelch
-    values.  The lookup for the ETH-CFM level cannot exceed a total of two VLAN tags.  Ingress squelching will occur
-    prior to any ingress ETH-CFM MP processing.  For example, if a down MEP exists on the subinterface with a level
-    covered by the configured squelch levels the packet will be dropped before the packet it reaches the down MEP.
-    """
-
-
-class StaleTimeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=60, le=65535, title="Stale-timeLeaf")]
-    """
-    The maximum time that a dynamic IPv6 neighbor cache entry can remain in the STALE state before it is removed
-
-    This limit is reached only if no traffic is sent/queued towards the neighbor during the entire duration of the timer.
-    """
-
-
-class StartLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-50000, le=50000, title="StartLeaf")]
-    """
-    Lower bound of the dispersion compensation range
+    Signal-failure multiplier
     """
 
 
@@ -3609,136 +586,66 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     current: Annotated[
-        CurrentLeaf11, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf11",
+        ),
+    ] = None
+    """
+    Indicates the current SOP-ROC received on the optical channel
+    """
     average: Annotated[
-        AverageLeaf11, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf11",
+        ),
+    ] = None
+    """
+    Indicates the average SOP-ROC received on the optical channel
+    """
     minimum: Annotated[
-        MinimumLeaf12, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf12",
+        ),
+    ] = None
+    """
+    Indicates the minimum SOP-ROC received on the optical channel
+    """
     maximum: Annotated[
-        MaximumLeaf13, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class StateLeaf(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="StateLeaf")]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf13",
+        ),
+    ] = None
     """
-    Virtual Router state (Initialize, Backup, Master)
-    """
-
-
-class StateLeaf2(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="StateLeaf2")]
-    """
-    Virtual Router state (Initialize, Backup, Master)
+    Indicates the maximum SOP-ROC received on the optical channel
     """
 
 
 class StaticDelayLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     root: Annotated[int, Field(ge=1, le=16777215, title="Static-delayLeaf")]
     """
     A statically configured unidirectional delay value that can be advertised as an interface attribute by an IGP
-    """
-
-
-class StatusMessageLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Status-messageLeaf")]
-    """
-    Status message of the test
-
-    Only set when the test is in the error state.
-    """
-
-
-class StpPathCostTypeType(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=65535)]
-    """
-    The interface path-cost is used by STP to calculate the path cost
-    to the root bridge. STP defined this as a function of link bandwidth
-    but this configuration is static.
-    """
-
-
-class StpPortNumberTypeType(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=2047)]
-    """
-    The virtual port number uniquely identifies subinterface within
-    configuration BPDUs. The internal representation is unique to a system
-    and has a reference space much bigger than the 12 bits definable in a
-    configuration BPDU. STP takes the internal representation value and
-    identifies it with its own virtual port number that is unique to every
-    other subinterface defined on the Mac-Vrf. The virtual port number is
-    assigned at the time that the subinterface is added to the Mac-Vrf.
-    The virtual port number can be specified explicitly
-
-    Default port number : 0 - System generated
-    Range 1 to 2047  
-    """
-
-
-class StpPortPriorityTypeType(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=16, le=255)]
-    """
-    The port-priority command is used to populate the priority portion
-    of the bridge ID field within outbound BPDUs (the most significant 4
-    bits of the bridge ID). It is also used as part of the decision process
-    when determining the best BPDU between messages received and sent.
-    When running MSTP, this is the bridge priority used for the CIST.
-
-    All values are truncated to multiples of 4096, conforming with
-    IEEE 802.1t and 802.1D-2004.
-    """
-
-
-class SubinterfaceNameType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: str
-
-
-class SupplicantTimeoutLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=300, title="Supplicant-timeoutLeaf")]
-    """
-    Time to wait for a response from the supplicant before restarting the authentication process
-    """
-
-
-class SuppressThresholdLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=20000, title="Suppress-thresholdLeaf")]
-    """
-    Threshold at which the port-up state is suppressed
     """
 
 
@@ -3749,77 +656,28 @@ class SweepContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    start: Annotated[StartLeaf, Field(-25500, alias="srl_nokia-interfaces-dco:start")]
-    end: Annotated[EndLeaf, Field(2000, alias="srl_nokia-interfaces-dco:end")]
-
-
-class SystemIdMacLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="System-id-macLeaf")]
+    start: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:start",
+            ge=-50000,
+            le=50000,
+            title="StartLeaf",
+        ),
+    ] = -25500
     """
-    The MAC address portion of the node's System ID. This is
-    combined with the system priority to construct the 8-octet
-    system-id.
-    If not configured, the system-ID configured at the system/ level is used.
+    Lower bound of the dispersion compensation range
     """
-
-
-class SystemIdLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="System-idLeaf")]
+    end: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:end", ge=-50000, le=50000, title="EndLeaf"
+        ),
+    ] = 2000
     """
-    MAC address that defines the local system ID for the
-    aggregate interface
-    """
-
-
-class SystemPriorityLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=65535, title="System-priorityLeaf")]
-    """
-    System priority used by the node on this LAG interface.
-    Lower value is higher priority for determining which node
-    is the controlling system.
-    If not configured, the system-priority configured at the system/ level is used.
-    """
-
-
-class TargetPowerLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-2000, le=300, title="Target-powerLeaf")]
-    """
-    Average output power target for the port
-    """
-
-
-class TemperatureType(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=-32768, le=32767)]
-    """
-    Integer indicating a temperature, displayed as degrees celsius
-    """
-
-
-class TimeoutLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=60, le=65535, title="TimeoutLeaf")]
-    """
-    Duration of time that dynamic ARP entries remain in the ARP cache before they expire
-
-    A change to this value does not affect existing entries until they are refreshed.
+    Upper bound of the dispersion compensation range
     """
 
 
@@ -3830,31 +688,55 @@ class TotalPowerContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     current: Annotated[
-        CurrentLeaf9, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf9, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf10, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf11, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class TpidLeaf(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="TpidLeaf")]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf9",
+        ),
+    ] = None
     """
-    Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
-
-    If not set, TPID 0x8100 is the default expected TPID on the interface for tagged
-    frames. The behavior when processing untagged frames is unaffected by this command.
+    Indicates the current total power received on the optical channel
+    """
+    average: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf9",
+        ),
+    ] = None
+    """
+    Indicates the average total power received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf10",
+        ),
+    ] = None
+    """
+    Indicates the minimum total power received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf11",
+        ),
+    ] = None
+    """
+    Indicates the maximum total power received on the optical channel
     """
 
 
@@ -3865,9 +747,32 @@ class TrafficRateContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    in_bps: Annotated[InBpsLeaf, Field(None, alias="srl_nokia-interfaces:in-bps")]
-    out_bps: Annotated[OutBpsLeaf, Field(None, alias="srl_nokia-interfaces:out-bps")]
+    in_bps: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-bps",
+            ge=0,
+            le=18446744073709551615,
+            title="In-bpsLeaf",
+        ),
+    ] = None
+    """
+    The ingress bandwidth utilization of the port
+    """
+    out_bps: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-bps",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-bpsLeaf",
+        ),
+    ] = None
+    """
+    The egress bandwidth utilization of the port
+    """
 
 
 class TransmitPowerContainer(BaseModel):
@@ -3877,24 +782,31 @@ class TransmitPowerContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     minimum: Annotated[
-        MinimumLeaf15, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf16, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class TransmitLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TransmitLeaf")]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf15",
+        ),
+    ] = None
     """
-    Enables/disables the sending of PAUSE frames.
-
-    If auto-negotiation is enabled (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports) PAUSE frames are sent to the peer only if the peer advertised support for PAUSE frames.
+    Minimum configurable transmit power for the equipped optical module
+    """
+    maximum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf16",
+        ),
+    ] = None
+    """
+    Maximum configurable transmit power for the equipped optical module
     """
 
 
@@ -3905,202 +817,11 @@ class TransmittedContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     power: Annotated[
-        PowerContainer2, Field(None, alias="srl_nokia-interfaces-dco:power")
-    ]
-
-
-class TunnelAllL2cpLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Tunnel-all-l2cpLeaf")]
-    """
-    Configures the tunneling of all the L2CP protocols.
-
-    When set to true this command triggers the installation of an ingress TCAM rule with the highest
-    priority (above all the individual L2CP tunnel rules) which allows the forwarding of any
-    Layer-2 Control Protocol coming into the interface. All the L2CP frames identified by
-    MAC DA = 01:80:c2:00:00:0x or MAC DA = 01:80:c2:00:00:2x, with 'x' being any hex value, are
-    tunneled. When set to false, all L2CP frames without a specific L2CP tunnel rule are discarded.
-    """
-
-
-class TunnelAllLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Tunnel-allLeaf")]
-    """
-    tunnel all dot1x PDUs through the interface
-
-    tunnel untagged and tagged dot1x PDUs.
-    """
-
-
-class TunnelLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf")]
-    """
-    Configures if incoming LLDP frames are tunneled.
-
-    LLDP frames are identified by MAC DA 01-80-c2-00-00-00 and Ethertype 0x88cc.
-    """
-
-
-class TunnelLeaf2(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf2")]
-    """
-    Configures if incoming LACP frames are tunneled.
-
-    LACP frames are identified by MAC DA 01-80-c2-00-00-02, Ethertype 0x8809 and slow-protocol
-    sub-type 0x01.
-    """
-
-
-class TunnelLeaf3(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf3")]
-    """
-    Configures if incoming xSTP frames are tunneled.
-
-    xSTP frames are identified by MAC DA 01-80-c2-00-00-00 and any Ethertype.
-    """
-
-
-class TunnelLeaf4(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf4")]
-    """
-    Configures if incoming dot1x frames are tunneled.
-
-    Dot1x frames are identified by MAC DA 01-80-c2-00-00-03 and Ethertype 0x888e.
-    """
-
-
-class TunnelLeaf5(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf5")]
-    """
-    Configures if incoming ptp frames are tunneled.
-
-    ptp frames are identified by MAC DA 01-80-c2-00-00-0e and Ethertype 0x88f7.
-    """
-
-
-class TunnelLeaf6(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf6")]
-    """
-    Configures if incoming esmc frames are tunneled
-
-    ESMC frames are identified by Ethertype 0x8809 and slow protocol subtype 0x0A.
-    """
-
-
-class TunnelLeaf7(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf7")]
-    """
-    Configures if incoming ELMI frames are tunneled
-
-    ELMI frames are identified by MAC DA 01-80-C2-00-00-07 and Ethertype 0x88ee.
-    """
-
-
-class TunnelLeaf8(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="TunnelLeaf8")]
-    """
-    Configures if incoming EFM-OAM frames are tunneled
-
-    EFM-OAM frames are identified by Ethertype 0x8809 and slow protocol subtype 0x03.
-    """
-
-
-class TxFilterEnableLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Tx-filter-enableLeaf")]
-    """
-    Controls transmit filtering
-    """
-
-
-class TxLaserLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Tx-laserLeaf")]
-    """
-    Enable (true) or disable (false) the transmit laser of the transceiver
-
-    When read from state this leaf always returns false (even if the configured value is true) when the Ethernet port is a copper/RJ45 port.
-
-    Default is true (for interfaces that support transceivers).
-    """
-
-
-class TypeLeaf2(RootModel[Any]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Any, Field(title="TypeLeaf2")]
-    """
-    Indicates the context in which the ethernet subinterface will be used
-    """
-
-
-class UnicastMacAddressType(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: MacAddressType
-    """
-    A unicast MAC address.
-
-    The least significant bit of a MAC address first octet
-    is never set. The value 00:00:00:00:00:00 is not valid.
-    """
-
-
-class UnknownUnicastRateLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=132000000, title="Unknown-unicast-rateLeaf")]
-    """
-    The maximum rate allowed for ingress unknown unicast frames on the interface
-
-    The rate can be set in multiple of 64kbps. If the rate is configured to any value
-    in the 1-127 kbps range, the effective rate will be 64kbps and shown in the
-    operational rate. If any value in the 128-191 range, the effective rate will be
-    128kbps and shown in the operational rate, and so on for higher rates. When the
-    rate is set to zero, all the unknown unicast traffic in the interface is discarded.
-
-    The maximum rate that can be effectively configured in 7220 D4/D5 platforms is
-    132000000. When a configured percentage exceeds that value, the maximum supported
-    rate is set and shown in the operational-multicast-rate.
-    """
+        Optional[PowerContainer2], Field(alias="srl_nokia-interfaces-dco:power")
+    ] = None
 
 
 class UntaggedContainer(BaseModel):
@@ -4110,68 +831,14 @@ class UntaggedContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
-    )
-
-
-class UntaggedLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="UntaggedLeaf")]
-    """
-    tunnel untagged dot1x PDUs through the interface
-    """
-
-
-class UpLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=86400000, title="UpLeaf")]
-    """
-    Holds link up events for the configured time
-
-    The hold-time up behavior is triggered with any event that tries to bring up the ethernet interface
-    (interface admin-state enable, a reboot, etc). While the hold-time up is running, the transceiver
-    laser will be enabled, however the higher layers will not be notified that the interface is
-    operationally up until the timer expires.
-    """
-
-
-class UseGiAddrAsSrcIpAddrLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Use-gi-addr-as-src-ip-addrLeaf")]
-    """
-    When this is set, the configured giaddress will be used as source ip address.
-    """
-
-
-class UuidType(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        str,
-        Field(
-            pattern="^(?=^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$).*$"
-        ),
-    ]
-    """
-    A Universally Unique IDentifier in the string representation
-    defined in RFC 4122.  The canonical representation uses
-    lowercase characters.
-
-    The following is an example of a UUID in string representation:
-    f81d4fae-7dec-11d0-a765-00a0c91e6bf6
-    """
 
 
 class ValidLifetimeLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     root: Annotated[int, Field(ge=0, le=4294967295, title="Valid-lifetimeLeaf")]
     """
@@ -4179,248 +846,10 @@ class ValidLifetimeLeaf1(RootModel[int]):
     """
 
 
-class VendorIdLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-idLeaf")]
-    """
-    PCI device vendor ID
-
-    This field is the two byte vendor ID reported over PCI.
-    """
-
-
-class VendorIdLeaf2(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-idLeaf2")]
-    """
-    PCI device vendor ID
-
-    This field is the two byte vendor ID reported over PCI.
-    """
-
-
-class VendorLotNumberLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-lot-numberLeaf")]
-    """
-    Vendor's lot number for the transceiver
-
-    This is the information as read from the EEPROM of the part.
-    """
-
-
-class VendorManufactureDateLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-manufacture-dateLeaf")]
-    """
-    Vendor's date code.
-
-    This is the information as read from the EEPROM of the part.  
-    """
-
-
-class VendorNameLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-nameLeaf")]
-    """
-    PCI device vendor
-    """
-
-
-class VendorNameLeaf2(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-nameLeaf2")]
-    """
-    PCI device vendor
-    """
-
-
-class VendorOuiLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-ouiLeaf")]
-    """
-    Vendor's OUI which contains the IEEE company identifier for the vendor
-
-    This is the information as read from the EEPROM of the part.  A value of all zero indicates that the vendor OUI is unspecified.
-    """
-
-
-class VendorPartNumberLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-part-numberLeaf")]
-    """
-    Vendor's part number or product name of the adapter
-
-    This is the information as read from the EEPROM of the part.  An empty string indicates the vendor part number is unspecified. The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
-    """
-
-
-class VendorPartNumberLeaf2(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-part-numberLeaf2")]
-    """
-    Vendor's part number for the transceiver
-
-    This is the information as read from the EEPROM of the part.
-    """
-
-
-class VendorRevisionLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-revisionLeaf")]
-    """
-    Vendor's revision number for the transceiver
-
-    This is the information as read from the EEPROM of the part.
-    """
-
-
-class VendorSerialNumberLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="Vendor-serial-numberLeaf")]
-    """
-    Vendor's serial number of the adapter
-
-    This is the information as read from the EEPROM of the part.  An empty string indicates the vendor serial number is unspecified. The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
-    """
-
-
-class VendorLeaf(RootModel[str]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[str, Field(title="VendorLeaf")]
-    """
-    Name of the transceiver vendor
-
-    This is the information as read from the EEPROM of the part.
-    """
-
-
-class VersionLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=2, le=3, title="VersionLeaf")]
-    """
-    VRRP version for the Instance
-    """
-
-
-class VersionLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=2, le=3, title="VersionLeaf2")]
-    """
-    VRRP version for the Instance
-    """
-
-
-class VhostSocketPathLeaf(RootModel[LocalFileType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LocalFileType, Field(title="Vhost-socket-pathLeaf")]
-    """
-    Filesystem path to the vhost-user socket
-    """
-
-
-class VhostSocketQueuesLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=1024, title="Vhost-socket-queuesLeaf")]
-    """
-    The number of vhost-user queues
-
-    The number of queues are retrieved from the vhost-user socket if not configured. This should be set equivalent to the number of vCPUs allocated to the other end of the vhost-user interface. This value must not exceed the count of vCPUs provided as the vXDP cpu-set.
-    """
-
-
-class VirtualMacLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="Virtual-macLeaf")]
-    """
-    VRRP Instance generated virtual mac
-    """
-
-
-class VirtualMacLeaf2(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="Virtual-macLeaf2")]
-    """
-    VRRP Instance generated virtual mac
-    """
-
-
-class VirtualRouterIdLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=255, title="Virtual-router-idLeaf")]
-    """
-    VRRP Group Index
-    """
-
-
-class VirtualRouterIdLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=255, title="Virtual-router-idLeaf2")]
-    """
-    VRRP Group Index
-    """
-
-
-class VirtualRouterIdLeaf3(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=255, title="Virtual-router-idLeaf3")]
-    """
-    The Virtual Router Identifier (VRID) value used to auto-derive the anycast-gw-mac in the format 00:00:5E:00:01:VRID.
-    """
-
-
-class VlanIdLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=0, le=4095, title="Vlan-idLeaf2")]
-
-
 class VlanIdType(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     root: Annotated[int, Field(ge=1, le=4094)]
     """
@@ -4435,158 +864,134 @@ class VlanListListEntry(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    vlan_id: Annotated[VlanIdLeaf2, Field(None, alias="srl_nokia-ra_guard:vlan-id")]
-
-
-class VlanTaggingLeaf(RootModel[bool]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[bool, Field(title="Vlan-taggingLeaf")]
-    """
-    When set to true the interface is allowed to accept frames with one or more VLAN tags
-    """
+    vlan_id: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-ra_guard:vlan-id", ge=0, le=4095, title="Vlan-idLeaf2"),
+    ] = None
 
 
 class VoltageContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     latest_value: Annotated[
-        LatestValueLeaf2, Field(None, alias="srl_nokia-interfaces:latest-value")
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces:latest-value",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Latest-valueLeaf2",
+        ),
+    ] = None
+    """
+    The current voltage reading of the transceiver module (in Volts)
+    """
     high_alarm_condition: Annotated[
-        HighAlarmConditionLeaf2,
-        Field(None, alias="srl_nokia-interfaces:high-alarm-condition"),
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:high-alarm-condition",
+            title="High-alarm-conditionLeaf2",
+        ),
+    ] = None
+    """
+    High alarm threshold condition.
+
+    Set to true whenever the module voltage is above the high-alarm-threshold and set to false whenever the module voltage is below the high-alarm-threshold
+    """
     high_alarm_threshold: Annotated[
-        HighAlarmThresholdLeaf2,
-        Field(None, alias="srl_nokia-interfaces:high-alarm-threshold"),
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces:high-alarm-threshold",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="High-alarm-thresholdLeaf2",
+        ),
+    ] = None
+    """
+    High alarm threshold.
+
+    Read from the installed transceiver
+    """
     low_alarm_condition: Annotated[
-        LowAlarmConditionLeaf2,
-        Field(None, alias="srl_nokia-interfaces:low-alarm-condition"),
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:low-alarm-condition",
+            title="Low-alarm-conditionLeaf2",
+        ),
+    ] = None
+    """
+    Low alarm threshold condition.
+
+    Set to true whenever the module voltage is below the low-alarm-threshold and set to false whenever the module voltage is above the low-alarm-threshold
+    """
     low_alarm_threshold: Annotated[
-        LowAlarmThresholdLeaf2,
-        Field(None, alias="srl_nokia-interfaces:low-alarm-threshold"),
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces:low-alarm-threshold",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Low-alarm-thresholdLeaf2",
+        ),
+    ] = None
+    """
+    Low alarm threshold.
+
+    Read from the installed transceiver
+    """
     high_warning_condition: Annotated[
-        HighWarningConditionLeaf2,
-        Field(None, alias="srl_nokia-interfaces:high-warning-condition"),
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:high-warning-condition",
+            title="High-warning-conditionLeaf2",
+        ),
+    ] = None
+    """
+    High warning threshold condition.
+
+    Set to true whenever the module voltage is above the high-warning-threshold and set to false whenever the module voltage is below the high-warning-threshold
+    """
     high_warning_threshold: Annotated[
-        HighWarningThresholdLeaf2,
-        Field(None, alias="srl_nokia-interfaces:high-warning-threshold"),
-    ]
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces:high-warning-threshold",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="High-warning-thresholdLeaf2",
+        ),
+    ] = None
+    """
+    High warning threshold.
+
+    Read from the installed transceiver
+    """
     low_warning_condition: Annotated[
-        LowWarningConditionLeaf2,
-        Field(None, alias="srl_nokia-interfaces:low-warning-condition"),
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:low-warning-condition",
+            title="Low-warning-conditionLeaf2",
+        ),
+    ] = None
+    """
+    Low warning threshold condition.
+
+    Set to true whenever the module voltage is below the low-warning-threshold and set to false whenever the module voltage is above the low-warning-threshold
+    """
     low_warning_threshold: Annotated[
-        LowWarningThresholdLeaf2,
-        Field(None, alias="srl_nokia-interfaces:low-warning-threshold"),
-    ]
-
-
-class WarningThresholdPctLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=1, le=100, title="Warning-threshold-pctLeaf")]
-    """
-    Threshold percentage of the configured maximum number of entries
-
-    When exceeded, an event is triggered.
-    """
-
-
-class WarningThresholdPctLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=6, le=100, title="Warning-threshold-pctLeaf2")]
-    """
-    Percentage of the configured max-number-macs over which a warning is triggered.
-    The warning message is cleared when the percentage drops below the configured
-    percentage minus 5%
-    """
-
-
-class WavelengthLeaf(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
+        Optional[float],
         Field(
-            ge=-9.223372036854776e18, le=9.223372036854776e18, title="WavelengthLeaf"
+            alias="srl_nokia-interfaces:low-warning-threshold",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Low-warning-thresholdLeaf2",
         ),
-    ]
+    ] = None
     """
-    Wavelength of the transmitting laser in nanometers
-    """
+    Low warning threshold .
 
-
-class WavelengthLeaf2(RootModel[float]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        float,
-        Field(
-            ge=-9.223372036854776e18, le=9.223372036854776e18, title="WavelengthLeaf2"
-        ),
-    ]
-    """
-    Wavelength of the transmitting laser in nanometers
-    """
-
-
-class WindowSizeLeaf(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=5, le=60, title="Window-sizeLeaf")]
-    """
-    Sliding window size over which errors are measured
-    """
-
-
-class WindowSizeLeaf2(RootModel[int]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[int, Field(ge=5, le=60, title="Window-sizeLeaf2")]
-    """
-    Sliding window size over which errors are measured
-    """
-
-
-class ZeroBasedCounter64Type(RootModel[Counter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Counter64Type
-    """
-    The zero-based-counter64 type represents a counter64 that
-    has the defined 'initial' value zero.
-
-    A schema node of this type will be set to zero (0) on creation
-    and will thereafter increase monotonically until it reaches
-    a maximum value of 2^64-1 (18446744073709551615 decimal),
-    when it wraps around and starts increasing again from zero.
-
-    Provided that an application discovers a new schema node
-    of this type within the minimum time to wrap, it can use the
-    'initial' value as a delta.  It is important for a management
-    station to be aware of this minimum time and the actual time
-    between polls, and to discard data if the actual time is too
-    long or there is no defined minimum time.
-
-    In the value set and its semantics, this type is equivalent
-    to the ZeroBasedCounter64 textual convention of the SMIv2.
+    Read from the installed transceiver
     """
 
 
@@ -5322,11 +1727,4649 @@ class EnumerationEnum94(Enum):
     client = "client"
 
 
-class ActionLeaf(RootModel[EnumerationEnum71]):
+class BitErrorRateContainer(BaseModel):
+    """
+    Enter the bit-error-rate context
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[EnumerationEnum71, Field(title="ActionLeaf")]
+    current: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf",
+        ),
+    ] = None
+    """
+    Current BER received on the optical channel
+    """
+    average: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf",
+        ),
+    ] = None
+    """
+    Average BER received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf2",
+        ),
+    ] = None
+    """
+    Minimum BER received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf3",
+        ),
+    ] = None
+    """
+    Maximum BER received on the optical channel
+    """
+
+
+class ChannelListEntry(BaseModel):
+    """
+    List of physical channels supported by the transceiver associated with this port
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    index: Annotated[
+        Optional[int], Field(alias="srl_nokia-interfaces:index", ge=1, le=10)
+    ] = None
+    """
+    Index of the physical channel or lane
+    """
+    wavelength: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces:wavelength",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="WavelengthLeaf2",
+        ),
+    ] = None
+    """
+    Wavelength of the transmitting laser in nanometers
+    """
+
+
+class ChromaticDispersionRangeContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    minimum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-100000,
+            le=0,
+            title="MinimumLeaf",
+        ),
+    ] = None
+    """
+    Chromatic dispersion sweep range minimum
+
+    This has different defaults based on the setting of the operational-mode.  This value is usually a large negative number
+    """
+    maximum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-100000,
+            le=100000,
+            title="MaximumLeaf2",
+        ),
+    ] = None
+    """
+    Chromatic dispersion sweep range maximum
+
+    This has different defaults based on the setting of the operational-mode.
+    """
+
+
+class ChromaticDispersionContainer(BaseModel):
+    """
+    Enter the chromatic-dispersion context
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    current: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-2147483648,
+            le=2147483647,
+            title="CurrentLeaf4",
+        ),
+    ] = None
+    """
+    Current chromatic dispersion received on the optical channel
+    """
+    average: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-2147483648,
+            le=2147483647,
+            title="AverageLeaf4",
+        ),
+    ] = None
+    """
+    Average chromatic dispersion received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-2147483648,
+            le=2147483647,
+            title="MinimumLeaf5",
+        ),
+    ] = None
+    """
+    Minimum chromatic dispersion received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-2147483648,
+            le=2147483647,
+            title="MaximumLeaf6",
+        ),
+    ] = None
+    """
+    Maximum chromatic dispersion received on the optical channel
+    """
+
+
+class DifferentialGroupDelayContainer(BaseModel):
+    """
+    Enter the differential-group-delay context
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    current: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf5",
+        ),
+    ] = None
+    """
+    Current differential group delay received on the optical channel
+    """
+    average: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf5",
+        ),
+    ] = None
+    """
+    Average differential group delay received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf6",
+        ),
+    ] = None
+    """
+    Minimum differential group delay received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf7",
+        ),
+    ] = None
+    """
+    Maximum differential group delay received on the optical channel
+    """
+
+
+class ElectricalSignalToNoiseRatioContainer(BaseModel):
+    """
+    Enter the electrical-signal-to-noise-ratio context
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    current: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="CurrentLeaf2",
+        ),
+    ] = None
+    """
+    Current SNR received on the optical channel
+    """
+    average: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="AverageLeaf2",
+        ),
+    ] = None
+    """
+    Average SNR received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MinimumLeaf3",
+        ),
+    ] = None
+    """
+    Minimum SNR received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="MaximumLeaf4",
+        ),
+    ] = None
+    """
+    Maximum SNR received on the optical channel
+    """
+
+
+class FineTuningContainer(BaseModel):
+    """
+    State related to fine-tuning
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    range: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:range",
+            ge=0,
+            le=4294967295,
+            title="RangeLeaf",
+        ),
+    ] = None
+    """
+    The positive or negative offset that can be applied when using frequency fine tuning
+
+    The offset is from a frequency of one of the grids supported by the equipped optical module.
+    """
+    resolution: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:resolution",
+            ge=0,
+            le=4294967295,
+            title="ResolutionLeaf",
+        ),
+    ] = None
+    """
+    The resolution that can be used for frequency fine tuning.
+    """
+
+
+class FirmwareVersionContainer(BaseModel):
+    """
+    Active firmware version
+
+    This is the information as read from the EEPROM of the part.
+    This is only available for digital coherent optic transceivers
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    major_revision: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:major-revision",
+            ge=0,
+            le=255,
+            title="Major-revisionLeaf",
+        ),
+    ] = None
+    """
+    Major revision number
+    """
+    minor_revision: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:minor-revision",
+            ge=0,
+            le=255,
+            title="Minor-revisionLeaf",
+        ),
+    ] = None
+    """
+    Minor revision number
+    """
+
+
+class FlowControlContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    receive: Annotated[
+        Optional[bool], Field(alias="srl_nokia-interfaces:receive", title="ReceiveLeaf")
+    ] = None
+    """
+    When this is true PAUSE frames received on this interface are accepted and processed, and, if auto-negotiation is enabled it also causes the capability to receive PAUSE frames to be signaled to the peer (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports).
+
+    When this is false PAUSE frames received on this interface are ignored, and, if auto-negotiation is enabled it causes the capability to receive PAUSE frames to be signaled to the peer as non-support (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports)
+    """
+    transmit: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces:transmit", title="TransmitLeaf"),
+    ] = None
+    """
+    Enables/disables the sending of PAUSE frames.
+
+    If auto-negotiation is enabled (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports) PAUSE frames are sent to the peer only if the peer advertised support for PAUSE frames.
+    """
+
+
+class FrequencyOffsetContainer(BaseModel):
+    """
+    Enter the frequency-offset context
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    current: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=-2147483648,
+            le=2147483647,
+            title="CurrentLeaf6",
+        ),
+    ] = None
+    """
+    Current frequency offset received on the optical channel
+    """
+    average: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=-2147483648,
+            le=2147483647,
+            title="AverageLeaf6",
+        ),
+    ] = None
+    """
+    Average frequency offset received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=-2147483648,
+            le=2147483647,
+            title="MinimumLeaf7",
+        ),
+    ] = None
+    """
+    Minimum frequency offset received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=-2147483648,
+            le=2147483647,
+            title="MaximumLeaf8",
+        ),
+    ] = None
+    """
+    Maximum frequency offset received on the optical channel
+    """
+
+
+class Ipv4AddressType(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$"
+        ),
+    ]
+    """
+    An IPv4 address in dotted quad notation.
+    """
+
+
+class Ipv6AddressType(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$"
+        ),
+    ]
+    """
+    An IPv6 address represented as either a full address; shortened
+    or mixed-shortened formats.
+    """
+
+
+class LimitContainer(BaseModel):
+    """
+    Container for the configuration of Neighbor-Discovery limit
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    max_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr:max-entries",
+            ge=0,
+            le=4294967295,
+            title="Max-entriesLeaf",
+        ),
+    ] = None
+    """
+    The maximum number of neighbor entries allowed on the subinterface
+
+    If not configured, the amount of neighbor entries on the subinterface
+    is only limited by the total amount of entries supported by the router.
+    """
+    log_only: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-nbr:log-only", title="Log-onlyLeaf"),
+    ] = False
+    """
+    Generate only a log message when limit is reached
+
+    When set to true, neighbor entries are still being learned after
+    exceeding the max-entries limit.
+    """
+    warning_threshold_pct: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr:warning-threshold-pct",
+            ge=1,
+            le=100,
+            title="Warning-threshold-pctLeaf",
+        ),
+    ] = 90
+    """
+    Threshold percentage of the configured maximum number of entries
+
+    When exceeded, an event is triggered.
+    """
+
+
+class MacAddressListEntry(BaseModel):
+    """
+    Add a list entry for source mac-address
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    mac: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-dot1x:mac",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="MacLeaf",
+        ),
+    ] = None
+    """
+    Source MAC address of a host that is authorized to use this interface
+    """
+
+
+class MacLimitContainer(BaseModel):
+    """
+    Bridge Table size and thresholds.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    maximum_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:maximum-entries",
+            ge=1,
+            le=8192,
+            title="Maximum-entriesLeaf",
+        ),
+    ] = 250
+    """
+    Maximum number of mac addresses allowed in the bridge-table.
+    """
+    warning_threshold_pct: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:warning-threshold-pct",
+            ge=6,
+            le=100,
+            title="Warning-threshold-pctLeaf2",
+        ),
+    ] = 95
+    """
+    Percentage of the configured max-number-macs over which a warning is triggered.
+    The warning message is cleared when the percentage drops below the configured
+    percentage minus 5%
+    """
+
+
+class MacListEntry(BaseModel):
+    """
+    macs learnt on the bridging instance
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:address",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="AddressLeaf2",
+        ),
+    ] = None
+    """
+    The mac-address type represents an IEEE 802 MAC address.
+    The canonical representation uses lowercase characters.
+
+    In the value set and its semantics, this type is equivalent
+    to the MacAddress textual convention of the SMIv2.
+    """
+    last_update: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:last-update",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-updateLeaf3",
+        ),
+    ] = None
+    """
+    The date and time of the last update of this learnt mac
+    """
+    aging: Annotated[
+        Optional[Union[AgingLeaf1, EnumerationEnum70]],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:aging",
+            title="AgingLeaf",
+        ),
+    ] = None
+    """
+    remaining age time for learnt macs
+    """
+
+
+class MacListEntry2(BaseModel):
+    """
+    macs duplicate on the bridging instance
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:address",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="AddressLeaf3",
+        ),
+    ] = None
+    """
+    The mac-address type represents an IEEE 802 MAC address.
+    The canonical representation uses lowercase characters.
+
+    In the value set and its semantics, this type is equivalent
+    to the MacAddress textual convention of the SMIv2.
+    """
+    dup_detect_time: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:dup-detect-time",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Dup-detect-timeLeaf",
+        ),
+    ] = None
+    """
+    The date and time when the mac was declared duplicate
+    """
+    hold_down_time_remaining: Annotated[
+        Optional[Union[EnumerationEnum72, HoldDownTimeRemainingLeaf1]],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:hold-down-time-remaining",
+            title="Hold-down-time-remainingLeaf",
+        ),
+    ] = None
+    """
+    remaining hold down time for duplicate mac
+    """
+
+
+class MediaFrameErrorCountContainer(BaseModel):
+    """
+    Enter the media-frame-error-count context
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    current: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:current",
+            ge=0,
+            le=18446744073709551615,
+            title="CurrentLeaf12",
+        ),
+    ] = None
+    """
+    Indicates the current Media Frame Rate Error Count received on the optical channel
+    """
+    average: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:average",
+            ge=0,
+            le=18446744073709551615,
+            title="AverageLeaf12",
+        ),
+    ] = None
+    """
+    Indicates the average Media Frame Rate Error Count received on the optical channel
+    """
+    minimum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum",
+            ge=0,
+            le=18446744073709551615,
+            title="MinimumLeaf13",
+        ),
+    ] = None
+    """
+    Indicates the minimum Media Frame Rate Error Count received on the optical channel
+    """
+    maximum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum",
+            ge=0,
+            le=18446744073709551615,
+            title="MaximumLeaf14",
+        ),
+    ] = None
+    """
+    Indicates the maximum Media Frame Rate Error Count received on the optical channel
+    """
+
+
+class MultiDomainAllowedSourceMacsContainer(BaseModel):
+    """
+    Enter the allowed-source-macs context for per-host multi-domain mode
+
+    This command is only relevant only to per-host mode of multi-domain mode.
+    The source mac under this list will be allowed in any port state,
+    even if the port is forced unauthorized or port is set to auto
+    and the host with this source mac address is not authorized.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    mac_address: Annotated[
+        Optional[List[MacAddressListEntry]], Field(alias="srl_nokia-dot1x:mac-address")
+    ] = None
+
+
+class P4rtContainer(BaseModel):
+    """
+    Top-level container for P4Runtime interface configuration and state
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-p4rt:id", ge=1, le=4294967295, title="IdLeaf2"
+        ),
+    ] = None
+    """
+    The numeric identifier used by the controller to address the interface
+
+    This ID is the interface ifIndex by default, or is assigned by an
+    external-to-the-device entity (e.g., an SDN management system) to
+    establish an externally deterministic numeric reference for the interface.
+
+    The programming entity must ensure that the ID is unique within the
+    required context.
+
+    Note that this identifier is used only when a numeric reference to the
+    interface is required, it does not replace the unique name assigned to
+    the interface.
+    """
+    parent_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-p4rt:parent-id",
+            ge=0,
+            le=18446744073709551615,
+            title="Parent-idLeaf",
+        ),
+    ] = None
+    """
+    The numeric ID used by the controller to address the ASIC this interface resides on
+
+    This is the ID configured at /platform/linecard/forwarding-complex/p4rt/id.
+
+    This ID may be referred to as a 'device', 'node' or 'target' by the P4RT
+    specification.
+
+    Each switching ASIC (i.e., node) is addressed by the external entity
+    based on its numeric identifier.
+    """
+
+
+class PtpContainer(BaseModel):
+    """
+    Container for the configuration of Precision Time Protocol Peer-Delay frames.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf5"),
+    ] = False
+    """
+    Configures if incoming ptp frames are tunneled.
+
+    ptp frames are identified by MAC DA 01-80-c2-00-00-0e and Ethertype 0x88f7.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf5"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress ptp frames.
+    """
+
+
+class RaGuardContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    policy: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-ra_guard:policy",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+            title="PolicyLeaf",
+        ),
+    ] = None
+    """
+    Reference to RA Guard Policy to apply to the associated subinterface
+    """
+    vlan_list: Annotated[
+        Optional[List[VlanListListEntry]], Field(alias="srl_nokia-ra_guard:vlan-list")
+    ] = None
+
+
+class ReceivedContainer(BaseModel):
+    """
+    Enter the received context
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    bit_error_rate: Annotated[
+        Optional[BitErrorRateContainer],
+        Field(alias="srl_nokia-interfaces-dco:bit-error-rate"),
+    ] = None
+    electrical_signal_to_noise_ratio: Annotated[
+        Optional[ElectricalSignalToNoiseRatioContainer],
+        Field(alias="srl_nokia-interfaces-dco:electrical-signal-to-noise-ratio"),
+    ] = None
+    optical_signal_to_noise_ratio: Annotated[
+        Optional[OpticalSignalToNoiseRatioContainer],
+        Field(alias="srl_nokia-interfaces-dco:optical-signal-to-noise-ratio"),
+    ] = None
+    chromatic_dispersion: Annotated[
+        Optional[ChromaticDispersionContainer],
+        Field(alias="srl_nokia-interfaces-dco:chromatic-dispersion"),
+    ] = None
+    differential_group_delay: Annotated[
+        Optional[DifferentialGroupDelayContainer],
+        Field(alias="srl_nokia-interfaces-dco:differential-group-delay"),
+    ] = None
+    frequency_offset: Annotated[
+        Optional[FrequencyOffsetContainer],
+        Field(alias="srl_nokia-interfaces-dco:frequency-offset"),
+    ] = None
+    quality: Annotated[
+        Optional[QualityContainer], Field(alias="srl_nokia-interfaces-dco:quality")
+    ] = None
+    power: Annotated[
+        Optional[PowerContainer], Field(alias="srl_nokia-interfaces-dco:power")
+    ] = None
+    total_power: Annotated[
+        Optional[TotalPowerContainer],
+        Field(alias="srl_nokia-interfaces-dco:total-power"),
+    ] = None
+    polarization_dependent_loss: Annotated[
+        Optional[PolarizationDependentLossContainer],
+        Field(alias="srl_nokia-interfaces-dco:polarization-dependent-loss"),
+    ] = None
+    state_of_polarization_rate_of_change: Annotated[
+        Optional[StateOfPolarizationRateOfChangeContainer],
+        Field(alias="srl_nokia-interfaces-dco:state-of-polarization-rate-of-change"),
+    ] = None
+    media_frame_error_count: Annotated[
+        Optional[MediaFrameErrorCountContainer],
+        Field(alias="srl_nokia-interfaces-dco:media-frame-error-count"),
+    ] = None
+
+
+class StatisticsContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    in_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Sum of all received packets, independent of protocol and forwarding type and before discards and errors
+    """
+    in_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-octetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCInOctets from the IFMIB
+    """
+    in_unicast_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-unicast-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-unicast-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCInUcastPkts from the IF-MIB
+    """
+    in_broadcast_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-broadcast-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-broadcast-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCInBroadcastPkts from the IF-MIB
+    """
+    in_multicast_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-multicast-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-multicast-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCInMulticastPkts from the IF-MIB
+    """
+    in_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-discarded-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifInDiscards from the IFMIB.
+
+    This counts the number of IP packets discarded due to VLAN mismatch, unknown dest MAC or drop by system-filter drop action. On 7250 IXR/IXRe systems this counter is not expected to increment above zero.
+    """
+    in_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-error-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifInErrors from the IF-MIB
+    """
+    in_fcs_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-fcs-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-fcs-error-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Ingress FCS errors
+    """
+    out_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Sum of all transmitted packets, independent of protocol and forwarding type and before discards and errors
+    """
+    out_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-octetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCOutOctets from the IF-MIB
+    """
+    out_mirror_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-mirror-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-mirror-octetsLeaf",
+        ),
+    ] = 0
+    """
+    This counts the number of outgoing mirrored octets
+    """
+    out_unicast_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-unicast-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-unicast-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCOutUcastPkts from the IF-MIB
+    """
+    out_broadcast_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-broadcast-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-broadcast-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCOutBroadcastPkts from the IF-MIB
+    """
+    out_multicast_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-multicast-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-multicast-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifHCOutMulticastPkts from the IF-MIB
+    """
+    out_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-discarded-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifOutDiscards from the IF-MIB.
+
+    On Jericho2 systems this counts packets dropped by an egress IP ACL of any of the port's subinterfaces.
+    """
+    out_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-error-packetsLeaf",
+        ),
+    ] = 0
+    """
+    Corresponds to ifOutErrors from the IF-MIB
+    """
+    out_mirror_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-mirror-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-mirror-packetsLeaf",
+        ),
+    ] = 0
+    """
+    This counts the number of outgoing mirrored packets
+    """
+    carrier_transitions: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:carrier-transitions",
+            ge=0,
+            le=18446744073709551615,
+            title="Carrier-transitionsLeaf",
+        ),
+    ] = 0
+    """
+    Number of times the interface state has transitioned from down to up.
+
+    This is reset to zero when the device is started or reset or the counters are cleared.
+    """
+    last_clear: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:last-clear",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-clearLeaf",
+        ),
+    ] = None
+    """
+    Timestamp of the last time the interface counters were cleared
+    """
+
+
+class StatisticsContainer10(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    advertisements_sent: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-sent",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-sentLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total number fo VRRP advertisement messages sent
+    """
+    advertisements_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-receivedLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages received
+    """
+    advertisements_discarded_version_mismatch: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-version-mismatch",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-version-mismatchLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to version mismatch
+    """
+    advertisements_discarded_authfail: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authfail",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-authfailLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication failure
+    """
+    advertisements_discarded_authtype_mismatch: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authtype-mismatch",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-authtype-mismatchLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication type mismatch
+    """
+    advertisements_discarded_address_mismatch: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-address-mismatch",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-address-mismatchLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to address mismatch
+    """
+    priority_zero_packets_sent: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-sent",
+            ge=0,
+            le=18446744073709551615,
+            title="Priority-zero-packets-sentLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages sent out with priority 0
+    """
+    priority_zero_packets_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Priority-zero-packets-receivedLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages received with priority 0
+    """
+    advertisements_discarded_ttl: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-ttl",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-ttlLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to ttl error
+    """
+    advertisements_discarded_length: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-length",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-lengthLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to length of the packet
+    """
+    advertisements_discarded_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-interval",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-intervalLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to interval mismatch
+    """
+    advertisements_interval_error: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-interval-error",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-interval-errorLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages with interval mismatch
+    """
+    advertisements_discarded_total: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-total",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-totalLeaf2",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages dicarded
+    """
+
+
+class StatisticsContainer11(BaseModel):
+    """
+    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    in_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of input packets received, counting transit and terminating traffic
+
+    This equals the sum of:
+    in-error-packets
+    in-discarded-packets
+    in-terminated-packets
+    in-forwarded-packets
+    """
+    in_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-octetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of octets received in input packets, counting transit and terminating traffic
+    """
+    in_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-error-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of input packets discarded due to errors, counting transit and terminating traffic
+
+    In an IP context, the sum of the following RFC 4293 counters:
+    ipIfStatsInHdrErrors
+    ipIfStatsInNoRoutes
+    ipIfStatsInAddrErrors
+    ipIfStatsInUnknownProtos
+    ipIfStatsInTruncatedPkts
+
+    In an MPLS context, the total number of MPLS packets that were dropped because:
+    - forwarded top label had an MPLS TTL value of 0
+    - terminating top label had an MPLS TTL value of 0
+    - the top label was unknown (no matching forwarding entry)
+    """
+    in_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-discarded-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were dropped due to explicit programming
+
+    The discards can be due to any of the following reasons
+    - ingress interface ACL drop action
+    - CPM filter drop action
+    - VOQ congestion discards (7250 IXR only)
+    - unicast destination MAC address is not the MAC address of the subinterface
+    - packet matched a route with a blackhole next-hop
+    - packet was non-terminating and its TTL expired
+    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
+    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
+
+    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
+    """
+    in_terminated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-terminated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were received on this subinterface that were extracted to the control plane
+
+    The count includes packets eventually discarded by the CPM. Such discards include:
+    - packets with unsupported IP protocol numbers
+    - packets destined to TCP/UDP ports that are not open/listening
+    - IPv4 packets with any IP options
+    - IPv6 packets with any extension headers
+    """
+    in_terminated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-terminated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-octetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
+    """
+    in_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
+
+    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
+    """
+    in_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-octetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of octets in packets received on this subinterface counted in in-forwarded-packets
+    """
+    in_matched_ra_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-matched-ra-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-matched-ra-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of IPv6 packets matched with applied RA-Guard policy
+    """
+    out_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of transit packets which the router attempted to forward out this subinterface
+    """
+    out_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-octetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of octets in transit packets which the router attempted to forward out this subinterface
+    """
+    out_originated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-originated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_originated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-originated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-octetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-error-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
+
+    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
+    """
+    out_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-discarded-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
+
+    This includes IP packets dropped by egress interface ACL drop action.
+    """
+    out_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of packets that this router supplied to the lower layers for transmission
+
+    This equals the sum of:
+    out-error-packets
+    out-discarded-packets
+    out-originated-packets
+    out-forwarded-packets
+    """
+    out_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-octetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets delivered to the lower layers for transmission
+    """
+    last_clear: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:last-clear",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-clearLeaf5",
+        ),
+    ] = None
+    """
+    Timestamp of the last time the subinterface counters were cleared
+    """
+
+
+class StatisticsContainer12(BaseModel):
+    """
+    Statistics for the Virtual IP address
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    out_probe_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-probe-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-probe-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of probe packets transmitted for the Virtual IP discovery.
+    """
+
+
+class StatisticsContainer13(BaseModel):
+    """
+    Global statistics for Virtual IP discovery
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    out_total_probe_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-total-probe-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-total-probe-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of total probe packets transmitted for Virtual discovery.
+    """
+
+
+class StatisticsContainer14(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    client_packets_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Client-packets-receivedLeaf2",
+        ),
+    ] = 0
+    """
+    Total received dhcp packets from dhcp client(s) for DHCP Relay
+    """
+    client_packets_relayed: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-relayed",
+            ge=0,
+            le=18446744073709551615,
+            title="Client-packets-relayedLeaf2",
+        ),
+    ] = 0
+    """
+    Total relayed dhcp packets from dhcp client(s) towards DHCP server(s)
+    """
+    client_packets_discarded: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-discarded",
+            ge=0,
+            le=18446744073709551615,
+            title="Client-packets-discardedLeaf2",
+        ),
+    ] = 0
+    """
+    Total discarded dhcp packets from dhcp client(s) towards DHCP server(s)
+    """
+    server_packets_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Server-packets-receivedLeaf2",
+        ),
+    ] = 0
+    """
+    Total received dhcp packets from DHCP server(s) for DHCP Relay
+    """
+    server_packets_relayed: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-relayed",
+            ge=0,
+            le=18446744073709551615,
+            title="Server-packets-relayedLeaf2",
+        ),
+    ] = 0
+    """
+    Total relayed dhcp packets from DHCP server(s) towards dhcp client(s)
+    """
+    server_packets_discarded: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-discarded",
+            ge=0,
+            le=18446744073709551615,
+            title="Server-packets-discardedLeaf2",
+        ),
+    ] = 0
+    """
+    Total discarded dhcp packets from DHCP server(s) towards dhcp client(s)
+    """
+
+
+class StatisticsContainer15(BaseModel):
+    """
+    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    in_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of input packets received, counting transit and terminating traffic
+
+    This equals the sum of:
+    in-error-packets
+    in-discarded-packets
+    in-terminated-packets
+    in-forwarded-packets
+    """
+    in_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-octetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of octets received in input packets, counting transit and terminating traffic
+    """
+    in_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-error-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of input packets discarded due to errors, counting transit and terminating traffic
+
+    In an IP context, the sum of the following RFC 4293 counters:
+    ipIfStatsInHdrErrors
+    ipIfStatsInNoRoutes
+    ipIfStatsInAddrErrors
+    ipIfStatsInUnknownProtos
+    ipIfStatsInTruncatedPkts
+
+    In an MPLS context, the total number of MPLS packets that were dropped because:
+    - forwarded top label had an MPLS TTL value of 0
+    - terminating top label had an MPLS TTL value of 0
+    - the top label was unknown (no matching forwarding entry)
+    """
+    in_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-discarded-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were dropped due to explicit programming
+
+    The discards can be due to any of the following reasons
+    - ingress interface ACL drop action
+    - CPM filter drop action
+    - VOQ congestion discards (7250 IXR only)
+    - unicast destination MAC address is not the MAC address of the subinterface
+    - packet matched a route with a blackhole next-hop
+    - packet was non-terminating and its TTL expired
+    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
+    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
+
+    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
+    """
+    in_terminated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-terminated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were received on this subinterface that were extracted to the control plane
+
+    The count includes packets eventually discarded by the CPM. Such discards include:
+    - packets with unsupported IP protocol numbers
+    - packets destined to TCP/UDP ports that are not open/listening
+    - IPv4 packets with any IP options
+    - IPv6 packets with any extension headers
+    """
+    in_terminated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-terminated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-octetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
+    """
+    in_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
+
+    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
+    """
+    in_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-octetsLeaf3",
+        ),
+    ] = 0
+    """
+    The number of octets in packets received on this subinterface counted in in-forwarded-packets
+    """
+    in_matched_ra_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-matched-ra-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-matched-ra-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The total number of IPv6 packets matched with applied RA-Guard policy
+    """
+    out_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The number of transit packets which the router attempted to forward out this subinterface
+    """
+    out_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-octetsLeaf3",
+        ),
+    ] = 0
+    """
+    The number of octets in transit packets which the router attempted to forward out this subinterface
+    """
+    out_originated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-originated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-packetsLeaf3",
+        ),
+    ] = 0
+    """
+    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_originated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-originated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-octetsLeaf3",
+        ),
+    ] = 0
+    """
+    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-error-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
+
+    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
+    """
+    out_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-discarded-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
+
+    This includes IP packets dropped by egress interface ACL drop action.
+    """
+    out_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of packets that this router supplied to the lower layers for transmission
+
+    This equals the sum of:
+    out-error-packets
+    out-discarded-packets
+    out-originated-packets
+    out-forwarded-packets
+    """
+    out_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-octetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets delivered to the lower layers for transmission
+    """
+    last_clear: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:last-clear",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-clearLeaf6",
+        ),
+    ] = None
+    """
+    Timestamp of the last time the subinterface counters were cleared
+    """
+
+
+class StatisticsContainer17(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-ethcfm:discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Discarded-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The count of ETH-CFM packets discarded on the subinterface because of ingress squelching
+    """
+
+
+class StatisticsContainer18(BaseModel):
+    """
+    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    in_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-packetsLeaf5",
+        ),
+    ] = 0
+    """
+    The total number of input packets received, counting transit and terminating traffic
+
+    This equals the sum of:
+    in-error-packets
+    in-discarded-packets
+    in-terminated-packets
+    in-forwarded-packets
+    """
+    in_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-octetsLeaf5",
+        ),
+    ] = 0
+    """
+    The total number of octets received in input packets, counting transit and terminating traffic
+    """
+    in_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-error-packetsLeaf5",
+        ),
+    ] = 0
+    """
+    The total number of input packets discarded due to errors, counting transit and terminating traffic
+
+    In an IP context, the sum of the following RFC 4293 counters:
+    ipIfStatsInHdrErrors
+    ipIfStatsInNoRoutes
+    ipIfStatsInAddrErrors
+    ipIfStatsInUnknownProtos
+    ipIfStatsInTruncatedPkts
+
+    In an MPLS context, the total number of MPLS packets that were dropped because:
+    - forwarded top label had an MPLS TTL value of 0
+    - terminating top label had an MPLS TTL value of 0
+    - the top label was unknown (no matching forwarding entry)
+    """
+    in_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-discarded-packetsLeaf5",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were dropped due to explicit programming
+
+    The discards can be due to any of the following reasons
+    - ingress interface ACL drop action
+    - CPM filter drop action
+    - VOQ congestion discards (7250 IXR only)
+    - unicast destination MAC address is not the MAC address of the subinterface
+    - packet matched a route with a blackhole next-hop
+    - packet was non-terminating and its TTL expired
+    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
+    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
+
+    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
+    """
+    in_terminated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-terminated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were received on this subinterface that were extracted to the control plane
+
+    The count includes packets eventually discarded by the CPM. Such discards include:
+    - packets with unsupported IP protocol numbers
+    - packets destined to TCP/UDP ports that are not open/listening
+    - IPv4 packets with any IP options
+    - IPv6 packets with any extension headers
+    """
+    in_terminated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-terminated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-octetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
+    """
+    in_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
+
+    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
+    """
+    in_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-octetsLeaf4",
+        ),
+    ] = 0
+    """
+    The number of octets in packets received on this subinterface counted in in-forwarded-packets
+    """
+    in_matched_ra_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:in-matched-ra-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-matched-ra-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The total number of IPv6 packets matched with applied RA-Guard policy
+    """
+    out_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The number of transit packets which the router attempted to forward out this subinterface
+    """
+    out_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-octetsLeaf4",
+        ),
+    ] = 0
+    """
+    The number of octets in transit packets which the router attempted to forward out this subinterface
+    """
+    out_originated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-originated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-packetsLeaf4",
+        ),
+    ] = 0
+    """
+    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_originated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-originated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-octetsLeaf4",
+        ),
+    ] = 0
+    """
+    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-error-packetsLeaf5",
+        ),
+    ] = 0
+    """
+    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
+
+    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
+    """
+    out_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-discarded-packetsLeaf5",
+        ),
+    ] = 0
+    """
+    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
+
+    This includes IP packets dropped by egress interface ACL drop action.
+    """
+    out_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-packetsLeaf5",
+        ),
+    ] = 0
+    """
+    The total number of packets that this router supplied to the lower layers for transmission
+
+    This equals the sum of:
+    out-error-packets
+    out-discarded-packets
+    out-originated-packets
+    out-forwarded-packets
+    """
+    out_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-if-mpls:out-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-octetsLeaf5",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets delivered to the lower layers for transmission
+    """
+    last_clear: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-if-mpls:last-clear",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-clearLeaf7",
+        ),
+    ] = None
+    """
+    Timestamp of the last time the subinterface counters were cleared
+    """
+
+
+class StatisticsContainer19(BaseModel):
+    """
+    LACP protocol counters
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    lacp_in_pkts: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:lacp-in-pkts",
+            ge=0,
+            le=18446744073709551615,
+            title="Lacp-in-pktsLeaf",
+        ),
+    ] = 0
+    """
+    Number of LACPDUs received
+    """
+    lacp_out_pkts: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:lacp-out-pkts",
+            ge=0,
+            le=18446744073709551615,
+            title="Lacp-out-pktsLeaf",
+        ),
+    ] = 0
+    """
+    Number of LACPDUs transmitted
+    """
+    lacp_rx_errors: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:lacp-rx-errors",
+            ge=0,
+            le=18446744073709551615,
+            title="Lacp-rx-errorsLeaf",
+        ),
+    ] = 0
+    """
+    Number of LACPDU receive packet errors
+    """
+    lacp_tx_errors: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:lacp-tx-errors",
+            ge=0,
+            le=18446744073709551615,
+            title="Lacp-tx-errorsLeaf",
+        ),
+    ] = 0
+    """
+    Number of LACPDU transmit packet errors
+    """
+    lacp_unknown_errors: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:lacp-unknown-errors",
+            ge=0,
+            le=18446744073709551615,
+            title="Lacp-unknown-errorsLeaf",
+        ),
+    ] = 0
+    """
+    Number of LACPDU unknown packet errors
+    """
+    lacp_errors: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:lacp-errors",
+            ge=0,
+            le=18446744073709551615,
+            title="Lacp-errorsLeaf",
+        ),
+    ] = 0
+    """
+    Number of LACPDU illegal packet errors
+    """
+
+
+class StatisticsContainer2(BaseModel):
+    """
+    Enter the statistics context
+
+    interface/statistics/last-clear indicates when these statistics were last cleared.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    received: Annotated[
+        Optional[ReceivedContainer], Field(alias="srl_nokia-interfaces-dco:received")
+    ] = None
+    transmitted: Annotated[
+        Optional[TransmittedContainer],
+        Field(alias="srl_nokia-interfaces-dco:transmitted"),
+    ] = None
+
+
+class StatisticsContainer3(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    in_mac_pause_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-mac-pause-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-mac-pause-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of MAC layer PAUSE frames received on the interface.
+    """
+    in_oversize_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-oversize-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-oversize-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of oversize frames received on the interface (i.e. frames that exceed the operational port MTU)
+    """
+    in_jabber_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-jabber-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-jabber-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of jabber frames received on the interface. Jabber frames are typically defined as oversize frames which also have a bad CRC
+    """
+    in_fragment_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-fragment-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-fragment-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of fragment frames received on the interface
+    """
+    in_crc_error_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-crc-error-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-crc-error-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of receive error events due to FCS/CRC check failure
+    """
+    out_mac_pause_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-mac-pause-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-mac-pause-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of MAC layer PAUSE frames sent on the interface
+    """
+    in_64b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-64b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-64b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of received Ethernet frames that are exactly 64 bytes in length
+    """
+    in_65b_to_127b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-65b-to-127b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-65b-to-127b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of received Ethernet frames that are 65-127 bytes in length
+    """
+    in_128b_to_255b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-128b-to-255b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-128b-to-255b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of received Ethernet frames that are 128-255 bytes in length
+    """
+    in_256b_to_511b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-256b-to-511b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-256b-to-511b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of received Ethernet frames that are 256-511 bytes in length
+    """
+    in_512b_to_1023b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-512b-to-1023b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-512b-to-1023b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of received Ethernet frames that are 512-1023 bytes in length
+    """
+    in_1024b_to_1518b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-1024b-to-1518b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-1024b-to-1518b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of received Ethernet frames that are 1024-1518 bytes in length
+    """
+    in_1519b_or_longer_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-1519b-or-longer-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="In-1519b-or-longer-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of received Ethernet frames that are 1519 bytes or longer
+    """
+    out_64b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-64b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-64b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of transmitted Ethernet frames that are exactly 64 bytes in length
+    """
+    out_65b_to_127b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-65b-to-127b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-65b-to-127b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of transmitted Ethernet frames that are 65-127 bytes in length
+    """
+    out_128b_to_255b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-128b-to-255b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-128b-to-255b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of transmitted Ethernet frames that are 128-255 bytes in length
+    """
+    out_256b_to_511b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-256b-to-511b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-256b-to-511b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of transmitted Ethernet frames that are 256-511 bytes in length
+    """
+    out_512b_to_1023b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-512b-to-1023b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-512b-to-1023b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of transmitted Ethernet frames that are 512-1023 bytes in length
+    """
+    out_1024b_to_1518b_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-1024b-to-1518b-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-1024b-to-1518b-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of transmitted Ethernet frames that are 1024-1518 bytes in length
+    """
+    out_1519b_or_longer_frames: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-1519b-or-longer-frames",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-1519b-or-longer-framesLeaf",
+        ),
+    ] = 0
+    """
+    Number of transmitted Ethernet frames that are 1519 bytes or longer
+    """
+    last_clear: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:last-clear",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-clearLeaf2",
+        ),
+    ] = None
+    """
+    Timestamp of the last time the MAC counters were cleared
+    """
+
+
+class StatisticsContainer5(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    advertisements_sent: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-sent",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-sentLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total number fo VRRP advertisement messages sent
+    """
+    advertisements_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-receivedLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages received
+    """
+    advertisements_discarded_version_mismatch: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-version-mismatch",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-version-mismatchLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to version mismatch
+    """
+    advertisements_discarded_authfail: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authfail",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-authfailLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication failure
+    """
+    advertisements_discarded_authtype_mismatch: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authtype-mismatch",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-authtype-mismatchLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication type mismatch
+    """
+    advertisements_discarded_address_mismatch: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-address-mismatch",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-address-mismatchLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to address mismatch
+    """
+    priority_zero_packets_sent: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-sent",
+            ge=0,
+            le=18446744073709551615,
+            title="Priority-zero-packets-sentLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages sent out with priority 0
+    """
+    priority_zero_packets_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Priority-zero-packets-receivedLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages received with priority 0
+    """
+    advertisements_discarded_ttl: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-ttl",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-ttlLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to ttl error
+    """
+    advertisements_discarded_length: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-length",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-lengthLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to length of the packet
+    """
+    advertisements_discarded_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-interval",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-intervalLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages discarded due to interval mismatch
+    """
+    advertisements_interval_error: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-interval-error",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-interval-errorLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages with interval mismatch
+    """
+    advertisements_discarded_total: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-total",
+            ge=0,
+            le=18446744073709551615,
+            title="Advertisements-discarded-totalLeaf",
+        ),
+    ] = 0
+    """
+    Counter for the total numebr fo VRRP advertisement messages dicarded
+    """
+
+
+class StatisticsContainer6(BaseModel):
+    """
+    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    in_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of input packets received, counting transit and terminating traffic
+
+    This equals the sum of:
+    in-error-packets
+    in-discarded-packets
+    in-terminated-packets
+    in-forwarded-packets
+    """
+    in_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-octetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of octets received in input packets, counting transit and terminating traffic
+    """
+    in_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-error-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of input packets discarded due to errors, counting transit and terminating traffic
+
+    In an IP context, the sum of the following RFC 4293 counters:
+    ipIfStatsInHdrErrors
+    ipIfStatsInNoRoutes
+    ipIfStatsInAddrErrors
+    ipIfStatsInUnknownProtos
+    ipIfStatsInTruncatedPkts
+
+    In an MPLS context, the total number of MPLS packets that were dropped because:
+    - forwarded top label had an MPLS TTL value of 0
+    - terminating top label had an MPLS TTL value of 0
+    - the top label was unknown (no matching forwarding entry)
+    """
+    in_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-discarded-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were dropped due to explicit programming
+
+    The discards can be due to any of the following reasons
+    - ingress interface ACL drop action
+    - CPM filter drop action
+    - VOQ congestion discards (7250 IXR only)
+    - unicast destination MAC address is not the MAC address of the subinterface
+    - packet matched a route with a blackhole next-hop
+    - packet was non-terminating and its TTL expired
+    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
+    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
+
+    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
+    """
+    in_terminated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-terminated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The total number of input packets that were received on this subinterface that were extracted to the control plane
+
+    The count includes packets eventually discarded by the CPM. Such discards include:
+    - packets with unsupported IP protocol numbers
+    - packets destined to TCP/UDP ports that are not open/listening
+    - IPv4 packets with any IP options
+    - IPv6 packets with any extension headers
+    """
+    in_terminated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-terminated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-terminated-octetsLeaf",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
+    """
+    in_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
+
+    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
+    """
+    in_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-forwarded-octetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of octets in packets received on this subinterface counted in in-forwarded-packets
+    """
+    in_matched_ra_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:in-matched-ra-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-matched-ra-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The total number of IPv6 packets matched with applied RA-Guard policy
+    """
+    out_forwarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-forwarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of transit packets which the router attempted to forward out this subinterface
+    """
+    out_forwarded_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-forwarded-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-forwarded-octetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of octets in transit packets which the router attempted to forward out this subinterface
+    """
+    out_originated_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-originated-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_originated_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-originated-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-originated-octetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
+    """
+    out_error_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-error-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-error-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
+
+    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
+    """
+    out_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-discarded-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
+
+    This includes IP packets dropped by egress interface ACL drop action.
+    """
+    out_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-packetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of packets that this router supplied to the lower layers for transmission
+
+    This equals the sum of:
+    out-error-packets
+    out-discarded-packets
+    out-originated-packets
+    out-forwarded-packets
+    """
+    out_octets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:out-octets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-octetsLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of octets in packets delivered to the lower layers for transmission
+    """
+    last_clear: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:last-clear",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-clearLeaf4",
+        ),
+    ] = None
+    """
+    Timestamp of the last time the subinterface counters were cleared
+    """
+
+
+class StatisticsContainer7(BaseModel):
+    """
+    Statistics for the Virtual IP address
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    out_probe_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-probe-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-probe-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of probe packets transmitted for the Virtual IP discovery.
+    """
+
+
+class StatisticsContainer8(BaseModel):
+    """
+    Global statistics for Virtual IP discovery
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    out_total_probe_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-total-probe-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Out-total-probe-packetsLeaf",
+        ),
+    ] = 0
+    """
+    The number of total probe packets transmitted for Virtual discovery.
+    """
+
+
+class StatisticsContainer9(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    client_packets_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Client-packets-receivedLeaf",
+        ),
+    ] = 0
+    """
+    Total received dhcp packets from dhcp client(s) for DHCP Relay
+    """
+    client_packets_relayed: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-relayed",
+            ge=0,
+            le=18446744073709551615,
+            title="Client-packets-relayedLeaf",
+        ),
+    ] = 0
+    """
+    Total relayed dhcp packets from dhcp client(s) towards DHCP server(s)
+    """
+    client_packets_discarded: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-discarded",
+            ge=0,
+            le=18446744073709551615,
+            title="Client-packets-discardedLeaf",
+        ),
+    ] = 0
+    """
+    Total discarded dhcp packets from dhcp client(s) towards DHCP server(s)
+    """
+    server_packets_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Server-packets-receivedLeaf",
+        ),
+    ] = 0
+    """
+    Total received dhcp packets from DHCP server(s) for DHCP Relay
+    """
+    server_packets_relayed: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-relayed",
+            ge=0,
+            le=18446744073709551615,
+            title="Server-packets-relayedLeaf",
+        ),
+    ] = 0
+    """
+    Total relayed dhcp packets from DHCP server(s) towards dhcp client(s)
+    """
+    server_packets_discarded: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-discarded",
+            ge=0,
+            le=18446744073709551615,
+            title="Server-packets-discardedLeaf",
+        ),
+    ] = 0
+    """
+    Total discarded dhcp packets from DHCP server(s) towards dhcp client(s)
+    """
+
+
+class SubsystemContainer(BaseModel):
+    """
+    Top-level container for PCI subsystem state
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    vendor_name: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:vendor-name", title="Vendor-nameLeaf2"),
+    ] = None
+    """
+    PCI device vendor
+    """
+    vendor_id: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:vendor-id", title="Vendor-idLeaf2"),
+    ] = None
+    """
+    PCI device vendor ID
+
+    This field is the two byte vendor ID reported over PCI.
+    """
+    device_name: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:device-name", title="Device-nameLeaf2"),
+    ] = None
+    """
+    PCI device name
+    """
+    device_id: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:device-id", title="Device-idLeaf2"),
+    ] = None
+    """
+    PCI device ID
+
+    This field is the two byte device ID reported over PCI.
+    """
+
+
+class TemperatureContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    latest_value: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:latest-value",
+            ge=-32768,
+            le=32767,
+            title="Latest-valueLeaf",
+        ),
+    ] = None
+    """
+    The current temperature of the transceiver module in degrees Celsius
+    """
+    maximum: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:maximum",
+            ge=-32768,
+            le=32767,
+            title="MaximumLeaf",
+        ),
+    ] = None
+    """
+    Represents the highest temperature the transceiver has reached since it booted
+    """
+    maximum_time: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:maximum-time",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Maximum-timeLeaf",
+        ),
+    ] = None
+    """
+    Indicates the time this transceiver reached the temperature referenced in maximum
+    """
+    high_alarm_condition: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:high-alarm-condition",
+            title="High-alarm-conditionLeaf",
+        ),
+    ] = None
+    """
+    High alarm threshold condition
+
+    Set to true whenever the temperature is above the high-alarm-threshold and set to false whenever the temperature is below the high-alarm-threshold
+    """
+    high_alarm_threshold: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:high-alarm-threshold",
+            ge=-32768,
+            le=32767,
+            title="High-alarm-thresholdLeaf",
+        ),
+    ] = None
+    """
+    High alarm threshold
+
+    Read from the installed transceiver
+    """
+    low_alarm_condition: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:low-alarm-condition",
+            title="Low-alarm-conditionLeaf",
+        ),
+    ] = None
+    """
+    Low alarm threshold condition.
+
+    Set to true whenever the temperature is below the low-alarm-threshold and set to false whenever the temperature is above the low-alarm-threshold
+    """
+    low_alarm_threshold: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:low-alarm-threshold",
+            ge=-32768,
+            le=32767,
+            title="Low-alarm-thresholdLeaf",
+        ),
+    ] = None
+    """
+    Low alarm threshold.
+
+    Read from the installed transceiver
+    """
+    high_warning_condition: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:high-warning-condition",
+            title="High-warning-conditionLeaf",
+        ),
+    ] = None
+    """
+    High warning threshold condition.
+
+    Set to true whenever the temperature is above the high-warning-threshold and set to false whenever the temperature is below the high-warning-threshold
+    """
+    high_warning_threshold: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:high-warning-threshold",
+            ge=-32768,
+            le=32767,
+            title="High-warning-thresholdLeaf",
+        ),
+    ] = None
+    """
+    High warning threshold.
+
+    Read from the installed transceiver
+    """
+    low_warning_condition: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:low-warning-condition",
+            title="Low-warning-conditionLeaf",
+        ),
+    ] = None
+    """
+    Low warning threshold condition.
+
+    Set to true whenever the temperature is below the low-warning-threshold and set to false whenever the temperature is above the low-warning-threshold
+    """
+    low_warning_threshold: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:low-warning-threshold",
+            ge=-32768,
+            le=32767,
+            title="Low-warning-thresholdLeaf",
+        ),
+    ] = None
+    """
+    Low warning threshold.
+
+    Read from the installed transceiver
+    """
+
+
+class UnidirectionalLinkDelayContainer(BaseModel):
+    """
+    Unidirectional link delay configuration and state related to subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    static_delay: Annotated[
+        Optional[Union[StaticDelayLeaf1, EnumerationEnum36]],
+        Field(alias="srl_nokia-interfaces:static-delay", title="Static-delayLeaf"),
+    ] = "none"
+    """
+    A statically configured unidirectional delay value that can be advertised as an interface attribute by an IGP
+    """
+    last_reported_dynamic_delay: Annotated[
+        Optional[Union[LastReportedDynamicDelayLeaf1, EnumerationEnum37]],
+        Field(
+            alias="srl_nokia-interfaces:last-reported-dynamic-delay",
+            title="Last-reported-dynamic-delayLeaf",
+        ),
+    ] = None
+    """
+    Indicates the last delay measurement reported to the routing engine
+    """
+
+
+class VhostContainer(BaseModel):
+    """
+    Top-level container for vhost-user interface configuration and state
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    vhost_socket_path: Annotated[
+        str,
+        Field(
+            alias="srl_nokia-interfaces-vxdp:vhost-socket-path",
+            pattern="^(?=^(/[0-9A-Za-z_\\-\\.]+)+$).*$",
+            title="Vhost-socket-pathLeaf",
+        ),
+    ]
+    """
+    Filesystem path to the vhost-user socket
+    """
+    vhost_socket_mode: Annotated[
+        Optional[EnumerationEnum94],
+        Field(
+            alias="srl_nokia-interfaces-vxdp:vhost-socket-mode",
+            title="Vhost-socket-modeLeaf",
+        ),
+    ] = "client"
+    """
+    The vhost-user socket mode
+
+    If set to server, the socket is created by SR Linux, if set to client SR Linux will connect to a pre-existing socket.
+    """
+    vhost_socket_queues: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-vxdp:vhost-socket-queues",
+            ge=1,
+            le=1024,
+            title="Vhost-socket-queuesLeaf",
+        ),
+    ] = None
+    """
+    The number of vhost-user queues
+
+    The number of queues are retrieved from the vhost-user socket if not configured. This should be set equivalent to the number of vCPUs allocated to the other end of the vhost-user interface. This value must not exceed the count of vCPUs provided as the vXDP cpu-set.
+    """
+    socket_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-vxdp:socket-id",
+            ge=0,
+            le=255,
+            title="Socket-idLeaf",
+        ),
+    ] = None
+    """
+    Socket this interface is physically or logically attached to
+
+    This field is not populated for interfaces that have no socket preference - e.g. veth, tap.
+    """
+    socket_cpus: Annotated[
+        Optional[List[int]],
+        Field(alias="srl_nokia-interfaces-vxdp:socket-cpus", ge=0, le=65535),
+    ] = []
+
+
+class XstpContainer(BaseModel):
+    """
+    Container for the configuration of all the Spanning Tree Protocols.
+
+    It includes Spanning Tree Protocol (STP), Rapid RSTP (RSTP) and Multiple STP (MSTP)
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf3"),
+    ] = False
+    """
+    Configures if incoming xSTP frames are tunneled.
+
+    xSTP frames are identified by MAC DA 01-80-c2-00-00-00 and any Ethertype.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf3"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress xSTP frames.
+    """
+
+
+class AdapterContainer(BaseModel):
+    """
+    State for adapters
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    model_number: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces:model-number", title="Model-numberLeaf"),
+    ] = None
+    """
+    Model information for the adapter
+
+    This is the information as read from the EEPROM of the part.  The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
+    """
+    type: Annotated[
+        Optional[EnumerationEnum8],
+        Field(alias="srl_nokia-interfaces:type", title="TypeLeaf"),
+    ] = None
+    """
+    Type of adapter for the port
+    """
+    vendor_manufacture_date: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:vendor-manufacture-date",
+            title="Vendor-manufacture-dateLeaf",
+        ),
+    ] = None
+    """
+    Vendor's date code.
+
+    This is the information as read from the EEPROM of the part.  
+    """
+    vendor_oui: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces:vendor-oui", title="Vendor-ouiLeaf"),
+    ] = None
+    """
+    Vendor's OUI which contains the IEEE company identifier for the vendor
+
+    This is the information as read from the EEPROM of the part.  A value of all zero indicates that the vendor OUI is unspecified.
+    """
+    vendor_part_number: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:vendor-part-number",
+            title="Vendor-part-numberLeaf",
+        ),
+    ] = None
+    """
+    Vendor's part number or product name of the adapter
+
+    This is the information as read from the EEPROM of the part.  An empty string indicates the vendor part number is unspecified. The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
+    """
+    vendor_serial_number: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:vendor-serial-number",
+            title="Vendor-serial-numberLeaf",
+        ),
+    ] = None
+    """
+    Vendor's serial number of the adapter
+
+    This is the information as read from the EEPROM of the part.  An empty string indicates the vendor serial number is unspecified. The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
+    """
+
+
+class AgingContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf18"),
+    ] = "enable"
+    """
+    Configurable state of the aging for the dynamic mac entries in the bridge table.
+    If disabled, dynamically learned mac entries will be programmed in the bridge table
+    until the network instance is disabled.
+    """
+
+
+class AnycastGwContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    virtual_router_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:virtual-router-id",
+            ge=1,
+            le=255,
+            title="Virtual-router-idLeaf3",
+        ),
+    ] = 1
+    """
+    The Virtual Router Identifier (VRID) value used to auto-derive the anycast-gw-mac in the format 00:00:5E:00:01:VRID.
+    """
+    anycast_gw_mac: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:anycast-gw-mac",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Anycast-gw-macLeaf",
+        ),
+    ] = None
+    """
+    The MAC address of associated to the anycast-gw IP address.
+
+    If the anycast-gw MAC address is not configured, it will be auto-derived from the virtual-router-id value
+    as per draft-ietf-bess-evpn-inter-subnet-forwarding following the format 00:00:5E:00:01:VRID.
+    """
+    anycast_gw_mac_origin: Annotated[
+        Optional[EnumerationEnum69],
+        Field(
+            alias="srl_nokia-interfaces:anycast-gw-mac-origin",
+            title="Anycast-gw-mac-originLeaf",
+        ),
+    ] = None
+    """
+    Origin of the active anycast-gateway MAC address.
+
+    If not configured, the anycast-gateway-mac will be auto-derived out of 00:00:5E:00:01:VRID, where VRID is the
+    Virtual Router Identifier of the subinterface anycast-gw.
+    """
+
+
+class BreakoutModeContainer(BaseModel):
+    """
+    Configuration of breakout options.
+
+    7220 D3 ports 3-33: 4x10G and 4x25G
+    7220 D3L ports 1-31: 2x50G, 4x10G and 4x25G
+    7220 H3 ports 3-34: 4x10G, 2x100G/4x100G, and 2x200G
+    7220 H4 ports 1-64: 4x100G and 2x200G
+    7220 D4 ports 29-32: 4x100G, 4x25G, and 4x10G
+    7220 D4 ports 9, 23-27: 4x25G and 4x10G
+    7220 D5 ports 1-32: 4x10G, 4x25G, 2x100G/4x100G, and 2x200G
+    7730 SXR-1d-32D QSFP28 ports 1-16, 21-32: 4x10G and 4x25G (Note 3)
+    7730 SXR-1d-32D QSFPDD ports 17-20: 4x100G, 3x100G (Note 1), 4x25G, and 4x10G
+    7730 SXR-1x-44S SFPDD ports 1-20, 23-42: No breakouts
+    7730 SXR-1x-44S QSFPDD ports 21,22,43,44: 4x100G, 3x100G (Note 1), 4x25G, and 4x10G
+    7250 IXR-6e/10e 60p QSFP28 IMM 9,12,15,18,21,24,26,27,29,30,32,35,38,39,41,42,45,48: 4x25G and 4x10G (Note 2)
+    7250 IXR-6e/10e 36p QSFPDD IMM all ports: 4x100G, 2x100G, 4x25G, and 4x10G
+    7250 IXR-X1b QSFP28 ports 1-24: 4x25G, and 4x10G (Note 4)
+    7250 IXR-X1b QSFPDD ports 25-36: 4x100G, 3x100G (Note 1), 2x100G, 4x25G, and 4x10G
+    7250 IXR-X3b QSFPDD all ports: 4x100G, 3x100G (Note 1), 2x100G, 4x25G, and 4x10G
+    Note 1: 3x100G is only supported for Digital Coherent Optic transceivers
+
+    Note 2: For the following port groupings only the higher numbered port supports breakout-mode.
+            If the higher numbered port is to be configured for breakout-mode, then the lower numbered port should not be configured.
+            If both ports are configured, then the lower numbered port takes precedence and the higher numbered port shall be operationally down with reason unsupported-breakout-port.
+            Groupings are (8,9), (11,12), (14,15), (17,18), (20,21), (23,24), (44, 45), (47,48).
+
+    Note 3: Breakout and 40G is only supported on odd numbered ports.
+            For the QSFP28 four port groupings [1-4], [5-8], [9-12], [13-16], [21-24], [25-28], and [29-32] if either of the odd numbered ports within a group is configured for 40G, 4x10G, or 4x25G,
+            then the other odd numbered port in the same group may only be configured if it is configured for one of 40G, 4x10G, or 4x25G (can differ between the odd ports) and neither of
+            the two even numbered ports within the same group can be configured.
+
+    Note 4: For the QSFP28 ports, the following port groups exist [n, n+1, n+2, n+3] for n = 1, 5, 9, 13, 17, 21.  Breakout for 4x25G or 4x10G is only supported on ports n+1 and n+3.
+            When initially configuring a port with a breakout configuration or port speed that does not already exist on another configured port within the same group, then a link flap and traffic hit may occur on other ports within the same group.
+            When the breakout configuration or port speed is changed for a port in a group, then a link flap and traffic hit may occur on other ports within the same group.
+            If port n+1 within the group is configured for breakout, then port n cannot be configured.
+            In addition if port n+1 is configured for breakout and port n+3 is configured without breakout, then port n+2 may only be configured with the same speed as port n+3.
+            If port n+3 within the group is configured for breakout, then port n+2 cannot be configured.
+            In addition if port n+3 is configured for breakout and port n+1 is configured without breakout, then port n may only be configured with the same speed as port n+1.
+
+    Port Groups and auto-configuration of port speed:
+     Manually configured breakout-mode takes precedence over the auto-configured port-speed.  This means that configuring a port within a port-group can have a side effect to take down an operational port that had its speed set based on the auto configuration feature.  If there is risk of mixing transceiver types within a port group, then it is recommended to always manually configure the ports
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    num_breakout_ports: Annotated[
+        EnumerationEnum2,
+        Field(
+            alias="srl_nokia-interfaces:num-breakout-ports",
+            title="Num-breakout-portsLeaf",
+        ),
+    ]
+    """
+    The number of breakout ports supported by this connector
+    """
+    breakout_port_speed: Annotated[
+        EnumerationEnum3,
+        Field(
+            alias="srl_nokia-interfaces:breakout-port-speed",
+            title="Breakout-port-speedLeaf",
+        ),
+    ]
+    """
+    The speed of each breakout port
+    """
+
+
+class DatapathProgrammingContainer(BaseModel):
+    """
+    Container for state related to the datapath programming of the ARP or neighbor entry
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    status: Annotated[
+        Optional[EnumerationEnum46],
+        Field(alias="srl_nokia-interfaces-nbr:status", title="StatusLeaf4"),
+    ] = None
+    """
+    The status of the ARP or neighbor entry with respect to datapath programming
+    """
+    last_failed_complexes: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr:last-failed-complexes",
+            pattern="^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$",
+        ),
+    ] = []
+
+
+class DatapathProgrammingContainer2(BaseModel):
+    """
+    Container for state related to the datapath programming of the ARP or neighbor entry
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    status: Annotated[
+        Optional[EnumerationEnum58],
+        Field(alias="srl_nokia-interfaces-nbr:status", title="StatusLeaf6"),
+    ] = None
+    """
+    The status of the ARP or neighbor entry with respect to datapath programming
+    """
+    last_failed_complexes: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr:last-failed-complexes",
+            pattern="^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$",
+        ),
+    ] = []
+
+
+class Dot1xContainer2(BaseModel):
+    """
+    Container for the configuration of 802.1x Port based Network Access Control.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf4"),
+    ] = False
+    """
+    Configures if incoming dot1x frames are tunneled.
+
+    Dot1x frames are identified by MAC DA 01-80-c2-00-00-03 and Ethertype 0x888e.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf4"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress dot1x frames.
+    """
+
+
+class DoubleTaggedContainer(BaseModel):
+    """
+    When present, double-tagged frames with a specific, non-zero, outer and inner VLAN ID values are associated to the subinterface
+
+    By default, the specific configured vlan-id tags are stripped at ingress and pushed on egress.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    inner_vlan_id: Annotated[
+        Union[VlanIdType, EnumerationEnum81],
+        Field(
+            alias="srl_nokia-interfaces-vlans:inner-vlan-id", title="Inner-vlan-idLeaf"
+        ),
+    ]
+    """
+    Inner VLAN tag identifier for double-tagged packets
+    """
+    outer_vlan_id: Annotated[
+        Union[VlanIdType, EnumerationEnum82],
+        Field(
+            alias="srl_nokia-interfaces-vlans:outer-vlan-id", title="Outer-vlan-idLeaf"
+        ),
+    ]
+    """
+    Outer VLAN tag identifier for double-tagged packets
+    """
+
+
+class DuplicateEntriesContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    mac: Annotated[
+        Optional[List[MacListEntry2]],
+        Field(alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:mac"),
+    ] = None
+
+
+class EfmOamContainer(BaseModel):
+    """
+    Container for the configuration of Ethernet in the First Mile OAM frames
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf8"),
+    ] = False
+    """
+    Configures if incoming EFM-OAM frames are tunneled
+
+    EFM-OAM frames are identified by Ethertype 0x8809 and slow protocol subtype 0x03.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf8"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress EFM-OAM frames.
+    """
+
+
+class ElmiContainer(BaseModel):
+    """
+    Container for the configuration of Ethernet local management interface frames
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf7"),
+    ] = False
+    """
+    Configures if incoming ELMI frames are tunneled
+
+    ELMI frames are identified by MAC DA 01-80-C2-00-00-07 and Ethertype 0x88ee.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf7"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress ELMI frames
+    """
+
+
+class EsmcContainer(BaseModel):
+    """
+    Container for the configuration of Ethernet synchronization messaging channel frames
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf6"),
+    ] = False
+    """
+    Configures if incoming esmc frames are tunneled
+
+    ESMC frames are identified by Ethertype 0x8809 and slow protocol subtype 0x0A.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf6"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress ESMC frames
+    """
+
+
+class EthernetSegmentAssociationContainer(BaseModel):
+    """
+    ethernet-segment association information.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    ethernet_segment: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ethernet-segment-association:ethernet-segment",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+            title="Ethernet-segmentLeaf",
+        ),
+    ] = None
+    """
+    The value of this leaf indicates the ethernet-segment, the
+    sub-interface is associated to.
+    """
+    es_managed: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-ethernet-segment-association:es-managed",
+            title="Es-managedLeaf",
+        ),
+    ] = False
+    """
+    The value of this leaf indicates if the interface is managed
+    by the ethernet-segment on the network-instance.
+    """
+    designated_forwarder: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-ethernet-segment-association:designated-forwarder",
+            title="Designated-forwarderLeaf",
+        ),
+    ] = False
+    """
+    The value of this leaf indicates if the interface is the designated
+    forwarder for the ethernet-segment on the network-instance.
+    """
+
+
+class ExponentialPortDampeningContainer(BaseModel):
+    """
+    Exponential port dampening parameters
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf4"),
+    ] = "disable"
+    """
+    Administrative state of exponential port dampening
+    """
+    half_life: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:half-life", ge=1, le=2000, title="Half-lifeLeaf"
+        ),
+    ] = 5
+    """
+    Half-life decay time
+    """
+    max_suppress_time: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:max-suppress-time",
+            ge=1,
+            le=43200,
+            title="Max-suppress-timeLeaf",
+        ),
+    ] = 20
+    """
+    Maximum suppression time
+    """
+    reuse_threshold: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:reuse-threshold",
+            ge=1,
+            le=20000,
+            title="Reuse-thresholdLeaf",
+        ),
+    ] = 1000
+    """
+    Threshold which port-up state is no longer suppressed
+    """
+    suppress_threshold: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:suppress-threshold",
+            ge=1,
+            le=20000,
+            title="Suppress-thresholdLeaf",
+        ),
+    ] = 2000
+    """
+    Threshold at which the port-up state is suppressed
+    """
+    current_penalties: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:current-penalties",
+            ge=0,
+            le=18446744073709551615,
+            title="Current-penaltiesLeaf",
+        ),
+    ] = 0
+    """
+    Indicates the accumulated penalties applied to the port
+
+    Penalties are accumulated on every port down event except a system restart.
+    """
+    max_penalties: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:max-penalties",
+            ge=0,
+            le=18446744073709551615,
+            title="Max-penaltiesLeaf",
+        ),
+    ] = 0
+    """
+    Indicates the maximum possible value of the accumulated penalties against the port
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum29],
+        Field(alias="srl_nokia-interfaces:oper-state", title="Oper-stateLeaf3"),
+    ] = None
+    """
+    Indicates if the port up state of the port is suppressed or not
+
+    The port up state is 'idle' if the value of current-penalties
+    exceeds the value of suppress-threshold. The port up state will
+    be 'active' when current-penalties falls below the value of
+    reuse-threshold.
+    """
+
+
+class HealthzContainer(BaseModel):
+    """
+    The health of the component
+
+    The paramaters within this
+    container indicate the status of the component beyond whether
+    it is operationally up or down. When a signal is received
+    that a component is in an unhealthy state the gNOI.Healthz
+    service can be used to retrieve further diagnostic information
+    relating to the component.
+    The contents of this directory relate only to the specific
+    component that it is associated with.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    status: Annotated[
+        Optional[EnumerationEnum13],
+        Field(alias="srl_nokia-platform-healthz:status", title="StatusLeaf"),
+    ] = None
+    """
+    Health status
+
+    The status of the component, indicating its current health.
+    """
+    last_unhealthy: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-platform-healthz:last-unhealthy",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-unhealthyLeaf",
+        ),
+    ] = None
+    """
+    Last unhealthy time
+
+    The time at which the component was last observed to transition from
+    the healthy state to any other state, represented as nanoseconds
+    since the Unix epoch.
+    """
+    unhealthy_count: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-platform-healthz:unhealthy-count",
+            ge=0,
+            le=18446744073709551615,
+            title="Unhealthy-countLeaf",
+        ),
+    ] = 0
+    """
+    Unhealthy count
+
+    The number of times the component has transitioned from the healthy
+    state to any other state.
+    """
+
+
+class HoldTimeContainer(BaseModel):
+    """
+    Configure interface hold timers for Ethernet interfaces
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    up: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:up", ge=0, le=86400000, title="UpLeaf"),
+    ] = 0
+    """
+    Holds link up events for the configured time
+
+    The hold-time up behavior is triggered with any event that tries to bring up the ethernet interface
+    (interface admin-state enable, a reboot, etc). While the hold-time up is running, the transceiver
+    laser will be enabled, however the higher layers will not be notified that the interface is
+    operationally up until the timer expires.
+    """
+    up_expires: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:up-expires",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Up-expiresLeaf",
+        ),
+    ] = None
+    """
+    The remaining time until the hold-time up expires and the interface comes up.
+    """
+    down: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:down", ge=0, le=86400000, title="DownLeaf"),
+    ] = 0
+    """
+    Holds link down events for the configured time
+
+    The hold-time down behavior is triggered with events that try to bring the ethernet interface
+    down and can change quickly. It is not triggered with an admin-state disable event or interface
+    disable due to other internal reasons (such as fabric unavailability). When running, the
+    interface will not be brought down till the timer expires. The typical use of the hold-time down
+    is to provide stability and avoid the protocols to advertise/withdraw messages if there are
+    flapping optics. The hold-time down is aborted if the user does admin-state disable or if the
+    interface is disabled due to other internal reasons that prevent the traffic to be forwarded
+    on the interface.
+    """
+    down_expires: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:down-expires",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Down-expiresLeaf",
+        ),
+    ] = None
+    """
+    The remaining time until the hold-time down expires and the interface goes operationally down.
+    """
+
+
+class HostsContainer(BaseModel):
+    """
+    Top level state container for 802.1X
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    mac: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-dot1x:mac",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+        ),
+    ] = None
+    """
+    Host MAC address
+    """
+    status: Annotated[
+        Optional[EnumerationEnum34],
+        Field(alias="srl_nokia-dot1x:status", title="StatusLeaf2"),
+    ] = None
+    """
+    The status of the 802.1X session for a device
+    """
+
+
+class IngressSquelchingContainer(BaseModel):
+    """
+    Ingress ETH-CFM functions independent of Maintenance Domain context
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    squelch_levels: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-ethcfm:squelch-levels",
+            pattern="^(?=^(0|0 1|0 1 2|0 1 2 3|0 1 2 3 4|0 1 2 3 4 5|0 1 2 3 4 5 6|0 1 2 3 4 5 6 7)$).*$",
+            title="Squelch-levelsLeaf",
+        ),
+    ] = None
+    """
+    Contiguous ETH-CFM Maintenance Domain levels silently discarded at ingress, matching subinterface and level
+
+    ETH-CFM packets ingressing a subinterface that match the definition of the subinterface and have an ETH-CFM level
+    that is part of the squelching configuration will be silently discarded without processing. The lookup is an exact
+    match of the subinterface followed immediately by the ETH-CFM etype 0x8902 and a level equal to any configured squelch
+    values.  The lookup for the ETH-CFM level cannot exceed a total of two VLAN tags.  Ingress squelching will occur
+    prior to any ingress ETH-CFM MP processing.  For example, if a down MEP exists on the subinterface with a level
+    covered by the configured squelch levels the packet will be dropped before the packet it reaches the down MEP.
+    """
+    statistics: Annotated[
+        Optional[StatisticsContainer17], Field(alias="srl_nokia-ethcfm:statistics")
+    ] = None
+
+
+class InternalTagsContainer(BaseModel):
+    """
+    Configuration and state of internal tags
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    set_tag_set: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr:set-tag-set",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+        ),
+    ] = []
+
+
+class InternalTagsContainer2(BaseModel):
+    """
+    Configuration and state of internal tags
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    set_tag_set: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr-evpn:set-tag-set",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+        ),
+    ] = []
+
+
+class InternalTagsContainer3(BaseModel):
+    """
+    Configuration and state of internal tags
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    set_tag_set: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr:set-tag-set",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+        ),
+    ] = []
+
+
+class InternalTagsContainer4(BaseModel):
+    """
+    Configuration and state of internal tags
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    set_tag_set: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr-evpn:set-tag-set",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+        ),
+    ] = []
+
+
+class LacpContainer(BaseModel):
+    """
+    Container for L2CP transparency of the Link Aggregation Control Protocol
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf2"),
+    ] = False
+    """
+    Configures if incoming LACP frames are tunneled.
+
+    LACP frames are identified by MAC DA 01-80-c2-00-00-02, Ethertype 0x8809 and slow-protocol
+    sub-type 0x01.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf2"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress LACP frames.
+    """
+
+
+class LacpContainer2(BaseModel):
+    """
+    Operational status data for the member interfaces
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    activity: Annotated[
+        Optional[EnumerationEnum90],
+        Field(alias="srl_nokia-lacp:activity", title="ActivityLeaf"),
+    ] = None
+    """
+    Indicates participant is active or passive
+    """
+    timeout: Annotated[
+        Optional[EnumerationEnum91],
+        Field(alias="srl_nokia-lacp:timeout", title="TimeoutLeaf2"),
+    ] = None
+    """
+    The timeout type (short or long) used by the
+    participant
+    """
+    synchronization: Annotated[
+        Optional[EnumerationEnum92],
+        Field(alias="srl_nokia-lacp:synchronization", title="SynchronizationLeaf"),
+    ] = None
+    """
+    Indicates whether the participant is in-sync or
+    out-of-sync
+    """
+    aggregatable: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-lacp:aggregatable", title="AggregatableLeaf"),
+    ] = None
+    """
+    A true value indicates that the participant will allow
+    the link to be used as part of the aggregate. A false
+    value indicates the link should be used as an individual
+    link
+    """
+    collecting: Annotated[
+        Optional[bool], Field(alias="srl_nokia-lacp:collecting", title="CollectingLeaf")
+    ] = None
+    """
+    If true, the participant is collecting incoming frames
+    on the link, otherwise false
+    """
+    distributing: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-lacp:distributing", title="DistributingLeaf"),
+    ] = None
+    """
+    When true, the participant is distributing outgoing
+    frames; when false, distribution is disabled
+    """
+    system_id: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-lacp:system-id",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="System-idLeaf",
+        ),
+    ] = None
+    """
+    MAC address that defines the local system ID for the
+    aggregate interface
+    """
+    oper_key: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-lacp:oper-key", ge=0, le=65535, title="Oper-keyLeaf"),
+    ] = None
+    """
+    Current operational value of the key for the aggregate
+    interface
+    """
+    partner_id: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-lacp:partner-id",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Partner-idLeaf",
+        ),
+    ] = None
+    """
+    MAC address representing the protocol partner's interface
+    system ID
+    """
+    partner_key: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:partner-key", ge=0, le=65535, title="Partner-keyLeaf"
+        ),
+    ] = None
+    """
+    Operational value of the protocol partner's key
+    """
+    port_num: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-lacp:port-num", ge=0, le=65535, title="Port-numLeaf"),
+    ] = None
+    """
+    Port number of the local (actor) aggregation member
+    """
+    partner_port_num: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:partner-port-num",
+            ge=0,
+            le=65535,
+            title="Partner-port-numLeaf",
+        ),
+    ] = None
+    """
+    Port number of the partner (remote) port for this member
+    port
+    """
+    lacp_port_priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:lacp-port-priority",
+            ge=0,
+            le=65535,
+            title="Lacp-port-priorityLeaf2",
+        ),
+    ] = None
+    """
+    Configure the port priority for LACP.  This value is used to  determine which port should be activated with LACP fallback mode. Lower values are more preferred.
+    """
+    statistics: Annotated[
+        Optional[StatisticsContainer19], Field(alias="srl_nokia-lacp:statistics")
+    ] = None
+
+
+class LacpContainer3(BaseModel):
+    """
+    LACP parameters for the associated LAG
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    interval: Annotated[
+        Optional[EnumerationEnum93],
+        Field(alias="srl_nokia-lacp:interval", title="IntervalLeaf"),
+    ] = "SLOW"
+    """
+    Set the period between LACP messages -- uses
+          the lacp-period-type enumeration.
+    """
+    lacp_mode: Annotated[
+        Optional[EnumerationEnum90],
+        Field(alias="srl_nokia-lacp:lacp-mode", title="Lacp-modeLeaf"),
+    ] = "ACTIVE"
+    """
+    ACTIVE is to initiate the transmission of LACP packets.
+    PASSIVE is to wait for peer to initiate the transmission of
+    LACP packets.
+    """
+    admin_key: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-lacp:admin-key", ge=1, le=65535, title="Admin-keyLeaf"),
+    ] = None
+    """
+    Configure the LACP admin-key to be advertised by the local system.
+    If this value is not specified a value starting from 32768 is automatically
+    assigned by the system.
+    """
+    system_id_mac: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-lacp:system-id-mac",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="System-id-macLeaf",
+        ),
+    ] = None
+    """
+    The MAC address portion of the node's System ID. This is
+    combined with the system priority to construct the 8-octet
+    system-id.
+    If not configured, the system-ID configured at the system/ level is used.
+    """
+    system_priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-lacp:system-priority",
+            ge=0,
+            le=65535,
+            title="System-priorityLeaf",
+        ),
+    ] = None
+    """
+    System priority used by the node on this LAG interface.
+    Lower value is higher priority for determining which node
+    is the controlling system.
+    If not configured, the system-priority configured at the system/ level is used.
+    """
+
+
+class LearntEntriesContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    mac: Annotated[
+        Optional[List[MacListEntry]],
+        Field(alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:mac"),
+    ] = None
+
+
+class LldpContainer(BaseModel):
+    """
+    Container for L2CP transparency of the Link Layer Discovery Protocol
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-l2cp:tunnel", title="TunnelLeaf"),
+    ] = False
+    """
+    Configures if incoming LLDP frames are tunneled.
+
+    LLDP frames are identified by MAC DA 01-80-c2-00-00-00 and Ethertype 0x88cc.
+    """
+    oper_rule: Annotated[
+        Optional[EnumerationEnum35],
+        Field(alias="srl_nokia-interfaces-l2cp:oper-rule", title="Oper-ruleLeaf"),
+    ] = None
+    """
+    The operational state of the TCAM rule applied to ingress LLDP frames.
+    """
+
+
+class LowVlanIdListEntry(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    range_low_vlan_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-vlans:range-low-vlan-id",
+            ge=1,
+            le=4094,
+            title="Range-low-vlan-idLeaf",
+        ),
+    ] = None
+    """
+    The low-value VLAN identifier in a range for single-tagged packets
+    The range is matched inclusively.
+    """
+    high_vlan_id: Annotated[
+        int,
+        Field(
+            alias="srl_nokia-interfaces-vlans:high-vlan-id",
+            ge=1,
+            le=4094,
+            title="High-vlan-idLeaf",
+        ),
+    ]
+    """
+    The high-value VLAN identifier in a range for single-tagged packets
+    The range is matched inclusively.
+    """
+
+
+class MacDuplicationContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    action: Annotated[
+        Optional[EnumerationEnum71],
+        Field(alias="srl_nokia-interfaces:action", title="ActionLeaf"),
+    ] = "use-net-instance-action"
     """
     Action to take on the subinterface upon detecting at least one mac addresses as duplicate
     on the subinterface. In particular:
@@ -5346,1826 +6389,2771 @@ class ActionLeaf(RootModel[EnumerationEnum71]):
       a different subinterface with a source mac matching the duplicate mac will be dropped. Frames arriving to a different
       subinterface with a destination mac matching the duplicate mac will be forwarded normally.
     """
+    duplicate_entries: Annotated[
+        Optional[DuplicateEntriesContainer],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:duplicate-entries"
+        ),
+    ] = None
 
 
-class ActiveEntriesLeaf(RootModel[ZeroBasedCounter64Type]):
+class MacLearningContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Active-entriesLeaf")]
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf17"),
+    ] = "enable"
     """
-    The total number of entries that are active on the sub-interface.
+    Configurable state of the learning procedures for dynamic mac addresses.
+    If disabled, the existing macs in the bridge-table will be kept (and refreshed
+    if new frames arrive for them) but no new mac addresses will be learned. Frames
+    with unknown mac addresses are not dropped, unless discard-unknown-src-mac is
+    configured.
     """
+    aging: Annotated[
+        Optional[AgingContainer], Field(alias="srl_nokia-interfaces:aging")
+    ] = None
+    learnt_entries: Annotated[
+        Optional[LearntEntriesContainer],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:learnt-entries"
+        ),
+    ] = None
 
 
-class ActiveEntriesLeaf2(RootModel[ZeroBasedCounter64Type]):
+class MacTypeListEntry(BaseModel):
+    """
+    the type of the mac on the sub-interface.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Active-entriesLeaf2")]
+    type: Annotated[
+        Optional[EnumerationEnum77],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-statistics:type", title="TypeLeaf4"
+        ),
+    ] = None
+    """
+    type of mac addresses in the system
+    """
+    active_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-statistics:active-entries",
+            ge=0,
+            le=18446744073709551615,
+            title="Active-entriesLeaf2",
+        ),
+    ] = 0
     """
     The total number of entries of this type on the sub-interface
     """
-
-
-class AddressOriginType(RootModel[EnumerationEnum40]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum40
-    """
-    The origin of the IP address
-    """
-
-
-class AddressLeaf2(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="AddressLeaf2")]
-
-
-class AddressLeaf3(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="AddressLeaf3")]
-
-
-class AddressLeaf4(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="AddressLeaf4")]
-
-
-class AdminStateType(RootModel[EnumerationEnum]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum
-    """
-    general admin-state option.
-    """
-
-
-class AdvertisementsDiscardedAddressMismatchLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type,
-        Field(title="Advertisements-discarded-address-mismatchLeaf"),
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to address mismatch
-    """
-
-
-class AdvertisementsDiscardedAddressMismatchLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type,
-        Field(title="Advertisements-discarded-address-mismatchLeaf2"),
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to address mismatch
-    """
-
-
-class AdvertisementsDiscardedAuthfailLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-authfailLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication failure
-    """
-
-
-class AdvertisementsDiscardedAuthfailLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-authfailLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication failure
-    """
-
-
-class AdvertisementsDiscardedAuthtypeMismatchLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type,
-        Field(title="Advertisements-discarded-authtype-mismatchLeaf"),
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication type mismatch
-    """
-
-
-class AdvertisementsDiscardedAuthtypeMismatchLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type,
-        Field(title="Advertisements-discarded-authtype-mismatchLeaf2"),
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to authentication type mismatch
-    """
-
-
-class AdvertisementsDiscardedIntervalLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-intervalLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to interval mismatch
-    """
-
-
-class AdvertisementsDiscardedIntervalLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-intervalLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to interval mismatch
-    """
-
-
-class AdvertisementsDiscardedLengthLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-lengthLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to length of the packet
-    """
-
-
-class AdvertisementsDiscardedLengthLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-lengthLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to length of the packet
-    """
-
-
-class AdvertisementsDiscardedTotalLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-totalLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages dicarded
-    """
-
-
-class AdvertisementsDiscardedTotalLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-totalLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages dicarded
-    """
-
-
-class AdvertisementsDiscardedTtlLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-ttlLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to ttl error
-    """
-
-
-class AdvertisementsDiscardedTtlLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-discarded-ttlLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to ttl error
-    """
-
-
-class AdvertisementsDiscardedVersionMismatchLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type,
-        Field(title="Advertisements-discarded-version-mismatchLeaf"),
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to version mismatch
-    """
-
-
-class AdvertisementsDiscardedVersionMismatchLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type,
-        Field(title="Advertisements-discarded-version-mismatchLeaf2"),
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages discarded due to version mismatch
-    """
-
-
-class AdvertisementsIntervalErrorLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-interval-errorLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages with interval mismatch
-    """
-
-
-class AdvertisementsIntervalErrorLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Advertisements-interval-errorLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages with interval mismatch
-    """
-
-
-class AdvertisementsReceivedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Advertisements-receivedLeaf")]
-    """
-    Counter for the total numebr fo VRRP advertisement messages received
-    """
-
-
-class AdvertisementsReceivedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Advertisements-receivedLeaf2")]
-    """
-    Counter for the total numebr fo VRRP advertisement messages received
-    """
-
-
-class AdvertisementsSentLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Advertisements-sentLeaf")]
-    """
-    Counter for the total number fo VRRP advertisement messages sent
-    """
-
-
-class AdvertisementsSentLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Advertisements-sentLeaf2")]
-    """
-    Counter for the total number fo VRRP advertisement messages sent
-    """
-
-
-class AgingLeaf(RootModel[Union[AgingLeaf1, EnumerationEnum70]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Union[AgingLeaf1, EnumerationEnum70], Field(title="AgingLeaf")]
-    """
-    remaining age time for learnt macs
-    """
-
-
-class AllowedMacsLeafList(RootModel[UnicastMacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[UnicastMacAddressType, Field(title="Allowed-macsLeafList")]
-    """
-    List of allowed mac addresses for a discovered virtual IP address.
-    """
-
-
-class AllowedMacsLeafList2(RootModel[UnicastMacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[UnicastMacAddressType, Field(title="Allowed-macsLeafList2")]
-    """
-    List of allowed mac addresses for a discovered virtual IP address.
-    """
-
-
-class AnycastGwMacOriginType(RootModel[EnumerationEnum69]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum69
-    """
-    The origin of the anycast-gw MAC address.
-    """
-
-
-class AnycastGwMacLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="Anycast-gw-macLeaf")]
-    """
-    The MAC address of associated to the anycast-gw IP address.
-
-    If the anycast-gw MAC address is not configured, it will be auto-derived from the virtual-router-id value
-    as per draft-ietf-bess-evpn-inter-subnet-forwarding following the format 00:00:5E:00:01:VRID.
-    """
-
-
-class AverageLeaf12(RootModel[Gauge64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Gauge64Type, Field(title="AverageLeaf12")]
-    """
-    Indicates the average Media Frame Rate Error Count received on the optical channel
-    """
-
-
-class BitErrorRateContainer(BaseModel):
-    """
-    Enter the bit-error-rate context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    current: Annotated[
-        CurrentLeaf, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf2, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf3, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class BreakoutPortSpeedLeaf(RootModel[EnumerationEnum3]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum3, Field(title="Breakout-port-speedLeaf")]
-    """
-    The speed of each breakout port
-    """
-
-
-class CarrierTransitionsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Carrier-transitionsLeaf")]
-    """
-    Number of times the interface state has transitioned from down to up.
-
-    This is reset to zero when the device is started or reset or the counters are cleared.
-    """
-
-
-class ChannelListEntry(BaseModel):
-    """
-    List of physical channels supported by the transceiver associated with this port
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    index: Annotated[IndexLeaf, Field(None, alias="srl_nokia-interfaces:index")]
-    wavelength: Annotated[
-        WavelengthLeaf2, Field(None, alias="srl_nokia-interfaces:wavelength")
-    ]
-
-
-class ChromaticDispersionRangeContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    minimum: Annotated[
-        MinimumLeaf, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf2, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class ChromaticDispersionContainer(BaseModel):
-    """
-    Enter the chromatic-dispersion context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    current: Annotated[
-        CurrentLeaf4, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf4, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf5, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf6, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class ClientPacketsDiscardedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Client-packets-discardedLeaf")]
-    """
-    Total discarded dhcp packets from dhcp client(s) towards DHCP server(s)
-    """
-
-
-class ClientPacketsDiscardedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Client-packets-discardedLeaf2")
-    ]
-    """
-    Total discarded dhcp packets from dhcp client(s) towards DHCP server(s)
-    """
-
-
-class ClientPacketsReceivedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Client-packets-receivedLeaf")]
-    """
-    Total received dhcp packets from dhcp client(s) for DHCP Relay
-    """
-
-
-class ClientPacketsReceivedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Client-packets-receivedLeaf2")]
-    """
-    Total received dhcp packets from dhcp client(s) for DHCP Relay
-    """
-
-
-class ClientPacketsRelayedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Client-packets-relayedLeaf")]
-    """
-    Total relayed dhcp packets from dhcp client(s) towards DHCP server(s)
-    """
-
-
-class ClientPacketsRelayedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Client-packets-relayedLeaf2")]
-    """
-    Total relayed dhcp packets from dhcp client(s) towards DHCP server(s)
-    """
-
-
-class CoherentOperationalModeType(RootModel[EnumerationEnum14]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum14
-    """
-    Permitted operational-modes for a coherent port
-    """
-
-
-class CoherentOpticalAlarmType(RootModel[EnumerationEnum22]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum22
-    """
-    Specifies the type of coherent optical alarms currently active on the port
-    """
-
-
-class CoherentOpticalDefectPointType(RootModel[EnumerationEnum23]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum23
-    """
-    Specifies the type of coherent optical defects currently active on the port
-    """
-
-
-class ConnectorTypeLeaf(RootModel[EnumerationEnum12]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum12, Field(title="Connector-typeLeaf")]
-    """
-    Specifies the fiber connector type of the transceiver associated with the port
-    """
-
-
-class CurrentAlarmsLeafList(RootModel[CoherentOpticalAlarmType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[CoherentOpticalAlarmType, Field(title="Current-alarmsLeafList")]
-    """
-    Indicates the coherent optical alarms currently active on the port.
-    """
-
-
-class CurrentPenaltiesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Current-penaltiesLeaf")]
-    """
-    Indicates the accumulated penalties applied to the port
-
-    Penalties are accumulated on every port down event except a system restart.
-    """
-
-
-class CurrentStateLeaf(RootModel[EnumerationEnum57]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum57, Field(title="Current-stateLeaf")]
-    """
-    The Neighbor Unreachability Detection state
-    """
-
-
-class CurrentLeaf12(RootModel[Gauge64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Gauge64Type, Field(title="CurrentLeaf12")]
-    """
-    Indicates the current Media Frame Rate Error Count received on the optical channel
-    """
-
-
-class DateAndTimeDeltaType(RootModel[DateAndTimeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: DateAndTimeType
-    """
-    When this type is used to store a date and time, show routines should display it as a delta
-    with respect to the current date and time in the format 'dddd:hh:mm:ss ago' (for a past
-    event) or 'in dddd:hh:mm:ss' (future event), where dddd is the number of days, hh is the
-    number of  hours, mm is the number of  minutes and ss is the number of seconds.
-    """
-
-
-class DateCodeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Date-codeLeaf")]
-    """
-    Transceiver date code.
-    """
-
-
-class DebugLeafList(RootModel[EnumerationEnum48]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum48, Field(title="DebugLeafList")]
-    """
-    List of events to debug
-    """
-
-
-class DebugLeafList2(RootModel[EnumerationEnum60]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum60, Field(title="DebugLeafList2")]
-    """
-    List of events to debug
-    """
-
-
-class DebugLeafList3(RootModel[EnumerationEnum67]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum67, Field(title="DebugLeafList3")]
-    """
-    List of events to debug
-    """
-
-
-class DefectPointsLeafList(RootModel[CoherentOpticalDefectPointType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        CoherentOpticalDefectPointType, Field(title="Defect-pointsLeafList")
-    ]
-    """
-    Indicates the coherent optical defect points currently active on the port.
-    """
-
-
-class DescriptionLeaf(RootModel[DescriptionType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DescriptionType, Field(title="DescriptionLeaf")]
-    """
-    A user-configured description of the interface
-    """
-
-
-class DescriptionLeaf2(RootModel[DescriptionType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DescriptionType, Field(title="DescriptionLeaf2")]
-    """
-    A user-configured description of the interface
-    """
-
-
-class DhcpRelayV4AgentOperDownReasonType(RootModel[EnumerationEnum50]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum50
-    """
-    The dhcp-relay-v4-agent-oper-down-reason represents the possible reasons causing DHCPv4 relay agent to go into operational down state
-    """
-
-
-class DhcpRelayV6AgentOperDownReasonType(RootModel[EnumerationEnum62]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum62
-    """
-    The dhcp-relay-v6-agent-oper-down-reason represents the possible reasons causing DHCPv6 relay agent to go into operational down state
-    """
-
-
-class DifferentialGroupDelayContainer(BaseModel):
-    """
-    Enter the differential-group-delay context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    current: Annotated[
-        CurrentLeaf5, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf5, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf6, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf7, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class DiscardedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Discarded-packetsLeaf")]
-    """
-    The count of ETH-CFM packets discarded on the subinterface because of ingress squelching
-    """
-
-
-class DownExpiresLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Down-expiresLeaf")]
-    """
-    The remaining time until the hold-time down expires and the interface goes operationally down.
-    """
-
-
-class DupDetectTimeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Dup-detect-timeLeaf")]
-    """
-    The date and time when the mac was declared duplicate
-    """
-
-
-class DuplexModeLeaf(RootModel[EnumerationEnum24]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum24, Field(title="Duplex-modeLeaf")]
-    """
-    When auto-negotiate is true, this sets the duplex mode that will be advertised to the peer.  When auto-negotiate is false, this directly sets the duplex mode of the interface.
-    """
-
-
-class ElectricalSignalToNoiseRatioContainer(BaseModel):
-    """
-    Enter the electrical-signal-to-noise-ratio context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    current: Annotated[
-        CurrentLeaf2, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf2, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf3, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf4, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class EndTimeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="End-timeLeaf")]
-    """
-    End time of the test
-    """
-
-
-class EthernetMonitorReportStatusType(RootModel[EnumerationEnum28]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum28
-
-
-class EthernetSegmentLeaf(RootModel[NameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameType, Field(title="Ethernet-segmentLeaf")]
-    """
-    The value of this leaf indicates the ethernet-segment, the
-    sub-interface is associated to.
-    """
-
-
-class ExpirationTimeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Expiration-timeLeaf")]
-    """
-    The date and time when the dynamic ARP entry is set to expire
-    """
-
-
-class FailedEntriesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Failed-entriesLeaf")]
-    """
-    The total number of macs, which have not been programmed on atleast one slot
-    """
-
-
-class FailedEntriesLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Failed-entriesLeaf2")]
+    total_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-statistics:total-entries",
+            ge=0,
+            le=18446744073709551615,
+            title="Total-entriesLeaf2",
+        ),
+    ] = 0
+    """
+    The total number of macs of this type , active and inactive, on the sub-interface.
+    """
+    failed_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-statistics:failed-entries",
+            ge=0,
+            le=18446744073709551615,
+            title="Failed-entriesLeaf2",
+        ),
+    ] = 0
     """
     The total number of macs of this type, which have not been programmed on atleast one slot
     """
 
 
-class FineTuningContainer(BaseModel):
+class MacListEntry3(BaseModel):
     """
-    State related to fine-tuning
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    range: Annotated[RangeLeaf, Field(None, alias="srl_nokia-interfaces-dco:range")]
-    resolution: Annotated[
-        ResolutionLeaf, Field(None, alias="srl_nokia-interfaces-dco:resolution")
-    ]
-
-
-class FirmwareVersionContainer(BaseModel):
-    """
-    Active firmware version
-
-    This is the information as read from the EEPROM of the part.
-    This is only available for digital coherent optic transceivers
+    macs learnt on the bridging instance
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    major_revision: Annotated[
-        MajorRevisionLeaf, Field(None, alias="srl_nokia-interfaces:major-revision")
-    ]
-    minor_revision: Annotated[
-        MinorRevisionLeaf, Field(None, alias="srl_nokia-interfaces:minor-revision")
-    ]
+    address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-table:address",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="AddressLeaf4",
+        ),
+    ] = None
+    """
+    The mac-address type represents an IEEE 802 MAC address.
+    The canonical representation uses lowercase characters.
+
+    In the value set and its semantics, this type is equivalent
+    to the MacAddress textual convention of the SMIv2.
+    """
+    type: Annotated[
+        Optional[EnumerationEnum77],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-table:type", title="TypeLeaf5"
+        ),
+    ] = None
+    """
+    the type of the mac installed in the fib.
+    """
+    last_update: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-table:last-update",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-updateLeaf4",
+        ),
+    ] = None
+    """
+    The date and time of the last update of this mac
+    """
+    not_programmed_reason: Annotated[
+        Optional[EnumerationEnum78],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-table:not-programmed-reason",
+            title="Not-programmed-reasonLeaf",
+        ),
+    ] = None
+    """
+    The reason why the mac is not programmed
+    """
+    failed_slots: Annotated[
+        Optional[List[int]],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-mac-table:failed-slots",
+            ge=1,
+            le=16,
+        ),
+    ] = []
 
 
-class FlowControlContainer(BaseModel):
+class MplsContainer(BaseModel):
+    """
+    Container for MPLS configuration and state at the subinterface level
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    receive: Annotated[ReceiveLeaf, Field(None, alias="srl_nokia-interfaces:receive")]
-    transmit: Annotated[
-        TransmitLeaf, Field(None, alias="srl_nokia-interfaces:transmit")
-    ]
+    statistics: Annotated[
+        Optional[StatisticsContainer18], Field(alias="srl_nokia-if-mpls:statistics")
+    ] = None
 
 
-class FormFactorLeaf(RootModel[EnumerationEnum11]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum11, Field(title="Form-factorLeaf")]
+class MstInstanceListEntry(BaseModel):
     """
-    Specifies the transceiver form factor associated with the port
-    """
-
-
-class ForwardingModeLeaf(RootModel[EnumerationEnum7]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum7, Field(title="Forwarding-modeLeaf")]
-    """
-    The forwarding mode for Ethernet frames received on this interface
-    """
-
-
-class FrequencyOffsetContainer(BaseModel):
-    """
-    Enter the frequency-offset context
+    List of subinterfaces used by this mstp-policy
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    current: Annotated[
-        CurrentLeaf6, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf6, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf7, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf8, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
+    mst_instance: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:mst-instance",
+            ge=0,
+            le=4294967295,
+            title="Mst-instanceLeaf",
+        ),
+    ] = None
+    """
+    Name of the subinterface bound to this mstp-policy
+    """
+    mst_port_priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:mst-port-priority",
+            ge=16,
+            le=255,
+            title="Mst-port-priorityLeaf",
+        ),
+    ] = 128
+    """
+    The port-priority command is used to populate the priority portion
+    of the bridge ID field within outbound BPDUs (the most significant 4
+    bits of the bridge ID). It is also used as part of the decision process
+    when determining the best BPDU between messages received and sent.
+    When running MSTP, this is the bridge priority used for the CIST.
+
+    All values are truncated to multiples of 4096, conforming with
+    IEEE 802.1t and 802.1D-2004.
+    """
+    mst_path_cost: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:mst-path-cost",
+            ge=1,
+            le=65535,
+            title="Mst-path-costLeaf",
+        ),
+    ] = 16
+    """
+    The interface path-cost is used by STP to calculate the path cost
+    to the root bridge. STP defined this as a function of link bandwidth
+    but this configuration is static.
+    """
 
 
-class FrequencyLeaf(RootModel[OpticalDwdmFrequencyType]):
+class NeighborListEntry(BaseModel):
+    """
+    List of static and dynamic ARP cache entries that map an IPv4 address to a MAC address
+
+    To configure a static ARP entry a value must be written into this leaf and the link-layer-address leaf.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[OpticalDwdmFrequencyType, Field(title="FrequencyLeaf")]
+    ipv4_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-nbr:ipv4-address",
+            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+            title="Ipv4-addressLeaf",
+        ),
+    ] = None
+    """
+    IPv4 address resolved by the ARP entry
+
+    To configure a static neighbor entry a value must be written into this leaf and the link-layer-address leaf.
+    """
+    link_layer_address: Annotated[
+        str,
+        Field(
+            alias="srl_nokia-interfaces-nbr:link-layer-address",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Link-layer-addressLeaf",
+        ),
+    ]
+    """
+    The resolving MAC address of the ARP entry
+
+    To configure a static ARP entry a value must be written into this leaf and the ipv4-address leaf.
+    """
+    origin: Annotated[
+        Optional[EnumerationEnum45],
+        Field(alias="srl_nokia-interfaces-nbr:origin", title="OriginLeaf2"),
+    ] = None
+    """
+    The origin of the ARP entry
+    """
+    expiration_time: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-nbr:expiration-time",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Expiration-timeLeaf",
+        ),
+    ] = None
+    """
+    The date and time when the dynamic ARP entry is set to expire
+    """
+    datapath_programming: Annotated[
+        Optional[DatapathProgrammingContainer],
+        Field(alias="srl_nokia-interfaces-nbr:datapath-programming"),
+    ] = None
+
+
+class NeighborListEntry2(BaseModel):
+    """
+    List of static and dynamic ND cache entries that map an IPv6 address to a MAC address
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    ipv6_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-nbr:ipv6-address",
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+            title="Ipv6-addressLeaf",
+        ),
+    ] = None
+    """
+    IPv6 address resolved by the ND cache entry
+
+    To configure a static neighbor entry a value must be written into this leaf and the link-layer-address leaf.
+    """
+    link_layer_address: Annotated[
+        str,
+        Field(
+            alias="srl_nokia-interfaces-nbr:link-layer-address",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Link-layer-addressLeaf2",
+        ),
+    ]
+    """
+    The resolving MAC address of the ND cache entry
+
+    To configure a static neighbor entry a value must be written into this leaf and the ipv6-address leaf.
+    """
+    origin: Annotated[
+        Optional[EnumerationEnum45],
+        Field(alias="srl_nokia-interfaces-nbr:origin", title="OriginLeaf4"),
+    ] = None
+    """
+    The origin of the neighbor cache entry.
+    """
+    is_router: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-nbr:is-router", title="Is-routerLeaf"),
+    ] = None
+    """
+    Indicates that the neighbor node claims to be a router (R bit in the Neighbor Advertisement message)
+    """
+    current_state: Annotated[
+        Optional[EnumerationEnum57],
+        Field(
+            alias="srl_nokia-interfaces-nbr:current-state", title="Current-stateLeaf"
+        ),
+    ] = None
+    """
+    The Neighbor Unreachability Detection state
+    """
+    next_state_time: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-nbr:next-state-time",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Next-state-timeLeaf",
+        ),
+    ] = None
+    """
+    The date and time when the neighbor state is expected to transition to the next state
+    """
+    datapath_programming: Annotated[
+        Optional[DatapathProgrammingContainer2],
+        Field(alias="srl_nokia-interfaces-nbr:datapath-programming"),
+    ] = None
+
+
+class OpticalChannelListEntry(BaseModel):
+    """
+    List of optical channels supported by the transceiver associated with this port.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    index: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces-dco:index", ge=1, le=1, title="IndexLeaf2"),
+    ] = None
+    """
+    Index of the optical channel
+    """
+    frequency: Annotated[
+        int,
+        Field(
+            alias="srl_nokia-interfaces-dco:frequency",
+            ge=191100000,
+            le=196150000,
+            title="FrequencyLeaf",
+        ),
+    ]
     """
     Center frequency for tunable DWDM optical interface
     """
-
-
-class HighAlarmThresholdLeaf(RootModel[TemperatureType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TemperatureType, Field(title="High-alarm-thresholdLeaf")]
-    """
-    High alarm threshold
-
-    Read from the installed transceiver
-    """
-
-
-class HighVlanIdLeaf(RootModel[VlanIdType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanIdType, Field(title="High-vlan-idLeaf")]
-    """
-    The high-value VLAN identifier in a range for single-tagged packets
-    The range is matched inclusively.
-    """
-
-
-class HighWarningThresholdLeaf(RootModel[TemperatureType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TemperatureType, Field(title="High-warning-thresholdLeaf")]
-    """
-    High warning threshold.
-
-    Read from the installed transceiver
-    """
-
-
-class HoldDownTimeRemainingLeaf(
-    RootModel[Union[EnumerationEnum72, HoldDownTimeRemainingLeaf1]]
-):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        Union[EnumerationEnum72, HoldDownTimeRemainingLeaf1],
-        Field(title="Hold-down-time-remainingLeaf"),
+    operational_mode: Annotated[
+        EnumerationEnum14,
+        Field(
+            alias="srl_nokia-interfaces-dco:operational-mode",
+            title="Operational-modeLeaf",
+        ),
     ]
     """
-    remaining hold down time for duplicate mac
+    Operational mode for the transceiver
+
+     This is a numeric value the defines a set of operating characteristics such as modulation, bit-rate, max power range, fec, etc.
+     Refer to Nokia documentation for details by transceiver part number.
+    """
+    tx_filter_enable: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-dco:tx-filter-enable",
+            title="Tx-filter-enableLeaf",
+        ),
+    ] = False
+    """
+    Controls transmit filtering
+    """
+    chromatic_dispersion_range: Annotated[
+        Optional[ChromaticDispersionRangeContainer],
+        Field(alias="srl_nokia-interfaces-dco:chromatic-dispersion-range"),
+    ] = None
+    target_power: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:target-power",
+            ge=-2000,
+            le=300,
+            title="Target-powerLeaf",
+        ),
+    ] = 100
+    """
+    Average output power target for the port
+    """
+    laser_tunability: Annotated[
+        Optional[EnumerationEnum15],
+        Field(
+            alias="srl_nokia-interfaces-dco:laser-tunability",
+            title="Laser-tunabilityLeaf",
+        ),
+    ] = None
+    """
+    Tunability of the optical interface.
+
+    Value 'unequipped' indicates the optical interface is not equipped with a laser.
+    """
+    oper_frequency: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:oper-frequency",
+            ge=191100000,
+            le=196150000,
+            title="Oper-frequencyLeaf",
+        ),
+    ] = None
+    """
+    The operating frequency of the optical-channel.
+    """
+    minimum_frequency: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:minimum-frequency",
+            ge=191100000,
+            le=196150000,
+            title="Minimum-frequencyLeaf",
+        ),
+    ] = None
+    """
+    The minimum frequency supported by the equipped optical module.
+    """
+    maximum_frequency: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:maximum-frequency",
+            ge=191100000,
+            le=196150000,
+            title="Maximum-frequencyLeaf",
+        ),
+    ] = None
+    """
+    The maximum frequency supported by the equipped optical module.
+    """
+    supported_grids: Annotated[
+        Optional[List[EnumerationEnum16]],
+        Field(alias="srl_nokia-interfaces-dco:supported-grids"),
+    ] = []
+    fine_tuning: Annotated[
+        Optional[FineTuningContainer],
+        Field(alias="srl_nokia-interfaces-dco:fine-tuning"),
+    ] = None
+    dispersion: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:dispersion",
+            ge=-50000,
+            le=50000,
+            title="DispersionLeaf",
+        ),
+    ] = None
+    """
+    Residual chromatic dispersion compensation
+    """
+    dispersion_control_mode: Annotated[
+        Optional[EnumerationEnum17],
+        Field(
+            alias="srl_nokia-interfaces-dco:dispersion-control-mode",
+            title="Dispersion-control-modeLeaf",
+        ),
+    ] = "automatic"
+    """
+    Mode used to compensate for chromatic dispersion
+    """
+    rx_los_reaction: Annotated[
+        Optional[EnumerationEnum18],
+        Field(
+            alias="srl_nokia-interfaces-dco:rx-los-reaction",
+            title="Rx-los-reactionLeaf",
+        ),
+    ] = "squelch"
+    """
+    Reaction to an RX LOS
+    """
+    rx_los_thresh: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:rx-los-thresh",
+            ge=-3000,
+            le=-1300,
+            title="Rx-los-threshLeaf",
+        ),
+    ] = -2300
+    """
+    Average input power LOS threshold
+    """
+    module_state: Annotated[
+        Optional[EnumerationEnum19],
+        Field(alias="srl_nokia-interfaces-dco:module-state", title="Module-stateLeaf"),
+    ] = None
+    """
+    Indicates the state of the coherent optical module.
+    """
+    module_tx_turn_up_states: Annotated[
+        Optional[List[EnumerationEnum20]],
+        Field(alias="srl_nokia-interfaces-dco:module-tx-turn-up-states"),
+    ] = []
+    module_rx_turn_up_states: Annotated[
+        Optional[List[EnumerationEnum21]],
+        Field(alias="srl_nokia-interfaces-dco:module-rx-turn-up-states"),
+    ] = []
+    rx_electrical_snr_x_polarization: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:rx-electrical-snr-x-polarization",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Rx-electrical-snr-x-polarizationLeaf",
+        ),
+    ] = None
+    """
+    Indicates the network received electrical SNR (Signal-to-Noise Ratio) of X polarization.
+    """
+    rx_electrical_snr_y_polarization: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:rx-electrical-snr-y-polarization",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Rx-electrical-snr-y-polarizationLeaf",
+        ),
+    ] = None
+    """
+    Indicates the network received electrical SNR (Signal-to-Noise Ratio) of Y polarization.
+    """
+    rx_quality_margin: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:rx-quality-margin",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Rx-quality-marginLeaf",
+        ),
+    ] = None
+    """
+    Indicates the received quality margin.
+    """
+    rx_optical_snr_x_polarization: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:rx-optical-snr-x-polarization",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Rx-optical-snr-x-polarizationLeaf",
+        ),
+    ] = None
+    """
+    Indicates the network received estimated optical SNR (Signal-to-Noise Ratio) of X polarization.
+    """
+    rx_optical_snr_y_polarization: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces-dco:rx-optical-snr-y-polarization",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="Rx-optical-snr-y-polarizationLeaf",
+        ),
+    ] = None
+    """
+    Indicates the network received estimated optical SNR (Signal-to-Noise Ratio) of Y polarization.
+    """
+    current_alarms: Annotated[
+        Optional[List[EnumerationEnum22]],
+        Field(alias="srl_nokia-interfaces-dco:current-alarms"),
+    ] = []
+    defect_points: Annotated[
+        Optional[List[EnumerationEnum23]],
+        Field(alias="srl_nokia-interfaces-dco:defect-points"),
+    ] = []
+    sweep: Annotated[
+        Optional[SweepContainer], Field(alias="srl_nokia-interfaces-dco:sweep")
+    ] = None
+    statistics: Annotated[
+        Optional[StatisticsContainer2],
+        Field(alias="srl_nokia-interfaces-dco:statistics"),
+    ] = None
+    transmit_power: Annotated[
+        Optional[TransmitPowerContainer],
+        Field(alias="srl_nokia-interfaces-dco:transmit-power"),
+    ] = None
+    logical_channel: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-dco:logical-channel",
+            ge=0,
+            le=4294967295,
+            title="Logical-channelLeaf",
+        ),
+    ] = None
+    """
+    Logical channel associated to this optical channel
+
+    This is used to assist with the openconfig management of DCO using logical channels
     """
 
 
-class HostModeLeaf(RootModel[EnumerationEnum33]):
+class PciContainer(BaseModel):
+    """
+    Top-level container for state related to PCI interfaces
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[EnumerationEnum33, Field(title="Host-modeLeaf")]
+    address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-vxdp:address",
+            pattern="^(?=^[a-zA-Z0-9]{4}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}\\.[a-zA-Z0-9]$).*$",
+            title="AddressLeaf5",
+        ),
+    ] = None
     """
-    Allow for single or multiple hosts to communicate through an IEEE802.1X controlled port
+    PCI address of the interface, unpopulated if interface is not present on PCI
+
+    Unpopulated if interface is not available for PCI passthrough. This format follows the extended Domain:Bus:Device.Function (or BDF) notation. In most cases domain will be padded with four 0000's.
     """
+    socket_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-vxdp:socket-id",
+            ge=0,
+            le=255,
+            title="Socket-idLeaf2",
+        ),
+    ] = None
+    """
+    Socket this interface is physically or logically attached to
+
+    This field is not populated for interfaces that have no socket preference - e.g. veth, tap.
+    """
+    socket_cpus: Annotated[
+        Optional[List[int]],
+        Field(alias="srl_nokia-interfaces-vxdp:socket-cpus", ge=0, le=65535),
+    ] = []
+    vendor_name: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:vendor-name", title="Vendor-nameLeaf"),
+    ] = None
+    """
+    PCI device vendor
+    """
+    vendor_id: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:vendor-id", title="Vendor-idLeaf"),
+    ] = None
+    """
+    PCI device vendor ID
+
+    This field is the two byte vendor ID reported over PCI.
+    """
+    device_name: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:device-name", title="Device-nameLeaf"),
+    ] = None
+    """
+    PCI device name
+    """
+    device_id: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-vxdp:device-id", title="Device-idLeaf"),
+    ] = None
+    """
+    PCI device ID
+
+    This field is the two byte device ID reported over PCI.
+    """
+    subsystem: Annotated[
+        Optional[SubsystemContainer], Field(alias="srl_nokia-interfaces-vxdp:subsystem")
+    ] = None
 
 
-class HwMacAddressLeaf(RootModel[MacAddressType]):
+class PopulateListEntry(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[MacAddressType, Field(title="Hw-mac-addressLeaf")]
+    route_type: Annotated[
+        Optional[EnumerationEnum47],
+        Field(alias="srl_nokia-interfaces-nbr:route-type", title="Route-typeLeaf"),
+    ] = None
     """
-    The MAC address associated with the port
+    Controls what type of ARP or ND entries generate a host route.
     """
+    datapath_programming: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-nbr:datapath-programming",
+            title="Datapath-programmingLeaf",
+        ),
+    ] = None
+    """
+    When set to true, the host route is programmed in the datapath
+    """
+    internal_tags: Annotated[
+        Optional[InternalTagsContainer],
+        Field(alias="srl_nokia-interfaces-nbr:internal-tags"),
+    ] = None
 
 
-class IdLeaf(RootModel[PacketLinkQualificationIdType]):
+class PopulateListEntry2(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[PacketLinkQualificationIdType, Field(title="IdLeaf")]
+    route_type: Annotated[
+        Optional[EnumerationEnum59],
+        Field(alias="srl_nokia-interfaces-nbr:route-type", title="Route-typeLeaf3"),
+    ] = None
+    """
+    Controls what type of ARP or ND entries generate a host route.
+    """
+    datapath_programming: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-nbr:datapath-programming",
+            title="Datapath-programmingLeaf2",
+        ),
+    ] = None
+    """
+    When set to true, the host route is programmed in the datapath
+    """
+    internal_tags: Annotated[
+        Optional[InternalTagsContainer3],
+        Field(alias="srl_nokia-interfaces-nbr:internal-tags"),
+    ] = None
+
+
+class PrefixListEntry(BaseModel):
+    """
+    The list of IPv6 prefixes to advertise in the router advertisement messages.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    ipv6_prefix: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:ipv6-prefix",
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
+            title="Ipv6-prefixLeaf",
+        ),
+    ] = None
+    """
+    An IPv6 global unicast address prefix.
+    """
+    autonomous_flag: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:autonomous-flag",
+            title="Autonomous-flagLeaf",
+        ),
+    ] = True
+    """
+    When this is set in the prefix information option hosts can use the prefix for stateless address autoconfiguration (SLAAC). 
+    """
+    on_link_flag: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:on-link-flag",
+            title="On-link-flagLeaf",
+        ),
+    ] = True
+    """
+    When this is set in the prefix information option hosts can use the prefix for on-link determination.
+    """
+    preferred_lifetime: Annotated[
+        Optional[Union[EnumerationEnum65, PreferredLifetimeLeaf1]],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:preferred-lifetime",
+            title="Preferred-lifetimeLeaf",
+        ),
+    ] = "604800"
+    """
+    The length of time in seconds (relative to the time the packet is sent) that addresses generated from the prefix via stateless address autoconfiguration remain preferred.
+    """
+    valid_lifetime: Annotated[
+        Optional[Union[EnumerationEnum66, ValidLifetimeLeaf1]],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:valid-lifetime",
+            title="Valid-lifetimeLeaf",
+        ),
+    ] = "2592000"
+    """
+    The length of time in seconds (relative to the time the packet is sent) that the prefix is valid for the purpose of on-link determination. 
+    """
+
+
+class ResultListEntry(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    id: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-packet-link-qual:id",
+            pattern="^(?=^[<>A-Za-z0-9!@#$%^&()|+=`~.,'/_:;?-][<>A-Za-z0-9 !@#$%^&()|+=`~.,'/_:;?-]*$).*$",
+            title="IdLeaf",
+        ),
+    ] = None
     """
     Packet link qualification test ID
     """
+    oper_state: Annotated[
+        Optional[EnumerationEnum84],
+        Field(alias="srl_nokia-packet-link-qual:oper-state", title="Oper-stateLeaf12"),
+    ] = None
+    """
+    State of the qualification test
+    """
+    packets_sent: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-packet-link-qual:packets-sent",
+            ge=0,
+            le=18446744073709551615,
+            title="Packets-sentLeaf",
+        ),
+    ] = None
+    """
+    Number of packets sent
+    """
+    packets_received: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-packet-link-qual:packets-received",
+            ge=0,
+            le=18446744073709551615,
+            title="Packets-receivedLeaf",
+        ),
+    ] = None
+    """
+    Number of packets received
+    """
+    packets_error: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-packet-link-qual:packets-error",
+            ge=0,
+            le=18446744073709551615,
+            title="Packets-errorLeaf",
+        ),
+    ] = None
+    """
+    Number of packets transmitted that experienced corruption
+    """
+    packets_dropped: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-packet-link-qual:packets-dropped",
+            ge=0,
+            le=18446744073709551615,
+            title="Packets-droppedLeaf",
+        ),
+    ] = None
+    """
+    Number of packets dropped
+    """
+    start_time: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-packet-link-qual:start-time",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Start-timeLeaf",
+        ),
+    ] = None
+    """
+    Start time of the test
+    """
+    end_time: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-packet-link-qual:end-time",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="End-timeLeaf",
+        ),
+    ] = None
+    """
+    End time of the test
+    """
+    expected_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-packet-link-qual:expected-rate",
+            ge=0,
+            le=18446744073709551615,
+            title="Expected-rateLeaf",
+        ),
+    ] = None
+    """
+    Expected rate of the test
+
+    This is the computed or
+    observed rate that the service expected to be maintained
+    throughout the qualification duration.
+    """
+    qualification_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-packet-link-qual:qualification-rate",
+            ge=0,
+            le=18446744073709551615,
+            title="Qualification-rateLeaf",
+        ),
+    ] = None
+    """
+    Observed rate of the test
+
+    This is the computed or
+    observed rate that the service expected to be maintained
+    throughout the qualification duration.
+    """
+    status: Annotated[
+        Optional[EnumerationEnum85],
+        Field(alias="srl_nokia-packet-link-qual:status", title="StatusLeaf7"),
+    ] = None
+    """
+    Status of the test
+
+    Only set when the test is in the error state.
+    """
+    status_message: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-packet-link-qual:status-message",
+            title="Status-messageLeaf",
+        ),
+    ] = None
+    """
+    Status message of the test
+
+    Only set when the test is in the error state.
+    """
 
 
-class In1024bTo1518bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class RouterRoleContainer(BaseModel):
+    """
+    IPv6 router advertisement options that apply when the role of the interface is a router interface.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-1024b-to-1518b-framesLeaf")]
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:admin-state",
+            title="Admin-stateLeaf15",
+        ),
+    ] = "disable"
     """
-    Number of received Ethernet frames that are 1024-1518 bytes in length
+    Administratively enable or disable the sending of router advertisements on the subinterface.
     """
+    current_hop_limit: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:current-hop-limit",
+            ge=0,
+            le=255,
+            title="Current-hop-limitLeaf",
+        ),
+    ] = 64
+    """
+    The current hop limit to advertise in the router advertisement messages.
+    """
+    ip_mtu: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:ip-mtu",
+            ge=1280,
+            le=9486,
+            title="Ip-mtuLeaf2",
+        ),
+    ] = None
+    """
+    The IP MTU to advertise in the router advertisement messages and that hosts should associate with the link on which these messages are received.
+
+    If no value is specified the option is not included.
+    """
+    managed_configuration_flag: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:managed-configuration-flag",
+            title="Managed-configuration-flagLeaf",
+        ),
+    ] = False
+    """
+    When this is set the M-bit is set in the router advertisement messages, indicating that hosts should use DHCPv6 to obtain IPv6 addresses.
+    """
+    other_configuration_flag: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:other-configuration-flag",
+            title="Other-configuration-flagLeaf",
+        ),
+    ] = False
+    """
+    When this is set the O-bit is set in the router advertisement messages, indicating that hosts should use DHCPv6 to obtain other configuration information (besides addresses).
+    """
+    max_advertisement_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:max-advertisement-interval",
+            ge=4,
+            le=1800,
+            title="Max-advertisement-intervalLeaf",
+        ),
+    ] = 600
+    """
+    The maximum time between sending router advertisement messages to the all-nodes multicast address.
+
+    Each subinterface has its own timer. Whenever the timer fires the message is sent and then the timer is reset to a uniformly distributed random value between min-advertisement-interval and max-advertisement-interval. The RA message can be sent before timer expiry in response to a RS message.
+    """
+    min_advertisement_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:min-advertisement-interval",
+            ge=3,
+            le=1350,
+            title="Min-advertisement-intervalLeaf",
+        ),
+    ] = 200
+    """
+    The minimum time between sending router advertisement messages to the all-nodes multicast address.
+
+    Each subinterface has its own timer. Whenever the timer fires the message is sent and then the timer is reset to a uniformly distributed random value between min-advertisement-interval and max-advertisement-interval. The RA message can be sent before timer expiry in response to a RS message.
+    """
+    reachable_time: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:reachable-time",
+            ge=0,
+            le=3600000,
+            title="Reachable-timeLeaf2",
+        ),
+    ] = 0
+    """
+    The time, in milliseconds, that is advertised as the reachable time in RA messages and that hosts use for the ICMPv6 Neighbor Unreachability Detection algorithm. A value of zero means unspecified by this router.
+    """
+    retransmit_time: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:retransmit-time",
+            ge=0,
+            le=1800000,
+            title="Retransmit-timeLeaf",
+        ),
+    ] = 0
+    """
+    The time, in milliseconds, that is advertised as the retrans-timer in RA messages and that hosts use for address resolution and the Neighbor Unreachability Detection algorithm. It represents the time between retransmitted NS messages. A value of zero means unspecified by this router.
+    """
+    router_lifetime: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-router-adv:router-lifetime",
+            ge=0,
+            le=9000,
+            title="Router-lifetimeLeaf",
+        ),
+    ] = 1800
+    """
+    The lifetime in seconds that is advertised as the router lifetime in RA messages. This indicates the time period for which the advertising router can be used as a default router/gateway. A value of 0 means the router should not be used as a default gateway.
+    """
+    prefix: Annotated[
+        Optional[List[PrefixListEntry]],
+        Field(alias="srl_nokia-interfaces-router-adv:prefix"),
+    ] = None
 
 
-class In128bTo255bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class ServerListEntry(BaseModel):
+    """
+    Reports the resolved IP address for server entries using domain names
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-128b-to-255b-framesLeaf")]
+    domain: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:domain",
+            pattern="^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$",
+            title="DomainLeaf",
+        ),
+    ] = None
     """
-    Number of received Ethernet frames that are 128-255 bytes in length
+    The server domain name
+    """
+    resolved_ip_address: Annotated[
+        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address",
+            title="Resolved-ip-addressLeaf",
+        ),
+    ] = None
+    """
+    The resolved IP address of the server domain name.
+
+    An entry of 0.0.0.0 indicates the server IP cannot be resolved.
+    """
+    last_update: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:last-update",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-updateLeaf",
+        ),
+    ] = None
+    """
+    The date and time of the last update of the server IP address
     """
 
 
-class In1519bOrLongerFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class ServerListEntry2(BaseModel):
+    """
+    Reports the resolved IP address for server entries using domain names
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="In-1519b-or-longer-framesLeaf")
-    ]
+    domain: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:domain",
+            pattern="^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$",
+            title="DomainLeaf2",
+        ),
+    ] = None
     """
-    Number of received Ethernet frames that are 1519 bytes or longer
+    The server domain name
+    """
+    resolved_ip_address: Annotated[
+        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address",
+            title="Resolved-ip-addressLeaf2",
+        ),
+    ] = None
+    """
+    The resolved IP address of the server domain name.
+
+    An entry of 0.0.0.0 indicates the server IP cannot be resolved.
+    """
+    last_update: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:last-update",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-updateLeaf2",
+        ),
+    ] = None
+    """
+    The date and time of the last update of the server IP address
     """
 
 
-class In256bTo511bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class SflowContainer(BaseModel):
+    """
+    Context to configure sFlow parameters
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-256b-to-511b-framesLeaf")]
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf21"),
+    ] = None
     """
-    Number of received Ethernet frames that are 256-511 bytes in length
+    Administratively enable or disable sFlow on this interface
+    """
+    ingress_sampling_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:ingress-sampling-rate",
+            ge=0,
+            le=2000000,
+            title="Ingress-sampling-rateLeaf",
+        ),
+    ] = None
+    """
+    Specify sFlow Ingress packet sample rate.
+    This value is the rate at which traffic will be sampled at a rate of 1:N received packets.
+    """
+    egress_sampling_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:egress-sampling-rate",
+            ge=0,
+            le=2000000,
+            title="Egress-sampling-rateLeaf",
+        ),
+    ] = None
+    """
+    Specify sFlow Egress packet sample rate.
+    This value is the rate at which traffic will be sampled at a rate of 1:N received packets.
     """
 
 
-class In512bTo1023bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class SingleTaggedRangeContainer(BaseModel):
+    """
+    When present, tagged frames with a specific, non-zero, outer VLAN ID contained in a specified set of range are associated to the subinterface
+
+    The outer VLAN ID tag of the frame is not stripped off on ingress, and no tag is pushed on egress.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-512b-to-1023b-framesLeaf")]
-    """
-    Number of received Ethernet frames that are 512-1023 bytes in length
-    """
+    low_vlan_id: Annotated[
+        Optional[List[LowVlanIdListEntry]],
+        Field(alias="srl_nokia-interfaces-vlans:low-vlan-id"),
+    ] = None
 
 
-class In64bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class SingleTaggedContainer(BaseModel):
+    """
+    When present, tagged frames with a specific, non-zero, outer VLAN ID are associated to the subinterface
+
+    The outer VLAN-ID tag is considered service delimiting and it is by default stripped at ingress and restored/added on egress.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-64b-framesLeaf")]
+    vlan_id: Annotated[
+        Optional[Union[VlanIdType, EnumerationEnum80]],
+        Field(alias="srl_nokia-interfaces-vlans:vlan-id", title="Vlan-idLeaf"),
+    ] = None
     """
-    Number of received Ethernet frames that are exactly 64 bytes in length
+    VLAN identifier for single-tagged packets
     """
 
 
-class In65bTo127bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class SsmContainer(BaseModel):
+    """
+    This struct containing all attributes for QL/SSM with SyncE in these ports.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-65b-to-127b-framesLeaf")]
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf5"),
+    ] = "disable"
     """
-    Number of received Ethernet frames that are 65-127 bytes in length
+    Configure the administrative state for SyncE in line/client ports.
+    When enabled, the associated transmit and receiver ports are set to
+    synchronous mode and ESMC/SSM processing is enabled.
+    Otherwise, all syncE functions are disabled in the port.
     """
 
 
-class InBroadcastPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
+class StatisticsContainer16(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-broadcast-packetsLeaf")]
+    active_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-statistics:active-entries",
+            ge=0,
+            le=18446744073709551615,
+            title="Active-entriesLeaf",
+        ),
+    ] = 0
     """
-    Corresponds to ifHCInBroadcastPkts from the IF-MIB
+    The total number of entries that are active on the sub-interface.
     """
+    total_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-statistics:total-entries",
+            ge=0,
+            le=18446744073709551615,
+            title="Total-entriesLeaf",
+        ),
+    ] = 0
+    """
+    The total number of macs, active and inactive, on the sub-interface.
+    """
+    failed_entries: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-statistics:failed-entries",
+            ge=0,
+            le=18446744073709551615,
+            title="Failed-entriesLeaf",
+        ),
+    ] = 0
+    """
+    The total number of macs, which have not been programmed on atleast one slot
+    """
+    mac_type: Annotated[
+        Optional[List[MacTypeListEntry]],
+        Field(alias="srl_nokia-interfaces-bridge-table-statistics:mac-type"),
+    ] = None
 
 
-class InCrcErrorFramesLeaf(RootModel[ZeroBasedCounter64Type]):
+class StatisticsContainer4(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-crc-error-framesLeaf")]
-    """
-    Number of receive error events due to FCS/CRC check failure
-    """
-
-
-class InDiscardedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-discarded-packetsLeaf")]
-    """
-    Corresponds to ifInDiscards from the IFMIB.
-
-    This counts the number of IP packets discarded due to VLAN mismatch, unknown dest MAC or drop by system-filter drop action. On 7250 IXR/IXRe systems this counter is not expected to increment above zero.
-    """
-
-
-class InDiscardedPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-discarded-packetsLeaf2")]
-    """
-    The total number of input packets that were dropped due to explicit programming
-
-    The discards can be due to any of the following reasons
-    - ingress interface ACL drop action
-    - CPM filter drop action
-    - VOQ congestion discards (7250 IXR only)
-    - unicast destination MAC address is not the MAC address of the subinterface
-    - packet matched a route with a blackhole next-hop
-    - packet was non-terminating and its TTL expired
-    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
-    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
-
-    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
-    """
-
-
-class InDiscardedPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-discarded-packetsLeaf3")]
-    """
-    The total number of input packets that were dropped due to explicit programming
-
-    The discards can be due to any of the following reasons
-    - ingress interface ACL drop action
-    - CPM filter drop action
-    - VOQ congestion discards (7250 IXR only)
-    - unicast destination MAC address is not the MAC address of the subinterface
-    - packet matched a route with a blackhole next-hop
-    - packet was non-terminating and its TTL expired
-    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
-    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
-
-    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
-    """
-
-
-class InDiscardedPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-discarded-packetsLeaf4")]
-    """
-    The total number of input packets that were dropped due to explicit programming
-
-    The discards can be due to any of the following reasons
-    - ingress interface ACL drop action
-    - CPM filter drop action
-    - VOQ congestion discards (7250 IXR only)
-    - unicast destination MAC address is not the MAC address of the subinterface
-    - packet matched a route with a blackhole next-hop
-    - packet was non-terminating and its TTL expired
-    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
-    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
-
-    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
-    """
-
-
-class InDiscardedPacketsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-discarded-packetsLeaf5")]
-    """
-    The total number of input packets that were dropped due to explicit programming
-
-    The discards can be due to any of the following reasons
-    - ingress interface ACL drop action
-    - CPM filter drop action
-    - VOQ congestion discards (7250 IXR only)
-    - unicast destination MAC address is not the MAC address of the subinterface
-    - packet matched a route with a blackhole next-hop
-    - packet was non-terminating and its TTL expired
-    - packet matched a route with a next-hop via another subinterface but the next-hop address was not resolvable by ARP/ND
-    - packet is a host address on another subinterface but the host address was not resolvable by ARP/ND
-
-    In an MPLS context, this includes the total number of MPLS packets that were dropped because they were received with forwarded top label having an MPLS TTL value of 1
-    """
-
-
-class InErrorPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-error-packetsLeaf")]
-    """
-    Corresponds to ifInErrors from the IF-MIB
-    """
-
-
-class InErrorPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-error-packetsLeaf2")]
-    """
-    The total number of input packets discarded due to errors, counting transit and terminating traffic
-
-    In an IP context, the sum of the following RFC 4293 counters:
-    ipIfStatsInHdrErrors
-    ipIfStatsInNoRoutes
-    ipIfStatsInAddrErrors
-    ipIfStatsInUnknownProtos
-    ipIfStatsInTruncatedPkts
-
-    In an MPLS context, the total number of MPLS packets that were dropped because:
-    - forwarded top label had an MPLS TTL value of 0
-    - terminating top label had an MPLS TTL value of 0
-    - the top label was unknown (no matching forwarding entry)
-    """
-
-
-class InErrorPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-error-packetsLeaf3")]
-    """
-    The total number of input packets discarded due to errors, counting transit and terminating traffic
-
-    In an IP context, the sum of the following RFC 4293 counters:
-    ipIfStatsInHdrErrors
-    ipIfStatsInNoRoutes
-    ipIfStatsInAddrErrors
-    ipIfStatsInUnknownProtos
-    ipIfStatsInTruncatedPkts
-
-    In an MPLS context, the total number of MPLS packets that were dropped because:
-    - forwarded top label had an MPLS TTL value of 0
-    - terminating top label had an MPLS TTL value of 0
-    - the top label was unknown (no matching forwarding entry)
-    """
-
-
-class InErrorPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-error-packetsLeaf4")]
-    """
-    The total number of input packets discarded due to errors, counting transit and terminating traffic
-
-    In an IP context, the sum of the following RFC 4293 counters:
-    ipIfStatsInHdrErrors
-    ipIfStatsInNoRoutes
-    ipIfStatsInAddrErrors
-    ipIfStatsInUnknownProtos
-    ipIfStatsInTruncatedPkts
-
-    In an MPLS context, the total number of MPLS packets that were dropped because:
-    - forwarded top label had an MPLS TTL value of 0
-    - terminating top label had an MPLS TTL value of 0
-    - the top label was unknown (no matching forwarding entry)
-    """
-
-
-class InErrorPacketsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-error-packetsLeaf5")]
-    """
-    The total number of input packets discarded due to errors, counting transit and terminating traffic
-
-    In an IP context, the sum of the following RFC 4293 counters:
-    ipIfStatsInHdrErrors
-    ipIfStatsInNoRoutes
-    ipIfStatsInAddrErrors
-    ipIfStatsInUnknownProtos
-    ipIfStatsInTruncatedPkts
-
-    In an MPLS context, the total number of MPLS packets that were dropped because:
-    - forwarded top label had an MPLS TTL value of 0
-    - terminating top label had an MPLS TTL value of 0
-    - the top label was unknown (no matching forwarding entry)
-    """
-
-
-class InFcsErrorPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-fcs-error-packetsLeaf")]
-    """
-    Ingress FCS errors
-    """
-
-
-class InForwardedOctetsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-octetsLeaf")]
-    """
-    The number of octets in packets received on this subinterface counted in in-forwarded-packets
-    """
-
-
-class InForwardedOctetsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-octetsLeaf2")]
-    """
-    The number of octets in packets received on this subinterface counted in in-forwarded-packets
-    """
-
-
-class InForwardedOctetsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-octetsLeaf3")]
-    """
-    The number of octets in packets received on this subinterface counted in in-forwarded-packets
-    """
-
-
-class InForwardedOctetsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-octetsLeaf4")]
-    """
-    The number of octets in packets received on this subinterface counted in in-forwarded-packets
-    """
-
-
-class InForwardedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-packetsLeaf")]
-    """
-    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
-
-    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
-    """
-
-
-class InForwardedPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-packetsLeaf2")]
-    """
-    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
-
-    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
-    """
-
-
-class InForwardedPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-packetsLeaf3")]
-    """
-    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
-
-    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
-    """
-
-
-class InForwardedPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-forwarded-packetsLeaf4")]
-    """
-    The number of packets received on this subinterface for which the router was not the final destination and for which the router attempted to find a route to forward them to that final destination.
-
-    Note that non-terminating IPv4 packets with options and non-terminating IPv6 packets with extension headers are included in this count as are packets that trigger ICMP/ICMPv6 redirect messages.
-    """
-
-
-class InFragmentFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-fragment-framesLeaf")]
-    """
-    Number of fragment frames received on the interface
-    """
-
-
-class InJabberFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-jabber-framesLeaf")]
-    """
-    Number of jabber frames received on the interface. Jabber frames are typically defined as oversize frames which also have a bad CRC
-    """
-
-
-class InMacPauseFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-mac-pause-framesLeaf")]
-    """
-    Number of MAC layer PAUSE frames received on the interface.
-    """
-
-
-class InMatchedRaPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-matched-ra-packetsLeaf")]
-    """
-    The total number of IPv6 packets matched with applied RA-Guard policy
-    """
-
-
-class InMatchedRaPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-matched-ra-packetsLeaf2")]
-    """
-    The total number of IPv6 packets matched with applied RA-Guard policy
-    """
-
-
-class InMatchedRaPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-matched-ra-packetsLeaf3")]
-    """
-    The total number of IPv6 packets matched with applied RA-Guard policy
-    """
-
-
-class InMatchedRaPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-matched-ra-packetsLeaf4")]
-    """
-    The total number of IPv6 packets matched with applied RA-Guard policy
-    """
-
-
-class InMulticastPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-multicast-packetsLeaf")]
-    """
-    Corresponds to ifHCInMulticastPkts from the IF-MIB
-    """
-
-
-class InOctetsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-octetsLeaf")]
-    """
-    Corresponds to ifHCInOctets from the IFMIB
-    """
-
-
-class InOctetsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-octetsLeaf2")]
-    """
-    The total number of octets received in input packets, counting transit and terminating traffic
-    """
-
-
-class InOctetsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-octetsLeaf3")]
-    """
-    The total number of octets received in input packets, counting transit and terminating traffic
-    """
-
-
-class InOctetsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-octetsLeaf4")]
-    """
-    The total number of octets received in input packets, counting transit and terminating traffic
-    """
-
-
-class InOctetsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-octetsLeaf5")]
-    """
-    The total number of octets received in input packets, counting transit and terminating traffic
-    """
-
-
-class InOversizeFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-oversize-framesLeaf")]
-    """
-    Number of oversize frames received on the interface (i.e. frames that exceed the operational port MTU)
-    """
-
-
-class InPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-packetsLeaf")]
-    """
-    Sum of all received packets, independent of protocol and forwarding type and before discards and errors
-    """
-
-
-class InPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-packetsLeaf2")]
-    """
-    The total number of input packets received, counting transit and terminating traffic
-
-    This equals the sum of:
-    in-error-packets
-    in-discarded-packets
-    in-terminated-packets
-    in-forwarded-packets
-    """
-
-
-class InPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-packetsLeaf3")]
-    """
-    The total number of input packets received, counting transit and terminating traffic
-
-    This equals the sum of:
-    in-error-packets
-    in-discarded-packets
-    in-terminated-packets
-    in-forwarded-packets
-    """
-
-
-class InPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-packetsLeaf4")]
-    """
-    The total number of input packets received, counting transit and terminating traffic
-
-    This equals the sum of:
-    in-error-packets
-    in-discarded-packets
-    in-terminated-packets
-    in-forwarded-packets
-    """
-
-
-class InPacketsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-packetsLeaf5")]
-    """
-    The total number of input packets received, counting transit and terminating traffic
-
-    This equals the sum of:
-    in-error-packets
-    in-discarded-packets
-    in-terminated-packets
-    in-forwarded-packets
-    """
-
-
-class InTerminatedOctetsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-octetsLeaf")]
-    """
-    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
-    """
-
-
-class InTerminatedOctetsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-octetsLeaf2")]
-    """
-    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
-    """
-
-
-class InTerminatedOctetsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-octetsLeaf3")]
-    """
-    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
-    """
-
-
-class InTerminatedOctetsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-octetsLeaf4")]
-    """
-    The total number of octets in packets that were received on this subinterface and counted in in-terminated-packets
-    """
-
-
-class InTerminatedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-packetsLeaf")]
-    """
-    The total number of input packets that were received on this subinterface that were extracted to the control plane
-
-    The count includes packets eventually discarded by the CPM. Such discards include:
-    - packets with unsupported IP protocol numbers
-    - packets destined to TCP/UDP ports that are not open/listening
-    - IPv4 packets with any IP options
-    - IPv6 packets with any extension headers
-    """
-
-
-class InTerminatedPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-packetsLeaf2")]
-    """
-    The total number of input packets that were received on this subinterface that were extracted to the control plane
-
-    The count includes packets eventually discarded by the CPM. Such discards include:
-    - packets with unsupported IP protocol numbers
-    - packets destined to TCP/UDP ports that are not open/listening
-    - IPv4 packets with any IP options
-    - IPv6 packets with any extension headers
-    """
-
-
-class InTerminatedPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-packetsLeaf3")]
-    """
-    The total number of input packets that were received on this subinterface that were extracted to the control plane
-
-    The count includes packets eventually discarded by the CPM. Such discards include:
-    - packets with unsupported IP protocol numbers
-    - packets destined to TCP/UDP ports that are not open/listening
-    - IPv4 packets with any IP options
-    - IPv6 packets with any extension headers
-    """
-
-
-class InTerminatedPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-terminated-packetsLeaf4")]
-    """
-    The total number of input packets that were received on this subinterface that were extracted to the control plane
-
-    The count includes packets eventually discarded by the CPM. Such discards include:
-    - packets with unsupported IP protocol numbers
-    - packets destined to TCP/UDP ports that are not open/listening
-    - IPv4 packets with any IP options
-    - IPv6 packets with any extension headers
-    """
-
-
-class InTrapToCpuPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-trap-to-cpu-packetsLeaf")]
-    """
-    System or interface level incoming 802.1x frames copied to CPU
-
-    Cumulative of all Ethernet interfaces including all the copy-to-cpu 802.1x frames.
-    802.1x frames are identified by a destination MAC value of 01:80:c2:00:00:03 and EtherType value of 0x888e.
-    """
-
-
-class InTunneledPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-tunneled-packetsLeaf")]
+    total_in_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:total-in-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Total-in-packetsLeaf",
+        ),
+    ] = 0
+    """
+    System or interface level total incoming dot1x frames
+
+    Cumulative of all Ethernet interfaces or specific interface including the tunneled, discarded and copy-to-cpu dot1x frames.
+    """
+    total_in_discarded_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:total-in-discarded-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="Total-in-discarded-packetsLeaf",
+        ),
+    ] = 0
+    """
+    System or interface level incoming do1x discarded frames
+
+    Cumulative of all Ethernet interfaces or specific interface including all the discarded dot1x frames.
+    """
+    in_tunneled_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:in-tunneled-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-tunneled-packetsLeaf",
+        ),
+    ] = 0
     """
     System or interface level incoming 802.1x tunneled frames
 
     Cumulative of all Ethernet interfaces including all the tunneled 802.1x frames.
     802.1x frames are identified by a destination MAC value of 01:80:c2:00:00:03 and EtherType value of 0x888e.
     """
+    in_trap_to_cpu_packets: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:in-trap-to-cpu-packets",
+            ge=0,
+            le=18446744073709551615,
+            title="In-trap-to-cpu-packetsLeaf",
+        ),
+    ] = 0
+    """
+    System or interface level incoming 802.1x frames copied to CPU
+
+    Cumulative of all Ethernet interfaces including all the copy-to-cpu 802.1x frames.
+    802.1x frames are identified by a destination MAC value of 01:80:c2:00:00:03 and EtherType value of 0x888e.
+    """
+    last_clear: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-dot1x:last-clear",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-clearLeaf3",
+        ),
+    ] = None
+    """
+    Timestamp of the last time the 802.1x counters were cleared
+    """
 
 
-class InUnicastPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
+class StormControlContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="In-unicast-packetsLeaf")]
+    units: Annotated[
+        Optional[EnumerationEnum30],
+        Field(alias="srl_nokia-interfaces:units", title="UnitsLeaf"),
+    ] = "percentage"
     """
-    Corresponds to ifHCInUcastPkts from the IF-MIB
+    Units of storm-control policer in kbps or percentage of the interface bandwidth
+    """
+    broadcast_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:broadcast-rate",
+            ge=0,
+            le=132000000,
+            title="Broadcast-rateLeaf",
+        ),
+    ] = None
+    """
+    The maximum rate allowed for ingress broadcast frames on the interface
+
+    The rate can be set in multiple of 64kbps. If the rate is configured to any value
+    in the 1-127 kbps range, the effective rate will be 64kbps and shown in the
+    operational rate. If any value in the 128-191 range, the effective rate will be
+    128kbps and shown in the operational rate, and so on for higher rates. When the
+    rate is set to zero, all the broadcast traffic in the interface is discarded.
+
+    The maximum rate that can be effectively configured in 7220 D4/D5 platforms is
+    132000000. When a configured percentage exceeds that value, the maximum supported
+    rate is set and shown in the operational-broadcast-rate.
+    """
+    multicast_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:multicast-rate",
+            ge=0,
+            le=132000000,
+            title="Multicast-rateLeaf",
+        ),
+    ] = None
+    """
+    The maximum rate allowed for ingress multicast frames on the interface
+
+    The rate can be set in multiple of 64kbps. If the rate is configured to any value
+    in the 1-127 kbps range, the effective rate will be 64kbps and shown in the
+    operational rate. If any value in the 128-191 range, the effective rate will be
+    128kbps and shown in the operational rate, and so on for higher rates. When the
+    rate is set to zero, all the multicast traffic in the interface is discarded.
+
+    The maximum rate that can be effectively configured in 7220 D4/D5 platforms is
+    132000000. When a configured percentage exceeds that value, the maximum supported
+    rate is set and shown in the operational-multicast-rate.
+    """
+    unknown_unicast_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:unknown-unicast-rate",
+            ge=0,
+            le=132000000,
+            title="Unknown-unicast-rateLeaf",
+        ),
+    ] = None
+    """
+    The maximum rate allowed for ingress unknown unicast frames on the interface
+
+    The rate can be set in multiple of 64kbps. If the rate is configured to any value
+    in the 1-127 kbps range, the effective rate will be 64kbps and shown in the
+    operational rate. If any value in the 128-191 range, the effective rate will be
+    128kbps and shown in the operational rate, and so on for higher rates. When the
+    rate is set to zero, all the unknown unicast traffic in the interface is discarded.
+
+    The maximum rate that can be effectively configured in 7220 D4/D5 platforms is
+    132000000. When a configured percentage exceeds that value, the maximum supported
+    rate is set and shown in the operational-multicast-rate.
+    """
+    operational_broadcast_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:operational-broadcast-rate",
+            ge=0,
+            le=4294967295,
+            title="Operational-broadcast-rateLeaf",
+        ),
+    ] = None
+    """
+    The operational maximum rate for ingress broadcast frames programmed on the interface
+    """
+    operational_multicast_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:operational-multicast-rate",
+            ge=0,
+            le=4294967295,
+            title="Operational-multicast-rateLeaf",
+        ),
+    ] = None
+    """
+    The operational maximum rate for ingress multicast frames programmed on the interface
+    """
+    operational_unknown_unicast_rate: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:operational-unknown-unicast-rate",
+            ge=0,
+            le=4294967295,
+            title="Operational-unknown-unicast-rateLeaf",
+        ),
+    ] = None
+    """
+    The operational maximum rate for ingress unknown unicast frames programmed on the interface
+    """
+    rising_threshold_action: Annotated[
+        Optional[EnumerationEnum31],
+        Field(
+            alias="srl_nokia-interfaces:rising-threshold-action",
+            title="Rising-threshold-actionLeaf",
+        ),
+    ] = "none"
+    """
+    Configures the action triggered when traffic exceeds the configured storm-control rates
     """
 
 
-class InnerVlanIdLeaf(RootModel[Union[VlanIdType, EnumerationEnum81]]):
+class StpContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[
-        Union[VlanIdType, EnumerationEnum81], Field(title="Inner-vlan-idLeaf")
-    ]
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:admin-state",
+            title="Admin-stateLeaf19",
+        ),
+    ] = "enable"
     """
-    Inner VLAN tag identifier for double-tagged packets
+    Administratively enable or disable the STP protocol for this interface
+    When STP on the network instance is administratively disabled,
+    any BPDUs are forwarded transparently.
+    When STP on the network instance is administratively enabled,
+    but the administrative state on a sub-interface is disabled,
+    BPDUs received on such a subinterface are discarded.
     """
+    port_number: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:port-number",
+            ge=0,
+            le=2047,
+            title="Port-numberLeaf",
+        ),
+    ] = 0
+    """
+    The virtual port number uniquely identifies subinterface within
+    configuration BPDUs. The internal representation is unique to a system
+    and has a reference space much bigger than the 12 bits definable in a
+    configuration BPDU. STP takes the internal representation value and
+    identifies it with its own virtual port number that is unique to every
+    other subinterface defined on the Mac-Vrf. The virtual port number is
+    assigned at the time that the subinterface is added to the Mac-Vrf.
+    The virtual port number can be specified explicitly
+
+    Default port number : 0 - System generated
+    Range 1 to 2047  
+    """
+    priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:priority",
+            ge=16,
+            le=255,
+            title="PriorityLeaf3",
+        ),
+    ] = 128
+    """
+    The port-priority command is used to populate the priority portion
+    of the bridge ID field within outbound BPDUs (the most significant 4
+    bits of the bridge ID). It is also used as part of the decision process
+    when determining the best BPDU between messages received and sent.
+    When running MSTP, this is the bridge priority used for the CIST.
+
+    All values are truncated to multiples of 4096, conforming with
+    IEEE 802.1t and 802.1D-2004.
+    """
+    path_cost: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:path-cost",
+            ge=1,
+            le=65535,
+            title="Path-costLeaf",
+        ),
+    ] = 16
+    """
+    The interface path-cost is used by STP to calculate the path cost
+    to the root bridge. STP defined this as a function of link bandwidth
+    but this configuration is static.
+    """
+    edge_port: Annotated[
+        Optional[EnumerationEnum73],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:edge-port",
+            title="Edge-portLeaf",
+        ),
+    ] = "no"
+    """
+    When subInterface is participating in STP it will experience delays,
+    timeouts and onboarding new devices would be difficult. Edge ports
+    are connected to end devices that do not speak STP and hence the
+    interfaces aren't expected to receive xSTP BPDUs. Setting edge port
+    indicates the interface is access edge and STP OPER_EDGE is set to true.
+    This flag dictates that STP transitions to the Forwarding state without
+    waiting for Bpdu with agreement flag set. If STP bpdu is received on
+    Edge port OPER_EDGE is made to false. (without changing configured valued)
+    Now the interface will switch back to the normal mode of timer-based
+    transitioning. User needs to do shut-no-shut manually to put it back to
+    configurated value
+    """
+    auto_edge: Annotated[
+        Optional[EnumerationEnum74],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:auto-edge",
+            title="Auto-edgeLeaf",
+        ),
+    ] = "no"
+    """
+    When auto-edge is enabled, STP will send bpdu to determine if there
+    exists a rstp peer. Upon receiving no response, the port is determined
+    as edge-port. Auto-Edge is enabled by default. It dynamically sets the
+    value of OPER_EDGE to true/false based on if stp bpdu is received on
+    the interface. 
+    """
+    link_type: Annotated[
+        Optional[EnumerationEnum75],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:link-type",
+            title="Link-typeLeaf",
+        ),
+    ] = "pt-pt"
+    root_guard: Annotated[
+        Optional[EnumerationEnum76],
+        Field(
+            alias="srl_nokia-interfaces-bridge-table-stp:root-guard",
+            title="Root-guardLeaf",
+        ),
+    ] = "no"
+    mst_instance: Annotated[
+        Optional[List[MstInstanceListEntry]],
+        Field(alias="srl_nokia-interfaces-bridge-table-stp:mst-instance"),
+    ] = None
 
 
-class InnerVlanIdLeaf2(RootModel[VlanIdType]):
+class SymbolMonitorContainer(BaseModel):
+    """
+    Parameters for ethernet symbol monitoring
+
+    Both a signal degrade and signal error threshold can be defined.
+    Crossing of the signal degrade threshold triggers a notification
+    Crossing of the signal failure threshold changes the interface operational state to down.
+    Each threshold is defined using an exponent (N) and a multiplier (M) using the formula M*10E-N.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[VlanIdType, Field(title="Inner-vlan-idLeaf2")]
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf3"),
+    ] = "disable"
     """
-    Optionally specifies the inner VLAN tag identifier
+    Administrative state of symbol monitoring on the port
+    """
+    window_size: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:window-size",
+            ge=5,
+            le=60,
+            title="Window-sizeLeaf2",
+        ),
+    ] = 10
+    """
+    Sliding window size over which errors are measured
+    """
+    signal_degrade: Annotated[
+        Optional[SignalDegradeContainer2],
+        Field(alias="srl_nokia-interfaces:signal-degrade"),
+    ] = None
+    signal_failure: Annotated[
+        Optional[SignalFailureContainer2],
+        Field(alias="srl_nokia-interfaces:signal-failure"),
+    ] = None
+    current_alarms: Annotated[
+        Optional[List[EnumerationEnum28]],
+        Field(alias="srl_nokia-interfaces:current-alarms"),
+    ] = []
+
+
+class SynceContainer(BaseModel):
+    """
+    This struct containing all attributes for SyncE in line/client ports.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    ssm: Annotated[Optional[SsmContainer], Field(alias="srl_nokia-interfaces:ssm")] = (
+        None
+    )
+
+
+class TraceOptionsContainer(BaseModel):
+    """
+    Container for tracing DHCPv4 relay operations on the subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    trace: Annotated[
+        Optional[List[EnumerationEnum52]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:trace"),
+    ] = []
+
+
+class TraceOptionsContainer2(BaseModel):
+    """
+    Container for tracing DHCPv4 operations on the subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    trace: Annotated[
+        Optional[List[EnumerationEnum53]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp:trace"),
+    ] = []
+
+
+class TraceOptionsContainer3(BaseModel):
+    """
+    Container for tracing DHCPv6 relay operations on the subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    trace: Annotated[
+        Optional[List[EnumerationEnum64]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:trace"),
+    ] = []
+
+
+class TraceOptionsContainer4(BaseModel):
+    """
+    Container for tracing DHCPv6 operations on the subinterface
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    trace: Annotated[
+        Optional[List[EnumerationEnum68]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp:trace"),
+    ] = []
+
+
+class TrackInterfaceListEntry(BaseModel):
+    """
+    Interface reference for interface tracking.
+    VRRP Group can track multiple interfaces.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    interface: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:interface", title="InterfaceLeaf"),
+    ] = None
+    """
+    Interface to track
+    """
+    priority_decrement: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority-decrement",
+            ge=0,
+            le=255,
+            title="Priority-decrementLeaf",
+        ),
+    ] = None
+    """
+    For each tracked interface that is down then the priority
+    is decremented by the specific amount to a minimum value of 0
+    """
+
+
+class TrackInterfaceListEntry2(BaseModel):
+    """
+    Interface reference for interface tracking.
+    VRRP Group can track multiple interfaces.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    interface: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:interface", title="InterfaceLeaf3"),
+    ] = None
+    """
+    Interface to track
+    """
+    priority_decrement: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority-decrement",
+            ge=0,
+            le=255,
+            title="Priority-decrementLeaf2",
+        ),
+    ] = None
+    """
+    For each tracked interface that is down then the priority
+    is decremented by the specific amount to a minimum value of 0
+    """
+
+
+class TransceiverContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    functional_type: Annotated[
+        Optional[Any],
+        Field(
+            alias="srl_nokia-interfaces:functional-type", title="Functional-typeLeaf"
+        ),
+    ] = None
+    """
+    Indicates the module functional type which will be deployed for this interface
+
+    This refines the set of leaves available within the transceiver configuration.
+    """
+    tx_laser: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces:tx-laser", title="Tx-laserLeaf"),
+    ] = None
+    """
+    Enable (true) or disable (false) the transmit laser of the transceiver
+
+    When read from state this leaf always returns false (even if the configured value is true) when the Ethernet port is a copper/RJ45 port.
+
+    Default is true (for interfaces that support transceivers).
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum9],
+        Field(alias="srl_nokia-interfaces:oper-state", title="Oper-stateLeaf2"),
+    ] = None
+    """
+    The operational state of the transceiver
+
+    The oper-state is always down when the Ethernet port is a copper/RJ45 port.
+    """
+    oper_down_reason: Annotated[
+        Optional[EnumerationEnum10],
+        Field(
+            alias="srl_nokia-interfaces:oper-down-reason", title="Oper-down-reasonLeaf2"
+        ),
+    ] = None
+    """
+    The reason for the transceiver being operationally down
+    """
+    ddm_events: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces:ddm-events", title="Ddm-eventsLeaf"),
+    ] = None
+    """
+    Controls the reporting of DDM events
+
+    When set to true, log events related to the Digital Diagnostic Monitoring (DDM) capabilities of the transceiver are generated.
+
+    When set to false, no DDM-related log events are generated for this port/transceiver.
+
+    When read from state this leaf always returns false (even if the configured value is true) when the Ethernet port is a copper/RJ45 port.
+    """
+    form_factor: Annotated[
+        Optional[EnumerationEnum11],
+        Field(alias="srl_nokia-interfaces:form-factor", title="Form-factorLeaf"),
+    ] = None
+    """
+    Specifies the transceiver form factor associated with the port
+    """
+    ethernet_pmd: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces:ethernet-pmd", title="Ethernet-pmdLeaf"),
+    ] = None
+    """
+    Specifies the Ethernet compliance code of the transceiver associated with the port
+    """
+    connector_type: Annotated[
+        Optional[EnumerationEnum12],
+        Field(alias="srl_nokia-interfaces:connector-type", title="Connector-typeLeaf"),
+    ] = None
+    """
+    Specifies the fiber connector type of the transceiver associated with the port
+    """
+    vendor: Annotated[
+        Optional[str], Field(alias="srl_nokia-interfaces:vendor", title="VendorLeaf")
+    ] = None
+    """
+    Name of the transceiver vendor
+
+    This is the information as read from the EEPROM of the part.
+    """
+    vendor_part_number: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:vendor-part-number",
+            title="Vendor-part-numberLeaf2",
+        ),
+    ] = None
+    """
+    Vendor's part number for the transceiver
+
+    This is the information as read from the EEPROM of the part.
+    """
+    vendor_revision: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:vendor-revision", title="Vendor-revisionLeaf"
+        ),
+    ] = None
+    """
+    Vendor's revision number for the transceiver
+
+    This is the information as read from the EEPROM of the part.
+    """
+    vendor_lot_number: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:vendor-lot-number",
+            title="Vendor-lot-numberLeaf",
+        ),
+    ] = None
+    """
+    Vendor's lot number for the transceiver
+
+    This is the information as read from the EEPROM of the part.
+    """
+    serial_number: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces:serial-number", title="Serial-numberLeaf"),
+    ] = None
+    """
+    Transceiver serial number
+
+    This is the information as read from the EEPROM of the part.
+    """
+    date_code: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:date-code",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Date-codeLeaf",
+        ),
+    ] = None
+    """
+    Transceiver date code.
+    """
+    firmware_version: Annotated[
+        Optional[FirmwareVersionContainer],
+        Field(alias="srl_nokia-interfaces:firmware-version"),
+    ] = None
+    fault_condition: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:fault-condition", title="Fault-conditionLeaf"
+        ),
+    ] = None
+    """
+    Indicates if a fault condition exists in the transceiver.
+    """
+    wavelength: Annotated[
+        Optional[float],
+        Field(
+            alias="srl_nokia-interfaces:wavelength",
+            ge=-9.223372036854776e18,
+            le=9.223372036854776e18,
+            title="WavelengthLeaf",
+        ),
+    ] = None
+    """
+    Wavelength of the transmitting laser in nanometers
+    """
+    temperature: Annotated[
+        Optional[TemperatureContainer], Field(alias="srl_nokia-interfaces:temperature")
+    ] = None
+    voltage: Annotated[
+        Optional[VoltageContainer], Field(alias="srl_nokia-interfaces:voltage")
+    ] = None
+    channel: Annotated[
+        Optional[List[ChannelListEntry]], Field(alias="srl_nokia-interfaces:channel")
+    ] = None
+    healthz: Annotated[
+        Optional[HealthzContainer], Field(alias="srl_nokia-platform-healthz:healthz")
+    ] = None
+    optical_channel: Annotated[
+        Optional[List[OpticalChannelListEntry]],
+        Field(alias="srl_nokia-interfaces-dco:optical-channel"),
+    ] = None
+    supported_operational_mode: Annotated[
+        Optional[List[EnumerationEnum14]],
+        Field(alias="srl_nokia-interfaces-dco:supported-operational-mode"),
+    ] = []
+
+
+class TunnelContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel_all: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-dot1x:tunnel-all", title="Tunnel-allLeaf"),
+    ] = False
+    """
+    tunnel all dot1x PDUs through the interface
+
+    tunnel untagged and tagged dot1x PDUs.
+    """
+    untagged: Annotated[
+        Optional[bool], Field(alias="srl_nokia-dot1x:untagged", title="UntaggedLeaf")
+    ] = False
+    """
+    tunnel untagged dot1x PDUs through the interface
+    """
+    single_tagged: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-dot1x:single-tagged", title="Single-taggedLeaf"),
+    ] = True
+    """
+    tunnel single tagged dot1x PDUs through the interface
+    """
+    double_tagged: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-dot1x:double-tagged", title="Double-taggedLeaf"),
+    ] = True
+    """
+    tunnel double tagged dot1x PDUs through the interface
+    """
+    statistics: Annotated[
+        Optional[StatisticsContainer4], Field(alias="srl_nokia-dot1x:statistics")
+    ] = None
+
+
+class UnnumberedContainer(BaseModel):
+    """
+    Top-level container for configuring unnumbered interfaces
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf9"),
+    ] = "disable"
+    """
+    When enabled, the subinterface should operate in unnumbered mode for IPv4
+    """
+    interface: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces:interface", title="InterfaceLeaf2"),
+    ] = None
+    """
+    Reference to the subinterface with the IPv4 address to be borrowed
+    """
+    address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:address",
+            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+            title="AddressLeaf",
+        ),
+    ] = None
+    """
+    The operational IPv4 address borrowed from the referenced subinterface
+    """
+    unavailable_address_reason: Annotated[
+        Optional[EnumerationEnum44],
+        Field(
+            alias="srl_nokia-interfaces:unavailable-address-reason",
+            title="Unavailable-address-reasonLeaf",
+        ),
+    ] = None
+    """
+    The reason why there is no operational IPv4 address to use for this subinterface
+    """
+
+
+class VlanDiscoveryContainer(BaseModel):
+    """
+    When present the subinterface should perform vlan discovery by broadcasting dhcp message on all vlanids
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    type: Annotated[
+        Optional[EnumerationEnum79],
+        Field(alias="srl_nokia-interfaces-vlans:type", title="TypeLeaf6"),
+    ] = "IPv4v6"
+    """
+    Types of addresses over which vlan discovery is performed
+    """
+
+
+class AddressListEntry2(BaseModel):
+    """
+    The list of virtual IPv4 addresses to be discovered on the subinterface.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    ipv4_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv4-address",
+            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+            title="Ipv4-addressLeaf2",
+        ),
+    ] = None
+    """
+    The virtual IPv4 address.
+    """
+    allowed_macs: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+        ),
+    ] = []
+    probe_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-interval",
+            ge=0,
+            le=86400,
+            title="Probe-intervalLeaf",
+        ),
+    ] = 0
+    """
+    Configure the ARP probe interval at which the system sends an ARP request for the
+    virtual IPv4 address.
+
+    The default value of zero determines that the system sends an ARP Request for the
+    virtual IPv4 only when the address is configured. The creation of the ARP entry for
+    the virtual IPv4 address will in this case rely on the server sending a Gratuitous ARP
+    for the virtual IPv4 address. When the value is set to a non-zero interval, the system
+    sends a periodic ARP Request at the configured interval and irrespective of the ARP entry
+    being already created.
+    """
+    probe_bridged_subinterfaces: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-bridged-subinterfaces"
+        ),
+    ] = []
+    statistics: Annotated[
+        Optional[StatisticsContainer7],
+        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
+    ] = None
+
+
+class AddressListEntry4(BaseModel):
+    """
+    The list of virtual IPv6 addresses to be discovered on the subinterface.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    ipv6_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv6-address",
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+            title="Ipv6-addressLeaf2",
+        ),
+    ] = None
+    """
+    The virtual IPv6 address.
+    """
+    allowed_macs: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+        ),
+    ] = []
+    probe_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-interval",
+            ge=0,
+            le=86400,
+            title="Probe-intervalLeaf2",
+        ),
+    ] = 0
+    """
+    Configure the probe interval at which the system sends a Neighbor Solicitation (NS) for
+    the virtual IPv6 address.
+
+    The default value of zero determines that the system sends a NS for the
+    virtual IPv6 only when the address is configured. The creation of the Neighbor entry for
+    the virtual IPv6 address will in this case rely on the server sending an unsolicited
+    Neighbor Advertisement for the virtual IPv6 address. When the value is set to a non-zero interval, the system
+    sends a periodic NS at the configured interval and irrespective of the Neighbor entry
+    being already created.
+    """
+    probe_bridged_subinterfaces: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-bridged-subinterfaces"
+        ),
+    ] = []
+    statistics: Annotated[
+        Optional[StatisticsContainer12],
+        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
+    ] = None
+
+
+class AdvertiseListEntry(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    route_type: Annotated[
+        Optional[EnumerationEnum49],
+        Field(
+            alias="srl_nokia-interfaces-nbr-evpn:route-type", title="Route-typeLeaf2"
+        ),
+    ] = None
+    """
+    Controls what type of ARP or ND entries to advertise.
+    """
+    internal_tags: Annotated[
+        Optional[InternalTagsContainer2],
+        Field(alias="srl_nokia-interfaces-nbr-evpn:internal-tags"),
+    ] = None
+
+
+class AdvertiseListEntry2(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    route_type: Annotated[
+        Optional[EnumerationEnum61],
+        Field(
+            alias="srl_nokia-interfaces-nbr-evpn:route-type", title="Route-typeLeaf4"
+        ),
+    ] = None
+    """
+    Controls what type of ARP or ND entries to advertise.
+    """
+    internal_tags: Annotated[
+        Optional[InternalTagsContainer4],
+        Field(alias="srl_nokia-interfaces-nbr-evpn:internal-tags"),
+    ] = None
+
+
+class AuthenticatedSessionListEntry(BaseModel):
+    """
+    The list of authenticated sessions on this device
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    mac: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-dot1x:mac",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="MacLeaf2",
+        ),
+    ] = None
+    """
+    Authenticated device source MAC address
+    """
+    hosts: Annotated[Optional[HostsContainer], Field(alias="srl_nokia-dot1x:hosts")] = (
+        None
+    )
+
+
+class AuthenticatedSessionsContainer(BaseModel):
+    """
+    Top level container for authenticated sessions state data
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    authenticated_session: Annotated[
+        Optional[List[AuthenticatedSessionListEntry]],
+        Field(alias="srl_nokia-dot1x:authenticated-session"),
+    ] = None
+
+
+class AuthenticationContainer(BaseModel):
+    """
+    Context to configure authentication keychain
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    keychain: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:keychain",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+            title="KeychainLeaf",
+        ),
+    ] = None
+    """
+    Reference to a keychain. The keychain type must be md5 or clear-text
+    """
+
+
+class AuthenticationContainer2(BaseModel):
+    """
+    Context to configure authentication keychain
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    keychain: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:keychain",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+            title="KeychainLeaf2",
+        ),
+    ] = None
+    """
+    Reference to a keychain. The keychain type must be md5 or clear-text
+    """
+
+
+class AuthenticatorContainer(BaseModel):
+    """
+    configure dot1x for an authenticator
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    authenticate_port: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-dot1x:authenticate-port", title="Authenticate-portLeaf"),
+    ] = True
+    """
+    Enable IEEE802.1X port control on an interface
+    """
+    port_control: Annotated[
+        Optional[EnumerationEnum32],
+        Field(alias="srl_nokia-dot1x:port-control", title="Port-controlLeaf"),
+    ] = "force-authorized"
+    """
+    IEEE802.1x authentication mode
+    """
+    authenticator_initiated: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-dot1x:authenticator-initiated",
+            title="Authenticator-initiatedLeaf",
+        ),
+    ] = True
+    """
+    When true the authenticator sends an EAP-Request/EAP-Identity to the Supplicant
+    """
+    host_mode: Annotated[
+        Optional[EnumerationEnum33],
+        Field(alias="srl_nokia-dot1x:host-mode", title="Host-modeLeaf"),
+    ] = None
+    """
+    Allow for single or multiple hosts to communicate through an IEEE802.1X controlled port
+    """
+    reauthenticate_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:reauthenticate-interval",
+            ge=0,
+            le=65535,
+            title="Reauthenticate-intervalLeaf",
+        ),
+    ] = None
+    """
+    Enable periodic re-authentication of the device connected to this port
+
+    Send out a identity request once every unit seconds.
+    Setting a value of 0 disables re-authentication on this port.
+    """
+    retransmit_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:retransmit-interval",
+            ge=0,
+            le=65535,
+            title="Retransmit-intervalLeaf",
+        ),
+    ] = None
+    """
+    How long the interface waits for a response before restarting authentication
+
+    How long the interface waits for a response from an EAPoL Start before restarting 802.1X authentication on the port.
+    """
+    quiet_period: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:quiet-period",
+            ge=1,
+            le=3600,
+            title="Quiet-periodLeaf",
+        ),
+    ] = 60
+    """
+    Time to wait after a failed session when no EAPoL frames are processed
+    """
+    supplicant_timeout: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:supplicant-timeout",
+            ge=1,
+            le=300,
+            title="Supplicant-timeoutLeaf",
+        ),
+    ] = 30
+    """
+    Time to wait for a response from the supplicant before restarting the authentication process
+    """
+    max_requests: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:max-requests", ge=1, le=10, title="Max-requestsLeaf"
+        ),
+    ] = 2
+    """
+    Maximum number of times an EAPoL request packet is retransmitted to the supplicant before the authentication session fails
+    """
+    max_authentication_requests: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-dot1x:max-authentication-requests",
+            ge=1,
+            le=10,
+            title="Max-authentication-requestsLeaf",
+        ),
+    ] = 2
+    """
+    Maximum number of RADIUS retries before the authentication fails
+
+    In the case of challenge response, if the supplicant does not respond
+    the authenticator will retransmit the challenge without going to the radius server.
+    This parameter will be used toward supplicant as well when the challenge respond is
+    dropped.
+    """
+    multi_domain_allowed_source_macs: Annotated[
+        Optional[MultiDomainAllowedSourceMacsContainer],
+        Field(alias="srl_nokia-dot1x:multi-domain-allowed-source-macs"),
+    ] = None
+    radius_policy: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-dot1x:radius-policy", title="Radius-policyLeaf"),
+    ] = None
+    """
+    RADIUS policy used for 802.1x authentication
+    """
+    authenticated_sessions: Annotated[
+        Optional[AuthenticatedSessionsContainer],
+        Field(alias="srl_nokia-dot1x:authenticated-sessions"),
+    ] = None
+
+
+class CrcMonitorContainer(BaseModel):
+    """
+    Parameters for crc frame error monitoring
+
+    Both a signal degrade and signal error threshold can be defined.
+    Crossing of the signal degrade threshold triggers a notification
+    Crossing of the signal failure threshold changes the interface operational state to down.
+    Each threshold is defined using an exponent (N) and a multiplier (M) using the formula M*10E-N.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf2"),
+    ] = "disable"
+    """
+    Administrative state of crc monitoring on the port
+    """
+    window_size: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:window-size",
+            ge=5,
+            le=60,
+            title="Window-sizeLeaf",
+        ),
+    ] = 10
+    """
+    Sliding window size over which errors are measured
+    """
+    signal_degrade: Annotated[
+        Optional[SignalDegradeContainer],
+        Field(alias="srl_nokia-interfaces:signal-degrade"),
+    ] = None
+    signal_failure: Annotated[
+        Optional[SignalFailureContainer],
+        Field(alias="srl_nokia-interfaces:signal-failure"),
+    ] = None
+    current_alarms: Annotated[
+        Optional[List[EnumerationEnum28]],
+        Field(alias="srl_nokia-interfaces:current-alarms"),
+    ] = []
+
+
+class DhcpClientContainer(BaseModel):
+    """
+    Container for options related to DHCP
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    trace_options: Annotated[
+        Optional[TraceOptionsContainer2],
+        Field(alias="srl_nokia-interfaces-ip-dhcp:trace-options"),
+    ] = None
+
+
+class DhcpClientContainer2(BaseModel):
+    """
+    Container for options related to DHCPv6
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    trace_options: Annotated[
+        Optional[TraceOptionsContainer4],
+        Field(alias="srl_nokia-interfaces-ip-dhcp:trace-options"),
+    ] = None
+
+
+class DhcpServerContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-server:admin-state",
+            title="Admin-stateLeaf11",
+        ),
+    ] = "disable"
+    """
+    Enables/Disables DHCP server function on subinterface
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-server:oper-state",
+            title="Oper-stateLeaf7",
+        ),
+    ] = None
+    """
+    Details if the dhcp server is operationally available
+    """
+
+
+class Dhcpv6ServerContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-server:admin-state",
+            title="Admin-stateLeaf16",
+        ),
+    ] = "disable"
+    """
+    Enables/Disables DHCPv6 server function on subinterface
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-server:oper-state",
+            title="Oper-stateLeaf10",
+        ),
+    ] = None
+    """
+    Details if the dhcp server is operationally available
+    """
+
+
+class DnsResolutionContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    server: Annotated[
+        Optional[List[ServerListEntry]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:server"),
+    ] = None
+
+
+class DnsResolutionContainer2(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    server: Annotated[
+        Optional[List[ServerListEntry2]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:server"),
+    ] = None
+
+
+class Dot1xContainer(BaseModel):
+    """
+    dot1x configuration
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel: Annotated[
+        Optional[TunnelContainer], Field(alias="srl_nokia-dot1x:tunnel")
+    ] = None
+    authenticator: Annotated[
+        Optional[AuthenticatorContainer], Field(alias="srl_nokia-dot1x:authenticator")
+    ] = None
+
+
+class EgressMappingContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    vlan_stack_action: Annotated[
+        Optional[EnumerationEnum83],
+        Field(
+            alias="srl_nokia-interfaces-vlans:vlan-stack-action",
+            title="Vlan-stack-actionLeaf2",
+        ),
+    ] = None
+    """
+    The action to take on the VLAN stack of a packet
+
+    This is optionally used in conjunction with adjacent leaves to override
+    the values of the action.
+    """
+    outer_vlan_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-vlans:outer-vlan-id",
+            ge=1,
+            le=4094,
+            title="Outer-vlan-idLeaf3",
+        ),
+    ] = None
+    """
+    Optionally specifies the outer VLAN tag identifier
 
     The vlan-id is used by the action configured in 'vlan-stack-action'. For
-    example, if the action is 'PUSH-PUSH' then this VLAN identifier is added to
-    the stack as inner vlan-id. This value must be non-zero if the
-    'vlan-stack-action' is one 'PUSH-PUSH' or 'POP-SWAP'.
+    example, if the action is 'PUSH' then this VLAN identifier is added to
+    the stack. This value must be non-zero if the 'vlan-stack-action' requires
+    the addition or replacement of a VLAN tag.
     """
+    outer_tpid: Annotated[
+        Optional[Any],
+        Field(alias="srl_nokia-interfaces-vlans:outer-tpid", title="Outer-tpidLeaf2"),
+    ] = None
+    """
+    Optionally override the outer tag protocol identifier field (TPID)
 
-
-class InnerVlanIdLeaf3(RootModel[VlanIdType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanIdType, Field(title="Inner-vlan-idLeaf3")]
+    The configured tpid is used by the action configured by 'vlan-stack-action'
+    when modifying the VLAN stack.
+    """
+    inner_vlan_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-vlans:inner-vlan-id",
+            ge=1,
+            le=4094,
+            title="Inner-vlan-idLeaf3",
+        ),
+    ] = None
     """
     Optionally specifies the inner VLAN tag identifier
 
@@ -7174,837 +9162,330 @@ class InnerVlanIdLeaf3(RootModel[VlanIdType]):
     the stack as inner vlan-id. This value must be non-zero if the
     'vlan-stack-action' requires the addition or replacement of an inner VLAN tag.
     """
-
-
-class InterfaceAllType(RootModel[InterfaceNameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[InterfaceNameType, Field(title="Interface-allType")]
-
-
-class Ipv4AddressStatusType(RootModel[EnumerationEnum41]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum41
-    """
-    The IPv4 address status
-    """
-
-
-class Ipv4AddressType(RootModel[Ipv4Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Ipv4Type
-    """
-    An IPv4 address in dotted quad notation.
-    """
-
-
-class Ipv4PrefixWithHostBitsType(RootModel[Ipv4PrefixType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Ipv4PrefixType
-    """
-    An IPv4 prefix with host bits.
-    """
-
-
-class Ipv6AddressStatusType(RootModel[EnumerationEnum55]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum55
-    """
-    The IPv6 address status
-    """
-
-
-class Ipv6AddressTypeType(RootModel[EnumerationEnum54]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum54
-    """
-    The value represents the type of IPv6 address
-    """
-
-
-class Ipv6AddressType(RootModel[Ipv6Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Ipv6Type
-    """
-    An IPv6 address represented as either a full address; shortened
-    or mixed-shortened formats.
-    """
-
-
-class Ipv6PrefixWithHostBitsType(RootModel[Ipv6PrefixType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Ipv6PrefixType
-    """
-    An IPv6 prefix with host bits.
-    """
-
-
-class Ipv6PrefixLeaf(RootModel[Ipv6PrefixType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6PrefixType, Field(title="Ipv6-prefixLeaf")]
-    """
-    An IPv6 global unicast address prefix.
-    """
-
-
-class L2cpOperRuleStateType(RootModel[EnumerationEnum35]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum35
-
-
-class LacpActivityTypeType(RootModel[EnumerationEnum90]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum90
-    """
-    Describes the LACP membership type, active or passive, of the
-    interface in the aggregate
-    """
-
-
-class LacpErrorsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Lacp-errorsLeaf")]
-    """
-    Number of LACPDU illegal packet errors
-    """
-
-
-class LacpFallbackTypeType(RootModel[EnumerationEnum88]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum88
-
-
-class LacpInPktsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Lacp-in-pktsLeaf")]
-    """
-    Number of LACPDUs received
-    """
-
-
-class LacpModeLeaf(RootModel[LacpActivityTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LacpActivityTypeType, Field(title="Lacp-modeLeaf")]
-    """
-    ACTIVE is to initiate the transmission of LACP packets.
-    PASSIVE is to wait for peer to initiate the transmission of
-    LACP packets.
-    """
-
-
-class LacpOutPktsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Lacp-out-pktsLeaf")]
-    """
-    Number of LACPDUs transmitted
-    """
-
-
-class LacpPeriodTypeType(RootModel[EnumerationEnum93]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum93
-    """
-    Defines the period options for the time between sending
-    LACP messages
-    """
-
-
-class LacpRxErrorsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Lacp-rx-errorsLeaf")]
-    """
-    Number of LACPDU receive packet errors
-    """
-
-
-class LacpSynchronizationTypeType(RootModel[EnumerationEnum92]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum92
-    """
-    Indicates LACP synchronization state of participant
-    """
-
-
-class LacpTimeoutTypeType(RootModel[EnumerationEnum91]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum91
-    """
-    Type of timeout used, short or long, by LACP participants
-    """
-
-
-class LacpTxErrorsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Lacp-tx-errorsLeaf")]
-    """
-    Number of LACPDU transmit packet errors
-    """
-
-
-class LacpUnknownErrorsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Lacp-unknown-errorsLeaf")]
-    """
-    Number of LACPDU unknown packet errors
-    """
-
-
-class LagTypeType(RootModel[EnumerationEnum86]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum86
+    inner_tpid: Annotated[
+        Optional[Any],
+        Field(alias="srl_nokia-interfaces-vlans:inner-tpid", title="Inner-tpidLeaf2"),
+    ] = None
     """
-    Type to define the lag-type, i.e., how the LAG is
-    defined and managed
-    """
-
-
-class LaserTunabilityLeaf(RootModel[EnumerationEnum15]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum15, Field(title="Laser-tunabilityLeaf")]
-    """
-    Tunability of the optical interface.
-
-    Value 'unequipped' indicates the optical interface is not equipped with a laser.
-    """
-
-
-class LastChangeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-changeLeaf")]
-    """
-    The date and time of the most recent change to the interface state
-    """
-
-
-class LastChangeLeaf2(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-changeLeaf2")]
-    """
-    The date and time of the most recent change to the subinterface state
-    """
-
-
-class LastChangeLeaf3(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-changeLeaf3")]
-    """
-    The date and time of the most recent change to the LAG member-link state
-    """
-
-
-class LastClearLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-clearLeaf")]
-    """
-    Timestamp of the last time the interface counters were cleared
-    """
-
-
-class LastClearLeaf2(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-clearLeaf2")]
-    """
-    Timestamp of the last time the MAC counters were cleared
-    """
-
-
-class LastClearLeaf3(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-clearLeaf3")]
-    """
-    Timestamp of the last time the 802.1x counters were cleared
-    """
-
-
-class LastClearLeaf4(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-clearLeaf4")]
-    """
-    Timestamp of the last time the subinterface counters were cleared
-    """
-
-
-class LastClearLeaf5(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-clearLeaf5")]
-    """
-    Timestamp of the last time the subinterface counters were cleared
-    """
-
-
-class LastClearLeaf6(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-clearLeaf6")]
-    """
-    Timestamp of the last time the subinterface counters were cleared
-    """
+    Optionally override the inner tag protocol identifier field (TPID)
 
-
-class LastClearLeaf7(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-clearLeaf7")]
-    """
-    Timestamp of the last time the subinterface counters were cleared
-    """
-
-
-class LastReportedDynamicDelayLeaf(
-    RootModel[Union[LastReportedDynamicDelayLeaf1, EnumerationEnum37]]
-):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        Union[LastReportedDynamicDelayLeaf1, EnumerationEnum37],
-        Field(title="Last-reported-dynamic-delayLeaf"),
-    ]
-    """
-    Indicates the last delay measurement reported to the routing engine
-    """
-
-
-class LastTransitionLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-transitionLeaf")]
-    """
-    timestamp for last master router transition
-    """
-
-
-class LastTransitionLeaf2(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-transitionLeaf2")]
-    """
-    timestamp for last master router transition
-    """
-
-
-class LastUnhealthyLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-unhealthyLeaf")]
-    """
-    Last unhealthy time
-
-    The time at which the component was last observed to transition from
-    the healthy state to any other state, represented as nanoseconds
-    since the Unix epoch.
-    """
-
-
-class LastUpdateLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-updateLeaf")]
-    """
-    The date and time of the last update of the server IP address
-    """
-
-
-class LastUpdateLeaf2(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-updateLeaf2")]
-    """
-    The date and time of the last update of the server IP address
-    """
-
-
-class LastUpdateLeaf3(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-updateLeaf3")]
-    """
-    The date and time of the last update of this learnt mac
-    """
-
-
-class LastUpdateLeaf4(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Last-updateLeaf4")]
-    """
-    The date and time of the last update of this mac
-    """
-
-
-class LatestValueLeaf(RootModel[TemperatureType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TemperatureType, Field(title="Latest-valueLeaf")]
-    """
-    The current temperature of the transceiver module in degrees Celsius
-    """
-
-
-class LearnUnsolicitedLeaf2(RootModel[EnumerationEnum56]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum56, Field(title="Learn-unsolicitedLeaf2")]
-    """
-    Sets if neighbors should be learned from unsolicited neighbor advertisements for global or link local addresses or both.
+    The configured tpid is used by the action configured by 'vlan-stack-action'
+    when modifying the VLAN stack.
     """
 
 
-class LimitContainer(BaseModel):
+class EncapContainer(BaseModel):
     """
-    Container for the configuration of Neighbor-Discovery limit
+    VLAN match parmeters for the associated subinterface
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    max_entries: Annotated[
-        MaxEntriesLeaf, Field(None, alias="srl_nokia-interfaces-nbr:max-entries")
-    ]
-    log_only: Annotated[
-        LogOnlyLeaf, Field(False, alias="srl_nokia-interfaces-nbr:log-only")
-    ]
-    warning_threshold_pct: Annotated[
-        WarningThresholdPctLeaf,
-        Field(90, alias="srl_nokia-interfaces-nbr:warning-threshold-pct"),
-    ]
+    single_tagged: Annotated[
+        Optional[SingleTaggedContainer],
+        Field(alias="srl_nokia-interfaces-vlans:single-tagged"),
+    ] = None
+    untagged: Annotated[
+        Optional[UntaggedContainer], Field(alias="srl_nokia-interfaces-vlans:untagged")
+    ] = None
+    single_tagged_range: Annotated[
+        Optional[SingleTaggedRangeContainer],
+        Field(alias="srl_nokia-interfaces-vlans:single-tagged-range"),
+    ] = None
+    double_tagged: Annotated[
+        Optional[DoubleTaggedContainer],
+        Field(alias="srl_nokia-interfaces-vlans:double-tagged"),
+    ] = None
 
 
-class LinecardLeaf(RootModel[SlotLeaf]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[SlotLeaf, Field(title="LinecardLeaf")]
+class EthCfmContainer(BaseModel):
     """
-    The linecard on which this interface resides
+    Configuration of ETH-CFM functions independent of Maintenance Domain context
 
-    This field is not populated for non-forwarding-complex-attached interfaces, for example mgmt0.
-    """
-
-
-class LinkLayerAddressLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="Link-layer-addressLeaf")]
-    """
-    The resolving MAC address of the ARP entry
-
-    To configure a static ARP entry a value must be written into this leaf and the ipv4-address leaf.
-    """
-
-
-class LinkLayerAddressLeaf2(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="Link-layer-addressLeaf2")]
-    """
-    The resolving MAC address of the ND cache entry
-
-    To configure a static neighbor entry a value must be written into this leaf and the ipv6-address leaf.
-    """
-
-
-class LosReactionType(RootModel[EnumerationEnum18]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum18
-    """
-    Specifies the type of action that is taken in the event of a Loss Of Signal (LOS)
-    """
-
-
-class LowAlarmThresholdLeaf(RootModel[TemperatureType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TemperatureType, Field(title="Low-alarm-thresholdLeaf")]
-    """
-    Low alarm threshold.
-
-    Read from the installed transceiver
-    """
-
-
-class LowWarningThresholdLeaf(RootModel[TemperatureType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TemperatureType, Field(title="Low-warning-thresholdLeaf")]
-    """
-    Low warning threshold.
-
-    Read from the installed transceiver
-    """
-
-
-class MacAddressLeaf(RootModel[MacAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacAddressType, Field(title="Mac-addressLeaf")]
-    """
-    MAC address of the interface
-
-    If not configured, this is set to the hw-mac-address, which is populated depending on interface type:
-
-    - For interfaces with a discoverable MAC address (either populated by an external system or present in hardware) the discovered value is populated.
-    - For interfaces without a discoverable MAC address, the address is generated from a hash of the interface name and the chassis MAC address.
-
-    When deleted, will revert back to the value of hw-mac-address.
-    """
-
-
-class MacAddressListEntry(BaseModel):
-    """
-    Add a list entry for source mac-address
+    This is an ETH-CFM function that is configured directly under the subinterface
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    mac: Annotated[MacLeaf, Field(None, alias="srl_nokia-dot1x:mac")]
+    ingress_squelching: Annotated[
+        Optional[IngressSquelchingContainer],
+        Field(alias="srl_nokia-ethcfm:ingress-squelching"),
+    ] = None
 
 
-class MacLimitContainer(BaseModel):
+class EvpnContainer(BaseModel):
     """
-    Bridge Table size and thresholds.
+    Configure which types of ARP or ND entries will be advertised in EVPN MAC/IP routes.
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    maximum_entries: Annotated[
-        MaximumEntriesLeaf, Field(250, alias="srl_nokia-interfaces:maximum-entries")
-    ]
-    warning_threshold_pct: Annotated[
-        WarningThresholdPctLeaf2,
-        Field(95, alias="srl_nokia-interfaces:warning-threshold-pct"),
-    ]
+    advertise: Annotated[
+        Optional[List[AdvertiseListEntry]],
+        Field(alias="srl_nokia-interfaces-nbr-evpn:advertise"),
+    ] = None
 
 
-class MacTypeType(RootModel[EnumerationEnum77]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum77
+class EvpnContainer2(BaseModel):
     """
-    type of mac addresses in the system
-    """
-
-
-class MacLeaf2(RootModel[MacLeaf3]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacLeaf3, Field(title="MacLeaf2")]
-    """
-    Authenticated device source MAC address
-    """
-
-
-class MacListEntry(BaseModel):
-    """
-    macs learnt on the bridging instance
+    Configure which types of ARP or ND entries will be advertised in EVPN MAC/IP routes.
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    address: Annotated[
-        AddressLeaf2,
+    advertise: Annotated[
+        Optional[List[AdvertiseListEntry2]],
+        Field(alias="srl_nokia-interfaces-nbr-evpn:advertise"),
+    ] = None
+
+
+class HostRouteContainer(BaseModel):
+    """
+    Configure which types of ARP or ND entries will be populated in the route-table.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    populate: Annotated[
+        Optional[List[PopulateListEntry]],
+        Field(alias="srl_nokia-interfaces-nbr:populate"),
+    ] = None
+
+
+class HostRouteContainer2(BaseModel):
+    """
+    Configure which types of ARP or ND entries will be populated in the route-table.
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    populate: Annotated[
+        Optional[List[PopulateListEntry2]],
+        Field(alias="srl_nokia-interfaces-nbr:populate"),
+    ] = None
+
+
+class IngressMappingContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    vlan_stack_action: Annotated[
+        Optional[EnumerationEnum83],
         Field(
-            None, alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:address"
+            alias="srl_nokia-interfaces-vlans:vlan-stack-action",
+            title="Vlan-stack-actionLeaf",
         ),
-    ]
-    last_update: Annotated[
-        LastUpdateLeaf3,
+    ] = None
+    """
+    The action to take on the VLAN stack of a packet
+
+    This is optionally used in conjunction with adjacent leaves to override
+    the values of the action.
+    """
+    outer_vlan_id: Annotated[
+        Optional[int],
         Field(
-            None,
-            alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:last-update",
+            alias="srl_nokia-interfaces-vlans:outer-vlan-id",
+            ge=1,
+            le=4094,
+            title="Outer-vlan-idLeaf2",
         ),
-    ]
-    aging: Annotated[
-        AgingLeaf,
+    ] = None
+    """
+    Optionally specifies the outer VLAN tag identifier
+
+    The vlan-id is used by the action configured in 'vlan-stack-action'. For
+    example, if the action is 'PUSH' then this VLAN identifier is added to
+    the stack. This value must be non-zero if the 'vlan-stack-action' requires
+    the addition or replacement of a VLAN tag.
+    """
+    outer_tpid: Annotated[
+        Optional[Any],
+        Field(alias="srl_nokia-interfaces-vlans:outer-tpid", title="Outer-tpidLeaf"),
+    ] = None
+    """
+    Optionally override the outer tag protocol identifier field (TPID)
+
+    The configured tpid is used by the action configured by 'vlan-stack-action'
+    when modifying the VLAN stack.
+    """
+    inner_vlan_id: Annotated[
+        Optional[int],
         Field(
-            None, alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:aging"
+            alias="srl_nokia-interfaces-vlans:inner-vlan-id",
+            ge=1,
+            le=4094,
+            title="Inner-vlan-idLeaf2",
         ),
-    ]
-
-
-class MacListEntry2(BaseModel):
+    ] = None
     """
-    macs duplicate on the bridging instance
+    Optionally specifies the inner VLAN tag identifier
+
+    The vlan-id is used by the action configured in 'vlan-stack-action'. For
+    example, if the action is 'PUSH-PUSH' then this VLAN identifier is added to
+    the stack as inner vlan-id. This value must be non-zero if the
+    'vlan-stack-action' is one 'PUSH-PUSH' or 'POP-SWAP'.
+    """
+    inner_tpid: Annotated[
+        Optional[Any],
+        Field(alias="srl_nokia-interfaces-vlans:inner-tpid", title="Inner-tpidLeaf"),
+    ] = None
+    """
+    Optionally override the inner tag protocol identifier field (TPID)
+
+    The configured tpid is used by the action configured by 'vlan-stack-action'
+    when modifying the VLAN stack.
+    """
+
+
+class InterfaceTrackingContainer(BaseModel):
+    """
+    Interface reference for interface tracking
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    address: Annotated[
-        AddressLeaf3,
+    track_interface: Annotated[
+        Optional[List[TrackInterfaceListEntry]],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:track-interface"),
+    ] = None
+
+
+class InterfaceTrackingContainer2(BaseModel):
+    """
+    Interface reference for interface tracking
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    track_interface: Annotated[
+        Optional[List[TrackInterfaceListEntry2]],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:track-interface"),
+    ] = None
+
+
+class L2cpTransparencyContainer(BaseModel):
+    """
+    Configuration and state of the Layer-2 Control Protocol transparency
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    tunnel_all_l2cp: Annotated[
+        Optional[bool],
         Field(
-            None,
-            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:address",
+            alias="srl_nokia-interfaces-l2cp:tunnel-all-l2cp",
+            title="Tunnel-all-l2cpLeaf",
         ),
-    ]
-    dup_detect_time: Annotated[
-        DupDetectTimeLeaf,
+    ] = False
+    """
+    Configures the tunneling of all the L2CP protocols.
+
+    When set to true this command triggers the installation of an ingress TCAM rule with the highest
+    priority (above all the individual L2CP tunnel rules) which allows the forwarding of any
+    Layer-2 Control Protocol coming into the interface. All the L2CP frames identified by
+    MAC DA = 01:80:c2:00:00:0x or MAC DA = 01:80:c2:00:00:2x, with 'x' being any hex value, are
+    tunneled. When set to false, all L2CP frames without a specific L2CP tunnel rule are discarded.
+    """
+    lldp: Annotated[
+        Optional[LldpContainer], Field(alias="srl_nokia-interfaces-l2cp:lldp")
+    ] = None
+    lacp: Annotated[
+        Optional[LacpContainer], Field(alias="srl_nokia-interfaces-l2cp:lacp")
+    ] = None
+    xstp: Annotated[
+        Optional[XstpContainer], Field(alias="srl_nokia-interfaces-l2cp:xstp")
+    ] = None
+    dot1x: Annotated[
+        Optional[Dot1xContainer2], Field(alias="srl_nokia-interfaces-l2cp:dot1x")
+    ] = None
+    ptp: Annotated[
+        Optional[PtpContainer], Field(alias="srl_nokia-interfaces-l2cp:ptp")
+    ] = None
+    esmc: Annotated[
+        Optional[EsmcContainer], Field(alias="srl_nokia-interfaces-l2cp:esmc")
+    ] = None
+    elmi: Annotated[
+        Optional[ElmiContainer], Field(alias="srl_nokia-interfaces-l2cp:elmi")
+    ] = None
+    efm_oam: Annotated[
+        Optional[EfmOamContainer], Field(alias="srl_nokia-interfaces-l2cp:efm-oam")
+    ] = None
+
+
+class LocalMirrorDestinationContainer(BaseModel):
+    """
+    Container for options related to local mirror destination
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
         Field(
-            None,
-            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:dup-detect-time",
+            alias="srl_nokia-interfaces-local-mirror-destination:admin-state",
+            title="Admin-stateLeaf20",
         ),
-    ]
-    hold_down_time_remaining: Annotated[
-        HoldDownTimeRemainingLeaf,
+    ] = "enable"
+    """
+    The configurable state of the local mirror destination
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
         Field(
-            None,
-            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:hold-down-time-remaining",
+            alias="srl_nokia-interfaces-local-mirror-destination:oper-state",
+            title="Oper-stateLeaf11",
         ),
-    ]
+    ] = None
+    """
+    The operational state of the local mirror destination
+    """
 
 
-class MaxPenaltiesLeaf(RootModel[ZeroBasedCounter64Type]):
+class MacTableContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Max-penaltiesLeaf")]
-    """
-    Indicates the maximum possible value of the accumulated penalties against the port
-    """
+    mac: Annotated[
+        Optional[List[MacListEntry3]],
+        Field(alias="srl_nokia-interfaces-bridge-table-mac-table:mac"),
+    ] = None
 
 
-class MaximumFrequencyLeaf(RootModel[OpticalDwdmFrequencyType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OpticalDwdmFrequencyType, Field(title="Maximum-frequencyLeaf")]
+class MemberListEntry(BaseModel):
     """
-    The maximum frequency supported by the equipped optical module.
-    """
-
-
-class MaximumTimeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Maximum-timeLeaf")]
-    """
-    Indicates the time this transceiver reached the temperature referenced in maximum
-    """
-
-
-class MaximumLeaf(RootModel[TemperatureType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TemperatureType, Field(title="MaximumLeaf")]
-    """
-    Represents the highest temperature the transceiver has reached since it booted
-    """
-
-
-class MediaFrameErrorCountContainer(BaseModel):
-    """
-    Enter the media-frame-error-count context
+    Reports the list of interfaces associated with the LAG instance
     """
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    current: Annotated[
-        CurrentLeaf12, Field(None, alias="srl_nokia-interfaces-dco:current")
-    ]
-    average: Annotated[
-        AverageLeaf12, Field(None, alias="srl_nokia-interfaces-dco:average")
-    ]
-    minimum: Annotated[
-        MinimumLeaf13, Field(None, alias="srl_nokia-interfaces-dco:minimum")
-    ]
-    maximum: Annotated[
-        MaximumLeaf14, Field(None, alias="srl_nokia-interfaces-dco:maximum")
-    ]
-
-
-class MemberLinkOperDownReasonType(RootModel[EnumerationEnum89]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum89
-
-
-class MemberSpeedTypeType(RootModel[EnumerationEnum87]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum87
-    """
-    Enumeration for LAG member-link speeds
-    """
-
-
-class MemberSpeedLeaf(RootModel[MemberSpeedTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MemberSpeedTypeType, Field(title="Member-speedLeaf")]
-    """
-    Specifies the link speed of allowed member-links
-    """
-
-
-class MinimumFrequencyLeaf(RootModel[OpticalDwdmFrequencyType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OpticalDwdmFrequencyType, Field(title="Minimum-frequencyLeaf")]
-    """
-    The minimum frequency supported by the equipped optical module.
-    """
-
-
-class ModuleRxTurnUpStatesLeafList(RootModel[EnumerationEnum21]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum21, Field(title="Module-rx-turn-up-statesLeafList")]
-    """
-    Indicates the completed received turn-up states of the coherent optical module
-    """
-
-
-class ModuleStateLeaf(RootModel[EnumerationEnum19]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum19, Field(title="Module-stateLeaf")]
-    """
-    Indicates the state of the coherent optical module.
-    """
-
-
-class ModuleTxTurnUpStatesLeafList(RootModel[EnumerationEnum20]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum20, Field(title="Module-tx-turn-up-statesLeafList")]
-    """
-    Indicates the completed transmitted turn-up states of the coherent optical module
-    """
-
-
-class MstPathCostLeaf(RootModel[StpPathCostTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpPathCostTypeType, Field(title="Mst-path-costLeaf")]
-
-
-class MstPortPriorityLeaf(RootModel[StpPortPriorityTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpPortPriorityTypeType, Field(title="Mst-port-priorityLeaf")]
-
-
-class MultiDomainAllowedSourceMacsContainer(BaseModel):
-    """
-    Enter the allowed-source-macs context for per-host multi-domain mode
-
-    This command is only relevant only to per-host mode of multi-domain mode.
-    The source mac under this list will be allowed in any port state,
-    even if the port is forced unauthorized or port is set to auto
-    and the host with this source mac address is not authorized.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    mac_address: Annotated[
-        List[MacAddressListEntry], Field(alias="srl_nokia-dot1x:mac-address")
-    ]
-
-
-class NameLeaf(RootModel[InterfaceAllType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: InterfaceAllType
+    name: Annotated[
+        Optional[str], Field(alias="srl_nokia-interfaces-lag:name", title="NameLeaf8")
+    ] = None
     """
     The name of the interface
 
@@ -8041,1087 +9522,1144 @@ class NameLeaf(RootModel[InterfaceAllType]):
      IXR-X1b: 512 (N must be 1..512)
      IXR-X3b: 512 (N must be 1..512)
     """
-
-
-class NameLeaf2(RootModel[EnumerationEnum6]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum6
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
+        Field(alias="srl_nokia-interfaces-lag:oper-state", title="Oper-stateLeaf13"),
+    ] = None
     """
-    The identifier of the forwarding complex
+    Operational state for the associated LAG
     """
-
-
-class NameLeaf4(RootModel[NameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: NameType
-    """
-    The user configured name for the keychain
-    """
-
-
-class NameLeaf5(RootModel[NameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: NameType
-    """
-    A name used to identify the tag set
-    """
-
-
-class NameLeaf6(RootModel[RestrictedNameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: RestrictedNameType
-    """
-    A unique name identifying the network instance
-    """
-
-
-class NameLeaf7(RootModel[NameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: NameType
-    """
-    RA Guard Policy name
-    """
-
-
-class NameLeaf8(RootModel[NameLeaf]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf, Field(title="NameLeaf8")]
-
-
-class NeighborOriginType(RootModel[EnumerationEnum45]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum45
-    """
-    The origin of the neighbor entry.
-    """
-
-
-class NetworkInstanceLeaf(RootModel[NameLeaf6]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf6, Field(title="Network-instanceLeaf")]
-    """
-    network instance to relay dhcp packets to
-    """
-
-
-class NetworkInstanceLeaf2(RootModel[NameLeaf6]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf6, Field(title="Network-instanceLeaf2")]
-    """
-    network instance to relay dhcp packets to
-    """
-
-
-class NextStateTimeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Next-state-timeLeaf")]
-    """
-    The date and time when the neighbor state is expected to transition to the next state
-    """
-
-
-class NotProgrammedReasonLeaf(RootModel[EnumerationEnum78]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum78, Field(title="Not-programmed-reasonLeaf")]
-    """
-    The reason why the mac is not programmed
-    """
-
-
-class NumBreakoutPortsLeaf(RootModel[EnumerationEnum2]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum2, Field(title="Num-breakout-portsLeaf")]
-    """
-    The number of breakout ports supported by this connector
-    """
-
-
-class OperDownReasonLeaf5(RootModel[DhcpRelayV4AgentOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        DhcpRelayV4AgentOperDownReasonType, Field(title="Oper-down-reasonLeaf5")
-    ]
-    """
-    The reason causing the dhcp relay agent to go into operational down state
-    """
-
-
-class OperDownReasonLeaf7(RootModel[DhcpRelayV6AgentOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        DhcpRelayV6AgentOperDownReasonType, Field(title="Oper-down-reasonLeaf7")
-    ]
-    """
-    The reason causing the dhcp relay agent to go into operational down state
-    """
-
-
-class OperDownReasonLeaf8(RootModel[MemberLinkOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MemberLinkOperDownReasonType, Field(title="Oper-down-reasonLeaf8")]
+    oper_down_reason: Annotated[
+        Optional[EnumerationEnum89],
+        Field(
+            alias="srl_nokia-interfaces-lag:oper-down-reason",
+            title="Oper-down-reasonLeaf8",
+        ),
+    ] = None
     """
     Reason for operational down state for the associated LAG
     """
+    microbfd_enabled: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-lag:microbfd-enabled",
+            title="Microbfd-enabledLeaf",
+        ),
+    ] = None
+    """
+    Indicates if microBFD is currently used in the determination of the member-link oper-status
+    """
+    last_change: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-lag:last-change",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-changeLeaf3",
+        ),
+    ] = None
+    """
+    The date and time of the most recent change to the LAG member-link state
+    """
+    lacp: Annotated[Optional[LacpContainer2], Field(alias="srl_nokia-lacp:lacp")] = None
 
 
-class OperFrequencyLeaf(RootModel[OpticalDwdmFrequencyType]):
+class PacketLinkQualificationContainer(BaseModel):
+    """
+    gNOI Packet Link Qualification results
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[OpticalDwdmFrequencyType, Field(title="Oper-frequencyLeaf")]
-    """
-    The operating frequency of the optical-channel.
-    """
+    result: Annotated[
+        Optional[List[ResultListEntry]],
+        Field(alias="srl_nokia-packet-link-qual:result"),
+    ] = None
 
 
-class OperRuleLeaf(RootModel[L2cpOperRuleStateType]):
+class RouterAdvertisementContainer(BaseModel):
+    """
+    Container for configuring IPv6 router discovery options
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf")]
-    """
-    The operational state of the TCAM rule applied to ingress LLDP frames.
-    """
+    router_role: Annotated[
+        Optional[RouterRoleContainer],
+        Field(alias="srl_nokia-interfaces-router-adv:router-role"),
+    ] = None
+    debug: Annotated[
+        Optional[List[EnumerationEnum67]],
+        Field(alias="srl_nokia-interfaces-router-adv:debug"),
+    ] = []
 
 
-class OperRuleLeaf2(RootModel[L2cpOperRuleStateType]):
+class VirtualIpv4DiscoveryContainer(BaseModel):
+    """
+    Enable Virtual IPv4 discovery on the subinterface and configure associated parameters
+
+    When enabled, the system will attempt to discover the configured virtual IPv4
+    addresses on the listed bridged subinterfaces.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf2")]
-    """
-    The operational state of the TCAM rule applied to ingress LACP frames.
-    """
+    address: Annotated[
+        Optional[List[AddressListEntry2]],
+        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:address"),
+    ] = None
+    statistics: Annotated[
+        Optional[StatisticsContainer8],
+        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
+    ] = None
 
 
-class OperRuleLeaf3(RootModel[L2cpOperRuleStateType]):
+class VirtualIpv6DiscoveryContainer(BaseModel):
+    """
+    Enable Virtual IPv6 discovery on the subinterface and configure associated parameters
+
+    When enabled, the system will attempt to discover the configured virtual IPv6
+    addresses on the listed bridged subinterfaces.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf3")]
-    """
-    The operational state of the TCAM rule applied to ingress xSTP frames.
-    """
+    address: Annotated[
+        Optional[List[AddressListEntry4]],
+        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:address"),
+    ] = None
+    statistics: Annotated[
+        Optional[StatisticsContainer13],
+        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
+    ] = None
 
 
-class OperRuleLeaf4(RootModel[L2cpOperRuleStateType]):
+class VlanContainer(BaseModel):
+    """
+    Parameters for VLAN definition under SRL interfaces
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf4")]
-    """
-    The operational state of the TCAM rule applied to ingress dot1x frames.
-    """
+    vlan_discovery: Annotated[
+        Optional[VlanDiscoveryContainer],
+        Field(alias="srl_nokia-interfaces-vlans:vlan-discovery"),
+    ] = None
+    encap: Annotated[
+        Optional[EncapContainer], Field(alias="srl_nokia-interfaces-vlans:encap")
+    ] = None
+    ingress_mapping: Annotated[
+        Optional[IngressMappingContainer],
+        Field(alias="srl_nokia-interfaces-vlans:ingress-mapping"),
+    ] = None
+    egress_mapping: Annotated[
+        Optional[EgressMappingContainer],
+        Field(alias="srl_nokia-interfaces-vlans:egress-mapping"),
+    ] = None
 
 
-class OperRuleLeaf5(RootModel[L2cpOperRuleStateType]):
+class VrrpGroupListEntry(BaseModel):
+    """
+    VRRP Group Specific Configuration under IPv4 context
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf5")]
+    virtual_router_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:virtual-router-id",
+            ge=1,
+            le=255,
+            title="Virtual-router-idLeaf",
+        ),
+    ] = None
     """
-    The operational state of the TCAM rule applied to ingress ptp frames.
+    VRRP Group Index
+    """
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:admin-state", title="Admin-stateLeaf8"
+        ),
+    ] = "enable"
+    """
+    Administrative state for the associated VRRP group instance
+    """
+    priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority",
+            ge=1,
+            le=254,
+            title="PriorityLeaf",
+        ),
+    ] = 100
+    """
+    Base VRRP Priority for associated Virtual Address
+    """
+    preempt: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:preempt", title="PreemptLeaf"),
+    ] = None
+    """
+    Enable VRRP master pre-emption.
+    If enabled, router with higher priority can assume
+    master role.
+    If disabled, router can only become master if no
+    other master is present
+    """
+    virtual_mac: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:virtual-mac",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Virtual-macLeaf",
+        ),
+    ] = None
+    """
+    VRRP Instance generated virtual mac
+    """
+    preempt_delay: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:preempt-delay",
+            ge=1,
+            le=65535,
+            title="Preempt-delayLeaf",
+        ),
+    ] = None
+    """
+    Delay in seconds before a router preempts an existing
+    master router, only applicable if preempt is enabled
+    """
+    init_delay: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:init-delay",
+            ge=1,
+            le=65535,
+            title="Init-delayLeaf",
+        ),
+    ] = None
+    """
+    Initialization delay in seconds before a router that
+    just rebooted will preempt an existing master router.
+    Only applicable if preempt is enabled
+    """
+    accept_mode: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:accept-mode", title="Accept-modeLeaf"
+        ),
+    ] = None
+    """
+    Allows ssh,ping,traceroute to be accepted on the virtual
+    IP address
+    """
+    advertise_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertise-interval",
+            ge=1000,
+            le=40950,
+            title="Advertise-intervalLeaf",
+        ),
+    ] = 1000
+    """
+    The interval between VRRP messages in milliseconds
+    """
+    authentication: Annotated[
+        Optional[AuthenticationContainer],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:authentication"),
+    ] = None
+    interface_tracking: Annotated[
+        Optional[InterfaceTrackingContainer],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:interface-tracking"),
+    ] = None
+    state: Annotated[
+        Optional[Any],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:state", title="StateLeaf"),
+    ] = None
+    """
+    Virtual Router state (Initialize, Backup, Master)
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:oper-state", title="Oper-stateLeaf5"),
+    ] = None
+    """
+    VRRP Operational state
+    """
+    oper_down_reason: Annotated[
+        Optional[EnumerationEnum43],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:oper-down-reason",
+            title="Oper-down-reasonLeaf4",
+        ),
+    ] = None
+    """
+    The first (and possibly only) reason for the vrrp-group being operationally down
+    """
+    owner: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:owner", title="OwnerLeaf"),
+    ] = None
+    """
+    VRRP instance is owner or not
+    """
+    operational_priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:operational-priority",
+            ge=0,
+            le=255,
+            title="Operational-priorityLeaf",
+        ),
+    ] = None
+    """
+    Reports the current VRRP operational priority.
+    """
+    master_inherit_interval: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:master-inherit-interval",
+            title="Master-inherit-intervalLeaf",
+        ),
+    ] = False
+    """
+    Learn VRRP advertisement interval from master
+    """
+    oper_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:oper-interval",
+            ge=0,
+            le=65535,
+            title="Oper-intervalLeaf",
+        ),
+    ] = None
+    """
+    The operational advertisement interval between VRRP messages
+    """
+    current_master: Annotated[
+        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:current-master",
+            title="Current-masterLeaf",
+        ),
+    ] = None
+    """
+    IP address of node currently acting as VRRP master
+    """
+    last_transition: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:last-transition",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-transitionLeaf",
+        ),
+    ] = None
+    """
+    timestamp for last master router transition
+    """
+    statistics: Annotated[
+        Optional[StatisticsContainer5],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:statistics"),
+    ] = None
+    virtual_address: Annotated[
+        Optional[List[Union[Ipv4AddressType, Ipv6AddressType]]],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:virtual-address"),
+    ] = []
+    version: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:version",
+            ge=2,
+            le=3,
+            title="VersionLeaf",
+        ),
+    ] = 2
+    """
+    VRRP version for the Instance
     """
 
 
-class OperRuleLeaf6(RootModel[L2cpOperRuleStateType]):
+class VrrpGroupListEntry2(BaseModel):
+    """
+    VRRP Group Specific Configuration under IPv6 context
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf6")]
+    virtual_router_id: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:virtual-router-id",
+            ge=1,
+            le=255,
+            title="Virtual-router-idLeaf2",
+        ),
+    ] = None
     """
-    The operational state of the TCAM rule applied to ingress ESMC frames
+    VRRP Group Index
+    """
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:admin-state", title="Admin-stateLeaf13"
+        ),
+    ] = "enable"
+    """
+    Administrative state for the associated VRRP group instance
+    """
+    priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:priority",
+            ge=1,
+            le=254,
+            title="PriorityLeaf2",
+        ),
+    ] = 100
+    """
+    Base VRRP Priority for associated Virtual Address
+    """
+    preempt: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:preempt", title="PreemptLeaf2"),
+    ] = None
+    """
+    Enable VRRP master pre-emption.
+    If enabled, router with higher priority can assume
+    master role.
+    If disabled, router can only become master if no
+    other master is present
+    """
+    virtual_mac: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:virtual-mac",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Virtual-macLeaf2",
+        ),
+    ] = None
+    """
+    VRRP Instance generated virtual mac
+    """
+    preempt_delay: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:preempt-delay",
+            ge=1,
+            le=65535,
+            title="Preempt-delayLeaf2",
+        ),
+    ] = None
+    """
+    Delay in seconds before a router preempts an existing
+    master router, only applicable if preempt is enabled
+    """
+    init_delay: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:init-delay",
+            ge=1,
+            le=65535,
+            title="Init-delayLeaf2",
+        ),
+    ] = None
+    """
+    Initialization delay in seconds before a router that
+    just rebooted will preempt an existing master router.
+    Only applicable if preempt is enabled
+    """
+    accept_mode: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:accept-mode", title="Accept-modeLeaf2"
+        ),
+    ] = None
+    """
+    Allows ssh,ping,traceroute to be accepted on the virtual
+    IP address
+    """
+    advertise_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:advertise-interval",
+            ge=1000,
+            le=40950,
+            title="Advertise-intervalLeaf2",
+        ),
+    ] = 1000
+    """
+    The interval between VRRP messages in milliseconds
+    """
+    authentication: Annotated[
+        Optional[AuthenticationContainer2],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:authentication"),
+    ] = None
+    interface_tracking: Annotated[
+        Optional[InterfaceTrackingContainer2],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:interface-tracking"),
+    ] = None
+    state: Annotated[
+        Optional[Any],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:state", title="StateLeaf2"),
+    ] = None
+    """
+    Virtual Router state (Initialize, Backup, Master)
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:oper-state", title="Oper-stateLeaf8"),
+    ] = None
+    """
+    VRRP Operational state
+    """
+    oper_down_reason: Annotated[
+        Optional[EnumerationEnum43],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:oper-down-reason",
+            title="Oper-down-reasonLeaf6",
+        ),
+    ] = None
+    """
+    The first (and possibly only) reason for the vrrp-group being operationally down
+    """
+    owner: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:owner", title="OwnerLeaf2"),
+    ] = None
+    """
+    VRRP instance is owner or not
+    """
+    operational_priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:operational-priority",
+            ge=0,
+            le=255,
+            title="Operational-priorityLeaf2",
+        ),
+    ] = None
+    """
+    Reports the current VRRP operational priority.
+    """
+    master_inherit_interval: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:master-inherit-interval",
+            title="Master-inherit-intervalLeaf2",
+        ),
+    ] = False
+    """
+    Learn VRRP advertisement interval from master
+    """
+    oper_interval: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:oper-interval",
+            ge=0,
+            le=65535,
+            title="Oper-intervalLeaf2",
+        ),
+    ] = None
+    """
+    The operational advertisement interval between VRRP messages
+    """
+    current_master: Annotated[
+        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:current-master",
+            title="Current-masterLeaf2",
+        ),
+    ] = None
+    """
+    IP address of node currently acting as VRRP master
+    """
+    last_transition: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:last-transition",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-transitionLeaf2",
+        ),
+    ] = None
+    """
+    timestamp for last master router transition
+    """
+    statistics: Annotated[
+        Optional[StatisticsContainer10],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:statistics"),
+    ] = None
+    virtual_address: Annotated[
+        Optional[List[str]],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:virtual-address",
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+        ),
+    ] = []
+    version: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:version",
+            ge=2,
+            le=3,
+            title="VersionLeaf2",
+        ),
+    ] = 3
+    """
+    VRRP version for the Instance
+    """
+    virtual_link_local_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-vrrp:virtual-link-local-address",
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+            title="Virtual-link-local-addressLeaf",
+        ),
+    ] = None
+    """
+    Generated link local address based on virtual-mac for virtual router instance
     """
 
 
-class OperRuleLeaf7(RootModel[L2cpOperRuleStateType]):
+class VrrpContainer(BaseModel):
+    """
+    VRRP Configuration and State under a IPv4 context of a
+    sub-interface
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf7")]
-    """
-    The operational state of the TCAM rule applied to ingress ELMI frames
-    """
+    vrrp_group: Annotated[
+        Optional[List[VrrpGroupListEntry]],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:vrrp-group"),
+    ] = None
 
 
-class OperRuleLeaf8(RootModel[L2cpOperRuleStateType]):
+class VrrpContainer2(BaseModel):
+    """
+    VRRP Configuration and State under a IPv6 context of a
+    sub-interface
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[L2cpOperRuleStateType, Field(title="Oper-ruleLeaf8")]
-    """
-    The operational state of the TCAM rule applied to ingress EFM-OAM frames.
-    """
+    vrrp_group: Annotated[
+        Optional[List[VrrpGroupListEntry2]],
+        Field(alias="srl_nokia-interfaces-ip-vrrp:vrrp-group"),
+    ] = None
 
 
-class OperStateLeaf(RootModel[EnumerationEnum4]):
+class AddressListEntry(BaseModel):
+    """
+    The list of  IPv4 addresses assigned to the subinterface.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[EnumerationEnum4, Field(title="Oper-stateLeaf")]
+    ip_prefix: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:ip-prefix",
+            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
+            title="Ip-prefixLeaf",
+        ),
+    ] = None
     """
-    The operational state of the interface
+    The IPv4 address and prefix length in CIDR notation
+
+    Subnets on the same subinterface are allowed to overlap as long as the host bits are different. When a locally originated unicast packet is destined to a host covered by multiple subnets associated with a subinterface, the source address is chosen to be the numerically lowest IP address among all these subnets. For example, if the addresses 172.16.1.1/12, 172.16.1.2/12, and 172.16.1.3/12 are configured on the same interface, 172.16.1.1 would be used as a local address when you issue a ping 172.16.1.5 command
     """
-
-
-class OperStateLeaf12(RootModel[EnumerationEnum84]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum84, Field(title="Oper-stateLeaf12")]
+    anycast_gw: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces:anycast-gw", title="Anycast-gwLeaf"),
+    ] = None
     """
-    State of the qualification test
+    This designates the associated IPv4 address as an anycast-gateway IPv4 address of the subinterface.
+
+    When this parameter is set to true:
+    - The IPv4 address is associated with the anycast-gw MAC address in the same subinterface. ARP Requests received for the anycast-gw IPv4 address
+      will be replied using this anycast-gw MAC address.
+    - The IPv4 address can have duplicate IPv4 addresses in other IRB subinterfaces of routers attached to the same broadcast domain.
+      Because of that ARP duplicate-address-detection procedures do not apply to anycast-gw IP addresses.
     """
-
-
-class OperStateLeaf3(RootModel[EnumerationEnum29]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum29, Field(title="Oper-stateLeaf3")]
-    """
-    Indicates if the port up state of the port is suppressed or not
-
-    The port up state is 'idle' if the value of current-penalties
-    exceeds the value of suppress-threshold. The port up state will
-    be 'active' when current-penalties falls below the value of
-    reuse-threshold.
-    """
-
-
-class OperStateLeaf4(RootModel[EnumerationEnum38]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum38, Field(title="Oper-stateLeaf4")]
-    """
-    The operational state of the subinterface
-    """
-
-
-class OperStateType(RootModel[EnumerationEnum42]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum42
-    """
-    General operational state
-    """
-
-
-class OperationalModeLeaf(RootModel[CoherentOperationalModeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[CoherentOperationalModeType, Field(title="Operational-modeLeaf")]
-    """
-    Operational mode for the transceiver
-
-    This is a numeric value the defines a set of operating characteristics such as modulation, bit-rate, max power range, fec, etc.
-    Refer to Nokia documentation for details by transceiver part number.
-    """
-
-
-class OpticalDispersionControlModeType(RootModel[EnumerationEnum17]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum17
-    """
-    Specifies the operational control mode of the dispersion compensation module
-    """
-
-
-class OptionLeafList(RootModel[EnumerationEnum51]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum51, Field(title="OptionLeafList")]
-    """
-    List of option82 suboptions to insert into relayed packet towards DHCPv4 server
-    """
-
-
-class OptionLeafList2(RootModel[EnumerationEnum63]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum63, Field(title="OptionLeafList2")]
-    """
-    List of options to insert into relayed packet towards DHCPv6 server
-    """
-
-
-class OriginLeaf(RootModel[AddressOriginType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AddressOriginType, Field(title="OriginLeaf")]
+    origin: Annotated[
+        Optional[EnumerationEnum40],
+        Field(alias="srl_nokia-interfaces:origin", title="OriginLeaf"),
+    ] = None
     """
     The origin of the IPv4 address.
     """
+    primary: Annotated[
+        Optional[PrimaryLeaf], Field(alias="srl_nokia-interfaces:primary")
+    ] = None
+    status: Annotated[
+        Optional[EnumerationEnum41],
+        Field(alias="srl_nokia-interfaces:status", title="StatusLeaf3"),
+    ] = None
+    """
+    The status of an IPv4 address
+    """
+    vrrp: Annotated[
+        Optional[VrrpContainer], Field(alias="srl_nokia-interfaces-ip-vrrp:vrrp")
+    ] = None
 
 
-class OriginLeaf2(RootModel[NeighborOriginType]):
+class AddressListEntry3(BaseModel):
+    """
+    The list of IPv6 addresses assigned to the subinterface.
+    """
+
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    root: Annotated[NeighborOriginType, Field(title="OriginLeaf2")]
+    ip_prefix: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:ip-prefix",
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
+            title="Ip-prefixLeaf2",
+        ),
+    ] = None
     """
-    The origin of the ARP entry
+    The IPv6 address and prefix-length in CIDR notation
+
+    Up to 16 global unicast IPv6 addresses can be assigned to each subinterface. Global unicast IPv6 address subnets on the same subinterface are allowed to overlap as long as the host bits are different. When a locally originated unicast packet is destined to a host covered by multiple subnets associated with a subinterface, the source address is chosen to be the numerically lowest IP address among all these subnets.
     """
+    type: Annotated[
+        Optional[EnumerationEnum54],
+        Field(alias="srl_nokia-interfaces:type", title="TypeLeaf3"),
+    ] = "global-unicast"
+    """
+    Specifies the explicit type of the IPv6 address being assigned to the subinterface
 
+    By default, addresses are assumed to be global unicast.  Where a link-local address is to be explicitly configured, this leaf should be set to link-local.
+    """
+    anycast_gw: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces:anycast-gw", title="Anycast-gwLeaf2"),
+    ] = None
+    """
+    This designates the associated IPv6 address as an anycast-gateway IPv6 address of the subinterface.
 
-class OriginLeaf3(RootModel[AddressOriginType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AddressOriginType, Field(title="OriginLeaf3")]
+    When this parameter is set to true:
+    - The IPv6 address is associated with the anycast-gw MAC address in the same subinterface. Neighbor Solicitations received for the anycast-gw IPv6 address
+      will be replied using this anycast-gw MAC address.
+    - The IPv6 address can have duplicate IPv6 addresses in other IRB subinterfaces of routers attached to the same broadcast domain.
+      Because of that, ND duplicate-address-detection procedures do not apply to anycast-gw IP addresses.
+    """
+    origin: Annotated[
+        Optional[EnumerationEnum40],
+        Field(alias="srl_nokia-interfaces:origin", title="OriginLeaf3"),
+    ] = None
     """
     The origin of the IPv6 address
     """
-
-
-class OriginLeaf4(RootModel[NeighborOriginType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NeighborOriginType, Field(title="OriginLeaf4")]
-    """
-    The origin of the neighbor cache entry.
-    """
-
-
-class Out1024bTo1518bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Out-1024b-to-1518b-framesLeaf")
-    ]
-    """
-    Number of transmitted Ethernet frames that are 1024-1518 bytes in length
-    """
-
-
-class Out128bTo255bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-128b-to-255b-framesLeaf")]
-    """
-    Number of transmitted Ethernet frames that are 128-255 bytes in length
-    """
-
-
-class Out1519bOrLongerFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Out-1519b-or-longer-framesLeaf")
-    ]
-    """
-    Number of transmitted Ethernet frames that are 1519 bytes or longer
-    """
-
-
-class Out256bTo511bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-256b-to-511b-framesLeaf")]
-    """
-    Number of transmitted Ethernet frames that are 256-511 bytes in length
-    """
-
-
-class Out512bTo1023bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-512b-to-1023b-framesLeaf")]
-    """
-    Number of transmitted Ethernet frames that are 512-1023 bytes in length
-    """
-
-
-class Out64bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-64b-framesLeaf")]
-    """
-    Number of transmitted Ethernet frames that are exactly 64 bytes in length
-    """
-
-
-class Out65bTo127bFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-65b-to-127b-framesLeaf")]
-    """
-    Number of transmitted Ethernet frames that are 65-127 bytes in length
-    """
-
-
-class OutBroadcastPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-broadcast-packetsLeaf")]
-    """
-    Corresponds to ifHCOutBroadcastPkts from the IF-MIB
-    """
-
-
-class OutDiscardedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-discarded-packetsLeaf")]
-    """
-    Corresponds to ifOutDiscards from the IF-MIB.
-
-    On Jericho2 systems this counts packets dropped by an egress IP ACL of any of the port's subinterfaces.
-    """
-
-
-class OutDiscardedPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-discarded-packetsLeaf2")]
-    """
-    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
-
-    This includes IP packets dropped by egress interface ACL drop action.
-    """
-
-
-class OutDiscardedPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-discarded-packetsLeaf3")]
-    """
-    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
-
-    This includes IP packets dropped by egress interface ACL drop action.
-    """
-
-
-class OutDiscardedPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-discarded-packetsLeaf4")]
-    """
-    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
-
-    This includes IP packets dropped by egress interface ACL drop action.
-    """
-
-
-class OutDiscardedPacketsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-discarded-packetsLeaf5")]
-    """
-    The total number of packets, originating and transit, that should have been sent out this subinterface but were dropped
-
-    This includes IP packets dropped by egress interface ACL drop action.
-    """
-
-
-class OutErrorPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-error-packetsLeaf")]
-    """
-    Corresponds to ifOutErrors from the IF-MIB
-    """
-
-
-class OutErrorPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-error-packetsLeaf2")]
-    """
-    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
-
-    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
-    """
-
-
-class OutErrorPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-error-packetsLeaf3")]
-    """
-    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
-
-    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
-    """
-
-
-class OutErrorPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-error-packetsLeaf4")]
-    """
-    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
-
-    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
-    """
-
-
-class OutErrorPacketsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-error-packetsLeaf5")]
-    """
-    The number of packets, originating and transit, for which this router was successful in finding a path to their final destination through this subinterface but an error prevented their transmission
-
-    On 7250 IXR systems this is incremented when the IPv4 packet size exceeds the IP MTU and fragmentation was not allowed or not supported. It is also incremented when the MPLS packet size exceeds the MPLS MTU of the subinterface.
-    """
-
-
-class OutForwardedOctetsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-octetsLeaf")]
-    """
-    The number of octets in transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutForwardedOctetsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-octetsLeaf2")]
-    """
-    The number of octets in transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutForwardedOctetsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-octetsLeaf3")]
-    """
-    The number of octets in transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutForwardedOctetsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-octetsLeaf4")]
-    """
-    The number of octets in transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutForwardedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-packetsLeaf")]
-    """
-    The number of transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutForwardedPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-packetsLeaf2")]
-    """
-    The number of transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutForwardedPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-packetsLeaf3")]
-    """
-    The number of transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutForwardedPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-forwarded-packetsLeaf4")]
-    """
-    The number of transit packets which the router attempted to forward out this subinterface
-    """
-
-
-class OutMacPauseFramesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-mac-pause-framesLeaf")]
-    """
-    Number of MAC layer PAUSE frames sent on the interface
-    """
-
-
-class OutMirrorOctetsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-mirror-octetsLeaf")]
-    """
-    This counts the number of outgoing mirrored octets
-    """
-
-
-class OutMirrorPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-mirror-packetsLeaf")]
-    """
-    This counts the number of outgoing mirrored packets
-    """
-
-
-class OutMulticastPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-multicast-packetsLeaf")]
-    """
-    Corresponds to ifHCOutMulticastPkts from the IF-MIB
-    """
-
-
-class OutOctetsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-octetsLeaf")]
-    """
-    Corresponds to ifHCOutOctets from the IF-MIB
-    """
-
-
-class OutOctetsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-octetsLeaf2")]
-    """
-    The total number of octets in packets delivered to the lower layers for transmission
-    """
-
-
-class OutOctetsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-octetsLeaf3")]
-    """
-    The total number of octets in packets delivered to the lower layers for transmission
-    """
-
-
-class OutOctetsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-octetsLeaf4")]
-    """
-    The total number of octets in packets delivered to the lower layers for transmission
-    """
-
-
-class OutOctetsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-octetsLeaf5")]
-    """
-    The total number of octets in packets delivered to the lower layers for transmission
-    """
-
-
-class OutOriginatedOctetsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-octetsLeaf")]
-    """
-    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutOriginatedOctetsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-octetsLeaf2")]
-    """
-    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutOriginatedOctetsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-octetsLeaf3")]
-    """
-    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutOriginatedOctetsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-octetsLeaf4")]
-    """
-    The number of octets in packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutOriginatedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-packetsLeaf")]
-    """
-    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutOriginatedPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-packetsLeaf2")]
-    """
-    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutOriginatedPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-packetsLeaf3")]
-    """
-    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutOriginatedPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-originated-packetsLeaf4")]
-    """
-    The number of packets which originated on the CPM and which the router attempted to forward out this subinterface
-    """
-
-
-class OutPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-packetsLeaf")]
-    """
-    Sum of all transmitted packets, independent of protocol and forwarding type and before discards and errors
-    """
-
-
-class OutPacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-packetsLeaf2")]
-    """
-    The total number of packets that this router supplied to the lower layers for transmission
-
-    This equals the sum of:
-    out-error-packets
-    out-discarded-packets
-    out-originated-packets
-    out-forwarded-packets
-    """
-
-
-class OutPacketsLeaf3(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-packetsLeaf3")]
-    """
-    The total number of packets that this router supplied to the lower layers for transmission
-
-    This equals the sum of:
-    out-error-packets
-    out-discarded-packets
-    out-originated-packets
-    out-forwarded-packets
-    """
-
-
-class OutPacketsLeaf4(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-packetsLeaf4")]
-    """
-    The total number of packets that this router supplied to the lower layers for transmission
-
-    This equals the sum of:
-    out-error-packets
-    out-discarded-packets
-    out-originated-packets
-    out-forwarded-packets
-    """
-
-
-class OutPacketsLeaf5(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-packetsLeaf5")]
-    """
-    The total number of packets that this router supplied to the lower layers for transmission
-
-    This equals the sum of:
-    out-error-packets
-    out-discarded-packets
-    out-originated-packets
-    out-forwarded-packets
-    """
-
-
-class OutProbePacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-probe-packetsLeaf")]
-    """
-    The number of probe packets transmitted for the Virtual IP discovery.
-    """
-
-
-class OutProbePacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-probe-packetsLeaf2")]
-    """
-    The number of probe packets transmitted for the Virtual IP discovery.
-    """
-
-
-class OutTotalProbePacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-total-probe-packetsLeaf")]
-    """
-    The number of total probe packets transmitted for Virtual discovery.
-    """
-
-
-class OutTotalProbePacketsLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-total-probe-packetsLeaf2")]
-    """
-    The number of total probe packets transmitted for Virtual discovery.
-    """
-
-
-class OutUnicastPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Out-unicast-packetsLeaf")]
-    """
-    Corresponds to ifHCOutUcastPkts from the IF-MIB
-    """
-
-
-class OuterVlanIdLeaf(RootModel[Union[VlanIdType, EnumerationEnum82]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        Union[VlanIdType, EnumerationEnum82], Field(title="Outer-vlan-idLeaf")
-    ]
-    """
-    Outer VLAN tag identifier for double-tagged packets
-    """
-
-
-class OuterVlanIdLeaf2(RootModel[VlanIdType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanIdType, Field(title="Outer-vlan-idLeaf2")]
-    """
-    Optionally specifies the outer VLAN tag identifier
-
-    The vlan-id is used by the action configured in 'vlan-stack-action'. For
-    example, if the action is 'PUSH' then this VLAN identifier is added to
-    the stack. This value must be non-zero if the 'vlan-stack-action' requires
-    the addition or replacement of a VLAN tag.
-    """
-
-
-class OuterVlanIdLeaf3(RootModel[VlanIdType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanIdType, Field(title="Outer-vlan-idLeaf3")]
-    """
-    Optionally specifies the outer VLAN tag identifier
-
-    The vlan-id is used by the action configured in 'vlan-stack-action'. For
-    example, if the action is 'PUSH' then this VLAN identifier is added to
-    the stack. This value must be non-zero if the 'vlan-stack-action' requires
-    the addition or replacement of a VLAN tag.
-    """
-
-
-class P4rtContainer(BaseModel):
+    primary: Annotated[
+        Optional[PrimaryLeaf2], Field(alias="srl_nokia-interfaces:primary")
+    ] = None
+    status: Annotated[
+        Optional[EnumerationEnum55],
+        Field(alias="srl_nokia-interfaces:status", title="StatusLeaf5"),
+    ] = None
     """
-    Top-level container for P4Runtime interface configuration and state
+    The status of an IPv6 address
     """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    id: Annotated[IdLeaf2, Field(None, alias="srl_nokia-interfaces-p4rt:id")]
-    parent_id: Annotated[
-        ParentIdLeaf, Field(None, alias="srl_nokia-interfaces-p4rt:parent-id")
-    ]
-
-
-class PathCostLeaf(RootModel[StpPathCostTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpPathCostTypeType, Field(title="Path-costLeaf")]
+    vrrp: Annotated[
+        Optional[VrrpContainer2], Field(alias="srl_nokia-interfaces-ip-vrrp:vrrp")
+    ] = None
 
 
-class PhysicalMediumLeaf(RootModel[EnumerationEnum26]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum26, Field(title="Physical-mediumLeaf")]
+class ArpContainer(BaseModel):
     """
-    Indicates the PHY supported by the RJ45 port.
-
-    If the port is supported by a SFP, QSFP+, QSFP28 or QSFP-DD transceiver no value is populated in this leaf.
+    Container for the IPv4 ARP protocol
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    duplicate_address_detection: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-nbr:duplicate-address-detection",
+            title="Duplicate-address-detectionLeaf",
+        ),
+    ] = True
+    """
+    If set to true IPv4 Address Conflict Detection per RFC 5227 is performed on the IPv4 address assigned to the subinterface
+    """
+    timeout: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr:timeout",
+            ge=60,
+            le=65535,
+            title="TimeoutLeaf",
+        ),
+    ] = 14400
     """
-
+    Duration of time that dynamic ARP entries remain in the ARP cache before they expire
 
-class PolicyLeaf(RootModel[NameLeaf7]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf7, Field(title="PolicyLeaf")]
+    A change to this value does not affect existing entries until they are refreshed.
     """
-    Reference to RA Guard Policy to apply to the associated subinterface
-    """
-
-
-class PortAccessEntityPortControlType(RootModel[EnumerationEnum32]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum32
+    learn_unsolicited: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-nbr:learn-unsolicited",
+            title="Learn-unsolicitedLeaf",
+        ),
+    ] = False
     """
-    Specifies if the port is forced authorized or it is authorized via IEEE802.1x procedures
+    If set to true an ARP entry should be learned from any received ARP packets.
     """
-
-
-class PortControlLeaf(RootModel[PortAccessEntityPortControlType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[PortAccessEntityPortControlType, Field(title="Port-controlLeaf")]
+    neighbor: Annotated[
+        Optional[List[NeighborListEntry]],
+        Field(alias="srl_nokia-interfaces-nbr:neighbor"),
+    ] = None
+    host_route: Annotated[
+        Optional[HostRouteContainer], Field(alias="srl_nokia-interfaces-nbr:host-route")
+    ] = None
+    proxy_arp: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-nbr:proxy-arp", title="Proxy-arpLeaf"),
+    ] = False
     """
-    IEEE802.1x authentication mode
+    When set to true, the router replies with its own MAC to ARP Request destined to any host.
     """
-
-
-class PortNumberLeaf(RootModel[StpPortNumberTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpPortNumberTypeType, Field(title="Port-numberLeaf")]
-
-
-class PortOperDownReasonType(RootModel[EnumerationEnum5]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum5
-
-
-class PortSpeedLeaf(RootModel[EnumerationEnum25]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum25, Field(title="Port-speedLeaf")]
+    debug: Annotated[
+        Optional[List[EnumerationEnum48]], Field(alias="srl_nokia-interfaces-nbr:debug")
+    ] = []
+    evpn: Annotated[
+        Optional[EvpnContainer], Field(alias="srl_nokia-interfaces-nbr-evpn:evpn")
+    ] = None
+    virtual_ipv4_discovery: Annotated[
+        Optional[VirtualIpv4DiscoveryContainer],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:virtual-ipv4-discovery"
+        ),
+    ] = None
+
+
+class BridgeTableContainer(BaseModel):
+    """
+    Enable the Bridge Table on the subinterface and configure associated parameters
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    discard_unknown_src_mac: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:discard-unknown-src-mac",
+            title="Discard-unknown-src-macLeaf",
+        ),
+    ] = False
+    """
+    Discard frames with unknown source mac addresses. The source mac address of
+    the discarded frame is never learned when this command is enabled.
+    """
+    mac_limit: Annotated[
+        Optional[MacLimitContainer], Field(alias="srl_nokia-interfaces:mac-limit")
+    ] = None
+    mac_learning: Annotated[
+        Optional[MacLearningContainer], Field(alias="srl_nokia-interfaces:mac-learning")
+    ] = None
+    mac_duplication: Annotated[
+        Optional[MacDuplicationContainer],
+        Field(alias="srl_nokia-interfaces:mac-duplication"),
+    ] = None
+    stp: Annotated[
+        Optional[StpContainer], Field(alias="srl_nokia-interfaces-bridge-table-stp:stp")
+    ] = None
+    statistics: Annotated[
+        Optional[StatisticsContainer16],
+        Field(alias="srl_nokia-interfaces-bridge-table-statistics:statistics"),
+    ] = None
+    mac_table: Annotated[
+        Optional[MacTableContainer],
+        Field(alias="srl_nokia-interfaces-bridge-table-mac-table:mac-table"),
+    ] = None
+
+
+class DhcpRelayContainer(BaseModel):
+    """
+    Container for options related to DHCPv4 relay
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:admin-state",
+            title="Admin-stateLeaf10",
+        ),
+    ] = "enable"
+    """
+    The configurable state of the dhcp relay agent
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:oper-state",
+            title="Oper-stateLeaf6",
+        ),
+    ] = None
+    """
+    The operational state of the dhcp relay agent
+    """
+    oper_down_reason: Annotated[
+        Optional[EnumerationEnum50],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason",
+            title="Oper-down-reasonLeaf5",
+        ),
+    ] = None
+    """
+    The reason causing the dhcp relay agent to go into operational down state
+    """
+    option: Annotated[
+        Optional[List[EnumerationEnum51]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:option"),
+    ] = []
+    server: Annotated[
+        Optional[List[Union[Ipv4AddressType, DomainNameType]]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:server"),
+    ] = []
+    gi_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:gi-address",
+            pattern="^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+            title="Gi-addressLeaf",
+        ),
+    ] = None
+    """
+    IPv4 address to be used as giaddr of the relayed packets towards DHCPv4 servers.
+     This address can be any IPv4 address configured within the network-instance towards the DHCPv4 server
+    """
+    use_gi_addr_as_src_ip_addr: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:use-gi-addr-as-src-ip-addr",
+            title="Use-gi-addr-as-src-ip-addrLeaf",
+        ),
+    ] = False
+    """
+    When this is set, the configured giaddress will be used as source ip address.
+    """
+    network_instance: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:network-instance",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$",
+            title="Network-instanceLeaf",
+        ),
+    ] = None
+    """
+    network instance to relay dhcp packets to
+    """
+    trace_options: Annotated[
+        Optional[TraceOptionsContainer],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:trace-options"),
+    ] = None
+    dns_resolution: Annotated[
+        Optional[DnsResolutionContainer],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:dns-resolution"),
+    ] = None
+    statistics: Annotated[
+        Optional[StatisticsContainer9],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:statistics"),
+    ] = None
+
+
+class DhcpRelayContainer2(BaseModel):
+    """
+    Container for options related to DHCPv6 relay
+    """
+
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    admin_state: Annotated[
+        Optional[EnumerationEnum],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:admin-state",
+            title="Admin-stateLeaf14",
+        ),
+    ] = "enable"
+    """
+    The configurable state of the dhcp relay agent
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum42],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:oper-state",
+            title="Oper-stateLeaf9",
+        ),
+    ] = None
+    """
+    The operational state of the dhcp relay agent
+    """
+    oper_down_reason: Annotated[
+        Optional[EnumerationEnum62],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason",
+            title="Oper-down-reasonLeaf7",
+        ),
+    ] = None
+    """
+    The reason causing the dhcp relay agent to go into operational down state
+    """
+    option: Annotated[
+        Optional[List[EnumerationEnum63]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:option"),
+    ] = []
+    server: Annotated[
+        Optional[List[Union[Ipv6AddressType, DomainNameType]]],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:server"),
+    ] = []
+    source_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:source-address",
+            pattern="^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+            title="Source-addressLeaf",
+        ),
+    ] = None
+    """
+    Source IPv6 address of the relayed packets towards DHCPv6 servers
+     this address can be any IPv6 address configured within the network-instance towards the DHCPv6 server
+    """
+    network_instance: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-ip-dhcp-relay:network-instance",
+            pattern="^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$",
+            title="Network-instanceLeaf2",
+        ),
+    ] = None
+    """
+    network instance to relay dhcp packets to
+    """
+    trace_options: Annotated[
+        Optional[TraceOptionsContainer3],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:trace-options"),
+    ] = None
+    dns_resolution: Annotated[
+        Optional[DnsResolutionContainer2],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:dns-resolution"),
+    ] = None
+    statistics: Annotated[
+        Optional[StatisticsContainer14],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:statistics"),
+    ] = None
+
+
+class EthernetContainer(BaseModel):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    aggregate_id: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces:aggregate-id", title="Aggregate-idLeaf"),
+    ] = None
+    """
+    lag interface with which this interface is associated
+    """
+    forwarding_viable: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:forwarding-viable",
+            title="Forwarding-viableLeaf",
+        ),
+    ] = None
+    """
+    If true:
+    this LAG member link should be used for the transmission of traffic if all other LAG/port attributes allow it.
+
+    If false:
+    this LAG member link should not be used for the transmission of traffic.
+
+    In all cases:
+    This LAG member link should process any received frames when it is an active member link.  L2 protocols such as LLDP, LACP and micro-BFD should continue to be sent and processed.
+    """
+    auto_negotiate: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces:auto-negotiate", title="Auto-negotiateLeaf"),
+    ] = None
+    """
+    When set to true the interface uses auto-negotiation for speed, duplex and flow-control settings.
+
+    When set to false, the transmission parameters are specified manually.
+    """
+    duplex_mode: Annotated[
+        Optional[EnumerationEnum24],
+        Field(alias="srl_nokia-interfaces:duplex-mode", title="Duplex-modeLeaf"),
+    ] = None
+    """
+    When auto-negotiate is true, this sets the duplex mode that will be advertised to the peer.  When auto-negotiate is false, this directly sets the duplex mode of the interface.
+    """
+    dac_link_training: Annotated[
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:dac-link-training",
+            title="Dac-link-trainingLeaf",
+        ),
+    ] = None
+    """
+    If the system detects that the transceiver is connected to a DAC cable then a true setting enables link training for better link stability. The link training setting must be the same at both ends of the DAC cable or else the link may not come up.
+    """
+    flow_control: Annotated[
+        Optional[FlowControlContainer], Field(alias="srl_nokia-interfaces:flow-control")
+    ] = None
+    lacp_port_priority: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:lacp-port-priority",
+            ge=0,
+            le=65535,
+            title="Lacp-port-priorityLeaf",
+        ),
+    ] = None
+    """
+    Configure the port priority for LACP.  This value is used to  determine which port should be activated with LACP fallback mode. Lower values are more preferred.
+    """
+    port_speed: Annotated[
+        Optional[EnumerationEnum25],
+        Field(alias="srl_nokia-interfaces:port-speed", title="Port-speedLeaf"),
+    ] = None
     """
     The speed of the port or channel
 
@@ -9246,5409 +10784,154 @@ class PortSpeedLeaf(RootModel[EnumerationEnum25]):
     Port Groups and auto-configuration:
      Manually configured and enabled port-speed (and breakout-modes) take precedence over the auto-configured port-speed.  This means that configuring and enabling a port within a port-group can have a side effect to take down an operational port that had its speed set based on the auto-configuration feature.  If there is risk of mixing transceiver types within a port group, then it is recommended to always manually configure the speed for enabled ports
     """
-
-
-class PreferredLifetimeLeaf(
-    RootModel[Union[EnumerationEnum65, PreferredLifetimeLeaf1]]
-):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        Union[EnumerationEnum65, PreferredLifetimeLeaf1],
-        Field(title="Preferred-lifetimeLeaf"),
-    ]
-    """
-    The length of time in seconds (relative to the time the packet is sent) that addresses generated from the prefix via stateless address autoconfiguration remain preferred.
-    """
-
-
-class PriorityZeroPacketsReceivedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Priority-zero-packets-receivedLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages received with priority 0
-    """
-
-
-class PriorityZeroPacketsReceivedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Priority-zero-packets-receivedLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages received with priority 0
-    """
-
-
-class PriorityZeroPacketsSentLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Priority-zero-packets-sentLeaf")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages sent out with priority 0
-    """
-
-
-class PriorityZeroPacketsSentLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Priority-zero-packets-sentLeaf2")
-    ]
-    """
-    Counter for the total numebr fo VRRP advertisement messages sent out with priority 0
-    """
-
-
-class PriorityLeaf3(RootModel[StpPortPriorityTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpPortPriorityTypeType, Field(title="PriorityLeaf3")]
-
-
-class PtpContainer(BaseModel):
-    """
-    Container for the configuration of Precision Time Protocol Peer-Delay frames.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf5, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf5, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class RaGuardContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    policy: Annotated[PolicyLeaf, Field(None, alias="srl_nokia-ra_guard:policy")]
-    vlan_list: Annotated[
-        List[VlanListListEntry], Field(alias="srl_nokia-ra_guard:vlan-list")
-    ]
-
-
-class RangeLowVlanIdLeaf(RootModel[VlanIdType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanIdType, Field(title="Range-low-vlan-idLeaf")]
-    """
-    The low-value VLAN identifier in a range for single-tagged packets
-    The range is matched inclusively.
-    """
-
-
-class ReceivedContainer(BaseModel):
-    """
-    Enter the received context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    bit_error_rate: Annotated[
-        BitErrorRateContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:bit-error-rate"),
-    ]
-    electrical_signal_to_noise_ratio: Annotated[
-        ElectricalSignalToNoiseRatioContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:electrical-signal-to-noise-ratio"),
-    ]
-    optical_signal_to_noise_ratio: Annotated[
-        OpticalSignalToNoiseRatioContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:optical-signal-to-noise-ratio"),
-    ]
-    chromatic_dispersion: Annotated[
-        ChromaticDispersionContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:chromatic-dispersion"),
-    ]
-    differential_group_delay: Annotated[
-        DifferentialGroupDelayContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:differential-group-delay"),
-    ]
-    frequency_offset: Annotated[
-        FrequencyOffsetContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:frequency-offset"),
-    ]
-    quality: Annotated[
-        QualityContainer, Field(None, alias="srl_nokia-interfaces-dco:quality")
-    ]
-    power: Annotated[
-        PowerContainer, Field(None, alias="srl_nokia-interfaces-dco:power")
-    ]
-    total_power: Annotated[
-        TotalPowerContainer, Field(None, alias="srl_nokia-interfaces-dco:total-power")
-    ]
-    polarization_dependent_loss: Annotated[
-        PolarizationDependentLossContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:polarization-dependent-loss"),
-    ]
-    state_of_polarization_rate_of_change: Annotated[
-        StateOfPolarizationRateOfChangeContainer,
+    hw_mac_address: Annotated[
+        Optional[str],
         Field(
-            None, alias="srl_nokia-interfaces-dco:state-of-polarization-rate-of-change"
+            alias="srl_nokia-interfaces:hw-mac-address",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Hw-mac-addressLeaf",
         ),
-    ]
-    media_frame_error_count: Annotated[
-        MediaFrameErrorCountContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:media-frame-error-count"),
-    ]
-
-
-class ReloadDelayExpiresLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Reload-delay-expiresLeaf")]
+    ] = None
     """
-    The remaining time until the reload-delay expires and the interface can go operationally up.
+    The MAC address associated with the port
     """
-
-
-class RisingThresholdActionLeaf(RootModel[EnumerationEnum31]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum31, Field(title="Rising-threshold-actionLeaf")]
+    mac_address: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:mac-address",
+            pattern="^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+            title="Mac-addressLeaf",
+        ),
+    ] = None
     """
-    Configures the action triggered when traffic exceeds the configured storm-control rates
+    MAC address of the interface
+
+    If not configured, this is set to the hw-mac-address, which is populated depending on interface type:
+
+    - For interfaces with a discoverable MAC address (either populated by an external system or present in hardware) the discovered value is populated.
+    - For interfaces without a discoverable MAC address, the address is generated from a hash of the interface name and the chassis MAC address.
+
+    When deleted, will revert back to the value of hw-mac-address.
     """
-
-
-class RouteTypeLeaf(RootModel[EnumerationEnum47]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum47, Field(title="Route-typeLeaf")]
+    physical_medium: Annotated[
+        Optional[EnumerationEnum26],
+        Field(
+            alias="srl_nokia-interfaces:physical-medium", title="Physical-mediumLeaf"
+        ),
+    ] = None
     """
-    Controls what type of ARP or ND entries generate a host route.
+    Indicates the PHY supported by the RJ45 port.
+
+    If the port is supported by a SFP, QSFP+, QSFP28 or QSFP-DD transceiver no value is populated in this leaf.
     """
-
-
-class RouteTypeLeaf2(RootModel[EnumerationEnum49]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum49, Field(title="Route-typeLeaf2")]
+    ptp_asymmetry: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:ptp-asymmetry",
+            ge=-2147483648,
+            le=2147483647,
+            title="Ptp-asymmetryLeaf",
+        ),
+    ] = 0
     """
-    Controls what type of ARP or ND entries to advertise.
+    This command configures the PTP asymmetry delay on the Ethernet port
+
+    This command is used to correct known asymmetry as part of time of day or phase
+    recovery using PTP packets on both local and downstream PTP clocks.
     """
-
-
-class RouteTypeLeaf3(RootModel[EnumerationEnum59]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum59, Field(title="Route-typeLeaf3")]
-    """
-    Controls what type of ARP or ND entries generate a host route.
-    """
-
-
-class RouteTypeLeaf4(RootModel[EnumerationEnum61]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum61, Field(title="Route-typeLeaf4")]
-    """
-    Controls what type of ARP or ND entries to advertise.
-    """
-
-
-class RxLosReactionLeaf(RootModel[LosReactionType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LosReactionType, Field(title="Rx-los-reactionLeaf")]
-    """
-    Reaction to an RX LOS
-    """
-
-
-class ServerPacketsDiscardedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Server-packets-discardedLeaf")]
-    """
-    Total discarded dhcp packets from DHCP server(s) towards dhcp client(s)
-    """
-
-
-class ServerPacketsDiscardedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Server-packets-discardedLeaf2")
-    ]
-    """
-    Total discarded dhcp packets from DHCP server(s) towards dhcp client(s)
-    """
-
-
-class ServerPacketsReceivedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Server-packets-receivedLeaf")]
-    """
-    Total received dhcp packets from DHCP server(s) for DHCP Relay
-    """
-
-
-class ServerPacketsReceivedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Server-packets-receivedLeaf2")]
-    """
-    Total received dhcp packets from DHCP server(s) for DHCP Relay
-    """
-
-
-class ServerPacketsRelayedLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Server-packets-relayedLeaf")]
-    """
-    Total relayed dhcp packets from DHCP server(s) towards dhcp client(s)
-    """
-
-
-class ServerPacketsRelayedLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Server-packets-relayedLeaf2")]
-    """
-    Total relayed dhcp packets from DHCP server(s) towards dhcp client(s)
-    """
-
-
-class SetTagSetLeafList(RootModel[NameLeaf5]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf5, Field(title="Set-tag-setLeafList")]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class SetTagSetLeafList2(RootModel[NameLeaf5]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf5, Field(title="Set-tag-setLeafList2")]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class SetTagSetLeafList3(RootModel[NameLeaf5]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf5, Field(title="Set-tag-setLeafList3")]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class SetTagSetLeafList4(RootModel[NameLeaf5]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf5, Field(title="Set-tag-setLeafList4")]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class SourceAddressLeaf(RootModel[Ipv6AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6AddressType, Field(title="Source-addressLeaf")]
-    """
-    Source IPv6 address of the relayed packets towards DHCPv6 servers
-    this address can be any IPv6 address configured within the network-instance towards the DHCPv6 server
-    """
-
-
-class StandbySignalingLeaf(RootModel[EnumerationEnum27]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum27, Field(title="Standby-signalingLeaf")]
+    ptp_timestamping: Annotated[
+        Optional[PtpTimestampingContainer],
+        Field(alias="srl_nokia-interfaces:ptp-timestamping"),
+    ] = None
+    standby_signaling: Annotated[
+        Optional[EnumerationEnum27],
+        Field(
+            alias="srl_nokia-interfaces:standby-signaling",
+            title="Standby-signalingLeaf",
+        ),
+    ] = None
     """
     Indicates the standby-signaling used in the interface.
 
     An application using a port-based redundancy mechanism will trigger the standby signaling on the ethernet
     interface if the interface is selected as standby.
     """
-
-
-class StartTimeLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Start-timeLeaf")]
-    """
-    Start time of the test
-    """
-
-
-class StaticDelayLeaf(RootModel[Union[StaticDelayLeaf1, EnumerationEnum36]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        Union[StaticDelayLeaf1, EnumerationEnum36], Field(title="Static-delayLeaf")
-    ]
-    """
-    A statically configured unidirectional delay value that can be advertised as an interface attribute by an IGP
-    """
-
-
-class StatisticsContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    in_packets: Annotated[
-        InPacketsLeaf, Field(0, alias="srl_nokia-interfaces:in-packets")
-    ]
-    in_octets: Annotated[InOctetsLeaf, Field(0, alias="srl_nokia-interfaces:in-octets")]
-    in_unicast_packets: Annotated[
-        InUnicastPacketsLeaf, Field(0, alias="srl_nokia-interfaces:in-unicast-packets")
-    ]
-    in_broadcast_packets: Annotated[
-        InBroadcastPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-broadcast-packets"),
-    ]
-    in_multicast_packets: Annotated[
-        InMulticastPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-multicast-packets"),
-    ]
-    in_discarded_packets: Annotated[
-        InDiscardedPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-discarded-packets"),
-    ]
-    in_error_packets: Annotated[
-        InErrorPacketsLeaf, Field(0, alias="srl_nokia-interfaces:in-error-packets")
-    ]
-    in_fcs_error_packets: Annotated[
-        InFcsErrorPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-fcs-error-packets"),
-    ]
-    out_packets: Annotated[
-        OutPacketsLeaf, Field(0, alias="srl_nokia-interfaces:out-packets")
-    ]
-    out_octets: Annotated[
-        OutOctetsLeaf, Field(0, alias="srl_nokia-interfaces:out-octets")
-    ]
-    out_mirror_octets: Annotated[
-        OutMirrorOctetsLeaf, Field(0, alias="srl_nokia-interfaces:out-mirror-octets")
-    ]
-    out_unicast_packets: Annotated[
-        OutUnicastPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-unicast-packets"),
-    ]
-    out_broadcast_packets: Annotated[
-        OutBroadcastPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-broadcast-packets"),
-    ]
-    out_multicast_packets: Annotated[
-        OutMulticastPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-multicast-packets"),
-    ]
-    out_discarded_packets: Annotated[
-        OutDiscardedPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-discarded-packets"),
-    ]
-    out_error_packets: Annotated[
-        OutErrorPacketsLeaf, Field(0, alias="srl_nokia-interfaces:out-error-packets")
-    ]
-    out_mirror_packets: Annotated[
-        OutMirrorPacketsLeaf, Field(0, alias="srl_nokia-interfaces:out-mirror-packets")
-    ]
-    carrier_transitions: Annotated[
-        CarrierTransitionsLeaf,
-        Field(0, alias="srl_nokia-interfaces:carrier-transitions"),
-    ]
-    last_clear: Annotated[
-        LastClearLeaf, Field(None, alias="srl_nokia-interfaces:last-clear")
-    ]
-
-
-class StatisticsContainer10(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    advertisements_sent: Annotated[
-        AdvertisementsSentLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-sent"),
-    ]
-    advertisements_received: Annotated[
-        AdvertisementsReceivedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-received"),
-    ]
-    advertisements_discarded_version_mismatch: Annotated[
-        AdvertisementsDiscardedVersionMismatchLeaf2,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-version-mismatch",
-        ),
-    ]
-    advertisements_discarded_authfail: Annotated[
-        AdvertisementsDiscardedAuthfailLeaf2,
-        Field(
-            0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authfail"
-        ),
-    ]
-    advertisements_discarded_authtype_mismatch: Annotated[
-        AdvertisementsDiscardedAuthtypeMismatchLeaf2,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authtype-mismatch",
-        ),
-    ]
-    advertisements_discarded_address_mismatch: Annotated[
-        AdvertisementsDiscardedAddressMismatchLeaf2,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-address-mismatch",
-        ),
-    ]
-    priority_zero_packets_sent: Annotated[
-        PriorityZeroPacketsSentLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-sent"),
-    ]
-    priority_zero_packets_received: Annotated[
-        PriorityZeroPacketsReceivedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-received"),
-    ]
-    advertisements_discarded_ttl: Annotated[
-        AdvertisementsDiscardedTtlLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-ttl"),
-    ]
-    advertisements_discarded_length: Annotated[
-        AdvertisementsDiscardedLengthLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-length"),
-    ]
-    advertisements_discarded_interval: Annotated[
-        AdvertisementsDiscardedIntervalLeaf2,
-        Field(
-            0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-interval"
-        ),
-    ]
-    advertisements_interval_error: Annotated[
-        AdvertisementsIntervalErrorLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-interval-error"),
-    ]
-    advertisements_discarded_total: Annotated[
-        AdvertisementsDiscardedTotalLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-total"),
-    ]
-
-
-class StatisticsContainer11(BaseModel):
-    """
-    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    in_packets: Annotated[
-        InPacketsLeaf3, Field(0, alias="srl_nokia-interfaces:in-packets")
-    ]
-    in_octets: Annotated[
-        InOctetsLeaf3, Field(0, alias="srl_nokia-interfaces:in-octets")
-    ]
-    in_error_packets: Annotated[
-        InErrorPacketsLeaf3, Field(0, alias="srl_nokia-interfaces:in-error-packets")
-    ]
-    in_discarded_packets: Annotated[
-        InDiscardedPacketsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:in-discarded-packets"),
-    ]
-    in_terminated_packets: Annotated[
-        InTerminatedPacketsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:in-terminated-packets"),
-    ]
-    in_terminated_octets: Annotated[
-        InTerminatedOctetsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:in-terminated-octets"),
-    ]
-    in_forwarded_packets: Annotated[
-        InForwardedPacketsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:in-forwarded-packets"),
-    ]
-    in_forwarded_octets: Annotated[
-        InForwardedOctetsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:in-forwarded-octets"),
-    ]
-    in_matched_ra_packets: Annotated[
-        InMatchedRaPacketsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:in-matched-ra-packets"),
-    ]
-    out_forwarded_packets: Annotated[
-        OutForwardedPacketsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:out-forwarded-packets"),
-    ]
-    out_forwarded_octets: Annotated[
-        OutForwardedOctetsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:out-forwarded-octets"),
-    ]
-    out_originated_packets: Annotated[
-        OutOriginatedPacketsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:out-originated-packets"),
-    ]
-    out_originated_octets: Annotated[
-        OutOriginatedOctetsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:out-originated-octets"),
-    ]
-    out_error_packets: Annotated[
-        OutErrorPacketsLeaf3, Field(0, alias="srl_nokia-interfaces:out-error-packets")
-    ]
-    out_discarded_packets: Annotated[
-        OutDiscardedPacketsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:out-discarded-packets"),
-    ]
-    out_packets: Annotated[
-        OutPacketsLeaf3, Field(0, alias="srl_nokia-interfaces:out-packets")
-    ]
-    out_octets: Annotated[
-        OutOctetsLeaf3, Field(0, alias="srl_nokia-interfaces:out-octets")
-    ]
-    last_clear: Annotated[
-        LastClearLeaf5, Field(None, alias="srl_nokia-interfaces:last-clear")
-    ]
-
-
-class StatisticsContainer12(BaseModel):
-    """
-    Statistics for the Virtual IP address
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    out_probe_packets: Annotated[
-        OutProbePacketsLeaf2,
-        Field(
-            0, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-probe-packets"
-        ),
-    ]
-
-
-class StatisticsContainer13(BaseModel):
-    """
-    Global statistics for Virtual IP discovery
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    out_total_probe_packets: Annotated[
-        OutTotalProbePacketsLeaf2,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-total-probe-packets",
-        ),
-    ]
-
-
-class StatisticsContainer14(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    client_packets_received: Annotated[
-        ClientPacketsReceivedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-received"),
-    ]
-    client_packets_relayed: Annotated[
-        ClientPacketsRelayedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-relayed"),
-    ]
-    client_packets_discarded: Annotated[
-        ClientPacketsDiscardedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-discarded"),
-    ]
-    server_packets_received: Annotated[
-        ServerPacketsReceivedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-received"),
-    ]
-    server_packets_relayed: Annotated[
-        ServerPacketsRelayedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-relayed"),
-    ]
-    server_packets_discarded: Annotated[
-        ServerPacketsDiscardedLeaf2,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-discarded"),
-    ]
-
-
-class StatisticsContainer15(BaseModel):
-    """
-    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    in_packets: Annotated[
-        InPacketsLeaf4, Field(0, alias="srl_nokia-interfaces:in-packets")
-    ]
-    in_octets: Annotated[
-        InOctetsLeaf4, Field(0, alias="srl_nokia-interfaces:in-octets")
-    ]
-    in_error_packets: Annotated[
-        InErrorPacketsLeaf4, Field(0, alias="srl_nokia-interfaces:in-error-packets")
-    ]
-    in_discarded_packets: Annotated[
-        InDiscardedPacketsLeaf4,
-        Field(0, alias="srl_nokia-interfaces:in-discarded-packets"),
-    ]
-    in_terminated_packets: Annotated[
-        InTerminatedPacketsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:in-terminated-packets"),
-    ]
-    in_terminated_octets: Annotated[
-        InTerminatedOctetsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:in-terminated-octets"),
-    ]
-    in_forwarded_packets: Annotated[
-        InForwardedPacketsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:in-forwarded-packets"),
-    ]
-    in_forwarded_octets: Annotated[
-        InForwardedOctetsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:in-forwarded-octets"),
-    ]
-    in_matched_ra_packets: Annotated[
-        InMatchedRaPacketsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:in-matched-ra-packets"),
-    ]
-    out_forwarded_packets: Annotated[
-        OutForwardedPacketsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:out-forwarded-packets"),
-    ]
-    out_forwarded_octets: Annotated[
-        OutForwardedOctetsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:out-forwarded-octets"),
-    ]
-    out_originated_packets: Annotated[
-        OutOriginatedPacketsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:out-originated-packets"),
-    ]
-    out_originated_octets: Annotated[
-        OutOriginatedOctetsLeaf3,
-        Field(0, alias="srl_nokia-interfaces:out-originated-octets"),
-    ]
-    out_error_packets: Annotated[
-        OutErrorPacketsLeaf4, Field(0, alias="srl_nokia-interfaces:out-error-packets")
-    ]
-    out_discarded_packets: Annotated[
-        OutDiscardedPacketsLeaf4,
-        Field(0, alias="srl_nokia-interfaces:out-discarded-packets"),
-    ]
-    out_packets: Annotated[
-        OutPacketsLeaf4, Field(0, alias="srl_nokia-interfaces:out-packets")
-    ]
-    out_octets: Annotated[
-        OutOctetsLeaf4, Field(0, alias="srl_nokia-interfaces:out-octets")
-    ]
-    last_clear: Annotated[
-        LastClearLeaf6, Field(None, alias="srl_nokia-interfaces:last-clear")
-    ]
-
-
-class StatisticsContainer17(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    discarded_packets: Annotated[
-        DiscardedPacketsLeaf, Field(0, alias="srl_nokia-ethcfm:discarded-packets")
-    ]
-
-
-class StatisticsContainer18(BaseModel):
-    """
-    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    in_packets: Annotated[
-        InPacketsLeaf5, Field(0, alias="srl_nokia-if-mpls:in-packets")
-    ]
-    in_octets: Annotated[InOctetsLeaf5, Field(0, alias="srl_nokia-if-mpls:in-octets")]
-    in_error_packets: Annotated[
-        InErrorPacketsLeaf5, Field(0, alias="srl_nokia-if-mpls:in-error-packets")
-    ]
-    in_discarded_packets: Annotated[
-        InDiscardedPacketsLeaf5,
-        Field(0, alias="srl_nokia-if-mpls:in-discarded-packets"),
-    ]
-    in_terminated_packets: Annotated[
-        InTerminatedPacketsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:in-terminated-packets"),
-    ]
-    in_terminated_octets: Annotated[
-        InTerminatedOctetsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:in-terminated-octets"),
-    ]
-    in_forwarded_packets: Annotated[
-        InForwardedPacketsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:in-forwarded-packets"),
-    ]
-    in_forwarded_octets: Annotated[
-        InForwardedOctetsLeaf4, Field(0, alias="srl_nokia-if-mpls:in-forwarded-octets")
-    ]
-    in_matched_ra_packets: Annotated[
-        InMatchedRaPacketsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:in-matched-ra-packets"),
-    ]
-    out_forwarded_packets: Annotated[
-        OutForwardedPacketsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:out-forwarded-packets"),
-    ]
-    out_forwarded_octets: Annotated[
-        OutForwardedOctetsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:out-forwarded-octets"),
-    ]
-    out_originated_packets: Annotated[
-        OutOriginatedPacketsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:out-originated-packets"),
-    ]
-    out_originated_octets: Annotated[
-        OutOriginatedOctetsLeaf4,
-        Field(0, alias="srl_nokia-if-mpls:out-originated-octets"),
-    ]
-    out_error_packets: Annotated[
-        OutErrorPacketsLeaf5, Field(0, alias="srl_nokia-if-mpls:out-error-packets")
-    ]
-    out_discarded_packets: Annotated[
-        OutDiscardedPacketsLeaf5,
-        Field(0, alias="srl_nokia-if-mpls:out-discarded-packets"),
-    ]
-    out_packets: Annotated[
-        OutPacketsLeaf5, Field(0, alias="srl_nokia-if-mpls:out-packets")
-    ]
-    out_octets: Annotated[
-        OutOctetsLeaf5, Field(0, alias="srl_nokia-if-mpls:out-octets")
-    ]
-    last_clear: Annotated[
-        LastClearLeaf7, Field(None, alias="srl_nokia-if-mpls:last-clear")
-    ]
-
-
-class StatisticsContainer19(BaseModel):
-    """
-    LACP protocol counters
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    lacp_in_pkts: Annotated[
-        LacpInPktsLeaf, Field(0, alias="srl_nokia-lacp:lacp-in-pkts")
-    ]
-    lacp_out_pkts: Annotated[
-        LacpOutPktsLeaf, Field(0, alias="srl_nokia-lacp:lacp-out-pkts")
-    ]
-    lacp_rx_errors: Annotated[
-        LacpRxErrorsLeaf, Field(0, alias="srl_nokia-lacp:lacp-rx-errors")
-    ]
-    lacp_tx_errors: Annotated[
-        LacpTxErrorsLeaf, Field(0, alias="srl_nokia-lacp:lacp-tx-errors")
-    ]
-    lacp_unknown_errors: Annotated[
-        LacpUnknownErrorsLeaf, Field(0, alias="srl_nokia-lacp:lacp-unknown-errors")
-    ]
-    lacp_errors: Annotated[LacpErrorsLeaf, Field(0, alias="srl_nokia-lacp:lacp-errors")]
-
-
-class StatisticsContainer2(BaseModel):
-    """
-    Enter the statistics context
-
-    interface/statistics/last-clear indicates when these statistics were last cleared.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    received: Annotated[
-        ReceivedContainer, Field(None, alias="srl_nokia-interfaces-dco:received")
-    ]
-    transmitted: Annotated[
-        TransmittedContainer, Field(None, alias="srl_nokia-interfaces-dco:transmitted")
-    ]
-
-
-class StatisticsContainer3(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    in_mac_pause_frames: Annotated[
-        InMacPauseFramesLeaf, Field(0, alias="srl_nokia-interfaces:in-mac-pause-frames")
-    ]
-    in_oversize_frames: Annotated[
-        InOversizeFramesLeaf, Field(0, alias="srl_nokia-interfaces:in-oversize-frames")
-    ]
-    in_jabber_frames: Annotated[
-        InJabberFramesLeaf, Field(0, alias="srl_nokia-interfaces:in-jabber-frames")
-    ]
-    in_fragment_frames: Annotated[
-        InFragmentFramesLeaf, Field(0, alias="srl_nokia-interfaces:in-fragment-frames")
-    ]
-    in_crc_error_frames: Annotated[
-        InCrcErrorFramesLeaf, Field(0, alias="srl_nokia-interfaces:in-crc-error-frames")
-    ]
-    out_mac_pause_frames: Annotated[
-        OutMacPauseFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-mac-pause-frames"),
-    ]
-    in_64b_frames: Annotated[
-        In64bFramesLeaf, Field(0, alias="srl_nokia-interfaces:in-64b-frames")
-    ]
-    in_65b_to_127b_frames: Annotated[
-        In65bTo127bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-65b-to-127b-frames"),
-    ]
-    in_128b_to_255b_frames: Annotated[
-        In128bTo255bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-128b-to-255b-frames"),
-    ]
-    in_256b_to_511b_frames: Annotated[
-        In256bTo511bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-256b-to-511b-frames"),
-    ]
-    in_512b_to_1023b_frames: Annotated[
-        In512bTo1023bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-512b-to-1023b-frames"),
-    ]
-    in_1024b_to_1518b_frames: Annotated[
-        In1024bTo1518bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-1024b-to-1518b-frames"),
-    ]
-    in_1519b_or_longer_frames: Annotated[
-        In1519bOrLongerFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-1519b-or-longer-frames"),
-    ]
-    out_64b_frames: Annotated[
-        Out64bFramesLeaf, Field(0, alias="srl_nokia-interfaces:out-64b-frames")
-    ]
-    out_65b_to_127b_frames: Annotated[
-        Out65bTo127bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-65b-to-127b-frames"),
-    ]
-    out_128b_to_255b_frames: Annotated[
-        Out128bTo255bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-128b-to-255b-frames"),
-    ]
-    out_256b_to_511b_frames: Annotated[
-        Out256bTo511bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-256b-to-511b-frames"),
-    ]
-    out_512b_to_1023b_frames: Annotated[
-        Out512bTo1023bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-512b-to-1023b-frames"),
-    ]
-    out_1024b_to_1518b_frames: Annotated[
-        Out1024bTo1518bFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-1024b-to-1518b-frames"),
-    ]
-    out_1519b_or_longer_frames: Annotated[
-        Out1519bOrLongerFramesLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-1519b-or-longer-frames"),
-    ]
-    last_clear: Annotated[
-        LastClearLeaf2, Field(None, alias="srl_nokia-interfaces:last-clear")
-    ]
-
-
-class StatisticsContainer5(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    advertisements_sent: Annotated[
-        AdvertisementsSentLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-sent"),
-    ]
-    advertisements_received: Annotated[
-        AdvertisementsReceivedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-received"),
-    ]
-    advertisements_discarded_version_mismatch: Annotated[
-        AdvertisementsDiscardedVersionMismatchLeaf,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-version-mismatch",
-        ),
-    ]
-    advertisements_discarded_authfail: Annotated[
-        AdvertisementsDiscardedAuthfailLeaf,
-        Field(
-            0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authfail"
-        ),
-    ]
-    advertisements_discarded_authtype_mismatch: Annotated[
-        AdvertisementsDiscardedAuthtypeMismatchLeaf,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authtype-mismatch",
-        ),
-    ]
-    advertisements_discarded_address_mismatch: Annotated[
-        AdvertisementsDiscardedAddressMismatchLeaf,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-address-mismatch",
-        ),
-    ]
-    priority_zero_packets_sent: Annotated[
-        PriorityZeroPacketsSentLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-sent"),
-    ]
-    priority_zero_packets_received: Annotated[
-        PriorityZeroPacketsReceivedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:priority-zero-packets-received"),
-    ]
-    advertisements_discarded_ttl: Annotated[
-        AdvertisementsDiscardedTtlLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-ttl"),
-    ]
-    advertisements_discarded_length: Annotated[
-        AdvertisementsDiscardedLengthLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-length"),
-    ]
-    advertisements_discarded_interval: Annotated[
-        AdvertisementsDiscardedIntervalLeaf,
-        Field(
-            0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-interval"
-        ),
-    ]
-    advertisements_interval_error: Annotated[
-        AdvertisementsIntervalErrorLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-interval-error"),
-    ]
-    advertisements_discarded_total: Annotated[
-        AdvertisementsDiscardedTotalLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-vrrp:advertisements-discarded-total"),
-    ]
-
-
-class StatisticsContainer6(BaseModel):
-    """
-    Container for subinterface statistics, including all IPv4, IPv6 and MPLS packets belonging to a routed subinterface, or including just one of these protocols on a routed subinterface, or for all frames on a bridged subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    in_packets: Annotated[
-        InPacketsLeaf2, Field(0, alias="srl_nokia-interfaces:in-packets")
-    ]
-    in_octets: Annotated[
-        InOctetsLeaf2, Field(0, alias="srl_nokia-interfaces:in-octets")
-    ]
-    in_error_packets: Annotated[
-        InErrorPacketsLeaf2, Field(0, alias="srl_nokia-interfaces:in-error-packets")
-    ]
-    in_discarded_packets: Annotated[
-        InDiscardedPacketsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:in-discarded-packets"),
-    ]
-    in_terminated_packets: Annotated[
-        InTerminatedPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-terminated-packets"),
-    ]
-    in_terminated_octets: Annotated[
-        InTerminatedOctetsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-terminated-octets"),
-    ]
-    in_forwarded_packets: Annotated[
-        InForwardedPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-forwarded-packets"),
-    ]
-    in_forwarded_octets: Annotated[
-        InForwardedOctetsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-forwarded-octets"),
-    ]
-    in_matched_ra_packets: Annotated[
-        InMatchedRaPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:in-matched-ra-packets"),
-    ]
-    out_forwarded_packets: Annotated[
-        OutForwardedPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-forwarded-packets"),
-    ]
-    out_forwarded_octets: Annotated[
-        OutForwardedOctetsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-forwarded-octets"),
-    ]
-    out_originated_packets: Annotated[
-        OutOriginatedPacketsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-originated-packets"),
-    ]
-    out_originated_octets: Annotated[
-        OutOriginatedOctetsLeaf,
-        Field(0, alias="srl_nokia-interfaces:out-originated-octets"),
-    ]
-    out_error_packets: Annotated[
-        OutErrorPacketsLeaf2, Field(0, alias="srl_nokia-interfaces:out-error-packets")
-    ]
-    out_discarded_packets: Annotated[
-        OutDiscardedPacketsLeaf2,
-        Field(0, alias="srl_nokia-interfaces:out-discarded-packets"),
-    ]
-    out_packets: Annotated[
-        OutPacketsLeaf2, Field(0, alias="srl_nokia-interfaces:out-packets")
-    ]
-    out_octets: Annotated[
-        OutOctetsLeaf2, Field(0, alias="srl_nokia-interfaces:out-octets")
-    ]
-    last_clear: Annotated[
-        LastClearLeaf4, Field(None, alias="srl_nokia-interfaces:last-clear")
-    ]
-
-
-class StatisticsContainer7(BaseModel):
-    """
-    Statistics for the Virtual IP address
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    out_probe_packets: Annotated[
-        OutProbePacketsLeaf,
-        Field(
-            0, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-probe-packets"
-        ),
-    ]
-
-
-class StatisticsContainer8(BaseModel):
-    """
-    Global statistics for Virtual IP discovery
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    out_total_probe_packets: Annotated[
-        OutTotalProbePacketsLeaf,
-        Field(
-            0,
-            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:out-total-probe-packets",
-        ),
-    ]
-
-
-class StatisticsContainer9(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    client_packets_received: Annotated[
-        ClientPacketsReceivedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-received"),
-    ]
-    client_packets_relayed: Annotated[
-        ClientPacketsRelayedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-relayed"),
-    ]
-    client_packets_discarded: Annotated[
-        ClientPacketsDiscardedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:client-packets-discarded"),
-    ]
-    server_packets_received: Annotated[
-        ServerPacketsReceivedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-received"),
-    ]
-    server_packets_relayed: Annotated[
-        ServerPacketsRelayedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-relayed"),
-    ]
-    server_packets_discarded: Annotated[
-        ServerPacketsDiscardedLeaf,
-        Field(0, alias="srl_nokia-interfaces-ip-dhcp-relay:server-packets-discarded"),
-    ]
-
-
-class StatusLeaf(RootModel[EnumerationEnum13]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum13, Field(title="StatusLeaf")]
-    """
-    Health status
-
-    The status of the component, indicating its current health.
-    """
-
-
-class StatusLeaf2(RootModel[EnumerationEnum34]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum34, Field(title="StatusLeaf2")]
-    """
-    The status of the 802.1X session for a device
-    """
-
-
-class StatusLeaf3(RootModel[Ipv4AddressStatusType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv4AddressStatusType, Field(title="StatusLeaf3")]
-    """
-    The status of an IPv4 address
-    """
-
-
-class StatusLeaf4(RootModel[EnumerationEnum46]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum46, Field(title="StatusLeaf4")]
-    """
-    The status of the ARP or neighbor entry with respect to datapath programming
-    """
-
-
-class StatusLeaf5(RootModel[Ipv6AddressStatusType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6AddressStatusType, Field(title="StatusLeaf5")]
-    """
-    The status of an IPv6 address
-    """
-
-
-class StatusLeaf6(RootModel[EnumerationEnum58]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum58, Field(title="StatusLeaf6")]
-    """
-    The status of the ARP or neighbor entry with respect to datapath programming
-    """
-
-
-class StatusLeaf7(RootModel[EnumerationEnum85]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum85, Field(title="StatusLeaf7")]
-    """
-    Status of the test
-
-    Only set when the test is in the error state.
-    """
-
-
-class StpAutoEdgeTypeType(RootModel[EnumerationEnum74]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum74
-    """
-    When auto-edge is enabled, STP will send bpdu to determine if there
-    exists a rstp peer. Upon receiving no response, the port is determined
-    as edge-port. Auto-Edge is enabled by default. It dynamically sets the
-    value of OPER_EDGE to true/false based on if stp bpdu is received on
-    the interface. 
-    """
-
-
-class StpEdgePortTypeType(RootModel[EnumerationEnum73]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum73
-    """
-    When subInterface is participating in STP it will experience delays,
-    timeouts and onboarding new devices would be difficult. Edge ports
-    are connected to end devices that do not speak STP and hence the
-    interfaces aren't expected to receive xSTP BPDUs. Setting edge port
-    indicates the interface is access edge and STP OPER_EDGE is set to true.
-    This flag dictates that STP transitions to the Forwarding state without
-    waiting for Bpdu with agreement flag set. If STP bpdu is received on
-    Edge port OPER_EDGE is made to false. (without changing configured valued)
-    Now the interface will switch back to the normal mode of timer-based
-    transitioning. User needs to do shut-no-shut manually to put it back to
-    configurated value
-    """
-
-
-class StpLinkTypeType(RootModel[EnumerationEnum75]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum75
-
-
-class StpRootGuardTypeType(RootModel[EnumerationEnum76]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum76
-
-
-class SubifOperDownReasonType(RootModel[EnumerationEnum39]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum39
-
-
-class SubinterfaceAllType(RootModel[SubinterfaceNameType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: SubinterfaceNameType
-
-
-class SubsystemContainer(BaseModel):
-    """
-    Top-level container for PCI subsystem state
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vendor_name: Annotated[
-        VendorNameLeaf2, Field(None, alias="srl_nokia-interfaces-vxdp:vendor-name")
-    ]
-    vendor_id: Annotated[
-        VendorIdLeaf2, Field(None, alias="srl_nokia-interfaces-vxdp:vendor-id")
-    ]
-    device_name: Annotated[
-        DeviceNameLeaf2, Field(None, alias="srl_nokia-interfaces-vxdp:device-name")
-    ]
-    device_id: Annotated[
-        DeviceIdLeaf2, Field(None, alias="srl_nokia-interfaces-vxdp:device-id")
-    ]
-
-
-class SupportedGridsLeafList(RootModel[EnumerationEnum16]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum16, Field(title="Supported-gridsLeafList")]
-    """
-    Indicates the frequency grids supported by the equipped tunable optical port.
-    """
-
-
-class SupportedOperationalModeLeafList(RootModel[CoherentOperationalModeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        CoherentOperationalModeType, Field(title="Supported-operational-modeLeafList")
-    ]
-    """
-    Operational modes supported by the installed transceiver
-
-    Lists the operational-modes supported by the installed transceiver.  If no transceiver is installed, nothing is reported.
-    """
-
-
-class SynchronizationLeaf(RootModel[LacpSynchronizationTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LacpSynchronizationTypeType, Field(title="SynchronizationLeaf")]
-    """
-    Indicates whether the participant is in-sync or
-    out-of-sync
-    """
-
-
-class TemperatureContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    latest_value: Annotated[
-        LatestValueLeaf, Field(None, alias="srl_nokia-interfaces:latest-value")
-    ]
-    maximum: Annotated[MaximumLeaf, Field(None, alias="srl_nokia-interfaces:maximum")]
-    maximum_time: Annotated[
-        MaximumTimeLeaf, Field(None, alias="srl_nokia-interfaces:maximum-time")
-    ]
-    high_alarm_condition: Annotated[
-        HighAlarmConditionLeaf,
-        Field(None, alias="srl_nokia-interfaces:high-alarm-condition"),
-    ]
-    high_alarm_threshold: Annotated[
-        HighAlarmThresholdLeaf,
-        Field(None, alias="srl_nokia-interfaces:high-alarm-threshold"),
-    ]
-    low_alarm_condition: Annotated[
-        LowAlarmConditionLeaf,
-        Field(None, alias="srl_nokia-interfaces:low-alarm-condition"),
-    ]
-    low_alarm_threshold: Annotated[
-        LowAlarmThresholdLeaf,
-        Field(None, alias="srl_nokia-interfaces:low-alarm-threshold"),
-    ]
-    high_warning_condition: Annotated[
-        HighWarningConditionLeaf,
-        Field(None, alias="srl_nokia-interfaces:high-warning-condition"),
-    ]
-    high_warning_threshold: Annotated[
-        HighWarningThresholdLeaf,
-        Field(None, alias="srl_nokia-interfaces:high-warning-threshold"),
-    ]
-    low_warning_condition: Annotated[
-        LowWarningConditionLeaf,
-        Field(None, alias="srl_nokia-interfaces:low-warning-condition"),
-    ]
-    low_warning_threshold: Annotated[
-        LowWarningThresholdLeaf,
-        Field(None, alias="srl_nokia-interfaces:low-warning-threshold"),
-    ]
-
-
-class TimeoutLeaf2(RootModel[LacpTimeoutTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LacpTimeoutTypeType, Field(title="TimeoutLeaf2")]
-    """
-    The timeout type (short or long) used by the
-    participant
-    """
-
-
-class TotalEntriesLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Total-entriesLeaf")]
-    """
-    The total number of macs, active and inactive, on the sub-interface.
-    """
-
-
-class TotalEntriesLeaf2(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Total-entriesLeaf2")]
-    """
-    The total number of macs of this type , active and inactive, on the sub-interface.
-    """
-
-
-class TotalInDiscardedPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        ZeroBasedCounter64Type, Field(title="Total-in-discarded-packetsLeaf")
-    ]
-    """
-    System or interface level incoming do1x discarded frames
-
-    Cumulative of all Ethernet interfaces or specific interface including all the discarded dot1x frames.
-    """
-
-
-class TotalInPacketsLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Total-in-packetsLeaf")]
-    """
-    System or interface level total incoming dot1x frames
-
-    Cumulative of all Ethernet interfaces or specific interface including the tunneled, discarded and copy-to-cpu dot1x frames.
-    """
-
-
-class TraceLeafList(RootModel[EnumerationEnum52]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum52, Field(title="TraceLeafList")]
-    """
-    List of events to trace
-    """
-
-
-class TraceLeafList2(RootModel[EnumerationEnum53]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum53, Field(title="TraceLeafList2")]
-    """
-    List of events to trace
-    """
-
-
-class TraceLeafList3(RootModel[EnumerationEnum64]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum64, Field(title="TraceLeafList3")]
-    """
-    List of events to trace
-    """
-
-
-class TraceLeafList4(RootModel[EnumerationEnum68]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum68, Field(title="TraceLeafList4")]
-    """
-    List of events to trace
-    """
-
-
-class TransceiverOperDownReasonType(RootModel[EnumerationEnum10]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum10
-
-
-class TransceiverOperStateType(RootModel[EnumerationEnum9]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum9
-
-
-class TypeLeaf(RootModel[EnumerationEnum8]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum8, Field(title="TypeLeaf")]
-    """
-    Type of adapter for the port
-    """
-
-
-class TypeLeaf3(RootModel[Ipv6AddressTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6AddressTypeType, Field(title="TypeLeaf3")]
-    """
-    Specifies the explicit type of the IPv6 address being assigned to the subinterface
-
-    By default, addresses are assumed to be global unicast.  Where a link-local address is to be explicitly configured, this leaf should be set to link-local.
-    """
-
-
-class TypeLeaf4(RootModel[MacTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacTypeType, Field(title="TypeLeaf4")]
-
-
-class TypeLeaf5(RootModel[MacTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[MacTypeType, Field(title="TypeLeaf5")]
-    """
-    the type of the mac installed in the fib.
-    """
-
-
-class UnavailableAddressReasonLeaf(RootModel[EnumerationEnum44]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum44, Field(title="Unavailable-address-reasonLeaf")]
-    """
-    The reason why there is no operational IPv4 address to use for this subinterface
-    """
-
-
-class UnhealthyCountLeaf(RootModel[ZeroBasedCounter64Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[ZeroBasedCounter64Type, Field(title="Unhealthy-countLeaf")]
-    """
-    Unhealthy count
-
-    The number of times the component has transitioned from the healthy
-    state to any other state.
-    """
-
-
-class UnidirectionalLinkDelayContainer(BaseModel):
-    """
-    Unidirectional link delay configuration and state related to subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    static_delay: Annotated[
-        StaticDelayLeaf, Field("none", alias="srl_nokia-interfaces:static-delay")
-    ]
-    last_reported_dynamic_delay: Annotated[
-        LastReportedDynamicDelayLeaf,
-        Field(None, alias="srl_nokia-interfaces:last-reported-dynamic-delay"),
-    ]
-
-
-class UnitsLeaf(RootModel[EnumerationEnum30]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum30, Field(title="UnitsLeaf")]
-    """
-    Units of storm-control policer in kbps or percentage of the interface bandwidth
-    """
-
-
-class UpExpiresLeaf(RootModel[DateAndTimeDeltaType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[DateAndTimeDeltaType, Field(title="Up-expiresLeaf")]
-    """
-    The remaining time until the hold-time up expires and the interface comes up.
-    """
-
-
-class UuidLeaf(RootModel[UuidType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[UuidType, Field(title="UuidLeaf")]
-    """
-    The system-generated or user-configured UUID for the sub interface
-    """
-
-
-class UuidLeaf2(RootModel[UuidType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[UuidType, Field(title="UuidLeaf2")]
-    """
-    The system-generated or user-configured UUID for the interface
-    """
-
-
-class ValidLifetimeLeaf(RootModel[Union[EnumerationEnum66, ValidLifetimeLeaf1]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        Union[EnumerationEnum66, ValidLifetimeLeaf1], Field(title="Valid-lifetimeLeaf")
-    ]
-    """
-    The length of time in seconds (relative to the time the packet is sent) that the prefix is valid for the purpose of on-link determination. 
-    """
-
-
-class VhostSocketModeLeaf(RootModel[EnumerationEnum94]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[EnumerationEnum94, Field(title="Vhost-socket-modeLeaf")]
-    """
-    The vhost-user socket mode
-
-    If set to server, the socket is created by SR Linux, if set to client SR Linux will connect to a pre-existing socket.
-    """
-
-
-class VhostContainer(BaseModel):
-    """
-    Top-level container for vhost-user interface configuration and state
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vhost_socket_path: Annotated[
-        VhostSocketPathLeaf, Field(alias="srl_nokia-interfaces-vxdp:vhost-socket-path")
-    ]
-    vhost_socket_mode: Annotated[
-        VhostSocketModeLeaf,
-        Field("client", alias="srl_nokia-interfaces-vxdp:vhost-socket-mode"),
-    ]
-    vhost_socket_queues: Annotated[
-        VhostSocketQueuesLeaf,
-        Field(None, alias="srl_nokia-interfaces-vxdp:vhost-socket-queues"),
-    ]
-    socket_id: Annotated[
-        SocketIdLeaf, Field(None, alias="srl_nokia-interfaces-vxdp:socket-id")
-    ]
-    socket_cpus: Annotated[
-        List[SocketCpusLeafList],
-        Field([], alias="srl_nokia-interfaces-vxdp:socket-cpus"),
-    ]
-    """
-    List of CPUs present on the socket this interface is attached to
-    """
-
-
-class VirtualAddressLeafList2(RootModel[Ipv6AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6AddressType, Field(title="Virtual-addressLeafList2")]
-    """
-    Associated Virtual IP address.
-    """
-
-
-class VirtualLinkLocalAddressLeaf(RootModel[Ipv6AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6AddressType, Field(title="Virtual-link-local-addressLeaf")]
-    """
-    Generated link local address based on virtual-mac for virtual router instance
-    """
-
-
-class VlanDiscoveryAddressTypeType(RootModel[EnumerationEnum79]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum79
-    """
-    Type definition with enumerations describing address type for vlan discovery
-    """
-
-
-class VlanIdLeaf(RootModel[Union[VlanIdType, EnumerationEnum80]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Union[VlanIdType, EnumerationEnum80], Field(title="Vlan-idLeaf")]
-    """
-    VLAN identifier for single-tagged packets
-    """
-
-
-class VlanStackActionType(RootModel[EnumerationEnum83]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum83
-    """
-    Operations that can be performed on a VLAN stack
-    """
-
-
-class VrrpOperDownReasonType(RootModel[EnumerationEnum43]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: EnumerationEnum43
-
-
-class XstpContainer(BaseModel):
-    """
-    Container for the configuration of all the Spanning Tree Protocols.
-
-    It includes Spanning Tree Protocol (STP), Rapid RSTP (RSTP) and Multiple STP (MSTP)
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf3, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf3, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class ActivityLeaf(RootModel[LacpActivityTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LacpActivityTypeType, Field(title="ActivityLeaf")]
-    """
-    Indicates participant is active or passive
-    """
-
-
-class AdapterContainer(BaseModel):
-    """
-    State for adapters
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    model_number: Annotated[
-        ModelNumberLeaf, Field(None, alias="srl_nokia-interfaces:model-number")
-    ]
-    type: Annotated[TypeLeaf, Field(None, alias="srl_nokia-interfaces:type")]
-    vendor_manufacture_date: Annotated[
-        VendorManufactureDateLeaf,
-        Field(None, alias="srl_nokia-interfaces:vendor-manufacture-date"),
-    ]
-    vendor_oui: Annotated[
-        VendorOuiLeaf, Field(None, alias="srl_nokia-interfaces:vendor-oui")
-    ]
-    vendor_part_number: Annotated[
-        VendorPartNumberLeaf,
-        Field(None, alias="srl_nokia-interfaces:vendor-part-number"),
-    ]
-    vendor_serial_number: Annotated[
-        VendorSerialNumberLeaf,
-        Field(None, alias="srl_nokia-interfaces:vendor-serial-number"),
-    ]
-
-
-class AddressLeaf(RootModel[Ipv4AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv4AddressType, Field(title="AddressLeaf")]
-    """
-    The operational IPv4 address borrowed from the referenced subinterface
-    """
-
-
-class AdminStateLeaf(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf")]
-    """
-    The configured, desired state of the interface
-    """
-
-
-class AdminStateLeaf10(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf10")]
-    """
-    The configurable state of the dhcp relay agent
-    """
-
-
-class AdminStateLeaf11(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf11")]
-    """
-    Enables/Disables DHCP server function on subinterface
-    """
-
-
-class AdminStateLeaf12(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf12")]
-    """
-    Enable/disable IPv6 on the subinterface
-
-    When set to enable, and even before a global unicast IPv6 address is configured, chassis manager assigns an IPv6 link-local address to the subinterface, which will appear as a read-only entry in the address list. At this stage, the subinterface can receive IPv6 packets with any of the following destinations:
-    -       IPv6 link-local address
-    -       solicited-node multicast address for the link-local address
-    -       ff02::1 (all IPv6 devices)
-    -       ff02::2 (all IPv6 routers)
-    """
-
-
-class AdminStateLeaf13(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf13")]
-    """
-    Administrative state for the associated VRRP group instance
-    """
-
-
-class AdminStateLeaf14(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf14")]
-    """
-    The configurable state of the dhcp relay agent
-    """
-
-
-class AdminStateLeaf15(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf15")]
-    """
-    Administratively enable or disable the sending of router advertisements on the subinterface.
-    """
-
-
-class AdminStateLeaf16(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf16")]
-    """
-    Enables/Disables DHCPv6 server function on subinterface
-    """
-
-
-class AdminStateLeaf17(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf17")]
-    """
-    Configurable state of the learning procedures for dynamic mac addresses.
-    If disabled, the existing macs in the bridge-table will be kept (and refreshed
-    if new frames arrive for them) but no new mac addresses will be learned. Frames
-    with unknown mac addresses are not dropped, unless discard-unknown-src-mac is
-    configured.
-    """
-
-
-class AdminStateLeaf18(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf18")]
-    """
-    Configurable state of the aging for the dynamic mac entries in the bridge table.
-    If disabled, dynamically learned mac entries will be programmed in the bridge table
-    until the network instance is disabled.
-    """
-
-
-class AdminStateLeaf19(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf19")]
-    """
-    Administratively enable or disable the STP protocol for this interface
-    When STP on the network instance is administratively disabled,
-    any BPDUs are forwarded transparently.
-    When STP on the network instance is administratively enabled,
-    but the administrative state on a sub-interface is disabled,
-    BPDUs received on such a subinterface are discarded.
-    """
-
-
-class AdminStateLeaf2(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf2")]
-    """
-    Administrative state of crc monitoring on the port
-    """
-
-
-class AdminStateLeaf20(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf20")]
-    """
-    The configurable state of the local mirror destination
-    """
-
-
-class AdminStateLeaf21(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf21")]
-    """
-    Administratively enable or disable sFlow on this interface
-    """
-
-
-class AdminStateLeaf3(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf3")]
-    """
-    Administrative state of symbol monitoring on the port
-    """
-
-
-class AdminStateLeaf4(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf4")]
-    """
-    Administrative state of exponential port dampening
-    """
-
-
-class AdminStateLeaf5(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf5")]
-    """
-    Configure the administrative state for SyncE in line/client ports.
-    When enabled, the associated transmit and receiver ports are set to
-    synchronous mode and ESMC/SSM processing is enabled.
-    Otherwise, all syncE functions are disabled in the port.
-    """
-
-
-class AdminStateLeaf6(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf6")]
-    """
-    The configured, desired state of the subinterface
-    """
-
-
-class AdminStateLeaf7(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf7")]
-    """
-    Enable/disable IPv4 on the subinterface
-
-    When set to enable, and even before an IPv4 address is configured, the subinterface starts to accept incoming packets with dest-ip 255.255.255.255, which is necessary to support dhcp-client functionality.
-    """
-
-
-class AdminStateLeaf8(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf8")]
-    """
-    Administrative state for the associated VRRP group instance
-    """
-
-
-class AdminStateLeaf9(RootModel[AdminStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AdminStateType, Field(title="Admin-stateLeaf9")]
-    """
-    When enabled, the subinterface should operate in unnumbered mode for IPv4
-    """
-
-
-class AggregateIdLeaf(RootModel[NameLeaf]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf, Field(title="Aggregate-idLeaf")]
-    """
-    lag interface with which this interface is associated
-    """
-
-
-class AgingContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf18, Field("enable", alias="srl_nokia-interfaces:admin-state")
-    ]
-
-
-class AnycastGwMacOriginLeaf(RootModel[AnycastGwMacOriginType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[AnycastGwMacOriginType, Field(title="Anycast-gw-mac-originLeaf")]
-    """
-    Origin of the active anycast-gateway MAC address.
-
-    If not configured, the anycast-gateway-mac will be auto-derived out of 00:00:5E:00:01:VRID, where VRID is the
-    Virtual Router Identifier of the subinterface anycast-gw.
-    """
-
-
-class AnycastGwContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    virtual_router_id: Annotated[
-        VirtualRouterIdLeaf3, Field(1, alias="srl_nokia-interfaces:virtual-router-id")
-    ]
-    anycast_gw_mac: Annotated[
-        AnycastGwMacLeaf, Field(None, alias="srl_nokia-interfaces:anycast-gw-mac")
-    ]
-    anycast_gw_mac_origin: Annotated[
-        AnycastGwMacOriginLeaf,
-        Field(None, alias="srl_nokia-interfaces:anycast-gw-mac-origin"),
-    ]
-
-
-class AutoEdgeLeaf(RootModel[StpAutoEdgeTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpAutoEdgeTypeType, Field(title="Auto-edgeLeaf")]
-
-
-class BreakoutModeContainer(BaseModel):
-    """
-    Configuration of breakout options.
-
-    7220 D3 ports 3-33: 4x10G and 4x25G
-    7220 D3L ports 1-31: 2x50G, 4x10G and 4x25G
-    7220 H3 ports 3-34: 4x10G, 2x100G/4x100G, and 2x200G
-    7220 H4 ports 1-64: 4x100G and 2x200G
-    7220 D4 ports 29-32: 4x100G, 4x25G, and 4x10G
-    7220 D4 ports 9, 23-27: 4x25G and 4x10G
-    7220 D5 ports 1-32: 4x10G, 4x25G, 2x100G/4x100G, and 2x200G
-    7730 SXR-1d-32D QSFP28 ports 1-16, 21-32: 4x10G and 4x25G (Note 3)
-    7730 SXR-1d-32D QSFPDD ports 17-20: 4x100G, 3x100G (Note 1), 4x25G, and 4x10G
-    7730 SXR-1x-44S SFPDD ports 1-20, 23-42: No breakouts
-    7730 SXR-1x-44S QSFPDD ports 21,22,43,44: 4x100G, 3x100G (Note 1), 4x25G, and 4x10G
-    7250 IXR-6e/10e 60p QSFP28 IMM 9,12,15,18,21,24,26,27,29,30,32,35,38,39,41,42,45,48: 4x25G and 4x10G (Note 2)
-    7250 IXR-6e/10e 36p QSFPDD IMM all ports: 4x100G, 2x100G, 4x25G, and 4x10G
-    7250 IXR-X1b QSFP28 ports 1-24: 4x25G, and 4x10G (Note 4)
-    7250 IXR-X1b QSFPDD ports 25-36: 4x100G, 3x100G (Note 1), 2x100G, 4x25G, and 4x10G
-    7250 IXR-X3b QSFPDD all ports: 4x100G, 3x100G (Note 1), 2x100G, 4x25G, and 4x10G
-    Note 1: 3x100G is only supported for Digital Coherent Optic transceivers
-
-    Note 2: For the following port groupings only the higher numbered port supports breakout-mode.
-            If the higher numbered port is to be configured for breakout-mode, then the lower numbered port should not be configured.
-            If both ports are configured, then the lower numbered port takes precedence and the higher numbered port shall be operationally down with reason unsupported-breakout-port.
-            Groupings are (8,9), (11,12), (14,15), (17,18), (20,21), (23,24), (44, 45), (47,48).
-
-    Note 3: Breakout and 40G is only supported on odd numbered ports.
-            For the QSFP28 four port groupings [1-4], [5-8], [9-12], [13-16], [21-24], [25-28], and [29-32] if either of the odd numbered ports within a group is configured for 40G, 4x10G, or 4x25G,
-            then the other odd numbered port in the same group may only be configured if it is configured for one of 40G, 4x10G, or 4x25G (can differ between the odd ports) and neither of
-            the two even numbered ports within the same group can be configured.
-
-    Note 4: For the QSFP28 ports, the following port groups exist [n, n+1, n+2, n+3] for n = 1, 5, 9, 13, 17, 21.  Breakout for 4x25G or 4x10G is only supported on ports n+1 and n+3.
-            When initially configuring a port with a breakout configuration or port speed that does not already exist on another configured port within the same group, then a link flap and traffic hit may occur on other ports within the same group.
-            When the breakout configuration or port speed is changed for a port in a group, then a link flap and traffic hit may occur on other ports within the same group.
-            If port n+1 within the group is configured for breakout, then port n cannot be configured.
-            In addition if port n+1 is configured for breakout and port n+3 is configured without breakout, then port n+2 may only be configured with the same speed as port n+3.
-            If port n+3 within the group is configured for breakout, then port n+2 cannot be configured.
-            In addition if port n+3 is configured for breakout and port n+1 is configured without breakout, then port n may only be configured with the same speed as port n+1.
-
-    Port Groups and auto-configuration of port speed:
-     Manually configured breakout-mode takes precedence over the auto-configured port-speed.  This means that configuring a port within a port-group can have a side effect to take down an operational port that had its speed set based on the auto configuration feature.  If there is risk of mixing transceiver types within a port group, then it is recommended to always manually configure the ports
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    num_breakout_ports: Annotated[
-        NumBreakoutPortsLeaf, Field(alias="srl_nokia-interfaces:num-breakout-ports")
-    ]
-    breakout_port_speed: Annotated[
-        BreakoutPortSpeedLeaf, Field(alias="srl_nokia-interfaces:breakout-port-speed")
-    ]
-
-
-class CurrentAlarmsLeafList2(RootModel[EthernetMonitorReportStatusType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        EthernetMonitorReportStatusType, Field(title="Current-alarmsLeafList2")
-    ]
-    """
-    Current alarms of the Ethernet CRC monitoring, raised when corresponding threshold is exceeded
-    """
-
-
-class CurrentAlarmsLeafList3(RootModel[EthernetMonitorReportStatusType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        EthernetMonitorReportStatusType, Field(title="Current-alarmsLeafList3")
-    ]
-    """
-    Current alarms of the Ethernet symbol monitoring, raised when corresponding threshold is exceeded
-    """
-
-
-class DatapathProgrammingContainer(BaseModel):
-    """
-    Container for state related to the datapath programming of the ARP or neighbor entry
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    status: Annotated[StatusLeaf4, Field(None, alias="srl_nokia-interfaces-nbr:status")]
-    last_failed_complexes: Annotated[
-        List[LastFailedComplexesLeafList],
-        Field([], alias="srl_nokia-interfaces-nbr:last-failed-complexes"),
-    ]
-    """
-    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
-    """
-
-
-class DatapathProgrammingContainer2(BaseModel):
-    """
-    Container for state related to the datapath programming of the ARP or neighbor entry
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    status: Annotated[StatusLeaf6, Field(None, alias="srl_nokia-interfaces-nbr:status")]
-    last_failed_complexes: Annotated[
-        List[LastFailedComplexesLeafList2],
-        Field([], alias="srl_nokia-interfaces-nbr:last-failed-complexes"),
-    ]
-    """
-    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
-    """
-
-
-class DispersionControlModeLeaf(RootModel[OpticalDispersionControlModeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        OpticalDispersionControlModeType, Field(title="Dispersion-control-modeLeaf")
-    ]
-    """
-    Mode used to compensate for chromatic dispersion
-    """
-
-
-class Dot1xContainer2(BaseModel):
-    """
-    Container for the configuration of 802.1x Port based Network Access Control.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf4, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf4, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class DoubleTaggedContainer(BaseModel):
-    """
-    When present, double-tagged frames with a specific, non-zero, outer and inner VLAN ID values are associated to the subinterface
-
-    By default, the specific configured vlan-id tags are stripped at ingress and pushed on egress.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    inner_vlan_id: Annotated[
-        InnerVlanIdLeaf, Field(alias="srl_nokia-interfaces-vlans:inner-vlan-id")
-    ]
-    outer_vlan_id: Annotated[
-        OuterVlanIdLeaf, Field(alias="srl_nokia-interfaces-vlans:outer-vlan-id")
-    ]
-
-
-class DuplicateEntriesContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    mac: Annotated[
-        List[MacListEntry2],
-        Field(alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:mac"),
-    ]
-
-
-class EdgePortLeaf(RootModel[StpEdgePortTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpEdgePortTypeType, Field(title="Edge-portLeaf")]
-
-
-class EfmOamContainer(BaseModel):
-    """
-    Container for the configuration of Ethernet in the First Mile OAM frames
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf8, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf8, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class ElmiContainer(BaseModel):
-    """
-    Container for the configuration of Ethernet local management interface frames
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf7, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf7, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class EsmcContainer(BaseModel):
-    """
-    Container for the configuration of Ethernet synchronization messaging channel frames
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf6, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf6, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class EthernetSegmentAssociationContainer(BaseModel):
-    """
-    ethernet-segment association information.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ethernet_segment: Annotated[
-        EthernetSegmentLeaf,
-        Field(
-            None,
-            alias="srl_nokia-interfaces-ethernet-segment-association:ethernet-segment",
-        ),
-    ]
-    es_managed: Annotated[
-        EsManagedLeaf,
-        Field(
-            False, alias="srl_nokia-interfaces-ethernet-segment-association:es-managed"
-        ),
-    ]
-    designated_forwarder: Annotated[
-        DesignatedForwarderLeaf,
-        Field(
-            False,
-            alias="srl_nokia-interfaces-ethernet-segment-association:designated-forwarder",
-        ),
-    ]
-
-
-class ExponentialPortDampeningContainer(BaseModel):
-    """
-    Exponential port dampening parameters
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf4, Field("disable", alias="srl_nokia-interfaces:admin-state")
-    ]
-    half_life: Annotated[HalfLifeLeaf, Field(5, alias="srl_nokia-interfaces:half-life")]
-    max_suppress_time: Annotated[
-        MaxSuppressTimeLeaf, Field(20, alias="srl_nokia-interfaces:max-suppress-time")
-    ]
-    reuse_threshold: Annotated[
-        ReuseThresholdLeaf, Field(1000, alias="srl_nokia-interfaces:reuse-threshold")
-    ]
-    suppress_threshold: Annotated[
-        SuppressThresholdLeaf,
-        Field(2000, alias="srl_nokia-interfaces:suppress-threshold"),
-    ]
-    current_penalties: Annotated[
-        CurrentPenaltiesLeaf, Field(0, alias="srl_nokia-interfaces:current-penalties")
-    ]
-    max_penalties: Annotated[
-        MaxPenaltiesLeaf, Field(0, alias="srl_nokia-interfaces:max-penalties")
-    ]
-    oper_state: Annotated[
-        OperStateLeaf3, Field(None, alias="srl_nokia-interfaces:oper-state")
-    ]
-
-
-class ForwardingComplexLeaf(RootModel[NameLeaf2]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf2, Field(title="Forwarding-complexLeaf")]
-    """
-    The forwarding-complex on which this interface resides
-
-    This field is not populated for non-forwarding-complex-attached interfaces, for example mgmt0.
-    """
-
-
-class GiAddressLeaf(RootModel[Ipv4AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv4AddressType, Field(title="Gi-addressLeaf")]
-    """
-    IPv4 address to be used as giaddr of the relayed packets towards DHCPv4 servers.
-    This address can be any IPv4 address configured within the network-instance towards the DHCPv4 server
-    """
-
-
-class HealthzContainer(BaseModel):
-    """
-    The health of the component
-
-    The paramaters within this
-    container indicate the status of the component beyond whether
-    it is operationally up or down. When a signal is received
-    that a component is in an unhealthy state the gNOI.Healthz
-    service can be used to retrieve further diagnostic information
-    relating to the component.
-    The contents of this directory relate only to the specific
-    component that it is associated with.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    status: Annotated[
-        StatusLeaf, Field(None, alias="srl_nokia-platform-healthz:status")
-    ]
-    last_unhealthy: Annotated[
-        LastUnhealthyLeaf,
-        Field(None, alias="srl_nokia-platform-healthz:last-unhealthy"),
-    ]
-    unhealthy_count: Annotated[
-        UnhealthyCountLeaf, Field(0, alias="srl_nokia-platform-healthz:unhealthy-count")
-    ]
-
-
-class HoldTimeContainer(BaseModel):
-    """
-    Configure interface hold timers for Ethernet interfaces
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    up: Annotated[UpLeaf, Field(0, alias="srl_nokia-interfaces:up")]
-    up_expires: Annotated[
-        UpExpiresLeaf, Field(None, alias="srl_nokia-interfaces:up-expires")
-    ]
-    down: Annotated[DownLeaf, Field(0, alias="srl_nokia-interfaces:down")]
-    down_expires: Annotated[
-        DownExpiresLeaf, Field(None, alias="srl_nokia-interfaces:down-expires")
-    ]
-
-
-class HostsContainer(BaseModel):
-    """
-    Top level state container for 802.1X
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    mac: Annotated[MacLeaf3, Field(None, alias="srl_nokia-dot1x:mac")]
-    status: Annotated[StatusLeaf2, Field(None, alias="srl_nokia-dot1x:status")]
-
-
-class Hostv4Type(RootModel[Union[Ipv4AddressType, DomainNameType]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Union[Ipv4AddressType, DomainNameType]
-    """
-    The hostv4 type represents either an IPv4 address or a DNS domain name.
-    """
-
-
-class Hostv6Type(RootModel[Union[Ipv6AddressType, DomainNameType]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Union[Ipv6AddressType, DomainNameType]
-    """
-    The hostv6 type represents either an IPv6 address or a DNS domain name.
-    """
-
-
-class IngressSquelchingContainer(BaseModel):
-    """
-    Ingress ETH-CFM functions independent of Maintenance Domain context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    squelch_levels: Annotated[
-        SquelchLevelsLeaf, Field(None, alias="srl_nokia-ethcfm:squelch-levels")
-    ]
-    statistics: Annotated[
-        StatisticsContainer17, Field(None, alias="srl_nokia-ethcfm:statistics")
-    ]
-
-
-class InterfaceLeaf(RootModel[NameLeaf]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf, Field(title="InterfaceLeaf")]
-    """
-    Interface to track
-    """
-
-
-class InterfaceLeaf2(RootModel[SubinterfaceAllType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[SubinterfaceAllType, Field(title="InterfaceLeaf2")]
-    """
-    Reference to the subinterface with the IPv4 address to be borrowed
-    """
-
-
-class InterfaceLeaf3(RootModel[NameLeaf]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf, Field(title="InterfaceLeaf3")]
-    """
-    Interface to track
-    """
-
-
-class InternalTagsContainer(BaseModel):
-    """
-    Configuration and state of internal tags
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    set_tag_set: Annotated[
-        List[SetTagSetLeafList], Field([], alias="srl_nokia-interfaces-nbr:set-tag-set")
-    ]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class InternalTagsContainer2(BaseModel):
-    """
-    Configuration and state of internal tags
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    set_tag_set: Annotated[
-        List[SetTagSetLeafList2],
-        Field([], alias="srl_nokia-interfaces-nbr-evpn:set-tag-set"),
-    ]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class InternalTagsContainer3(BaseModel):
-    """
-    Configuration and state of internal tags
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    set_tag_set: Annotated[
-        List[SetTagSetLeafList3],
-        Field([], alias="srl_nokia-interfaces-nbr:set-tag-set"),
-    ]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class InternalTagsContainer4(BaseModel):
-    """
-    Configuration and state of internal tags
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    set_tag_set: Annotated[
-        List[SetTagSetLeafList4],
-        Field([], alias="srl_nokia-interfaces-nbr-evpn:set-tag-set"),
-    ]
-    """
-    Reference to a tag-set defined under routing-policy
-    """
-
-
-class IntervalLeaf(RootModel[LacpPeriodTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LacpPeriodTypeType, Field(title="IntervalLeaf")]
-    """
-    Set the period between LACP messages -- uses
-    the lacp-period-type enumeration.
-    """
-
-
-class IpAddressType(RootModel[Union[Ipv4AddressType, Ipv6AddressType]]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Union[Ipv4AddressType, Ipv6AddressType]
-    """
-    An IPv4 or IPv6 address with no prefix specified.
-    """
-
-
-class IpPrefixLeaf(RootModel[Ipv4PrefixWithHostBitsType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv4PrefixWithHostBitsType, Field(title="Ip-prefixLeaf")]
-    """
-    The IPv4 address and prefix length in CIDR notation
-
-    Subnets on the same subinterface are allowed to overlap as long as the host bits are different. When a locally originated unicast packet is destined to a host covered by multiple subnets associated with a subinterface, the source address is chosen to be the numerically lowest IP address among all these subnets. For example, if the addresses 172.16.1.1/12, 172.16.1.2/12, and 172.16.1.3/12 are configured on the same interface, 172.16.1.1 would be used as a local address when you issue a ping 172.16.1.5 command
-    """
-
-
-class IpPrefixLeaf2(RootModel[Ipv6PrefixWithHostBitsType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6PrefixWithHostBitsType, Field(title="Ip-prefixLeaf2")]
-    """
-    The IPv6 address and prefix-length in CIDR notation
-
-    Up to 16 global unicast IPv6 addresses can be assigned to each subinterface. Global unicast IPv6 address subnets on the same subinterface are allowed to overlap as long as the host bits are different. When a locally originated unicast packet is destined to a host covered by multiple subnets associated with a subinterface, the source address is chosen to be the numerically lowest IP address among all these subnets.
-    """
-
-
-class Ipv4AddressLeaf(RootModel[Ipv4AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv4AddressType, Field(title="Ipv4-addressLeaf")]
-    """
-    IPv4 address resolved by the ARP entry
-
-    To configure a static neighbor entry a value must be written into this leaf and the link-layer-address leaf.
-    """
-
-
-class Ipv4AddressLeaf2(RootModel[Ipv4AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv4AddressType, Field(title="Ipv4-addressLeaf2")]
-    """
-    The virtual IPv4 address.
-    """
-
-
-class Ipv6AddressLeaf(RootModel[Ipv6AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6AddressType, Field(title="Ipv6-addressLeaf")]
-    """
-    IPv6 address resolved by the ND cache entry
-
-    To configure a static neighbor entry a value must be written into this leaf and the link-layer-address leaf.
-    """
-
-
-class Ipv6AddressLeaf2(RootModel[Ipv6AddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Ipv6AddressType, Field(title="Ipv6-addressLeaf2")]
-    """
-    The virtual IPv6 address.
-    """
-
-
-class KeychainLeaf(RootModel[NameLeaf4]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf4, Field(title="KeychainLeaf")]
-    """
-    Reference to a keychain. The keychain type must be md5 or clear-text
-    """
-
-
-class KeychainLeaf2(RootModel[NameLeaf4]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[NameLeaf4, Field(title="KeychainLeaf2")]
-    """
-    Reference to a keychain. The keychain type must be md5 or clear-text
-    """
-
-
-class LacpFallbackModeLeaf(RootModel[LacpFallbackTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LacpFallbackTypeType, Field(title="Lacp-fallback-modeLeaf")]
-    """
-    Specifies lacp-fallback mode if enabled
-    """
-
-
-class LacpContainer(BaseModel):
-    """
-    Container for L2CP transparency of the Link Aggregation Control Protocol
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf2, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf2, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class LacpContainer2(BaseModel):
-    """
-    Operational status data for the member interfaces
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    activity: Annotated[ActivityLeaf, Field(None, alias="srl_nokia-lacp:activity")]
-    timeout: Annotated[TimeoutLeaf2, Field(None, alias="srl_nokia-lacp:timeout")]
-    synchronization: Annotated[
-        SynchronizationLeaf, Field(None, alias="srl_nokia-lacp:synchronization")
-    ]
-    aggregatable: Annotated[
-        AggregatableLeaf, Field(None, alias="srl_nokia-lacp:aggregatable")
-    ]
-    collecting: Annotated[
-        CollectingLeaf, Field(None, alias="srl_nokia-lacp:collecting")
-    ]
-    distributing: Annotated[
-        DistributingLeaf, Field(None, alias="srl_nokia-lacp:distributing")
-    ]
-    system_id: Annotated[SystemIdLeaf, Field(None, alias="srl_nokia-lacp:system-id")]
-    oper_key: Annotated[OperKeyLeaf, Field(None, alias="srl_nokia-lacp:oper-key")]
-    partner_id: Annotated[PartnerIdLeaf, Field(None, alias="srl_nokia-lacp:partner-id")]
-    partner_key: Annotated[
-        PartnerKeyLeaf, Field(None, alias="srl_nokia-lacp:partner-key")
-    ]
-    port_num: Annotated[PortNumLeaf, Field(None, alias="srl_nokia-lacp:port-num")]
-    partner_port_num: Annotated[
-        PartnerPortNumLeaf, Field(None, alias="srl_nokia-lacp:partner-port-num")
-    ]
-    lacp_port_priority: Annotated[
-        LacpPortPriorityLeaf2, Field(None, alias="srl_nokia-lacp:lacp-port-priority")
-    ]
-    statistics: Annotated[
-        StatisticsContainer19, Field(None, alias="srl_nokia-lacp:statistics")
-    ]
-
-
-class LacpContainer3(BaseModel):
-    """
-    LACP parameters for the associated LAG
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    interval: Annotated[IntervalLeaf, Field("SLOW", alias="srl_nokia-lacp:interval")]
-    """
-    Set the period between LACP messages -- uses
-          the lacp-period-type enumeration.
-    """
-    lacp_mode: Annotated[
-        LacpModeLeaf, Field("ACTIVE", alias="srl_nokia-lacp:lacp-mode")
-    ]
-    admin_key: Annotated[AdminKeyLeaf, Field(None, alias="srl_nokia-lacp:admin-key")]
-    system_id_mac: Annotated[
-        SystemIdMacLeaf, Field(None, alias="srl_nokia-lacp:system-id-mac")
-    ]
-    system_priority: Annotated[
-        SystemPriorityLeaf, Field(None, alias="srl_nokia-lacp:system-priority")
-    ]
-
-
-class LagTypeLeaf(RootModel[LagTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[LagTypeType, Field(title="Lag-typeLeaf")]
-    """
-    Sets the type of LAG, i.e., how it is
-    configured / maintained
-    """
-
-
-class LearntEntriesContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    mac: Annotated[
-        List[MacListEntry],
-        Field(alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:mac"),
-    ]
-
-
-class LinkTypeLeaf(RootModel[StpLinkTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpLinkTypeType, Field(title="Link-typeLeaf")]
-
-
-class LldpContainer(BaseModel):
-    """
-    Container for L2CP transparency of the Link Layer Discovery Protocol
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[
-        TunnelLeaf, Field(False, alias="srl_nokia-interfaces-l2cp:tunnel")
-    ]
-    oper_rule: Annotated[
-        OperRuleLeaf, Field(None, alias="srl_nokia-interfaces-l2cp:oper-rule")
-    ]
-
-
-class LowVlanIdListEntry(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    range_low_vlan_id: Annotated[
-        RangeLowVlanIdLeaf,
-        Field(None, alias="srl_nokia-interfaces-vlans:range-low-vlan-id"),
-    ]
-    high_vlan_id: Annotated[
-        HighVlanIdLeaf, Field(alias="srl_nokia-interfaces-vlans:high-vlan-id")
-    ]
-
-
-class MacDuplicationContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    action: Annotated[
-        ActionLeaf,
-        Field("use-net-instance-action", alias="srl_nokia-interfaces:action"),
-    ]
-    duplicate_entries: Annotated[
-        DuplicateEntriesContainer,
-        Field(
-            None,
-            alias="srl_nokia-interfaces-bridge-table-mac-duplication-entries:duplicate-entries",
-        ),
-    ]
-
-
-class MacLearningContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf17, Field("enable", alias="srl_nokia-interfaces:admin-state")
-    ]
-    aging: Annotated[AgingContainer, Field(None, alias="srl_nokia-interfaces:aging")]
-    learnt_entries: Annotated[
-        LearntEntriesContainer,
-        Field(
-            None,
-            alias="srl_nokia-interfaces-bridge-table-mac-learning-entries:learnt-entries",
-        ),
-    ]
-
-
-class MacTypeListEntry(BaseModel):
-    """
-    the type of the mac on the sub-interface.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    type: Annotated[
-        TypeLeaf4,
-        Field(None, alias="srl_nokia-interfaces-bridge-table-statistics:type"),
-    ]
-    active_entries: Annotated[
-        ActiveEntriesLeaf2,
-        Field(0, alias="srl_nokia-interfaces-bridge-table-statistics:active-entries"),
-    ]
-    total_entries: Annotated[
-        TotalEntriesLeaf2,
-        Field(0, alias="srl_nokia-interfaces-bridge-table-statistics:total-entries"),
-    ]
-    failed_entries: Annotated[
-        FailedEntriesLeaf2,
-        Field(0, alias="srl_nokia-interfaces-bridge-table-statistics:failed-entries"),
-    ]
-
-
-class MacListEntry3(BaseModel):
-    """
-    macs learnt on the bridging instance
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    address: Annotated[
-        AddressLeaf4,
-        Field(None, alias="srl_nokia-interfaces-bridge-table-mac-table:address"),
-    ]
-    type: Annotated[
-        TypeLeaf5, Field(None, alias="srl_nokia-interfaces-bridge-table-mac-table:type")
-    ]
-    last_update: Annotated[
-        LastUpdateLeaf4,
-        Field(None, alias="srl_nokia-interfaces-bridge-table-mac-table:last-update"),
-    ]
-    not_programmed_reason: Annotated[
-        NotProgrammedReasonLeaf,
-        Field(
-            None,
-            alias="srl_nokia-interfaces-bridge-table-mac-table:not-programmed-reason",
-        ),
-    ]
-    failed_slots: Annotated[
-        List[FailedSlotsLeafList],
-        Field([], alias="srl_nokia-interfaces-bridge-table-mac-table:failed-slots"),
-    ]
-    """
-    The list of slot IDs corresponding to the linecards that did not successfully program the mac
-    """
-
-
-class MplsContainer(BaseModel):
-    """
-    Container for MPLS configuration and state at the subinterface level
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    statistics: Annotated[
-        StatisticsContainer18, Field(None, alias="srl_nokia-if-mpls:statistics")
-    ]
-
-
-class MstInstanceListEntry(BaseModel):
-    """
-    List of subinterfaces used by this mstp-policy
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    mst_instance: Annotated[
-        MstInstanceLeaf,
-        Field(None, alias="srl_nokia-interfaces-bridge-table-stp:mst-instance"),
-    ]
-    mst_port_priority: Annotated[
-        MstPortPriorityLeaf,
-        Field(128, alias="srl_nokia-interfaces-bridge-table-stp:mst-port-priority"),
-    ]
-    mst_path_cost: Annotated[
-        MstPathCostLeaf,
-        Field(16, alias="srl_nokia-interfaces-bridge-table-stp:mst-path-cost"),
-    ]
-
-
-class NeighborListEntry(BaseModel):
-    """
-    List of static and dynamic ARP cache entries that map an IPv4 address to a MAC address
-
-    To configure a static ARP entry a value must be written into this leaf and the link-layer-address leaf.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ipv4_address: Annotated[
-        Ipv4AddressLeaf, Field(None, alias="srl_nokia-interfaces-nbr:ipv4-address")
-    ]
-    link_layer_address: Annotated[
-        LinkLayerAddressLeaf, Field(alias="srl_nokia-interfaces-nbr:link-layer-address")
-    ]
-    origin: Annotated[OriginLeaf2, Field(None, alias="srl_nokia-interfaces-nbr:origin")]
-    expiration_time: Annotated[
-        ExpirationTimeLeaf,
-        Field(None, alias="srl_nokia-interfaces-nbr:expiration-time"),
-    ]
-    datapath_programming: Annotated[
-        DatapathProgrammingContainer,
-        Field(None, alias="srl_nokia-interfaces-nbr:datapath-programming"),
-    ]
-
-
-class NeighborListEntry2(BaseModel):
-    """
-    List of static and dynamic ND cache entries that map an IPv6 address to a MAC address
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ipv6_address: Annotated[
-        Ipv6AddressLeaf, Field(None, alias="srl_nokia-interfaces-nbr:ipv6-address")
-    ]
-    link_layer_address: Annotated[
-        LinkLayerAddressLeaf2,
-        Field(alias="srl_nokia-interfaces-nbr:link-layer-address"),
-    ]
-    origin: Annotated[OriginLeaf4, Field(None, alias="srl_nokia-interfaces-nbr:origin")]
-    is_router: Annotated[
-        IsRouterLeaf, Field(None, alias="srl_nokia-interfaces-nbr:is-router")
-    ]
-    current_state: Annotated[
-        CurrentStateLeaf, Field(None, alias="srl_nokia-interfaces-nbr:current-state")
-    ]
-    next_state_time: Annotated[
-        NextStateTimeLeaf, Field(None, alias="srl_nokia-interfaces-nbr:next-state-time")
-    ]
-    datapath_programming: Annotated[
-        DatapathProgrammingContainer2,
-        Field(None, alias="srl_nokia-interfaces-nbr:datapath-programming"),
-    ]
-
-
-class OperDownReasonLeaf(RootModel[PortOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[PortOperDownReasonType, Field(title="Oper-down-reasonLeaf")]
-    """
-    The first (and possibly only) reason for the port being operationally down
-    """
-
-
-class OperDownReasonLeaf2(RootModel[TransceiverOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TransceiverOperDownReasonType, Field(title="Oper-down-reasonLeaf2")]
-    """
-    The reason for the transceiver being operationally down
-    """
-
-
-class OperDownReasonLeaf3(RootModel[SubifOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[SubifOperDownReasonType, Field(title="Oper-down-reasonLeaf3")]
-    """
-    The first (and possibly only) reason for the subinterface being operationally down
-    """
-
-
-class OperDownReasonLeaf4(RootModel[VrrpOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VrrpOperDownReasonType, Field(title="Oper-down-reasonLeaf4")]
-    """
-    The first (and possibly only) reason for the vrrp-group being operationally down
-    """
-
-
-class OperDownReasonLeaf6(RootModel[VrrpOperDownReasonType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VrrpOperDownReasonType, Field(title="Oper-down-reasonLeaf6")]
-    """
-    The first (and possibly only) reason for the vrrp-group being operationally down
-    """
-
-
-class OperStateLeaf10(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf10")]
-    """
-    Details if the dhcp server is operationally available
-    """
-
-
-class OperStateLeaf11(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf11")]
-    """
-    The operational state of the local mirror destination
-    """
-
-
-class OperStateLeaf13(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf13")]
-    """
-    Operational state for the associated LAG
-    """
-
-
-class OperStateLeaf2(RootModel[TransceiverOperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[TransceiverOperStateType, Field(title="Oper-stateLeaf2")]
-    """
-    The operational state of the transceiver
-
-    The oper-state is always down when the Ethernet port is a copper/RJ45 port.
-    """
-
-
-class OperStateLeaf5(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf5")]
-    """
-    VRRP Operational state
-    """
-
-
-class OperStateLeaf6(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf6")]
-    """
-    The operational state of the dhcp relay agent
-    """
-
-
-class OperStateLeaf7(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf7")]
-    """
-    Details if the dhcp server is operationally available
-    """
-
-
-class OperStateLeaf8(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf8")]
-    """
-    VRRP Operational state
-    """
-
-
-class OperStateLeaf9(RootModel[OperStateType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[OperStateType, Field(title="Oper-stateLeaf9")]
-    """
-    The operational state of the dhcp relay agent
-    """
-
-
-class OpticalChannelListEntry(BaseModel):
-    """
-    List of optical channels supported by the transceiver associated with this port.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    index: Annotated[IndexLeaf2, Field(None, alias="srl_nokia-interfaces-dco:index")]
-    frequency: Annotated[
-        FrequencyLeaf, Field(alias="srl_nokia-interfaces-dco:frequency")
-    ]
-    operational_mode: Annotated[
-        OperationalModeLeaf, Field(alias="srl_nokia-interfaces-dco:operational-mode")
-    ]
-    """
-    Operational mode for the transceiver
-
-     This is a numeric value the defines a set of operating characteristics such as modulation, bit-rate, max power range, fec, etc.
-     Refer to Nokia documentation for details by transceiver part number.
-    """
-    tx_filter_enable: Annotated[
-        TxFilterEnableLeaf,
-        Field(False, alias="srl_nokia-interfaces-dco:tx-filter-enable"),
-    ]
-    chromatic_dispersion_range: Annotated[
-        ChromaticDispersionRangeContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:chromatic-dispersion-range"),
-    ]
-    target_power: Annotated[
-        TargetPowerLeaf, Field(100, alias="srl_nokia-interfaces-dco:target-power")
-    ]
-    laser_tunability: Annotated[
-        LaserTunabilityLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:laser-tunability"),
-    ]
-    oper_frequency: Annotated[
-        OperFrequencyLeaf, Field(None, alias="srl_nokia-interfaces-dco:oper-frequency")
-    ]
-    minimum_frequency: Annotated[
-        MinimumFrequencyLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:minimum-frequency"),
-    ]
-    maximum_frequency: Annotated[
-        MaximumFrequencyLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:maximum-frequency"),
-    ]
-    supported_grids: Annotated[
-        List[SupportedGridsLeafList],
-        Field([], alias="srl_nokia-interfaces-dco:supported-grids"),
-    ]
-    """
-    Indicates the frequency grids supported by the equipped tunable optical port.
-    """
-    fine_tuning: Annotated[
-        FineTuningContainer, Field(None, alias="srl_nokia-interfaces-dco:fine-tuning")
-    ]
-    dispersion: Annotated[
-        DispersionLeaf, Field(None, alias="srl_nokia-interfaces-dco:dispersion")
-    ]
-    dispersion_control_mode: Annotated[
-        DispersionControlModeLeaf,
-        Field("automatic", alias="srl_nokia-interfaces-dco:dispersion-control-mode"),
-    ]
-    rx_los_reaction: Annotated[
-        RxLosReactionLeaf,
-        Field("squelch", alias="srl_nokia-interfaces-dco:rx-los-reaction"),
-    ]
-    rx_los_thresh: Annotated[
-        RxLosThreshLeaf, Field(-2300, alias="srl_nokia-interfaces-dco:rx-los-thresh")
-    ]
-    module_state: Annotated[
-        ModuleStateLeaf, Field(None, alias="srl_nokia-interfaces-dco:module-state")
-    ]
-    module_tx_turn_up_states: Annotated[
-        List[ModuleTxTurnUpStatesLeafList],
-        Field([], alias="srl_nokia-interfaces-dco:module-tx-turn-up-states"),
-    ]
-    """
-    Indicates the completed transmitted turn-up states of the coherent optical module
-    """
-    module_rx_turn_up_states: Annotated[
-        List[ModuleRxTurnUpStatesLeafList],
-        Field([], alias="srl_nokia-interfaces-dco:module-rx-turn-up-states"),
-    ]
-    """
-    Indicates the completed received turn-up states of the coherent optical module
-    """
-    rx_electrical_snr_x_polarization: Annotated[
-        RxElectricalSnrXPolarizationLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:rx-electrical-snr-x-polarization"),
-    ]
-    rx_electrical_snr_y_polarization: Annotated[
-        RxElectricalSnrYPolarizationLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:rx-electrical-snr-y-polarization"),
-    ]
-    rx_quality_margin: Annotated[
-        RxQualityMarginLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:rx-quality-margin"),
-    ]
-    rx_optical_snr_x_polarization: Annotated[
-        RxOpticalSnrXPolarizationLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:rx-optical-snr-x-polarization"),
-    ]
-    rx_optical_snr_y_polarization: Annotated[
-        RxOpticalSnrYPolarizationLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:rx-optical-snr-y-polarization"),
-    ]
-    current_alarms: Annotated[
-        List[CurrentAlarmsLeafList],
-        Field([], alias="srl_nokia-interfaces-dco:current-alarms"),
-    ]
-    """
-    Indicates the coherent optical alarms currently active on the port.
-    """
-    defect_points: Annotated[
-        List[DefectPointsLeafList],
-        Field([], alias="srl_nokia-interfaces-dco:defect-points"),
-    ]
-    """
-    Indicates the coherent optical defect points currently active on the port.
-    """
-    sweep: Annotated[
-        SweepContainer, Field(None, alias="srl_nokia-interfaces-dco:sweep")
-    ]
-    statistics: Annotated[
-        StatisticsContainer2, Field(None, alias="srl_nokia-interfaces-dco:statistics")
-    ]
-    transmit_power: Annotated[
-        TransmitPowerContainer,
-        Field(None, alias="srl_nokia-interfaces-dco:transmit-power"),
-    ]
-    logical_channel: Annotated[
-        LogicalChannelLeaf,
-        Field(None, alias="srl_nokia-interfaces-dco:logical-channel"),
-    ]
-
-
-class PciContainer(BaseModel):
-    """
-    Top-level container for state related to PCI interfaces
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    address: Annotated[
-        AddressLeaf5, Field(None, alias="srl_nokia-interfaces-vxdp:address")
-    ]
-    socket_id: Annotated[
-        SocketIdLeaf2, Field(None, alias="srl_nokia-interfaces-vxdp:socket-id")
-    ]
-    socket_cpus: Annotated[
-        List[SocketCpusLeafList2],
-        Field([], alias="srl_nokia-interfaces-vxdp:socket-cpus"),
-    ]
-    """
-    List of CPUs present on the socket this interface is attached to
-    """
-    vendor_name: Annotated[
-        VendorNameLeaf, Field(None, alias="srl_nokia-interfaces-vxdp:vendor-name")
-    ]
-    vendor_id: Annotated[
-        VendorIdLeaf, Field(None, alias="srl_nokia-interfaces-vxdp:vendor-id")
-    ]
-    device_name: Annotated[
-        DeviceNameLeaf, Field(None, alias="srl_nokia-interfaces-vxdp:device-name")
-    ]
-    device_id: Annotated[
-        DeviceIdLeaf, Field(None, alias="srl_nokia-interfaces-vxdp:device-id")
-    ]
-    subsystem: Annotated[
-        SubsystemContainer, Field(None, alias="srl_nokia-interfaces-vxdp:subsystem")
-    ]
-
-
-class PopulateListEntry(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    route_type: Annotated[
-        RouteTypeLeaf, Field(None, alias="srl_nokia-interfaces-nbr:route-type")
-    ]
-    datapath_programming: Annotated[
-        DatapathProgrammingLeaf,
-        Field(None, alias="srl_nokia-interfaces-nbr:datapath-programming"),
-    ]
-    internal_tags: Annotated[
-        InternalTagsContainer,
-        Field(None, alias="srl_nokia-interfaces-nbr:internal-tags"),
-    ]
-
-
-class PopulateListEntry2(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    route_type: Annotated[
-        RouteTypeLeaf3, Field(None, alias="srl_nokia-interfaces-nbr:route-type")
-    ]
-    datapath_programming: Annotated[
-        DatapathProgrammingLeaf2,
-        Field(None, alias="srl_nokia-interfaces-nbr:datapath-programming"),
-    ]
-    internal_tags: Annotated[
-        InternalTagsContainer3,
-        Field(None, alias="srl_nokia-interfaces-nbr:internal-tags"),
-    ]
-
-
-class PrefixListEntry(BaseModel):
-    """
-    The list of IPv6 prefixes to advertise in the router advertisement messages.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ipv6_prefix: Annotated[
-        Ipv6PrefixLeaf, Field(None, alias="srl_nokia-interfaces-router-adv:ipv6-prefix")
-    ]
-    autonomous_flag: Annotated[
-        AutonomousFlagLeaf,
-        Field(True, alias="srl_nokia-interfaces-router-adv:autonomous-flag"),
-    ]
-    on_link_flag: Annotated[
-        OnLinkFlagLeaf,
-        Field(True, alias="srl_nokia-interfaces-router-adv:on-link-flag"),
-    ]
-    preferred_lifetime: Annotated[
-        PreferredLifetimeLeaf,
-        Field("604800", alias="srl_nokia-interfaces-router-adv:preferred-lifetime"),
-    ]
-    valid_lifetime: Annotated[
-        ValidLifetimeLeaf,
-        Field("2592000", alias="srl_nokia-interfaces-router-adv:valid-lifetime"),
-    ]
-
-
-class ProbeBridgedSubinterfacesLeafList(RootModel[SubinterfaceAllType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        SubinterfaceAllType, Field(title="Probe-bridged-subinterfacesLeafList")
-    ]
-    """
-    Configure the list of bridged sub-interfaces on the associated MAC-VRF to which the ARP
-    probes are sent.
-    """
-
-
-class ProbeBridgedSubinterfacesLeafList2(RootModel[SubinterfaceAllType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[
-        SubinterfaceAllType, Field(title="Probe-bridged-subinterfacesLeafList2")
-    ]
-    """
-    Configure the list of bridged sub-interfaces on the associated MAC-VRF to which the NS
-    probes are sent.
-    """
-
-
-class ResolvedIpAddressLeaf(RootModel[IpAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[IpAddressType, Field(title="Resolved-ip-addressLeaf")]
-    """
-    The resolved IP address of the server domain name.
-
-    An entry of 0.0.0.0 indicates the server IP cannot be resolved.
-    """
-
-
-class ResolvedIpAddressLeaf2(RootModel[IpAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[IpAddressType, Field(title="Resolved-ip-addressLeaf2")]
-    """
-    The resolved IP address of the server domain name.
-
-    An entry of 0.0.0.0 indicates the server IP cannot be resolved.
-    """
-
-
-class ResultListEntry(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    id: Annotated[IdLeaf, Field(None, alias="srl_nokia-packet-link-qual:id")]
-    oper_state: Annotated[
-        OperStateLeaf12, Field(None, alias="srl_nokia-packet-link-qual:oper-state")
-    ]
-    packets_sent: Annotated[
-        PacketsSentLeaf, Field(None, alias="srl_nokia-packet-link-qual:packets-sent")
-    ]
-    packets_received: Annotated[
-        PacketsReceivedLeaf,
-        Field(None, alias="srl_nokia-packet-link-qual:packets-received"),
-    ]
-    packets_error: Annotated[
-        PacketsErrorLeaf, Field(None, alias="srl_nokia-packet-link-qual:packets-error")
-    ]
-    packets_dropped: Annotated[
-        PacketsDroppedLeaf,
-        Field(None, alias="srl_nokia-packet-link-qual:packets-dropped"),
-    ]
-    start_time: Annotated[
-        StartTimeLeaf, Field(None, alias="srl_nokia-packet-link-qual:start-time")
-    ]
-    end_time: Annotated[
-        EndTimeLeaf, Field(None, alias="srl_nokia-packet-link-qual:end-time")
-    ]
-    expected_rate: Annotated[
-        ExpectedRateLeaf, Field(None, alias="srl_nokia-packet-link-qual:expected-rate")
-    ]
-    qualification_rate: Annotated[
-        QualificationRateLeaf,
-        Field(None, alias="srl_nokia-packet-link-qual:qualification-rate"),
-    ]
-    status: Annotated[
-        StatusLeaf7, Field(None, alias="srl_nokia-packet-link-qual:status")
-    ]
-    status_message: Annotated[
-        StatusMessageLeaf,
-        Field(None, alias="srl_nokia-packet-link-qual:status-message"),
-    ]
-
-
-class RootGuardLeaf(RootModel[StpRootGuardTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[StpRootGuardTypeType, Field(title="Root-guardLeaf")]
-
-
-class RouterRoleContainer(BaseModel):
-    """
-    IPv6 router advertisement options that apply when the role of the interface is a router interface.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf15,
-        Field("disable", alias="srl_nokia-interfaces-router-adv:admin-state"),
-    ]
-    current_hop_limit: Annotated[
-        CurrentHopLimitLeaf,
-        Field(64, alias="srl_nokia-interfaces-router-adv:current-hop-limit"),
-    ]
-    ip_mtu: Annotated[
-        IpMtuLeaf2, Field(None, alias="srl_nokia-interfaces-router-adv:ip-mtu")
-    ]
-    managed_configuration_flag: Annotated[
-        ManagedConfigurationFlagLeaf,
-        Field(
-            False, alias="srl_nokia-interfaces-router-adv:managed-configuration-flag"
-        ),
-    ]
-    other_configuration_flag: Annotated[
-        OtherConfigurationFlagLeaf,
-        Field(False, alias="srl_nokia-interfaces-router-adv:other-configuration-flag"),
-    ]
-    max_advertisement_interval: Annotated[
-        MaxAdvertisementIntervalLeaf,
-        Field(600, alias="srl_nokia-interfaces-router-adv:max-advertisement-interval"),
-    ]
-    min_advertisement_interval: Annotated[
-        MinAdvertisementIntervalLeaf,
-        Field(200, alias="srl_nokia-interfaces-router-adv:min-advertisement-interval"),
-    ]
-    reachable_time: Annotated[
-        ReachableTimeLeaf2,
-        Field(0, alias="srl_nokia-interfaces-router-adv:reachable-time"),
-    ]
-    retransmit_time: Annotated[
-        RetransmitTimeLeaf,
-        Field(0, alias="srl_nokia-interfaces-router-adv:retransmit-time"),
-    ]
-    router_lifetime: Annotated[
-        RouterLifetimeLeaf,
-        Field(1800, alias="srl_nokia-interfaces-router-adv:router-lifetime"),
-    ]
-    prefix: Annotated[
-        List[PrefixListEntry], Field(alias="srl_nokia-interfaces-router-adv:prefix")
-    ]
-
-
-class ServerLeafList(RootModel[Hostv4Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Hostv4Type, Field(title="ServerLeafList")]
-    """
-    List of the DHCPv4 servers that the DHCPv4 relay function will relay DHCPv4 packets to/from
-    """
-
-
-class ServerLeafList2(RootModel[Hostv6Type]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[Hostv6Type, Field(title="ServerLeafList2")]
-    """
-    List of the DHCPv6 servers that the DHCPv6 relay function will relay DHCPv6 packets to/from
-    """
-
-
-class ServerListEntry(BaseModel):
-    """
-    Reports the resolved IP address for server entries using domain names
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    domain: Annotated[
-        DomainLeaf, Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:domain")
-    ]
-    resolved_ip_address: Annotated[
-        ResolvedIpAddressLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address"),
-    ]
-    last_update: Annotated[
-        LastUpdateLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:last-update"),
-    ]
-
-
-class ServerListEntry2(BaseModel):
-    """
-    Reports the resolved IP address for server entries using domain names
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    domain: Annotated[
-        DomainLeaf2, Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:domain")
-    ]
-    resolved_ip_address: Annotated[
-        ResolvedIpAddressLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address"),
-    ]
-    last_update: Annotated[
-        LastUpdateLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:last-update"),
-    ]
-
-
-class SflowContainer(BaseModel):
-    """
-    Context to configure sFlow parameters
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf21, Field(None, alias="srl_nokia-interfaces:admin-state")
-    ]
-    ingress_sampling_rate: Annotated[
-        IngressSamplingRateLeaf,
-        Field(None, alias="srl_nokia-interfaces:ingress-sampling-rate"),
-    ]
-    egress_sampling_rate: Annotated[
-        EgressSamplingRateLeaf,
-        Field(None, alias="srl_nokia-interfaces:egress-sampling-rate"),
-    ]
-
-
-class SingleTaggedRangeContainer(BaseModel):
-    """
-    When present, tagged frames with a specific, non-zero, outer VLAN ID contained in a specified set of range are associated to the subinterface
-
-    The outer VLAN ID tag of the frame is not stripped off on ingress, and no tag is pushed on egress.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    low_vlan_id: Annotated[
-        List[LowVlanIdListEntry], Field(alias="srl_nokia-interfaces-vlans:low-vlan-id")
-    ]
-
-
-class SingleTaggedContainer(BaseModel):
-    """
-    When present, tagged frames with a specific, non-zero, outer VLAN ID are associated to the subinterface
-
-    The outer VLAN-ID tag is considered service delimiting and it is by default stripped at ingress and restored/added on egress.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vlan_id: Annotated[
-        VlanIdLeaf, Field(None, alias="srl_nokia-interfaces-vlans:vlan-id")
-    ]
-
-
-class SsmContainer(BaseModel):
-    """
-    This struct containing all attributes for QL/SSM with SyncE in these ports.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf5, Field("disable", alias="srl_nokia-interfaces:admin-state")
-    ]
-
-
-class StatisticsContainer16(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    active_entries: Annotated[
-        ActiveEntriesLeaf,
-        Field(0, alias="srl_nokia-interfaces-bridge-table-statistics:active-entries"),
-    ]
-    total_entries: Annotated[
-        TotalEntriesLeaf,
-        Field(0, alias="srl_nokia-interfaces-bridge-table-statistics:total-entries"),
-    ]
-    failed_entries: Annotated[
-        FailedEntriesLeaf,
-        Field(0, alias="srl_nokia-interfaces-bridge-table-statistics:failed-entries"),
-    ]
-    mac_type: Annotated[
-        List[MacTypeListEntry],
-        Field(alias="srl_nokia-interfaces-bridge-table-statistics:mac-type"),
-    ]
-
-
-class StatisticsContainer4(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    total_in_packets: Annotated[
-        TotalInPacketsLeaf, Field(0, alias="srl_nokia-dot1x:total-in-packets")
-    ]
-    total_in_discarded_packets: Annotated[
-        TotalInDiscardedPacketsLeaf,
-        Field(0, alias="srl_nokia-dot1x:total-in-discarded-packets"),
-    ]
-    in_tunneled_packets: Annotated[
-        InTunneledPacketsLeaf, Field(0, alias="srl_nokia-dot1x:in-tunneled-packets")
-    ]
-    in_trap_to_cpu_packets: Annotated[
-        InTrapToCpuPacketsLeaf, Field(0, alias="srl_nokia-dot1x:in-trap-to-cpu-packets")
-    ]
-    last_clear: Annotated[
-        LastClearLeaf3, Field(None, alias="srl_nokia-dot1x:last-clear")
-    ]
-
-
-class StormControlContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    units: Annotated[UnitsLeaf, Field("percentage", alias="srl_nokia-interfaces:units")]
-    broadcast_rate: Annotated[
-        BroadcastRateLeaf, Field(None, alias="srl_nokia-interfaces:broadcast-rate")
-    ]
-    multicast_rate: Annotated[
-        MulticastRateLeaf, Field(None, alias="srl_nokia-interfaces:multicast-rate")
-    ]
-    unknown_unicast_rate: Annotated[
-        UnknownUnicastRateLeaf,
-        Field(None, alias="srl_nokia-interfaces:unknown-unicast-rate"),
-    ]
-    operational_broadcast_rate: Annotated[
-        OperationalBroadcastRateLeaf,
-        Field(None, alias="srl_nokia-interfaces:operational-broadcast-rate"),
-    ]
-    operational_multicast_rate: Annotated[
-        OperationalMulticastRateLeaf,
-        Field(None, alias="srl_nokia-interfaces:operational-multicast-rate"),
-    ]
-    operational_unknown_unicast_rate: Annotated[
-        OperationalUnknownUnicastRateLeaf,
-        Field(None, alias="srl_nokia-interfaces:operational-unknown-unicast-rate"),
-    ]
-    rising_threshold_action: Annotated[
-        RisingThresholdActionLeaf,
-        Field("none", alias="srl_nokia-interfaces:rising-threshold-action"),
-    ]
-
-
-class StpContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf19,
-        Field("enable", alias="srl_nokia-interfaces-bridge-table-stp:admin-state"),
-    ]
-    port_number: Annotated[
-        PortNumberLeaf,
-        Field(0, alias="srl_nokia-interfaces-bridge-table-stp:port-number"),
-    ]
-    priority: Annotated[
-        PriorityLeaf3,
-        Field(128, alias="srl_nokia-interfaces-bridge-table-stp:priority"),
-    ]
-    path_cost: Annotated[
-        PathCostLeaf, Field(16, alias="srl_nokia-interfaces-bridge-table-stp:path-cost")
-    ]
-    edge_port: Annotated[
-        EdgePortLeaf,
-        Field("no", alias="srl_nokia-interfaces-bridge-table-stp:edge-port"),
-    ]
-    auto_edge: Annotated[
-        AutoEdgeLeaf,
-        Field("no", alias="srl_nokia-interfaces-bridge-table-stp:auto-edge"),
-    ]
-    link_type: Annotated[
-        LinkTypeLeaf,
-        Field("pt-pt", alias="srl_nokia-interfaces-bridge-table-stp:link-type"),
-    ]
-    root_guard: Annotated[
-        RootGuardLeaf,
-        Field("no", alias="srl_nokia-interfaces-bridge-table-stp:root-guard"),
-    ]
-    mst_instance: Annotated[
-        List[MstInstanceListEntry],
-        Field(alias="srl_nokia-interfaces-bridge-table-stp:mst-instance"),
-    ]
-
-
-class SymbolMonitorContainer(BaseModel):
-    """
-    Parameters for ethernet symbol monitoring
-
-    Both a signal degrade and signal error threshold can be defined.
-    Crossing of the signal degrade threshold triggers a notification
-    Crossing of the signal failure threshold changes the interface operational state to down.
-    Each threshold is defined using an exponent (N) and a multiplier (M) using the formula M*10E-N.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf3, Field("disable", alias="srl_nokia-interfaces:admin-state")
-    ]
-    window_size: Annotated[
-        WindowSizeLeaf2, Field(10, alias="srl_nokia-interfaces:window-size")
-    ]
-    signal_degrade: Annotated[
-        SignalDegradeContainer2,
-        Field(None, alias="srl_nokia-interfaces:signal-degrade"),
-    ]
-    signal_failure: Annotated[
-        SignalFailureContainer2,
-        Field(None, alias="srl_nokia-interfaces:signal-failure"),
-    ]
-    current_alarms: Annotated[
-        List[CurrentAlarmsLeafList3],
-        Field([], alias="srl_nokia-interfaces:current-alarms"),
-    ]
-    """
-    Current alarms of the Ethernet symbol monitoring, raised when corresponding threshold is exceeded
-    """
-
-
-class SynceContainer(BaseModel):
-    """
-    This struct containing all attributes for SyncE in line/client ports.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ssm: Annotated[SsmContainer, Field(None, alias="srl_nokia-interfaces:ssm")]
-
-
-class TraceOptionsContainer(BaseModel):
-    """
-    Container for tracing DHCPv4 relay operations on the subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    trace: Annotated[
-        List[TraceLeafList], Field([], alias="srl_nokia-interfaces-ip-dhcp-relay:trace")
-    ]
-    """
-    List of events to trace
-    """
-
-
-class TraceOptionsContainer2(BaseModel):
-    """
-    Container for tracing DHCPv4 operations on the subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    trace: Annotated[
-        List[TraceLeafList2], Field([], alias="srl_nokia-interfaces-ip-dhcp:trace")
-    ]
-    """
-    List of events to trace
-    """
-
-
-class TraceOptionsContainer3(BaseModel):
-    """
-    Container for tracing DHCPv6 relay operations on the subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    trace: Annotated[
-        List[TraceLeafList3],
-        Field([], alias="srl_nokia-interfaces-ip-dhcp-relay:trace"),
-    ]
-    """
-    List of events to trace
-    """
-
-
-class TraceOptionsContainer4(BaseModel):
-    """
-    Container for tracing DHCPv6 operations on the subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    trace: Annotated[
-        List[TraceLeafList4], Field([], alias="srl_nokia-interfaces-ip-dhcp:trace")
-    ]
-    """
-    List of events to trace
-    """
-
-
-class TrackInterfaceListEntry(BaseModel):
-    """
-    Interface reference for interface tracking.
-    VRRP Group can track multiple interfaces.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    interface: Annotated[
-        InterfaceLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:interface")
-    ]
-    priority_decrement: Annotated[
-        PriorityDecrementLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:priority-decrement"),
-    ]
-
-
-class TrackInterfaceListEntry2(BaseModel):
-    """
-    Interface reference for interface tracking.
-    VRRP Group can track multiple interfaces.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    interface: Annotated[
-        InterfaceLeaf3, Field(None, alias="srl_nokia-interfaces-ip-vrrp:interface")
-    ]
-    priority_decrement: Annotated[
-        PriorityDecrementLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:priority-decrement"),
-    ]
-
-
-class TransceiverContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    functional_type: Annotated[
-        FunctionalTypeLeaf, Field(None, alias="srl_nokia-interfaces:functional-type")
-    ]
-    tx_laser: Annotated[TxLaserLeaf, Field(None, alias="srl_nokia-interfaces:tx-laser")]
-    oper_state: Annotated[
-        OperStateLeaf2, Field(None, alias="srl_nokia-interfaces:oper-state")
-    ]
-    oper_down_reason: Annotated[
-        OperDownReasonLeaf2, Field(None, alias="srl_nokia-interfaces:oper-down-reason")
-    ]
-    ddm_events: Annotated[
-        DdmEventsLeaf, Field(None, alias="srl_nokia-interfaces:ddm-events")
-    ]
-    form_factor: Annotated[
-        FormFactorLeaf, Field(None, alias="srl_nokia-interfaces:form-factor")
-    ]
-    ethernet_pmd: Annotated[
-        EthernetPmdLeaf, Field(None, alias="srl_nokia-interfaces:ethernet-pmd")
-    ]
-    connector_type: Annotated[
-        ConnectorTypeLeaf, Field(None, alias="srl_nokia-interfaces:connector-type")
-    ]
-    vendor: Annotated[VendorLeaf, Field(None, alias="srl_nokia-interfaces:vendor")]
-    vendor_part_number: Annotated[
-        VendorPartNumberLeaf2,
-        Field(None, alias="srl_nokia-interfaces:vendor-part-number"),
-    ]
-    vendor_revision: Annotated[
-        VendorRevisionLeaf, Field(None, alias="srl_nokia-interfaces:vendor-revision")
-    ]
-    vendor_lot_number: Annotated[
-        VendorLotNumberLeaf, Field(None, alias="srl_nokia-interfaces:vendor-lot-number")
-    ]
-    serial_number: Annotated[
-        SerialNumberLeaf, Field(None, alias="srl_nokia-interfaces:serial-number")
-    ]
-    date_code: Annotated[
-        DateCodeLeaf, Field(None, alias="srl_nokia-interfaces:date-code")
-    ]
-    firmware_version: Annotated[
-        FirmwareVersionContainer,
-        Field(None, alias="srl_nokia-interfaces:firmware-version"),
-    ]
-    fault_condition: Annotated[
-        FaultConditionLeaf, Field(None, alias="srl_nokia-interfaces:fault-condition")
-    ]
-    wavelength: Annotated[
-        WavelengthLeaf, Field(None, alias="srl_nokia-interfaces:wavelength")
-    ]
-    temperature: Annotated[
-        TemperatureContainer, Field(None, alias="srl_nokia-interfaces:temperature")
-    ]
-    voltage: Annotated[
-        VoltageContainer, Field(None, alias="srl_nokia-interfaces:voltage")
-    ]
-    channel: Annotated[
-        List[ChannelListEntry], Field(alias="srl_nokia-interfaces:channel")
-    ]
-    healthz: Annotated[
-        HealthzContainer, Field(None, alias="srl_nokia-platform-healthz:healthz")
-    ]
-    optical_channel: Annotated[
-        List[OpticalChannelListEntry],
-        Field(alias="srl_nokia-interfaces-dco:optical-channel"),
-    ]
-    supported_operational_mode: Annotated[
-        List[SupportedOperationalModeLeafList],
-        Field([], alias="srl_nokia-interfaces-dco:supported-operational-mode"),
-    ]
-    """
-    Operational modes supported by the installed transceiver
-
-    Lists the operational-modes supported by the installed transceiver.  If no transceiver is installed, nothing is reported.
-    """
-
-
-class TunnelContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel_all: Annotated[
-        TunnelAllLeaf, Field(False, alias="srl_nokia-dot1x:tunnel-all")
-    ]
-    untagged: Annotated[UntaggedLeaf, Field(False, alias="srl_nokia-dot1x:untagged")]
-    single_tagged: Annotated[
-        SingleTaggedLeaf, Field(True, alias="srl_nokia-dot1x:single-tagged")
-    ]
-    double_tagged: Annotated[
-        DoubleTaggedLeaf, Field(True, alias="srl_nokia-dot1x:double-tagged")
-    ]
-    statistics: Annotated[
-        StatisticsContainer4, Field(None, alias="srl_nokia-dot1x:statistics")
-    ]
-
-
-class TypeLeaf6(RootModel[VlanDiscoveryAddressTypeType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanDiscoveryAddressTypeType, Field(title="TypeLeaf6")]
-    """
-    Types of addresses over which vlan discovery is performed
-    """
-
-
-class UnnumberedContainer(BaseModel):
-    """
-    Top-level container for configuring unnumbered interfaces
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf9, Field("disable", alias="srl_nokia-interfaces:admin-state")
-    ]
-    interface: Annotated[
-        InterfaceLeaf2, Field(None, alias="srl_nokia-interfaces:interface")
-    ]
-    address: Annotated[AddressLeaf, Field(None, alias="srl_nokia-interfaces:address")]
-    unavailable_address_reason: Annotated[
-        UnavailableAddressReasonLeaf,
-        Field(None, alias="srl_nokia-interfaces:unavailable-address-reason"),
-    ]
-
-
-class VirtualAddressLeafList(RootModel[IpAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[IpAddressType, Field(title="Virtual-addressLeafList")]
-    """
-    Associated Virtual IP address.
-    """
-
-
-class VlanDiscoveryContainer(BaseModel):
-    """
-    When present the subinterface should perform vlan discovery by broadcasting dhcp message on all vlanids
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    type: Annotated[TypeLeaf6, Field("IPv4v6", alias="srl_nokia-interfaces-vlans:type")]
-
-
-class VlanStackActionLeaf(RootModel[VlanStackActionType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanStackActionType, Field(title="Vlan-stack-actionLeaf")]
-    """
-    The action to take on the VLAN stack of a packet
-
-    This is optionally used in conjunction with adjacent leaves to override
-    the values of the action.
-    """
-
-
-class VlanStackActionLeaf2(RootModel[VlanStackActionType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[VlanStackActionType, Field(title="Vlan-stack-actionLeaf2")]
-    """
-    The action to take on the VLAN stack of a packet
-
-    This is optionally used in conjunction with adjacent leaves to override
-    the values of the action.
-    """
-
-
-class AddressListEntry2(BaseModel):
-    """
-    The list of virtual IPv4 addresses to be discovered on the subinterface.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ipv4_address: Annotated[
-        Ipv4AddressLeaf2,
-        Field(None, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv4-address"),
-    ]
-    allowed_macs: Annotated[
-        List[AllowedMacsLeafList],
-        Field([], alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs"),
-    ]
-    """
-    List of allowed mac addresses for a discovered virtual IP address.
-    """
-    probe_interval: Annotated[
-        ProbeIntervalLeaf,
-        Field(0, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-interval"),
-    ]
-    probe_bridged_subinterfaces: Annotated[
-        List[ProbeBridgedSubinterfacesLeafList],
-        Field(
-            [],
-            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-bridged-subinterfaces",
-        ),
-    ]
-    """
-    Configure the list of bridged sub-interfaces on the associated MAC-VRF to which the ARP
-    probes are sent.
-    """
-    statistics: Annotated[
-        StatisticsContainer7,
-        Field(None, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
-    ]
-
-
-class AddressListEntry4(BaseModel):
-    """
-    The list of virtual IPv6 addresses to be discovered on the subinterface.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ipv6_address: Annotated[
-        Ipv6AddressLeaf2,
-        Field(None, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv6-address"),
-    ]
-    allowed_macs: Annotated[
-        List[AllowedMacsLeafList2],
-        Field([], alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs"),
-    ]
-    """
-    List of allowed mac addresses for a discovered virtual IP address.
-    """
-    probe_interval: Annotated[
-        ProbeIntervalLeaf2,
-        Field(0, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-interval"),
-    ]
-    probe_bridged_subinterfaces: Annotated[
-        List[ProbeBridgedSubinterfacesLeafList2],
-        Field(
-            [],
-            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-bridged-subinterfaces",
-        ),
-    ]
-    """
-    Configure the list of bridged sub-interfaces on the associated MAC-VRF to which the NS
-    probes are sent.
-    """
-    statistics: Annotated[
-        StatisticsContainer12,
-        Field(None, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
-    ]
-
-
-class AdvertiseListEntry(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    route_type: Annotated[
-        RouteTypeLeaf2, Field(None, alias="srl_nokia-interfaces-nbr-evpn:route-type")
-    ]
-    internal_tags: Annotated[
-        InternalTagsContainer2,
-        Field(None, alias="srl_nokia-interfaces-nbr-evpn:internal-tags"),
-    ]
-
-
-class AdvertiseListEntry2(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    route_type: Annotated[
-        RouteTypeLeaf4, Field(None, alias="srl_nokia-interfaces-nbr-evpn:route-type")
-    ]
-    internal_tags: Annotated[
-        InternalTagsContainer4,
-        Field(None, alias="srl_nokia-interfaces-nbr-evpn:internal-tags"),
-    ]
-
-
-class AuthenticatedSessionListEntry(BaseModel):
-    """
-    The list of authenticated sessions on this device
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    mac: Annotated[MacLeaf2, Field(None, alias="srl_nokia-dot1x:mac")]
-    hosts: Annotated[HostsContainer, Field(None, alias="srl_nokia-dot1x:hosts")]
-
-
-class AuthenticatedSessionsContainer(BaseModel):
-    """
-    Top level container for authenticated sessions state data
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    authenticated_session: Annotated[
-        List[AuthenticatedSessionListEntry],
-        Field(alias="srl_nokia-dot1x:authenticated-session"),
-    ]
-
-
-class AuthenticationContainer(BaseModel):
-    """
-    Context to configure authentication keychain
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    keychain: Annotated[
-        KeychainLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:keychain")
-    ]
-
-
-class AuthenticationContainer2(BaseModel):
-    """
-    Context to configure authentication keychain
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    keychain: Annotated[
-        KeychainLeaf2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:keychain")
-    ]
-
-
-class AuthenticatorContainer(BaseModel):
-    """
-    configure dot1x for an authenticator
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    authenticate_port: Annotated[
-        AuthenticatePortLeaf, Field(True, alias="srl_nokia-dot1x:authenticate-port")
-    ]
-    port_control: Annotated[
-        PortControlLeaf, Field("force-authorized", alias="srl_nokia-dot1x:port-control")
-    ]
-    authenticator_initiated: Annotated[
-        AuthenticatorInitiatedLeaf,
-        Field(True, alias="srl_nokia-dot1x:authenticator-initiated"),
-    ]
-    host_mode: Annotated[HostModeLeaf, Field(None, alias="srl_nokia-dot1x:host-mode")]
-    reauthenticate_interval: Annotated[
-        ReauthenticateIntervalLeaf,
-        Field(None, alias="srl_nokia-dot1x:reauthenticate-interval"),
-    ]
-    retransmit_interval: Annotated[
-        RetransmitIntervalLeaf, Field(None, alias="srl_nokia-dot1x:retransmit-interval")
-    ]
-    quiet_period: Annotated[
-        QuietPeriodLeaf, Field(60, alias="srl_nokia-dot1x:quiet-period")
-    ]
-    supplicant_timeout: Annotated[
-        SupplicantTimeoutLeaf, Field(30, alias="srl_nokia-dot1x:supplicant-timeout")
-    ]
-    max_requests: Annotated[
-        MaxRequestsLeaf, Field(2, alias="srl_nokia-dot1x:max-requests")
-    ]
-    max_authentication_requests: Annotated[
-        MaxAuthenticationRequestsLeaf,
-        Field(2, alias="srl_nokia-dot1x:max-authentication-requests"),
-    ]
-    multi_domain_allowed_source_macs: Annotated[
-        MultiDomainAllowedSourceMacsContainer,
-        Field(None, alias="srl_nokia-dot1x:multi-domain-allowed-source-macs"),
-    ]
-    radius_policy: Annotated[
-        RadiusPolicyLeaf, Field(None, alias="srl_nokia-dot1x:radius-policy")
-    ]
-    authenticated_sessions: Annotated[
-        AuthenticatedSessionsContainer,
-        Field(None, alias="srl_nokia-dot1x:authenticated-sessions"),
-    ]
-
-
-class CrcMonitorContainer(BaseModel):
-    """
-    Parameters for crc frame error monitoring
-
-    Both a signal degrade and signal error threshold can be defined.
-    Crossing of the signal degrade threshold triggers a notification
-    Crossing of the signal failure threshold changes the interface operational state to down.
-    Each threshold is defined using an exponent (N) and a multiplier (M) using the formula M*10E-N.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf2, Field("disable", alias="srl_nokia-interfaces:admin-state")
-    ]
-    window_size: Annotated[
-        WindowSizeLeaf, Field(10, alias="srl_nokia-interfaces:window-size")
-    ]
-    signal_degrade: Annotated[
-        SignalDegradeContainer, Field(None, alias="srl_nokia-interfaces:signal-degrade")
-    ]
-    signal_failure: Annotated[
-        SignalFailureContainer, Field(None, alias="srl_nokia-interfaces:signal-failure")
-    ]
-    current_alarms: Annotated[
-        List[CurrentAlarmsLeafList2],
-        Field([], alias="srl_nokia-interfaces:current-alarms"),
-    ]
-    """
-    Current alarms of the Ethernet CRC monitoring, raised when corresponding threshold is exceeded
-    """
-
-
-class CurrentMasterLeaf(RootModel[IpAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[IpAddressType, Field(title="Current-masterLeaf")]
-    """
-    IP address of node currently acting as VRRP master
-    """
-
-
-class CurrentMasterLeaf2(RootModel[IpAddressType]):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    root: Annotated[IpAddressType, Field(title="Current-masterLeaf2")]
-    """
-    IP address of node currently acting as VRRP master
-    """
-
-
-class DhcpClientContainer(BaseModel):
-    """
-    Container for options related to DHCP
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    trace_options: Annotated[
-        TraceOptionsContainer2,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp:trace-options"),
-    ]
-
-
-class DhcpClientContainer2(BaseModel):
-    """
-    Container for options related to DHCPv6
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    trace_options: Annotated[
-        TraceOptionsContainer4,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp:trace-options"),
-    ]
-
-
-class DhcpServerContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf11,
-        Field("disable", alias="srl_nokia-interfaces-ip-dhcp-server:admin-state"),
-    ]
-    oper_state: Annotated[
-        OperStateLeaf7,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-server:oper-state"),
-    ]
-
-
-class Dhcpv6ServerContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf16,
-        Field("disable", alias="srl_nokia-interfaces-ip-dhcp-server:admin-state"),
-    ]
-    oper_state: Annotated[
-        OperStateLeaf10,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-server:oper-state"),
-    ]
-
-
-class DnsResolutionContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    server: Annotated[
-        List[ServerListEntry], Field(alias="srl_nokia-interfaces-ip-dhcp-relay:server")
-    ]
-
-
-class DnsResolutionContainer2(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    server: Annotated[
-        List[ServerListEntry2], Field(alias="srl_nokia-interfaces-ip-dhcp-relay:server")
-    ]
-
-
-class Dot1xContainer(BaseModel):
-    """
-    dot1x configuration
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel: Annotated[TunnelContainer, Field(None, alias="srl_nokia-dot1x:tunnel")]
-    authenticator: Annotated[
-        AuthenticatorContainer, Field(None, alias="srl_nokia-dot1x:authenticator")
-    ]
-
-
-class EgressMappingContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vlan_stack_action: Annotated[
-        VlanStackActionLeaf2,
-        Field(None, alias="srl_nokia-interfaces-vlans:vlan-stack-action"),
-    ]
-    outer_vlan_id: Annotated[
-        OuterVlanIdLeaf3, Field(None, alias="srl_nokia-interfaces-vlans:outer-vlan-id")
-    ]
-    outer_tpid: Annotated[
-        OuterTpidLeaf2, Field(None, alias="srl_nokia-interfaces-vlans:outer-tpid")
-    ]
-    inner_vlan_id: Annotated[
-        InnerVlanIdLeaf3, Field(None, alias="srl_nokia-interfaces-vlans:inner-vlan-id")
-    ]
-    inner_tpid: Annotated[
-        InnerTpidLeaf2, Field(None, alias="srl_nokia-interfaces-vlans:inner-tpid")
-    ]
-
-
-class EncapContainer(BaseModel):
-    """
-    VLAN match parmeters for the associated subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    single_tagged: Annotated[
-        SingleTaggedContainer,
-        Field(None, alias="srl_nokia-interfaces-vlans:single-tagged"),
-    ]
-    untagged: Annotated[
-        UntaggedContainer, Field(None, alias="srl_nokia-interfaces-vlans:untagged")
-    ]
-    single_tagged_range: Annotated[
-        SingleTaggedRangeContainer,
-        Field(None, alias="srl_nokia-interfaces-vlans:single-tagged-range"),
-    ]
-    double_tagged: Annotated[
-        DoubleTaggedContainer,
-        Field(None, alias="srl_nokia-interfaces-vlans:double-tagged"),
-    ]
-
-
-class EthCfmContainer(BaseModel):
-    """
-    Configuration of ETH-CFM functions independent of Maintenance Domain context
-
-    This is an ETH-CFM function that is configured directly under the subinterface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ingress_squelching: Annotated[
-        IngressSquelchingContainer,
-        Field(None, alias="srl_nokia-ethcfm:ingress-squelching"),
-    ]
-
-
-class EvpnContainer(BaseModel):
-    """
-    Configure which types of ARP or ND entries will be advertised in EVPN MAC/IP routes.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    advertise: Annotated[
-        List[AdvertiseListEntry], Field(alias="srl_nokia-interfaces-nbr-evpn:advertise")
-    ]
-
-
-class EvpnContainer2(BaseModel):
-    """
-    Configure which types of ARP or ND entries will be advertised in EVPN MAC/IP routes.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    advertise: Annotated[
-        List[AdvertiseListEntry2],
-        Field(alias="srl_nokia-interfaces-nbr-evpn:advertise"),
-    ]
-
-
-class HostRouteContainer(BaseModel):
-    """
-    Configure which types of ARP or ND entries will be populated in the route-table.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    populate: Annotated[
-        List[PopulateListEntry], Field(alias="srl_nokia-interfaces-nbr:populate")
-    ]
-
-
-class HostRouteContainer2(BaseModel):
-    """
-    Configure which types of ARP or ND entries will be populated in the route-table.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    populate: Annotated[
-        List[PopulateListEntry2], Field(alias="srl_nokia-interfaces-nbr:populate")
-    ]
-
-
-class IngressMappingContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vlan_stack_action: Annotated[
-        VlanStackActionLeaf,
-        Field(None, alias="srl_nokia-interfaces-vlans:vlan-stack-action"),
-    ]
-    outer_vlan_id: Annotated[
-        OuterVlanIdLeaf2, Field(None, alias="srl_nokia-interfaces-vlans:outer-vlan-id")
-    ]
-    outer_tpid: Annotated[
-        OuterTpidLeaf, Field(None, alias="srl_nokia-interfaces-vlans:outer-tpid")
-    ]
-    inner_vlan_id: Annotated[
-        InnerVlanIdLeaf2, Field(None, alias="srl_nokia-interfaces-vlans:inner-vlan-id")
-    ]
-    inner_tpid: Annotated[
-        InnerTpidLeaf, Field(None, alias="srl_nokia-interfaces-vlans:inner-tpid")
-    ]
-
-
-class InterfaceTrackingContainer(BaseModel):
-    """
-    Interface reference for interface tracking
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    track_interface: Annotated[
-        List[TrackInterfaceListEntry],
-        Field(alias="srl_nokia-interfaces-ip-vrrp:track-interface"),
-    ]
-
-
-class InterfaceTrackingContainer2(BaseModel):
-    """
-    Interface reference for interface tracking
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    track_interface: Annotated[
-        List[TrackInterfaceListEntry2],
-        Field(alias="srl_nokia-interfaces-ip-vrrp:track-interface"),
-    ]
-
-
-class L2cpTransparencyContainer(BaseModel):
-    """
-    Configuration and state of the Layer-2 Control Protocol transparency
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    tunnel_all_l2cp: Annotated[
-        TunnelAllL2cpLeaf,
-        Field(False, alias="srl_nokia-interfaces-l2cp:tunnel-all-l2cp"),
-    ]
-    lldp: Annotated[LldpContainer, Field(None, alias="srl_nokia-interfaces-l2cp:lldp")]
-    lacp: Annotated[LacpContainer, Field(None, alias="srl_nokia-interfaces-l2cp:lacp")]
-    xstp: Annotated[XstpContainer, Field(None, alias="srl_nokia-interfaces-l2cp:xstp")]
-    dot1x: Annotated[
-        Dot1xContainer2, Field(None, alias="srl_nokia-interfaces-l2cp:dot1x")
-    ]
-    ptp: Annotated[PtpContainer, Field(None, alias="srl_nokia-interfaces-l2cp:ptp")]
-    esmc: Annotated[EsmcContainer, Field(None, alias="srl_nokia-interfaces-l2cp:esmc")]
-    elmi: Annotated[ElmiContainer, Field(None, alias="srl_nokia-interfaces-l2cp:elmi")]
-    efm_oam: Annotated[
-        EfmOamContainer, Field(None, alias="srl_nokia-interfaces-l2cp:efm-oam")
-    ]
-
-
-class LocalMirrorDestinationContainer(BaseModel):
-    """
-    Container for options related to local mirror destination
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf20,
-        Field(
-            "enable", alias="srl_nokia-interfaces-local-mirror-destination:admin-state"
-        ),
-    ]
-    oper_state: Annotated[
-        OperStateLeaf11,
-        Field(None, alias="srl_nokia-interfaces-local-mirror-destination:oper-state"),
-    ]
-
-
-class MacTableContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    mac: Annotated[
-        List[MacListEntry3],
-        Field(alias="srl_nokia-interfaces-bridge-table-mac-table:mac"),
-    ]
-
-
-class MemberListEntry(BaseModel):
-    """
-    Reports the list of interfaces associated with the LAG instance
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    name: Annotated[NameLeaf8, Field(None, alias="srl_nokia-interfaces-lag:name")]
-    oper_state: Annotated[
-        OperStateLeaf13, Field(None, alias="srl_nokia-interfaces-lag:oper-state")
-    ]
-    oper_down_reason: Annotated[
-        OperDownReasonLeaf8,
-        Field(None, alias="srl_nokia-interfaces-lag:oper-down-reason"),
-    ]
-    microbfd_enabled: Annotated[
-        MicrobfdEnabledLeaf,
-        Field(None, alias="srl_nokia-interfaces-lag:microbfd-enabled"),
-    ]
-    last_change: Annotated[
-        LastChangeLeaf3, Field(None, alias="srl_nokia-interfaces-lag:last-change")
-    ]
-    lacp: Annotated[LacpContainer2, Field(None, alias="srl_nokia-lacp:lacp")]
-
-
-class PacketLinkQualificationContainer(BaseModel):
-    """
-    gNOI Packet Link Qualification results
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    result: Annotated[
-        List[ResultListEntry], Field(alias="srl_nokia-packet-link-qual:result")
-    ]
-
-
-class RouterAdvertisementContainer(BaseModel):
-    """
-    Container for configuring IPv6 router discovery options
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    router_role: Annotated[
-        RouterRoleContainer,
-        Field(None, alias="srl_nokia-interfaces-router-adv:router-role"),
-    ]
-    debug: Annotated[
-        List[DebugLeafList3], Field([], alias="srl_nokia-interfaces-router-adv:debug")
-    ]
-    """
-    List of events to debug
-    """
-
-
-class VirtualIpv4DiscoveryContainer(BaseModel):
-    """
-    Enable Virtual IPv4 discovery on the subinterface and configure associated parameters
-
-    When enabled, the system will attempt to discover the configured virtual IPv4
-    addresses on the listed bridged subinterfaces.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    address: Annotated[
-        List[AddressListEntry2],
-        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:address"),
-    ]
-    statistics: Annotated[
-        StatisticsContainer8,
-        Field(None, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
-    ]
-
-
-class VirtualIpv6DiscoveryContainer(BaseModel):
-    """
-    Enable Virtual IPv6 discovery on the subinterface and configure associated parameters
-
-    When enabled, the system will attempt to discover the configured virtual IPv6
-    addresses on the listed bridged subinterfaces.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    address: Annotated[
-        List[AddressListEntry4],
-        Field(alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:address"),
-    ]
-    statistics: Annotated[
-        StatisticsContainer13,
-        Field(None, alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:statistics"),
-    ]
-
-
-class VlanContainer(BaseModel):
-    """
-    Parameters for VLAN definition under SRL interfaces
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vlan_discovery: Annotated[
-        VlanDiscoveryContainer,
-        Field(None, alias="srl_nokia-interfaces-vlans:vlan-discovery"),
-    ]
-    encap: Annotated[
-        EncapContainer, Field(None, alias="srl_nokia-interfaces-vlans:encap")
-    ]
-    ingress_mapping: Annotated[
-        IngressMappingContainer,
-        Field(None, alias="srl_nokia-interfaces-vlans:ingress-mapping"),
-    ]
-    egress_mapping: Annotated[
-        EgressMappingContainer,
-        Field(None, alias="srl_nokia-interfaces-vlans:egress-mapping"),
-    ]
-
-
-class VrrpGroupListEntry(BaseModel):
-    """
-    VRRP Group Specific Configuration under IPv4 context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    virtual_router_id: Annotated[
-        VirtualRouterIdLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:virtual-router-id"),
-    ]
-    admin_state: Annotated[
-        AdminStateLeaf8,
-        Field("enable", alias="srl_nokia-interfaces-ip-vrrp:admin-state"),
-    ]
-    priority: Annotated[
-        PriorityLeaf, Field(100, alias="srl_nokia-interfaces-ip-vrrp:priority")
-    ]
-    preempt: Annotated[
-        PreemptLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:preempt")
-    ]
-    virtual_mac: Annotated[
-        VirtualMacLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:virtual-mac")
-    ]
-    preempt_delay: Annotated[
-        PreemptDelayLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:preempt-delay"),
-    ]
-    init_delay: Annotated[
-        InitDelayLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:init-delay")
-    ]
-    accept_mode: Annotated[
-        AcceptModeLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:accept-mode")
-    ]
-    advertise_interval: Annotated[
-        AdvertiseIntervalLeaf,
-        Field(1000, alias="srl_nokia-interfaces-ip-vrrp:advertise-interval"),
-    ]
-    authentication: Annotated[
-        AuthenticationContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:authentication"),
-    ]
-    interface_tracking: Annotated[
-        InterfaceTrackingContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:interface-tracking"),
-    ]
-    state: Annotated[StateLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:state")]
-    oper_state: Annotated[
-        OperStateLeaf5, Field(None, alias="srl_nokia-interfaces-ip-vrrp:oper-state")
-    ]
-    oper_down_reason: Annotated[
-        OperDownReasonLeaf4,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:oper-down-reason"),
-    ]
-    owner: Annotated[OwnerLeaf, Field(None, alias="srl_nokia-interfaces-ip-vrrp:owner")]
-    operational_priority: Annotated[
-        OperationalPriorityLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:operational-priority"),
-    ]
-    master_inherit_interval: Annotated[
-        MasterInheritIntervalLeaf,
-        Field(False, alias="srl_nokia-interfaces-ip-vrrp:master-inherit-interval"),
-    ]
-    oper_interval: Annotated[
-        OperIntervalLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:oper-interval"),
-    ]
-    current_master: Annotated[
-        CurrentMasterLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:current-master"),
-    ]
-    last_transition: Annotated[
-        LastTransitionLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:last-transition"),
-    ]
-    statistics: Annotated[
-        StatisticsContainer5,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:statistics"),
-    ]
-    virtual_address: Annotated[
-        List[VirtualAddressLeafList],
-        Field([], alias="srl_nokia-interfaces-ip-vrrp:virtual-address"),
-    ]
-    """
-    Associated Virtual IP address.
-    """
-    version: Annotated[
-        VersionLeaf, Field(2, alias="srl_nokia-interfaces-ip-vrrp:version")
-    ]
-
-
-class VrrpGroupListEntry2(BaseModel):
-    """
-    VRRP Group Specific Configuration under IPv6 context
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    virtual_router_id: Annotated[
-        VirtualRouterIdLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:virtual-router-id"),
-    ]
-    admin_state: Annotated[
-        AdminStateLeaf13,
-        Field("enable", alias="srl_nokia-interfaces-ip-vrrp:admin-state"),
-    ]
-    priority: Annotated[
-        PriorityLeaf2, Field(100, alias="srl_nokia-interfaces-ip-vrrp:priority")
-    ]
-    preempt: Annotated[
-        PreemptLeaf2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:preempt")
-    ]
-    virtual_mac: Annotated[
-        VirtualMacLeaf2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:virtual-mac")
-    ]
-    preempt_delay: Annotated[
-        PreemptDelayLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:preempt-delay"),
-    ]
-    init_delay: Annotated[
-        InitDelayLeaf2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:init-delay")
-    ]
-    accept_mode: Annotated[
-        AcceptModeLeaf2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:accept-mode")
-    ]
-    advertise_interval: Annotated[
-        AdvertiseIntervalLeaf2,
-        Field(1000, alias="srl_nokia-interfaces-ip-vrrp:advertise-interval"),
-    ]
-    authentication: Annotated[
-        AuthenticationContainer2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:authentication"),
-    ]
-    interface_tracking: Annotated[
-        InterfaceTrackingContainer2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:interface-tracking"),
-    ]
-    state: Annotated[
-        StateLeaf2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:state")
-    ]
-    oper_state: Annotated[
-        OperStateLeaf8, Field(None, alias="srl_nokia-interfaces-ip-vrrp:oper-state")
-    ]
-    oper_down_reason: Annotated[
-        OperDownReasonLeaf6,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:oper-down-reason"),
-    ]
-    owner: Annotated[
-        OwnerLeaf2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:owner")
-    ]
-    operational_priority: Annotated[
-        OperationalPriorityLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:operational-priority"),
-    ]
-    master_inherit_interval: Annotated[
-        MasterInheritIntervalLeaf2,
-        Field(False, alias="srl_nokia-interfaces-ip-vrrp:master-inherit-interval"),
-    ]
-    oper_interval: Annotated[
-        OperIntervalLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:oper-interval"),
-    ]
-    current_master: Annotated[
-        CurrentMasterLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:current-master"),
-    ]
-    last_transition: Annotated[
-        LastTransitionLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:last-transition"),
-    ]
-    statistics: Annotated[
-        StatisticsContainer10,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:statistics"),
-    ]
-    virtual_address: Annotated[
-        List[VirtualAddressLeafList2],
-        Field([], alias="srl_nokia-interfaces-ip-vrrp:virtual-address"),
-    ]
-    """
-    Associated Virtual IP address.
-    """
-    version: Annotated[
-        VersionLeaf2, Field(3, alias="srl_nokia-interfaces-ip-vrrp:version")
-    ]
-    virtual_link_local_address: Annotated[
-        VirtualLinkLocalAddressLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-vrrp:virtual-link-local-address"),
-    ]
-
-
-class VrrpContainer(BaseModel):
-    """
-    VRRP Configuration and State under a IPv4 context of a
-    sub-interface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vrrp_group: Annotated[
-        List[VrrpGroupListEntry], Field(alias="srl_nokia-interfaces-ip-vrrp:vrrp-group")
-    ]
-
-
-class VrrpContainer2(BaseModel):
-    """
-    VRRP Configuration and State under a IPv6 context of a
-    sub-interface
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    vrrp_group: Annotated[
-        List[VrrpGroupListEntry2],
-        Field(alias="srl_nokia-interfaces-ip-vrrp:vrrp-group"),
-    ]
-
-
-class AddressListEntry(BaseModel):
-    """
-    The list of  IPv4 addresses assigned to the subinterface.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ip_prefix: Annotated[
-        IpPrefixLeaf, Field(None, alias="srl_nokia-interfaces:ip-prefix")
-    ]
-    anycast_gw: Annotated[
-        AnycastGwLeaf, Field(None, alias="srl_nokia-interfaces:anycast-gw")
-    ]
-    origin: Annotated[OriginLeaf, Field(None, alias="srl_nokia-interfaces:origin")]
-    primary: Annotated[PrimaryLeaf, Field(None, alias="srl_nokia-interfaces:primary")]
-    status: Annotated[StatusLeaf3, Field(None, alias="srl_nokia-interfaces:status")]
-    vrrp: Annotated[
-        VrrpContainer, Field(None, alias="srl_nokia-interfaces-ip-vrrp:vrrp")
-    ]
-
-
-class AddressListEntry3(BaseModel):
-    """
-    The list of IPv6 addresses assigned to the subinterface.
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    ip_prefix: Annotated[
-        IpPrefixLeaf2, Field(None, alias="srl_nokia-interfaces:ip-prefix")
-    ]
-    type: Annotated[
-        TypeLeaf3, Field("global-unicast", alias="srl_nokia-interfaces:type")
-    ]
-    anycast_gw: Annotated[
-        AnycastGwLeaf2, Field(None, alias="srl_nokia-interfaces:anycast-gw")
-    ]
-    origin: Annotated[OriginLeaf3, Field(None, alias="srl_nokia-interfaces:origin")]
-    primary: Annotated[PrimaryLeaf2, Field(None, alias="srl_nokia-interfaces:primary")]
-    status: Annotated[StatusLeaf5, Field(None, alias="srl_nokia-interfaces:status")]
-    vrrp: Annotated[
-        VrrpContainer2, Field(None, alias="srl_nokia-interfaces-ip-vrrp:vrrp")
-    ]
-
-
-class ArpContainer(BaseModel):
-    """
-    Container for the IPv4 ARP protocol
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    duplicate_address_detection: Annotated[
-        DuplicateAddressDetectionLeaf,
-        Field(True, alias="srl_nokia-interfaces-nbr:duplicate-address-detection"),
-    ]
-    timeout: Annotated[
-        TimeoutLeaf, Field(14400, alias="srl_nokia-interfaces-nbr:timeout")
-    ]
-    learn_unsolicited: Annotated[
-        LearnUnsolicitedLeaf,
-        Field(False, alias="srl_nokia-interfaces-nbr:learn-unsolicited"),
-    ]
-    neighbor: Annotated[
-        List[NeighborListEntry], Field(alias="srl_nokia-interfaces-nbr:neighbor")
-    ]
-    host_route: Annotated[
-        HostRouteContainer, Field(None, alias="srl_nokia-interfaces-nbr:host-route")
-    ]
-    proxy_arp: Annotated[
-        ProxyArpLeaf, Field(False, alias="srl_nokia-interfaces-nbr:proxy-arp")
-    ]
-    debug: Annotated[
-        List[DebugLeafList], Field([], alias="srl_nokia-interfaces-nbr:debug")
-    ]
-    """
-    List of events to debug
-    """
-    evpn: Annotated[
-        EvpnContainer, Field(None, alias="srl_nokia-interfaces-nbr-evpn:evpn")
-    ]
-    virtual_ipv4_discovery: Annotated[
-        VirtualIpv4DiscoveryContainer,
-        Field(
-            None,
-            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:virtual-ipv4-discovery",
-        ),
-    ]
-
-
-class BridgeTableContainer(BaseModel):
-    """
-    Enable the Bridge Table on the subinterface and configure associated parameters
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    discard_unknown_src_mac: Annotated[
-        DiscardUnknownSrcMacLeaf,
-        Field(False, alias="srl_nokia-interfaces:discard-unknown-src-mac"),
-    ]
-    mac_limit: Annotated[
-        MacLimitContainer, Field(None, alias="srl_nokia-interfaces:mac-limit")
-    ]
-    mac_learning: Annotated[
-        MacLearningContainer, Field(None, alias="srl_nokia-interfaces:mac-learning")
-    ]
-    mac_duplication: Annotated[
-        MacDuplicationContainer,
-        Field(None, alias="srl_nokia-interfaces:mac-duplication"),
-    ]
-    stp: Annotated[
-        StpContainer, Field(None, alias="srl_nokia-interfaces-bridge-table-stp:stp")
-    ]
-    statistics: Annotated[
-        StatisticsContainer16,
-        Field(None, alias="srl_nokia-interfaces-bridge-table-statistics:statistics"),
-    ]
-    mac_table: Annotated[
-        MacTableContainer,
-        Field(None, alias="srl_nokia-interfaces-bridge-table-mac-table:mac-table"),
-    ]
-
-
-class DhcpRelayContainer(BaseModel):
-    """
-    Container for options related to DHCPv4 relay
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf10,
-        Field("enable", alias="srl_nokia-interfaces-ip-dhcp-relay:admin-state"),
-    ]
-    oper_state: Annotated[
-        OperStateLeaf6,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:oper-state"),
-    ]
-    oper_down_reason: Annotated[
-        OperDownReasonLeaf5,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason"),
-    ]
-    option: Annotated[
-        List[OptionLeafList],
-        Field([], alias="srl_nokia-interfaces-ip-dhcp-relay:option"),
-    ]
-    """
-    List of option82 suboptions to insert into relayed packet towards DHCPv4 server
-    """
-    server: Annotated[
-        List[ServerLeafList],
-        Field([], alias="srl_nokia-interfaces-ip-dhcp-relay:server"),
-    ]
-    """
-    List of the DHCPv4 servers that the DHCPv4 relay function will relay DHCPv4 packets to/from
-    """
-    gi_address: Annotated[
-        GiAddressLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:gi-address"),
-    ]
-    """
-    IPv4 address to be used as giaddr of the relayed packets towards DHCPv4 servers.
-     This address can be any IPv4 address configured within the network-instance towards the DHCPv4 server
-    """
-    use_gi_addr_as_src_ip_addr: Annotated[
-        UseGiAddrAsSrcIpAddrLeaf,
-        Field(
-            False, alias="srl_nokia-interfaces-ip-dhcp-relay:use-gi-addr-as-src-ip-addr"
-        ),
-    ]
-    network_instance: Annotated[
-        NetworkInstanceLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:network-instance"),
-    ]
-    trace_options: Annotated[
-        TraceOptionsContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:trace-options"),
-    ]
-    dns_resolution: Annotated[
-        DnsResolutionContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:dns-resolution"),
-    ]
-    statistics: Annotated[
-        StatisticsContainer9,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:statistics"),
-    ]
-
-
-class DhcpRelayContainer2(BaseModel):
-    """
-    Container for options related to DHCPv6 relay
-    """
-
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    admin_state: Annotated[
-        AdminStateLeaf14,
-        Field("enable", alias="srl_nokia-interfaces-ip-dhcp-relay:admin-state"),
-    ]
-    oper_state: Annotated[
-        OperStateLeaf9,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:oper-state"),
-    ]
-    oper_down_reason: Annotated[
-        OperDownReasonLeaf7,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason"),
-    ]
-    option: Annotated[
-        List[OptionLeafList2],
-        Field([], alias="srl_nokia-interfaces-ip-dhcp-relay:option"),
-    ]
-    """
-    List of options to insert into relayed packet towards DHCPv6 server
-    """
-    server: Annotated[
-        List[ServerLeafList2],
-        Field([], alias="srl_nokia-interfaces-ip-dhcp-relay:server"),
-    ]
-    """
-    List of the DHCPv6 servers that the DHCPv6 relay function will relay DHCPv6 packets to/from
-    """
-    source_address: Annotated[
-        SourceAddressLeaf,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:source-address"),
-    ]
-    """
-    Source IPv6 address of the relayed packets towards DHCPv6 servers
-     this address can be any IPv6 address configured within the network-instance towards the DHCPv6 server
-    """
-    network_instance: Annotated[
-        NetworkInstanceLeaf2,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:network-instance"),
-    ]
-    trace_options: Annotated[
-        TraceOptionsContainer3,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:trace-options"),
-    ]
-    dns_resolution: Annotated[
-        DnsResolutionContainer2,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:dns-resolution"),
-    ]
-    statistics: Annotated[
-        StatisticsContainer14,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:statistics"),
-    ]
-
-
-class EthernetContainer(BaseModel):
-    model_config = ConfigDict(
-        populate_by_name=True,
-    )
-    aggregate_id: Annotated[
-        AggregateIdLeaf, Field(None, alias="srl_nokia-interfaces:aggregate-id")
-    ]
-    forwarding_viable: Annotated[
-        ForwardingViableLeaf,
-        Field(None, alias="srl_nokia-interfaces:forwarding-viable"),
-    ]
-    auto_negotiate: Annotated[
-        AutoNegotiateLeaf, Field(None, alias="srl_nokia-interfaces:auto-negotiate")
-    ]
-    duplex_mode: Annotated[
-        DuplexModeLeaf, Field(None, alias="srl_nokia-interfaces:duplex-mode")
-    ]
-    dac_link_training: Annotated[
-        DacLinkTrainingLeaf, Field(None, alias="srl_nokia-interfaces:dac-link-training")
-    ]
-    flow_control: Annotated[
-        FlowControlContainer, Field(None, alias="srl_nokia-interfaces:flow-control")
-    ]
-    lacp_port_priority: Annotated[
-        LacpPortPriorityLeaf,
-        Field(None, alias="srl_nokia-interfaces:lacp-port-priority"),
-    ]
-    port_speed: Annotated[
-        PortSpeedLeaf, Field(None, alias="srl_nokia-interfaces:port-speed")
-    ]
-    hw_mac_address: Annotated[
-        HwMacAddressLeaf, Field(None, alias="srl_nokia-interfaces:hw-mac-address")
-    ]
-    mac_address: Annotated[
-        MacAddressLeaf, Field(None, alias="srl_nokia-interfaces:mac-address")
-    ]
-    physical_medium: Annotated[
-        PhysicalMediumLeaf, Field(None, alias="srl_nokia-interfaces:physical-medium")
-    ]
-    ptp_asymmetry: Annotated[
-        PtpAsymmetryLeaf, Field(0, alias="srl_nokia-interfaces:ptp-asymmetry")
-    ]
-    ptp_timestamping: Annotated[
-        PtpTimestampingContainer,
-        Field(None, alias="srl_nokia-interfaces:ptp-timestamping"),
-    ]
-    standby_signaling: Annotated[
-        StandbySignalingLeaf,
-        Field(None, alias="srl_nokia-interfaces:standby-signaling"),
-    ]
     link_loss_forwarding: Annotated[
-        LinkLossForwardingLeaf,
-        Field(None, alias="srl_nokia-interfaces:link-loss-forwarding"),
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:link-loss-forwarding",
+            title="Link-loss-forwardingLeaf",
+        ),
+    ] = None
+    """
+    Indicates whether link-loss-forwarding is enabled in the interface
+
+    When enabled, faults can be propagated to the devices connected to this interface. It is supported on interfaces
+    with a single non-tagged subinterface that is associated to a network-instance of type vpws. On VPWS services,
+    the propagation of faults from a connection-point to the opposite connection-point is known as Link Loss
+    Forwarding and requires setting this command to true and the standby-signaling command to the type of propagation
+    signaling to be used with the connected Customer Equipment.
+    """
     reload_delay: Annotated[
-        ReloadDelayLeaf, Field(None, alias="srl_nokia-interfaces:reload-delay")
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:reload-delay",
+            ge=1,
+            le=86400,
+            title="Reload-delayLeaf",
+        ),
+    ] = None
+    """
+    Configure reload-delay timer for Ethernet interfaces.
+
+    The reload-delay timer starts when the associated XDP interface state is learned. While the timer is
+    running, the interface transceiver laser is disabled to avoid attracting traffic from the connected
+    device at the other end of the interface. The reload-delay timer should be used in multi-homing
+    interfaces and be set to a value long enough to allow the system to recover all the network protocols
+    upon reboot, before start attracting traffic from the multi-homed device.
+    """
     reload_delay_expires: Annotated[
-        ReloadDelayExpiresLeaf,
-        Field(None, alias="srl_nokia-interfaces:reload-delay-expires"),
-    ]
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:reload-delay-expires",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Reload-delay-expiresLeaf",
+        ),
+    ] = None
+    """
+    The remaining time until the reload-delay expires and the interface can go operationally up.
+    """
     hold_time: Annotated[
-        HoldTimeContainer, Field(None, alias="srl_nokia-interfaces:hold-time")
-    ]
+        Optional[HoldTimeContainer], Field(alias="srl_nokia-interfaces:hold-time")
+    ] = None
     crc_monitor: Annotated[
-        CrcMonitorContainer, Field(None, alias="srl_nokia-interfaces:crc-monitor")
-    ]
+        Optional[CrcMonitorContainer], Field(alias="srl_nokia-interfaces:crc-monitor")
+    ] = None
     symbol_monitor: Annotated[
-        SymbolMonitorContainer, Field(None, alias="srl_nokia-interfaces:symbol-monitor")
-    ]
+        Optional[SymbolMonitorContainer],
+        Field(alias="srl_nokia-interfaces:symbol-monitor"),
+    ] = None
     exponential_port_dampening: Annotated[
-        ExponentialPortDampeningContainer,
-        Field(None, alias="srl_nokia-interfaces:exponential-port-dampening"),
-    ]
+        Optional[ExponentialPortDampeningContainer],
+        Field(alias="srl_nokia-interfaces:exponential-port-dampening"),
+    ] = None
     storm_control: Annotated[
-        StormControlContainer, Field(None, alias="srl_nokia-interfaces:storm-control")
-    ]
-    synce: Annotated[SynceContainer, Field(None, alias="srl_nokia-interfaces:synce")]
+        Optional[StormControlContainer],
+        Field(alias="srl_nokia-interfaces:storm-control"),
+    ] = None
+    synce: Annotated[
+        Optional[SynceContainer], Field(alias="srl_nokia-interfaces:synce")
+    ] = None
     statistics: Annotated[
-        StatisticsContainer3, Field(None, alias="srl_nokia-interfaces:statistics")
-    ]
-    dot1x: Annotated[Dot1xContainer, Field(None, alias="srl_nokia-dot1x:dot1x")]
+        Optional[StatisticsContainer3], Field(alias="srl_nokia-interfaces:statistics")
+    ] = None
+    dot1x: Annotated[Optional[Dot1xContainer], Field(alias="srl_nokia-dot1x:dot1x")] = (
+        None
+    )
     l2cp_transparency: Annotated[
-        L2cpTransparencyContainer,
-        Field(None, alias="srl_nokia-interfaces-l2cp:l2cp-transparency"),
-    ]
+        Optional[L2cpTransparencyContainer],
+        Field(alias="srl_nokia-interfaces-l2cp:l2cp-transparency"),
+    ] = None
 
 
 class Ipv4Container(BaseModel):
@@ -14658,36 +10941,59 @@ class Ipv4Container(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     admin_state: Annotated[
-        AdminStateLeaf7, Field("disable", alias="srl_nokia-interfaces:admin-state")
-    ]
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf7"),
+    ] = "disable"
+    """
+    Enable/disable IPv4 on the subinterface
+
+    When set to enable, and even before an IPv4 address is configured, the subinterface starts to accept incoming packets with dest-ip 255.255.255.255, which is necessary to support dhcp-client functionality.
+    """
     address: Annotated[
-        List[AddressListEntry], Field(alias="srl_nokia-interfaces:address")
-    ]
+        Optional[List[AddressListEntry]], Field(alias="srl_nokia-interfaces:address")
+    ] = None
     allow_directed_broadcast: Annotated[
-        AllowDirectedBroadcastLeaf,
-        Field(False, alias="srl_nokia-interfaces:allow-directed-broadcast"),
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:allow-directed-broadcast",
+            title="Allow-directed-broadcastLeaf",
+        ),
+    ] = False
+    """
+    When this is set to true the software is allowed to re-broadcast targeted broadcast IPv4 packets on this subinterface
+
+    Detailed handling of subnet broadcast is as follows:
+
+    If a targeted broadcast packet is received on subinterface X that has the matching subnet then it is delivered to the CPM and CPM will reply to an ICMP echo.
+
+    If a targeted broadcast packet is received on subinterface X but the matching subnet is associated with subinterface Y, and subinterface Y is configured with allow-directed-broadcasts=false then it is delivered to the CPM and CPM replies to an ICMP echo per above, but it does not re-broadcast the packet on subinterface Y.
+
+    If a targeted broadcast packet is received on subinterface X but the matching subnet is associated with subinterface Y, and subinterface Y is configured with allow-directed-broadcasts=true then it is delivered to the CPM and CPM replies to an ICMP echo per above, and CPM also re-broadcasts the packet on subinterface Y.
+    """
     unnumbered: Annotated[
-        UnnumberedContainer, Field(None, alias="srl_nokia-interfaces:unnumbered")
-    ]
+        Optional[UnnumberedContainer], Field(alias="srl_nokia-interfaces:unnumbered")
+    ] = None
     statistics: Annotated[
-        StatisticsContainer6, Field(None, alias="srl_nokia-interfaces:statistics")
-    ]
-    arp: Annotated[ArpContainer, Field(None, alias="srl_nokia-interfaces-nbr:arp")]
+        Optional[StatisticsContainer6], Field(alias="srl_nokia-interfaces:statistics")
+    ] = None
+    arp: Annotated[
+        Optional[ArpContainer], Field(alias="srl_nokia-interfaces-nbr:arp")
+    ] = None
     dhcp_relay: Annotated[
-        DhcpRelayContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:dhcp-relay"),
-    ]
+        Optional[DhcpRelayContainer],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:dhcp-relay"),
+    ] = None
     dhcp_client: Annotated[
-        DhcpClientContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp:dhcp-client"),
-    ]
+        Optional[DhcpClientContainer],
+        Field(alias="srl_nokia-interfaces-ip-dhcp:dhcp-client"),
+    ] = None
     dhcp_server: Annotated[
-        DhcpServerContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-server:dhcp-server"),
-    ]
+        Optional[DhcpServerContainer],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-server:dhcp-server"),
+    ] = None
 
 
 class LagContainer(BaseModel):
@@ -14697,31 +11003,75 @@ class LagContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     lag_type: Annotated[
-        LagTypeLeaf, Field("static", alias="srl_nokia-interfaces-lag:lag-type")
-    ]
+        Optional[EnumerationEnum86],
+        Field(alias="srl_nokia-interfaces-lag:lag-type", title="Lag-typeLeaf"),
+    ] = "static"
+    """
+    Sets the type of LAG, i.e., how it is
+    configured / maintained
+    """
     min_links: Annotated[
-        MinLinksLeaf, Field(1, alias="srl_nokia-interfaces-lag:min-links")
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-lag:min-links",
+            ge=1,
+            le=64,
+            title="Min-linksLeaf",
+        ),
+    ] = 1
+    """
+    Specifies the mininum number of member
+    interfaces that must be active for the aggregate interface
+    to be available
+    """
     member_speed: Annotated[
-        MemberSpeedLeaf, Field(None, alias="srl_nokia-interfaces-lag:member-speed")
-    ]
+        Optional[EnumerationEnum87],
+        Field(alias="srl_nokia-interfaces-lag:member-speed", title="Member-speedLeaf"),
+    ] = None
+    """
+    Specifies the link speed of allowed member-links
+    """
     lacp_fallback_mode: Annotated[
-        LacpFallbackModeLeaf,
-        Field(None, alias="srl_nokia-interfaces-lag:lacp-fallback-mode"),
-    ]
+        Optional[EnumerationEnum88],
+        Field(
+            alias="srl_nokia-interfaces-lag:lacp-fallback-mode",
+            title="Lacp-fallback-modeLeaf",
+        ),
+    ] = None
+    """
+    Specifies lacp-fallback mode if enabled
+    """
     lacp_fallback_timeout: Annotated[
-        LacpFallbackTimeoutLeaf,
-        Field(None, alias="srl_nokia-interfaces-lag:lacp-fallback-timeout"),
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-lag:lacp-fallback-timeout",
+            ge=4,
+            le=3600,
+            title="Lacp-fallback-timeoutLeaf",
+        ),
+    ] = None
+    """
+    Specifies the LACP-fallback timeout interval in seconds
+    """
     lag_speed: Annotated[
-        LagSpeedLeaf, Field(None, alias="srl_nokia-interfaces-lag:lag-speed")
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-lag:lag-speed",
+            ge=0,
+            le=4294967295,
+            title="Lag-speedLeaf",
+        ),
+    ] = None
+    """
+    reports current aggregate bandwidth speed of the associated LAG
+    """
     member: Annotated[
-        List[MemberListEntry], Field(alias="srl_nokia-interfaces-lag:member")
-    ]
-    lacp: Annotated[LacpContainer3, Field(None, alias="srl_nokia-lacp:lacp")]
+        Optional[List[MemberListEntry]], Field(alias="srl_nokia-interfaces-lag:member")
+    ] = None
+    lacp: Annotated[Optional[LacpContainer3], Field(alias="srl_nokia-lacp:lacp")] = None
 
 
 class NeighborDiscoveryContainer(BaseModel):
@@ -14731,49 +11081,90 @@ class NeighborDiscoveryContainer(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     duplicate_address_detection: Annotated[
-        DuplicateAddressDetectionLeaf2,
-        Field(True, alias="srl_nokia-interfaces-nbr:duplicate-address-detection"),
-    ]
-    reachable_time: Annotated[
-        ReachableTimeLeaf, Field(30, alias="srl_nokia-interfaces-nbr:reachable-time")
-    ]
-    stale_time: Annotated[
-        StaleTimeLeaf, Field(14400, alias="srl_nokia-interfaces-nbr:stale-time")
-    ]
-    learn_unsolicited: Annotated[
-        LearnUnsolicitedLeaf2,
-        Field("none", alias="srl_nokia-interfaces-nbr:learn-unsolicited"),
-    ]
-    neighbor: Annotated[
-        List[NeighborListEntry2], Field(alias="srl_nokia-interfaces-nbr:neighbor")
-    ]
-    host_route: Annotated[
-        HostRouteContainer2, Field(None, alias="srl_nokia-interfaces-nbr:host-route")
-    ]
-    limit: Annotated[
-        LimitContainer, Field(None, alias="srl_nokia-interfaces-nbr:limit")
-    ]
-    proxy_nd: Annotated[
-        ProxyNdLeaf, Field(False, alias="srl_nokia-interfaces-nbr:proxy-nd")
-    ]
-    debug: Annotated[
-        List[DebugLeafList2], Field([], alias="srl_nokia-interfaces-nbr:debug")
-    ]
-    """
-    List of events to debug
-    """
-    evpn: Annotated[
-        EvpnContainer2, Field(None, alias="srl_nokia-interfaces-nbr-evpn:evpn")
-    ]
-    virtual_ipv6_discovery: Annotated[
-        VirtualIpv6DiscoveryContainer,
+        Optional[bool],
         Field(
-            None,
-            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:virtual-ipv6-discovery",
+            alias="srl_nokia-interfaces-nbr:duplicate-address-detection",
+            title="Duplicate-address-detectionLeaf2",
         ),
-    ]
+    ] = True
+    """
+    Enables Duplicate Addres Detection on all tentative addresses
+
+    This applies to link-local and global unicast addresses. Only one transmission is done; there are no retransmissions.
+
+    Must be true on an IPv6 subinterface that has dhcp-client enabled.
+    """
+    reachable_time: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr:reachable-time",
+            ge=30,
+            le=3600,
+            title="Reachable-timeLeaf",
+        ),
+    ] = 30
+    """
+    The period of time that a dynamic IPv6 neighbor cache entry is considered reachable after a reachability confirmation event
+
+    After this time expires the neighbor state moves to STALE.
+    """
+    stale_time: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces-nbr:stale-time",
+            ge=60,
+            le=65535,
+            title="Stale-timeLeaf",
+        ),
+    ] = 14400
+    """
+    The maximum time that a dynamic IPv6 neighbor cache entry can remain in the STALE state before it is removed
+
+    This limit is reached only if no traffic is sent/queued towards the neighbor during the entire duration of the timer.
+    """
+    learn_unsolicited: Annotated[
+        Optional[EnumerationEnum56],
+        Field(
+            alias="srl_nokia-interfaces-nbr:learn-unsolicited",
+            title="Learn-unsolicitedLeaf2",
+        ),
+    ] = "none"
+    """
+    Sets if neighbors should be learned from unsolicited neighbor advertisements for global or link local addresses or both.
+    """
+    neighbor: Annotated[
+        Optional[List[NeighborListEntry2]],
+        Field(alias="srl_nokia-interfaces-nbr:neighbor"),
+    ] = None
+    host_route: Annotated[
+        Optional[HostRouteContainer2],
+        Field(alias="srl_nokia-interfaces-nbr:host-route"),
+    ] = None
+    limit: Annotated[
+        Optional[LimitContainer], Field(alias="srl_nokia-interfaces-nbr:limit")
+    ] = None
+    proxy_nd: Annotated[
+        Optional[bool],
+        Field(alias="srl_nokia-interfaces-nbr:proxy-nd", title="Proxy-ndLeaf"),
+    ] = False
+    """
+    When set to true, the router replies with its own MAC to Neighbor Solicitations destined to any host.
+    """
+    debug: Annotated[
+        Optional[List[EnumerationEnum60]], Field(alias="srl_nokia-interfaces-nbr:debug")
+    ] = []
+    evpn: Annotated[
+        Optional[EvpnContainer2], Field(alias="srl_nokia-interfaces-nbr-evpn:evpn")
+    ] = None
+    virtual_ipv6_discovery: Annotated[
+        Optional[VirtualIpv6DiscoveryContainer],
+        Field(
+            alias="srl_nokia-interfaces-nbr-virtual-ip-discovery:virtual-ipv6-discovery"
+        ),
+    ] = None
 
 
 class Ipv6Container(BaseModel):
@@ -14783,10 +11174,12 @@ class Ipv6Container(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     admin_state: Annotated[
-        AdminStateLeaf12, Field("disable", alias="srl_nokia-interfaces:admin-state")
-    ]
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf12"),
+    ] = "disable"
     """
     Enable/disable IPv6 on the subinterface
 
@@ -14797,31 +11190,31 @@ class Ipv6Container(BaseModel):
     -	ff02::2 (all IPv6 routers)
     """
     address: Annotated[
-        List[AddressListEntry3], Field(alias="srl_nokia-interfaces:address")
-    ]
+        Optional[List[AddressListEntry3]], Field(alias="srl_nokia-interfaces:address")
+    ] = None
     statistics: Annotated[
-        StatisticsContainer11, Field(None, alias="srl_nokia-interfaces:statistics")
-    ]
+        Optional[StatisticsContainer11], Field(alias="srl_nokia-interfaces:statistics")
+    ] = None
     neighbor_discovery: Annotated[
-        NeighborDiscoveryContainer,
-        Field(None, alias="srl_nokia-interfaces-nbr:neighbor-discovery"),
-    ]
+        Optional[NeighborDiscoveryContainer],
+        Field(alias="srl_nokia-interfaces-nbr:neighbor-discovery"),
+    ] = None
     dhcp_relay: Annotated[
-        DhcpRelayContainer2,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-relay:dhcp-relay"),
-    ]
+        Optional[DhcpRelayContainer2],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-relay:dhcp-relay"),
+    ] = None
     router_advertisement: Annotated[
-        RouterAdvertisementContainer,
-        Field(None, alias="srl_nokia-interfaces-router-adv:router-advertisement"),
-    ]
+        Optional[RouterAdvertisementContainer],
+        Field(alias="srl_nokia-interfaces-router-adv:router-advertisement"),
+    ] = None
     dhcp_client: Annotated[
-        DhcpClientContainer2,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp:dhcp-client"),
-    ]
+        Optional[DhcpClientContainer2],
+        Field(alias="srl_nokia-interfaces-ip-dhcp:dhcp-client"),
+    ] = None
     dhcpv6_server: Annotated[
-        Dhcpv6ServerContainer,
-        Field(None, alias="srl_nokia-interfaces-ip-dhcp-server:dhcpv6-server"),
-    ]
+        Optional[Dhcpv6ServerContainer],
+        Field(alias="srl_nokia-interfaces-ip-dhcp-server:dhcpv6-server"),
+    ] = None
 
 
 class SubinterfaceListEntry(BaseModel):
@@ -14831,72 +11224,232 @@ class SubinterfaceListEntry(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    index: Annotated[IndexLeaf4, Field(None, alias="srl_nokia-interfaces:index")]
-    type: Annotated[TypeLeaf2, Field(None, alias="srl_nokia-interfaces:type")]
+    index: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:index", ge=0, le=9999, title="IndexLeaf4"),
+    ] = None
+    """
+    The index of the subinterface, or logical interface number
+    """
+    type: Annotated[
+        Optional[Any], Field(alias="srl_nokia-interfaces:type", title="TypeLeaf2")
+    ] = None
+    """
+    Indicates the context in which the ethernet subinterface will be used
+    """
     description: Annotated[
-        DescriptionLeaf2, Field(None, alias="srl_nokia-interfaces:description")
-    ]
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:description",
+            max_length=255,
+            min_length=1,
+            title="DescriptionLeaf2",
+        ),
+    ] = None
+    """
+    A user-configured description of the interface
+    """
     admin_state: Annotated[
-        AdminStateLeaf6, Field("enable", alias="srl_nokia-interfaces:admin-state")
-    ]
-    ip_mtu: Annotated[IpMtuLeaf, Field(None, alias="srl_nokia-interfaces:ip-mtu")]
-    l2_mtu: Annotated[L2MtuLeaf, Field(None, alias="srl_nokia-interfaces:l2-mtu")]
-    mpls_mtu: Annotated[MplsMtuLeaf, Field(None, alias="srl_nokia-interfaces:mpls-mtu")]
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf6"),
+    ] = "enable"
+    """
+    The configured, desired state of the subinterface
+    """
+    ip_mtu: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:ip-mtu", ge=1280, le=9486, title="Ip-mtuLeaf"
+        ),
+    ] = None
+    """
+    IP MTU of the subinterface in bytes.
+
+    Includes the IP header but excludes Ethernet encapsulation.
+
+    IP MTU specifies the maximum sized IPv4 or IPv6 packet that can be transmitted on the subinterface. If an IPv4 or IPv6 packet exceeds this size it is dropped and this may result in the generation of an ICMP error message back to the source.
+
+    The default IP MTU for a subinterface is taken from /system/mtu/default-ip-mtu.  For the mgmt0 and mgmt0-standby subinterfaces the default is the associated interface MTU minus the Ethernet encapsulation overhead.
+
+    The IP MTU is not configurable for subinterfaces of loopback interfaces.
+
+    The 7220 IXR-D1, 7220 IXR-D2, 7220 IXR-D3, 7220 IXR-D4, 7220 IXR-D5, 7220 IXR-H2, 7220 IXR-H3, and 7220 IXR-H4 systems support a maximum IP MTU of 9398 bytes.
+
+    The 7730 SXR systems support a maximum IP MTU of 9394 bytes.
+
+    Each 7250 IXR IMM supports a maximum of 4 different IP MTU values. 7220 IXR systems do not have any limit on the maximum number of different IP MTU values.
+    """
+    l2_mtu: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:l2-mtu", ge=1450, le=9500, title="L2-mtuLeaf"
+        ),
+    ] = None
+    """
+    Layer-2 MTU of the subinterface in bytes.
+
+    Includes the Ethernet header and VLAN tags, and excludes 4-bytes FCS.
+
+    L2 MTU specifies the maximum sized Ethernet frame that can be transmitted on the subinterface. If a frame exceeds this size it is discarded. If the l2-mtu of the subinterface exceeds the port-mtu of the associated
+    interface, the subinterface will remain operationally down.
+
+    The default value for a subinterface is taken from /system/mtu/default-l2-mtu. The L2 MTU is only configurable for bridged subinterfaces.
+
+    The 7220 IXR-D1, 7220 IXR-D2, 7220 IXR-D3, 7220 IXR-D4, 7220 IXR-D5, 7220 IXR-H2, 7220 IXR-H3, and 7220 IXR-H4 systems support a maximum L2 MTU of 9412 bytes and minimum of 1500 bytes.
+
+    The 7730 SXR systems support a maximum L2 MTU of 9408 bytes.
+
+    All other systems support a maximum L2 MTU of 9500 and minimum of 1500 bytes.
+    """
+    mpls_mtu: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:mpls-mtu",
+            ge=1284,
+            le=9496,
+            title="Mpls-mtuLeaf",
+        ),
+    ] = None
+    """
+    MPLS MTU of the subinterface in bytes, including the transmitted label stack.
+
+    MPLS MTU specifies the maximum sized MPLS packet that can be transmitted on the subinterface. If an MPLS packet containing any payload exceeds this size then it is dropped. If the payload of the dropped packet is IPv4 or IPv6 then this may also result in the generation of an ICMP error message that is either tunneled or sent back to the source.
+
+    The default MPLS MTU for a subinterface is taken from /system/mtu/default-mpls-mtu.
+
+    The MPLS MTU is not configurable for subinterfaces of loopback interfaces.
+
+    The 7730 SXR systems support a maximum MPLS MTU of 9404 bytes.
+
+    Each 7250 IXR IMM supports a maximum of 4 different MPLS MTU values.
+    """
     unidirectional_link_delay: Annotated[
-        UnidirectionalLinkDelayContainer,
-        Field(None, alias="srl_nokia-interfaces:unidirectional-link-delay"),
-    ]
-    name: Annotated[NameLeaf3, Field(None, alias="srl_nokia-interfaces:name")]
-    ifindex: Annotated[IfindexLeaf2, Field(None, alias="srl_nokia-interfaces:ifindex")]
+        Optional[UnidirectionalLinkDelayContainer],
+        Field(alias="srl_nokia-interfaces:unidirectional-link-delay"),
+    ] = None
+    name: Annotated[
+        Optional[str], Field(alias="srl_nokia-interfaces:name", title="NameLeaf3")
+    ] = None
+    """
+    The system assigned name of the subinterface.
+
+    It is formed by taking the base interface name and appending a dot (.) and the subinterface index number. For example, ethernet-2/1.0
+    """
+    ifindex: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:ifindex",
+            ge=0,
+            le=4294967295,
+            title="IfindexLeaf2",
+        ),
+    ] = None
+    """
+    System-wide persistent unique ifIndex assigned to the subinterface
+    """
     oper_state: Annotated[
-        OperStateLeaf4, Field(None, alias="srl_nokia-interfaces:oper-state")
-    ]
+        Optional[EnumerationEnum38],
+        Field(alias="srl_nokia-interfaces:oper-state", title="Oper-stateLeaf4"),
+    ] = None
+    """
+    The operational state of the subinterface
+    """
     oper_down_reason: Annotated[
-        OperDownReasonLeaf3, Field(None, alias="srl_nokia-interfaces:oper-down-reason")
-    ]
+        Optional[EnumerationEnum39],
+        Field(
+            alias="srl_nokia-interfaces:oper-down-reason", title="Oper-down-reasonLeaf3"
+        ),
+    ] = None
+    """
+    The first (and possibly only) reason for the subinterface being operationally down
+    """
     last_change: Annotated[
-        LastChangeLeaf2, Field(None, alias="srl_nokia-interfaces:last-change")
-    ]
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:last-change",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-changeLeaf2",
+        ),
+    ] = None
+    """
+    The date and time of the most recent change to the subinterface state
+    """
     collect_irb_stats: Annotated[
-        CollectIrbStatsLeaf, Field(None, alias="srl_nokia-interfaces:collect-irb-stats")
-    ]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:collect-irb-stats",
+            title="Collect-irb-statsLeaf",
+        ),
+    ] = None
+    """
+    Set to false to disable statistics collection on the IRB subinterface
+
+    By default basic statistics are collected for each IRB subinterface
+    """
     collect_detailed_stats: Annotated[
-        CollectDetailedStatsLeaf,
-        Field(None, alias="srl_nokia-interfaces:collect-detailed-stats"),
-    ]
-    ipv4: Annotated[Ipv4Container, Field(None, alias="srl_nokia-interfaces:ipv4")]
-    ipv6: Annotated[Ipv6Container, Field(None, alias="srl_nokia-interfaces:ipv6")]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces:collect-detailed-stats",
+            title="Collect-detailed-statsLeaf",
+        ),
+    ] = None
+    """
+    Set to false to disable detailed statistics collection on the routed (non IRB) subinterface
+
+    By default detailed statistics are collected for each routed (non IRB) subinterface
+    """
+    ipv4: Annotated[
+        Optional[Ipv4Container], Field(alias="srl_nokia-interfaces:ipv4")
+    ] = None
+    ipv6: Annotated[
+        Optional[Ipv6Container], Field(alias="srl_nokia-interfaces:ipv6")
+    ] = None
     anycast_gw: Annotated[
-        AnycastGwContainer, Field(None, alias="srl_nokia-interfaces:anycast-gw")
-    ]
+        Optional[AnycastGwContainer], Field(alias="srl_nokia-interfaces:anycast-gw")
+    ] = None
     statistics: Annotated[
-        StatisticsContainer15, Field(None, alias="srl_nokia-interfaces:statistics")
-    ]
+        Optional[StatisticsContainer15], Field(alias="srl_nokia-interfaces:statistics")
+    ] = None
     bridge_table: Annotated[
-        BridgeTableContainer, Field(None, alias="srl_nokia-interfaces:bridge-table")
-    ]
-    eth_cfm: Annotated[EthCfmContainer, Field(None, alias="srl_nokia-ethcfm:eth-cfm")]
-    vlan: Annotated[VlanContainer, Field(None, alias="srl_nokia-interfaces-vlans:vlan")]
+        Optional[BridgeTableContainer], Field(alias="srl_nokia-interfaces:bridge-table")
+    ] = None
+    eth_cfm: Annotated[
+        Optional[EthCfmContainer], Field(alias="srl_nokia-ethcfm:eth-cfm")
+    ] = None
+    vlan: Annotated[
+        Optional[VlanContainer], Field(alias="srl_nokia-interfaces-vlans:vlan")
+    ] = None
     ra_guard: Annotated[
-        RaGuardContainer, Field(None, alias="srl_nokia-ra_guard:ra-guard")
-    ]
+        Optional[RaGuardContainer], Field(alias="srl_nokia-ra_guard:ra-guard")
+    ] = None
     local_mirror_destination: Annotated[
-        LocalMirrorDestinationContainer,
+        Optional[LocalMirrorDestinationContainer],
         Field(
-            None,
-            alias="srl_nokia-interfaces-local-mirror-destination:local-mirror-destination",
+            alias="srl_nokia-interfaces-local-mirror-destination:local-mirror-destination"
         ),
-    ]
-    mpls: Annotated[MplsContainer, Field(None, alias="srl_nokia-if-mpls:mpls")]
-    uuid: Annotated[UuidLeaf, Field(None, alias="srl_nokia-interfaces-vxdp:uuid")]
+    ] = None
+    mpls: Annotated[Optional[MplsContainer], Field(alias="srl_nokia-if-mpls:mpls")] = (
+        None
+    )
+    uuid: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-vxdp:uuid",
+            pattern="^(?=^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$).*$",
+            title="UuidLeaf",
+        ),
+    ] = None
+    """
+    The system-generated or user-configured UUID for the sub interface
+    """
     ethernet_segment_association: Annotated[
-        EthernetSegmentAssociationContainer,
+        Optional[EthernetSegmentAssociationContainer],
         Field(
-            None,
-            alias="srl_nokia-interfaces-ethernet-segment-association:ethernet-segment-association",
+            alias="srl_nokia-interfaces-ethernet-segment-association:ethernet-segment-association"
         ),
-    ]
+    ] = None
 
 
 class InterfaceListEntry(BaseModel):
@@ -14906,18 +11459,76 @@ class InterfaceListEntry(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
-    name: Annotated[NameLeaf, Field(None, alias="srl_nokia-interfaces:name")]
-    description: Annotated[
-        Optional[DescriptionLeaf], Field(None, alias="srl_nokia-interfaces:description")
+    name: Annotated[
+        Optional[str],
+        Field(alias="srl_nokia-interfaces:name", title="Interface-allType"),
     ] = None
+    """
+    The name of the interface
+
+    Valid options are:
+    irb<N>, N=0..255
+    lif-<lif_name>
+    enp<bus>s<dev>f<fn>, bus=0..255, dev=0..31, fn=0..7
+    vhn-<vhn_name>
+    lag<N>, N=1..1000 [note1]
+    lo<N>, N=0..255
+    mgmt0
+    mgmt0-standby
+    ethernet-<slot>/<port>
+    ethernet-<slot>/<mda>/<port>
+    system0
+    sync0
+
+    <lif_name>=Linux interface name
+    <vhn_name>=vhost interface name
+    <slot>=slot number {1,2,3,..}
+    <mda>=mda id {a,b,c,d,e,f}
+    <port>=port id {1,2,3,..}
+
+    [note1] The maximum number of LAGs per platform is as follows:
+     D1: 32 (N must be 1..32)
+     D2-D3: 128 (N must be 1..1000)
+     D4-D5: 64 (N must be 1..64)
+     H2-H3: 127 (N must be 1..127)
+     H4: 255 (N must be 1..255)
+     IXR: 128 (N must be 1..128)
+     SXR-1d-32D: 128 (N must be 1..128)
+     SXR-1x-44S: 128 (N must be 1..128)
+     A1: 10 (N must be 1..10)
+     IXR-X1b: 512 (N must be 1..512)
+     IXR-X3b: 512 (N must be 1..512)
+    """
+    description: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:description",
+            max_length=255,
+            min_length=1,
+            title="DescriptionLeaf",
+        ),
+    ] = None
+    """
+    A user-configured description of the interface
+    """
     admin_state: Annotated[
-        AdminStateLeaf, Field("enable", alias="srl_nokia-interfaces:admin-state")
-    ]
+        Optional[EnumerationEnum],
+        Field(alias="srl_nokia-interfaces:admin-state", title="Admin-stateLeaf"),
+    ] = "enable"
+    """
+    The configured, desired state of the interface
+    """
     num_physical_channels: Annotated[
-        NumPhysicalChannelsLeaf,
-        Field(None, alias="srl_nokia-interfaces:num-physical-channels"),
-    ]
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:num-physical-channels",
+            ge=1,
+            le=8,
+            title="Num-physical-channelsLeaf",
+        ),
+    ] = None
     """
     Sets the number of lanes or physical channels assigned to this interface or to the set of interfaces within this breakout group
 
@@ -14935,82 +11546,171 @@ class InterfaceListEntry(BaseModel):
 
     """
     breakout_mode: Annotated[
-        BreakoutModeContainer, Field(None, alias="srl_nokia-interfaces:breakout-mode")
-    ]
-    mtu: Annotated[MtuLeaf, Field(None, alias="srl_nokia-interfaces:mtu")]
-    ifindex: Annotated[IfindexLeaf, Field(None, alias="srl_nokia-interfaces:ifindex")]
-    oper_state: Annotated[
-        OperStateLeaf, Field(None, alias="srl_nokia-interfaces:oper-state")
-    ]
-    oper_down_reason: Annotated[
-        OperDownReasonLeaf, Field(None, alias="srl_nokia-interfaces:oper-down-reason")
-    ]
-    last_change: Annotated[
-        LastChangeLeaf, Field(None, alias="srl_nokia-interfaces:last-change")
-    ]
-    linecard: Annotated[
-        LinecardLeaf, Field(None, alias="srl_nokia-interfaces:linecard")
-    ]
-    forwarding_complex: Annotated[
-        ForwardingComplexLeaf,
-        Field(None, alias="srl_nokia-interfaces:forwarding-complex"),
-    ]
-    phy_group_members: Annotated[
-        List[PhyGroupMembersLeafList],
-        Field([], alias="srl_nokia-interfaces:phy-group-members"),
-    ]
+        Optional[BreakoutModeContainer],
+        Field(alias="srl_nokia-interfaces:breakout-mode"),
+    ] = None
+    mtu: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:mtu", ge=1450, le=9500, title="MtuLeaf"),
+    ] = None
     """
-    The group of interfaces sharing a phy with this interface
+    Port MTU in bytes including ethernet overhead but excluding 4-bytes FCS
 
-    On the 7220 IXR-D2 and 7220 IXR-D2L platforms this group of interfaces must be set to the same speed, either 1/10G or 25G.
+    If a transmitted packet exceeds this size it is dropped.
+    The default value for ethernet-x interfaces is taken from /system/mtu/default-port-mtu. For the mgmt0 and mgmt0-standby interfaces the default is 1514 bytes, but the value can be changed for each interface individually.
+    Port MTU is not configurable for loopback interfaces or irb interfaces. For irb interfaces, if the size of the ip packets to be routed to a mac-vrf has to be restricted, the subinterface.ip-mtu should be configured instead.
+    The max mtu for the mgmt0 and mgmt0-standby interfaces is 9216.
+    The 7220 IXR-D1, 7220 IXR-D2, 7220 IXR-D3, 7220 IXR-D4, 7220 IXR-D5, 7220 IXR-H2, 7220 IXR-H3, and 7220 IXR-H4 systems support a maximum port MTU of 9412 bytes and minimum of 1500 bytes.
+    The 7730 SXR systems support a maximum port MTU of 9408 bytes and minimum of 1500 bytes.
+    All other systems support a maximum port MTU of 9500 and minimum of 1500 bytes.
+    Each 7250 IXR IMM supports a maximum of 8 different port MTU values. 7220 IXR systems do not have any limit on the maximum number of different port MTU values.
     """
+    ifindex: Annotated[
+        Optional[int],
+        Field(
+            alias="srl_nokia-interfaces:ifindex",
+            ge=0,
+            le=4294967295,
+            title="IfindexLeaf",
+        ),
+    ] = None
+    """
+    System-wide persistent unique ifIndex assigned to the interface
+    """
+    oper_state: Annotated[
+        Optional[EnumerationEnum4],
+        Field(alias="srl_nokia-interfaces:oper-state", title="Oper-stateLeaf"),
+    ] = None
+    """
+    The operational state of the interface
+    """
+    oper_down_reason: Annotated[
+        Optional[EnumerationEnum5],
+        Field(
+            alias="srl_nokia-interfaces:oper-down-reason", title="Oper-down-reasonLeaf"
+        ),
+    ] = None
+    """
+    The first (and possibly only) reason for the port being operationally down
+    """
+    last_change: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces:last-change",
+            pattern="^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+            title="Last-changeLeaf",
+        ),
+    ] = None
+    """
+    The date and time of the most recent change to the interface state
+    """
+    linecard: Annotated[
+        Optional[int],
+        Field(alias="srl_nokia-interfaces:linecard", ge=1, le=16, title="LinecardLeaf"),
+    ] = None
+    """
+    The linecard on which this interface resides
+
+    This field is not populated for non-forwarding-complex-attached interfaces, for example mgmt0.
+    """
+    forwarding_complex: Annotated[
+        Optional[EnumerationEnum6],
+        Field(
+            alias="srl_nokia-interfaces:forwarding-complex",
+            title="Forwarding-complexLeaf",
+        ),
+    ] = None
+    """
+    The forwarding-complex on which this interface resides
+
+    This field is not populated for non-forwarding-complex-attached interfaces, for example mgmt0.
+    """
+    phy_group_members: Annotated[
+        Optional[List[str]], Field(alias="srl_nokia-interfaces:phy-group-members")
+    ] = []
     physical_channel: Annotated[
-        List[PhysicalChannelLeafList],
-        Field([], alias="srl_nokia-interfaces:physical-channel"),
-    ]
-    """
-    The list of transceiver channels associated with this port
-    """
+        Optional[List[int]],
+        Field(alias="srl_nokia-interfaces:physical-channel", ge=1, le=10),
+    ] = []
     forwarding_mode: Annotated[
-        ForwardingModeLeaf, Field(None, alias="srl_nokia-interfaces:forwarding-mode")
-    ]
+        Optional[EnumerationEnum7],
+        Field(
+            alias="srl_nokia-interfaces:forwarding-mode", title="Forwarding-modeLeaf"
+        ),
+    ] = None
+    """
+    The forwarding mode for Ethernet frames received on this interface
+    """
     statistics: Annotated[
-        StatisticsContainer, Field(None, alias="srl_nokia-interfaces:statistics")
-    ]
+        Optional[StatisticsContainer], Field(alias="srl_nokia-interfaces:statistics")
+    ] = None
     traffic_rate: Annotated[
-        TrafficRateContainer, Field(None, alias="srl_nokia-interfaces:traffic-rate")
-    ]
+        Optional[TrafficRateContainer], Field(alias="srl_nokia-interfaces:traffic-rate")
+    ] = None
     adapter: Annotated[
-        AdapterContainer, Field(None, alias="srl_nokia-interfaces:adapter")
-    ]
+        Optional[AdapterContainer], Field(alias="srl_nokia-interfaces:adapter")
+    ] = None
     transceiver: Annotated[
-        TransceiverContainer, Field(None, alias="srl_nokia-interfaces:transceiver")
-    ]
+        Optional[TransceiverContainer], Field(alias="srl_nokia-interfaces:transceiver")
+    ] = None
     ethernet: Annotated[
-        EthernetContainer, Field(None, alias="srl_nokia-interfaces:ethernet")
-    ]
+        Optional[EthernetContainer], Field(alias="srl_nokia-interfaces:ethernet")
+    ] = None
     subinterface: Annotated[
-        List[SubinterfaceListEntry], Field(alias="srl_nokia-interfaces:subinterface")
-    ]
-    sflow: Annotated[SflowContainer, Field(None, alias="srl_nokia-interfaces:sflow")]
+        Optional[List[SubinterfaceListEntry]],
+        Field(alias="srl_nokia-interfaces:subinterface"),
+    ] = None
+    sflow: Annotated[
+        Optional[SflowContainer], Field(alias="srl_nokia-interfaces:sflow")
+    ] = None
     vlan_tagging: Annotated[
-        VlanTaggingLeaf, Field(None, alias="srl_nokia-interfaces-vlans:vlan-tagging")
-    ]
-    tpid: Annotated[TpidLeaf, Field(None, alias="srl_nokia-interfaces-vlans:tpid")]
+        Optional[bool],
+        Field(
+            alias="srl_nokia-interfaces-vlans:vlan-tagging", title="Vlan-taggingLeaf"
+        ),
+    ] = None
+    """
+    When set to true the interface is allowed to accept frames with one or more VLAN tags
+    """
+    tpid: Annotated[
+        Optional[Any], Field(alias="srl_nokia-interfaces-vlans:tpid", title="TpidLeaf")
+    ] = None
+    """
+    Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
+
+    If not set, TPID 0x8100 is the default expected TPID on the interface for tagged
+    frames. The behavior when processing untagged frames is unaffected by this command.
+    """
     packet_link_qualification: Annotated[
-        PacketLinkQualificationContainer,
-        Field(None, alias="srl_nokia-packet-link-qual:packet-link-qualification"),
-    ]
-    lag: Annotated[LagContainer, Field(None, alias="srl_nokia-interfaces-lag:lag")]
-    p4rt: Annotated[P4rtContainer, Field(None, alias="srl_nokia-interfaces-p4rt:p4rt")]
-    uuid: Annotated[UuidLeaf2, Field(None, alias="srl_nokia-interfaces-vxdp:uuid")]
+        Optional[PacketLinkQualificationContainer],
+        Field(alias="srl_nokia-packet-link-qual:packet-link-qualification"),
+    ] = None
+    lag: Annotated[
+        Optional[LagContainer], Field(alias="srl_nokia-interfaces-lag:lag")
+    ] = None
+    p4rt: Annotated[
+        Optional[P4rtContainer], Field(alias="srl_nokia-interfaces-p4rt:p4rt")
+    ] = None
+    uuid: Annotated[
+        Optional[str],
+        Field(
+            alias="srl_nokia-interfaces-vxdp:uuid",
+            pattern="^(?=^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$).*$",
+            title="UuidLeaf2",
+        ),
+    ] = None
+    """
+    The system-generated or user-configured UUID for the interface
+    """
     vhost: Annotated[
-        VhostContainer, Field(None, alias="srl_nokia-interfaces-vxdp:vhost")
-    ]
-    pci: Annotated[PciContainer, Field(None, alias="srl_nokia-interfaces-vxdp:pci")]
+        Optional[VhostContainer], Field(alias="srl_nokia-interfaces-vxdp:vhost")
+    ] = None
+    pci: Annotated[
+        Optional[PciContainer], Field(alias="srl_nokia-interfaces-vxdp:pci")
+    ] = None
     linux: Annotated[
-        LinuxContainer, Field(None, alias="srl_nokia-interfaces-vxdp:linux")
-    ]
+        Optional[LinuxContainer], Field(alias="srl_nokia-interfaces-vxdp:linux")
+    ] = None
 
 
 class Model(BaseModel):
@@ -15031,23 +11731,25 @@ class Model(BaseModel):
 
     model_config = ConfigDict(
         populate_by_name=True,
+        regex_engine="python-re",
     )
     interface: Annotated[
-        List[InterfaceListEntry], Field(alias="srl_nokia-interfaces:interface")
-    ]
+        Optional[List[InterfaceListEntry]],
+        Field(alias="srl_nokia-interfaces:interface"),
+    ] = None
 
 
-if __name__ == "__main__":
-    model = Model(
-        # <Initialize model here>
-    )
+# if __name__ == "__main__":
+#     model = Model(
+#         # <Initialize model here>
+#     )
 
-    restconf_payload = model.model_dump_json(
-        exclude_defaults=True, by_alias=True, indent=2
-    )
+#     restconf_payload = model.model_dump_json(
+#         exclude_defaults=True, by_alias=True, indent=2
+#     )
 
-    print(f"Generated output: {restconf_payload}")
+#     print(f"Generated output: {restconf_payload}")
 
-    # Send config to network device:
-    # from pydantify.utility import restconf_patch_request
-    # restconf_patch_request(url='...', user_pw_auth=('usr', 'pw'), data=restconf_payload)
+# Send config to network device:
+# from pydantify.utility import restconf_patch_request
+# restconf_patch_request(url='...', user_pw_auth=('usr', 'pw'), data=restconf_payload)
