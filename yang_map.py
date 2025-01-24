@@ -9,6 +9,11 @@ import yaml
 from pydantic import BaseModel
 
 
+class Prefix(BaseModel):
+    current: str
+    target: str
+
+
 class YangImport(BaseModel):
     module: str
     prefix: str
@@ -21,7 +26,7 @@ class YangAugment(BaseModel):
 class YangModule(BaseModel):
     name: str
     path: str
-    prefix: str
+    prefix: Prefix
     imports: List[YangImport]
     augments: List[YangAugment]
     augmented_by: List[str] = []
@@ -48,7 +53,9 @@ def parse_yang_file(base_dir, file_path: str) -> YangModule:
 
     # Get prefix
     prefix_match = re.search(r"prefix\s+([^\s;]+)", content)
-    prefix = prefix_match.group(1) if prefix_match else ""
+    current_prefix = prefix_match.group(1) if prefix_match else ""
+    # target prefix should be a module name without .yang and with srl_nokia substituted with srl
+    target_prefix = module_name.replace(".yang", "").replace("srl_nokia", "srl")
 
     # Get imports
     imports: List[YangImport] = []
@@ -69,7 +76,7 @@ def parse_yang_file(base_dir, file_path: str) -> YangModule:
         path=file_path.replace(
             base_dir, ""
         ),  # make module paths relative to the base dir
-        prefix=prefix,
+        prefix=Prefix(current=current_prefix, target=target_prefix),
         imports=imports,
         augments=augments,
     )

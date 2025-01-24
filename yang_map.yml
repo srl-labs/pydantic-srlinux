@@ -5,7 +5,9 @@ modules:
     imports: []
     name: srl_nokia-aaa-password
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-password.yang
-    prefix: srl-aaa-password
+    prefix:
+      current: srl-aaa-password
+      target: srl-aaa-password
   srl_nokia-aaa-radius.yang:
     augmented_by: []
     augments: []
@@ -22,7 +24,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-aaa-radius
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-radius.yang
-    prefix: srl-aaa-radius
+    prefix:
+      current: srl-aaa-radius
+      target: srl-aaa-radius
   srl_nokia-aaa-tacacs.yang:
     augmented_by: []
     augments: []
@@ -39,14 +43,18 @@ modules:
       prefix: srl-ext
     name: srl_nokia-aaa-tacacs
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-tacacs.yang
-    prefix: srl-aaa-tacacs
+    prefix:
+      current: srl-aaa-tacacs
+      target: srl-aaa-tacacs
   srl_nokia-aaa-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-aaa-types
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-types.yang
-    prefix: srl-aaa-types
+    prefix:
+      current: srl-aaa-types
+      target: srl-aaa-types
   srl_nokia-aaa.yang:
     augmented_by: []
     augments:
@@ -74,7 +82,9 @@ modules:
       prefix: srl-gnsi-credentialz
     name: srl_nokia-aaa
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa.yang
-    prefix: srl-aaa
+    prefix:
+      current: srl-aaa
+      target: srl-aaa
   srl_nokia-acl-policers.yang:
     augmented_by: []
     augments:
@@ -95,7 +105,9 @@ modules:
       prefix: srl_nokia-qos-policers
     name: srl_nokia-acl-policers
     path: /srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-policers.yang
-    prefix: srl_nokia-acl-policers
+    prefix:
+      current: srl_nokia-acl-policers
+      target: srl-acl-policers
   srl_nokia-acl-qos.yang:
     augmented_by: []
     augments:
@@ -114,7 +126,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-acl-qos
     path: /srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-qos.yang
-    prefix: srl_nokia-acl-qos
+    prefix:
+      current: srl_nokia-acl-qos
+      target: srl-acl-qos
   srl_nokia-acl.yang:
     augmented_by: []
     augments:
@@ -138,7 +152,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-acl
     path: /srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl.yang
-    prefix: srl_nokia-acl
+    prefix:
+      current: srl_nokia-acl
+      target: srl-acl
   srl_nokia-aft.yang:
     augmented_by: []
     augments:
@@ -158,7 +174,9 @@ modules:
       prefix: srl_nokia-rt
     name: srl_nokia-aft
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aft.yang
-    prefix: srl_nokia-aft
+    prefix:
+      current: srl_nokia-aft
+      target: srl-aft
   srl_nokia-aggregate-routes.yang:
     augmented_by: []
     augments:
@@ -172,7 +190,9 @@ modules:
       prefix: srl_nokia-pol-types
     name: srl_nokia-aggregate-routes
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aggregate-routes.yang
-    prefix: srl_nokia-aggregate-routes
+    prefix:
+      current: srl_nokia-aggregate-routes
+      target: srl-aggregate-routes
   srl_nokia-app-mgmt.yang:
     augmented_by: []
     augments:
@@ -186,7 +206,9 @@ modules:
       prefix: srl-comm
     name: srl_nokia-app-mgmt
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-app-mgmt.yang
-    prefix: srl_nokia-app-mgmt
+    prefix:
+      current: srl_nokia-app-mgmt
+      target: srl-app-mgmt
   srl_nokia-bfd.yang:
     augmented_by:
     - srl_nokia-micro-bfd.yang
@@ -204,7 +226,9 @@ modules:
       prefix: srl_nokia-te-policies
     name: srl_nokia-bfd
     path: /srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-bfd.yang
-    prefix: srl_nokia-bfd
+    prefix:
+      current: srl_nokia-bfd
+      target: srl-bfd
   srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations.yang:
     augmented_by: []
     augments:
@@ -220,7 +244,9 @@ modules:
       prefix: srl_bgp-evpn
     name: srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations.yang
-    prefix: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-multicast-destinations
+    prefix:
+      current: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-multicast-destinations
+      target: srl-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations
   srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics.yang:
     augmented_by: []
     augments:
@@ -236,7 +262,9 @@ modules:
       prefix: srl_bgp-evpn
     name: srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics.yang
-    prefix: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-statistics
+    prefix:
+      current: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-statistics
+      target: srl-bgp-evpn-bgp-instance-mpls-bridge-table-statistics
   srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations.yang:
     augmented_by: []
     augments:
@@ -252,7 +280,9 @@ modules:
       prefix: srl_bgp-evpn
     name: srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations.yang
-    prefix: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-unicast-destinations
+    prefix:
+      current: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-unicast-destinations
+      target: srl-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations
   srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac.yang:
     augmented_by: []
     augments:
@@ -268,7 +298,9 @@ modules:
       prefix: srl_bgp-evpn
     name: srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac.yang
-    prefix: srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
+    prefix:
+      current: srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
+      target: srl-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
   srl_nokia-bgp-evpn.yang:
     augmented_by: []
     augments:
@@ -290,7 +322,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-bgp-evpn
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn.yang
-    prefix: srl_nokia-bgp-evpn
+    prefix:
+      current: srl_nokia-bgp-evpn
+      target: srl-bgp-evpn
   srl_nokia-bgp-ipvpn.yang:
     augmented_by: []
     augments:
@@ -312,7 +346,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-bgp-ipvpn
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-ipvpn.yang
-    prefix: srl_nokia-bgp-ipvpn
+    prefix:
+      current: srl_nokia-bgp-ipvpn
+      target: srl-bgp-ipvpn
   srl_nokia-bgp-vpn.yang:
     augmented_by: []
     augments:
@@ -332,7 +368,9 @@ modules:
       prefix: srl_nokia-pol-types
     name: srl_nokia-bgp-vpn
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-vpn.yang
-    prefix: srl_nokia-bgp-vpn
+    prefix:
+      current: srl_nokia-bgp-vpn
+      target: srl-bgp-vpn
   srl_nokia-bgp.yang:
     augmented_by: []
     augments:
@@ -361,7 +399,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-bgp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp.yang
-    prefix: srl_nokia-bgp
+    prefix:
+      current: srl_nokia-bgp
+      target: srl-bgp
   srl_nokia-boot.yang:
     augmented_by: []
     augments:
@@ -377,7 +417,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-boot
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-boot.yang
-    prefix: srl-boot
+    prefix:
+      current: srl-boot
+      target: srl-boot
   srl_nokia-bridge-table-mac-duplication-entries.yang:
     augmented_by: []
     augments:
@@ -391,7 +433,9 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-bridge-table-mac-duplication-entries
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-duplication-entries.yang
-    prefix: srl_nokia-bridge-table-mac-duplication-entries
+    prefix:
+      current: srl_nokia-bridge-table-mac-duplication-entries
+      target: srl-bridge-table-mac-duplication-entries
   srl_nokia-bridge-table-mac-duplication.yang:
     augmented_by: []
     augments: []
@@ -400,7 +444,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-bridge-table-mac-duplication
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-duplication.yang
-    prefix: srl_nokia-bridge-table-mac-duplication
+    prefix:
+      current: srl_nokia-bridge-table-mac-duplication
+      target: srl-bridge-table-mac-duplication
   srl_nokia-bridge-table-mac-learning-entries.yang:
     augmented_by: []
     augments:
@@ -414,7 +460,9 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-bridge-table-mac-learning-entries
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-learning-entries.yang
-    prefix: srl_nokia-bridge-table-mac-learning-entries
+    prefix:
+      current: srl_nokia-bridge-table-mac-learning-entries
+      target: srl-bridge-table-mac-learning-entries
   srl_nokia-bridge-table-mac-learning.yang:
     augmented_by: []
     augments: []
@@ -423,14 +471,18 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-bridge-table-mac-learning
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-learning.yang
-    prefix: srl_nokia-bridge-table-mac-learning
+    prefix:
+      current: srl_nokia-bridge-table-mac-learning
+      target: srl-bridge-table-mac-learning
   srl_nokia-bridge-table-mac-limit.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-bridge-table-mac-limit
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-limit.yang
-    prefix: srl_nokia-bridge-table-mac-limit
+    prefix:
+      current: srl_nokia-bridge-table-mac-limit
+      target: srl-bridge-table-mac-limit
   srl_nokia-bridge-table-mac-table.yang:
     augmented_by: []
     augments:
@@ -444,7 +496,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-bridge-table-mac-table
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-table.yang
-    prefix: srl_nokia-bridge-table-mac-table
+    prefix:
+      current: srl_nokia-bridge-table-mac-table
+      target: srl-bridge-table-mac-table
   srl_nokia-bridge-table-proxy-arp-nd.yang:
     augmented_by: []
     augments:
@@ -462,7 +516,9 @@ modules:
       prefix: srl_nokia-routing-pol
     name: srl_nokia-bridge-table-proxy-arp-nd
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-proxy-arp-nd.yang
-    prefix: srl_nokia-bridge-table-proxy-arp-nd
+    prefix:
+      current: srl_nokia-bridge-table-proxy-arp-nd
+      target: srl-bridge-table-proxy-arp-nd
   srl_nokia-bridge-table-reserved-macs.yang:
     augmented_by: []
     augments:
@@ -476,7 +532,9 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-bridge-table-reserved-macs
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-reserved-macs.yang
-    prefix: srl_nokia-bridge-table-reserved-macs
+    prefix:
+      current: srl_nokia-bridge-table-reserved-macs
+      target: srl-bridge-table-reserved-macs
   srl_nokia-bridge-table-shg.yang:
     augmented_by: []
     augments: []
@@ -487,7 +545,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-bridge-table-shg
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-shg.yang
-    prefix: srl_nokia-bridge-table-shg
+    prefix:
+      current: srl_nokia-bridge-table-shg
+      target: srl-bridge-table-shg
   srl_nokia-bridge-table-static-mac.yang:
     augmented_by: []
     augments:
@@ -501,7 +561,9 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-bridge-table-static-mac
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-static-mac.yang
-    prefix: srl_nokia-bridge-table-static-mac
+    prefix:
+      current: srl_nokia-bridge-table-static-mac
+      target: srl-bridge-table-static-mac
   srl_nokia-bridge-table.yang:
     augmented_by: []
     augments: []
@@ -510,7 +572,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-bridge-table
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table.yang
-    prefix: srl_nokia-bridge-table
+    prefix:
+      current: srl_nokia-bridge-table
+      target: srl-bridge-table
   srl_nokia-common.yang:
     augmented_by: []
     augments: []
@@ -521,7 +585,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-common
     path: /srlinux-yang-models/srl_nokia/models/common/srl_nokia-common.yang
-    prefix: srl_nokia-comm
+    prefix:
+      current: srl_nokia-comm
+      target: srl-common
   srl_nokia-configuration-role.yang:
     augmented_by: []
     augments:
@@ -539,7 +605,9 @@ modules:
       prefix: srl-aaa
     name: srl_nokia-configuration-role
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration-role.yang
-    prefix: srl_nokia-configuration-role
+    prefix:
+      current: srl_nokia-configuration-role
+      target: srl-configuration-role
   srl_nokia-configuration.yang:
     augmented_by: []
     augments:
@@ -557,7 +625,9 @@ modules:
       prefix: srl-gnsi-pathz
     name: srl_nokia-configuration
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration.yang
-    prefix: srl-config
+    prefix:
+      current: srl-config
+      target: srl-configuration
   srl_nokia-connection-point-bridge-table-mac-duplication-entries.yang:
     augmented_by: []
     augments:
@@ -569,7 +639,9 @@ modules:
       prefix: srl_nokia-interfaces-bridge-table-mac-duplication-entries
     name: srl_nokia-connection-point-bridge-table-mac-duplication-entries
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-duplication-entries.yang
-    prefix: srl_nokia-connection-point-bridge-table-mac-duplication-entries
+    prefix:
+      current: srl_nokia-connection-point-bridge-table-mac-duplication-entries
+      target: srl-connection-point-bridge-table-mac-duplication-entries
   srl_nokia-connection-point-bridge-table-mac-learning-entries.yang:
     augmented_by: []
     augments:
@@ -581,7 +653,9 @@ modules:
       prefix: srl_nokia-interfaces-bridge-table-mac-learning-entries
     name: srl_nokia-connection-point-bridge-table-mac-learning-entries
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-learning-entries.yang
-    prefix: srl_nokia-connection-point-bridge-table-mac-learning-entries
+    prefix:
+      current: srl_nokia-connection-point-bridge-table-mac-learning-entries
+      target: srl-connection-point-bridge-table-mac-learning-entries
   srl_nokia-connection-point-bridge-table-mac-table.yang:
     augmented_by: []
     augments:
@@ -593,7 +667,9 @@ modules:
       prefix: srl_nokia-interfaces-bridge-table-mac-table
     name: srl_nokia-connection-point-bridge-table-mac-table
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-table.yang
-    prefix: srl_nokia-connection-point-bridge-table-mac-table
+    prefix:
+      current: srl_nokia-connection-point-bridge-table-mac-table
+      target: srl-connection-point-bridge-table-mac-table
   srl_nokia-connection-point-bridge-table-statistics.yang:
     augmented_by: []
     augments:
@@ -605,7 +681,9 @@ modules:
       prefix: srl_nokia-interfaces-bridge-table-statistics
     name: srl_nokia-connection-point-bridge-table-statistics
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-statistics.yang
-    prefix: srl_nokia-connection-point-bridge-table-statistics
+    prefix:
+      current: srl_nokia-connection-point-bridge-table-statistics
+      target: srl-connection-point-bridge-table-statistics
   srl_nokia-connection-point-pseudowires.yang:
     augmented_by: []
     augments: []
@@ -622,7 +700,9 @@ modules:
       prefix: srl_nokia-pw-tunnel
     name: srl_nokia-connection-point-pseudowires
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-pseudowires.yang
-    prefix: srl_nokia-connection-point-pseudowires
+    prefix:
+      current: srl_nokia-connection-point-pseudowires
+      target: srl-connection-point-pseudowires
   srl_nokia-dhcp-server.yang:
     augmented_by: []
     augments:
@@ -640,7 +720,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-dhcp-server
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-dhcp-server.yang
-    prefix: srl-dhcp-server
+    prefix:
+      current: srl-dhcp-server
+      target: srl-dhcp-server
   srl_nokia-dns.yang:
     augmented_by: []
     augments:
@@ -656,7 +738,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-dns
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-dns.yang
-    prefix: srl_nokia-dns
+    prefix:
+      current: srl_nokia-dns
+      target: srl-dns
   srl_nokia-dot1x.yang:
     augmented_by: []
     augments:
@@ -673,7 +757,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-dot1x
     path: /srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-dot1x.yang
-    prefix: srl_nokia-dot1x
+    prefix:
+      current: srl_nokia-dot1x
+      target: srl-dot1x
   srl_nokia-ethcfm-types.yang:
     augmented_by: []
     augments: []
@@ -682,7 +768,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-ethcfm-types
     path: /srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm-types.yang
-    prefix: srl_nokia-ethcfm-types
+    prefix:
+      current: srl_nokia-ethcfm-types
+      target: srl-ethcfm-types
   srl_nokia-ethcfm.yang:
     augmented_by: []
     augments:
@@ -705,7 +793,9 @@ modules:
       prefix: srl_nokia-oam
     name: srl_nokia-ethcfm
     path: /srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm.yang
-    prefix: srl_nokia-ethcfm
+    prefix:
+      current: srl_nokia-ethcfm
+      target: srl-ethcfm
   srl_nokia-event-handler.yang:
     augmented_by: []
     augments:
@@ -723,21 +813,27 @@ modules:
       prefix: srl-feat
     name: srl_nokia-event-handler
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-event-handler.yang
-    prefix: srl-event-handler
+    prefix:
+      current: srl-event-handler
+      target: srl-event-handler
   srl_nokia-extensions.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-extensions
     path: /srlinux-yang-models/srl_nokia/models/common/srl_nokia-extensions.yang
-    prefix: srl_nokia-ext
+    prefix:
+      current: srl_nokia-ext
+      target: srl-extensions
   srl_nokia-features.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-features
     path: /srlinux-yang-models/srl_nokia/models/common/srl_nokia-features.yang
-    prefix: srl_nokia-feat
+    prefix:
+      current: srl_nokia-feat
+      target: srl-features
   srl_nokia-ftp.yang:
     augmented_by: []
     augments:
@@ -753,7 +849,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-ftp
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-ftp.yang
-    prefix: srl_nokia-ftp
+    prefix:
+      current: srl_nokia-ftp
+      target: srl-ftp
   srl_nokia-gnmi.yang:
     augmented_by: []
     augments: []
@@ -764,7 +862,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-gnmi
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnmi.yang
-    prefix: srl-gnmi
+    prefix:
+      current: srl-gnmi
+      target: srl-gnmi
   srl_nokia-gnsi-authz.yang:
     augmented_by: []
     augments:
@@ -782,7 +882,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-gnsi-authz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-authz.yang
-    prefix: srl-gnsi-authz
+    prefix:
+      current: srl-gnsi-authz
+      target: srl-gnsi-authz
   srl_nokia-gnsi-certz.yang:
     augmented_by: []
     augments:
@@ -798,7 +900,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-gnsi-certz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-certz.yang
-    prefix: srl-gnsi-certz
+    prefix:
+      current: srl-gnsi-certz
+      target: srl-gnsi-certz
   srl_nokia-gnsi-credentialz.yang:
     augmented_by: []
     augments:
@@ -815,7 +919,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-gnsi-credentialz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-credentialz.yang
-    prefix: srl-gnsi-credentialz
+    prefix:
+      current: srl-gnsi-credentialz
+      target: srl-gnsi-credentialz
   srl_nokia-gnsi-pathz.yang:
     augmented_by: []
     augments:
@@ -835,7 +941,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-gnsi-pathz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-pathz.yang
-    prefix: srl-gnsi-pathz
+    prefix:
+      current: srl-gnsi-pathz
+      target: srl-gnsi-pathz
   srl_nokia-gribi.yang:
     augmented_by: []
     augments:
@@ -851,7 +959,9 @@ modules:
       prefix: srl-netinst
     name: srl_nokia-gribi
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gribi.yang
-    prefix: srl-gribi
+    prefix:
+      current: srl-gribi
+      target: srl-gribi
   srl_nokia-grpc.yang:
     augmented_by: []
     augments:
@@ -881,7 +991,9 @@ modules:
       prefix: srl-p4rt
     name: srl_nokia-grpc
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-grpc.yang
-    prefix: srl-grpc
+    prefix:
+      current: srl-grpc
+      target: srl-grpc
   srl_nokia-icmp.yang:
     augmented_by: []
     augments: []
@@ -890,7 +1002,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-icmp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-icmp.yang
-    prefix: srl_nokia-icmp
+    prefix:
+      current: srl_nokia-icmp
+      target: srl-icmp
   srl_nokia-if-ip.yang:
     augmented_by: []
     augments: []
@@ -903,7 +1017,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-if-ip
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-if-ip.yang
-    prefix: srl_nokia-if-ip
+    prefix:
+      current: srl_nokia-if-ip
+      target: srl-if-ip
   srl_nokia-if-mpls.yang:
     augmented_by: []
     augments:
@@ -917,7 +1033,9 @@ modules:
       prefix: srl_nokia-if-ip
     name: srl_nokia-if-mpls
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-if-mpls.yang
-    prefix: srl_nokia-if-mpls
+    prefix:
+      current: srl_nokia-if-mpls
+      target: srl-if-mpls
   srl_nokia-igmp-snooping.yang:
     augmented_by: []
     augments:
@@ -937,14 +1055,18 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-igmp-snooping
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp-snooping.yang
-    prefix: srl_nokia-igmp-snooping
+    prefix:
+      current: srl_nokia-igmp-snooping
+      target: srl-igmp-snooping
   srl_nokia-igmp-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-igmp-types
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp-types.yang
-    prefix: srl_nokia-igmp-types
+    prefix:
+      current: srl_nokia-igmp-types
+      target: srl-igmp-types
   srl_nokia-igmp.yang:
     augmented_by: []
     augments:
@@ -964,7 +1086,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-igmp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp.yang
-    prefix: srl_nokia-igmp
+    prefix:
+      current: srl_nokia-igmp
+      target: srl-igmp
   srl_nokia-interfaces-bridge-table-mac-duplication-entries.yang:
     augmented_by: []
     augments:
@@ -978,7 +1102,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-interfaces-bridge-table-mac-duplication-entries
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-duplication-entries.yang
-    prefix: srl_nokia-interfaces-bridge-table-mac-duplication-entries
+    prefix:
+      current: srl_nokia-interfaces-bridge-table-mac-duplication-entries
+      target: srl-interfaces-bridge-table-mac-duplication-entries
   srl_nokia-interfaces-bridge-table-mac-learning-entries.yang:
     augmented_by: []
     augments:
@@ -992,7 +1118,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-interfaces-bridge-table-mac-learning-entries
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-learning-entries.yang
-    prefix: srl_nokia-interfaces-bridge-table-mac-learning-entries
+    prefix:
+      current: srl_nokia-interfaces-bridge-table-mac-learning-entries
+      target: srl-interfaces-bridge-table-mac-learning-entries
   srl_nokia-interfaces-bridge-table-mac-table.yang:
     augmented_by: []
     augments:
@@ -1006,7 +1134,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-interfaces-bridge-table-mac-table
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-table.yang
-    prefix: srl_nokia-interfaces-bridge-table-mac-table
+    prefix:
+      current: srl_nokia-interfaces-bridge-table-mac-table
+      target: srl-interfaces-bridge-table-mac-table
   srl_nokia-interfaces-bridge-table-statistics.yang:
     augmented_by: []
     augments:
@@ -1020,7 +1150,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-interfaces-bridge-table-statistics
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-statistics.yang
-    prefix: srl_nokia-if-bt
+    prefix:
+      current: srl_nokia-if-bt
+      target: srl-interfaces-bridge-table-statistics
   srl_nokia-interfaces-bridge-table-stp.yang:
     augmented_by: []
     augments:
@@ -1038,7 +1170,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-interfaces-bridge-table-stp
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-stp.yang
-    prefix: srl_nokia-interfaces-bridge-table-stp
+    prefix:
+      current: srl_nokia-interfaces-bridge-table-stp
+      target: srl-interfaces-bridge-table-stp
   srl_nokia-interfaces-bridge-table.yang:
     augmented_by: []
     augments: []
@@ -1049,7 +1183,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-interfaces-bridge-table
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table.yang
-    prefix: srl_nokia-if-bt
+    prefix:
+      current: srl_nokia-if-bt
+      target: srl-interfaces-bridge-table
   srl_nokia-interfaces-dco.yang:
     augmented_by: []
     augments:
@@ -1067,7 +1203,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-interfaces-dco
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-dco.yang
-    prefix: srl_nokia-if-dco
+    prefix:
+      current: srl_nokia-if-dco
+      target: srl-interfaces-dco
   srl_nokia-interfaces-ethernet-segment-association.yang:
     augmented_by: []
     augments:
@@ -1079,7 +1217,9 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-interfaces-ethernet-segment-association
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ethernet-segment-association.yang
-    prefix: srl_nokia-interfaces-ethernet-segment-association
+    prefix:
+      current: srl_nokia-interfaces-ethernet-segment-association
+      target: srl-interfaces-ethernet-segment-association
   srl_nokia-interfaces-ip-dhcp-relay.yang:
     augmented_by: []
     augments:
@@ -1094,7 +1234,9 @@ modules:
       prefix: srl-netinst
     name: srl_nokia-interfaces-ip-dhcp-relay
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-relay.yang
-    prefix: srl_nokia-if-ip-dhcp-relay
+    prefix:
+      current: srl_nokia-if-ip-dhcp-relay
+      target: srl-interfaces-ip-dhcp-relay
   srl_nokia-interfaces-ip-dhcp-server.yang:
     augmented_by: []
     augments:
@@ -1113,7 +1255,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-interfaces-ip-dhcp-server
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-server.yang
-    prefix: srl_nokia-if-ip-dhcp-server
+    prefix:
+      current: srl_nokia-if-ip-dhcp-server
+      target: srl-interfaces-ip-dhcp-server
   srl_nokia-interfaces-ip-dhcp.yang:
     augmented_by: []
     augments:
@@ -1124,7 +1268,9 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-interfaces-ip-dhcp
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp.yang
-    prefix: srl_nokia-if-ip-dhcp
+    prefix:
+      current: srl_nokia-if-ip-dhcp
+      target: srl-interfaces-ip-dhcp
   srl_nokia-interfaces-ip-vrrp.yang:
     augmented_by: []
     augments:
@@ -1143,7 +1289,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-interfaces-ip-vrrp
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-vrrp.yang
-    prefix: srl_nokia-if-ip-vrrp
+    prefix:
+      current: srl_nokia-if-ip-vrrp
+      target: srl-interfaces-ip-vrrp
   srl_nokia-interfaces-l2cp.yang:
     augmented_by: []
     augments:
@@ -1168,7 +1316,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-interfaces-l2cp
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-l2cp.yang
-    prefix: srl_nokia-interfaces-l2cp
+    prefix:
+      current: srl_nokia-interfaces-l2cp
+      target: srl-interfaces-l2cp
   srl_nokia-interfaces-lag.yang:
     augmented_by: []
     augments:
@@ -1184,7 +1334,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-interfaces-lag
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-lag.yang
-    prefix: srl_nokia-if-lag
+    prefix:
+      current: srl_nokia-if-lag
+      target: srl-interfaces-lag
   srl_nokia-interfaces-local-mirror-destination.yang:
     augmented_by: []
     augments:
@@ -1198,7 +1350,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-interfaces-local-mirror-destination
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-local-mirror-destination.yang
-    prefix: srl_nokia-if-local-mirror-dest
+    prefix:
+      current: srl_nokia-if-local-mirror-dest
+      target: srl-interfaces-local-mirror-destination
   srl_nokia-interfaces-nbr-evpn.yang:
     augmented_by: []
     augments:
@@ -1215,7 +1369,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-interfaces-nbr-evpn
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-evpn.yang
-    prefix: srl_nokia-if-ip-nbr-evpn
+    prefix:
+      current: srl_nokia-if-ip-nbr-evpn
+      target: srl-interfaces-nbr-evpn
   srl_nokia-interfaces-nbr-virtual-ip-discovery.yang:
     augmented_by: []
     augments:
@@ -1234,7 +1390,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-interfaces-nbr-virtual-ip-discovery
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-virtual-ip-discovery.yang
-    prefix: srl_nokia-if-ip-nbr-virtual-ip-discovery
+    prefix:
+      current: srl_nokia-if-ip-nbr-virtual-ip-discovery
+      target: srl-interfaces-nbr-virtual-ip-discovery
   srl_nokia-interfaces-nbr.yang:
     augmented_by: []
     augments:
@@ -1255,7 +1413,9 @@ modules:
       prefix: srl_nokia-route-tbl
     name: srl_nokia-interfaces-nbr
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr.yang
-    prefix: srl_nokia-if-ip-nbr
+    prefix:
+      current: srl_nokia-if-ip-nbr
+      target: srl-interfaces-nbr
   srl_nokia-interfaces-p4rt.yang:
     augmented_by: []
     augments:
@@ -1269,7 +1429,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-interfaces-p4rt
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-p4rt.yang
-    prefix: srl_nokia-if-p4rt
+    prefix:
+      current: srl_nokia-if-p4rt
+      target: srl-interfaces-p4rt
   srl_nokia-interfaces-router-adv.yang:
     augmented_by: []
     augments:
@@ -1281,7 +1443,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-interfaces-router-adv
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-router-adv.yang
-    prefix: srl_nokia-if-ip-ra
+    prefix:
+      current: srl_nokia-if-ip-ra
+      target: srl-interfaces-router-adv
   srl_nokia-interfaces-vlans.yang:
     augmented_by: []
     augments:
@@ -1295,7 +1459,9 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-interfaces-vlans
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vlans.yang
-    prefix: srl_nokia-if-vlan
+    prefix:
+      current: srl_nokia-if-vlan
+      target: srl-interfaces-vlans
   srl_nokia-interfaces-vxdp.yang:
     augmented_by: []
     augments:
@@ -1310,7 +1476,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-interfaces-vxdp
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vxdp.yang
-    prefix: srl-if-vxdp
+    prefix:
+      current: srl-if-vxdp
+      target: srl-interfaces-vxdp
   srl_nokia-interfaces.yang:
     augmented_by:
     - srl_nokia-dot1x.yang
@@ -1359,7 +1527,9 @@ modules:
       prefix: srl_nokia-plat
     name: srl_nokia-interfaces
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces.yang
-    prefix: srl_nokia-if
+    prefix:
+      current: srl_nokia-if
+      target: srl-interfaces
   srl_nokia-ip-route-tables.yang:
     augmented_by: []
     augments:
@@ -1389,7 +1559,9 @@ modules:
       prefix: srl-lc-fib
     name: srl_nokia-ip-route-tables
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ip-route-tables.yang
-    prefix: srl_nokia-ip-route-tables
+    prefix:
+      current: srl_nokia-ip-route-tables
+      target: srl-ip-route-tables
   srl_nokia-ippm-source-udp-pool.yang:
     augmented_by: []
     augments:
@@ -1403,7 +1575,9 @@ modules:
       prefix: srl_nokia-oam
     name: srl_nokia-ippm-source-udp-pool
     path: /srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-ippm-source-udp-pool.yang
-    prefix: srl_nokia-ippm-source-udp-pool
+    prefix:
+      current: srl_nokia-ippm-source-udp-pool
+      target: srl-ippm-source-udp-pool
   srl_nokia-isis-lsdb-types.yang:
     augmented_by: []
     augments: []
@@ -1412,7 +1586,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-isis-lsdb-types
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-lsdb-types.yang
-    prefix: srl_nokia-isis-lsdb-types
+    prefix:
+      current: srl_nokia-isis-lsdb-types
+      target: srl-isis-lsdb-types
   srl_nokia-isis-lsdb.yang:
     augmented_by: []
     augments: []
@@ -1425,14 +1601,18 @@ modules:
       prefix: srl-feat
     name: srl_nokia-isis-lsdb
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-lsdb.yang
-    prefix: srl_nokia-isis-lsdb
+    prefix:
+      current: srl_nokia-isis-lsdb
+      target: srl-isis-lsdb
   srl_nokia-isis-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-isis-types
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-types.yang
-    prefix: srl_nokia-isis-types
+    prefix:
+      current: srl_nokia-isis-types
+      target: srl-isis-types
   srl_nokia-isis.yang:
     augmented_by: []
     augments:
@@ -1470,7 +1650,9 @@ modules:
       prefix: srl_nokia-isis-types
     name: srl_nokia-isis
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis.yang
-    prefix: srl_nokia-isis
+    prefix:
+      current: srl_nokia-isis
+      target: srl-isis
   srl_nokia-json-rpc.yang:
     augmented_by: []
     augments:
@@ -1488,7 +1670,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-json-rpc
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-json-rpc.yang
-    prefix: srl-json-rpc
+    prefix:
+      current: srl-json-rpc
+      target: srl-json-rpc
   srl_nokia-keychains.yang:
     augmented_by: []
     augments:
@@ -1504,7 +1688,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-keychains
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-keychains.yang
-    prefix: srl_nokia-keychains
+    prefix:
+      current: srl_nokia-keychains
+      target: srl-keychains
   srl_nokia-lacp.yang:
     augmented_by: []
     augments:
@@ -1524,7 +1710,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-lacp
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-lacp.yang
-    prefix: srl_nokia-lacp
+    prefix:
+      current: srl_nokia-lacp
+      target: srl-lacp
   srl_nokia-lawful-intercept.yang:
     augmented_by: []
     augments:
@@ -1540,7 +1728,9 @@ modules:
       prefix: srl-system
     name: srl_nokia-lawful-intercept
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-lawful-intercept.yang
-    prefix: srl_nokia-lawful-interecept
+    prefix:
+      current: srl_nokia-lawful-interecept
+      target: srl-lawful-intercept
   srl_nokia-ldp.yang:
     augmented_by: []
     augments:
@@ -1562,7 +1752,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-ldp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ldp.yang
-    prefix: srl_nokia-ldp
+    prefix:
+      current: srl_nokia-ldp
+      target: srl-ldp
   srl_nokia-license.yang:
     augmented_by: []
     augments:
@@ -1578,7 +1770,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-license
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-license.yang
-    prefix: srl_nokia-license
+    prefix:
+      current: srl_nokia-license
+      target: srl-license
   srl_nokia-link-measurement.yang:
     augmented_by: []
     augments:
@@ -1600,7 +1794,9 @@ modules:
       prefix: srl_nokia-qos
     name: srl_nokia-link-measurement
     path: /srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-link-measurement.yang
-    prefix: srl_nokia-link-measurement
+    prefix:
+      current: srl_nokia-link-measurement
+      target: srl-link-measurement
   srl_nokia-linux.yang:
     augmented_by: []
     augments:
@@ -1610,14 +1806,18 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-linux
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-linux.yang
-    prefix: srl_nokia-linux
+    prefix:
+      current: srl_nokia-linux
+      target: srl-linux
   srl_nokia-lldp-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-lldp-types
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-lldp-types.yang
-    prefix: srl_nokia-lldp-types
+    prefix:
+      current: srl_nokia-lldp-types
+      target: srl-lldp-types
   srl_nokia-lldp.yang:
     augmented_by: []
     augments:
@@ -1639,7 +1839,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-lldp
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-lldp.yang
-    prefix: srl_nokia-lldp
+    prefix:
+      current: srl_nokia-lldp
+      target: srl-lldp
   srl_nokia-load-balancing.yang:
     augmented_by: []
     augments:
@@ -1653,7 +1855,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-load-balancing
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-load-balancing.yang
-    prefix: srl_nokia-lb
+    prefix:
+      current: srl_nokia-lb
+      target: srl-load-balancing
   srl_nokia-logging.yang:
     augmented_by: []
     augments:
@@ -1669,7 +1873,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-logging
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-logging.yang
-    prefix: srl_nokia-logging
+    prefix:
+      current: srl_nokia-logging
+      target: srl-logging
   srl_nokia-lsp-ping-trace.yang:
     augmented_by: []
     augments:
@@ -1683,7 +1889,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-lsp-ping-trace
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-lsp-ping-trace.yang
-    prefix: srl_nokia-lsp-ping-trace
+    prefix:
+      current: srl_nokia-lsp-ping-trace
+      target: srl-lsp-ping-trace
   srl_nokia-macsec.yang:
     augmented_by: []
     augments:
@@ -1705,7 +1913,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-macsec
     path: /srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-macsec.yang
-    prefix: srl_nokia-macsec
+    prefix:
+      current: srl_nokia-macsec
+      target: srl-macsec
   srl_nokia-maintenance-mode.yang:
     augmented_by: []
     augments:
@@ -1725,7 +1935,9 @@ modules:
       prefix: srl-rpol
     name: srl_nokia-maintenance-mode
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-maintenance-mode.yang
-    prefix: srl-m-mode
+    prefix:
+      current: srl-m-mode
+      target: srl-maintenance-mode
   srl_nokia-maintenance-policies.yang:
     augmented_by: []
     augments:
@@ -1739,7 +1951,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-maintenance-policies
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-maintenance-policies.yang
-    prefix: srl_nokia-maintenance-policies
+    prefix:
+      current: srl_nokia-maintenance-policies
+      target: srl-maintenance-policies
   srl_nokia-micro-bfd.yang:
     augmented_by: []
     augments:
@@ -1757,7 +1971,9 @@ modules:
       prefix: srl_nokia-bfd
     name: srl_nokia-micro-bfd
     path: /srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-micro-bfd.yang
-    prefix: srl_nokia-micro-bfd
+    prefix:
+      current: srl_nokia-micro-bfd
+      target: srl-micro-bfd
   srl_nokia-mirroring.yang:
     augmented_by: []
     augments:
@@ -1779,7 +1995,9 @@ modules:
       prefix: srl-acl
     name: srl_nokia-mirroring
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-mirroring.yang
-    prefix: srl_nokia-mirroring
+    prefix:
+      current: srl_nokia-mirroring
+      target: srl-mirroring
   srl_nokia-mld-snooping.yang:
     augmented_by: []
     augments:
@@ -1799,7 +2017,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-mld-snooping
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld-snooping.yang
-    prefix: srl_nokia-mld-snooping
+    prefix:
+      current: srl_nokia-mld-snooping
+      target: srl-mld-snooping
   srl_nokia-mld.yang:
     augmented_by: []
     augments:
@@ -1819,7 +2039,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-mld
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld.yang
-    prefix: srl_nokia-mld
+    prefix:
+      current: srl_nokia-mld
+      target: srl-mld
   srl_nokia-mpls-label-management.yang:
     augmented_by: []
     augments:
@@ -1835,7 +2057,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-mpls-label-management
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-label-management.yang
-    prefix: srl_nokia-mplslbl
+    prefix:
+      current: srl_nokia-mplslbl
+      target: srl-mpls-label-management
   srl_nokia-mpls-route-tables.yang:
     augmented_by: []
     augments:
@@ -1863,7 +2087,9 @@ modules:
       prefix: srl_nokia-eth-seg
     name: srl_nokia-mpls-route-tables
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls-route-tables.yang
-    prefix: srl_nokia-mpls-route-tables
+    prefix:
+      current: srl_nokia-mpls-route-tables
+      target: srl-mpls-route-tables
   srl_nokia-mpls-services-evpn-label-management.yang:
     augmented_by: []
     augments:
@@ -1881,7 +2107,9 @@ modules:
       prefix: srl_nokia-mplslbl
     name: srl_nokia-mpls-services-evpn-label-management
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-evpn-label-management.yang
-    prefix: srl_nokia-mplsservicesbtevpnlbl
+    prefix:
+      current: srl_nokia-mplsservicesbtevpnlbl
+      target: srl-mpls-services-evpn-label-management
   srl_nokia-mpls-services-network-instance-label-management.yang:
     augmented_by: []
     augments:
@@ -1895,7 +2123,9 @@ modules:
       prefix: srl_nokia-mplslbl
     name: srl_nokia-mpls-services-network-instance-label-management
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-network-instance-label-management.yang
-    prefix: srl_nokia-mplsserviceslbl
+    prefix:
+      current: srl_nokia-mplsserviceslbl
+      target: srl-mpls-services-network-instance-label-management
   srl_nokia-mpls.yang:
     augmented_by: []
     augments:
@@ -1917,7 +2147,9 @@ modules:
       prefix: srl_nokia-mplslbl
     name: srl_nokia-mpls
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls.yang
-    prefix: srl_nokia-mpls
+    prefix:
+      current: srl_nokia-mpls
+      target: srl-mpls
   srl_nokia-mtu.yang:
     augmented_by: []
     augments:
@@ -1929,7 +2161,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-mtu
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-mtu.yang
-    prefix: srl-mtu
+    prefix:
+      current: srl-mtu
+      target: srl-mtu
   srl_nokia-multicast-mfib-tables.yang:
     augmented_by: []
     augments:
@@ -1945,7 +2179,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-multicast-mfib-tables
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-multicast-mfib-tables.yang
-    prefix: srl_nokia-multicast-mfib-tables
+    prefix:
+      current: srl_nokia-multicast-mfib-tables
+      target: srl-multicast-mfib-tables
   srl_nokia-mvpn-l3.yang:
     augmented_by: []
     augments:
@@ -1967,7 +2203,9 @@ modules:
       prefix: srl_nokia-bgp-vpn
     name: srl_nokia-mvpn-l3
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mvpn-l3.yang
-    prefix: srl_nokia-mvpn-l3
+    prefix:
+      current: srl_nokia-mvpn-l3
+      target: srl-mvpn-l3
   srl_nokia-netconf-server.yang:
     augmented_by: []
     augments:
@@ -1985,7 +2223,9 @@ modules:
       prefix: srl-ssh
     name: srl_nokia-netconf-server
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-netconf-server.yang
-    prefix: srl-netconf-server
+    prefix:
+      current: srl-netconf-server
+      target: srl-netconf-server
   srl_nokia-network-instance-mtu.yang:
     augmented_by: []
     augments:
@@ -1995,7 +2235,9 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-network-instance-mtu
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-network-instance-mtu.yang
-    prefix: srl-netinst-mtu
+    prefix:
+      current: srl-netinst-mtu
+      target: srl-network-instance-mtu
   srl_nokia-network-instance.yang:
     augmented_by:
     - srl_nokia-seamless-bfd.yang
@@ -2078,7 +2320,9 @@ modules:
       prefix: srl-rpol
     name: srl_nokia-network-instance
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-network-instance.yang
-    prefix: srl_nokia-netinst
+    prefix:
+      current: srl_nokia-netinst
+      target: srl-network-instance
   srl_nokia-next-hop-groups.yang:
     augmented_by: []
     augments:
@@ -2092,7 +2336,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-next-hop-groups
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-next-hop-groups.yang
-    prefix: srl_nokia-next-hop-groups
+    prefix:
+      current: srl_nokia-next-hop-groups
+      target: srl-next-hop-groups
   srl_nokia-ni-gre.yang:
     augmented_by: []
     augments:
@@ -2108,7 +2354,9 @@ modules:
       prefix: srl_nokia-pf
     name: srl_nokia-ni-gre
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ni-gre.yang
-    prefix: srl_nokia-gre
+    prefix:
+      current: srl_nokia-gre
+      target: srl-ni-gre
   srl_nokia-ntp.yang:
     augmented_by: []
     augments:
@@ -2128,7 +2376,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-ntp
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-ntp.yang
-    prefix: srl_nokia-ntp
+    prefix:
+      current: srl_nokia-ntp
+      target: srl-ntp
   srl_nokia-oam-pm-ethcfm.yang:
     augmented_by: []
     augments:
@@ -2150,7 +2400,9 @@ modules:
       prefix: srl_nokia-ethcfm
     name: srl_nokia-oam-pm-ethcfm
     path: /srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-oam-pm-ethcfm.yang
-    prefix: srl_nokia-oam-pm-ethcfm
+    prefix:
+      current: srl_nokia-oam-pm-ethcfm
+      target: srl-oam-pm-ethcfm
   srl_nokia-oam-pm-ip.yang:
     augmented_by: []
     augments:
@@ -2176,14 +2428,18 @@ modules:
       prefix: srl_nokia-qos
     name: srl_nokia-oam-pm-ip
     path: /srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-oam-pm-ip.yang
-    prefix: srl_nokia-oam-pm-ip
+    prefix:
+      current: srl_nokia-oam-pm-ip
+      target: srl-oam-pm-ip
   srl_nokia-oam-pm-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-oam-pm-types
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam-pm-types.yang
-    prefix: srl_nokia-oam-pm-types
+    prefix:
+      current: srl_nokia-oam-pm-types
+      target: srl-oam-pm-types
   srl_nokia-oam-pm.yang:
     augmented_by: []
     augments: []
@@ -2194,7 +2450,9 @@ modules:
       prefix: srl_nokia-pm-types
     name: srl_nokia-oam-pm
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam-pm.yang
-    prefix: srl_nokia-oam-pm
+    prefix:
+      current: srl_nokia-oam-pm
+      target: srl-oam-pm
   srl_nokia-oam.yang:
     augmented_by:
     - srl_nokia-service-activation-testhead.yang
@@ -2212,7 +2470,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-oam
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam.yang
-    prefix: srl_nokia-oam
+    prefix:
+      current: srl_nokia-oam
+      target: srl-oam
   srl_nokia-openconfig.yang:
     augmented_by: []
     augments:
@@ -2228,7 +2488,9 @@ modules:
       prefix: srl-system
     name: srl_nokia-openconfig
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-openconfig.yang
-    prefix: srl_nokia-openconfig
+    prefix:
+      current: srl_nokia-openconfig
+      target: srl-openconfig
   srl_nokia-ospf-lsdb.yang:
     augmented_by: []
     augments: []
@@ -2241,7 +2503,9 @@ modules:
       prefix: srl_nokia-ospf-types
     name: srl_nokia-ospf-lsdb
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf-lsdb.yang
-    prefix: srl_nokia-ospf-lsdb
+    prefix:
+      current: srl_nokia-ospf-lsdb
+      target: srl-ospf-lsdb
   srl_nokia-ospf-types.yang:
     augmented_by: []
     augments: []
@@ -2250,7 +2514,9 @@ modules:
       prefix: yang
     name: srl_nokia-ospf-types
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf-types.yang
-    prefix: srl_nokia-ospf-types
+    prefix:
+      current: srl_nokia-ospf-types
+      target: srl-ospf-types
   srl_nokia-ospf.yang:
     augmented_by: []
     augments:
@@ -2280,7 +2546,9 @@ modules:
       prefix: srl_nokia-ldp
     name: srl_nokia-ospf
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf.yang
-    prefix: srl_nokia-ospf
+    prefix:
+      current: srl_nokia-ospf
+      target: srl-ospf
   srl_nokia-ospfv3-lsas.yang:
     augmented_by: []
     augments: []
@@ -2293,7 +2561,9 @@ modules:
       prefix: srl_nokia-ospf-types
     name: srl_nokia-ospfv3-lsas
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospfv3-lsas.yang
-    prefix: srl_nokia-ospfv3-lsas
+    prefix:
+      current: srl_nokia-ospfv3-lsas
+      target: srl-ospfv3-lsas
   srl_nokia-p4rt.yang:
     augmented_by: []
     augments: []
@@ -2304,7 +2574,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-p4rt
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-p4rt.yang
-    prefix: srl-p4rt
+    prefix:
+      current: srl-p4rt
+      target: srl-p4rt
   srl_nokia-packet-link-qual.yang:
     augmented_by: []
     augments:
@@ -2323,14 +2595,18 @@ modules:
       prefix: srl-if
     name: srl_nokia-packet-link-qual
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-packet-link-qual.yang
-    prefix: srl_nokia-plq
+    prefix:
+      current: srl_nokia-plq
+      target: srl-packet-link-qual
   srl_nokia-packet-match-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-packet-match-types
     path: /srlinux-yang-models/srl_nokia/models/acl/srl_nokia-packet-match-types.yang
-    prefix: srl_nokia-pkt-match-types
+    prefix:
+      current: srl_nokia-pkt-match-types
+      target: srl-packet-match-types
   srl_nokia-pcep.yang:
     augmented_by: []
     augments:
@@ -2352,7 +2628,9 @@ modules:
       prefix: srl_nokia-keychains
     name: srl_nokia-pcep
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pcep.yang
-    prefix: srl_nokia-pcep
+    prefix:
+      current: srl_nokia-pcep
+      target: srl-pcep
   srl_nokia-pim.yang:
     augmented_by: []
     augments:
@@ -2372,7 +2650,9 @@ modules:
       prefix: srl_nokia-mvpn
     name: srl_nokia-pim
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pim.yang
-    prefix: srl_nokia-pim
+    prefix:
+      current: srl_nokia-pim
+      target: srl-pim
   srl_nokia-platform-acl.yang:
     augmented_by: []
     augments:
@@ -2393,7 +2673,9 @@ modules:
       prefix: srl_feat
     name: srl_nokia-platform-acl
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-acl.yang
-    prefix: srl_nokia-platform-acl
+    prefix:
+      current: srl_nokia-platform-acl
+      target: srl-platform-acl
   srl_nokia-platform-cgroup.yang:
     augmented_by: []
     augments:
@@ -2407,7 +2689,9 @@ modules:
       prefix: srl-platform-control
     name: srl_nokia-platform-cgroup
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cgroup.yang
-    prefix: srl_nokia-platform-cgroup
+    prefix:
+      current: srl_nokia-platform-cgroup
+      target: srl-platform-cgroup
   srl_nokia-platform-chassis.yang:
     augmented_by: []
     augments:
@@ -2423,7 +2707,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-chassis
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-chassis.yang
-    prefix: srl_nokia-platform-chassis
+    prefix:
+      current: srl_nokia-platform-chassis
+      target: srl-platform-chassis
   srl_nokia-platform-control-fp.yang:
     augmented_by: []
     augments:
@@ -2435,7 +2721,9 @@ modules:
       prefix: srl_nokia-platform-control
     name: srl_nokia-platform-control-fp
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control-fp.yang
-    prefix: srl_nokia-platform-control-fp
+    prefix:
+      current: srl_nokia-platform-control-fp
+      target: srl-platform-control-fp
   srl_nokia-platform-control.yang:
     augmented_by: []
     augments:
@@ -2451,7 +2739,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-control
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control.yang
-    prefix: srl_nokia-platform-control
+    prefix:
+      current: srl_nokia-platform-control
+      target: srl-platform-control
   srl_nokia-platform-cpu.yang:
     augmented_by: []
     augments:
@@ -2467,7 +2757,9 @@ modules:
       prefix: srl-platform-control
     name: srl_nokia-platform-cpu
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cpu.yang
-    prefix: srl_nokia-platform-cpu
+    prefix:
+      current: srl_nokia-platform-cpu
+      target: srl-platform-cpu
   srl_nokia-platform-datapath-resources.yang:
     augmented_by: []
     augments:
@@ -2489,7 +2781,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-platform-datapath-resources
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-datapath-resources.yang
-    prefix: srl_nokia-platform-datapath-resources
+    prefix:
+      current: srl_nokia-platform-datapath-resources
+      target: srl-platform-datapath-resources
   srl_nokia-platform-disk.yang:
     augmented_by: []
     augments:
@@ -2505,7 +2799,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-disk
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-disk.yang
-    prefix: srl_nokia-platform-disk
+    prefix:
+      current: srl_nokia-platform-disk
+      target: srl-platform-disk
   srl_nokia-platform-fabric.yang:
     augmented_by: []
     augments:
@@ -2519,7 +2815,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-fabric
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fabric.yang
-    prefix: srl_nokia-platform-fabric
+    prefix:
+      current: srl_nokia-platform-fabric
+      target: srl-platform-fabric
   srl_nokia-platform-fan.yang:
     augmented_by: []
     augments:
@@ -2535,7 +2833,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-fan
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fan.yang
-    prefix: srl_nokia-platform-fan
+    prefix:
+      current: srl_nokia-platform-fan
+      target: srl-platform-fan
   srl_nokia-platform-healthz.yang:
     augmented_by: []
     augments:
@@ -2569,7 +2869,9 @@ modules:
       prefix: srl-interfaces
     name: srl_nokia-platform-healthz
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-healthz.yang
-    prefix: srl_nokia-platform-healthz
+    prefix:
+      current: srl_nokia-platform-healthz
+      target: srl-platform-healthz
   srl_nokia-platform-lc.yang:
     augmented_by: []
     augments:
@@ -2587,7 +2889,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-lc
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-lc.yang
-    prefix: srl_nokia-platform-lc
+    prefix:
+      current: srl_nokia-platform-lc
+      target: srl-platform-lc
   srl_nokia-platform-linecard-fib.yang:
     augmented_by: []
     augments:
@@ -2601,7 +2905,9 @@ modules:
       prefix: srl_nokia-platform-lc
     name: srl_nokia-platform-linecard-fib
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-linecard-fib.yang
-    prefix: srl_nokia-platform-lc-fib
+    prefix:
+      current: srl_nokia-platform-lc-fib
+      target: srl-platform-linecard-fib
   srl_nokia-platform-memory.yang:
     augmented_by: []
     augments:
@@ -2615,7 +2921,9 @@ modules:
       prefix: srl-comm
     name: srl_nokia-platform-memory
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-memory.yang
-    prefix: srl_nokia-platform-memory
+    prefix:
+      current: srl_nokia-platform-memory
+      target: srl-platform-memory
   srl_nokia-platform-mtu.yang:
     augmented_by: []
     augments:
@@ -2634,7 +2942,9 @@ modules:
       prefix: srl_feat
     name: srl_nokia-platform-mtu
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-mtu.yang
-    prefix: srl_nokia-platform-mtu
+    prefix:
+      current: srl_nokia-platform-mtu
+      target: srl-platform-mtu
   srl_nokia-platform-p4rt.yang:
     augmented_by: []
     augments:
@@ -2650,7 +2960,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-platform-p4rt
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-p4rt.yang
-    prefix: srl_nokia-platform-p4rt
+    prefix:
+      current: srl_nokia-platform-p4rt
+      target: srl-platform-p4rt
   srl_nokia-platform-pipeline-counters.yang:
     augmented_by: []
     augments: []
@@ -2661,7 +2973,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-pipeline-counters
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-pipeline-counters.yang
-    prefix: srl_nokia-platform-host-interface-pipeline
+    prefix:
+      current: srl_nokia-platform-host-interface-pipeline
+      target: srl-platform-pipeline-counters
   srl_nokia-platform-psu.yang:
     augmented_by: []
     augments:
@@ -2677,7 +2991,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-psu
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-psu.yang
-    prefix: srl_nokia-platform-psu
+    prefix:
+      current: srl_nokia-platform-psu
+      target: srl-platform-psu
   srl_nokia-platform-qos.yang:
     augmented_by: []
     augments:
@@ -2699,7 +3015,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-platform-qos
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-qos.yang
-    prefix: srl_nokia-platform-qos
+    prefix:
+      current: srl_nokia-platform-qos
+      target: srl-platform-qos
   srl_nokia-platform-redundancy.yang:
     augmented_by: []
     augments:
@@ -2713,7 +3031,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-redundancy
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-redundancy.yang
-    prefix: srl_nokia-platform-redundancy
+    prefix:
+      current: srl_nokia-platform-redundancy
+      target: srl-platform-redundancy
   srl_nokia-platform-resource-mgmt.yang:
     augmented_by: []
     augments:
@@ -2725,7 +3045,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-resource-mgmt
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-mgmt.yang
-    prefix: srl_nokia-platform-res-mgmt
+    prefix:
+      current: srl_nokia-platform-res-mgmt
+      target: srl-platform-resource-mgmt
   srl_nokia-platform-resource-monitoring.yang:
     augmented_by: []
     augments:
@@ -2735,7 +3057,9 @@ modules:
       prefix: srl_nokia-platform
     name: srl_nokia-platform-resource-monitoring
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-monitoring.yang
-    prefix: srl_nokia-platform-res-monitor
+    prefix:
+      current: srl_nokia-platform-res-monitor
+      target: srl-platform-resource-monitoring
   srl_nokia-platform-secure-boot.yang:
     augmented_by: []
     augments:
@@ -2747,7 +3071,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform-secure-boot
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-secure-boot.yang
-    prefix: srl_nokia-platform-secure-boot
+    prefix:
+      current: srl_nokia-platform-secure-boot
+      target: srl-platform-secure-boot
   srl_nokia-platform-tcam.yang:
     augmented_by: []
     augments:
@@ -2768,7 +3094,9 @@ modules:
       prefix: srl_feat
     name: srl_nokia-platform-tcam
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tcam.yang
-    prefix: srl_nokia-platform-tcam
+    prefix:
+      current: srl_nokia-platform-tcam
+      target: srl-platform-tcam
   srl_nokia-platform-tpm.yang:
     augmented_by: []
     augments:
@@ -2782,7 +3110,9 @@ modules:
       prefix: srl-comm
     name: srl_nokia-platform-tpm
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tpm.yang
-    prefix: srl_nokia-platform-tpm
+    prefix:
+      current: srl_nokia-platform-tpm
+      target: srl-platform-tpm
   srl_nokia-platform-vxdp.yang:
     augmented_by: []
     augments:
@@ -2801,7 +3131,9 @@ modules:
       prefix: srl-cpu
     name: srl_nokia-platform-vxdp
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-vxdp.yang
-    prefix: srl_nokia-platform-vxdp
+    prefix:
+      current: srl_nokia-platform-vxdp
+      target: srl-platform-vxdp
   srl_nokia-platform.yang:
     augmented_by:
     - srl_nokia-ip-route-tables.yang
@@ -2840,7 +3172,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-platform
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform.yang
-    prefix: srl_nokia-platform
+    prefix:
+      current: srl_nokia-platform
+      target: srl-platform
   srl_nokia-policy-forwarding.yang:
     augmented_by: []
     augments:
@@ -2860,7 +3194,9 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-policy-forwarding
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-policy-forwarding.yang
-    prefix: srl_nokia-pol-fwd
+    prefix:
+      current: srl_nokia-pol-fwd
+      target: srl-policy-forwarding
   srl_nokia-policy-types.yang:
     augmented_by: []
     augments: []
@@ -2871,7 +3207,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-policy-types
     path: /srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-policy-types.yang
-    prefix: srl_nokia-pol-types
+    prefix:
+      current: srl_nokia-pol-types
+      target: srl-policy-types
   srl_nokia-pw-tunnel.yang:
     augmented_by: []
     augments:
@@ -2887,7 +3225,9 @@ modules:
       prefix: srl_nokia-tunnel
     name: srl_nokia-pw-tunnel
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-pw-tunnel.yang
-    prefix: srl_nokia-pw-tunnel
+    prefix:
+      current: srl_nokia-pw-tunnel
+      target: srl-pw-tunnel
   srl_nokia-qos-policers.yang:
     augmented_by: []
     augments: []
@@ -2900,7 +3240,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-qos-policers
     path: /srlinux-yang-models/srl_nokia/models/qos/srl_nokia-qos-policers.yang
-    prefix: srl_nokia-qos-policers
+    prefix:
+      current: srl_nokia-qos-policers
+      target: srl-qos-policers
   srl_nokia-qos.yang:
     augmented_by:
     - srl_nokia-acl-qos.yang
@@ -2924,7 +3266,9 @@ modules:
       prefix: srl_nokia-qos-policers
     name: srl_nokia-qos
     path: /srlinux-yang-models/srl_nokia/models/qos/srl_nokia-qos.yang
-    prefix: srl_nokia-qos
+    prefix:
+      current: srl_nokia-qos
+      target: srl-qos
   srl_nokia-ra_guard.yang:
     augmented_by: []
     augments:
@@ -2947,7 +3291,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-ra_guard
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-ra_guard.yang
-    prefix: srl_nokia-ra_guard
+    prefix:
+      current: srl_nokia-ra_guard
+      target: srl-ra_guard
   srl_nokia-rib-bgp.yang:
     augmented_by: []
     augments:
@@ -2965,7 +3311,9 @@ modules:
       prefix: srl_nokia-rt
     name: srl_nokia-rib-bgp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-rib-bgp.yang
-    prefix: srl_nokia-rib-bgp-routes
+    prefix:
+      current: srl_nokia-rib-bgp-routes
+      target: srl-rib-bgp
   srl_nokia-routing-policy.yang:
     augmented_by: []
     augments: []
@@ -2984,7 +3332,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-routing-policy
     path: /srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-routing-policy.yang
-    prefix: srl_rpol
+    prefix:
+      current: srl_rpol
+      target: srl-routing-policy
   srl_nokia-seamless-bfd.yang:
     augmented_by: []
     augments:
@@ -2998,7 +3348,9 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-seamless-bfd
     path: /srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-seamless-bfd.yang
-    prefix: srl_nokia-seamless-bfd
+    prefix:
+      current: srl_nokia-seamless-bfd
+      target: srl-seamless-bfd
   srl_nokia-segment-routing.yang:
     augmented_by: []
     augments:
@@ -3016,14 +3368,18 @@ modules:
       prefix: srl-feat
     name: srl_nokia-segment-routing
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-segment-routing.yang
-    prefix: srl_nokia-sr
+    prefix:
+      current: srl_nokia-sr
+      target: srl-segment-routing
   srl_nokia-service-activation-testhead-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-service-activation-testhead-types
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-service-activation-testhead-types.yang
-    prefix: srl_nokia-service-activation-testhead-types
+    prefix:
+      current: srl_nokia-service-activation-testhead-types
+      target: srl-service-activation-testhead-types
   srl_nokia-service-activation-testhead.yang:
     augmented_by: []
     augments:
@@ -3047,7 +3403,9 @@ modules:
       prefix: srl_nokia-sath-types
     name: srl_nokia-service-activation-testhead
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-service-activation-testhead.yang
-    prefix: srl_nokia-service-activation-testhead
+    prefix:
+      current: srl_nokia-service-activation-testhead
+      target: srl-service-activation-testhead
   srl_nokia-sflow.yang:
     augmented_by: []
     augments:
@@ -3065,7 +3423,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-sflow
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-sflow.yang
-    prefix: srl_nokia-sflow
+    prefix:
+      current: srl_nokia-sflow
+      target: srl-sflow
   srl_nokia-ssh.yang:
     augmented_by: []
     augments:
@@ -3083,7 +3443,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-ssh
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-ssh.yang
-    prefix: srl_nokia-ssh
+    prefix:
+      current: srl_nokia-ssh
+      target: srl-ssh
   srl_nokia-stamp.yang:
     augmented_by: []
     augments:
@@ -3101,7 +3463,9 @@ modules:
       prefix: srl_nokia-oam
     name: srl_nokia-stamp
     path: /srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-stamp.yang
-    prefix: srl_nokia-stamp
+    prefix:
+      current: srl_nokia-stamp
+      target: srl-stamp
   srl_nokia-static-routes.yang:
     augmented_by: []
     augments:
@@ -3121,14 +3485,18 @@ modules:
       prefix: srl_nokia-pol-types
     name: srl_nokia-static-routes
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-static-routes.yang
-    prefix: srl_nokia-static-routes
+    prefix:
+      current: srl_nokia-static-routes
+      target: srl-static-routes
   srl_nokia-stp-types.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-stp-types
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-stp-types.yang
-    prefix: srl_nokia-stp-types
+    prefix:
+      current: srl_nokia-stp-types
+      target: srl-stp-types
   srl_nokia-stp.yang:
     augmented_by: []
     augments:
@@ -3146,7 +3514,9 @@ modules:
       prefix: srl_nokia-stp-types
     name: srl_nokia-stp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-stp.yang
-    prefix: srl_nokia-stp
+    prefix:
+      current: srl_nokia-stp
+      target: srl-stp
   srl_nokia-sync-freq.yang:
     augmented_by: []
     augments: []
@@ -3161,7 +3531,9 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-sync-freq
     path: /srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-freq.yang
-    prefix: srl_nokia-sync-freq
+    prefix:
+      current: srl_nokia-sync-freq
+      target: srl-sync-freq
   srl_nokia-sync-interfaces.yang:
     augmented_by: []
     augments: []
@@ -3172,7 +3544,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-sync-interfaces
     path: /srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-interfaces.yang
-    prefix: srl_nokia-sync-interfaces
+    prefix:
+      current: srl_nokia-sync-interfaces
+      target: srl-sync-interfaces
   srl_nokia-sync-ptp.yang:
     augmented_by: []
     augments:
@@ -3192,7 +3566,9 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-sync-ptp
     path: /srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-ptp.yang
-    prefix: srl_nokia-sync-ptp
+    prefix:
+      current: srl_nokia-sync-ptp
+      target: srl-sync-ptp
   srl_nokia-sync-types.yang:
     augmented_by: []
     augments: []
@@ -3201,7 +3577,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-sync-types
     path: /srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-types.yang
-    prefix: srl_nokia-sync-types
+    prefix:
+      current: srl_nokia-sync-types
+      target: srl-sync-types
   srl_nokia-sync.yang:
     augmented_by: []
     augments:
@@ -3219,7 +3597,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-sync
     path: /srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync.yang
-    prefix: srl_nokia-sync
+    prefix:
+      current: srl_nokia-sync
+      target: srl-sync
   srl_nokia-system-banner.yang:
     augmented_by: []
     augments:
@@ -3229,7 +3609,9 @@ modules:
       prefix: srl-system
     name: srl_nokia-system-banner
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-banner.yang
-    prefix: srl_nokia-system-banner
+    prefix:
+      current: srl_nokia-system-banner
+      target: srl-system-banner
   srl_nokia-system-bridge-table-evpn-mpls-multicast-tep.yang:
     augmented_by: []
     augments:
@@ -3249,7 +3631,9 @@ modules:
       prefix: srl_nokia-system-bridge-table-evpn
     name: srl_nokia-system-bridge-table-evpn-mpls-multicast-tep
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn-mpls-multicast-tep.yang
-    prefix: srl_nokia-system-bridge-table-evpn-mpls-multicast-tep
+    prefix:
+      current: srl_nokia-system-bridge-table-evpn-mpls-multicast-tep
+      target: srl-system-bridge-table-evpn-mpls-multicast-tep
   srl_nokia-system-bridge-table-evpn.yang:
     augmented_by: []
     augments:
@@ -3265,7 +3649,9 @@ modules:
       prefix: srl_nokia-system-bridge-table
     name: srl_nokia-system-bridge-table-evpn
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn.yang
-    prefix: srl_nokia-system-bridge-table-evpn
+    prefix:
+      current: srl_nokia-system-bridge-table-evpn
+      target: srl-system-bridge-table-evpn
   srl_nokia-system-bridge-table-proxy-arp.yang:
     augmented_by: []
     augments:
@@ -3285,7 +3671,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-system-bridge-table-proxy-arp
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-proxy-arp.yang
-    prefix: srl_nokia-system-bridge-table-proxy-arp
+    prefix:
+      current: srl_nokia-system-bridge-table-proxy-arp
+      target: srl-system-bridge-table-proxy-arp
   srl_nokia-system-bridge-table.yang:
     augmented_by: []
     augments:
@@ -3299,7 +3687,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-system-bridge-table
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table.yang
-    prefix: srl_nokia-system-bridge-table
+    prefix:
+      current: srl_nokia-system-bridge-table
+      target: srl-system-bridge-table
   srl_nokia-system-datapath.yang:
     augmented_by: []
     augments:
@@ -3313,7 +3703,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-system-datapath
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-datapath.yang
-    prefix: srl_nokia-sys-datapath
+    prefix:
+      current: srl_nokia-sys-datapath
+      target: srl-system-datapath
   srl_nokia-system-info.yang:
     augmented_by: []
     augments:
@@ -3329,7 +3721,9 @@ modules:
       prefix: oc-meta
     name: srl_nokia-system-info
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-info.yang
-    prefix: srl_nokia-system-info
+    prefix:
+      current: srl_nokia-system-info
+      target: srl-system-info
   srl_nokia-system-multicast-mfib-table.yang:
     augmented_by: []
     augments:
@@ -3347,7 +3741,9 @@ modules:
       prefix: srl_nokia-netinst
     name: srl_nokia-system-multicast-mfib-table
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast-mfib-table.yang
-    prefix: srl_nokia-system-multicast-mfib-table
+    prefix:
+      current: srl_nokia-system-multicast-mfib-table
+      target: srl-system-multicast-mfib-table
   srl_nokia-system-multicast.yang:
     augmented_by: []
     augments:
@@ -3361,7 +3757,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-system-multicast
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast.yang
-    prefix: srl_nokia-system-multicast
+    prefix:
+      current: srl_nokia-system-multicast
+      target: srl-system-multicast
   srl_nokia-system-name.yang:
     augmented_by: []
     augments:
@@ -3373,7 +3771,9 @@ modules:
       prefix: srl-comm
     name: srl_nokia-system-name
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-name.yang
-    prefix: srl_nokia-system-name
+    prefix:
+      current: srl_nokia-system-name
+      target: srl-system-name
   srl_nokia-system-network-instance-bgp-evpn-ethernet-segments.yang:
     augmented_by: []
     augments:
@@ -3397,7 +3797,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-system-network-instance-bgp-evpn-ethernet-segments
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-ethernet-segments.yang
-    prefix: srl_nokia-system-bgp-evpn-ethernet-segments
+    prefix:
+      current: srl_nokia-system-bgp-evpn-ethernet-segments
+      target: srl-system-network-instance-bgp-evpn-ethernet-segments
   srl_nokia-system-network-instance-bgp-evpn-multicast.yang:
     augmented_by: []
     augments:
@@ -3411,7 +3813,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-system-network-instance-bgp-evpn-multicast
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-multicast.yang
-    prefix: srl_nokia-system-bgp-evpn-multicast
+    prefix:
+      current: srl_nokia-system-bgp-evpn-multicast
+      target: srl-system-network-instance-bgp-evpn-multicast
   srl_nokia-system-network-instance-bgp-vpn.yang:
     augmented_by: []
     augments:
@@ -3427,7 +3831,9 @@ modules:
       prefix: srl_nokia-system-network-instance
     name: srl_nokia-system-network-instance-bgp-vpn
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-vpn.yang
-    prefix: srl_nokia-system-bgp-vpn
+    prefix:
+      current: srl_nokia-system-bgp-vpn
+      target: srl-system-network-instance-bgp-vpn
   srl_nokia-system-network-instance.yang:
     augmented_by: []
     augments:
@@ -3449,7 +3855,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-system-network-instance
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance.yang
-    prefix: srl_nokia-system-netinst
+    prefix:
+      current: srl_nokia-system-netinst
+      target: srl-system-network-instance
   srl_nokia-system-protocols.yang:
     augmented_by: []
     augments:
@@ -3459,7 +3867,9 @@ modules:
       prefix: srl_nokia-system
     name: srl_nokia-system-protocols
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-protocols.yang
-    prefix: srl_nokia-system-protocols
+    prefix:
+      current: srl_nokia-system-protocols
+      target: srl-system-protocols
   srl_nokia-system-snmp.yang:
     augmented_by: []
     augments:
@@ -3477,7 +3887,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-system-snmp
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-snmp.yang
-    prefix: srl_nokia-snmp
+    prefix:
+      current: srl_nokia-snmp
+      target: srl-system-snmp
   srl_nokia-system-utilization.yang:
     augmented_by: []
     augments:
@@ -3491,7 +3903,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-system-utilization
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-utilization.yang
-    prefix: srl_nokia-sys-util
+    prefix:
+      current: srl_nokia-sys-util
+      target: srl-system-utilization
   srl_nokia-system.yang:
     augmented_by:
     - srl_nokia-dot1x.yang
@@ -3561,7 +3975,9 @@ modules:
       prefix: srl-comm
     name: srl_nokia-system
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-system.yang
-    prefix: srl_nokia-system
+    prefix:
+      current: srl_nokia-system
+      target: srl-system
   srl_nokia-table-connections.yang:
     augmented_by: []
     augments:
@@ -3579,7 +3995,9 @@ modules:
       prefix: srl_nokia-ni
     name: srl_nokia-table-connections
     path: /srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-table-connections.yang
-    prefix: srl_nokia-tblconn
+    prefix:
+      current: srl_nokia-tblconn
+      target: srl-table-connections
   srl_nokia-tcp-udp.yang:
     augmented_by: []
     augments:
@@ -3591,7 +4009,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tcp-udp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tcp-udp.yang
-    prefix: srl_nokia-tcp-udp
+    prefix:
+      current: srl_nokia-tcp-udp
+      target: srl-tcp-udp
   srl_nokia-te-policies.yang:
     augmented_by: []
     augments:
@@ -3617,7 +4037,9 @@ modules:
       prefix: srl_nokia-routing-pol
     name: srl_nokia-te-policies
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-te-policies.yang
-    prefix: srl_nokia-te-policies
+    prefix:
+      current: srl_nokia-te-policies
+      target: srl-te-policies
   srl_nokia-terminal-device.yang:
     augmented_by: []
     augments: []
@@ -3632,14 +4054,18 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-terminal-device
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-terminal-device.yang
-    prefix: srl_nokia-term-dev
+    prefix:
+      current: srl_nokia-term-dev
+      target: srl-terminal-device
   srl_nokia-timezone.yang:
     augmented_by: []
     augments: []
     imports: []
     name: srl_nokia-timezone
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-timezone.yang
-    prefix: srl_nokia-timezone
+    prefix:
+      current: srl_nokia-timezone
+      target: srl-timezone
   srl_nokia-tls.yang:
     augmented_by: []
     augments:
@@ -3655,7 +4081,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-tls
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tls.yang
-    prefix: srl_nokia-tls
+    prefix:
+      current: srl_nokia-tls
+      target: srl-tls
   srl_nokia-tools-aaa.yang:
     augmented_by: []
     augments:
@@ -3669,7 +4097,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-aaa
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-aaa.yang
-    prefix: srl-tools-aaa
+    prefix:
+      current: srl-tools-aaa
+      target: srl-tools-aaa
   srl_nokia-tools-acl.yang:
     augmented_by: []
     augments:
@@ -3686,7 +4116,9 @@ modules:
       prefix: srl_nokia-tools-qos
     name: srl_nokia-tools-acl
     path: /srlinux-yang-models/srl_nokia/models/acl/srl_nokia-tools-acl.yang
-    prefix: srl_nokia-tools-acl
+    prefix:
+      current: srl_nokia-tools-acl
+      target: srl-tools-acl
   srl_nokia-tools-app-mgmt.yang:
     augmented_by: []
     augments:
@@ -3696,7 +4128,9 @@ modules:
       prefix: srl-tools-system
     name: srl_nokia-tools-app-mgmt
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-app-mgmt.yang
-    prefix: srl_nokia-tools-app-mgmt
+    prefix:
+      current: srl_nokia-tools-app-mgmt
+      target: srl-tools-app-mgmt
   srl_nokia-tools-bfd.yang:
     augmented_by: []
     augments: []
@@ -3707,7 +4141,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-bfd
     path: /srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-tools-bfd.yang
-    prefix: srl_nokia-tools-bfd
+    prefix:
+      current: srl_nokia-tools-bfd
+      target: srl-tools-bfd
   srl_nokia-tools-bgp.yang:
     augmented_by: []
     augments:
@@ -3721,7 +4157,9 @@ modules:
       prefix: srl_nokia-tools-netinst
     name: srl_nokia-tools-bgp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bgp.yang
-    prefix: srl_nokia-tools-bgp
+    prefix:
+      current: srl_nokia-tools-bgp
+      target: srl-tools-bgp
   srl_nokia-tools-boot.yang:
     augmented_by: []
     augments:
@@ -3735,7 +4173,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-boot
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-boot.yang
-    prefix: srl-tools-boot
+    prefix:
+      current: srl-tools-boot
+      target: srl-tools-boot
   srl_nokia-tools-bridge-table-mac-duplication.yang:
     augmented_by: []
     augments:
@@ -3747,7 +4187,9 @@ modules:
       prefix: srl_nokia-tools-netinst
     name: srl_nokia-tools-bridge-table-mac-duplication
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-duplication.yang
-    prefix: srl_nokia-tools-bridge-table-mac-duplication
+    prefix:
+      current: srl_nokia-tools-bridge-table-mac-duplication
+      target: srl-tools-bridge-table-mac-duplication
   srl_nokia-tools-bridge-table-mac-learning.yang:
     augmented_by: []
     augments:
@@ -3759,7 +4201,9 @@ modules:
       prefix: srl_nokia-tools-netinst
     name: srl_nokia-tools-bridge-table-mac-learning
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-learning.yang
-    prefix: srl_nokia-tools-bridge-table-mac-learning
+    prefix:
+      current: srl_nokia-tools-bridge-table-mac-learning
+      target: srl-tools-bridge-table-mac-learning
   srl_nokia-tools-bridge-table-proxy-arp-nd.yang:
     augmented_by: []
     augments:
@@ -3773,7 +4217,9 @@ modules:
       prefix: srl_nokia-tools-netinst
     name: srl_nokia-tools-bridge-table-proxy-arp-nd
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-proxy-arp-nd.yang
-    prefix: srl_nokia-tools-bridge-table-proxy-arp-nd
+    prefix:
+      current: srl_nokia-tools-bridge-table-proxy-arp-nd
+      target: srl-tools-bridge-table-proxy-arp-nd
   srl_nokia-tools-cgroup.yang:
     augmented_by: []
     augments:
@@ -3783,7 +4229,9 @@ modules:
       prefix: srl-tools-system
     name: srl_nokia-tools-cgroup
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-cgroup.yang
-    prefix: srl-tools-cgroup
+    prefix:
+      current: srl-tools-cgroup
+      target: srl-tools-cgroup
   srl_nokia-tools-configuration.yang:
     augmented_by: []
     augments:
@@ -3801,7 +4249,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-configuration
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-configuration.yang
-    prefix: srl-tools-config
+    prefix:
+      current: srl-tools-config
+      target: srl-tools-configuration
   srl_nokia-tools-connection-point-bridge-table-mac-duplication.yang:
     augmented_by: []
     augments:
@@ -3815,7 +4265,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tools-connection-point-bridge-table-mac-duplication
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-duplication.yang
-    prefix: srl_nokia-tools-connection-point-bridge-table-mac-duplication
+    prefix:
+      current: srl_nokia-tools-connection-point-bridge-table-mac-duplication
+      target: srl-tools-connection-point-bridge-table-mac-duplication
   srl_nokia-tools-connection-point-bridge-table-mac-learning.yang:
     augmented_by: []
     augments:
@@ -3829,7 +4281,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tools-connection-point-bridge-table-mac-learning
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-learning.yang
-    prefix: srl_nokia-tools-connection-point-bridge-table-mac-learning
+    prefix:
+      current: srl_nokia-tools-connection-point-bridge-table-mac-learning
+      target: srl-tools-connection-point-bridge-table-mac-learning
   srl_nokia-tools-dhcp-relay.yang:
     augmented_by: []
     augments:
@@ -3839,7 +4293,9 @@ modules:
       prefix: srl_nokia_tools-system
     name: srl_nokia-tools-dhcp-relay
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-relay.yang
-    prefix: srl_nokia-tools-dhcp-relay
+    prefix:
+      current: srl_nokia-tools-dhcp-relay
+      target: srl-tools-dhcp-relay
   srl_nokia-tools-dhcp-server.yang:
     augmented_by: []
     augments:
@@ -3851,7 +4307,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tools-dhcp-server
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-server.yang
-    prefix: srl_nokia-tools-dhcp-server
+    prefix:
+      current: srl_nokia-tools-dhcp-server
+      target: srl-tools-dhcp-server
   srl_nokia-tools-ethcfm.yang:
     augmented_by: []
     augments:
@@ -3867,7 +4325,9 @@ modules:
       prefix: srl_nokia-tools-oam
     name: srl_nokia-tools-ethcfm
     path: /srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-ethcfm.yang
-    prefix: srl_nokia-tools-ethcfm
+    prefix:
+      current: srl_nokia-tools-ethcfm
+      target: srl-tools-ethcfm
   srl_nokia-tools-event-handler.yang:
     augmented_by: []
     augments:
@@ -3881,7 +4341,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-tools-event-handler
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-event-handler.yang
-    prefix: srl-tools-event-handler
+    prefix:
+      current: srl-tools-event-handler
+      target: srl-tools-event-handler
   srl_nokia-tools-gnoi-healthz.yang:
     augmented_by: []
     augments: []
@@ -3890,7 +4352,9 @@ modules:
       prefix: srl-comm
     name: srl_nokia-tools-gnoi-healthz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnoi-healthz.yang
-    prefix: srl_nokia-tools-gnoi-healthz
+    prefix:
+      current: srl_nokia-tools-gnoi-healthz
+      target: srl-tools-gnoi-healthz
   srl_nokia-tools-gnoi.yang:
     augmented_by: []
     augments: []
@@ -3901,7 +4365,9 @@ modules:
       prefix: srl-tools-gnoi-healthz
     name: srl_nokia-tools-gnoi
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnoi.yang
-    prefix: srl_nokia-tools-gnoi
+    prefix:
+      current: srl_nokia-tools-gnoi
+      target: srl-tools-gnoi
   srl_nokia-tools-gnsi-authz.yang:
     augmented_by: []
     augments:
@@ -3917,7 +4383,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-gnsi-authz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-authz.yang
-    prefix: srl-tools-gnsi-authz
+    prefix:
+      current: srl-tools-gnsi-authz
+      target: srl-tools-gnsi-authz
   srl_nokia-tools-gnsi-certz.yang:
     augmented_by: []
     augments:
@@ -3933,7 +4401,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-gnsi-certz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-certz.yang
-    prefix: srl-tools-gnsi-certz
+    prefix:
+      current: srl-tools-gnsi-certz
+      target: srl-tools-gnsi-certz
   srl_nokia-tools-gnsi-pathz.yang:
     augmented_by: []
     augments: []
@@ -3946,7 +4416,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-gnsi-pathz
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-pathz.yang
-    prefix: srl-tools-gnsi-pathz
+    prefix:
+      current: srl-tools-gnsi-pathz
+      target: srl-tools-gnsi-pathz
   srl_nokia-tools-grpc.yang:
     augmented_by: []
     augments:
@@ -3964,7 +4436,9 @@ modules:
       prefix: srl-tools-system
     name: srl_nokia-tools-grpc
     path: /srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-grpc.yang
-    prefix: srl_nokia-tools-grpc
+    prefix:
+      current: srl_nokia-tools-grpc
+      target: srl-tools-grpc
   srl_nokia-tools-icmp.yang:
     augmented_by: []
     augments:
@@ -3974,7 +4448,9 @@ modules:
       prefix: srl_nokia-tools-netinst
     name: srl_nokia-tools-icmp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-icmp.yang
-    prefix: srl_nokia-tools-icmp
+    prefix:
+      current: srl_nokia-tools-icmp
+      target: srl-tools-icmp
   srl_nokia-tools-igmp-snooping.yang:
     augmented_by: []
     augments:
@@ -3988,7 +4464,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-igmp-snooping
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp-snooping.yang
-    prefix: srl_nokia-tools-igmp-snooping
+    prefix:
+      current: srl_nokia-tools-igmp-snooping
+      target: srl-tools-igmp-snooping
   srl_nokia-tools-igmp.yang:
     augmented_by: []
     augments:
@@ -4002,7 +4480,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-igmp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp.yang
-    prefix: srl_nokia-tools-igmp
+    prefix:
+      current: srl_nokia-tools-igmp
+      target: srl-tools-igmp
   srl_nokia-tools-interfaces-bridge-table-mac-duplication.yang:
     augmented_by: []
     augments:
@@ -4014,7 +4494,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tools-interfaces-bridge-table-mac-duplication
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-duplication.yang
-    prefix: srl_nokia-tools-interfaces-bridge-table-mac-duplication
+    prefix:
+      current: srl_nokia-tools-interfaces-bridge-table-mac-duplication
+      target: srl-tools-interfaces-bridge-table-mac-duplication
   srl_nokia-tools-interfaces-bridge-table-mac-learning.yang:
     augmented_by: []
     augments:
@@ -4026,7 +4508,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tools-interfaces-bridge-table-mac-learning
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-learning.yang
-    prefix: srl_nokia-tools-interfaces-bridge-table-mac-learning
+    prefix:
+      current: srl_nokia-tools-interfaces-bridge-table-mac-learning
+      target: srl-tools-interfaces-bridge-table-mac-learning
   srl_nokia-tools-interfaces-ip-dhcp-relay.yang:
     augmented_by: []
     augments:
@@ -4037,7 +4521,9 @@ modules:
       prefix: srl_nokia_tools-if
     name: srl_nokia-tools-interfaces-ip-dhcp-relay
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-dhcp-relay.yang
-    prefix: srl_nokia-tools-interfaces-ip-dhcp-relay
+    prefix:
+      current: srl_nokia-tools-interfaces-ip-dhcp-relay
+      target: srl-tools-interfaces-ip-dhcp-relay
   srl_nokia-tools-interfaces-ip-vrrp.yang:
     augmented_by: []
     augments:
@@ -4050,7 +4536,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-interfaces-ip-vrrp
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-vrrp.yang
-    prefix: srl_nokia-tools-interfaces-ip-vrrp
+    prefix:
+      current: srl_nokia-tools-interfaces-ip-vrrp
+      target: srl-tools-interfaces-ip-vrrp
   srl_nokia-tools-interfaces-nbr-virtual-ip-discovery.yang:
     augmented_by: []
     augments:
@@ -4067,7 +4555,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-interfaces-nbr-virtual-ip-discovery
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr-virtual-ip-discovery.yang
-    prefix: srl_nokia-tools-if-nbr-virtual-ip-discovery
+    prefix:
+      current: srl_nokia-tools-if-nbr-virtual-ip-discovery
+      target: srl-tools-interfaces-nbr-virtual-ip-discovery
   srl_nokia-tools-interfaces-nbr.yang:
     augmented_by: []
     augments:
@@ -4080,7 +4570,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tools-interfaces-nbr
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr.yang
-    prefix: srl_nokia-tools-if-nbr
+    prefix:
+      current: srl_nokia-tools-if-nbr
+      target: srl-tools-interfaces-nbr
   srl_nokia-tools-interfaces-packet-link-qual.yang:
     augmented_by: []
     augments:
@@ -4094,7 +4586,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-interfaces-packet-link-qual
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-packet-link-qual.yang
-    prefix: srl_nokia-tools-if-packet-link-qual
+    prefix:
+      current: srl_nokia-tools-if-packet-link-qual
+      target: srl-tools-interfaces-packet-link-qual
   srl_nokia-tools-interfaces.yang:
     augmented_by:
     - srl_nokia-tools-interfaces-ip-vrrp.yang
@@ -4112,7 +4606,9 @@ modules:
       prefix: srl_nokia-comm
     name: srl_nokia-tools-interfaces
     path: /srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces.yang
-    prefix: srl_nokia-tools-if
+    prefix:
+      current: srl_nokia-tools-if
+      target: srl-tools-interfaces
   srl_nokia-tools-isis.yang:
     augmented_by: []
     augments:
@@ -4124,7 +4620,9 @@ modules:
       prefix: srl_nokia-tools-netinst
     name: srl_nokia-tools-isis
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-isis.yang
-    prefix: srl_nokia-tools-isis
+    prefix:
+      current: srl_nokia-tools-isis
+      target: srl-tools-isis
   srl_nokia-tools-l2cp.yang:
     augmented_by: []
     augments:
@@ -4136,7 +4634,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-l2cp
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-l2cp.yang
-    prefix: srl_nokia-tools-l2cp
+    prefix:
+      current: srl_nokia-tools-l2cp
+      target: srl-tools-l2cp
   srl_nokia-tools-ldp.yang:
     augmented_by: []
     augments:
@@ -4150,7 +4650,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-ldp
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ldp.yang
-    prefix: srl_nokia-tools-ldp
+    prefix:
+      current: srl_nokia-tools-ldp
+      target: srl-tools-ldp
   srl_nokia-tools-lldp.yang:
     augmented_by: []
     augments:
@@ -4160,7 +4662,9 @@ modules:
       prefix: srl-tools-system
     name: srl_nokia-tools-lldp
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-lldp.yang
-    prefix: srl_nokia-tools-lldp
+    prefix:
+      current: srl_nokia-tools-lldp
+      target: srl-tools-lldp
   srl_nokia-tools-lsp-ping-trace.yang:
     augmented_by: []
     augments:
@@ -4174,7 +4678,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-lsp-ping-trace
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-lsp-ping-trace.yang
-    prefix: srl_nokia-tools-lsp-ping-trace
+    prefix:
+      current: srl_nokia-tools-lsp-ping-trace
+      target: srl-tools-lsp-ping-trace
   srl_nokia-tools-mirroring.yang:
     augmented_by: []
     augments:
@@ -4190,7 +4696,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-tools-mirroring
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-mirroring.yang
-    prefix: srl_nokia-tools-mirroring
+    prefix:
+      current: srl_nokia-tools-mirroring
+      target: srl-tools-mirroring
   srl_nokia-tools-mld-snooping.yang:
     augmented_by: []
     augments:
@@ -4204,7 +4712,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-mld-snooping
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld-snooping.yang
-    prefix: srl_nokia-tools-mld-snooping
+    prefix:
+      current: srl_nokia-tools-mld-snooping
+      target: srl-tools-mld-snooping
   srl_nokia-tools-mld.yang:
     augmented_by: []
     augments:
@@ -4218,7 +4728,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-mld
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld.yang
-    prefix: srl_nokia-tools-mld
+    prefix:
+      current: srl_nokia-tools-mld
+      target: srl-tools-mld
   srl_nokia-tools-netconf-server.yang:
     augmented_by: []
     augments:
@@ -4234,7 +4746,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-netconf-server
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-netconf-server.yang
-    prefix: srl-tools-netconf-server
+    prefix:
+      current: srl-tools-netconf-server
+      target: srl-tools-netconf-server
   srl_nokia-tools-network-instance.yang:
     augmented_by:
     - srl_nokia-tools-bgp.yang
@@ -4260,7 +4774,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-network-instance
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-network-instance.yang
-    prefix: srl_nokia-tools-network-instance
+    prefix:
+      current: srl_nokia-tools-network-instance
+      target: srl-tools-network-instance
   srl_nokia-tools-oam-pm-ethcfm.yang:
     augmented_by: []
     augments:
@@ -4272,7 +4788,9 @@ modules:
       prefix: srl_nokia-tools-oam
     name: srl_nokia-tools-oam-pm-ethcfm
     path: /srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-oam-pm-ethcfm.yang
-    prefix: srl_nokia-tools-oam-pm-ethcfm
+    prefix:
+      current: srl_nokia-tools-oam-pm-ethcfm
+      target: srl-tools-oam-pm-ethcfm
   srl_nokia-tools-oam-pm-ip.yang:
     augmented_by: []
     augments:
@@ -4284,7 +4802,9 @@ modules:
       prefix: srl_nokia-tools-oam
     name: srl_nokia-tools-oam-pm-ip
     path: /srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-oam-pm-ip.yang
-    prefix: srl_nokia-tools-oam-pm-ip
+    prefix:
+      current: srl_nokia-tools-oam-pm-ip
+      target: srl-tools-oam-pm-ip
   srl_nokia-tools-oam.yang:
     augmented_by:
     - srl_nokia-tools-service-activation-testhead.yang
@@ -4299,7 +4819,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-oam
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-oam.yang
-    prefix: srl_nokia-tools-oam
+    prefix:
+      current: srl_nokia-tools-oam
+      target: srl-tools-oam
   srl_nokia-tools-ospf.yang:
     augmented_by: []
     augments:
@@ -4315,7 +4837,9 @@ modules:
       prefix: srl_nokia-ospf-types
     name: srl_nokia-tools-ospf
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ospf.yang
-    prefix: srl_nokia-tools-ospf
+    prefix:
+      current: srl_nokia-tools-ospf
+      target: srl-tools-ospf
   srl_nokia-tools-packet-trace.yang:
     augmented_by: []
     augments:
@@ -4327,7 +4851,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-packet-trace
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-packet-trace.yang
-    prefix: srl_nokia-tools-packet-trace
+    prefix:
+      current: srl_nokia-tools-packet-trace
+      target: srl-tools-packet-trace
   srl_nokia-tools-pim.yang:
     augmented_by: []
     augments:
@@ -4341,7 +4867,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-pim
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-pim.yang
-    prefix: srl_nokia-tools-pim
+    prefix:
+      current: srl_nokia-tools-pim
+      target: srl-tools-pim
   srl_nokia-tools-platform-attestation.yang:
     augmented_by: []
     augments:
@@ -4353,7 +4881,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-platform-attestation
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-attestation.yang
-    prefix: srl_nokia-tools-platform-attestation
+    prefix:
+      current: srl_nokia-tools-platform-attestation
+      target: srl-tools-platform-attestation
   srl_nokia-tools-platform-redundancy.yang:
     augmented_by: []
     augments:
@@ -4365,7 +4895,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-platform-redundancy
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-redundancy.yang
-    prefix: srl_nokia-tools-platform-redundancy
+    prefix:
+      current: srl_nokia-tools-platform-redundancy
+      target: srl-tools-platform-redundancy
   srl_nokia-tools-platform-secure-boot.yang:
     augmented_by: []
     augments:
@@ -4377,7 +4909,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-platform-secure-boot
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-secure-boot.yang
-    prefix: srl_nokia-tools-platform-secure-boot
+    prefix:
+      current: srl_nokia-tools-platform-secure-boot
+      target: srl-tools-platform-secure-boot
   srl_nokia-tools-platform.yang:
     augmented_by:
     - srl_nokia-tools-platform-attestation.yang
@@ -4389,7 +4923,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-platform
     path: /srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform.yang
-    prefix: srl_nokia-tools-platform
+    prefix:
+      current: srl_nokia-tools-platform
+      target: srl-tools-platform
   srl_nokia-tools-qos-policers.yang:
     augmented_by: []
     augments:
@@ -4401,7 +4937,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-qos-policers
     path: /srlinux-yang-models/srl_nokia/models/qos/srl_nokia-tools-qos-policers.yang
-    prefix: srl_nokia-tools-qos-policers
+    prefix:
+      current: srl_nokia-tools-qos-policers
+      target: srl-tools-qos-policers
   srl_nokia-tools-qos.yang:
     augmented_by:
     - srl_nokia-tools-qos-policers.yang
@@ -4412,7 +4950,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-qos
     path: /srlinux-yang-models/srl_nokia/models/qos/srl_nokia-tools-qos.yang
-    prefix: srl_nokia-tools-qos
+    prefix:
+      current: srl_nokia-tools-qos
+      target: srl-tools-qos
   srl_nokia-tools-route-table.yang:
     augmented_by: []
     augments:
@@ -4426,7 +4966,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-route-table
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-route-table.yang
-    prefix: srl_nokia-tools-route-table
+    prefix:
+      current: srl_nokia-tools-route-table
+      target: srl-tools-route-table
   srl_nokia-tools-service-activation-testhead.yang:
     augmented_by: []
     augments:
@@ -4438,7 +4980,9 @@ modules:
       prefix: srl_nokia-tools-oam
     name: srl_nokia-tools-service-activation-testhead
     path: /srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-service-activation-testhead.yang
-    prefix: srl_nokia-tools-service-activation-testhead
+    prefix:
+      current: srl_nokia-tools-service-activation-testhead
+      target: srl-tools-service-activation-testhead
   srl_nokia-tools-sync.yang:
     augmented_by: []
     augments:
@@ -4450,7 +4994,9 @@ modules:
       prefix: srl-tools-system
     name: srl_nokia-tools-sync
     path: /srlinux-yang-models/srl_nokia/models/sync/srl_nokia-tools-sync.yang
-    prefix: srl_nokia-tools-sync
+    prefix:
+      current: srl_nokia-tools-sync
+      target: srl-tools-sync
   srl_nokia-tools-system.yang:
     augmented_by:
     - srl_nokia-tools-gnsi-certz.yang
@@ -4475,7 +5021,9 @@ modules:
     imports: []
     name: srl_nokia-tools-system
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-system.yang
-    prefix: srl_nokia-tools-system
+    prefix:
+      current: srl_nokia-tools-system
+      target: srl-tools-system
   srl_nokia-tools-te-policies.yang:
     augmented_by: []
     augments:
@@ -4489,7 +5037,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-tools-te-policies
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-te-policies.yang
-    prefix: srl_nokia-tools-te-policies
+    prefix:
+      current: srl_nokia-tools-te-policies
+      target: srl-tools-te-policies
   srl_nokia-tools-tls.yang:
     augmented_by: []
     augments:
@@ -4503,7 +5053,9 @@ modules:
       prefix: srl-ext
     name: srl_nokia-tools-tls
     path: /srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-tls.yang
-    prefix: srl-tools-tls
+    prefix:
+      current: srl-tools-tls
+      target: srl-tools-tls
   srl_nokia-tools-tunnel.yang:
     augmented_by:
     - srl_nokia-tools-vxlan-tunnel.yang
@@ -4517,7 +5069,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-tools-tunnel
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tools-tunnel.yang
-    prefix: srl_nokia-tools-tunnel
+    prefix:
+      current: srl_nokia-tools-tunnel
+      target: srl-tools-tunnel
   srl_nokia-tools-twamp.yang:
     augmented_by: []
     augments:
@@ -4529,7 +5083,9 @@ modules:
       prefix: srl_nokia-tools-oam
     name: srl_nokia-tools-twamp
     path: /srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-twamp.yang
-    prefix: srl_nokia-tools-twamp
+    prefix:
+      current: srl_nokia-tools-twamp
+      target: srl-tools-twamp
   srl_nokia-tools-vxlan-tunnel.yang:
     augmented_by: []
     augments:
@@ -4543,7 +5099,9 @@ modules:
       prefix: srl-feat
     name: srl_nokia-tools-vxlan-tunnel
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tools-vxlan-tunnel.yang
-    prefix: srl_nokia-tools-vxlan-tunnel
+    prefix:
+      current: srl_nokia-tools-vxlan-tunnel
+      target: srl-tools-vxlan-tunnel
   srl_nokia-traffic-engineering.yang:
     augmented_by: []
     augments:
@@ -4560,7 +5118,9 @@ modules:
       prefix: srl_nokia-if
     name: srl_nokia-traffic-engineering
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-traffic-engineering.yang
-    prefix: srl_nokia-te
+    prefix:
+      current: srl_nokia-te
+      target: srl-traffic-engineering
   srl_nokia-transport-security.yang:
     augmented_by:
     - srl_nokia-macsec.yang
@@ -4574,7 +5134,9 @@ modules:
       prefix: srl_nokia-feat
     name: srl_nokia-transport-security
     path: /srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-transport-security.yang
-    prefix: srl_nokia-security
+    prefix:
+      current: srl_nokia-security
+      target: srl-transport-security
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations.yang:
     augmented_by: []
     augments:
@@ -4588,7 +5150,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations.yang
-    prefix: srl_nokia-tunnel-if-vxlan-if-bt-multicast-destinations
+    prefix:
+      current: srl_nokia-tunnel-if-vxlan-if-bt-multicast-destinations
+      target: srl-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations.yang:
     augmented_by: []
     augments:
@@ -4602,7 +5166,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations.yang
-    prefix: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations
+    prefix:
+      current: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations
+      target: srl-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang:
     augmented_by: []
     augments:
@@ -4618,7 +5184,9 @@ modules:
       prefix: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations
     name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang
-    prefix: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations-vteps
+    prefix:
+      current: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations-vteps
+      target: srl-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table.yang:
     augmented_by: []
     augments:
@@ -4632,7 +5200,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table.yang
-    prefix: srl_nokia-tunnel-if-vxlan-if-bt
+    prefix:
+      current: srl_nokia-tunnel-if-vxlan-if-bt
+      target: srl-tunnel-interfaces-vxlan-interface-bridge-table
   srl_nokia-tunnel-interfaces.yang:
     augmented_by:
     - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang
@@ -4655,7 +5225,9 @@ modules:
       prefix: srl_nokia-tunnel
     name: srl_nokia-tunnel-interfaces
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces.yang
-    prefix: srl_nokia-tunnel-if
+    prefix:
+      current: srl_nokia-tunnel-if
+      target: srl-tunnel-interfaces
   srl_nokia-tunnel-tables.yang:
     augmented_by: []
     augments:
@@ -4671,7 +5243,9 @@ modules:
       prefix: srl_nokia-rt
     name: srl_nokia-tunnel-tables
     path: /srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tunnel-tables.yang
-    prefix: srl_nokia-tunnel-tables
+    prefix:
+      current: srl_nokia-tunnel-tables
+      target: srl-tunnel-tables
   srl_nokia-tunnel.yang:
     augmented_by:
     - srl_nokia-pw-tunnel.yang
@@ -4686,7 +5260,9 @@ modules:
       prefix: srl_nokia-ext
     name: srl_nokia-tunnel
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel.yang
-    prefix: srl_nokia-tunnel
+    prefix:
+      current: srl_nokia-tunnel
+      target: srl-tunnel
   srl_nokia-twamp.yang:
     augmented_by: []
     augments:
@@ -4704,7 +5280,9 @@ modules:
       prefix: srl_nokia-oam
     name: srl_nokia-twamp
     path: /srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-twamp.yang
-    prefix: srl_nokia-twamp
+    prefix:
+      current: srl_nokia-twamp
+      target: srl-twamp
   srl_nokia-vxlan-tunnel-vtep.yang:
     augmented_by: []
     augments:
@@ -4720,7 +5298,9 @@ modules:
       prefix: srl_nokia-tunnel
     name: srl_nokia-vxlan-tunnel-vtep
     path: /srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-vxlan-tunnel-vtep.yang
-    prefix: srl_nokia-vxlan-tunnel
+    prefix:
+      current: srl_nokia-vxlan-tunnel
+      target: srl-vxlan-tunnel-vtep
 repo:
   path: ~/projects/nokia/srlinux-yang-models
   url: https://github.com/nokia/srlinux-yang-models/tree/v24.10.1/srlinux-yang-models/srl_nokia/models
