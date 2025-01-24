@@ -427,13 +427,19 @@ version = "0.1.0"
 source = { editable = "." }
 dependencies = [
     { name = "pydantify" },
+]
+
+[package.dev-dependencies]
+dev = [
     { name = "pyyaml" },
     { name = "rich" },
 ]
 
 [package.metadata]
-requires-dist = [
-    { name = "pydantify", git = "https://github.com/dpeachey/pydantify?rev=fix-nokia-models" },
+requires-dist = [{ name = "pydantify", git = "https://github.com/dpeachey/pydantify?rev=fix-nokia-models" }]
+
+[package.metadata.requires-dev]
+dev = [
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "rich", specifier = ">=13.9.4" },
 ]
