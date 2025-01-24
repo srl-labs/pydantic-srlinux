@@ -103,7 +103,7 @@ def process_yang_files(dir: str) -> Dict[str, YangModule]:
                 # Find the corresponding module from imports
                 for imp in module.imports:
                     if imp.prefix == augment_prefix:
-                        augmented_module = imp.module + ".yang"
+                        augmented_module = imp.module
                         if augmented_module in yang_files:
                             # Add the current module to the augmented_by list
                             if (

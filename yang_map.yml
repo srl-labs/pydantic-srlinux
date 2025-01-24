@@ -210,7 +210,8 @@ modules:
       current: srl_nokia-app-mgmt
       target: srl-app-mgmt
   srl_nokia-bfd:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-micro-bfd
     augments: []
     imports:
     - module: srl_nokia-common
@@ -1089,7 +1090,35 @@ modules:
       current: srl_nokia-igmp-types
       target: srl-igmp-types
   srl_nokia-interfaces:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-dot1x
+    - srl_nokia-platform-healthz
+    - srl_nokia-ethcfm
+    - srl_nokia-ra_guard
+    - srl_nokia-packet-link-qual
+    - srl_nokia-interfaces-nbr-evpn
+    - srl_nokia-interfaces-l2cp
+    - srl_nokia-interfaces-ip-dhcp-relay
+    - srl_nokia-interfaces-p4rt
+    - srl_nokia-interfaces-dco
+    - srl_nokia-interfaces-ip-vrrp
+    - srl_nokia-interfaces-router-adv
+    - srl_nokia-interfaces-bridge-table-stp
+    - srl_nokia-interfaces-nbr-virtual-ip-discovery
+    - srl_nokia-interfaces-bridge-table-mac-duplication-entries
+    - srl_nokia-interfaces-bridge-table-statistics
+    - srl_nokia-interfaces-ip-dhcp
+    - srl_nokia-interfaces-vlans
+    - srl_nokia-interfaces-nbr
+    - srl_nokia-interfaces-local-mirror-destination
+    - srl_nokia-lacp
+    - srl_nokia-interfaces-ip-dhcp-server
+    - srl_nokia-if-mpls
+    - srl_nokia-interfaces-vxdp
+    - srl_nokia-interfaces-bridge-table-mac-table
+    - srl_nokia-interfaces-bridge-table-mac-learning-entries
+    - srl_nokia-interfaces-lag
+    - srl_nokia-interfaces-ethernet-segment-association
     augments: []
     imports:
     - module: srl_nokia-common
@@ -2198,7 +2227,59 @@ modules:
       current: srl-netconf-server
       target: srl-netconf-server
   srl_nokia-network-instance:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-seamless-bfd
+    - srl_nokia-gribi
+    - srl_nokia-pim
+    - srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations
+    - srl_nokia-stp
+    - srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics
+    - srl_nokia-segment-routing
+    - srl_nokia-policy-forwarding
+    - srl_nokia-mld
+    - srl_nokia-mvpn-l3
+    - srl_nokia-isis
+    - srl_nokia-bgp
+    - srl_nokia-bridge-table-mac-duplication-entries
+    - srl_nokia-mpls
+    - srl_nokia-mpls-route-tables
+    - srl_nokia-linux
+    - srl_nokia-ldp
+    - srl_nokia-tunnel-tables
+    - srl_nokia-rib-bgp
+    - srl_nokia-aft
+    - srl_nokia-tcp-udp
+    - srl_nokia-traffic-engineering
+    - srl_nokia-igmp-snooping
+    - srl_nokia-te-policies
+    - srl_nokia-mld-snooping
+    - srl_nokia-bgp-evpn
+    - srl_nokia-aggregate-routes
+    - srl_nokia-ospf
+    - srl_nokia-next-hop-groups
+    - srl_nokia-connection-point-bridge-table-mac-table
+    - srl_nokia-ip-route-tables
+    - srl_nokia-bridge-table-proxy-arp-nd
+    - srl_nokia-bridge-table-static-mac
+    - srl_nokia-bgp-vpn
+    - srl_nokia-pcep
+    - srl_nokia-connection-point-bridge-table-mac-learning-entries
+    - srl_nokia-connection-point-bridge-table-statistics
+    - srl_nokia-maintenance-policies
+    - srl_nokia-bridge-table-mac-learning-entries
+    - srl_nokia-bridge-table-mac-table
+    - srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations
+    - srl_nokia-static-routes
+    - srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
+    - srl_nokia-bridge-table-reserved-macs
+    - srl_nokia-bgp-ipvpn
+    - srl_nokia-ni-gre
+    - srl_nokia-igmp
+    - srl_nokia-network-instance-mtu
+    - srl_nokia-connection-point-bridge-table-mac-duplication-entries
+    - srl_nokia-multicast-mfib-tables
+    - srl_nokia-table-connections
+    - srl_nokia-sync-ptp
     augments: []
     imports:
     - module: srl_nokia-common
@@ -2299,7 +2380,16 @@ modules:
       current: srl_nokia-ntp
       target: srl-ntp
   srl_nokia-oam:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-service-activation-testhead
+    - srl_nokia-lsp-ping-trace
+    - srl_nokia-twamp
+    - srl_nokia-ippm-source-udp-pool
+    - srl_nokia-stamp
+    - srl_nokia-link-measurement
+    - srl_nokia-oam-pm-ip
+    - srl_nokia-ethcfm
+    - srl_nokia-oam-pm-ethcfm
     augments: []
     imports:
     - module: srl_nokia-features
@@ -2564,7 +2654,33 @@ modules:
       current: srl_nokia-pim
       target: srl-pim
   srl_nokia-platform:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-ip-route-tables
+    - srl_nokia-platform-p4rt
+    - srl_nokia-platform-control
+    - srl_nokia-platform-cgroup
+    - srl_nokia-platform-redundancy
+    - srl_nokia-platform-resource-mgmt
+    - srl_nokia-platform-qos
+    - srl_nokia-platform-healthz
+    - srl_nokia-platform-resource-monitoring
+    - srl_nokia-platform-linecard-fib
+    - srl_nokia-platform-cpu
+    - srl_nokia-platform-lc
+    - srl_nokia-platform-mtu
+    - srl_nokia-platform-fabric
+    - srl_nokia-platform-fan
+    - srl_nokia-platform-disk
+    - srl_nokia-platform-acl
+    - srl_nokia-platform-datapath-resources
+    - srl_nokia-platform-memory
+    - srl_nokia-platform-secure-boot
+    - srl_nokia-platform-vxdp
+    - srl_nokia-platform-control-fp
+    - srl_nokia-platform-chassis
+    - srl_nokia-platform-tpm
+    - srl_nokia-platform-psu
+    - srl_nokia-platform-tcam
     augments: []
     imports:
     - module: srl_nokia-extensions
@@ -3113,7 +3229,9 @@ modules:
       current: srl_nokia-pw-tunnel
       target: srl-pw-tunnel
   srl_nokia-qos:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-acl-qos
+    - srl_nokia-acl-policers
     augments:
     - node: /srl_nokia-system:system/srl_nokia-system:control-plane-traffic/srl_nokia-system:output
     imports:
@@ -3483,7 +3601,66 @@ modules:
       current: srl_nokia-sync-types
       target: srl-sync-types
   srl_nokia-system:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-dot1x
+    - srl_nokia-gnsi-credentialz
+    - srl_nokia-gnsi-certz
+    - srl_nokia-gnsi-authz
+    - srl_nokia-grpc
+    - srl_nokia-gnsi-pathz
+    - srl_nokia-bgp
+    - srl_nokia-qos
+    - srl_nokia-system-protocols
+    - srl_nokia-openconfig
+    - srl_nokia-dns
+    - srl_nokia-mirroring
+    - srl_nokia-system-datapath
+    - srl_nokia-system-bridge-table-evpn
+    - srl_nokia-mpls-services-evpn-label-management
+    - srl_nokia-system-name
+    - srl_nokia-aaa
+    - srl_nokia-license
+    - srl_nokia-load-balancing
+    - srl_nokia-sflow
+    - srl_nokia-system-network-instance
+    - srl_nokia-ssh
+    - srl_nokia-netconf-server
+    - srl_nokia-event-handler
+    - srl_nokia-lldp
+    - srl_nokia-boot
+    - srl_nokia-configuration-role
+    - srl_nokia-tls
+    - srl_nokia-system-network-instance-bgp-evpn-ethernet-segments
+    - srl_nokia-system-bridge-table-proxy-arp
+    - srl_nokia-logging
+    - srl_nokia-ra_guard
+    - srl_nokia-system-bridge-table
+    - srl_nokia-ftp
+    - srl_nokia-keychains
+    - srl_nokia-app-mgmt
+    - srl_nokia-mpls-label-management
+    - srl_nokia-system-snmp
+    - srl_nokia-configuration
+    - srl_nokia-dhcp-server
+    - srl_nokia-packet-link-qual
+    - srl_nokia-json-rpc
+    - srl_nokia-mpls-services-network-instance-label-management
+    - srl_nokia-system-banner
+    - srl_nokia-system-info
+    - srl_nokia-system-bridge-table-evpn-mpls-multicast-tep
+    - srl_nokia-system-utilization
+    - srl_nokia-maintenance-mode
+    - srl_nokia-system-multicast-mfib-table
+    - srl_nokia-system-multicast
+    - srl_nokia-ntp
+    - srl_nokia-system-network-instance-bgp-evpn-multicast
+    - srl_nokia-lawful-intercept
+    - srl_nokia-system-network-instance-bgp-vpn
+    - srl_nokia-mtu
+    - srl_nokia-sync
+    - srl_nokia-acl
+    - srl_nokia-interfaces-l2cp
+    - srl_nokia-lacp
     augments: []
     imports:
     - module: srl_nokia-extensions
@@ -4307,7 +4484,14 @@ modules:
       current: srl_nokia-tools-igmp-snooping
       target: srl-tools-igmp-snooping
   srl_nokia-tools-interfaces:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tools-interfaces-ip-vrrp
+    - srl_nokia-tools-interfaces-packet-link-qual
+    - srl_nokia-tools-interfaces-nbr-virtual-ip-discovery
+    - srl_nokia-tools-interfaces-bridge-table-mac-learning
+    - srl_nokia-tools-interfaces-ip-dhcp-relay
+    - srl_nokia-tools-interfaces-bridge-table-mac-duplication
+    - srl_nokia-tools-interfaces-nbr
     augments: []
     imports:
     - module: srl_nokia-features
@@ -4566,7 +4750,24 @@ modules:
       current: srl-tools-netconf-server
       target: srl-tools-netconf-server
   srl_nokia-tools-network-instance:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tools-bgp
+    - srl_nokia-tools-mld
+    - srl_nokia-tools-isis
+    - srl_nokia-tools-connection-point-bridge-table-mac-learning
+    - srl_nokia-tools-igmp-snooping
+    - srl_nokia-tools-pim
+    - srl_nokia-tools-connection-point-bridge-table-mac-duplication
+    - srl_nokia-tools-te-policies
+    - srl_nokia-tools-ldp
+    - srl_nokia-tools-ospf
+    - srl_nokia-tools-mld-snooping
+    - srl_nokia-tools-route-table
+    - srl_nokia-tools-icmp
+    - srl_nokia-tools-bridge-table-mac-duplication
+    - srl_nokia-tools-igmp
+    - srl_nokia-tools-bridge-table-proxy-arp-nd
+    - srl_nokia-tools-bridge-table-mac-learning
     augments: []
     imports:
     - module: srl_nokia-features
@@ -4577,7 +4778,13 @@ modules:
       current: srl_nokia-tools-network-instance
       target: srl-tools-network-instance
   srl_nokia-tools-oam:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tools-service-activation-testhead
+    - srl_nokia-tools-lsp-ping-trace
+    - srl_nokia-tools-twamp
+    - srl_nokia-tools-oam-pm-ip
+    - srl_nokia-tools-ethcfm
+    - srl_nokia-tools-oam-pm-ethcfm
     augments: []
     imports:
     - module: srl_nokia-features
@@ -4664,7 +4871,10 @@ modules:
       current: srl_nokia-tools-pim
       target: srl-tools-pim
   srl_nokia-tools-platform:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tools-platform-attestation
+    - srl_nokia-tools-platform-redundancy
+    - srl_nokia-tools-platform-secure-boot
     augments: []
     imports:
     - module: srl_nokia-features
@@ -4717,7 +4927,9 @@ modules:
       current: srl_nokia-tools-platform-secure-boot
       target: srl-tools-platform-secure-boot
   srl_nokia-tools-qos:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tools-qos-policers
+    - srl_nokia-tools-acl
     augments: []
     imports:
     - module: srl_nokia-features
@@ -4786,7 +4998,25 @@ modules:
       current: srl_nokia-tools-sync
       target: srl-tools-sync
   srl_nokia-tools-system:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tools-gnsi-certz
+    - srl_nokia-tools-grpc
+    - srl_nokia-tools-gnsi-authz
+    - srl_nokia-tools-netconf-server
+    - srl_nokia-tools-dhcp-relay
+    - srl_nokia-tools-l2cp
+    - srl_nokia-tools-event-handler
+    - srl_nokia-tools-aaa
+    - srl_nokia-tools-cgroup
+    - srl_nokia-tools-packet-trace
+    - srl_nokia-tools-boot
+    - srl_nokia-tools-app-mgmt
+    - srl_nokia-tools-tls
+    - srl_nokia-tools-lldp
+    - srl_nokia-tools-dhcp-server
+    - srl_nokia-tools-mirroring
+    - srl_nokia-tools-configuration
+    - srl_nokia-tools-sync
     augments: []
     imports: []
     name: srl_nokia-tools-system
@@ -4827,7 +5057,8 @@ modules:
       current: srl-tools-tls
       target: srl-tools-tls
   srl_nokia-tools-tunnel:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tools-vxlan-tunnel
     augments: []
     imports:
     - module: srl_nokia-common
@@ -4891,7 +5122,8 @@ modules:
       current: srl_nokia-te
       target: srl-traffic-engineering
   srl_nokia-transport-security:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-macsec
     augments: []
     imports:
     - module: srl_nokia-extensions
@@ -4906,7 +5138,9 @@ modules:
       current: srl_nokia-security
       target: srl-transport-security
   srl_nokia-tunnel:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-pw-tunnel
+    - srl_nokia-vxlan-tunnel-vtep
     augments: []
     imports:
     - module: srl_nokia-common
@@ -4921,7 +5155,11 @@ modules:
       current: srl_nokia-tunnel
       target: srl-tunnel
   srl_nokia-tunnel-interfaces:
-    augmented_by: []
+    augmented_by:
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations
+    - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table
     augments: []
     imports:
     - module: srl_nokia-common
