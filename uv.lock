@@ -114,7 +114,7 @@ wheels = [
 
 [[package]]
 name = "datamodel-code-generator"
-version = "0.25.8"
+version = "0.26.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "argcomplete" },
@@ -127,9 +127,9 @@ dependencies = [
     { name = "pydantic", extra = ["email"] },
     { name = "pyyaml" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d1/df/499d5ba10ad3c2bb976daa615340c8aa87a4dce61218d90e42712f8cd857/datamodel_code_generator-0.25.8.tar.gz", hash = "sha256:b7838122b8133dae6e46f36a1cf25c0ccc66745da057988f490d00ab71121de7", size = 88602 }
+sdist = { url = "https://files.pythonhosted.org/packages/63/e4/53153452235a387112df40f67aaf24072d4b5e33aa7bb385004f4c4baf38/datamodel_code_generator-0.26.5.tar.gz", hash = "sha256:c4a94a7dbf7972129882732d9bcee44c9ae090f57c82edd58d237b9d48c40dd0", size = 92586 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/8b/fc/474a925d003d4d130915596489b5433baa0773c19e5da6f20b9d87565f59/datamodel_code_generator-0.25.8-py3-none-any.whl", hash = "sha256:f9b216efad84d8dcb517273d2728875b6052b7e8dc4e5c13a597441cef236f6e", size = 110497 },
+    { url = "https://files.pythonhosted.org/packages/5a/d8/ead3e857d4048947fe92a731d6b1f257dcb267cc8b8918d3b72598c9b728/datamodel_code_generator-0.26.5-py3-none-any.whl", hash = "sha256:e32f986b9914a2b45093947043aa0192d704650be93151f78acf5c95676601ce", size = 114982 },
 ]
 
 [[package]]
@@ -433,7 +433,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "pydantify", editable = "../../../../../../../home/romandodin/projects/hellt/pydantify" },
+    { name = "pydantify", git = "https://github.com/dpeachey/pydantify?rev=fix-nokia-models" },
     { name = "pyyaml", specifier = ">=6.0.2" },
     { name = "rich", specifier = ">=13.9.4" },
 ]
@@ -441,7 +441,7 @@ requires-dist = [
 [[package]]
 name = "pydantify"
 version = "0.6.1"
-source = { editable = "../../../../../../../home/romandodin/projects/hellt/pydantify" }
+source = { git = "https://github.com/dpeachey/pydantify?rev=fix-nokia-models#20ff253d4e6c99dc26b6457ec63466cca04fe6c0" }
 dependencies = [
     { name = "datamodel-code-generator" },
     { name = "psutil" },
@@ -450,17 +450,6 @@ dependencies = [
     { name = "requests" },
     { name = "setuptools" },
     { name = "typing-extensions" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "datamodel-code-generator", specifier = "==0.25.8" },
-    { name = "psutil", specifier = ">=6.0.0" },
-    { name = "pyang", specifier = "==2.6.1" },
-    { name = "pydantic", specifier = "==2.9.0" },
-    { name = "requests", specifier = ">=2.32.3" },
-    { name = "setuptools", specifier = ">=74.0.0" },
-    { name = "typing-extensions", specifier = ">=4.12.2" },
 ]
 
 [[package]]

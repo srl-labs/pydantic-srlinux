@@ -1,4 +1,4 @@
-import models.interfaces.out as srl_if
+import models.interfaces as srl_if
 
 new_if = srl_if.Model(
     interface=[

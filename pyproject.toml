@@ -11,4 +11,4 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-pydantify = { path = "../../../../../../../home/romandodin/projects/hellt/pydantify", editable = true }
+pydantify = { git = "https://github.com/dpeachey/pydantify", rev = "fix-nokia-models" }
