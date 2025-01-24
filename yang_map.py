@@ -91,7 +91,8 @@ def process_yang_files(dir: str) -> Dict[str, YangModule]:
         for file in files:
             if file.endswith(".yang"):
                 file_path = os.path.join(root, file)
-                yang_files[file] = parse_yang_file(dir, file_path)
+                yang_module = parse_yang_file(dir, file_path)
+                yang_files[yang_module.name] = yang_module
 
     # Second pass: process augmentations
     for module_file, module in yang_files.items():
