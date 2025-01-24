@@ -27,11 +27,18 @@ class YangModule(BaseModel):
     augmented_by: List[str] = []
 
 
-class YangFileCollection(BaseModel):
+class Repo(BaseModel):
+    version: str
+    path: str
+    url: str
+
+
+class YangMap(BaseModel):
     modules: Dict[str, YangModule]
+    repo: Repo
 
 
-def parse_yang_file(file_path: str) -> YangModule:
+def parse_yang_file(base_dir, file_path: str) -> YangModule:
     with open(file_path, "r") as f:
         content = f.read()
 
@@ -59,21 +66,25 @@ def parse_yang_file(file_path: str) -> YangModule:
 
     return YangModule(
         name=module_name,
-        path=file_path.replace(os.path.expanduser("~"), "~"),
+        path=file_path.replace(
+            base_dir, ""
+        ),  # make module paths relative to the base dir
         prefix=prefix,
         imports=imports,
         augments=augments,
     )
 
 
-def process_yang_files(directory: str) -> YangFileCollection:
+def process_yang_files(dir: str) -> Dict[str, YangModule]:
+    srl_models_dir = os.path.join(dir, "srlinux-yang-models", "srl_nokia")
     yang_files: Dict[str, YangModule] = {}
 
-    for root, _, files in os.walk(directory):
+    # Go over all yang files in the srl models dir and parse them
+    for root, _, files in os.walk(srl_models_dir):
         for file in files:
             if file.endswith(".yang"):
                 file_path = os.path.join(root, file)
-                yang_files[file] = parse_yang_file(file_path)
+                yang_files[file] = parse_yang_file(dir, file_path)
 
     # Second pass: process augmentations
     for module_file, module in yang_files.items():
@@ -96,11 +107,11 @@ def process_yang_files(directory: str) -> YangFileCollection:
                                 )
                         break
 
-    return YangFileCollection(modules=yang_files)
+    return yang_files
 
 
 def analyze_import_prefixes(
-    collection: YangFileCollection,
+    collection: YangMap,
 ) -> Dict[str, Dict[str, int]]:
     """Returns a dictionary of module names to a dictionary of prefixes to their counts.
     Used to display what modules are imported with what prefixes.
@@ -129,17 +140,27 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    # Checkout the specified version
-    subprocess.run(["git", "-C", args.dir, "checkout", args.version], check=True)
+    dir = os.path.expanduser(args.dir)
+    # non expanded dir is used in the map file to avoid disclosure of the home directory
+    non_expanded_dir = dir.replace(os.path.expanduser("~"), "~")
 
-    yang_directory = os.path.join(
-        os.path.expanduser(args.dir), "srlinux-yang-models", "srl_nokia"
+    # Checkout the specified version
+    subprocess.run(["git", "-C", dir, "checkout", args.version], check=True)
+
+    yang_files = process_yang_files(dir)
+
+    map = YangMap(
+        modules=yang_files,
+        repo=Repo(
+            version=args.version,
+            path=non_expanded_dir,
+            url=f"https://github.com/nokia/srlinux-yang-models/tree/{args.version}/srlinux-yang-models/srl_nokia/models",
+        ),
     )
-    result = process_yang_files(yang_directory)
 
     # print(result.model_dump_json(indent=2))
     with open("yang_map.yml", "w") as f:
-        yaml.dump(result.model_dump(), f)
+        yaml.dump(map.model_dump(), f)
     # yaml.dump(analyze_import_prefixes(result), sys.stdout)
 
 
