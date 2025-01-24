@@ -36,6 +36,7 @@ class Repo(BaseModel):
     version: str
     path: str
     url: str
+    base_modules: Dict[str, str] = {}
 
 
 class YangMap(BaseModel):
@@ -163,6 +164,10 @@ def main() -> None:
             version=args.version,
             path=non_expanded_dir,
             url=f"https://github.com/nokia/srlinux-yang-models/tree/{args.version}/srlinux-yang-models/srl_nokia/models",
+            base_modules={
+                "iana": f"{non_expanded_dir}/srlinux-yang-models/iana",
+                "ietf": f"{non_expanded_dir}/srlinux-yang-models/ietf",
+            },
         ),
     )
 

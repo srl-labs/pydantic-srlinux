@@ -5302,6 +5302,9 @@ modules:
       current: srl_nokia-vxlan-tunnel
       target: srl-vxlan-tunnel-vtep
 repo:
+  base_modules:
+    iana: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/iana
+    ietf: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/ietf
   path: ~/projects/nokia/srlinux-yang-models
   url: https://github.com/nokia/srlinux-yang-models/tree/v24.10.1/srlinux-yang-models/srl_nokia/models
   version: v24.10.1
