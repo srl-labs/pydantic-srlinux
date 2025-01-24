@@ -466,11 +466,11 @@ class BufferSegmentContainer(BaseModel):
         regex_engine="python-re",
     )
     rising_threshold_value: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:rising-threshold-value',
-            ge=0,
-            le=10000,
+            ge=0.0,
+            le=100.0,
             title='Rising-threshold-valueLeaf',
         ),
     ] = None
@@ -478,11 +478,11 @@ class BufferSegmentContainer(BaseModel):
     The rising-threshold-value definining the transition from higher-congestion zone to lower-congestion zone
     """
     falling_threshold_value: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:falling-threshold-value',
-            ge=0,
-            le=10000,
+            ge=0.0,
+            le=100.0,
             title='Falling-threshold-valueLeaf',
         ),
     ] = None
@@ -501,11 +501,11 @@ class BwProportionalContainer(BaseModel):
         regex_engine="python-re",
     )
     over_subscription_factor: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:over-subscription-factor',
-            ge=0,
-            le=1000,
+            ge=0.0,
+            le=10.0,
             title='Over-subscription-factorLeaf',
         ),
     ] = 125
@@ -615,11 +615,11 @@ class HeaderBufferContainer(BaseModel):
         regex_engine="python-re",
     )
     rising_threshold_value: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:rising-threshold-value',
-            ge=0,
-            le=10000,
+            ge=0.0,
+            le=100.0,
             title='Rising-threshold-valueLeaf3',
         ),
     ] = None
@@ -627,11 +627,11 @@ class HeaderBufferContainer(BaseModel):
     The rising-threshold-value definining the transition from higher-congestion zone to lower-congestion zone
     """
     falling_threshold_value: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:falling-threshold-value',
-            ge=0,
-            le=10000,
+            ge=0.0,
+            le=100.0,
             title='Falling-threshold-valueLeaf3',
         ),
     ] = None
@@ -657,11 +657,11 @@ class InputProfileListEntry(BaseModel):
     The profile the input packet was classified to, based on applicable classification criteria
     """
     threshold_factor: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:threshold-factor',
-            ge=0,
-            le=200,
+            ge=0.0,
+            le=2.0,
             title='Threshold-factorLeaf',
         ),
     ] = None
@@ -857,11 +857,11 @@ class PacketIdContainer(BaseModel):
         regex_engine="python-re",
     )
     rising_threshold_value: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:rising-threshold-value',
-            ge=0,
-            le=10000,
+            ge=0.0,
+            le=100.0,
             title='Rising-threshold-valueLeaf2',
         ),
     ] = None
@@ -869,11 +869,11 @@ class PacketIdContainer(BaseModel):
     The rising-threshold-value definining the transition from higher-congestion zone to lower-congestion zone
     """
     falling_threshold_value: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-qos:falling-threshold-value',
-            ge=0,
-            le=10000,
+            ge=0.0,
+            le=100.0,
             title='Falling-threshold-valueLeaf2',
         ),
     ] = None

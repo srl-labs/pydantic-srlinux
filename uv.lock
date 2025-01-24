@@ -436,7 +436,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pydantify", git = "https://github.com/dpeachey/pydantify?rev=fix-nokia-models" }]
+requires-dist = [{ name = "pydantify", git = "https://github.com/pydantify/pydantify?rev=f19cb2a" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -447,7 +447,7 @@ dev = [
 [[package]]
 name = "pydantify"
 version = "0.6.1"
-source = { git = "https://github.com/dpeachey/pydantify?rev=fix-nokia-models#20ff253d4e6c99dc26b6457ec63466cca04fe6c0" }
+source = { git = "https://github.com/pydantify/pydantify?rev=f19cb2a#f19cb2a6651445759f280230c06643d7149c525c" }
 dependencies = [
     { name = "datamodel-code-generator" },
     { name = "psutil" },

@@ -133,8 +133,8 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='CurrentLeaf3',
         ),
     ] = None
@@ -145,8 +145,8 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='AverageLeaf3',
         ),
     ] = None
@@ -157,8 +157,8 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MinimumLeaf4',
         ),
     ] = None
@@ -169,8 +169,8 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MaximumLeaf5',
         ),
     ] = None
@@ -192,8 +192,8 @@ class PolarizationDependentLossContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='CurrentLeaf10',
         ),
     ] = None
@@ -204,8 +204,8 @@ class PolarizationDependentLossContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='AverageLeaf10',
         ),
     ] = None
@@ -216,8 +216,8 @@ class PolarizationDependentLossContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MinimumLeaf11',
         ),
     ] = None
@@ -228,8 +228,8 @@ class PolarizationDependentLossContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MaximumLeaf12',
         ),
     ] = None
@@ -251,8 +251,8 @@ class PowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='CurrentLeaf8',
         ),
     ] = None
@@ -263,8 +263,8 @@ class PowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='AverageLeaf8',
         ),
     ] = None
@@ -275,8 +275,8 @@ class PowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MinimumLeaf9',
         ),
     ] = None
@@ -287,8 +287,8 @@ class PowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MaximumLeaf10',
         ),
     ] = None
@@ -310,8 +310,8 @@ class PowerContainer2(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='CurrentLeaf13',
         ),
     ] = None
@@ -322,8 +322,8 @@ class PowerContainer2(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='AverageLeaf13',
         ),
     ] = None
@@ -334,8 +334,8 @@ class PowerContainer2(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MinimumLeaf14',
         ),
     ] = None
@@ -346,8 +346,8 @@ class PowerContainer2(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MaximumLeaf15',
         ),
     ] = None
@@ -425,8 +425,8 @@ class QualityContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='CurrentLeaf7',
         ),
     ] = None
@@ -437,8 +437,8 @@ class QualityContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='AverageLeaf7',
         ),
     ] = None
@@ -449,8 +449,8 @@ class QualityContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MinimumLeaf8',
         ),
     ] = None
@@ -461,8 +461,8 @@ class QualityContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MaximumLeaf9',
         ),
     ] = None
@@ -592,8 +592,8 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='CurrentLeaf11',
         ),
     ] = None
@@ -604,8 +604,8 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='AverageLeaf11',
         ),
     ] = None
@@ -616,8 +616,8 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MinimumLeaf12',
         ),
     ] = None
@@ -628,8 +628,8 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MaximumLeaf13',
         ),
     ] = None
@@ -694,8 +694,8 @@ class TotalPowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='CurrentLeaf9',
         ),
     ] = None
@@ -706,8 +706,8 @@ class TotalPowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='AverageLeaf9',
         ),
     ] = None
@@ -718,8 +718,8 @@ class TotalPowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MinimumLeaf10',
         ),
     ] = None
@@ -730,8 +730,8 @@ class TotalPowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MaximumLeaf11',
         ),
     ] = None
@@ -788,8 +788,8 @@ class TransmitPowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MinimumLeaf15',
         ),
     ] = None
@@ -800,8 +800,8 @@ class TransmitPowerContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MaximumLeaf16',
         ),
     ] = None
@@ -881,8 +881,8 @@ class VoltageContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces:latest-value',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-922337203685477.6,
+            le=922337203685477.6,
             title='Latest-valueLeaf2',
         ),
     ] = None
@@ -905,8 +905,8 @@ class VoltageContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces:high-alarm-threshold',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-922337203685477.6,
+            le=922337203685477.6,
             title='High-alarm-thresholdLeaf2',
         ),
     ] = None
@@ -931,8 +931,8 @@ class VoltageContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces:low-alarm-threshold',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-922337203685477.6,
+            le=922337203685477.6,
             title='Low-alarm-thresholdLeaf2',
         ),
     ] = None
@@ -957,8 +957,8 @@ class VoltageContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces:high-warning-threshold',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-922337203685477.6,
+            le=922337203685477.6,
             title='High-warning-thresholdLeaf2',
         ),
     ] = None
@@ -983,8 +983,8 @@ class VoltageContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces:low-warning-threshold',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-922337203685477.6,
+            le=922337203685477.6,
             title='Low-warning-thresholdLeaf2',
         ),
     ] = None
@@ -1740,8 +1740,8 @@ class BitErrorRateContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776,
+            le=9.223372036854776,
             title='CurrentLeaf',
         ),
     ] = None
@@ -1752,8 +1752,8 @@ class BitErrorRateContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776,
+            le=9.223372036854776,
             title='AverageLeaf',
         ),
     ] = None
@@ -1764,8 +1764,8 @@ class BitErrorRateContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776,
+            le=9.223372036854776,
             title='MinimumLeaf2',
         ),
     ] = None
@@ -1776,8 +1776,8 @@ class BitErrorRateContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776,
+            le=9.223372036854776,
             title='MaximumLeaf3',
         ),
     ] = None
@@ -1805,8 +1805,8 @@ class ChannelListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces:wavelength',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='WavelengthLeaf2',
         ),
     ] = None
@@ -1922,8 +1922,8 @@ class DifferentialGroupDelayContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='CurrentLeaf5',
         ),
     ] = None
@@ -1934,8 +1934,8 @@ class DifferentialGroupDelayContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='AverageLeaf5',
         ),
     ] = None
@@ -1946,8 +1946,8 @@ class DifferentialGroupDelayContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MinimumLeaf6',
         ),
     ] = None
@@ -1958,8 +1958,8 @@ class DifferentialGroupDelayContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='MaximumLeaf7',
         ),
     ] = None
@@ -1981,8 +1981,8 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='CurrentLeaf2',
         ),
     ] = None
@@ -1993,8 +1993,8 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:average',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='AverageLeaf2',
         ),
     ] = None
@@ -2005,8 +2005,8 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:minimum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MinimumLeaf3',
         ),
     ] = None
@@ -2017,8 +2017,8 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:maximum',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='MaximumLeaf4',
         ),
     ] = None
@@ -6830,11 +6830,11 @@ class OpticalChannelListEntry(BaseModel):
         Field(alias='srl_nokia-interfaces-dco:chromatic-dispersion-range'),
     ] = None
     target_power: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:target-power',
-            ge=-2000,
-            le=300,
+            ge=-20.0,
+            le=3.0,
             title='Target-powerLeaf',
         ),
     ] = 100
@@ -6933,11 +6933,11 @@ class OpticalChannelListEntry(BaseModel):
     Reaction to an RX LOS
     """
     rx_los_thresh: Annotated[
-        Optional[int],
+        Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:rx-los-thresh',
-            ge=-3000,
-            le=-1300,
+            ge=-30.0,
+            le=-13.0,
             title='Rx-los-threshLeaf',
         ),
     ] = -2300
@@ -6969,8 +6969,8 @@ class OpticalChannelListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:rx-electrical-snr-x-polarization',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='Rx-electrical-snr-x-polarizationLeaf',
         ),
     ] = None
@@ -6981,8 +6981,8 @@ class OpticalChannelListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:rx-electrical-snr-y-polarization',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='Rx-electrical-snr-y-polarizationLeaf',
         ),
     ] = None
@@ -6993,8 +6993,8 @@ class OpticalChannelListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:rx-quality-margin',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='Rx-quality-marginLeaf',
         ),
     ] = None
@@ -7005,8 +7005,8 @@ class OpticalChannelListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:rx-optical-snr-x-polarization',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='Rx-optical-snr-x-polarizationLeaf',
         ),
     ] = None
@@ -7017,8 +7017,8 @@ class OpticalChannelListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces-dco:rx-optical-snr-y-polarization',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e17,
+            le=9.223372036854776e17,
             title='Rx-optical-snr-y-polarizationLeaf',
         ),
     ] = None
@@ -8476,8 +8476,8 @@ class TransceiverContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-interfaces:wavelength',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='WavelengthLeaf',
         ),
     ] = None

@@ -1,7 +1,7 @@
 [project]
 name = "pydantic-srlinux"
 version = "0.1.0"
-description = "Add your description here"
+description = "Pydantic models for Nokia SR Linux"
 readme = "README.md"
 requires-python = "~=3.12"
 dependencies = ["pydantify==0.6.1"]
@@ -18,4 +18,4 @@ packages = ["pydantic_srlinux"]
 
 
 [tool.uv.sources]
-pydantify = { git = "https://github.com/dpeachey/pydantify", rev = "fix-nokia-models" }
+pydantify = { git = "https://github.com/pydantify/pydantify", rev = "f19cb2a" }

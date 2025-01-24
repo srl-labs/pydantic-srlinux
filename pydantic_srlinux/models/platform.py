@@ -705,8 +705,8 @@ class FeedListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:voltage',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='VoltageLeaf3',
         ),
     ] = None
@@ -717,8 +717,8 @@ class FeedListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='CurrentLeaf4',
         ),
     ] = None
@@ -740,8 +740,8 @@ class InputContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:voltage',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='VoltageLeaf',
         ),
     ] = None
@@ -752,8 +752,8 @@ class InputContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='CurrentLeaf2',
         ),
     ] = None
@@ -764,8 +764,8 @@ class InputContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:power',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='PowerLeaf',
         ),
     ] = None
@@ -1389,8 +1389,8 @@ class OutputContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:voltage',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='VoltageLeaf2',
         ),
     ] = None
@@ -1401,8 +1401,8 @@ class OutputContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:current',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='CurrentLeaf3',
         ),
     ] = None
@@ -1413,8 +1413,8 @@ class OutputContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-psu:power',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='PowerLeaf2',
         ),
     ] = None
@@ -2169,8 +2169,8 @@ class StatisticsContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-disk:transfers-per-second',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='Transfers-per-secondLeaf',
         ),
     ] = None
@@ -2182,8 +2182,8 @@ class StatisticsContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-disk:read-per-second',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='Read-per-secondLeaf',
         ),
     ] = None
@@ -2194,8 +2194,8 @@ class StatisticsContainer(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-disk:written-per-second',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='Written-per-secondLeaf',
         ),
     ] = None
@@ -5196,8 +5196,8 @@ class CpuListEntry(BaseModel):
         Optional[float],
         Field(
             alias='srl_nokia-platform-cpu:speed',
-            ge=-9.223372036854776e18,
-            le=9.223372036854776e18,
+            ge=-9.223372036854776e16,
+            le=9.223372036854776e16,
             title='SpeedLeaf',
         ),
     ] = None

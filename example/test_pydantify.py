@@ -1,4 +1,4 @@
-import models.interfaces as srl_if
+import pydantic_srlinux.models.interfaces as srl_if
 
 new_if = srl_if.Model(
     interface=[

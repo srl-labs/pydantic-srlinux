@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 import subprocess
 from pathlib import Path
@@ -38,7 +39,8 @@ def main() -> None:
         f"-p {repo.path}/srlinux-yang-models/srl_nokia",
         f"-p {repo.base_modules['iana']}",
         f"-p {repo.base_modules['ietf']}",
-        "-o models",
+        "-o pydantic_srlinux/models",
+        f"-f {args.module.replace('srl_nokia-', '')}.py",  # final name of the model
     ]
 
     # For each augmented module, add its path as a deviation
@@ -77,11 +79,6 @@ def main() -> None:
 
     # now run the generated command
     subprocess.run(" \\\n  ".join(command), check=True, shell=True)
-
-    # and rename the ./models/out.py to the module name
-    out_file = Path("./models/out.py")
-    mod_short_name = args.module.replace("srl_nokia-", "")
-    out_file.rename(Path(f"./models/{mod_short_name}.py"))
 
 
 if __name__ == "__main__":
