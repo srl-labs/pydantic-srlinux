@@ -3,3 +3,5 @@
 temp
 *.pyc
 .vscode
+.ruff_cache
+__pycache__
