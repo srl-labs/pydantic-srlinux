@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from typing import List
+import sys
 import argparse
 import subprocess
 from pathlib import Path
@@ -9,6 +11,7 @@ import yaml
 from rich import print
 
 from yang_map import Repo, YangMap
+from pydantify.main import main as pydantify_main
 
 
 def main() -> None:
@@ -33,34 +36,21 @@ def main() -> None:
     repo: Repo = collection.repo
 
     # Build the pydantify command
-    command = [
-        "pydantify",
-        f"{repo.path + yang_module.path}",
-        f"-p {repo.path}/srlinux-yang-models/srl_nokia",
-        f"-p {repo.base_modules['iana']}",
-        f"-p {repo.base_modules['ietf']}",
-        "-o pydantic_srlinux/models",
-        f"-f {args.module.replace('srl_nokia-', '')}.py",  # final name of the model
-    ]
+    relay_args: List[str] = []
+    relay_args.append(f"{repo.path + yang_module.path}")
+    relay_args.extend(["-p", repo.path +"/srlinux-yang-models/srl_nokia"])
+    relay_args.extend(["-p", repo.base_modules['iana']])
+    relay_args.extend(["-p", repo.base_modules['ietf']])
+
+    relay_args.extend(["-o" , "pydantic_srlinux/models"])
+    relay_args.extend(["-f", args.module.replace('srl_nokia-', '') +".py"])
+
 
     # For each augmented module, add its path as a deviation
     for augmented_module in yang_module.augmented_by:
         module = collection.modules.get(augmented_module)
         if module:
-            command.append(f"--deviation {repo.path + module.path}")
-
-    # Create temp directory if it doesn't exist
-    temp_dir = Path("./temp")
-    temp_dir.mkdir(exist_ok=True)
-
-    # Save command to file
-    cmd_file = temp_dir / f".{args.module}.cmd"
-    with open(cmd_file, "w") as f:
-        f.write(" \\\n  ".join(command))
-
-    # Create models dir if it doesn't exist
-    temp_dir = Path("./models")
-    temp_dir.mkdir(exist_ok=True)
+            relay_args.extend(["--deviation", repo.path + module.path])
 
     # mybfd = bfd.Model(bfd=bfd.BfdContainer())
 
@@ -78,7 +68,8 @@ def main() -> None:
     # print(myif.model_dump_json(indent=2, exclude_none=True, exclude_unset=True))
 
     # now run the generated command
-    subprocess.run(" \\\n  ".join(command), check=True, shell=True)
+    sys.argv[1:] = relay_args
+    pydantify_main()
 
 
 if __name__ == "__main__":
