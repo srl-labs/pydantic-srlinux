@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-from typing import List
-import sys
 import argparse
-import subprocess
+import sys
 from pathlib import Path
+from posixpath import expanduser
+from typing import List
 
 import yaml
+from pydantify.main import main as pydantify_main
 
 # from models import bfd, interfaces
 from rich import print
 
 from yang_map import Repo, YangMap
-from pydantify.main import main as pydantify_main
 
 
 def main() -> None:
@@ -34,41 +34,40 @@ def main() -> None:
         return
 
     repo: Repo = collection.repo
+    expanded_repo_path = expanduser(repo.path)
 
     # Build the pydantify command
     relay_args: List[str] = []
-    relay_args.append(f"{repo.path + yang_module.path}")
-    relay_args.extend(["-p", repo.path +"/srlinux-yang-models/srl_nokia"])
-    relay_args.extend(["-p", repo.base_modules['iana']])
-    relay_args.extend(["-p", repo.base_modules['ietf']])
+    relay_args.extend(["pydantify"])
+    relay_args.append(f"{expanded_repo_path + yang_module.path}")
+    relay_args.extend(["-p", expanded_repo_path + "/srlinux-yang-models/srl_nokia"])
+    relay_args.extend(["-p", expanduser(repo.base_modules["iana"])])
+    relay_args.extend(["-p", expanduser(repo.base_modules["ietf"])])
 
-    relay_args.extend(["-o" , "pydantic_srlinux/models"])
-    relay_args.extend(["-f", args.module.replace('srl_nokia-', '') +".py"])
-
+    relay_args.extend(["-o", "pydantic_srlinux/models"])
+    relay_args.extend(["-f", args.module.replace("srl_nokia-", "") + ".py"])
 
     # For each augmented module, add its path as a deviation
     for augmented_module in yang_module.augmented_by:
         module = collection.modules.get(augmented_module)
         if module:
-            relay_args.extend(["--deviation", repo.path + module.path])
+            relay_args.extend(["--deviation", expanded_repo_path + module.path])
 
-    # mybfd = bfd.Model(bfd=bfd.BfdContainer())
+    # Create temp directory if it doesn't exist
+    temp_dir = Path("./temp")
+    temp_dir.mkdir(exist_ok=True)
 
-    # myif = interfaces.Model(
-    #     interface=[
-    #         interfaces.InterfaceListEntry(
-    #             name="ethernet-1/1",
-    #             description="hey ac3",
-    #             admin_state=interfaces.EnumerationEnum.enable,
-    #         )
-    #     ]
-    # )
+    # Save command to file
+    cmd_file = temp_dir / f".{args.module}.cmd"
+    with open(cmd_file, "w") as f:
+        f.write(" \\\n  ".join(relay_args))
 
-    # print(mybfd.model_dump_json(indent=2, exclude_none=True, exclude_unset=True))
-    # print(myif.model_dump_json(indent=2, exclude_none=True, exclude_unset=True))
+    # Create models dir if it doesn't exist
+    temp_dir = Path("./models")
+    temp_dir.mkdir(exist_ok=True)
 
     # now run the generated command
-    sys.argv[1:] = relay_args
+    sys.argv = relay_args
     pydantify_main()
 
 
