@@ -28,23 +28,23 @@ The script will navigate to the directory with the yang modules identified by th
 To manually regenerate the Pydantic models for a given module, run the following command:
 
 ```bash
-# pydantify.py --module <model name>
-./pydantify.py --module srl_nokia-acl
+# generate_models.py --module <model name>
+./generate_models.py --module srl_nokia-acl
 ```
 
 The full list of the top level modules:
 
 ```
-./pydantify.py --module srl_nokia-acl
-./pydantify.py --module srl_nokia-bfd
-./pydantify.py --module srl_nokia-interfaces
-./pydantify.py --module srl_nokia-network-instance (not yet supported)
-./pydantify.py --module srl_nokia-platform
-./pydantify.py --module srl_nokia-qos
-./pydantify.py --module srl_nokia-routing-policy
-./pydantify.py --module srl_nokia-system (not yet supported)
-./pydantify.py --module srl_nokia-tunnel-interfaces
-./pydantify.py --module srl_nokia-tunnel
+./generate_models.py --module srl_nokia-acl
+./generate_models.py --module srl_nokia-bfd
+./generate_models.py --module srl_nokia-interfaces
+./generate_models.py --module srl_nokia-network-instance (not yet supported)
+./generate_models.py --module srl_nokia-platform
+./generate_models.py --module srl_nokia-qos
+./generate_models.py --module srl_nokia-routing-policy
+./generate_models.py --module srl_nokia-system (not yet supported)
+./generate_models.py --module srl_nokia-tunnel-interfaces
+./generate_models.py --module srl_nokia-tunnel
 ```
 
 This will generate the `tunnel.py` file in the `pydantic_srlinux/models` directory. The script will also create the CLI command used to generate the Pydantic models and store it in the `./temp` directory.
