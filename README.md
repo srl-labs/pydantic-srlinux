@@ -5,7 +5,7 @@
 >
 > Limitations:
 >
-> - network instance and system modules are not yet supported
+> - system module is not yet supported
 > - models are generated without if-features flag set, this means all if-features are implicitly enabled. Note, that this will render models for features that your hardware might not have.
 > - if you found additional limitations, please open an issue or reach out in [Discord](https://discord.gg/tZvgjQ6PZf).
 
@@ -38,7 +38,7 @@ The full list of the top level modules:
 ./generate_models.py --module srl_nokia-acl
 ./generate_models.py --module srl_nokia-bfd
 ./generate_models.py --module srl_nokia-interfaces
-./generate_models.py --module srl_nokia-network-instance (not yet supported)
+./generate_models.py --module srl_nokia-network-instance
 ./generate_models.py --module srl_nokia-platform
 ./generate_models.py --module srl_nokia-qos
 ./generate_models.py --module srl_nokia-routing-policy

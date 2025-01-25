@@ -436,7 +436,7 @@ dev = [
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pydantify", git = "https://github.com/pydantify/pydantify?rev=f19cb2a" }]
+requires-dist = [{ name = "pydantify", git = "https://github.com/pydantify/pydantify?rev=bits_type" }]
 
 [package.metadata.requires-dev]
 dev = [
@@ -447,7 +447,7 @@ dev = [
 [[package]]
 name = "pydantify"
 version = "0.6.1"
-source = { git = "https://github.com/pydantify/pydantify?rev=f19cb2a#f19cb2a6651445759f280230c06643d7149c525c" }
+source = { git = "https://github.com/pydantify/pydantify?rev=bits_type#424dbc6882b1e17ad35886d92c7eaf95332ddb90" }
 dependencies = [
     { name = "datamodel-code-generator" },
     { name = "psutil" },

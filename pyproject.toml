@@ -4,7 +4,9 @@ version = "0.1.0"
 description = "Pydantic models for Nokia SR Linux"
 readme = "README.md"
 requires-python = "~=3.12"
-dependencies = ["pydantify==0.6.1"]
+dependencies = [
+    "pydantify==0.6.1",
+]
 
 [dependency-groups]
 dev = ["pyyaml>=6.0.2", "rich>=13.9.4"]
@@ -18,4 +20,4 @@ packages = ["pydantic_srlinux"]
 
 
 [tool.uv.sources]
-pydantify = { git = "https://github.com/pydantify/pydantify", rev = "f19cb2a" }
+pydantify = { git = "https://github.com/pydantify/pydantify", rev = "bits_type" }
