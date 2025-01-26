@@ -31,6 +31,7 @@ class YangModule(BaseModel):
     imports: List[YangImport]
     augments: List[YangAugment]
     augmented_by: List[str] = []
+    tree_cmd: str
 
 
 class Repo(BaseModel):
@@ -50,7 +51,10 @@ class YangMap(BaseModel):
     platforms: Dict[str, Platform]
 
 
-def parse_yang_file(base_dir, file_path: str) -> YangModule:
+DIR_ENV_VAR = "${SRL_YANG_REPO_DIR}"
+
+
+def parse_yang_file(base_dir, file_path: str, repo: Repo) -> YangModule:
     with open(file_path, "r") as f:
         content = f.read()
 
@@ -78,18 +82,20 @@ def parse_yang_file(base_dir, file_path: str) -> YangModule:
     for match in augment_matches:
         augments.append(YangAugment(node=match.group(1).strip()))
 
+    # file path relative to the yang repo dir path
+    base_file_path = file_path.replace(base_dir, "")
+
     return YangModule(
         name=module_name,
-        path=file_path.replace(
-            base_dir, ""
-        ),  # make module paths relative to the base dir
+        path=base_file_path,
         prefix=Prefix(current=current_prefix, target=target_prefix),
         imports=imports,
         augments=augments,
+        tree_cmd=f"pyang -f tree -p {repo.base_modules['srl']} -p {repo.base_modules['ietf']} -p {repo.base_modules['iana']} {DIR_ENV_VAR + base_file_path}",
     )
 
 
-def process_yang_files(dir: str) -> Dict[str, YangModule]:
+def process_yang_files(dir: str, repo: Repo) -> Dict[str, YangModule]:
     srl_models_dir = os.path.join(dir, "srlinux-yang-models", "srl_nokia")
     yang_files: Dict[str, YangModule] = {}
 
@@ -98,7 +104,7 @@ def process_yang_files(dir: str) -> Dict[str, YangModule]:
         for file in files:
             if file.endswith(".yang"):
                 file_path = os.path.join(root, file)
-                yang_module = parse_yang_file(dir, file_path)
+                yang_module = parse_yang_file(dir, file_path, repo)
                 yang_files[yang_module.name] = yang_module
 
     # Second pass: process augmentations
@@ -108,20 +114,29 @@ def process_yang_files(dir: str) -> Dict[str, YangModule]:
             if prefix_match:
                 augment_prefix = prefix_match.group(1)
                 # Find the corresponding module from imports
-                for imp in module.imports:
-                    if imp.prefix == augment_prefix:
-                        augmented_module = imp.module
-                        if augmented_module in yang_files:
+                for imported_mod in module.imports:
+                    if imported_mod.prefix == augment_prefix:
+                        augmented_mod = imported_mod.module
+                        if augmented_mod in yang_files:
                             # Add the current module to the augmented_by list
                             if (
                                 module_file
-                                not in yang_files[augmented_module].augmented_by
+                                not in yang_files[augmented_mod].augmented_by
                             ):
-                                yang_files[augmented_module].augmented_by.append(
+                                yang_files[augmented_mod].augmented_by.append(
                                     module_file
                                 )
+                                # add this module as deviation to the tree command
+                                # as the penultimate argument
+                                cmd_parts = yang_files[augmented_mod].tree_cmd.split()
+                                cmd_parts.insert(-1, "--deviation-module")
+                                cmd_parts.insert(
+                                    -1,
+                                    f"{repo.path + yang_files[module_file].path}",
+                                )
+                                # Join back into a space-separated string
+                                yang_files[augmented_mod].tree_cmd = " ".join(cmd_parts)
                         break
-
     return yang_files
 
 
@@ -177,28 +192,29 @@ def main() -> None:
     # Checkout the specified version
     subprocess.run(["git", "-C", dir, "checkout", args.version], check=True)
 
-    yang_files = process_yang_files(dir)
+    repo = Repo(
+        version=args.version,
+        path=DIR_ENV_VAR,
+        url=f"https://github.com/nokia/srlinux-yang-models/tree/{args.version}/srlinux-yang-models/srl_nokia/models",
+        base_modules={
+            "iana": f"{DIR_ENV_VAR}/srlinux-yang-models/iana",
+            "ietf": f"{DIR_ENV_VAR}/srlinux-yang-models/ietf",
+            "srl": f"{DIR_ENV_VAR}/srlinux-yang-models/srl_nokia",
+        },
+    )
+
+    yang_modules = process_yang_files(dir, repo)
 
     platforms: Dict[str, Platform] = get_platforms(version=args.version)
 
     map = YangMap(
-        modules=yang_files,
-        repo=Repo(
-            version=args.version,
-            path=non_expanded_dir,
-            url=f"https://github.com/nokia/srlinux-yang-models/tree/{args.version}/srlinux-yang-models/srl_nokia/models",
-            base_modules={
-                "iana": f"{non_expanded_dir}/srlinux-yang-models/iana",
-                "ietf": f"{non_expanded_dir}/srlinux-yang-models/ietf",
-            },
-        ),
+        modules=yang_modules,
+        repo=repo,
         platforms=platforms,
     )
 
-    # print(result.model_dump_json(indent=2))
     with open("yang_map.yml", "w") as f:
-        yaml.dump(map.model_dump(), f)
-    # yaml.dump(analyze_import_prefixes(result), sys.stdout)
+        yaml.dump(map.model_dump(), f, width=float("inf"))
 
 
 if __name__ == "__main__":

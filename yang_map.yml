@@ -29,6 +29,7 @@ modules:
     prefix:
       current: srl-aaa
       target: srl-aaa
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa.yang
   srl_nokia-aaa-password:
     augmented_by: []
     augments: []
@@ -38,6 +39,7 @@ modules:
     prefix:
       current: srl-aaa-password
       target: srl-aaa-password
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-password.yang
   srl_nokia-aaa-radius:
     augmented_by: []
     augments: []
@@ -57,6 +59,7 @@ modules:
     prefix:
       current: srl-aaa-radius
       target: srl-aaa-radius
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-radius.yang
   srl_nokia-aaa-tacacs:
     augmented_by: []
     augments: []
@@ -76,6 +79,7 @@ modules:
     prefix:
       current: srl-aaa-tacacs
       target: srl-aaa-tacacs
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-tacacs.yang
   srl_nokia-aaa-types:
     augmented_by: []
     augments: []
@@ -85,6 +89,7 @@ modules:
     prefix:
       current: srl-aaa-types
       target: srl-aaa-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa-types.yang
   srl_nokia-acl:
     augmented_by: []
     augments:
@@ -111,6 +116,7 @@ modules:
     prefix:
       current: srl_nokia-acl
       target: srl-acl
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl.yang
   srl_nokia-acl-policers:
     augmented_by: []
     augments:
@@ -134,6 +140,7 @@ modules:
     prefix:
       current: srl_nokia-acl-policers
       target: srl-acl-policers
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-policers.yang
   srl_nokia-acl-qos:
     augmented_by: []
     augments:
@@ -155,6 +162,7 @@ modules:
     prefix:
       current: srl_nokia-acl-qos
       target: srl-acl-qos
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-qos.yang
   srl_nokia-aft:
     augmented_by: []
     augments:
@@ -177,6 +185,7 @@ modules:
     prefix:
       current: srl_nokia-aft
       target: srl-aft
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aft.yang
   srl_nokia-aggregate-routes:
     augmented_by: []
     augments:
@@ -193,6 +202,7 @@ modules:
     prefix:
       current: srl_nokia-aggregate-routes
       target: srl-aggregate-routes
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aggregate-routes.yang
   srl_nokia-app-mgmt:
     augmented_by: []
     augments:
@@ -209,6 +219,7 @@ modules:
     prefix:
       current: srl_nokia-app-mgmt
       target: srl-app-mgmt
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-app-mgmt.yang
   srl_nokia-bfd:
     augmented_by:
     - srl_nokia-micro-bfd
@@ -229,6 +240,7 @@ modules:
     prefix:
       current: srl_nokia-bfd
       target: srl-bfd
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-micro-bfd.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-bfd.yang
   srl_nokia-bgp:
     augmented_by: []
     augments:
@@ -260,6 +272,7 @@ modules:
     prefix:
       current: srl_nokia-bgp
       target: srl-bgp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp.yang
   srl_nokia-bgp-evpn:
     augmented_by: []
     augments:
@@ -284,6 +297,7 @@ modules:
     prefix:
       current: srl_nokia-bgp-evpn
       target: srl-bgp-evpn
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn.yang
   srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations:
     augmented_by: []
     augments:
@@ -302,6 +316,7 @@ modules:
     prefix:
       current: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-multicast-destinations
       target: srl-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations.yang
   srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics:
     augmented_by: []
     augments:
@@ -320,6 +335,7 @@ modules:
     prefix:
       current: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-statistics
       target: srl-bgp-evpn-bgp-instance-mpls-bridge-table-statistics
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics.yang
   srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:
     augmented_by: []
     augments:
@@ -338,6 +354,7 @@ modules:
     prefix:
       current: srl_nokia-bgp-evpn-bgp-instance-mpls-bt-unicast-destinations
       target: srl-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations.yang
   srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:
     augmented_by: []
     augments:
@@ -356,6 +373,7 @@ modules:
     prefix:
       current: srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
       target: srl-bgp-evpn-bgp-instance-vpws-destinations-remote-ac
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac.yang
   srl_nokia-bgp-ipvpn:
     augmented_by: []
     augments:
@@ -380,6 +398,7 @@ modules:
     prefix:
       current: srl_nokia-bgp-ipvpn
       target: srl-bgp-ipvpn
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-ipvpn.yang
   srl_nokia-bgp-vpn:
     augmented_by: []
     augments:
@@ -402,6 +421,7 @@ modules:
     prefix:
       current: srl_nokia-bgp-vpn
       target: srl-bgp-vpn
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-vpn.yang
   srl_nokia-boot:
     augmented_by: []
     augments:
@@ -420,6 +440,7 @@ modules:
     prefix:
       current: srl-boot
       target: srl-boot
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-boot.yang
   srl_nokia-bridge-table:
     augmented_by: []
     augments: []
@@ -431,6 +452,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table
       target: srl-bridge-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table.yang
   srl_nokia-bridge-table-mac-duplication:
     augmented_by: []
     augments: []
@@ -442,6 +464,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-mac-duplication
       target: srl-bridge-table-mac-duplication
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-duplication.yang
   srl_nokia-bridge-table-mac-duplication-entries:
     augmented_by: []
     augments:
@@ -458,6 +481,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-mac-duplication-entries
       target: srl-bridge-table-mac-duplication-entries
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-duplication-entries.yang
   srl_nokia-bridge-table-mac-learning:
     augmented_by: []
     augments: []
@@ -469,6 +493,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-mac-learning
       target: srl-bridge-table-mac-learning
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-learning.yang
   srl_nokia-bridge-table-mac-learning-entries:
     augmented_by: []
     augments:
@@ -485,6 +510,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-mac-learning-entries
       target: srl-bridge-table-mac-learning-entries
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-learning-entries.yang
   srl_nokia-bridge-table-mac-limit:
     augmented_by: []
     augments: []
@@ -494,6 +520,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-mac-limit
       target: srl-bridge-table-mac-limit
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-limit.yang
   srl_nokia-bridge-table-mac-table:
     augmented_by: []
     augments:
@@ -510,6 +537,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-mac-table
       target: srl-bridge-table-mac-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-table.yang
   srl_nokia-bridge-table-proxy-arp-nd:
     augmented_by: []
     augments:
@@ -530,6 +558,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-proxy-arp-nd
       target: srl-bridge-table-proxy-arp-nd
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-proxy-arp-nd.yang
   srl_nokia-bridge-table-reserved-macs:
     augmented_by: []
     augments:
@@ -546,6 +575,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-reserved-macs
       target: srl-bridge-table-reserved-macs
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-reserved-macs.yang
   srl_nokia-bridge-table-shg:
     augmented_by: []
     augments: []
@@ -559,6 +589,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-shg
       target: srl-bridge-table-shg
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-shg.yang
   srl_nokia-bridge-table-static-mac:
     augmented_by: []
     augments:
@@ -575,6 +606,7 @@ modules:
     prefix:
       current: srl_nokia-bridge-table-static-mac
       target: srl-bridge-table-static-mac
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-static-mac.yang
   srl_nokia-common:
     augmented_by: []
     augments: []
@@ -588,6 +620,7 @@ modules:
     prefix:
       current: srl_nokia-comm
       target: srl-common
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/common/srl_nokia-common.yang
   srl_nokia-configuration:
     augmented_by: []
     augments:
@@ -608,6 +641,7 @@ modules:
     prefix:
       current: srl-config
       target: srl-configuration
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration.yang
   srl_nokia-configuration-role:
     augmented_by: []
     augments:
@@ -628,6 +662,7 @@ modules:
     prefix:
       current: srl_nokia-configuration-role
       target: srl-configuration-role
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration-role.yang
   srl_nokia-connection-point-bridge-table-mac-duplication-entries:
     augmented_by: []
     augments:
@@ -642,6 +677,7 @@ modules:
     prefix:
       current: srl_nokia-connection-point-bridge-table-mac-duplication-entries
       target: srl-connection-point-bridge-table-mac-duplication-entries
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-duplication-entries.yang
   srl_nokia-connection-point-bridge-table-mac-learning-entries:
     augmented_by: []
     augments:
@@ -656,6 +692,7 @@ modules:
     prefix:
       current: srl_nokia-connection-point-bridge-table-mac-learning-entries
       target: srl-connection-point-bridge-table-mac-learning-entries
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-learning-entries.yang
   srl_nokia-connection-point-bridge-table-mac-table:
     augmented_by: []
     augments:
@@ -670,6 +707,7 @@ modules:
     prefix:
       current: srl_nokia-connection-point-bridge-table-mac-table
       target: srl-connection-point-bridge-table-mac-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-table.yang
   srl_nokia-connection-point-bridge-table-statistics:
     augmented_by: []
     augments:
@@ -684,6 +722,7 @@ modules:
     prefix:
       current: srl_nokia-connection-point-bridge-table-statistics
       target: srl-connection-point-bridge-table-statistics
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-statistics.yang
   srl_nokia-connection-point-pseudowires:
     augmented_by: []
     augments: []
@@ -703,6 +742,7 @@ modules:
     prefix:
       current: srl_nokia-connection-point-pseudowires
       target: srl-connection-point-pseudowires
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-pseudowires.yang
   srl_nokia-dhcp-server:
     augmented_by: []
     augments:
@@ -723,6 +763,7 @@ modules:
     prefix:
       current: srl-dhcp-server
       target: srl-dhcp-server
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-dhcp-server.yang
   srl_nokia-dns:
     augmented_by: []
     augments:
@@ -741,6 +782,7 @@ modules:
     prefix:
       current: srl_nokia-dns
       target: srl-dns
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-dns.yang
   srl_nokia-dot1x:
     augmented_by: []
     augments:
@@ -760,6 +802,7 @@ modules:
     prefix:
       current: srl_nokia-dot1x
       target: srl-dot1x
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-dot1x.yang
   srl_nokia-ethcfm:
     augmented_by: []
     augments:
@@ -785,6 +828,7 @@ modules:
     prefix:
       current: srl_nokia-ethcfm
       target: srl-ethcfm
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm.yang
   srl_nokia-ethcfm-types:
     augmented_by: []
     augments: []
@@ -796,6 +840,7 @@ modules:
     prefix:
       current: srl_nokia-ethcfm-types
       target: srl-ethcfm-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm-types.yang
   srl_nokia-event-handler:
     augmented_by: []
     augments:
@@ -816,6 +861,7 @@ modules:
     prefix:
       current: srl-event-handler
       target: srl-event-handler
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-event-handler.yang
   srl_nokia-extensions:
     augmented_by: []
     augments: []
@@ -825,6 +871,7 @@ modules:
     prefix:
       current: srl_nokia-ext
       target: srl-extensions
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/common/srl_nokia-extensions.yang
   srl_nokia-features:
     augmented_by: []
     augments: []
@@ -834,6 +881,7 @@ modules:
     prefix:
       current: srl_nokia-feat
       target: srl-features
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/common/srl_nokia-features.yang
   srl_nokia-ftp:
     augmented_by: []
     augments:
@@ -852,6 +900,7 @@ modules:
     prefix:
       current: srl_nokia-ftp
       target: srl-ftp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ftp.yang
   srl_nokia-gnmi:
     augmented_by: []
     augments: []
@@ -865,6 +914,7 @@ modules:
     prefix:
       current: srl-gnmi
       target: srl-gnmi
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnmi.yang
   srl_nokia-gnsi-authz:
     augmented_by: []
     augments:
@@ -885,6 +935,7 @@ modules:
     prefix:
       current: srl-gnsi-authz
       target: srl-gnsi-authz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-authz.yang
   srl_nokia-gnsi-certz:
     augmented_by: []
     augments:
@@ -903,6 +954,7 @@ modules:
     prefix:
       current: srl-gnsi-certz
       target: srl-gnsi-certz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-certz.yang
   srl_nokia-gnsi-credentialz:
     augmented_by: []
     augments:
@@ -922,6 +974,7 @@ modules:
     prefix:
       current: srl-gnsi-credentialz
       target: srl-gnsi-credentialz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-credentialz.yang
   srl_nokia-gnsi-pathz:
     augmented_by: []
     augments:
@@ -944,6 +997,7 @@ modules:
     prefix:
       current: srl-gnsi-pathz
       target: srl-gnsi-pathz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-pathz.yang
   srl_nokia-gribi:
     augmented_by: []
     augments:
@@ -962,6 +1016,7 @@ modules:
     prefix:
       current: srl-gribi
       target: srl-gribi
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gribi.yang
   srl_nokia-grpc:
     augmented_by: []
     augments:
@@ -994,6 +1049,7 @@ modules:
     prefix:
       current: srl-grpc
       target: srl-grpc
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-grpc.yang
   srl_nokia-icmp:
     augmented_by: []
     augments: []
@@ -1005,6 +1061,7 @@ modules:
     prefix:
       current: srl_nokia-icmp
       target: srl-icmp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-icmp.yang
   srl_nokia-if-ip:
     augmented_by: []
     augments: []
@@ -1020,6 +1077,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip
       target: srl-if-ip
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-if-ip.yang
   srl_nokia-if-mpls:
     augmented_by: []
     augments:
@@ -1036,6 +1094,7 @@ modules:
     prefix:
       current: srl_nokia-if-mpls
       target: srl-if-mpls
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-if-mpls.yang
   srl_nokia-igmp:
     augmented_by: []
     augments:
@@ -1058,6 +1117,7 @@ modules:
     prefix:
       current: srl_nokia-igmp
       target: srl-igmp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp.yang
   srl_nokia-igmp-snooping:
     augmented_by: []
     augments:
@@ -1080,6 +1140,7 @@ modules:
     prefix:
       current: srl_nokia-igmp-snooping
       target: srl-igmp-snooping
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp-snooping.yang
   srl_nokia-igmp-types:
     augmented_by: []
     augments: []
@@ -1089,6 +1150,7 @@ modules:
     prefix:
       current: srl_nokia-igmp-types
       target: srl-igmp-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp-types.yang
   srl_nokia-interfaces:
     augmented_by:
     - srl_nokia-dot1x
@@ -1140,6 +1202,7 @@ modules:
     prefix:
       current: srl_nokia-if
       target: srl-interfaces
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-dot1x.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-healthz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ra_guard.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-packet-link-qual.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-evpn.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-l2cp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-relay.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-p4rt.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-dco.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-vrrp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-router-adv.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-stp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-virtual-ip-discovery.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-duplication-entries.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-statistics.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vlans.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-local-mirror-destination.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-lacp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-server.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-if-mpls.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vxdp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-table.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-learning-entries.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-lag.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ethernet-segment-association.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces.yang
   srl_nokia-interfaces-bridge-table:
     augmented_by: []
     augments: []
@@ -1153,6 +1216,7 @@ modules:
     prefix:
       current: srl_nokia-if-bt
       target: srl-interfaces-bridge-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table.yang
   srl_nokia-interfaces-bridge-table-mac-duplication-entries:
     augmented_by: []
     augments:
@@ -1169,6 +1233,7 @@ modules:
     prefix:
       current: srl_nokia-interfaces-bridge-table-mac-duplication-entries
       target: srl-interfaces-bridge-table-mac-duplication-entries
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-duplication-entries.yang
   srl_nokia-interfaces-bridge-table-mac-learning-entries:
     augmented_by: []
     augments:
@@ -1185,6 +1250,7 @@ modules:
     prefix:
       current: srl_nokia-interfaces-bridge-table-mac-learning-entries
       target: srl-interfaces-bridge-table-mac-learning-entries
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-learning-entries.yang
   srl_nokia-interfaces-bridge-table-mac-table:
     augmented_by: []
     augments:
@@ -1201,6 +1267,7 @@ modules:
     prefix:
       current: srl_nokia-interfaces-bridge-table-mac-table
       target: srl-interfaces-bridge-table-mac-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-mac-table.yang
   srl_nokia-interfaces-bridge-table-statistics:
     augmented_by: []
     augments:
@@ -1217,6 +1284,7 @@ modules:
     prefix:
       current: srl_nokia-if-bt
       target: srl-interfaces-bridge-table-statistics
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-statistics.yang
   srl_nokia-interfaces-bridge-table-stp:
     augmented_by: []
     augments:
@@ -1237,6 +1305,7 @@ modules:
     prefix:
       current: srl_nokia-interfaces-bridge-table-stp
       target: srl-interfaces-bridge-table-stp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-bridge-table-stp.yang
   srl_nokia-interfaces-dco:
     augmented_by: []
     augments:
@@ -1257,6 +1326,7 @@ modules:
     prefix:
       current: srl_nokia-if-dco
       target: srl-interfaces-dco
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-dco.yang
   srl_nokia-interfaces-ethernet-segment-association:
     augmented_by: []
     augments:
@@ -1271,6 +1341,7 @@ modules:
     prefix:
       current: srl_nokia-interfaces-ethernet-segment-association
       target: srl-interfaces-ethernet-segment-association
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ethernet-segment-association.yang
   srl_nokia-interfaces-ip-dhcp:
     augmented_by: []
     augments:
@@ -1284,6 +1355,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-dhcp
       target: srl-interfaces-ip-dhcp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp.yang
   srl_nokia-interfaces-ip-dhcp-relay:
     augmented_by: []
     augments:
@@ -1301,6 +1373,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-dhcp-relay
       target: srl-interfaces-ip-dhcp-relay
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-relay.yang
   srl_nokia-interfaces-ip-dhcp-server:
     augmented_by: []
     augments:
@@ -1322,6 +1395,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-dhcp-server
       target: srl-interfaces-ip-dhcp-server
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-dhcp-server.yang
   srl_nokia-interfaces-ip-vrrp:
     augmented_by: []
     augments:
@@ -1343,6 +1417,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-vrrp
       target: srl-interfaces-ip-vrrp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-ip-vrrp.yang
   srl_nokia-interfaces-l2cp:
     augmented_by: []
     augments:
@@ -1370,6 +1445,7 @@ modules:
     prefix:
       current: srl_nokia-interfaces-l2cp
       target: srl-interfaces-l2cp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-l2cp.yang
   srl_nokia-interfaces-lag:
     augmented_by: []
     augments:
@@ -1388,6 +1464,7 @@ modules:
     prefix:
       current: srl_nokia-if-lag
       target: srl-interfaces-lag
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-lag.yang
   srl_nokia-interfaces-local-mirror-destination:
     augmented_by: []
     augments:
@@ -1404,6 +1481,7 @@ modules:
     prefix:
       current: srl_nokia-if-local-mirror-dest
       target: srl-interfaces-local-mirror-destination
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-local-mirror-destination.yang
   srl_nokia-interfaces-nbr:
     augmented_by: []
     augments:
@@ -1427,6 +1505,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-nbr
       target: srl-interfaces-nbr
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr.yang
   srl_nokia-interfaces-nbr-evpn:
     augmented_by: []
     augments:
@@ -1446,6 +1525,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-nbr-evpn
       target: srl-interfaces-nbr-evpn
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-evpn.yang
   srl_nokia-interfaces-nbr-virtual-ip-discovery:
     augmented_by: []
     augments:
@@ -1467,6 +1547,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-nbr-virtual-ip-discovery
       target: srl-interfaces-nbr-virtual-ip-discovery
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-nbr-virtual-ip-discovery.yang
   srl_nokia-interfaces-p4rt:
     augmented_by: []
     augments:
@@ -1483,6 +1564,7 @@ modules:
     prefix:
       current: srl_nokia-if-p4rt
       target: srl-interfaces-p4rt
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-p4rt.yang
   srl_nokia-interfaces-router-adv:
     augmented_by: []
     augments:
@@ -1497,6 +1579,7 @@ modules:
     prefix:
       current: srl_nokia-if-ip-ra
       target: srl-interfaces-router-adv
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-router-adv.yang
   srl_nokia-interfaces-vlans:
     augmented_by: []
     augments:
@@ -1513,6 +1596,7 @@ modules:
     prefix:
       current: srl_nokia-if-vlan
       target: srl-interfaces-vlans
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vlans.yang
   srl_nokia-interfaces-vxdp:
     augmented_by: []
     augments:
@@ -1530,6 +1614,7 @@ modules:
     prefix:
       current: srl-if-vxdp
       target: srl-interfaces-vxdp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-vxdp.yang
   srl_nokia-ip-route-tables:
     augmented_by: []
     augments:
@@ -1562,6 +1647,7 @@ modules:
     prefix:
       current: srl_nokia-ip-route-tables
       target: srl-ip-route-tables
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ip-route-tables.yang
   srl_nokia-ippm-source-udp-pool:
     augmented_by: []
     augments:
@@ -1578,6 +1664,7 @@ modules:
     prefix:
       current: srl_nokia-ippm-source-udp-pool
       target: srl-ippm-source-udp-pool
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-ippm-source-udp-pool.yang
   srl_nokia-isis:
     augmented_by: []
     augments:
@@ -1618,6 +1705,7 @@ modules:
     prefix:
       current: srl_nokia-isis
       target: srl-isis
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis.yang
   srl_nokia-isis-lsdb:
     augmented_by: []
     augments: []
@@ -1633,6 +1721,7 @@ modules:
     prefix:
       current: srl_nokia-isis-lsdb
       target: srl-isis-lsdb
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-lsdb.yang
   srl_nokia-isis-lsdb-types:
     augmented_by: []
     augments: []
@@ -1644,6 +1733,7 @@ modules:
     prefix:
       current: srl_nokia-isis-lsdb-types
       target: srl-isis-lsdb-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-lsdb-types.yang
   srl_nokia-isis-types:
     augmented_by: []
     augments: []
@@ -1653,6 +1743,7 @@ modules:
     prefix:
       current: srl_nokia-isis-types
       target: srl-isis-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis-types.yang
   srl_nokia-json-rpc:
     augmented_by: []
     augments:
@@ -1673,6 +1764,7 @@ modules:
     prefix:
       current: srl-json-rpc
       target: srl-json-rpc
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-json-rpc.yang
   srl_nokia-keychains:
     augmented_by: []
     augments:
@@ -1691,6 +1783,7 @@ modules:
     prefix:
       current: srl_nokia-keychains
       target: srl-keychains
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-keychains.yang
   srl_nokia-lacp:
     augmented_by: []
     augments:
@@ -1713,6 +1806,7 @@ modules:
     prefix:
       current: srl_nokia-lacp
       target: srl-lacp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-lacp.yang
   srl_nokia-lawful-intercept:
     augmented_by: []
     augments:
@@ -1731,6 +1825,7 @@ modules:
     prefix:
       current: srl_nokia-lawful-interecept
       target: srl-lawful-intercept
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lawful-intercept.yang
   srl_nokia-ldp:
     augmented_by: []
     augments:
@@ -1755,6 +1850,7 @@ modules:
     prefix:
       current: srl_nokia-ldp
       target: srl-ldp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ldp.yang
   srl_nokia-license:
     augmented_by: []
     augments:
@@ -1773,6 +1869,7 @@ modules:
     prefix:
       current: srl_nokia-license
       target: srl-license
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-license.yang
   srl_nokia-link-measurement:
     augmented_by: []
     augments:
@@ -1797,6 +1894,7 @@ modules:
     prefix:
       current: srl_nokia-link-measurement
       target: srl-link-measurement
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-link-measurement.yang
   srl_nokia-linux:
     augmented_by: []
     augments:
@@ -1809,6 +1907,7 @@ modules:
     prefix:
       current: srl_nokia-linux
       target: srl-linux
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-linux.yang
   srl_nokia-lldp:
     augmented_by: []
     augments:
@@ -1833,6 +1932,7 @@ modules:
     prefix:
       current: srl_nokia-lldp
       target: srl-lldp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lldp.yang
   srl_nokia-lldp-types:
     augmented_by: []
     augments: []
@@ -1842,6 +1942,7 @@ modules:
     prefix:
       current: srl_nokia-lldp-types
       target: srl-lldp-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lldp-types.yang
   srl_nokia-load-balancing:
     augmented_by: []
     augments:
@@ -1858,6 +1959,7 @@ modules:
     prefix:
       current: srl_nokia-lb
       target: srl-load-balancing
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-load-balancing.yang
   srl_nokia-logging:
     augmented_by: []
     augments:
@@ -1876,6 +1978,7 @@ modules:
     prefix:
       current: srl_nokia-logging
       target: srl-logging
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-logging.yang
   srl_nokia-lsp-ping-trace:
     augmented_by: []
     augments:
@@ -1892,6 +1995,7 @@ modules:
     prefix:
       current: srl_nokia-lsp-ping-trace
       target: srl-lsp-ping-trace
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-lsp-ping-trace.yang
   srl_nokia-macsec:
     augmented_by: []
     augments:
@@ -1916,6 +2020,7 @@ modules:
     prefix:
       current: srl_nokia-macsec
       target: srl-macsec
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-macsec.yang
   srl_nokia-maintenance-mode:
     augmented_by: []
     augments:
@@ -1938,6 +2043,7 @@ modules:
     prefix:
       current: srl-m-mode
       target: srl-maintenance-mode
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-maintenance-mode.yang
   srl_nokia-maintenance-policies:
     augmented_by: []
     augments:
@@ -1954,6 +2060,7 @@ modules:
     prefix:
       current: srl_nokia-maintenance-policies
       target: srl-maintenance-policies
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-maintenance-policies.yang
   srl_nokia-micro-bfd:
     augmented_by: []
     augments:
@@ -1974,6 +2081,7 @@ modules:
     prefix:
       current: srl_nokia-micro-bfd
       target: srl-micro-bfd
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-micro-bfd.yang
   srl_nokia-mirroring:
     augmented_by: []
     augments:
@@ -1998,6 +2106,7 @@ modules:
     prefix:
       current: srl_nokia-mirroring
       target: srl-mirroring
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mirroring.yang
   srl_nokia-mld:
     augmented_by: []
     augments:
@@ -2020,6 +2129,7 @@ modules:
     prefix:
       current: srl_nokia-mld
       target: srl-mld
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld.yang
   srl_nokia-mld-snooping:
     augmented_by: []
     augments:
@@ -2042,6 +2152,7 @@ modules:
     prefix:
       current: srl_nokia-mld-snooping
       target: srl-mld-snooping
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld-snooping.yang
   srl_nokia-mpls:
     augmented_by: []
     augments:
@@ -2066,6 +2177,7 @@ modules:
     prefix:
       current: srl_nokia-mpls
       target: srl-mpls
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls.yang
   srl_nokia-mpls-label-management:
     augmented_by: []
     augments:
@@ -2084,6 +2196,7 @@ modules:
     prefix:
       current: srl_nokia-mplslbl
       target: srl-mpls-label-management
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-label-management.yang
   srl_nokia-mpls-route-tables:
     augmented_by: []
     augments:
@@ -2114,6 +2227,7 @@ modules:
     prefix:
       current: srl_nokia-mpls-route-tables
       target: srl-mpls-route-tables
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls-route-tables.yang
   srl_nokia-mpls-services-evpn-label-management:
     augmented_by: []
     augments:
@@ -2134,6 +2248,7 @@ modules:
     prefix:
       current: srl_nokia-mplsservicesbtevpnlbl
       target: srl-mpls-services-evpn-label-management
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-evpn-label-management.yang
   srl_nokia-mpls-services-network-instance-label-management:
     augmented_by: []
     augments:
@@ -2150,6 +2265,7 @@ modules:
     prefix:
       current: srl_nokia-mplsserviceslbl
       target: srl-mpls-services-network-instance-label-management
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-network-instance-label-management.yang
   srl_nokia-mtu:
     augmented_by: []
     augments:
@@ -2164,6 +2280,7 @@ modules:
     prefix:
       current: srl-mtu
       target: srl-mtu
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mtu.yang
   srl_nokia-multicast-mfib-tables:
     augmented_by: []
     augments:
@@ -2182,6 +2299,7 @@ modules:
     prefix:
       current: srl_nokia-multicast-mfib-tables
       target: srl-multicast-mfib-tables
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-multicast-mfib-tables.yang
   srl_nokia-mvpn-l3:
     augmented_by: []
     augments:
@@ -2206,6 +2324,7 @@ modules:
     prefix:
       current: srl_nokia-mvpn-l3
       target: srl-mvpn-l3
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mvpn-l3.yang
   srl_nokia-netconf-server:
     augmented_by: []
     augments:
@@ -2226,6 +2345,7 @@ modules:
     prefix:
       current: srl-netconf-server
       target: srl-netconf-server
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-netconf-server.yang
   srl_nokia-network-instance:
     augmented_by:
     - srl_nokia-seamless-bfd
@@ -2311,6 +2431,7 @@ modules:
     prefix:
       current: srl_nokia-netinst
       target: srl-network-instance
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-seamless-bfd.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gribi.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pim.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-stp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-segment-routing.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-policy-forwarding.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mvpn-l3.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-isis.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-duplication-entries.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mpls-route-tables.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-linux.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ldp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tunnel-tables.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-rib-bgp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aft.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tcp-udp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-traffic-engineering.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp-snooping.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-te-policies.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-mld-snooping.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-aggregate-routes.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-next-hop-groups.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-table.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ip-route-tables.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-proxy-arp-nd.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-static-mac.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-vpn.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pcep.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-learning-entries.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-statistics.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-maintenance-policies.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-learning-entries.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-mac-table.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-static-routes.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bridge-table-reserved-macs.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp-ipvpn.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ni-gre.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-igmp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-network-instance-mtu.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-connection-point-bridge-table-mac-duplication-entries.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-multicast-mfib-tables.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-table-connections.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-ptp.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-network-instance.yang
   srl_nokia-network-instance-mtu:
     augmented_by: []
     augments:
@@ -2323,6 +2444,7 @@ modules:
     prefix:
       current: srl-netinst-mtu
       target: srl-network-instance-mtu
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-network-instance-mtu.yang
   srl_nokia-next-hop-groups:
     augmented_by: []
     augments:
@@ -2339,6 +2461,7 @@ modules:
     prefix:
       current: srl_nokia-next-hop-groups
       target: srl-next-hop-groups
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-next-hop-groups.yang
   srl_nokia-ni-gre:
     augmented_by: []
     augments:
@@ -2357,6 +2480,7 @@ modules:
     prefix:
       current: srl_nokia-gre
       target: srl-ni-gre
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ni-gre.yang
   srl_nokia-ntp:
     augmented_by: []
     augments:
@@ -2379,6 +2503,7 @@ modules:
     prefix:
       current: srl_nokia-ntp
       target: srl-ntp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ntp.yang
   srl_nokia-oam:
     augmented_by:
     - srl_nokia-service-activation-testhead
@@ -2399,6 +2524,7 @@ modules:
     prefix:
       current: srl_nokia-oam
       target: srl-oam
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-service-activation-testhead.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-lsp-ping-trace.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-twamp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-ippm-source-udp-pool.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-stamp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-link-measurement.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-oam-pm-ip.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-ethcfm.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-oam-pm-ethcfm.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam.yang
   srl_nokia-oam-pm:
     augmented_by: []
     augments: []
@@ -2412,6 +2538,7 @@ modules:
     prefix:
       current: srl_nokia-oam-pm
       target: srl-oam-pm
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam-pm.yang
   srl_nokia-oam-pm-ethcfm:
     augmented_by: []
     augments:
@@ -2436,6 +2563,7 @@ modules:
     prefix:
       current: srl_nokia-oam-pm-ethcfm
       target: srl-oam-pm-ethcfm
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-oam-pm-ethcfm.yang
   srl_nokia-oam-pm-ip:
     augmented_by: []
     augments:
@@ -2464,6 +2592,7 @@ modules:
     prefix:
       current: srl_nokia-oam-pm-ip
       target: srl-oam-pm-ip
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-oam-pm-ip.yang
   srl_nokia-oam-pm-types:
     augmented_by: []
     augments: []
@@ -2473,6 +2602,7 @@ modules:
     prefix:
       current: srl_nokia-oam-pm-types
       target: srl-oam-pm-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-oam-pm-types.yang
   srl_nokia-openconfig:
     augmented_by: []
     augments:
@@ -2491,6 +2621,7 @@ modules:
     prefix:
       current: srl_nokia-openconfig
       target: srl-openconfig
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-openconfig.yang
   srl_nokia-ospf:
     augmented_by: []
     augments:
@@ -2523,6 +2654,7 @@ modules:
     prefix:
       current: srl_nokia-ospf
       target: srl-ospf
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf.yang
   srl_nokia-ospf-lsdb:
     augmented_by: []
     augments: []
@@ -2538,6 +2670,7 @@ modules:
     prefix:
       current: srl_nokia-ospf-lsdb
       target: srl-ospf-lsdb
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf-lsdb.yang
   srl_nokia-ospf-types:
     augmented_by: []
     augments: []
@@ -2549,6 +2682,7 @@ modules:
     prefix:
       current: srl_nokia-ospf-types
       target: srl-ospf-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospf-types.yang
   srl_nokia-ospfv3-lsas:
     augmented_by: []
     augments: []
@@ -2564,6 +2698,7 @@ modules:
     prefix:
       current: srl_nokia-ospfv3-lsas
       target: srl-ospfv3-lsas
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ospfv3-lsas.yang
   srl_nokia-p4rt:
     augmented_by: []
     augments: []
@@ -2577,6 +2712,7 @@ modules:
     prefix:
       current: srl-p4rt
       target: srl-p4rt
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-p4rt.yang
   srl_nokia-packet-link-qual:
     augmented_by: []
     augments:
@@ -2598,6 +2734,7 @@ modules:
     prefix:
       current: srl_nokia-plq
       target: srl-packet-link-qual
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-packet-link-qual.yang
   srl_nokia-packet-match-types:
     augmented_by: []
     augments: []
@@ -2607,6 +2744,7 @@ modules:
     prefix:
       current: srl_nokia-pkt-match-types
       target: srl-packet-match-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-packet-match-types.yang
   srl_nokia-pcep:
     augmented_by: []
     augments:
@@ -2631,6 +2769,7 @@ modules:
     prefix:
       current: srl_nokia-pcep
       target: srl-pcep
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pcep.yang
   srl_nokia-pim:
     augmented_by: []
     augments:
@@ -2653,6 +2792,7 @@ modules:
     prefix:
       current: srl_nokia-pim
       target: srl-pim
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-pim.yang
   srl_nokia-platform:
     augmented_by:
     - srl_nokia-ip-route-tables
@@ -2694,6 +2834,7 @@ modules:
     prefix:
       current: srl_nokia-platform
       target: srl-platform
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-ip-route-tables.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-p4rt.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cgroup.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-redundancy.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-mgmt.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-qos.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-healthz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-monitoring.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-linecard-fib.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cpu.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-lc.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-mtu.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fabric.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fan.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-disk.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-acl.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-datapath-resources.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-memory.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-secure-boot.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-vxdp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control-fp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-chassis.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tpm.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-psu.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tcam.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform.yang
   srl_nokia-platform-acl:
     augmented_by: []
     augments:
@@ -2717,6 +2858,7 @@ modules:
     prefix:
       current: srl_nokia-platform-acl
       target: srl-platform-acl
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-acl.yang
   srl_nokia-platform-cgroup:
     augmented_by: []
     augments:
@@ -2733,6 +2875,7 @@ modules:
     prefix:
       current: srl_nokia-platform-cgroup
       target: srl-platform-cgroup
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cgroup.yang
   srl_nokia-platform-chassis:
     augmented_by: []
     augments:
@@ -2751,6 +2894,7 @@ modules:
     prefix:
       current: srl_nokia-platform-chassis
       target: srl-platform-chassis
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-chassis.yang
   srl_nokia-platform-control:
     augmented_by: []
     augments:
@@ -2769,6 +2913,7 @@ modules:
     prefix:
       current: srl_nokia-platform-control
       target: srl-platform-control
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control.yang
   srl_nokia-platform-control-fp:
     augmented_by: []
     augments:
@@ -2783,6 +2928,7 @@ modules:
     prefix:
       current: srl_nokia-platform-control-fp
       target: srl-platform-control-fp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-control-fp.yang
   srl_nokia-platform-cpu:
     augmented_by: []
     augments:
@@ -2801,6 +2947,7 @@ modules:
     prefix:
       current: srl_nokia-platform-cpu
       target: srl-platform-cpu
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-cpu.yang
   srl_nokia-platform-datapath-resources:
     augmented_by: []
     augments:
@@ -2825,6 +2972,7 @@ modules:
     prefix:
       current: srl_nokia-platform-datapath-resources
       target: srl-platform-datapath-resources
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-datapath-resources.yang
   srl_nokia-platform-disk:
     augmented_by: []
     augments:
@@ -2843,6 +2991,7 @@ modules:
     prefix:
       current: srl_nokia-platform-disk
       target: srl-platform-disk
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-disk.yang
   srl_nokia-platform-fabric:
     augmented_by: []
     augments:
@@ -2859,6 +3008,7 @@ modules:
     prefix:
       current: srl_nokia-platform-fabric
       target: srl-platform-fabric
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fabric.yang
   srl_nokia-platform-fan:
     augmented_by: []
     augments:
@@ -2877,6 +3027,7 @@ modules:
     prefix:
       current: srl_nokia-platform-fan
       target: srl-platform-fan
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-fan.yang
   srl_nokia-platform-healthz:
     augmented_by: []
     augments:
@@ -2913,6 +3064,7 @@ modules:
     prefix:
       current: srl_nokia-platform-healthz
       target: srl-platform-healthz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-healthz.yang
   srl_nokia-platform-lc:
     augmented_by: []
     augments:
@@ -2933,6 +3085,7 @@ modules:
     prefix:
       current: srl_nokia-platform-lc
       target: srl-platform-lc
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-lc.yang
   srl_nokia-platform-linecard-fib:
     augmented_by: []
     augments:
@@ -2949,6 +3102,7 @@ modules:
     prefix:
       current: srl_nokia-platform-lc-fib
       target: srl-platform-linecard-fib
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-linecard-fib.yang
   srl_nokia-platform-memory:
     augmented_by: []
     augments:
@@ -2965,6 +3119,7 @@ modules:
     prefix:
       current: srl_nokia-platform-memory
       target: srl-platform-memory
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-memory.yang
   srl_nokia-platform-mtu:
     augmented_by: []
     augments:
@@ -2986,6 +3141,7 @@ modules:
     prefix:
       current: srl_nokia-platform-mtu
       target: srl-platform-mtu
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-mtu.yang
   srl_nokia-platform-p4rt:
     augmented_by: []
     augments:
@@ -3004,6 +3160,7 @@ modules:
     prefix:
       current: srl_nokia-platform-p4rt
       target: srl-platform-p4rt
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-p4rt.yang
   srl_nokia-platform-pipeline-counters:
     augmented_by: []
     augments: []
@@ -3017,6 +3174,7 @@ modules:
     prefix:
       current: srl_nokia-platform-host-interface-pipeline
       target: srl-platform-pipeline-counters
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-pipeline-counters.yang
   srl_nokia-platform-psu:
     augmented_by: []
     augments:
@@ -3035,6 +3193,7 @@ modules:
     prefix:
       current: srl_nokia-platform-psu
       target: srl-platform-psu
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-psu.yang
   srl_nokia-platform-qos:
     augmented_by: []
     augments:
@@ -3059,6 +3218,7 @@ modules:
     prefix:
       current: srl_nokia-platform-qos
       target: srl-platform-qos
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-qos.yang
   srl_nokia-platform-redundancy:
     augmented_by: []
     augments:
@@ -3075,6 +3235,7 @@ modules:
     prefix:
       current: srl_nokia-platform-redundancy
       target: srl-platform-redundancy
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-redundancy.yang
   srl_nokia-platform-resource-mgmt:
     augmented_by: []
     augments:
@@ -3089,6 +3250,7 @@ modules:
     prefix:
       current: srl_nokia-platform-res-mgmt
       target: srl-platform-resource-mgmt
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-mgmt.yang
   srl_nokia-platform-resource-monitoring:
     augmented_by: []
     augments:
@@ -3101,6 +3263,7 @@ modules:
     prefix:
       current: srl_nokia-platform-res-monitor
       target: srl-platform-resource-monitoring
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-resource-monitoring.yang
   srl_nokia-platform-secure-boot:
     augmented_by: []
     augments:
@@ -3115,6 +3278,7 @@ modules:
     prefix:
       current: srl_nokia-platform-secure-boot
       target: srl-platform-secure-boot
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-secure-boot.yang
   srl_nokia-platform-tcam:
     augmented_by: []
     augments:
@@ -3138,6 +3302,7 @@ modules:
     prefix:
       current: srl_nokia-platform-tcam
       target: srl-platform-tcam
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tcam.yang
   srl_nokia-platform-tpm:
     augmented_by: []
     augments:
@@ -3154,6 +3319,7 @@ modules:
     prefix:
       current: srl_nokia-platform-tpm
       target: srl-platform-tpm
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-tpm.yang
   srl_nokia-platform-vxdp:
     augmented_by: []
     augments:
@@ -3175,6 +3341,7 @@ modules:
     prefix:
       current: srl_nokia-platform-vxdp
       target: srl-platform-vxdp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-platform-vxdp.yang
   srl_nokia-policy-forwarding:
     augmented_by: []
     augments:
@@ -3197,6 +3364,7 @@ modules:
     prefix:
       current: srl_nokia-pol-fwd
       target: srl-policy-forwarding
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-policy-forwarding.yang
   srl_nokia-policy-types:
     augmented_by: []
     augments: []
@@ -3210,6 +3378,7 @@ modules:
     prefix:
       current: srl_nokia-pol-types
       target: srl-policy-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-policy-types.yang
   srl_nokia-pw-tunnel:
     augmented_by: []
     augments:
@@ -3228,6 +3397,7 @@ modules:
     prefix:
       current: srl_nokia-pw-tunnel
       target: srl-pw-tunnel
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-pw-tunnel.yang
   srl_nokia-qos:
     augmented_by:
     - srl_nokia-acl-qos
@@ -3254,6 +3424,7 @@ modules:
     prefix:
       current: srl_nokia-qos
       target: srl-qos
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-qos.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl-policers.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-qos.yang
   srl_nokia-qos-policers:
     augmented_by: []
     augments: []
@@ -3269,6 +3440,7 @@ modules:
     prefix:
       current: srl_nokia-qos-policers
       target: srl-qos-policers
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-qos-policers.yang
   srl_nokia-ra_guard:
     augmented_by: []
     augments:
@@ -3294,6 +3466,7 @@ modules:
     prefix:
       current: srl_nokia-ra_guard
       target: srl-ra_guard
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ra_guard.yang
   srl_nokia-rib-bgp:
     augmented_by: []
     augments:
@@ -3314,6 +3487,7 @@ modules:
     prefix:
       current: srl_nokia-rib-bgp-routes
       target: srl-rib-bgp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-rib-bgp.yang
   srl_nokia-routing-policy:
     augmented_by: []
     augments: []
@@ -3335,6 +3509,7 @@ modules:
     prefix:
       current: srl_rpol
       target: srl-routing-policy
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-routing-policy.yang
   srl_nokia-seamless-bfd:
     augmented_by: []
     augments:
@@ -3351,6 +3526,7 @@ modules:
     prefix:
       current: srl_nokia-seamless-bfd
       target: srl-seamless-bfd
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-seamless-bfd.yang
   srl_nokia-segment-routing:
     augmented_by: []
     augments:
@@ -3371,6 +3547,7 @@ modules:
     prefix:
       current: srl_nokia-sr
       target: srl-segment-routing
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-segment-routing.yang
   srl_nokia-service-activation-testhead:
     augmented_by: []
     augments:
@@ -3397,6 +3574,7 @@ modules:
     prefix:
       current: srl_nokia-service-activation-testhead
       target: srl-service-activation-testhead
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-service-activation-testhead.yang
   srl_nokia-service-activation-testhead-types:
     augmented_by: []
     augments: []
@@ -3406,6 +3584,7 @@ modules:
     prefix:
       current: srl_nokia-service-activation-testhead-types
       target: srl-service-activation-testhead-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-service-activation-testhead-types.yang
   srl_nokia-sflow:
     augmented_by: []
     augments:
@@ -3426,6 +3605,7 @@ modules:
     prefix:
       current: srl_nokia-sflow
       target: srl-sflow
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-sflow.yang
   srl_nokia-ssh:
     augmented_by: []
     augments:
@@ -3446,6 +3626,7 @@ modules:
     prefix:
       current: srl_nokia-ssh
       target: srl-ssh
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ssh.yang
   srl_nokia-stamp:
     augmented_by: []
     augments:
@@ -3466,6 +3647,7 @@ modules:
     prefix:
       current: srl_nokia-stamp
       target: srl-stamp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-stamp.yang
   srl_nokia-static-routes:
     augmented_by: []
     augments:
@@ -3488,6 +3670,7 @@ modules:
     prefix:
       current: srl_nokia-static-routes
       target: srl-static-routes
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-static-routes.yang
   srl_nokia-stp:
     augmented_by: []
     augments:
@@ -3508,6 +3691,7 @@ modules:
     prefix:
       current: srl_nokia-stp
       target: srl-stp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-stp.yang
   srl_nokia-stp-types:
     augmented_by: []
     augments: []
@@ -3517,6 +3701,7 @@ modules:
     prefix:
       current: srl_nokia-stp-types
       target: srl-stp-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-stp-types.yang
   srl_nokia-sync:
     augmented_by: []
     augments:
@@ -3537,6 +3722,7 @@ modules:
     prefix:
       current: srl_nokia-sync
       target: srl-sync
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync.yang
   srl_nokia-sync-freq:
     augmented_by: []
     augments: []
@@ -3554,6 +3740,7 @@ modules:
     prefix:
       current: srl_nokia-sync-freq
       target: srl-sync-freq
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-freq.yang
   srl_nokia-sync-interfaces:
     augmented_by: []
     augments: []
@@ -3567,6 +3754,7 @@ modules:
     prefix:
       current: srl_nokia-sync-interfaces
       target: srl-sync-interfaces
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-interfaces.yang
   srl_nokia-sync-ptp:
     augmented_by: []
     augments:
@@ -3589,6 +3777,7 @@ modules:
     prefix:
       current: srl_nokia-sync-ptp
       target: srl-sync-ptp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-ptp.yang
   srl_nokia-sync-types:
     augmented_by: []
     augments: []
@@ -3600,6 +3789,7 @@ modules:
     prefix:
       current: srl_nokia-sync-types
       target: srl-sync-types
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync-types.yang
   srl_nokia-system:
     augmented_by:
     - srl_nokia-dot1x
@@ -3672,6 +3862,7 @@ modules:
     prefix:
       current: srl_nokia-system
       target: srl-system
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-dot1x.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-credentialz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-certz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-authz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-grpc.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-gnsi-pathz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-bgp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-qos.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-protocols.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-openconfig.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-dns.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mirroring.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-datapath.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-evpn-label-management.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-name.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-aaa.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-license.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-load-balancing.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-sflow.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ssh.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-netconf-server.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-event-handler.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lldp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-boot.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration-role.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tls.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-ethernet-segments.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-proxy-arp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-logging.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ra_guard.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ftp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-keychains.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-app-mgmt.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-label-management.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-snmp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-configuration.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-dhcp-server.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-packet-link-qual.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-json-rpc.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mpls-services-network-instance-label-management.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-banner.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-info.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn-mpls-multicast-tep.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-utilization.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-maintenance-mode.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast-mfib-table.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-ntp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-multicast.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-lawful-intercept.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-vpn.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-mtu.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-sync.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-acl.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-interfaces-l2cp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-lacp.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system.yang
   srl_nokia-system-banner:
     augmented_by: []
     augments:
@@ -3684,6 +3875,7 @@ modules:
     prefix:
       current: srl_nokia-system-banner
       target: srl-system-banner
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-banner.yang
   srl_nokia-system-bridge-table:
     augmented_by: []
     augments:
@@ -3700,6 +3892,7 @@ modules:
     prefix:
       current: srl_nokia-system-bridge-table
       target: srl-system-bridge-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table.yang
   srl_nokia-system-bridge-table-evpn:
     augmented_by: []
     augments:
@@ -3718,6 +3911,7 @@ modules:
     prefix:
       current: srl_nokia-system-bridge-table-evpn
       target: srl-system-bridge-table-evpn
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn.yang
   srl_nokia-system-bridge-table-evpn-mpls-multicast-tep:
     augmented_by: []
     augments:
@@ -3740,6 +3934,7 @@ modules:
     prefix:
       current: srl_nokia-system-bridge-table-evpn-mpls-multicast-tep
       target: srl-system-bridge-table-evpn-mpls-multicast-tep
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-evpn-mpls-multicast-tep.yang
   srl_nokia-system-bridge-table-proxy-arp:
     augmented_by: []
     augments:
@@ -3762,6 +3957,7 @@ modules:
     prefix:
       current: srl_nokia-system-bridge-table-proxy-arp
       target: srl-system-bridge-table-proxy-arp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-bridge-table-proxy-arp.yang
   srl_nokia-system-datapath:
     augmented_by: []
     augments:
@@ -3778,6 +3974,7 @@ modules:
     prefix:
       current: srl_nokia-sys-datapath
       target: srl-system-datapath
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-datapath.yang
   srl_nokia-system-info:
     augmented_by: []
     augments:
@@ -3796,6 +3993,7 @@ modules:
     prefix:
       current: srl_nokia-system-info
       target: srl-system-info
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-info.yang
   srl_nokia-system-multicast:
     augmented_by: []
     augments:
@@ -3812,6 +4010,7 @@ modules:
     prefix:
       current: srl_nokia-system-multicast
       target: srl-system-multicast
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast.yang
   srl_nokia-system-multicast-mfib-table:
     augmented_by: []
     augments:
@@ -3832,6 +4031,7 @@ modules:
     prefix:
       current: srl_nokia-system-multicast-mfib-table
       target: srl-system-multicast-mfib-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-multicast-mfib-table.yang
   srl_nokia-system-name:
     augmented_by: []
     augments:
@@ -3846,6 +4046,7 @@ modules:
     prefix:
       current: srl_nokia-system-name
       target: srl-system-name
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-name.yang
   srl_nokia-system-network-instance:
     augmented_by: []
     augments:
@@ -3870,6 +4071,7 @@ modules:
     prefix:
       current: srl_nokia-system-netinst
       target: srl-system-network-instance
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance.yang
   srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:
     augmented_by: []
     augments:
@@ -3896,6 +4098,7 @@ modules:
     prefix:
       current: srl_nokia-system-bgp-evpn-ethernet-segments
       target: srl-system-network-instance-bgp-evpn-ethernet-segments
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-ethernet-segments.yang
   srl_nokia-system-network-instance-bgp-evpn-multicast:
     augmented_by: []
     augments:
@@ -3912,6 +4115,7 @@ modules:
     prefix:
       current: srl_nokia-system-bgp-evpn-multicast
       target: srl-system-network-instance-bgp-evpn-multicast
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-evpn-multicast.yang
   srl_nokia-system-network-instance-bgp-vpn:
     augmented_by: []
     augments:
@@ -3930,6 +4134,7 @@ modules:
     prefix:
       current: srl_nokia-system-bgp-vpn
       target: srl-system-network-instance-bgp-vpn
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-network-instance-bgp-vpn.yang
   srl_nokia-system-protocols:
     augmented_by: []
     augments:
@@ -3942,6 +4147,7 @@ modules:
     prefix:
       current: srl_nokia-system-protocols
       target: srl-system-protocols
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-protocols.yang
   srl_nokia-system-snmp:
     augmented_by: []
     augments:
@@ -3962,6 +4168,7 @@ modules:
     prefix:
       current: srl_nokia-snmp
       target: srl-system-snmp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-snmp.yang
   srl_nokia-system-utilization:
     augmented_by: []
     augments:
@@ -3978,6 +4185,7 @@ modules:
     prefix:
       current: srl_nokia-sys-util
       target: srl-system-utilization
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-system-utilization.yang
   srl_nokia-table-connections:
     augmented_by: []
     augments:
@@ -3998,6 +4206,7 @@ modules:
     prefix:
       current: srl_nokia-tblconn
       target: srl-table-connections
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/routing-policy/srl_nokia-table-connections.yang
   srl_nokia-tcp-udp:
     augmented_by: []
     augments:
@@ -4012,6 +4221,7 @@ modules:
     prefix:
       current: srl_nokia-tcp-udp
       target: srl-tcp-udp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tcp-udp.yang
   srl_nokia-te-policies:
     augmented_by: []
     augments:
@@ -4040,6 +4250,7 @@ modules:
     prefix:
       current: srl_nokia-te-policies
       target: srl-te-policies
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-te-policies.yang
   srl_nokia-terminal-device:
     augmented_by: []
     augments: []
@@ -4057,6 +4268,7 @@ modules:
     prefix:
       current: srl_nokia-term-dev
       target: srl-terminal-device
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-terminal-device.yang
   srl_nokia-timezone:
     augmented_by: []
     augments: []
@@ -4066,6 +4278,7 @@ modules:
     prefix:
       current: srl_nokia-timezone
       target: srl-timezone
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-timezone.yang
   srl_nokia-tls:
     augmented_by: []
     augments:
@@ -4084,6 +4297,7 @@ modules:
     prefix:
       current: srl_nokia-tls
       target: srl-tls
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tls.yang
   srl_nokia-tools-aaa:
     augmented_by: []
     augments:
@@ -4100,6 +4314,7 @@ modules:
     prefix:
       current: srl-tools-aaa
       target: srl-tools-aaa
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-aaa.yang
   srl_nokia-tools-acl:
     augmented_by: []
     augments:
@@ -4119,6 +4334,7 @@ modules:
     prefix:
       current: srl_nokia-tools-acl
       target: srl-tools-acl
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-tools-acl.yang
   srl_nokia-tools-app-mgmt:
     augmented_by: []
     augments:
@@ -4131,6 +4347,7 @@ modules:
     prefix:
       current: srl_nokia-tools-app-mgmt
       target: srl-tools-app-mgmt
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-app-mgmt.yang
   srl_nokia-tools-bfd:
     augmented_by: []
     augments: []
@@ -4144,6 +4361,7 @@ modules:
     prefix:
       current: srl_nokia-tools-bfd
       target: srl-tools-bfd
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/bfd/srl_nokia-tools-bfd.yang
   srl_nokia-tools-bgp:
     augmented_by: []
     augments:
@@ -4160,6 +4378,7 @@ modules:
     prefix:
       current: srl_nokia-tools-bgp
       target: srl-tools-bgp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bgp.yang
   srl_nokia-tools-boot:
     augmented_by: []
     augments:
@@ -4176,6 +4395,7 @@ modules:
     prefix:
       current: srl-tools-boot
       target: srl-tools-boot
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-boot.yang
   srl_nokia-tools-bridge-table-mac-duplication:
     augmented_by: []
     augments:
@@ -4190,6 +4410,7 @@ modules:
     prefix:
       current: srl_nokia-tools-bridge-table-mac-duplication
       target: srl-tools-bridge-table-mac-duplication
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-duplication.yang
   srl_nokia-tools-bridge-table-mac-learning:
     augmented_by: []
     augments:
@@ -4204,6 +4425,7 @@ modules:
     prefix:
       current: srl_nokia-tools-bridge-table-mac-learning
       target: srl-tools-bridge-table-mac-learning
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-learning.yang
   srl_nokia-tools-bridge-table-proxy-arp-nd:
     augmented_by: []
     augments:
@@ -4220,6 +4442,7 @@ modules:
     prefix:
       current: srl_nokia-tools-bridge-table-proxy-arp-nd
       target: srl-tools-bridge-table-proxy-arp-nd
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-proxy-arp-nd.yang
   srl_nokia-tools-cgroup:
     augmented_by: []
     augments:
@@ -4232,6 +4455,7 @@ modules:
     prefix:
       current: srl-tools-cgroup
       target: srl-tools-cgroup
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-cgroup.yang
   srl_nokia-tools-configuration:
     augmented_by: []
     augments:
@@ -4252,6 +4476,7 @@ modules:
     prefix:
       current: srl-tools-config
       target: srl-tools-configuration
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-configuration.yang
   srl_nokia-tools-connection-point-bridge-table-mac-duplication:
     augmented_by: []
     augments:
@@ -4268,6 +4493,7 @@ modules:
     prefix:
       current: srl_nokia-tools-connection-point-bridge-table-mac-duplication
       target: srl-tools-connection-point-bridge-table-mac-duplication
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-duplication.yang
   srl_nokia-tools-connection-point-bridge-table-mac-learning:
     augmented_by: []
     augments:
@@ -4284,6 +4510,7 @@ modules:
     prefix:
       current: srl_nokia-tools-connection-point-bridge-table-mac-learning
       target: srl-tools-connection-point-bridge-table-mac-learning
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-learning.yang
   srl_nokia-tools-dhcp-relay:
     augmented_by: []
     augments:
@@ -4296,6 +4523,7 @@ modules:
     prefix:
       current: srl_nokia-tools-dhcp-relay
       target: srl-tools-dhcp-relay
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-relay.yang
   srl_nokia-tools-dhcp-server:
     augmented_by: []
     augments:
@@ -4310,6 +4538,7 @@ modules:
     prefix:
       current: srl_nokia-tools-dhcp-server
       target: srl-tools-dhcp-server
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-server.yang
   srl_nokia-tools-ethcfm:
     augmented_by: []
     augments:
@@ -4328,6 +4557,7 @@ modules:
     prefix:
       current: srl_nokia-tools-ethcfm
       target: srl-tools-ethcfm
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-ethcfm.yang
   srl_nokia-tools-event-handler:
     augmented_by: []
     augments:
@@ -4344,6 +4574,7 @@ modules:
     prefix:
       current: srl-tools-event-handler
       target: srl-tools-event-handler
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-event-handler.yang
   srl_nokia-tools-gnoi:
     augmented_by: []
     augments: []
@@ -4357,6 +4588,7 @@ modules:
     prefix:
       current: srl_nokia-tools-gnoi
       target: srl-tools-gnoi
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnoi.yang
   srl_nokia-tools-gnoi-healthz:
     augmented_by: []
     augments: []
@@ -4368,6 +4600,7 @@ modules:
     prefix:
       current: srl_nokia-tools-gnoi-healthz
       target: srl-tools-gnoi-healthz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnoi-healthz.yang
   srl_nokia-tools-gnsi-authz:
     augmented_by: []
     augments:
@@ -4386,6 +4619,7 @@ modules:
     prefix:
       current: srl-tools-gnsi-authz
       target: srl-tools-gnsi-authz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-authz.yang
   srl_nokia-tools-gnsi-certz:
     augmented_by: []
     augments:
@@ -4404,6 +4638,7 @@ modules:
     prefix:
       current: srl-tools-gnsi-certz
       target: srl-tools-gnsi-certz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-certz.yang
   srl_nokia-tools-gnsi-pathz:
     augmented_by: []
     augments: []
@@ -4419,6 +4654,7 @@ modules:
     prefix:
       current: srl-tools-gnsi-pathz
       target: srl-tools-gnsi-pathz
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-pathz.yang
   srl_nokia-tools-grpc:
     augmented_by: []
     augments:
@@ -4439,6 +4675,7 @@ modules:
     prefix:
       current: srl_nokia-tools-grpc
       target: srl-tools-grpc
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-grpc.yang
   srl_nokia-tools-icmp:
     augmented_by: []
     augments:
@@ -4451,6 +4688,7 @@ modules:
     prefix:
       current: srl_nokia-tools-icmp
       target: srl-tools-icmp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-icmp.yang
   srl_nokia-tools-igmp:
     augmented_by: []
     augments:
@@ -4467,6 +4705,7 @@ modules:
     prefix:
       current: srl_nokia-tools-igmp
       target: srl-tools-igmp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp.yang
   srl_nokia-tools-igmp-snooping:
     augmented_by: []
     augments:
@@ -4483,6 +4722,7 @@ modules:
     prefix:
       current: srl_nokia-tools-igmp-snooping
       target: srl-tools-igmp-snooping
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp-snooping.yang
   srl_nokia-tools-interfaces:
     augmented_by:
     - srl_nokia-tools-interfaces-ip-vrrp
@@ -4503,6 +4743,7 @@ modules:
     prefix:
       current: srl_nokia-tools-if
       target: srl-tools-interfaces
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-vrrp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-packet-link-qual.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr-virtual-ip-discovery.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-learning.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-dhcp-relay.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-duplication.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces.yang
   srl_nokia-tools-interfaces-bridge-table-mac-duplication:
     augmented_by: []
     augments:
@@ -4517,6 +4758,7 @@ modules:
     prefix:
       current: srl_nokia-tools-interfaces-bridge-table-mac-duplication
       target: srl-tools-interfaces-bridge-table-mac-duplication
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-duplication.yang
   srl_nokia-tools-interfaces-bridge-table-mac-learning:
     augmented_by: []
     augments:
@@ -4531,6 +4773,7 @@ modules:
     prefix:
       current: srl_nokia-tools-interfaces-bridge-table-mac-learning
       target: srl-tools-interfaces-bridge-table-mac-learning
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-bridge-table-mac-learning.yang
   srl_nokia-tools-interfaces-ip-dhcp-relay:
     augmented_by: []
     augments:
@@ -4544,6 +4787,7 @@ modules:
     prefix:
       current: srl_nokia-tools-interfaces-ip-dhcp-relay
       target: srl-tools-interfaces-ip-dhcp-relay
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-dhcp-relay.yang
   srl_nokia-tools-interfaces-ip-vrrp:
     augmented_by: []
     augments:
@@ -4559,6 +4803,7 @@ modules:
     prefix:
       current: srl_nokia-tools-interfaces-ip-vrrp
       target: srl-tools-interfaces-ip-vrrp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-ip-vrrp.yang
   srl_nokia-tools-interfaces-nbr:
     augmented_by: []
     augments:
@@ -4574,6 +4819,7 @@ modules:
     prefix:
       current: srl_nokia-tools-if-nbr
       target: srl-tools-interfaces-nbr
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr.yang
   srl_nokia-tools-interfaces-nbr-virtual-ip-discovery:
     augmented_by: []
     augments:
@@ -4593,6 +4839,7 @@ modules:
     prefix:
       current: srl_nokia-tools-if-nbr-virtual-ip-discovery
       target: srl-tools-interfaces-nbr-virtual-ip-discovery
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-nbr-virtual-ip-discovery.yang
   srl_nokia-tools-interfaces-packet-link-qual:
     augmented_by: []
     augments:
@@ -4609,6 +4856,7 @@ modules:
     prefix:
       current: srl_nokia-tools-if-packet-link-qual
       target: srl-tools-interfaces-packet-link-qual
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/interfaces/srl_nokia-tools-interfaces-packet-link-qual.yang
   srl_nokia-tools-isis:
     augmented_by: []
     augments:
@@ -4623,6 +4871,7 @@ modules:
     prefix:
       current: srl_nokia-tools-isis
       target: srl-tools-isis
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-isis.yang
   srl_nokia-tools-l2cp:
     augmented_by: []
     augments:
@@ -4637,6 +4886,7 @@ modules:
     prefix:
       current: srl_nokia-tools-l2cp
       target: srl-tools-l2cp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-l2cp.yang
   srl_nokia-tools-ldp:
     augmented_by: []
     augments:
@@ -4653,6 +4903,7 @@ modules:
     prefix:
       current: srl_nokia-tools-ldp
       target: srl-tools-ldp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ldp.yang
   srl_nokia-tools-lldp:
     augmented_by: []
     augments:
@@ -4665,6 +4916,7 @@ modules:
     prefix:
       current: srl_nokia-tools-lldp
       target: srl-tools-lldp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-lldp.yang
   srl_nokia-tools-lsp-ping-trace:
     augmented_by: []
     augments:
@@ -4681,6 +4933,7 @@ modules:
     prefix:
       current: srl_nokia-tools-lsp-ping-trace
       target: srl-tools-lsp-ping-trace
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-lsp-ping-trace.yang
   srl_nokia-tools-mirroring:
     augmented_by: []
     augments:
@@ -4699,6 +4952,7 @@ modules:
     prefix:
       current: srl_nokia-tools-mirroring
       target: srl-tools-mirroring
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-mirroring.yang
   srl_nokia-tools-mld:
     augmented_by: []
     augments:
@@ -4715,6 +4969,7 @@ modules:
     prefix:
       current: srl_nokia-tools-mld
       target: srl-tools-mld
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld.yang
   srl_nokia-tools-mld-snooping:
     augmented_by: []
     augments:
@@ -4731,6 +4986,7 @@ modules:
     prefix:
       current: srl_nokia-tools-mld-snooping
       target: srl-tools-mld-snooping
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld-snooping.yang
   srl_nokia-tools-netconf-server:
     augmented_by: []
     augments:
@@ -4749,6 +5005,7 @@ modules:
     prefix:
       current: srl-tools-netconf-server
       target: srl-tools-netconf-server
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-netconf-server.yang
   srl_nokia-tools-network-instance:
     augmented_by:
     - srl_nokia-tools-bgp
@@ -4777,6 +5034,7 @@ modules:
     prefix:
       current: srl_nokia-tools-network-instance
       target: srl-tools-network-instance
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bgp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-isis.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-learning.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp-snooping.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-pim.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-connection-point-bridge-table-mac-duplication.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-te-policies.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ldp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ospf.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-mld-snooping.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-route-table.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-icmp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-duplication.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-igmp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-proxy-arp-nd.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-bridge-table-mac-learning.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-network-instance.yang
   srl_nokia-tools-oam:
     augmented_by:
     - srl_nokia-tools-service-activation-testhead
@@ -4794,6 +5052,7 @@ modules:
     prefix:
       current: srl_nokia-tools-oam
       target: srl-tools-oam
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-service-activation-testhead.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-lsp-ping-trace.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-twamp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-oam-pm-ip.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-ethcfm.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-oam-pm-ethcfm.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-oam.yang
   srl_nokia-tools-oam-pm-ethcfm:
     augmented_by: []
     augments:
@@ -4808,6 +5067,7 @@ modules:
     prefix:
       current: srl_nokia-tools-oam-pm-ethcfm
       target: srl-tools-oam-pm-ethcfm
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/ethcfm/srl_nokia-tools-oam-pm-ethcfm.yang
   srl_nokia-tools-oam-pm-ip:
     augmented_by: []
     augments:
@@ -4822,6 +5082,7 @@ modules:
     prefix:
       current: srl_nokia-tools-oam-pm-ip
       target: srl-tools-oam-pm-ip
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-oam-pm-ip.yang
   srl_nokia-tools-ospf:
     augmented_by: []
     augments:
@@ -4840,6 +5101,7 @@ modules:
     prefix:
       current: srl_nokia-tools-ospf
       target: srl-tools-ospf
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-ospf.yang
   srl_nokia-tools-packet-trace:
     augmented_by: []
     augments:
@@ -4854,6 +5116,7 @@ modules:
     prefix:
       current: srl_nokia-tools-packet-trace
       target: srl-tools-packet-trace
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-packet-trace.yang
   srl_nokia-tools-pim:
     augmented_by: []
     augments:
@@ -4870,6 +5133,7 @@ modules:
     prefix:
       current: srl_nokia-tools-pim
       target: srl-tools-pim
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-pim.yang
   srl_nokia-tools-platform:
     augmented_by:
     - srl_nokia-tools-platform-attestation
@@ -4884,6 +5148,7 @@ modules:
     prefix:
       current: srl_nokia-tools-platform
       target: srl-tools-platform
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-attestation.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-redundancy.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-secure-boot.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform.yang
   srl_nokia-tools-platform-attestation:
     augmented_by: []
     augments:
@@ -4898,6 +5163,7 @@ modules:
     prefix:
       current: srl_nokia-tools-platform-attestation
       target: srl-tools-platform-attestation
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-attestation.yang
   srl_nokia-tools-platform-redundancy:
     augmented_by: []
     augments:
@@ -4912,6 +5178,7 @@ modules:
     prefix:
       current: srl_nokia-tools-platform-redundancy
       target: srl-tools-platform-redundancy
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-redundancy.yang
   srl_nokia-tools-platform-secure-boot:
     augmented_by: []
     augments:
@@ -4926,6 +5193,7 @@ modules:
     prefix:
       current: srl_nokia-tools-platform-secure-boot
       target: srl-tools-platform-secure-boot
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/platform/srl_nokia-tools-platform-secure-boot.yang
   srl_nokia-tools-qos:
     augmented_by:
     - srl_nokia-tools-qos-policers
@@ -4939,6 +5207,7 @@ modules:
     prefix:
       current: srl_nokia-tools-qos
       target: srl-tools-qos
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-tools-qos-policers.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/acl/srl_nokia-tools-acl.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-tools-qos.yang
   srl_nokia-tools-qos-policers:
     augmented_by: []
     augments:
@@ -4953,6 +5222,7 @@ modules:
     prefix:
       current: srl_nokia-tools-qos-policers
       target: srl-tools-qos-policers
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/qos/srl_nokia-tools-qos-policers.yang
   srl_nokia-tools-route-table:
     augmented_by: []
     augments:
@@ -4969,6 +5239,7 @@ modules:
     prefix:
       current: srl_nokia-tools-route-table
       target: srl-tools-route-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-route-table.yang
   srl_nokia-tools-service-activation-testhead:
     augmented_by: []
     augments:
@@ -4983,6 +5254,7 @@ modules:
     prefix:
       current: srl_nokia-tools-service-activation-testhead
       target: srl-tools-service-activation-testhead
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/oam/srl_nokia-tools-service-activation-testhead.yang
   srl_nokia-tools-sync:
     augmented_by: []
     augments:
@@ -4997,6 +5269,7 @@ modules:
     prefix:
       current: srl_nokia-tools-sync
       target: srl-tools-sync
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-tools-sync.yang
   srl_nokia-tools-system:
     augmented_by:
     - srl_nokia-tools-gnsi-certz
@@ -5024,6 +5297,7 @@ modules:
     prefix:
       current: srl_nokia-tools-system
       target: srl-tools-system
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-certz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-grpc.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/grpc/srl_nokia-tools-gnsi-authz.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-netconf-server.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-relay.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-l2cp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-event-handler.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-aaa.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-cgroup.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-packet-trace.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-boot.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-app-mgmt.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-tls.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-lldp.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-dhcp-server.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-mirroring.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-configuration.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/sync/srl_nokia-tools-sync.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-system.yang
   srl_nokia-tools-te-policies:
     augmented_by: []
     augments:
@@ -5040,6 +5314,7 @@ modules:
     prefix:
       current: srl_nokia-tools-te-policies
       target: srl-tools-te-policies
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tools-te-policies.yang
   srl_nokia-tools-tls:
     augmented_by: []
     augments:
@@ -5056,6 +5331,7 @@ modules:
     prefix:
       current: srl-tools-tls
       target: srl-tools-tls
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/system/srl_nokia-tools-tls.yang
   srl_nokia-tools-tunnel:
     augmented_by:
     - srl_nokia-tools-vxlan-tunnel
@@ -5072,6 +5348,7 @@ modules:
     prefix:
       current: srl_nokia-tools-tunnel
       target: srl-tools-tunnel
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tools-vxlan-tunnel.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tools-tunnel.yang
   srl_nokia-tools-twamp:
     augmented_by: []
     augments:
@@ -5086,6 +5363,7 @@ modules:
     prefix:
       current: srl_nokia-tools-twamp
       target: srl-tools-twamp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-tools-twamp.yang
   srl_nokia-tools-vxlan-tunnel:
     augmented_by: []
     augments:
@@ -5102,6 +5380,7 @@ modules:
     prefix:
       current: srl_nokia-tools-vxlan-tunnel
       target: srl-tools-vxlan-tunnel
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tools-vxlan-tunnel.yang
   srl_nokia-traffic-engineering:
     augmented_by: []
     augments:
@@ -5121,6 +5400,7 @@ modules:
     prefix:
       current: srl_nokia-te
       target: srl-traffic-engineering
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-traffic-engineering.yang
   srl_nokia-transport-security:
     augmented_by:
     - srl_nokia-macsec
@@ -5137,6 +5417,7 @@ modules:
     prefix:
       current: srl_nokia-security
       target: srl-transport-security
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-macsec.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/transport-security/srl_nokia-transport-security.yang
   srl_nokia-tunnel:
     augmented_by:
     - srl_nokia-pw-tunnel
@@ -5154,6 +5435,7 @@ modules:
     prefix:
       current: srl_nokia-tunnel
       target: srl-tunnel
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-pw-tunnel.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-vxlan-tunnel-vtep.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel.yang
   srl_nokia-tunnel-interfaces:
     augmented_by:
     - srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps
@@ -5179,6 +5461,7 @@ modules:
     prefix:
       current: srl_nokia-tunnel-if
       target: srl-tunnel-interfaces
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations.yang --deviation-module ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table.yang ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces.yang
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:
     augmented_by: []
     augments:
@@ -5195,6 +5478,7 @@ modules:
     prefix:
       current: srl_nokia-tunnel-if-vxlan-if-bt
       target: srl-tunnel-interfaces-vxlan-interface-bridge-table
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table.yang
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:
     augmented_by: []
     augments:
@@ -5211,6 +5495,7 @@ modules:
     prefix:
       current: srl_nokia-tunnel-if-vxlan-if-bt-multicast-destinations
       target: srl-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations.yang
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:
     augmented_by: []
     augments:
@@ -5227,6 +5512,7 @@ modules:
     prefix:
       current: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations
       target: srl-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations.yang
   srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps:
     augmented_by: []
     augments:
@@ -5245,6 +5531,7 @@ modules:
     prefix:
       current: srl_nokia-tunnel-if-vxlan-if-bt-unicast-destinations-vteps
       target: srl-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps.yang
   srl_nokia-tunnel-tables:
     augmented_by: []
     augments:
@@ -5263,6 +5550,7 @@ modules:
     prefix:
       current: srl_nokia-tunnel-tables
       target: srl-tunnel-tables
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/network-instance/srl_nokia-tunnel-tables.yang
   srl_nokia-twamp:
     augmented_by: []
     augments:
@@ -5283,6 +5571,7 @@ modules:
     prefix:
       current: srl_nokia-twamp
       target: srl-twamp
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/twamp/srl_nokia-twamp.yang
   srl_nokia-vxlan-tunnel-vtep:
     augmented_by: []
     augments:
@@ -5301,6 +5590,7 @@ modules:
     prefix:
       current: srl_nokia-vxlan-tunnel
       target: srl-vxlan-tunnel-vtep
+    tree_cmd: pyang -f tree -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf -p ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia/models/tunnel/srl_nokia-vxlan-tunnel-vtep.yang
 platforms:
   7220-IXR-D1:
     features:
@@ -8681,8 +8971,9 @@ platforms:
     - vrrp
 repo:
   base_modules:
-    iana: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/iana
-    ietf: ~/projects/nokia/srlinux-yang-models/srlinux-yang-models/ietf
-  path: ~/projects/nokia/srlinux-yang-models
+    iana: ${SRL_YANG_REPO_DIR}/srlinux-yang-models/iana
+    ietf: ${SRL_YANG_REPO_DIR}/srlinux-yang-models/ietf
+    srl: ${SRL_YANG_REPO_DIR}/srlinux-yang-models/srl_nokia
+  path: ${SRL_YANG_REPO_DIR}
   url: https://github.com/nokia/srlinux-yang-models/tree/v24.10.1/srlinux-yang-models/srl_nokia/models
   version: v24.10.1
