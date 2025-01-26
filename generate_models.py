@@ -2,7 +2,7 @@
 import argparse
 import sys
 from pathlib import Path
-from posixpath import expanduser
+from posixpath import expanduser, expandvars
 from typing import List
 
 import yaml
@@ -30,19 +30,19 @@ def main() -> None:
     # Find the requested module in the map
     yang_module = collection.modules.get(args.module)
     if not yang_module:
-        print(f"Module '{args.module}' not found in yang_map.yml.")
+        print(f"Module '{args.module}' not found in yang_map.yml")
         return
 
     repo: Repo = collection.repo
-    expanded_repo_path = expanduser(repo.path)
+    expanded_repo_path = expandvars(repo.path)
 
     # Build the pydantify command
     relay_args: List[str] = []
     relay_args.extend(["pydantify"])
     relay_args.append(f"{expanded_repo_path + yang_module.path}")
     relay_args.extend(["-p", expanded_repo_path + "/srlinux-yang-models/srl_nokia"])
-    relay_args.extend(["-p", expanduser(repo.base_modules["iana"])])
-    relay_args.extend(["-p", expanduser(repo.base_modules["ietf"])])
+    relay_args.extend(["-p", expandvars(repo.base_modules["iana"])])
+    relay_args.extend(["-p", expandvars(repo.base_modules["ietf"])])
 
     relay_args.extend(["-o", "pydantic_srlinux/models"])
     relay_args.extend(["-f", args.module.replace("srl_nokia-", "") + ".py"])
@@ -51,7 +51,7 @@ def main() -> None:
     for augmented_module in yang_module.augmented_by:
         module = collection.modules.get(augmented_module)
         if module:
-            relay_args.extend(["--deviation", expanded_repo_path + module.path])
+            relay_args.extend(["--deviation-module", expanded_repo_path + module.path])
 
     # Create temp directory if it doesn't exist
     temp_dir = Path("./temp")
