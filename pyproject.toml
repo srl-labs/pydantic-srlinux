@@ -9,7 +9,11 @@ dependencies = [
 ]
 
 [dependency-groups]
-dev = ["pyyaml>=6.0.2", "rich>=13.9.4"]
+dev = [
+    "httpx>=0.28.1",
+    "pyyaml>=6.0.2",
+    "rich>=13.9.4",
+]
 
 [build-system]
 requires = ["hatchling"]

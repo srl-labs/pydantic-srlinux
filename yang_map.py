@@ -6,6 +6,7 @@ import subprocess
 from typing import Dict, List
 
 import yaml
+from httpx import Response, get
 from pydantic import BaseModel
 
 
@@ -39,9 +40,14 @@ class Repo(BaseModel):
     base_modules: Dict[str, str] = {}
 
 
+class Platform(BaseModel):
+    features: List[str]
+
+
 class YangMap(BaseModel):
     modules: Dict[str, YangModule]
     repo: Repo
+    platforms: Dict[str, Platform]
 
 
 def parse_yang_file(base_dir, file_path: str) -> YangModule:
@@ -140,6 +146,21 @@ def analyze_import_prefixes(
     return module_prefix_counts
 
 
+def get_platforms(version: str) -> Dict[str, Platform]:
+    url = f"https://raw.githubusercontent.com/srl-labs/yang-browser/master/static/releases/{version}/features.txt"
+    response: Response = get(url)
+    platforms = {}
+
+    for line in response.text.splitlines():
+        if line.strip():
+            platform, features = line.split(":", 1)
+            platform = platform.strip()
+            features_list = features.strip().split()
+            platforms[platform] = Platform(features=features_list)
+
+    return platforms
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Process YANG files from SR Linux models"
@@ -158,6 +179,8 @@ def main() -> None:
 
     yang_files = process_yang_files(dir)
 
+    platforms: Dict[str, Platform] = get_platforms(version=args.version)
+
     map = YangMap(
         modules=yang_files,
         repo=Repo(
@@ -169,6 +192,7 @@ def main() -> None:
                 "ietf": f"{non_expanded_dir}/srlinux-yang-models/ietf",
             },
         ),
+        platforms=platforms,
     )
 
     # print(result.model_dump_json(indent=2))
