@@ -56,7 +56,7 @@ The full list of the top level modules:
 ./generate_models.py --module srl_nokia-platform
 ./generate_models.py --module srl_nokia-qos
 ./generate_models.py --module srl_nokia-routing-policy
-./generate_models.py --module srl_nokia-system (not yet supported)
+./generate_models.py --module srl_nokia-system
 ./generate_models.py --module srl_nokia-tunnel-interfaces
 ./generate_models.py --module srl_nokia-tunnel
 ```

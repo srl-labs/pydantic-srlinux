@@ -4,16 +4,10 @@ version = "0.1.0"
 description = "Pydantic models for Nokia SR Linux"
 readme = "README.md"
 requires-python = "~=3.12"
-dependencies = [
-    "pydantify==0.6.1",
-]
+dependencies = ["pydantify==0.6.1"]
 
 [dependency-groups]
-dev = [
-    "httpx>=0.28.1",
-    "pyyaml>=6.0.2",
-    "rich>=13.9.4",
-]
+dev = ["httpx>=0.28.1", "pyyaml>=6.0.2", "rich>=13.9.4"]
 
 [build-system]
 requires = ["hatchling"]
@@ -24,4 +18,4 @@ packages = ["pydantic_srlinux"]
 
 
 [tool.uv.sources]
-pydantify = { git = "https://github.com/pydantify/pydantify", rev = "bits_type" }
+pydantify = { git = "https://github.com/pydantify/pydantify", rev = "workaround_leafref_union" }
