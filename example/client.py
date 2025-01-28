@@ -1,4 +1,5 @@
 import logging
+from enum import Enum
 from typing import Any, List, Literal, Optional
 
 import httpx
@@ -7,8 +8,14 @@ from pydantic import BaseModel
 logger = logging.getLogger(__name__)
 
 
+class Action(str, Enum):
+    REPLACE = "replace"
+    UPDATE = "update"
+    DELETE = "delete"
+
+
 class Command(BaseModel):
-    action: Literal["update", "replace", "delete"] | None = None
+    action: Action
     path: str
     # value is a json encoded string
     value: Any
@@ -38,12 +45,17 @@ class SRLClient(httpx.Client):
         self.req_id: int = 0
         self.auth = (self.username, self.password)
 
-    def add_command(self, command: Command) -> None:
+    def add_command(self, action: Action, path: str, value: Any) -> None:
         """Add command to request"""
+        cmd = Command(
+            action=action,
+            path=path,
+            value=value,
+        )
         if self.commands is None:
             self.commands = []
 
-        self.commands.append(command)
+        self.commands.append(cmd)
 
     def send_request(self) -> httpx.Response:
         """Send request via JSON RPC"""
@@ -57,10 +69,6 @@ class SRLClient(httpx.Client):
             params=Params(commands=self.commands),
         )
 
-        print(request.model_dump_json())
-
         response = self.post(url=self.jsonrpc_url, content=request.model_dump_json())
-
-        print(response.json())
 
         return response
