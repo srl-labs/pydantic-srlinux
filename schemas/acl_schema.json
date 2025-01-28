@@ -2,7 +2,7 @@
   "$defs": {
     "AcceptCase": {
       "properties": {
-        "srl_nokia-acl:accept": {
+        "accept": {
           "anyOf": [
             {
               "$ref": "#/$defs/AcceptContainer"
@@ -20,7 +20,7 @@
     "AcceptContainer": {
       "description": "Accept matching packets and forward them towards their normal destination",
       "properties": {
-        "srl_nokia-acl:forwarding-class": {
+        "forwarding_class": {
           "anyOf": [
             {
               "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
@@ -33,7 +33,7 @@
           "default": null,
           "title": "Forwarding-classLeaf"
         },
-        "srl_nokia-acl:profile": {
+        "profile": {
           "anyOf": [
             {
               "$ref": "#/$defs/EnumerationEnum8"
@@ -45,7 +45,7 @@
           "default": null,
           "title": "ProfileLeaf"
         },
-        "srl_nokia-acl:rate-limit": {
+        "rate_limit": {
           "anyOf": [
             {
               "$ref": "#/$defs/RateLimitContainer"
@@ -56,7 +56,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:forward": {
+        "forward": {
           "anyOf": [
             {
               "$ref": "#/$defs/ForwardContainer"
@@ -74,7 +74,7 @@
     "AclContainer": {
       "description": "Top level container for configuration and operational state related to access control lists (ACLs)",
       "properties": {
-        "srl_nokia-acl:acl-filter": {
+        "acl_filter": {
           "anyOf": [
             {
               "items": {
@@ -87,9 +87,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Acl-Filter"
+          "title": "Acl Filter"
         },
-        "srl_nokia-acl:interface": {
+        "interface": {
           "anyOf": [
             {
               "items": {
@@ -102,9 +102,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Interface"
+          "title": "Interface"
         },
-        "srl_nokia-acl:policers": {
+        "policers": {
           "anyOf": [
             {
               "$ref": "#/$defs/PolicersContainer"
@@ -115,7 +115,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:datapath-programming": {
+        "datapath_programming": {
           "anyOf": [
             {
               "$ref": "#/$defs/DatapathProgrammingContainer"
@@ -126,7 +126,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:match-list": {
+        "match_list": {
           "anyOf": [
             {
               "$ref": "#/$defs/MatchListContainer"
@@ -137,7 +137,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:tcam-profile": {
+        "tcam_profile": {
           "anyOf": [
             {
               "$ref": "#/$defs/EnumerationEnum10"
@@ -149,7 +149,7 @@
           "default": null,
           "title": "Tcam-profileLeaf"
         },
-        "srl_nokia-acl:egress-mac-filtering": {
+        "egress_mac_filtering": {
           "anyOf": [
             {
               "type": "boolean"
@@ -168,7 +168,7 @@
     "AclFilterListEntry": {
       "description": "List of MAC, IPv4, IPv6 filter policies",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -178,9 +178,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Name"
+          "title": "Name"
         },
-        "srl_nokia-acl:type": {
+        "type": {
           "anyOf": [
             {
               "$ref": "#/$defs/EnumerationEnum"
@@ -191,7 +191,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:description": {
+        "description": {
           "anyOf": [
             {
               "maxLength": 255,
@@ -205,7 +205,7 @@
           "default": null,
           "title": "DescriptionLeaf"
         },
-        "srl_nokia-acl:last-clear": {
+        "last_clear": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -218,7 +218,7 @@
           "default": null,
           "title": "Last-clearLeaf"
         },
-        "srl_nokia-acl:entry": {
+        "entry": {
           "anyOf": [
             {
               "items": {
@@ -231,7 +231,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Entry"
+          "title": "Entry"
         }
       },
       "title": "AclFilterListEntry",
@@ -240,7 +240,7 @@
     "AclFilterListEntry2": {
       "description": "MAC, IPv4, IPv6 ACL filter(s) to be applied on this subinterface direction\n\nOn 7220 and 7250 IXR platforms only a single MAC, IPv4 or IPv6 filter is supported.",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -252,7 +252,7 @@
           "default": null,
           "title": "NameLeaf13"
         },
-        "srl_nokia-acl:type": {
+        "type": {
           "anyOf": [
             {
               "$ref": "#/$defs/EnumerationEnum"
@@ -264,7 +264,7 @@
           "default": null,
           "title": "TypeLeaf4"
         },
-        "srl_nokia-acl:entry": {
+        "entry": {
           "anyOf": [
             {
               "items": {
@@ -277,7 +277,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Entry"
+          "title": "Entry"
         }
       },
       "title": "AclFilterListEntry2",
@@ -286,7 +286,7 @@
     "ActionContainer": {
       "description": "Container for the actions to be applied to packets matching the filter entry.",
       "properties": {
-        "srl_nokia-acl:action": {
+        "action": {
           "anyOf": [
             {
               "$ref": "#/$defs/AcceptCase"
@@ -302,9 +302,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Action"
+          "title": "Action"
         },
-        "srl_nokia-acl:collect-stats": {
+        "collect_stats": {
           "anyOf": [
             {
               "type": "boolean"
@@ -323,7 +323,7 @@
     "AggregateContainer": {
       "description": "None of these statistics are populated if the policer is configured as entry-specific=true.\n\nIf entry-specific=false and subinterface-specific=true, this is sum of all the entries and all the policer templates instantiated for all subintrefaces.\n\nIf entry-specific=false and subinterface-specific=false, this is sum of all the entries using this policer template.",
       "properties": {
-        "srl_nokia-acl:last-clear": {
+        "last_clear": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -336,7 +336,7 @@
           "default": null,
           "title": "Last-clearLeaf7"
         },
-        "srl_nokia-acl:conforming-packets": {
+        "conforming_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -350,7 +350,7 @@
           "default": 0,
           "title": "Conforming-packetsLeaf5"
         },
-        "srl_nokia-acl:conforming-octets": {
+        "conforming_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -364,7 +364,7 @@
           "default": 0,
           "title": "Conforming-octetsLeaf5"
         },
-        "srl_nokia-acl:exceeding-packets": {
+        "exceeding_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -378,7 +378,7 @@
           "default": 0,
           "title": "Exceeding-packetsLeaf5"
         },
-        "srl_nokia-acl:exceeding-octets": {
+        "exceeding_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -404,7 +404,7 @@
     "DatapathProgrammingContainer": {
       "description": "Container to represent the progress of ACL datapath programming",
       "properties": {
-        "srl_nokia-acl:forwarding-complex": {
+        "forwarding_complex": {
           "anyOf": [
             {
               "items": {
@@ -417,7 +417,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Forwarding-Complex"
+          "title": "Forwarding Complex"
         }
       },
       "title": "DatapathProgrammingContainer",
@@ -426,7 +426,7 @@
     "DestinationIpContainer": {
       "description": "Packet matching criteria based on destination IPv4 address",
       "properties": {
-        "srl_nokia-acl:prefix": {
+        "prefix": {
           "anyOf": [
             {
               "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
@@ -439,7 +439,7 @@
           "default": null,
           "title": "PrefixLeaf"
         },
-        "srl_nokia-acl:prefix-list": {
+        "prefix_list": {
           "anyOf": [
             {
               "items": {
@@ -452,9 +452,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Prefix-List"
+          "title": "Prefix List"
         },
-        "srl_nokia-acl:address": {
+        "address": {
           "anyOf": [
             {
               "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
@@ -467,7 +467,7 @@
           "default": null,
           "title": "AddressLeaf"
         },
-        "srl_nokia-acl:mask": {
+        "mask": {
           "anyOf": [
             {
               "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
@@ -487,7 +487,7 @@
     "DestinationIpContainer2": {
       "description": "Packet matching criteria based on destination IPv6 address",
       "properties": {
-        "srl_nokia-acl:prefix": {
+        "prefix": {
           "anyOf": [
             {
               "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
@@ -500,7 +500,7 @@
           "default": null,
           "title": "PrefixLeaf3"
         },
-        "srl_nokia-acl:prefix-list": {
+        "prefix_list": {
           "anyOf": [
             {
               "items": {
@@ -513,9 +513,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Prefix-List"
+          "title": "Prefix List"
         },
-        "srl_nokia-acl:address": {
+        "address": {
           "anyOf": [
             {
               "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
@@ -528,7 +528,7 @@
           "default": null,
           "title": "AddressLeaf3"
         },
-        "srl_nokia-acl:mask": {
+        "mask": {
           "anyOf": [
             {
               "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
@@ -548,7 +548,7 @@
     "DestinationPortContainer": {
       "description": "A packet matches this condition if its destination TCP or UDP port number matches the value or range that is specified\n\nThe rule should also have a condition that the IP protocol equals 6 (TCP) or 17 (UDP) in order for this to be interpreted correctly.",
       "properties": {
-        "srl_nokia-acl:operator": {
+        "operator": {
           "anyOf": [
             {
               "$ref": "#/$defs/EnumerationEnum6"
@@ -560,7 +560,7 @@
           "default": null,
           "title": "OperatorLeaf"
         },
-        "srl_nokia-acl:value": {
+        "value": {
           "anyOf": [
             {
               "$ref": "#/$defs/L4PortTypeType1"
@@ -575,7 +575,7 @@
           "default": null,
           "title": "ValueLeaf"
         },
-        "srl_nokia-acl:range": {
+        "range": {
           "anyOf": [
             {
               "$ref": "#/$defs/RangeContainer"
@@ -592,7 +592,7 @@
     },
     "DropCase": {
       "properties": {
-        "srl_nokia-acl:drop": {
+        "drop": {
           "anyOf": [
             {
               "$ref": "#/$defs/DropContainer"
@@ -622,7 +622,7 @@
     "EntryListEntry": {
       "description": "List of ACL entries comprising an ACL Filter",
       "properties": {
-        "srl_nokia-acl:sequence-id": {
+        "sequence_id": {
           "anyOf": [
             {
               "maximum": 65535,
@@ -634,9 +634,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Sequence-Id"
+          "title": "Sequence Id"
         },
-        "srl_nokia-acl:description": {
+        "description": {
           "anyOf": [
             {
               "maxLength": 255,
@@ -650,7 +650,7 @@
           "default": null,
           "title": "DescriptionLeaf2"
         },
-        "srl_nokia-acl:last-clear": {
+        "last_clear": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -663,7 +663,7 @@
           "default": null,
           "title": "Last-clearLeaf2"
         },
-        "srl_nokia-acl:match": {
+        "match": {
           "anyOf": [
             {
               "$ref": "#/$defs/MatchContainer"
@@ -674,7 +674,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:action": {
+        "action": {
           "anyOf": [
             {
               "$ref": "#/$defs/ActionContainer"
@@ -685,7 +685,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:statistics": {
+        "statistics": {
           "anyOf": [
             {
               "$ref": "#/$defs/StatisticsContainer"
@@ -696,7 +696,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:tcam-entries": {
+        "tcam_entries": {
           "anyOf": [
             {
               "$ref": "#/$defs/TcamEntriesContainer"
@@ -714,7 +714,7 @@
     "EntryListEntry2": {
       "description": "ACL Filter statistics per entry and per subinterface",
       "properties": {
-        "srl_nokia-acl:sequence-id": {
+        "sequence_id": {
           "anyOf": [
             {
               "maximum": 65535,
@@ -728,7 +728,7 @@
           "default": null,
           "title": "Sequence-idLeaf2"
         },
-        "srl_nokia-acl:statistics": {
+        "statistics": {
           "anyOf": [
             {
               "$ref": "#/$defs/StatisticsContainer2"
@@ -739,7 +739,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:policer": {
+        "policer": {
           "anyOf": [
             {
               "$ref": "#/$defs/PolicerContainer"
@@ -1082,7 +1082,7 @@
     "ForwardContainer": {
       "description": "Enable the next-hop context",
       "properties": {
-        "srl_nokia-acl:forward-action": {
+        "forward_action": {
           "anyOf": [
             {
               "$ref": "#/$defs/NextHopCase"
@@ -1100,7 +1100,7 @@
     "ForwardingComplexListEntry": {
       "description": "List of forwarding complexes in the system",
       "properties": {
-        "srl_nokia-acl:complex-identifier": {
+        "complex_identifier": {
           "anyOf": [
             {
               "type": "string"
@@ -1112,7 +1112,7 @@
           "default": null,
           "title": "Complex-identifierLeaf"
         },
-        "srl_nokia-acl:single-instance": {
+        "single_instance": {
           "anyOf": [
             {
               "maximum": 65535,
@@ -1133,7 +1133,7 @@
     "ForwardingComplexListEntry2": {
       "description": "List of forwarding complexes that are currently installed and online",
       "properties": {
-        "srl_nokia-acl:slot-id": {
+        "slot_id": {
           "anyOf": [
             {
               "maximum": 255,
@@ -1147,7 +1147,7 @@
           "default": null,
           "title": "Slot-idLeaf"
         },
-        "srl_nokia-acl:complex-id": {
+        "complex_id": {
           "anyOf": [
             {
               "maximum": 1,
@@ -1161,7 +1161,7 @@
           "default": null,
           "title": "Complex-idLeaf"
         },
-        "srl_nokia-acl:programming-complete": {
+        "programming_complete": {
           "anyOf": [
             {
               "type": "boolean"
@@ -1173,7 +1173,7 @@
           "default": null,
           "title": "Programming-completeLeaf"
         },
-        "srl_nokia-acl:last-completed-timestamp": {
+        "last_completed_timestamp": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -1193,7 +1193,7 @@
     "Icmp6Container": {
       "description": "A packet matches this condition if its ICMPv6 type and code matches one of the specified combinations\n\nThe rule should also have a condition that the next-header value equals 58 (ICMPv6) in order for this to be interpreted correctly.",
       "properties": {
-        "srl_nokia-acl:type": {
+        "type": {
           "anyOf": [
             {
               "$ref": "#/$defs/Icmp6TypeType1"
@@ -1208,7 +1208,7 @@
           "default": null,
           "title": "TypeLeaf3"
         },
-        "srl_nokia-acl:code": {
+        "code": {
           "anyOf": [
             {
               "ge": 0,
@@ -1223,7 +1223,7 @@
             }
           ],
           "default": [],
-          "title": "Srl Nokia-Acl:Code"
+          "title": "Code"
         }
       },
       "title": "Icmp6Container",
@@ -1238,7 +1238,7 @@
     "IcmpContainer": {
       "description": "A packet matches this condition if its ICMP type and code matches one of the specified combinations\n\nThe rule should also have a condition that the IP protocol equals 1 (ICMP) in order for this to be interpreted correctly.",
       "properties": {
-        "srl_nokia-acl:type": {
+        "type": {
           "anyOf": [
             {
               "$ref": "#/$defs/IcmpTypeType1"
@@ -1253,7 +1253,7 @@
           "default": null,
           "title": "TypeLeaf2"
         },
-        "srl_nokia-acl:code": {
+        "code": {
           "anyOf": [
             {
               "ge": 0,
@@ -1268,7 +1268,7 @@
             }
           ],
           "default": [],
-          "title": "Srl Nokia-Acl:Code"
+          "title": "Code"
         }
       },
       "title": "IcmpContainer",
@@ -1283,7 +1283,7 @@
     "InputContainer": {
       "description": "Container for ACL filters that apply to ingress traffic on the subinterface",
       "properties": {
-        "srl_nokia-acl:acl-filter": {
+        "acl_filter": {
           "anyOf": [
             {
               "items": {
@@ -1296,9 +1296,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Acl-Filter"
+          "title": "Acl Filter"
         },
-        "srl_nokia-acl:statistics": {
+        "statistics": {
           "anyOf": [
             {
               "$ref": "#/$defs/StatisticsContainer3"
@@ -1316,7 +1316,7 @@
     "InterfaceListEntry": {
       "description": "List of interfaces and subinterfaces referencing ACL filters.",
       "properties": {
-        "srl_nokia-acl:interface-id": {
+        "interface_id": {
           "anyOf": [
             {
               "type": "string"
@@ -1328,7 +1328,7 @@
           "default": null,
           "title": "Interface-idLeaf"
         },
-        "srl_nokia-acl:interface-ref": {
+        "interface_ref": {
           "anyOf": [
             {
               "$ref": "#/$defs/InterfaceRefContainer"
@@ -1339,7 +1339,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:input": {
+        "input": {
           "anyOf": [
             {
               "$ref": "#/$defs/InputContainer"
@@ -1357,7 +1357,7 @@
     "InterfaceRefContainer": {
       "description": "Reference to an interface or subinterface",
       "properties": {
-        "srl_nokia-acl:interface": {
+        "interface": {
           "anyOf": [
             {
               "type": "string"
@@ -1369,7 +1369,7 @@
           "default": null,
           "title": "InterfaceLeaf"
         },
-        "srl_nokia-acl:subinterface": {
+        "subinterface": {
           "anyOf": [
             {
               "maximum": 9999,
@@ -1401,7 +1401,7 @@
     "Ipv4Container": {
       "description": "Container for the common layer-3 IPv4 match criteria",
       "properties": {
-        "srl_nokia-acl:destination-ip": {
+        "destination_ip": {
           "anyOf": [
             {
               "$ref": "#/$defs/DestinationIpContainer"
@@ -1412,7 +1412,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:dscp-set": {
+        "dscp_set": {
           "anyOf": [
             {
               "items": {
@@ -1432,9 +1432,9 @@
             }
           ],
           "default": [],
-          "title": "Srl Nokia-Acl:Dscp-Set"
+          "title": "Dscp Set"
         },
-        "srl_nokia-acl:fragment": {
+        "fragment": {
           "anyOf": [
             {
               "type": "boolean"
@@ -1446,7 +1446,7 @@
           "default": null,
           "title": "FragmentLeaf"
         },
-        "srl_nokia-acl:first-fragment": {
+        "first_fragment": {
           "anyOf": [
             {
               "type": "boolean"
@@ -1458,7 +1458,7 @@
           "default": null,
           "title": "First-fragmentLeaf"
         },
-        "srl_nokia-acl:icmp": {
+        "icmp": {
           "anyOf": [
             {
               "$ref": "#/$defs/IcmpContainer"
@@ -1469,7 +1469,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:protocol": {
+        "protocol": {
           "anyOf": [
             {
               "$ref": "#/$defs/IpProtocolTypeType1"
@@ -1484,7 +1484,7 @@
           "default": null,
           "title": "ProtocolLeaf"
         },
-        "srl_nokia-acl:source-ip": {
+        "source_ip": {
           "anyOf": [
             {
               "$ref": "#/$defs/SourceIpContainer"
@@ -1502,7 +1502,7 @@
     "Ipv4PrefixListListEntry": {
       "description": "A user defined IPv4 prefix list description",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -1512,9 +1512,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Name"
+          "title": "Name"
         },
-        "srl_nokia-acl:description": {
+        "description": {
           "anyOf": [
             {
               "maxLength": 255,
@@ -1528,7 +1528,7 @@
           "default": null,
           "title": "DescriptionLeaf3"
         },
-        "srl_nokia-acl:prefix": {
+        "prefix": {
           "anyOf": [
             {
               "items": {
@@ -1541,7 +1541,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Prefix"
+          "title": "Prefix"
         }
       },
       "title": "Ipv4PrefixListListEntry",
@@ -1555,7 +1555,7 @@
     "Ipv6Container": {
       "description": "Container for the common layer-3 IPv6 match criteria",
       "properties": {
-        "srl_nokia-acl:destination-ip": {
+        "destination_ip": {
           "anyOf": [
             {
               "$ref": "#/$defs/DestinationIpContainer2"
@@ -1566,7 +1566,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:dscp-set": {
+        "dscp_set": {
           "anyOf": [
             {
               "items": {
@@ -1586,9 +1586,9 @@
             }
           ],
           "default": [],
-          "title": "Srl Nokia-Acl:Dscp-Set"
+          "title": "Dscp Set"
         },
-        "srl_nokia-acl:icmp6": {
+        "icmp6": {
           "anyOf": [
             {
               "$ref": "#/$defs/Icmp6Container"
@@ -1599,7 +1599,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:next-header": {
+        "next_header": {
           "anyOf": [
             {
               "$ref": "#/$defs/IpProtocolTypeType1"
@@ -1614,7 +1614,7 @@
           "default": null,
           "title": "Next-headerLeaf"
         },
-        "srl_nokia-acl:source-ip": {
+        "source_ip": {
           "anyOf": [
             {
               "$ref": "#/$defs/SourceIpContainer2"
@@ -1632,7 +1632,7 @@
     "Ipv6PrefixListListEntry": {
       "description": "A user defined IPv6 prefix list description",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -1642,9 +1642,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Name"
+          "title": "Name"
         },
-        "srl_nokia-acl:description": {
+        "description": {
           "anyOf": [
             {
               "maxLength": 255,
@@ -1658,7 +1658,7 @@
           "default": null,
           "title": "DescriptionLeaf4"
         },
-        "srl_nokia-acl:prefix": {
+        "prefix": {
           "anyOf": [
             {
               "items": {
@@ -1671,7 +1671,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Prefix"
+          "title": "Prefix"
         }
       },
       "title": "Ipv6PrefixListListEntry",
@@ -1686,7 +1686,7 @@
     "MatchContainer": {
       "description": "Container for the conditions that determine whether a packet matches this entry",
       "properties": {
-        "srl_nokia-acl:ipv4": {
+        "ipv4": {
           "anyOf": [
             {
               "$ref": "#/$defs/Ipv4Container"
@@ -1697,7 +1697,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:ipv6": {
+        "ipv6": {
           "anyOf": [
             {
               "$ref": "#/$defs/Ipv6Container"
@@ -1708,7 +1708,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:transport": {
+        "transport": {
           "anyOf": [
             {
               "$ref": "#/$defs/TransportContainer"
@@ -1719,7 +1719,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:network-instance": {
+        "network_instance": {
           "anyOf": [
             {
               "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$",
@@ -1739,7 +1739,7 @@
     "MatchListContainer": {
       "description": "Top level container for match list model config and operational state data",
       "properties": {
-        "srl_nokia-acl:ipv4-prefix-list": {
+        "ipv4_prefix_list": {
           "anyOf": [
             {
               "items": {
@@ -1752,9 +1752,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Ipv4-Prefix-List"
+          "title": "Ipv4 Prefix List"
         },
-        "srl_nokia-acl:ipv6-prefix-list": {
+        "ipv6_prefix_list": {
           "anyOf": [
             {
               "items": {
@@ -1767,7 +1767,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Ipv6-Prefix-List"
+          "title": "Ipv6 Prefix List"
         }
       },
       "title": "MatchListContainer",
@@ -1775,7 +1775,7 @@
     },
     "NextHopCase": {
       "properties": {
-        "srl_nokia-acl:next-hop": {
+        "next_hop": {
           "anyOf": [
             {
               "$ref": "#/$defs/NextHopContainer"
@@ -1792,7 +1792,7 @@
     },
     "NextHopContainer": {
       "properties": {
-        "srl_nokia-acl:address": {
+        "address": {
           "anyOf": [
             {
               "$ref": "#/$defs/Ipv4AddressType"
@@ -1814,7 +1814,7 @@
     "PolicerContainer": {
       "description": "Policer stats for traffic matching the entry:\n\nStatistics under /acl/interfaces for policer configured with scope=subinterface and entry-specific=true, and acl configured with subinterface-specific=input-and-output.",
       "properties": {
-        "srl_nokia-acl:conforming-packets": {
+        "conforming_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1828,7 +1828,7 @@
           "default": 0,
           "title": "Conforming-packetsLeaf2"
         },
-        "srl_nokia-acl:conforming-octets": {
+        "conforming_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1842,7 +1842,7 @@
           "default": 0,
           "title": "Conforming-octetsLeaf2"
         },
-        "srl_nokia-acl:exceeding-packets": {
+        "exceeding_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1856,7 +1856,7 @@
           "default": 0,
           "title": "Exceeding-packetsLeaf2"
         },
-        "srl_nokia-acl:exceeding-octets": {
+        "exceeding_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1877,7 +1877,7 @@
     "PolicerContainer2": {
       "description": "Policer stats for traffic matching one or multiple entries:\n\nList of ACL policer statistics of scope=subinterface and per-entry-statistics=false, and acl configured with subinterface-specific=false.",
       "properties": {
-        "srl_nokia-acl:conforming-packets": {
+        "conforming_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1891,7 +1891,7 @@
           "default": 0,
           "title": "Conforming-packetsLeaf3"
         },
-        "srl_nokia-acl:conforming-octets": {
+        "conforming_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1905,7 +1905,7 @@
           "default": 0,
           "title": "Conforming-octetsLeaf3"
         },
-        "srl_nokia-acl:exceeding-packets": {
+        "exceeding_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1919,7 +1919,7 @@
           "default": 0,
           "title": "Exceeding-packetsLeaf3"
         },
-        "srl_nokia-acl:exceeding-octets": {
+        "exceeding_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -1940,7 +1940,7 @@
     "PolicerListEntry": {
       "description": "List of policer templates used in subintreface and CPM Filter ACL.",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
@@ -1951,9 +1951,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Name"
+          "title": "Name"
         },
-        "srl_nokia-acl:scope": {
+        "scope": {
           "anyOf": [
             {
               "$ref": "#/$defs/EnumerationEnum9"
@@ -1965,7 +1965,7 @@
           "default": "global",
           "title": "ScopeLeaf"
         },
-        "srl_nokia-acl:peak-rate": {
+        "peak_rate": {
           "anyOf": [
             {
               "maximum": 800000000,
@@ -1979,7 +1979,7 @@
           "default": null,
           "title": "Peak-rateLeaf"
         },
-        "srl_nokia-acl:max-burst": {
+        "max_burst": {
           "anyOf": [
             {
               "maximum": 125000000,
@@ -1993,7 +1993,7 @@
           "default": null,
           "title": "Max-burstLeaf"
         },
-        "srl_nokia-acl:statistics": {
+        "statistics": {
           "anyOf": [
             {
               "$ref": "#/$defs/StatisticsContainer5"
@@ -2011,7 +2011,7 @@
     "PolicersContainer": {
       "description": "Container for policer definitions used by ACL entries",
       "properties": {
-        "srl_nokia-acl:system-cpu-policer": {
+        "system_cpu_policer": {
           "anyOf": [
             {
               "items": {
@@ -2024,9 +2024,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:System-Cpu-Policer"
+          "title": "System Cpu Policer"
         },
-        "srl_nokia-acl:policer": {
+        "policer": {
           "anyOf": [
             {
               "items": {
@@ -2039,7 +2039,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Policer"
+          "title": "Policer"
         }
       },
       "title": "PolicersContainer",
@@ -2048,7 +2048,7 @@
     "PrefixListEntry": {
       "description": "List of IPv4 prefixes",
       "properties": {
-        "srl_nokia-acl:ipv4-prefix": {
+        "ipv4_prefix": {
           "anyOf": [
             {
               "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
@@ -2068,7 +2068,7 @@
     "PrefixListEntry2": {
       "description": "List of IPv6 prefixes",
       "properties": {
-        "srl_nokia-acl:ipv6-prefix": {
+        "ipv6_prefix": {
           "anyOf": [
             {
               "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
@@ -2088,7 +2088,7 @@
     "PrefixListListEntry": {
       "description": "Match a packet if its destination IP address is within the specified IPv4 prefix list.",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -2107,7 +2107,7 @@
     "PrefixListListEntry2": {
       "description": "Match a packet if its source IP address is within the specified IPv4 prefix list.",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -2126,7 +2126,7 @@
     "PrefixListListEntry3": {
       "description": "Match a packet if its destination IP address is within the specified IPv6 prefix list.",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -2145,7 +2145,7 @@
     "PrefixListListEntry4": {
       "description": "Match a packet if its source IP address is within the specified IPv6 prefix list.",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "type": "string"
@@ -2164,7 +2164,7 @@
     "RangeContainer": {
       "description": "Container used to specify a contiguous range of TCP/UDP port numbers",
       "properties": {
-        "srl_nokia-acl:start": {
+        "start": {
           "anyOf": [
             {
               "$ref": "#/$defs/L4PortTypeType1"
@@ -2179,7 +2179,7 @@
           "default": null,
           "title": "StartLeaf"
         },
-        "srl_nokia-acl:end": {
+        "end": {
           "anyOf": [
             {
               "$ref": "#/$defs/L4PortTypeType1"
@@ -2201,7 +2201,7 @@
     "RangeContainer2": {
       "description": "Container used to specify a contiguous range of TCP/UDP port numbers",
       "properties": {
-        "srl_nokia-acl:start": {
+        "start": {
           "anyOf": [
             {
               "$ref": "#/$defs/L4PortTypeType1"
@@ -2216,7 +2216,7 @@
           "default": null,
           "title": "StartLeaf2"
         },
-        "srl_nokia-acl:end": {
+        "end": {
           "anyOf": [
             {
               "$ref": "#/$defs/L4PortTypeType1"
@@ -2238,7 +2238,7 @@
     "RateLimitContainer": {
       "description": "Rate-limit accepted packets",
       "properties": {
-        "srl_nokia-acl:system-cpu-policer": {
+        "system_cpu_policer": {
           "anyOf": [
             {
               "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
@@ -2251,7 +2251,7 @@
           "default": null,
           "title": "System-cpu-policerLeaf"
         },
-        "srl_nokia-acl:policer": {
+        "policer": {
           "anyOf": [
             {
               "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
@@ -2271,7 +2271,7 @@
     "SourceIpContainer": {
       "description": "Packet matching criteria based on source IPv4 address",
       "properties": {
-        "srl_nokia-acl:prefix": {
+        "prefix": {
           "anyOf": [
             {
               "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
@@ -2284,7 +2284,7 @@
           "default": null,
           "title": "PrefixLeaf2"
         },
-        "srl_nokia-acl:prefix-list": {
+        "prefix_list": {
           "anyOf": [
             {
               "items": {
@@ -2297,9 +2297,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Prefix-List"
+          "title": "Prefix List"
         },
-        "srl_nokia-acl:address": {
+        "address": {
           "anyOf": [
             {
               "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
@@ -2312,7 +2312,7 @@
           "default": null,
           "title": "AddressLeaf2"
         },
-        "srl_nokia-acl:mask": {
+        "mask": {
           "anyOf": [
             {
               "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
@@ -2332,7 +2332,7 @@
     "SourceIpContainer2": {
       "description": "Packet matching criteria based on source IPv6 address",
       "properties": {
-        "srl_nokia-acl:prefix": {
+        "prefix": {
           "anyOf": [
             {
               "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
@@ -2345,7 +2345,7 @@
           "default": null,
           "title": "PrefixLeaf4"
         },
-        "srl_nokia-acl:prefix-list": {
+        "prefix_list": {
           "anyOf": [
             {
               "items": {
@@ -2358,9 +2358,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Prefix-List"
+          "title": "Prefix List"
         },
-        "srl_nokia-acl:address": {
+        "address": {
           "anyOf": [
             {
               "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
@@ -2373,7 +2373,7 @@
           "default": null,
           "title": "AddressLeaf4"
         },
-        "srl_nokia-acl:mask": {
+        "mask": {
           "anyOf": [
             {
               "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
@@ -2393,7 +2393,7 @@
     "SourcePortContainer": {
       "description": "A packet matches this condition if its source TCP or UDP port number matches the value or range that is specified\n\nThe rule should also have a condition that the IP protocol equals 6 (TCP) or 17 (UDP) in order for this to be interpreted correctly.",
       "properties": {
-        "srl_nokia-acl:operator": {
+        "operator": {
           "anyOf": [
             {
               "$ref": "#/$defs/EnumerationEnum6"
@@ -2405,7 +2405,7 @@
           "default": null,
           "title": "OperatorLeaf2"
         },
-        "srl_nokia-acl:value": {
+        "value": {
           "anyOf": [
             {
               "$ref": "#/$defs/L4PortTypeType1"
@@ -2420,7 +2420,7 @@
           "default": null,
           "title": "ValueLeaf2"
         },
-        "srl_nokia-acl:range": {
+        "range": {
           "anyOf": [
             {
               "$ref": "#/$defs/RangeContainer2"
@@ -2438,7 +2438,7 @@
     "StatisticsContainer": {
       "description": "Container for per-entry statistics",
       "properties": {
-        "srl_nokia-acl:last-clear": {
+        "last_clear": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -2451,7 +2451,7 @@
           "default": null,
           "title": "Last-clearLeaf3"
         },
-        "srl_nokia-acl:matched-packets": {
+        "matched_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2465,7 +2465,7 @@
           "default": 0,
           "title": "Matched-packetsLeaf"
         },
-        "srl_nokia-acl:matched-octets": {
+        "matched_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2479,7 +2479,7 @@
           "default": 0,
           "title": "Matched-octetsLeaf"
         },
-        "srl_nokia-acl:last-match": {
+        "last_match": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -2492,7 +2492,7 @@
           "default": null,
           "title": "Last-matchLeaf"
         },
-        "srl_nokia-acl:system-cpu-policer": {
+        "system_cpu_policer": {
           "anyOf": [
             {
               "$ref": "#/$defs/SystemCpuPolicerContainer"
@@ -2510,7 +2510,7 @@
     "StatisticsContainer2": {
       "description": "Container for per-entry statistics",
       "properties": {
-        "srl_nokia-acl:last-clear": {
+        "last_clear": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -2523,7 +2523,7 @@
           "default": null,
           "title": "Last-clearLeaf4"
         },
-        "srl_nokia-acl:matched-packets": {
+        "matched_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2537,7 +2537,7 @@
           "default": 0,
           "title": "Matched-packetsLeaf2"
         },
-        "srl_nokia-acl:matched-octets": {
+        "matched_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2551,7 +2551,7 @@
           "default": 0,
           "title": "Matched-octetsLeaf2"
         },
-        "srl_nokia-acl:last-match": {
+        "last_match": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -2571,7 +2571,7 @@
     "StatisticsContainer3": {
       "description": "Container for policer scope=subinterface and per-entry-statistics=false statistics",
       "properties": {
-        "srl_nokia-acl:last-clear": {
+        "last_clear": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -2584,7 +2584,7 @@
           "default": null,
           "title": "Last-clearLeaf5"
         },
-        "srl_nokia-acl:policer": {
+        "policer": {
           "anyOf": [
             {
               "$ref": "#/$defs/PolicerContainer2"
@@ -2602,7 +2602,7 @@
     "StatisticsContainer4": {
       "description": "Container for system CPU policer statistics\n\nNone of these statistics are populated if the policer is configured as entry-specific=true.",
       "properties": {
-        "srl_nokia-acl:conforming-packets": {
+        "conforming_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2616,7 +2616,7 @@
           "default": 0,
           "title": "Conforming-packetsLeaf4"
         },
-        "srl_nokia-acl:conforming-octets": {
+        "conforming_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2630,7 +2630,7 @@
           "default": 0,
           "title": "Conforming-octetsLeaf4"
         },
-        "srl_nokia-acl:exceeding-packets": {
+        "exceeding_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2644,7 +2644,7 @@
           "default": 0,
           "title": "Exceeding-packetsLeaf4"
         },
-        "srl_nokia-acl:exceeding-octets": {
+        "exceeding_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2658,7 +2658,7 @@
           "default": 0,
           "title": "Exceeding-octetsLeaf4"
         },
-        "srl_nokia-acl:last-clear": {
+        "last_clear": {
           "anyOf": [
             {
               "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
@@ -2678,7 +2678,7 @@
     "StatisticsContainer5": {
       "description": "Container for linecard policer statistics.",
       "properties": {
-        "srl_nokia-acl:aggregate": {
+        "aggregate": {
           "anyOf": [
             {
               "$ref": "#/$defs/AggregateContainer"
@@ -2696,7 +2696,7 @@
     "SystemCpuPolicerContainer": {
       "description": "System CPU policer stats for traffic matching the entry:\n\nStatistics for system cpu policer configured with scope=global and entry-specific=true, and acl configured with subinterface-specific=false.",
       "properties": {
-        "srl_nokia-acl:conforming-packets": {
+        "conforming_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2710,7 +2710,7 @@
           "default": 0,
           "title": "Conforming-packetsLeaf"
         },
-        "srl_nokia-acl:conforming-octets": {
+        "conforming_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2724,7 +2724,7 @@
           "default": 0,
           "title": "Conforming-octetsLeaf"
         },
-        "srl_nokia-acl:exceeding-packets": {
+        "exceeding_packets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2738,7 +2738,7 @@
           "default": 0,
           "title": "Exceeding-packetsLeaf"
         },
-        "srl_nokia-acl:exceeding-octets": {
+        "exceeding_octets": {
           "anyOf": [
             {
               "maximum": 18446744073709551615,
@@ -2759,7 +2759,7 @@
     "SystemCpuPolicerListEntry": {
       "description": "List of system CPU policer templates. For each policer in this list one or more policer instances are implemented in the XDP-CPM software and these policer instances process the aggregate of terminating traffic received from all linecards.",
       "properties": {
-        "srl_nokia-acl:name": {
+        "name": {
           "anyOf": [
             {
               "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
@@ -2770,9 +2770,9 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Name"
+          "title": "Name"
         },
-        "srl_nokia-acl:entry-specific": {
+        "entry_specific": {
           "anyOf": [
             {
               "type": "boolean"
@@ -2784,7 +2784,7 @@
           "default": false,
           "title": "Entry-specificLeaf"
         },
-        "srl_nokia-acl:peak-packet-rate": {
+        "peak_packet_rate": {
           "anyOf": [
             {
               "maximum": 4000000,
@@ -2798,7 +2798,7 @@
           "default": null,
           "title": "Peak-packet-rateLeaf"
         },
-        "srl_nokia-acl:max-packet-burst": {
+        "max_packet_burst": {
           "anyOf": [
             {
               "maximum": 4000000,
@@ -2812,7 +2812,7 @@
           "default": 16,
           "title": "Max-packet-burstLeaf"
         },
-        "srl_nokia-acl:statistics": {
+        "statistics": {
           "anyOf": [
             {
               "$ref": "#/$defs/StatisticsContainer4"
@@ -2830,7 +2830,7 @@
     "TcamEntriesContainer": {
       "description": "Information about the TCAM entries used to implement the ACL entry",
       "properties": {
-        "srl_nokia-acl:forwarding-complex": {
+        "forwarding_complex": {
           "anyOf": [
             {
               "items": {
@@ -2843,7 +2843,7 @@
             }
           ],
           "default": null,
-          "title": "Srl Nokia-Acl:Forwarding-Complex"
+          "title": "Forwarding Complex"
         }
       },
       "title": "TcamEntriesContainer",
@@ -2852,7 +2852,7 @@
     "TransportContainer": {
       "description": "Container for the common layer-4 transport match criteria",
       "properties": {
-        "srl_nokia-acl:destination-port": {
+        "destination_port": {
           "anyOf": [
             {
               "$ref": "#/$defs/DestinationPortContainer"
@@ -2863,7 +2863,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:source-port": {
+        "source_port": {
           "anyOf": [
             {
               "$ref": "#/$defs/SourcePortContainer"
@@ -2874,7 +2874,7 @@
           ],
           "default": null
         },
-        "srl_nokia-acl:tcp-flags": {
+        "tcp_flags": {
           "anyOf": [
             {
               "pattern": "^(?=^(\\(|\\)|&|\\||!|ack|rst|syn)+$).*$",
@@ -2894,7 +2894,7 @@
   },
   "description": "Initialize an instance of this class and serialize it to JSON; this results in a RESTCONF payload.\n\n## Tips\nInitialization:\n- all values have to be set via keyword arguments\n- if a class contains only a `root` field, it can be initialized as follows:\n    - `member=MyNode(root=<value>)`\n    - `member=<value>`\n\nSerialziation:\n- `exclude_defaults=True` omits fields set to their default value (recommended)\n- `by_alias=True` ensures qualified names are used (necessary)",
   "properties": {
-    "srl_nokia-acl:acl": {
+    "acl": {
       "anyOf": [
         {
           "$ref": "#/$defs/AclContainer"
