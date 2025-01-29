@@ -2468,7 +2468,6 @@
       "type": "string"
     },
     "EnumerationEnum26": {
-      "const": "1000BASE-T",
       "enum": [
         "1000BASE-T"
       ],
@@ -2569,7 +2568,6 @@
       "type": "string"
     },
     "EnumerationEnum36": {
-      "const": "none",
       "enum": [
         "none"
       ],
@@ -2577,7 +2575,6 @@
       "type": "string"
     },
     "EnumerationEnum37": {
-      "const": "none",
       "enum": [
         "none"
       ],
@@ -2712,7 +2709,6 @@
       "type": "string"
     },
     "EnumerationEnum48": {
-      "const": "messages",
       "enum": [
         "messages"
       ],
@@ -2783,7 +2779,6 @@
       "type": "string"
     },
     "EnumerationEnum52": {
-      "const": "messages",
       "enum": [
         "messages"
       ],
@@ -2791,7 +2786,6 @@
       "type": "string"
     },
     "EnumerationEnum53": {
-      "const": "messages",
       "enum": [
         "messages"
       ],
@@ -2868,7 +2862,6 @@
       "type": "string"
     },
     "EnumerationEnum60": {
-      "const": "messages",
       "enum": [
         "messages"
       ],
@@ -2904,7 +2897,6 @@
       "type": "string"
     },
     "EnumerationEnum64": {
-      "const": "messages",
       "enum": [
         "messages"
       ],
@@ -2912,7 +2904,6 @@
       "type": "string"
     },
     "EnumerationEnum65": {
-      "const": "infinite",
       "enum": [
         "infinite"
       ],
@@ -2920,7 +2911,6 @@
       "type": "string"
     },
     "EnumerationEnum66": {
-      "const": "infinite",
       "enum": [
         "infinite"
       ],
@@ -2928,7 +2918,6 @@
       "type": "string"
     },
     "EnumerationEnum67": {
-      "const": "messages",
       "enum": [
         "messages"
       ],
@@ -2936,7 +2925,6 @@
       "type": "string"
     },
     "EnumerationEnum68": {
-      "const": "messages",
       "enum": [
         "messages"
       ],
@@ -2960,7 +2948,6 @@
       "type": "string"
     },
     "EnumerationEnum70": {
-      "const": "disabled",
       "enum": [
         "disabled"
       ],
@@ -2978,7 +2965,6 @@
       "type": "string"
     },
     "EnumerationEnum72": {
-      "const": "indefinite",
       "enum": [
         "indefinite"
       ],
@@ -3149,7 +3135,6 @@
       "type": "string"
     },
     "EnumerationEnum88": {
-      "const": "static",
       "enum": [
         "static"
       ],

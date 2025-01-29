@@ -1,0 +1,1446 @@
+{
+  "$defs": {
+    "BridgeTableContainer": {
+      "properties": {
+        "unicast_destinations": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UnicastDestinationsContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "multicast_destinations": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MulticastDestinationsContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "statistics": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StatisticsContainer3"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "BridgeTableContainer",
+      "type": "object"
+    },
+    "DestinationGroupsContainer": {
+      "properties": {
+        "group": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/GroupListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Group"
+        }
+      },
+      "title": "DestinationGroupsContainer",
+      "type": "object"
+    },
+    "DestinationListEntry": {
+      "properties": {
+        "index": {
+          "anyOf": [
+            {
+              "maximum": 65535,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "IndexLeaf2"
+        },
+        "admin_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum5"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "enable",
+          "title": "Admin-stateLeaf2"
+        },
+        "vni": {
+          "anyOf": [
+            {
+              "maximum": 16777215,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "VniLeaf2"
+        },
+        "inner_ethernet_header": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InnerEthernetHeaderContainer2"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "DestinationListEntry",
+      "type": "object"
+    },
+    "DestinationListEntry2": {
+      "properties": {
+        "vtep": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "VtepLeaf"
+        },
+        "vni": {
+          "anyOf": [
+            {
+              "maximum": 16777215,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "VniLeaf3"
+        },
+        "destination_index": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination-indexLeaf"
+        },
+        "statistics": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StatisticsContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "mac_table": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MacTableContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "DestinationListEntry2",
+      "type": "object"
+    },
+    "DestinationListEntry3": {
+      "properties": {
+        "vtep": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "VtepLeaf2"
+        },
+        "vni": {
+          "anyOf": [
+            {
+              "maximum": 16777215,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "VniLeaf5"
+        },
+        "multicast_forwarding": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum9"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Multicast-forwardingLeaf"
+        },
+        "destination_index": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination-indexLeaf3"
+        },
+        "not_programmed_reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum10"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Not-programmed-reasonLeaf3"
+        }
+      },
+      "title": "DestinationListEntry3",
+      "type": "object"
+    },
+    "EgressContainer": {
+      "properties": {
+        "source_ip": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum3"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "use-system-ipv4-address",
+          "title": "Source-ipLeaf"
+        },
+        "inner_ethernet_header": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/InnerEthernetHeaderContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "destination_groups": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DestinationGroupsContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "EgressContainer",
+      "type": "object"
+    },
+    "EnumerationEnum": {
+      "enum": [
+        "up",
+        "down"
+      ],
+      "title": "EnumerationEnum",
+      "type": "string"
+    },
+    "EnumerationEnum10": {
+      "enum": [
+        "no-destination-index",
+        "multicast-limit"
+      ],
+      "title": "EnumerationEnum10",
+      "type": "string"
+    },
+    "EnumerationEnum2": {
+      "enum": [
+        "mac-failed",
+        "ingress-hash-failed",
+        "egress-hash-failed",
+        "other"
+      ],
+      "title": "EnumerationEnum2",
+      "type": "string"
+    },
+    "EnumerationEnum3": {
+      "enum": [
+        "use-system-ipv4-address"
+      ],
+      "title": "EnumerationEnum3",
+      "type": "string"
+    },
+    "EnumerationEnum4": {
+      "enum": [
+        "use-system-mac"
+      ],
+      "title": "EnumerationEnum4",
+      "type": "string"
+    },
+    "EnumerationEnum5": {
+      "enum": [
+        "enable",
+        "disable"
+      ],
+      "title": "EnumerationEnum5",
+      "type": "string"
+    },
+    "EnumerationEnum6": {
+      "enum": [
+        "static",
+        "duplicate",
+        "learnt",
+        "irb-interface",
+        "evpn",
+        "evpn-static",
+        "irb-interface-anycast",
+        "proxy-anti-spoof",
+        "reserved",
+        "eth-cfm",
+        "irb-interface-vrrp"
+      ],
+      "title": "EnumerationEnum6",
+      "type": "string"
+    },
+    "EnumerationEnum7": {
+      "enum": [
+        "mac-limit",
+        "failed-on-slots",
+        "no-destination-index",
+        "reserved"
+      ],
+      "title": "EnumerationEnum7",
+      "type": "string"
+    },
+    "EnumerationEnum8": {
+      "enum": [
+        "mac-limit",
+        "failed-on-slots",
+        "no-destination-index",
+        "reserved"
+      ],
+      "title": "EnumerationEnum8",
+      "type": "string"
+    },
+    "EnumerationEnum9": {
+      "enum": [
+        "none",
+        "BUM",
+        "unknown-unicast",
+        "broadcast-mcast"
+      ],
+      "title": "EnumerationEnum9",
+      "type": "string"
+    },
+    "EsDestinationListEntry": {
+      "properties": {
+        "esi": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "EsiLeaf2"
+        },
+        "destination_index": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination-indexLeaf2"
+        },
+        "statistics": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/StatisticsContainer2"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "mac_table": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MacTableContainer2"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "vtep": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/VtepListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vtep"
+        }
+      },
+      "title": "EsDestinationListEntry",
+      "type": "object"
+    },
+    "GroupListEntry": {
+      "description": "Specifies the destination group.",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "NameLeaf2"
+        },
+        "admin_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum5"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "enable",
+          "title": "Admin-stateLeaf"
+        },
+        "esi": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "EsiLeaf"
+        },
+        "destination": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/DestinationListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination"
+        }
+      },
+      "title": "GroupListEntry",
+      "type": "object"
+    },
+    "IngressContainer": {
+      "properties": {
+        "vni": {
+          "maximum": 16777215,
+          "minimum": 1,
+          "title": "VniLeaf",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "vni"
+      ],
+      "title": "IngressContainer",
+      "type": "object"
+    },
+    "InnerEthernetHeaderContainer": {
+      "description": "Parameters of the inner VXLAN ethernet payload when the VXLAN tunnel is used in an ip-vrf.",
+      "properties": {
+        "source_mac": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum4"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "use-system-mac",
+          "title": "Source-macLeaf"
+        },
+        "used_source_mac": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Used-source-macLeaf"
+        }
+      },
+      "title": "InnerEthernetHeaderContainer",
+      "type": "object"
+    },
+    "InnerEthernetHeaderContainer2": {
+      "description": "Parameters of the inner VXLAN ethernet payload when the VXLAN tunnel is used in an ip-vrf.",
+      "properties": {
+        "destination_mac": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination-macLeaf"
+        }
+      },
+      "title": "InnerEthernetHeaderContainer2",
+      "type": "object"
+    },
+    "Ipv4AddressType": {
+      "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+      "title": "Ipv4AddressType",
+      "type": "string"
+    },
+    "Ipv6AddressType": {
+      "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+      "title": "Ipv6AddressType",
+      "type": "string"
+    },
+    "MacListEntry": {
+      "description": "macs learnt on the bridging instance",
+      "properties": {
+        "address": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "AddressLeaf"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum6"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "TypeLeaf3"
+        },
+        "last_update": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-updateLeaf"
+        },
+        "not_programmed_reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum7"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Not-programmed-reasonLeaf"
+        },
+        "failed_slots": {
+          "anyOf": [
+            {
+              "ge": 1,
+              "items": {
+                "type": "integer"
+              },
+              "le": 16,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": [],
+          "title": "Failed Slots"
+        }
+      },
+      "title": "MacListEntry",
+      "type": "object"
+    },
+    "MacListEntry2": {
+      "description": "macs learnt on the bridging instance",
+      "properties": {
+        "address": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "AddressLeaf2"
+        },
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum6"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "TypeLeaf5"
+        },
+        "last_update": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-updateLeaf2"
+        },
+        "not_programmed_reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum8"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Not-programmed-reasonLeaf2"
+        },
+        "failed_slots": {
+          "anyOf": [
+            {
+              "ge": 1,
+              "items": {
+                "type": "integer"
+              },
+              "le": 16,
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": [],
+          "title": "Failed Slots"
+        }
+      },
+      "title": "MacListEntry2",
+      "type": "object"
+    },
+    "MacTableContainer": {
+      "properties": {
+        "mac": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/MacListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mac"
+        }
+      },
+      "title": "MacTableContainer",
+      "type": "object"
+    },
+    "MacTableContainer2": {
+      "properties": {
+        "mac": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/MacListEntry2"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mac"
+        }
+      },
+      "title": "MacTableContainer2",
+      "type": "object"
+    },
+    "MacTypeListEntry": {
+      "description": "the type of the mac on the sub-interface.",
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum6"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "TypeLeaf2"
+        },
+        "active_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Active-entriesLeaf2"
+        },
+        "total_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-entriesLeaf2"
+        },
+        "failed_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Failed-entriesLeaf2"
+        }
+      },
+      "title": "MacTypeListEntry",
+      "type": "object"
+    },
+    "MacTypeListEntry2": {
+      "description": "the type of the mac on the sub-interface.",
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum6"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "TypeLeaf4"
+        },
+        "active_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Active-entriesLeaf4"
+        },
+        "total_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-entriesLeaf4"
+        },
+        "failed_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Failed-entriesLeaf4"
+        }
+      },
+      "title": "MacTypeListEntry2",
+      "type": "object"
+    },
+    "MacTypeListEntry3": {
+      "description": "The type of the mac on the sub-interface.",
+      "properties": {
+        "type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum6"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "TypeLeaf6"
+        },
+        "active_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Active-entriesLeaf6"
+        },
+        "total_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-entriesLeaf6"
+        },
+        "failed_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Failed-entriesLeaf6"
+        }
+      },
+      "title": "MacTypeListEntry3",
+      "type": "object"
+    },
+    "MulticastDestinationsContainer": {
+      "properties": {
+        "multicast_limit": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MulticastLimitContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "destination": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/DestinationListEntry3"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination"
+        }
+      },
+      "title": "MulticastDestinationsContainer",
+      "type": "object"
+    },
+    "MulticastLimitContainer": {
+      "description": "Multicast limits per vxlan interface.",
+      "properties": {
+        "maximum_entries": {
+          "anyOf": [
+            {
+              "maximum": 2147483647,
+              "minimum": -2147483648,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Maximum-entriesLeaf"
+        },
+        "current_usage": {
+          "anyOf": [
+            {
+              "maximum": 2147483647,
+              "minimum": -2147483648,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Current-usageLeaf"
+        }
+      },
+      "title": "MulticastLimitContainer",
+      "type": "object"
+    },
+    "StatisticsContainer": {
+      "properties": {
+        "active_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Active-entriesLeaf"
+        },
+        "total_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-entriesLeaf"
+        },
+        "failed_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Failed-entriesLeaf"
+        },
+        "mac_type": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/MacTypeListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mac Type"
+        }
+      },
+      "title": "StatisticsContainer",
+      "type": "object"
+    },
+    "StatisticsContainer2": {
+      "properties": {
+        "active_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Active-entriesLeaf3"
+        },
+        "total_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-entriesLeaf3"
+        },
+        "failed_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Failed-entriesLeaf3"
+        },
+        "mac_type": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/MacTypeListEntry2"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mac Type"
+        }
+      },
+      "title": "StatisticsContainer2",
+      "type": "object"
+    },
+    "StatisticsContainer3": {
+      "properties": {
+        "active_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Active-entriesLeaf5"
+        },
+        "total_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-entriesLeaf5"
+        },
+        "failed_entries": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Failed-entriesLeaf5"
+        },
+        "mac_type": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/MacTypeListEntry3"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Mac Type"
+        }
+      },
+      "title": "StatisticsContainer3",
+      "type": "object"
+    },
+    "TunnelInterfaceListEntry": {
+      "description": "In the case that the interface is logical tunnel\ninterface, the parameters for the tunnel are\nspecified within this subtree. Tunnel interfaces\nhave only a single logical subinterface associated\nwith them.",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^(vxlan(0|1[0-9][0-9]|2([0-4][0-9]|5[0-5])|[1-9][0-9]|[1-9]))$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "NameLeaf"
+        },
+        "vxlan_interface": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/VxlanInterfaceListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Vxlan Interface"
+        }
+      },
+      "title": "TunnelInterfaceListEntry",
+      "type": "object"
+    },
+    "UnicastDestinationsContainer": {
+      "properties": {
+        "destination": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/DestinationListEntry2"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Destination"
+        },
+        "es_destination": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/EsDestinationListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Es Destination"
+        }
+      },
+      "title": "UnicastDestinationsContainer",
+      "type": "object"
+    },
+    "VtepListEntry": {
+      "properties": {
+        "address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "AddressLeaf3"
+        },
+        "vni": {
+          "anyOf": [
+            {
+              "maximum": 16777215,
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "VniLeaf4"
+        }
+      },
+      "title": "VtepListEntry",
+      "type": "object"
+    },
+    "VxlanInterfaceListEntry": {
+      "description": "The list of vxlan-interfaces.",
+      "properties": {
+        "index": {
+          "anyOf": [
+            {
+              "maximum": 99999999,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "IndexLeaf"
+        },
+        "type": {
+          "title": "TypeLeaf"
+        },
+        "oper_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Oper-stateLeaf"
+        },
+        "oper_down_reason": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum2"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Oper-down-reasonLeaf"
+        },
+        "ingress": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IngressContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "egress": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EgressContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "bridge_table": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/BridgeTableContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "title": "VxlanInterfaceListEntry",
+      "type": "object"
+    }
+  },
+  "description": "Initialize an instance of this class and serialize it to JSON; this results in a RESTCONF payload.\n\n## Tips\nInitialization:\n- all values have to be set via keyword arguments\n- if a class contains only a `root` field, it can be initialized as follows:\n    - `member=MyNode(root=<value>)`\n    - `member=<value>`\n\nSerialziation:\n- `exclude_defaults=True` omits fields set to their default value (recommended)\n- `by_alias=True` ensures qualified names are used (necessary)",
+  "properties": {
+    "tunnel_interface": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/$defs/TunnelInterfaceListEntry"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tunnel Interface"
+    }
+  },
+  "title": "Model",
+  "type": "object"
+}

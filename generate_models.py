@@ -2,13 +2,11 @@
 import argparse
 import sys
 from pathlib import Path
-from posixpath import expanduser, expandvars
+from posixpath import expandvars
 from typing import List
 
 import yaml
 from pydantify.main import main as pydantify_main
-
-# from models import bfd, interfaces
 from rich import print
 
 from yang_map import Repo, YangMap
@@ -18,7 +16,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Generate a pydantify command for a given YANG module"
     )
-    parser.add_argument("--module", required=True, help="Module name to process")
+    parser.add_argument(
+        "--module", required=True, help="Module name to process", type=str
+    )
     args = parser.parse_args()
 
     with open("yang_map.yml", "r") as f:
@@ -45,7 +45,9 @@ def main() -> None:
     relay_args.extend(["-p", expandvars(repo.base_modules["ietf"])])
 
     relay_args.extend(["-o", "pydantic_srlinux/models"])
-    relay_args.extend(["-f", args.module.replace("srl_nokia-", "") + ".py"])
+    relay_args.extend(
+        ["-f", args.module.replace("srl_nokia-", "").replace("-", "_") + ".py"]
+    )
 
     # For each augmented module, add its path as a deviation
     for augmented_module in yang_module.augmented_by:

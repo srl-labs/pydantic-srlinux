@@ -1,0 +1,1251 @@
+{
+  "$defs": {
+    "AsyncContainer": {
+      "description": "Container for async BFD operational state parameters",
+      "properties": {
+        "last_packet_transmitted": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-packet-transmittedLeaf"
+        },
+        "last_packet_received": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-packet-receivedLeaf"
+        },
+        "transmitted_packets": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Transmitted-packetsLeaf"
+        },
+        "received_packets": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Received-packetsLeaf"
+        },
+        "up_transitions": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Up-transitionsLeaf"
+        },
+        "received_errored_packets": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Received-errored-packetsLeaf"
+        },
+        "last_clear": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-clearLeaf"
+        }
+      },
+      "title": "AsyncContainer",
+      "type": "object"
+    },
+    "AsyncContainer2": {
+      "description": "Container for async BFD operational state parameters",
+      "properties": {
+        "last_packet_transmitted": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-packet-transmittedLeaf2"
+        },
+        "last_packet_received": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-packet-receivedLeaf2"
+        },
+        "transmitted_packets": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Transmitted-packetsLeaf2"
+        },
+        "received_packets": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Received-packetsLeaf2"
+        },
+        "up_transitions": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Up-transitionsLeaf2"
+        },
+        "received_errored_packets": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Received-errored-packetsLeaf2"
+        },
+        "last_clear": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-clearLeaf2"
+        }
+      },
+      "title": "AsyncContainer2",
+      "type": "object"
+    },
+    "BfdContainer": {
+      "description": "Context to configure BFD parameters and report BFD sessions state",
+      "properties": {
+        "subinterface": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/SubinterfaceListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subinterface"
+        },
+        "network_instance": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/NetworkInstanceListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Network Instance"
+        },
+        "total_bfd_sessions": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-bfd-sessionsLeaf"
+        },
+        "total_unmatched_bfd_packets": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Total-unmatched-bfd-packetsLeaf"
+        },
+        "micro_bfd_sessions": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MicroBfdSessionsContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "BfdContainer",
+      "type": "object"
+    },
+    "EnumerationEnum": {
+      "enum": [
+        "enable",
+        "disable"
+      ],
+      "title": "EnumerationEnum",
+      "type": "string"
+    },
+    "EnumerationEnum2": {
+      "enum": [
+        "up",
+        "down",
+        "empty",
+        "downloading",
+        "booting",
+        "starting",
+        "failed",
+        "synchronizing",
+        "upgrading",
+        "low-power",
+        "degraded",
+        "warm-reboot",
+        "waiting"
+      ],
+      "title": "EnumerationEnum2",
+      "type": "string"
+    },
+    "EnumerationEnum3": {
+      "enum": [
+        "ADMIN_DOWN",
+        "DOWN",
+        "INIT",
+        "UP"
+      ],
+      "title": "EnumerationEnum3",
+      "type": "string"
+    },
+    "EnumerationEnum4": {
+      "enum": [
+        "NO_DIAGNOSTIC",
+        "DETECTION_TIMEOUT",
+        "ECHO_FAILED",
+        "NEIGHBOR_SIGNALED_DOWN",
+        "FORWARDING_RESET",
+        "PATH_DOWN",
+        "CONCATENATED_PATH_DOWN",
+        "ADMIN_DOWN",
+        "REVERSE_CONCATENATED_PATH_DOWN"
+      ],
+      "title": "EnumerationEnum4",
+      "type": "string"
+    },
+    "EnumerationEnum5": {
+      "enum": [
+        "sr-mpls-colored",
+        "sr-mpls-uncolored"
+      ],
+      "title": "EnumerationEnum5",
+      "type": "string"
+    },
+    "EnumerationEnum6": {
+      "enum": [
+        "LOCAL",
+        "PCEP"
+      ],
+      "title": "EnumerationEnum6",
+      "type": "string"
+    },
+    "EnumerationEnum7": {
+      "enum": [
+        "ADMIN_DOWN",
+        "DOWN",
+        "INIT",
+        "UP"
+      ],
+      "title": "EnumerationEnum7",
+      "type": "string"
+    },
+    "EnumerationEnum8": {
+      "enum": [
+        "NO_DIAGNOSTIC",
+        "DETECTION_TIMEOUT",
+        "ECHO_FAILED",
+        "NEIGHBOR_SIGNALED_DOWN",
+        "FORWARDING_RESET",
+        "PATH_DOWN",
+        "CONCATENATED_PATH_DOWN",
+        "ADMIN_DOWN",
+        "REVERSE_CONCATENATED_PATH_DOWN"
+      ],
+      "title": "EnumerationEnum8",
+      "type": "string"
+    },
+    "Ipv4AddressType": {
+      "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+      "title": "Ipv4AddressType",
+      "type": "string"
+    },
+    "Ipv6AddressType": {
+      "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+      "title": "Ipv6AddressType",
+      "type": "string"
+    },
+    "LagInterfaceListEntry": {
+      "description": "List of interface references to associate a micro-BFD session config and state",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "NameLeaf2"
+        },
+        "admin_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "disable",
+          "title": "Admin-stateLeaf2"
+        },
+        "local_address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Local-addressLeaf2"
+        },
+        "remote_address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-addressLeaf2"
+        },
+        "desired_minimum_transmit_interval": {
+          "anyOf": [
+            {
+              "maximum": 100000000,
+              "minimum": 10000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 1000000,
+          "title": "Desired-minimum-transmit-intervalLeaf2"
+        },
+        "required_minimum_receive": {
+          "anyOf": [
+            {
+              "maximum": 100000000,
+              "minimum": 10000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 1000000,
+          "title": "Required-minimum-receiveLeaf2"
+        },
+        "detection_multiplier": {
+          "anyOf": [
+            {
+              "maximum": 20,
+              "minimum": 3,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 3,
+          "title": "Detection-multiplierLeaf2"
+        },
+        "member_interface": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/MemberInterfaceListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Member Interface"
+        }
+      },
+      "title": "LagInterfaceListEntry",
+      "type": "object"
+    },
+    "MemberInterfaceListEntry": {
+      "description": "List of interface references to associate a micro-BFD session config and state",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "NameLeaf4"
+        },
+        "session_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum7"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session-stateLeaf2"
+        },
+        "remote_session_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum7"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-session-stateLeaf2"
+        },
+        "last_state_transition": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-state-transitionLeaf2"
+        },
+        "last_failure_time": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-failure-timeLeaf2"
+        },
+        "failure_transitions": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Failure-transitionsLeaf2"
+        },
+        "local_discriminator": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Local-discriminatorLeaf2"
+        },
+        "remote_discriminator": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-discriminatorLeaf2"
+        },
+        "local_diagnostic_code": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum8"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Local-diagnostic-codeLeaf2"
+        },
+        "remote_diagnostic_code": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum8"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-diagnostic-codeLeaf2"
+        },
+        "remote_minimum_receive_interval": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-minimum-receive-intervalLeaf2"
+        },
+        "remote_control_plane_independent": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-control-plane-independentLeaf2"
+        },
+        "active_transmit_interval": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active-transmit-intervalLeaf2"
+        },
+        "active_receive_interval": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active-receive-intervalLeaf2"
+        },
+        "remote_multiplier": {
+          "anyOf": [
+            {
+              "maximum": 255,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-multiplierLeaf2"
+        },
+        "async_": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AsyncContainer2"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "MemberInterfaceListEntry",
+      "type": "object"
+    },
+    "MicroBfdSessionsContainer": {
+      "description": "Context to configure micro-BFD session parameters and report sessions state",
+      "properties": {
+        "lag_interface": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/LagInterfaceListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lag Interface"
+        }
+      },
+      "title": "MicroBfdSessionsContainer",
+      "type": "object"
+    },
+    "NetworkInstanceListEntry": {
+      "description": "network-instance context for BFD session.",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "NameLeaf"
+        },
+        "peer": {
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/$defs/PeerListEntry"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Peer"
+        }
+      },
+      "title": "NetworkInstanceListEntry",
+      "type": "object"
+    },
+    "PeerListEntry": {
+      "description": "BFD session state related to this peer",
+      "properties": {
+        "local_discriminator": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Local-discriminatorLeaf"
+        },
+        "oper_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum2"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Oper-stateLeaf"
+        },
+        "ipv6_link_local_interface": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ipv6-link-local-interfaceLeaf"
+        },
+        "ipv4_unnumbered_interface": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ipv4-unnumbered-interfaceLeaf"
+        },
+        "local_address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Local-addressLeaf"
+        },
+        "remote_address": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-addressLeaf"
+        },
+        "remote_discriminator": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-discriminatorLeaf"
+        },
+        "subscribed_protocols": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Subscribed-protocolsLeaf"
+        },
+        "session_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum3"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session-stateLeaf"
+        },
+        "remote_session_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum3"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-session-stateLeaf"
+        },
+        "last_state_transition": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-state-transitionLeaf"
+        },
+        "last_failure_time": {
+          "anyOf": [
+            {
+              "pattern": "^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Last-failure-timeLeaf"
+        },
+        "failure_transitions": {
+          "anyOf": [
+            {
+              "maximum": 18446744073709551615,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Failure-transitionsLeaf"
+        },
+        "local_diagnostic_code": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum4"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Local-diagnostic-codeLeaf"
+        },
+        "remote_diagnostic_code": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum4"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-diagnostic-codeLeaf"
+        },
+        "remote_minimum_receive_interval": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-minimum-receive-intervalLeaf"
+        },
+        "remote_control_plane_independent": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-control-plane-independentLeaf"
+        },
+        "active_transmit_interval": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active-transmit-intervalLeaf"
+        },
+        "active_receive_interval": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Active-receive-intervalLeaf"
+        },
+        "remote_multiplier": {
+          "anyOf": [
+            {
+              "maximum": 255,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Remote-multiplierLeaf"
+        },
+        "te_policy_name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Te-policy-nameLeaf"
+        },
+        "te_policy_type": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum5"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Te-policy-typeLeaf"
+        },
+        "te_policy_segment_list_index": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Te-policy-segment-list-indexLeaf"
+        },
+        "te_policy_protocol_origin": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum6"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Te-policy-protocol-originLeaf"
+        },
+        "te_policy_segment_list_lsp_index": {
+          "anyOf": [
+            {
+              "maximum": 4294967295,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Te-policy-segment-list-lsp-indexLeaf"
+        },
+        "sr_policy_endpoint": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Ipv4AddressType"
+            },
+            {
+              "$ref": "#/$defs/Ipv6AddressType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Sr-policy-endpointLeaf"
+        },
+        "async_": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AsyncContainer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "title": "PeerListEntry",
+      "type": "object"
+    },
+    "SubinterfaceListEntry": {
+      "description": "List of subinterface references to associating BFD config and state",
+      "properties": {
+        "id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "IdLeaf"
+        },
+        "admin_state": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/EnumerationEnum"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": "disable",
+          "title": "Admin-stateLeaf"
+        },
+        "desired_minimum_transmit_interval": {
+          "anyOf": [
+            {
+              "maximum": 100000000,
+              "minimum": 10000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 1000000,
+          "title": "Desired-minimum-transmit-intervalLeaf"
+        },
+        "required_minimum_receive": {
+          "anyOf": [
+            {
+              "maximum": 100000000,
+              "minimum": 10000,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 1000000,
+          "title": "Required-minimum-receiveLeaf"
+        },
+        "detection_multiplier": {
+          "anyOf": [
+            {
+              "maximum": 20,
+              "minimum": 3,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 3,
+          "title": "Detection-multiplierLeaf"
+        },
+        "minimum_echo_receive_interval": {
+          "anyOf": [
+            {
+              "maximum": 100000000,
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 0,
+          "title": "Minimum-echo-receive-intervalLeaf"
+        },
+        "max_hop_count": {
+          "anyOf": [
+            {
+              "maximum": 255,
+              "minimum": 2,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": 255,
+          "title": "Max-hop-countLeaf"
+        }
+      },
+      "title": "SubinterfaceListEntry",
+      "type": "object"
+    }
+  },
+  "description": "Initialize an instance of this class and serialize it to JSON; this results in a RESTCONF payload.\n\n## Tips\nInitialization:\n- all values have to be set via keyword arguments\n- if a class contains only a `root` field, it can be initialized as follows:\n    - `member=MyNode(root=<value>)`\n    - `member=<value>`\n\nSerialziation:\n- `exclude_defaults=True` omits fields set to their default value (recommended)\n- `by_alias=True` ensures qualified names are used (necessary)",
+  "properties": {
+    "bfd": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/BfdContainer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "title": "Model",
+  "type": "object"
+}

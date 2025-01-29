@@ -186,8 +186,6 @@ def main() -> None:
     args = parser.parse_args()
 
     dir = os.path.expanduser(args.dir)
-    # non expanded dir is used in the map file to avoid disclosure of the home directory
-    non_expanded_dir = dir.replace(os.path.expanduser("~"), "~")
 
     # Checkout the specified version
     subprocess.run(["git", "-C", dir, "checkout", args.version], check=True)
