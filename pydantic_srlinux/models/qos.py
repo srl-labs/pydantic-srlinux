@@ -17,29 +17,25 @@ class CommittedBurstSizeTableContainer(BaseModel):
         regex_engine="python-re",
     )
     alt_0: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:alt-0', ge=0, le=4294967295, title='Alt-0Leaf'),
+        Optional[int], Field(alias='srl_nokia-qos:alt-0', ge=0, le=4294967295)
     ] = 0
     """
     ALT-0 committed-burst-size
     """
     alt_1: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:alt-1', ge=0, le=4294967295, title='Alt-1Leaf'),
+        Optional[int], Field(alias='srl_nokia-qos:alt-1', ge=0, le=4294967295)
     ] = 0
     """
     ALT-1 committed-burst-size
     """
     alt_2: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:alt-2', ge=0, le=4294967295, title='Alt-2Leaf'),
+        Optional[int], Field(alias='srl_nokia-qos:alt-2', ge=0, le=4294967295)
     ] = 0
     """
     ALT-2 committed-burst-size
     """
     alt_3: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:alt-3', ge=0, le=4294967295, title='Alt-3Leaf'),
+        Optional[int], Field(alias='srl_nokia-qos:alt-3', ge=0, le=4294967295)
     ] = 0
     """
     ALT-3 committed-burst-size
@@ -62,7 +58,7 @@ class DscpValueType(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=63, title='Dscp-valueType')]
+    root: Annotated[int, Field(ge=0, le=63)]
     """
     A DiffServ Code Point represented numerically.
     """
@@ -77,10 +73,9 @@ class MidPoolMemberListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:index', ge=0, le=7, title='IndexLeaf8'),
-    ] = None
+    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=7)] = (
+        None
+    )
     """
     Mid-pool index
     """
@@ -110,9 +105,7 @@ class PacketLengthAdjustmentContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    add: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:add', ge=0, le=32, title='AddLeaf2')
-    ] = 0
+    add: Annotated[Optional[int], Field(alias='srl_nokia-qos:add', ge=0, le=32)] = 0
     """
     Number of bytes to be added to the packet-length for the scheduling-algorithm calculation
     """
@@ -128,8 +121,7 @@ class PirThresholdSeparationContainer(BaseModel):
         regex_engine="python-re",
     )
     inplus_separated: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:inplus-separated', title='Inplus-separatedLeaf'),
+        Optional[bool], Field(alias='srl_nokia-qos:inplus-separated')
     ] = False
     """
     Selecting a separate pir-bucket threshold for in-plus profile
@@ -156,21 +148,14 @@ class RootPoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:index', ge=0, le=4, title='IndexLeaf7'),
-    ] = None
+    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=4)] = (
+        None
+    )
     """
     Root-pool index
     """
     allocation_weight: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:allocation-weight',
-            ge=0,
-            le=100,
-            title='Allocation-weightLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:allocation-weight', ge=0, le=100)
     ] = None
     """
     The amount of the egress buffer space allocated to this root-pool. The weight expresses the relative amount of buffer space taking into account the weight of other root-pools.
@@ -192,25 +177,14 @@ class SchedulingResourcesPoolsContainer(BaseModel):
         regex_engine="python-re",
     )
     resource_set_pool: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:resource-set-pool',
-            ge=0,
-            le=1,
-            title='Resource-set-poolLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:resource-set-pool', ge=0, le=1)
     ] = None
     """
     Resource-set-pool from which the interface obtains scheduling resources
     """
     interface_group_resource_pool: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:interface-group-resource-pool',
-            ge=0,
-            le=15,
-            title='Interface-group-resource-poolLeaf',
-        ),
+        Field(alias='srl_nokia-qos:interface-group-resource-pool', ge=0, le=15),
     ] = None
     """
     Interface-group-resource-pool from which the interface obtains scheduling resources
@@ -223,49 +197,25 @@ class UnicastPriorityListEntry(BaseModel):
         regex_engine="python-re",
     )
     resource_priority: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:resource-priority',
-            ge=0,
-            le=3,
-            title='Resource-priorityLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:resource-priority', ge=0, le=3)
     ] = None
     """
     Resource-priority for unicast packets
     """
     buffer_segment_drop_zone: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:buffer-segment-drop-zone',
-            ge=0,
-            le=3,
-            title='Buffer-segment-drop-zoneLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:buffer-segment-drop-zone', ge=0, le=3)
     ] = None
     """
     Defines drop-zone for buffer-segments at which packets with a given resource-priority will be disarded
     """
     packet_id_drop_zone: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:packet-id-drop-zone',
-            ge=0,
-            le=3,
-            title='Packet-id-drop-zoneLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:packet-id-drop-zone', ge=0, le=3)
     ] = None
     """
     Defines drop-zone for packet-id at which packets with a given resource-priority will be discarded
     """
     header_buffer_drop_zone: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:header-buffer-drop-zone',
-            ge=0,
-            le=15,
-            title='Header-buffer-drop-zoneLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:header-buffer-drop-zone', ge=0, le=15)
     ] = None
     """
     Defines drop-zone for header-buffer at which packets with a given resource-priority will be discarded
@@ -448,9 +398,7 @@ class AddCase(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    add: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:add', ge=0, le=32, title='AddLeaf')
-    ] = None
+    add: Annotated[Optional[int], Field(alias='srl_nokia-qos:add', ge=0, le=32)] = None
     """
     Number of bytes to be added to the packet-length for the policer-algorithm calculation
     """
@@ -467,24 +415,14 @@ class BufferSegmentContainer(BaseModel):
     )
     rising_threshold_value: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-qos:rising-threshold-value',
-            ge=0.0,
-            le=100.0,
-            title='Rising-threshold-valueLeaf',
-        ),
+        Field(alias='srl_nokia-qos:rising-threshold-value', ge=0.0, le=100.0),
     ] = None
     """
     The rising-threshold-value definining the transition from higher-congestion zone to lower-congestion zone
     """
     falling_threshold_value: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-qos:falling-threshold-value',
-            ge=0.0,
-            le=100.0,
-            title='Falling-threshold-valueLeaf',
-        ),
+        Field(alias='srl_nokia-qos:falling-threshold-value', ge=0.0, le=100.0),
     ] = None
     """
     The falling-threshold-value defining the transition from lower-congestion zone to higher-congestion zone
@@ -502,12 +440,7 @@ class BwProportionalContainer(BaseModel):
     )
     over_subscription_factor: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-qos:over-subscription-factor',
-            ge=0.0,
-            le=10.0,
-            title='Over-subscription-factorLeaf',
-        ),
+        Field(alias='srl_nokia-qos:over-subscription-factor', ge=0.0, le=10.0),
     ] = 125
     """
     Factor defining how much of the over-subscription for the given interface-pool is allowed, when its size is calculated as a proportion of the corresponding interface-speed.
@@ -525,32 +458,18 @@ class DeadlockContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    enable: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:enable', title='EnableLeaf')
-    ] = False
+    enable: Annotated[Optional[bool], Field(alias='srl_nokia-qos:enable')] = False
     """
     Enables/disables deadlock mechanism
     """
     detection_timer: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:detection-timer',
-            ge=10,
-            le=1500,
-            title='Detection-timerLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:detection-timer', ge=10, le=1500)
     ] = 750
     """
     Number of milliseconds during which outgoing interface is receiving pfc-pause-frames before triggering recovery-timer
     """
     recovery_timer: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:recovery-timer',
-            ge=100,
-            le=1500,
-            title='Recovery-timerLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:recovery-timer', ge=100, le=1500)
     ] = 750
     """
     Number of milliseconds during which the pfc-pause-frames will be ignored
@@ -573,11 +492,7 @@ class DscpRewriteContainer(BaseModel):
         regex_engine="python-re",
     )
     force_rewrite_trusted: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-qos:force-rewrite-trusted',
-            title='Force-rewrite-trustedLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-qos:force-rewrite-trusted')
     ] = False
     """
     Enables remarking packets incomming on trusted interfaces
@@ -595,10 +510,7 @@ class ExceedActionContainer(BaseModel):
     )
     drop_probability: Annotated[
         Optional[EnumerationEnum25],
-        Field(
-            alias='srl_nokia-acl-policers:drop-probability',
-            title='Drop-probabilityLeaf10',
-        ),
+        Field(alias='srl_nokia-acl-policers:drop-probability'),
     ] = 'medium'
     """
     Recolor exceeding packets to the specified drop-probability level
@@ -616,24 +528,14 @@ class HeaderBufferContainer(BaseModel):
     )
     rising_threshold_value: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-qos:rising-threshold-value',
-            ge=0.0,
-            le=100.0,
-            title='Rising-threshold-valueLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:rising-threshold-value', ge=0.0, le=100.0),
     ] = None
     """
     The rising-threshold-value definining the transition from higher-congestion zone to lower-congestion zone
     """
     falling_threshold_value: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-qos:falling-threshold-value',
-            ge=0.0,
-            le=100.0,
-            title='Falling-threshold-valueLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:falling-threshold-value', ge=0.0, le=100.0),
     ] = None
     """
     The falling-threshold-value defining the transition from lower-congestion zone to higher-congestion zone
@@ -650,20 +552,13 @@ class InputProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     input_profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:input-profile', title='Input-profileLeaf'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:input-profile')
     ] = None
     """
     The profile the input packet was classified to, based on applicable classification criteria
     """
     threshold_factor: Annotated[
-        Optional[float],
-        Field(
-            alias='srl_nokia-qos:threshold-factor',
-            ge=0.0,
-            le=2.0,
-            title='Threshold-factorLeaf',
-        ),
+        Optional[float], Field(alias='srl_nokia-qos:threshold-factor', ge=0.0, le=2.0)
     ] = None
     """
     Threshold-factor for the policer bucket indicating fraction of mbs
@@ -680,25 +575,14 @@ class InputContainer2(BaseModel):
         regex_engine="python-re",
     )
     pfc_buffer_reservation: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-buffer-reservation',
-            ge=0,
-            le=100,
-            title='Pfc-buffer-reservationLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:pfc-buffer-reservation', ge=0, le=100)
     ] = 1
     """
     Percentage of the buffer reserved for accomodating incoming traffic while upstream node reacts to generated PFC-pause frames
     """
     pfc_reserved_buffer_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-reserved-buffer-size',
-            ge=0,
-            le=4294967295,
-            title='Pfc-reserved-buffer-sizeLeaf',
-        ),
+        Field(alias='srl_nokia-qos:pfc-reserved-buffer-size', ge=0, le=4294967295),
     ] = None
     """
     Displays the actual size of pfc-reserved buffer in bytes
@@ -715,27 +599,20 @@ class InterfacePoolListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:index', ge=0, le=255, title='IndexLeaf5'),
+        Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=255)
     ] = None
     """
     Interface-pool index
     """
     operational_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:operational-size',
-            ge=0,
-            le=4294967295,
-            title='Operational-sizeLeaf',
-        ),
+        Field(alias='srl_nokia-qos:operational-size', ge=0, le=4294967295),
     ] = None
     """
     Operational size of the interface-pool
     """
     used: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:used', ge=0, le=4294967295, title='UsedLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:used', ge=0, le=4294967295)
     ] = None
     """
     Actual usage of the interface-pool
@@ -748,49 +625,25 @@ class MulticastPriorityListEntry(BaseModel):
         regex_engine="python-re",
     )
     resource_priority: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:resource-priority',
-            ge=0,
-            le=3,
-            title='Resource-priorityLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:resource-priority', ge=0, le=3)
     ] = None
     """
     Resource-priority for multicast and broadcast packets
     """
     buffer_segment_drop_zone: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:buffer-segment-drop-zone',
-            ge=0,
-            le=3,
-            title='Buffer-segment-drop-zoneLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:buffer-segment-drop-zone', ge=0, le=3)
     ] = None
     """
     Defines drop-zone for buffer-segments at which packets with a given resource-priority will be disarded
     """
     packet_id_drop_zone: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:packet-id-drop-zone',
-            ge=0,
-            le=3,
-            title='Packet-id-drop-zoneLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:packet-id-drop-zone', ge=0, le=3)
     ] = None
     """
     Defines drop-zone for packet-id at which packets with a given resource-priority will be discarded
     """
     header_buffer_drop_zone: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:header-buffer-drop-zone',
-            ge=0,
-            le=15,
-            title='Header-buffer-drop-zoneLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:header-buffer-drop-zone', ge=0, le=15)
     ] = None
     """
     Defines drop-zone for header-buffer at which packets with a given resource-priority will be discarded
@@ -803,8 +656,7 @@ class OperationalSeparationThresholdsListEntry(BaseModel):
         regex_engine="python-re",
     )
     input_profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:input-profile', title='Input-profileLeaf2'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:input-profile')
     ] = None
     """
     The profile the input packet was classified to, based on applicable classification criteria
@@ -815,7 +667,6 @@ class OperationalSeparationThresholdsListEntry(BaseModel):
             alias='srl_nokia-qos:eir-operational-separation-threshold',
             ge=0,
             le=4294967295,
-            title='Eir-operational-separation-thresholdLeaf',
         ),
     ] = None
     """
@@ -827,7 +678,6 @@ class OperationalSeparationThresholdsListEntry(BaseModel):
             alias='srl_nokia-qos:pir-operational-separation-threshold',
             ge=0,
             le=4294967295,
-            title='Pir-operational-separation-thresholdLeaf',
         ),
     ] = None
     """
@@ -839,7 +689,6 @@ class OperationalSeparationThresholdsListEntry(BaseModel):
             alias='srl_nokia-qos:cir-operational-separation-threshold',
             ge=0,
             le=4294967295,
-            title='Cir-operational-separation-thresholdLeaf',
         ),
     ] = None
     """
@@ -858,24 +707,14 @@ class PacketIdContainer(BaseModel):
     )
     rising_threshold_value: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-qos:rising-threshold-value',
-            ge=0.0,
-            le=100.0,
-            title='Rising-threshold-valueLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:rising-threshold-value', ge=0.0, le=100.0),
     ] = None
     """
     The rising-threshold-value definining the transition from higher-congestion zone to lower-congestion zone
     """
     falling_threshold_value: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-qos:falling-threshold-value',
-            ge=0.0,
-            le=100.0,
-            title='Falling-threshold-valueLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:falling-threshold-value', ge=0.0, le=100.0),
     ] = None
     """
     The falling-threshold-value defining the transition from lower-congestion zone to higher-congestion zone
@@ -903,12 +742,7 @@ class ParentPolicerThresholdPolicyListEntry(BaseModel):
     """
     threshold_separation: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:threshold-separation',
-            ge=3000,
-            le=65536,
-            title='Threshold-separationLeaf',
-        ),
+        Field(alias='srl_nokia-qos:threshold-separation', ge=3000, le=65536),
     ] = 18000
     """
     Defines the threshold-separation for parent-policer
@@ -925,34 +759,20 @@ class ParentPolicerContainer2(BaseModel):
         regex_engine="python-re",
     )
     rate_kbps: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:rate-kbps', ge=0, le=4294967295, title='Rate-kbpsLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:rate-kbps', ge=0, le=4294967295)
     ] = None
     """
     Operational rate of the parent policer
     """
     burst_allowance: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:burst-allowance',
-            ge=0,
-            le=4294967295,
-            title='Burst-allowanceLeaf4',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:burst-allowance', ge=0, le=4294967295)
     ] = None
     """
     Operational value of the burst-allowance for the parent-policer
     """
     threshold_separation: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:threshold-separation',
-            ge=0,
-            le=4294967295,
-            title='Threshold-separationLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:threshold-separation', ge=0, le=4294967295),
     ] = None
     """
     Operational value of the threshold-separation for the parent-policer
@@ -966,12 +786,7 @@ class PeakRateKbpsCase(BaseModel):
     )
     peak_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-kbps',
-            ge=0,
-            le=18446744073709551615,
-            title='Peak-rate-kbpsLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:peak-rate-kbps', ge=0, le=18446744073709551615),
     ] = None
     """
     Scheduler peak-rate in kilobits-per-second
@@ -985,12 +800,7 @@ class PeakRateKbpsCase2(BaseModel):
     )
     peak_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-kbps',
-            ge=0,
-            le=18446744073709551615,
-            title='Peak-rate-kbpsLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:peak-rate-kbps', ge=0, le=18446744073709551615),
     ] = None
     """
     Scheduler peak-rate in kilobits-per-second
@@ -1003,13 +813,7 @@ class PeakRatePercentageCase(BaseModel):
         regex_engine="python-re",
     )
     peak_rate_percentage: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-percentage',
-            ge=1,
-            le=100,
-            title='Peak-rate-percentageLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:peak-rate-percentage', ge=1, le=100)
     ] = 100
     """
     Scheduler peak-rate as the percentage of the output rate
@@ -1022,13 +826,7 @@ class PeakRatePercentageCase2(BaseModel):
         regex_engine="python-re",
     )
     peak_rate_percentage: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-percentage',
-            ge=1,
-            le=100,
-            title='Peak-rate-percentageLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:peak-rate-percentage', ge=1, le=100)
     ] = 100
     """
     Scheduler peak-rate as the percentage of the output rate
@@ -1040,10 +838,9 @@ class PfcPriorityListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:index', ge=0, le=7, title='IndexLeaf4'),
-    ] = None
+    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=7)] = (
+        None
+    )
     """
     PFC-priority index
     """
@@ -1053,7 +850,6 @@ class PfcPriorityListEntry(BaseModel):
             alias='srl_nokia-qos:pfc-pause-frames-received',
             ge=0,
             le=18446744073709551615,
-            title='Pfc-pause-frames-receivedLeaf',
         ),
     ] = None
     """
@@ -1065,7 +861,6 @@ class PfcPriorityListEntry(BaseModel):
             alias='srl_nokia-qos:pfc-pause-frames-generated',
             ge=0,
             le=18446744073709551615,
-            title='Pfc-pause-frames-generatedLeaf',
         ),
     ] = None
     """
@@ -1073,12 +868,7 @@ class PfcPriorityListEntry(BaseModel):
     """
     pfc_transitions: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-transitions',
-            ge=0,
-            le=18446744073709551615,
-            title='Pfc-transitionsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:pfc-transitions', ge=0, le=18446744073709551615),
     ] = None
     """
     Number of transitions PFC-ON --> PFC-OFF on the interface for a given pfc-priority
@@ -1089,7 +879,6 @@ class PfcPriorityListEntry(BaseModel):
             alias='srl_nokia-qos:deadlock-recovery-occurrences',
             ge=0,
             le=18446744073709551615,
-            title='Deadlock-recovery-occurrencesLeaf',
         ),
     ] = None
     """
@@ -1116,10 +905,7 @@ class PfcQueueListEntry(BaseModel):
     """
     User-defined name of the pfc-queue
     """
-    queue_index: Annotated[
-        int,
-        Field(alias='srl_nokia-qos:queue-index', ge=0, le=7, title='Queue-indexLeaf2'),
-    ]
+    queue_index: Annotated[int, Field(alias='srl_nokia-qos:queue-index', ge=0, le=7)]
     """
     The queue index (offset) of the pfc-queue
     """
@@ -1139,7 +925,6 @@ class PfcQueueListEntry4(BaseModel):
         Field(
             alias='srl_nokia-qos:pfc-queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Pfc-queue-nameLeaf4',
         ),
     ] = None
     """
@@ -1147,24 +932,14 @@ class PfcQueueListEntry4(BaseModel):
     """
     maximum_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:maximum-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Maximum-burst-sizeLeaf6',
-        ),
+        Field(alias='srl_nokia-qos:maximum-burst-size', ge=0, le=4294967295),
     ] = 51200
     """
     Maximum amount of shared buffer memory available for the given pfc-queue
     """
     committed_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:committed-burst-size',
-            ge=1536,
-            le=262144,
-            title='Committed-burst-sizeLeaf6',
-        ),
+        Field(alias='srl_nokia-qos:committed-burst-size', ge=1536, le=262144),
     ] = 102400
     """
     Reserved amount of buffer memory available for the given pfc-queue
@@ -1172,10 +947,7 @@ class PfcQueueListEntry4(BaseModel):
     maximum_pfc_reserved_share_percentage: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:maximum-pfc-reserved-share-percentage',
-            ge=0,
-            le=100,
-            title='Maximum-pfc-reserved-share-percentageLeaf',
+            alias='srl_nokia-qos:maximum-pfc-reserved-share-percentage', ge=0, le=100
         ),
     ] = 10
     """
@@ -1184,45 +956,26 @@ class PfcQueueListEntry4(BaseModel):
     maximum_pfc_reserved_share_bytes: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:maximum-pfc-reserved-share-bytes',
-            ge=0,
-            le=104857600,
-            title='Maximum-pfc-reserved-share-bytesLeaf',
+            alias='srl_nokia-qos:maximum-pfc-reserved-share-bytes', ge=0, le=104857600
         ),
     ] = None
     """
     Maximum level the pfc-queue can take from pfc-reserved buffer configured per given forwarding-complex expressed as bytes. If this value is configured, maximum-pfc-reserved-share-percentage value is ignored
     """
     pfc_on_threshold: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-on-threshold',
-            ge=0,
-            le=100,
-            title='Pfc-on-thresholdLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:pfc-on-threshold', ge=0, le=100)
     ] = 100
     """
     Defines the pfc-queue depth at which pfc-pause-frames genaration will start. It is expressed as percentage of maximum-burst-size or committed-burst-size, respectively
     """
     pfc_off_threshold: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-off-threshold',
-            ge=0,
-            le=100,
-            title='Pfc-off-thresholdLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:pfc-off-threshold', ge=0, le=100)
     ] = 80
     """
     Defines the pfc-queue depth at which pfc-pause-frames will stop be generated. It is expressed as percentage of maximum-burst-size or committed-burst-size, respectively
     """
     use_dynamic_allocation: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-qos:use-dynamic-allocation',
-            title='Use-dynamic-allocationLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-qos:use-dynamic-allocation')
     ] = None
     """
     Enables dynamic allocation of the buffer space
@@ -1237,17 +990,13 @@ class PolicerListEntry2(BaseModel):
         regex_engine="python-re",
     )
     policer_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:policer-id', ge=0, le=31, title='Policer-idLeaf2'),
+        Optional[int], Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)
     ] = None
     """
     Input policer-id
     """
     priority_level: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:priority-level', ge=0, le=5, title='Priority-levelLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:priority-level', ge=0, le=5)
     ] = 0
     """
     Priority level of the input policer. Priority-level 0 corresponds to the lowest priority
@@ -1264,49 +1013,25 @@ class PolicersContainer(BaseModel):
         regex_engine="python-re",
     )
     unicast_policer: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:unicast-policer',
-            ge=0,
-            le=31,
-            title='Unicast-policerLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:unicast-policer', ge=0, le=31)
     ] = None
     """
     Policer for the unicast traffic
     """
     multicast_policer: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:multicast-policer',
-            ge=0,
-            le=31,
-            title='Multicast-policerLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:multicast-policer', ge=0, le=31)
     ] = None
     """
     Policer for the multicast traffic
     """
     broadcast_policer: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:broadcast-policer',
-            ge=0,
-            le=31,
-            title='Broadcast-policerLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:broadcast-policer', ge=0, le=31)
     ] = None
     """
     Policer for the broadcast traffic
     """
     unknown_unicast_policer: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:unknown-unicast-policer',
-            ge=0,
-            le=31,
-            title='Unknown-unicast-policerLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:unknown-unicast-policer', ge=0, le=31)
     ] = None
     """
     Policer for the unknown-unicast traffic
@@ -1319,8 +1044,7 @@ class PrecedenceCase(BaseModel):
         regex_engine="python-re",
     )
     precedence: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:precedence', ge=0, le=7, title='PrecedenceLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:precedence', ge=0, le=7)
     ] = None
     """
     The ip-precedence marking to be used for this specific profile
@@ -1333,8 +1057,7 @@ class PrecedenceCase2(BaseModel):
         regex_engine="python-re",
     )
     precedence: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:precedence', ge=0, le=7, title='PrecedenceLeaf2'),
+        Optional[int], Field(alias='srl_nokia-qos:precedence', ge=0, le=7)
     ] = None
     """
     The ip-precedence marking to be used for this specific profile
@@ -1347,8 +1070,7 @@ class PrecedenceCase3(BaseModel):
         regex_engine="python-re",
     )
     precedence: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:precedence', ge=0, le=7, title='PrecedenceLeaf3'),
+        Optional[int], Field(alias='srl_nokia-qos:precedence', ge=0, le=7)
     ] = None
     """
     The ip-precedence marking to be used for this specific profile
@@ -1361,8 +1083,7 @@ class PrecedenceCase4(BaseModel):
         regex_engine="python-re",
     )
     precedence: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:precedence', ge=0, le=7, title='PrecedenceLeaf4'),
+        Optional[int], Field(alias='srl_nokia-qos:precedence', ge=0, le=7)
     ] = None
     """
     The ip-precedence marking to be used for this specific profile
@@ -1379,32 +1100,21 @@ class ProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     profile_name: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:profile-name', title='Profile-nameLeaf'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile-name')
     ] = None
     """
     Profile-names for different profiles used during classification
     """
     unicast_resource_priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:unicast-resource-priority',
-            ge=0,
-            le=3,
-            title='Unicast-resource-priorityLeaf',
-        ),
+        Field(alias='srl_nokia-qos:unicast-resource-priority', ge=0, le=3),
     ] = None
     """
     Defines priority unicast packets will be assigned to shared chipset resources for a specific forwarding-class and profile combination
     """
     multicast_resource_priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:multicast-resource-priority',
-            ge=0,
-            le=3,
-            title='Multicast-resource-priorityLeaf',
-        ),
+        Field(alias='srl_nokia-qos:multicast-resource-priority', ge=0, le=3),
     ] = None
     """
     Defines priority multicast and broadcast packets will be assigned to shared chipset resources for a specific forwarding-class and profile combination
@@ -1418,24 +1128,14 @@ class QueueDepthContainer(BaseModel):
     )
     maximum_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:maximum-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Maximum-burst-sizeLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:maximum-burst-size', ge=0, le=4294967295),
     ] = None
     """
     Maximum queue depth in bytes
     """
     committed_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:committed-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Committed-burst-sizeLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:committed-burst-size', ge=0, le=4294967295),
     ] = None
     """
     Committed queue length in bytes
@@ -1445,7 +1145,6 @@ class QueueDepthContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:last-high-threshold-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-high-threshold-timeLeaf',
         ),
     ] = None
     """
@@ -1453,90 +1152,53 @@ class QueueDepthContainer(BaseModel):
     """
     high_threshold_bytes: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:high-threshold-bytes',
-            ge=0,
-            le=4294967295,
-            title='High-threshold-bytesLeaf',
-        ),
+        Field(alias='srl_nokia-qos:high-threshold-bytes', ge=0, le=4294967295),
     ] = None
     """
     The operational hardware value of the high threshold in bytes
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:average-1', ge=0, le=4294967295, title='Average-1Leaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:average-1', ge=0, le=4294967295)
     ] = None
     """
     The average queue depth in the last 1 minutes using samples taken every polling-interval milliseconds
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:average-5', ge=0, le=4294967295, title='Average-5Leaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:average-5', ge=0, le=4294967295)
     ] = None
     """
     The average queue depth in the last 5 minutes using samples taken every polling-interval milliseconds
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:average-15',
-            ge=0,
-            le=4294967295,
-            title='Average-15Leaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:average-15', ge=0, le=4294967295)
     ] = None
     """
     The average queue depth in the last 15 minutes using samples taken every polling-interval milliseconds
     """
     high_watermark_1: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:high-watermark-1',
-            ge=0,
-            le=4294967295,
-            title='High-watermark-1Leaf',
-        ),
+        Field(alias='srl_nokia-qos:high-watermark-1', ge=0, le=4294967295),
     ] = None
     """
     The highest queue depth in the last 1 minutes using samples taken every polling-interval milliseconds
     """
     high_watermark_5: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:high-watermark-5',
-            ge=0,
-            le=4294967295,
-            title='High-watermark-5Leaf',
-        ),
+        Field(alias='srl_nokia-qos:high-watermark-5', ge=0, le=4294967295),
     ] = None
     """
     The highest queue depth in the last 5 minutes using samples taken every polling-interval milliseconds
     """
     high_watermark_15: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:high-watermark-15',
-            ge=0,
-            le=4294967295,
-            title='High-watermark-15Leaf',
-        ),
+        Field(alias='srl_nokia-qos:high-watermark-15', ge=0, le=4294967295),
     ] = None
     """
     The highest queue depth in the last 15 minutes using samples taken every polling-interval milliseconds
     """
     missed_polling_intervals: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:missed-polling-intervals',
-            ge=0,
-            le=4294967295,
-            title='Missed-polling-intervalsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:missed-polling-intervals', ge=0, le=4294967295),
     ] = None
     """
     The number of samples that were expected, but did not arrive fast enough to be included in the average and high-watermark calculations
@@ -1586,10 +1248,7 @@ class QueueListEntry(BaseModel):
     queue-10
     queue-11
     """
-    queue_index: Annotated[
-        int,
-        Field(alias='srl_nokia-qos:queue-index', ge=0, le=11, title='Queue-indexLeaf'),
-    ]
+    queue_index: Annotated[int, Field(alias='srl_nokia-qos:queue-index', ge=0, le=11)]
     """
     The queue index (offset) of the queue within the set of queues allocated to a given interface or subinterface
     """
@@ -1609,7 +1268,6 @@ class QueueListEntry2(BaseModel):
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Queue-nameLeaf',
         ),
     ] = None
     """
@@ -1622,9 +1280,9 @@ class QueueListEntry2(BaseModel):
     """
     The pfc-priority received in pfc-pause-frame
     """
-    enable_pfc: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:enable-pfc', title='Enable-pfcLeaf2')
-    ] = False
+    enable_pfc: Annotated[Optional[bool], Field(alias='srl_nokia-qos:enable-pfc')] = (
+        False
+    )
     """
     Enables/disables reaction to received pfc-frames for a given pfc-priority
     """
@@ -1644,7 +1302,6 @@ class QueueListEntry5(BaseModel):
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Queue-nameLeaf5',
         ),
     ] = None
     """
@@ -1652,12 +1309,7 @@ class QueueListEntry5(BaseModel):
     """
     maximum_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:maximum-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Maximum-burst-sizeLeaf5',
-        ),
+        Field(alias='srl_nokia-qos:maximum-burst-size', ge=0, le=4294967295),
     ] = 0
     """
     Maximum amount of shared buffer memory available to the queue.
@@ -1671,43 +1323,27 @@ class QueueListEntry5(BaseModel):
     Must be non-zero/non-default in order to add the active-queue-management presence container
     """
     mbs_adaptation_rule: Annotated[
-        Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-qos:mbs-adaptation-rule', title='Mbs-adaptation-ruleLeaf'
-        ),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:mbs-adaptation-rule')
     ] = 'closest'
     """
     Defines how the user-configured values will be adjusted to available hardware values
     """
     committed_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:committed-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Committed-burst-sizeLeaf5',
-        ),
+        Field(alias='srl_nokia-qos:committed-burst-size', ge=0, le=4294967295),
     ] = None
     """
     Committed queue length expressed in bytes
     """
     cbs_adaptation_rule: Annotated[
-        Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-qos:cbs-adaptation-rule', title='Cbs-adaptation-ruleLeaf'
-        ),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:cbs-adaptation-rule')
     ] = 'closest'
     """
     Defines how the user-configured values will be adjusted to values defined by committed-burst-size-table
     """
     high_threshold_bytes: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:high-threshold-bytes',
-            ge=0,
-            le=4294967295,
-            title='High-threshold-bytesLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:high-threshold-bytes', ge=0, le=4294967295),
     ] = 0
     """
     The queue depth that, when crossed in a rising direction, triggers a hardware interrupt and a recording of the current system time.
@@ -1719,10 +1355,7 @@ class QueueListEntry5(BaseModel):
     On 7220-D2/D3 the threshold is rounded up the nearest multiple of 2048 bytes. On IXR-6/10 the threshold is rounded up to the nearest multiple of 4096 bytes. On 7220-H2/H3 the threshold is rounded up to the nearest multiple of 254 bytes
     """
     interface_pool: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:interface-pool', ge=0, le=7, title='Interface-poolLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:interface-pool', ge=0, le=7)
     ] = None
     """
     Interface-pool the queue is assigned to at subinterface level
@@ -1760,10 +1393,7 @@ class RateContainer2(BaseModel):
         Field(alias='srl_nokia-qos:kbps-or-percentage'),
     ] = None
     pir_adaptation_rule: Annotated[
-        Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-qos:pir-adaptation-rule', title='Pir-adaptation-ruleLeaf'
-        ),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:pir-adaptation-rule')
     ] = 'closest'
     """
     Defines how the user-configured values will be adjusted to available hardware values
@@ -1784,10 +1414,7 @@ class RateContainer3(BaseModel):
         Field(alias='srl_nokia-qos:kbps-or-percentage'),
     ] = None
     pir_adaptation_rule: Annotated[
-        Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-qos:pir-adaptation-rule', title='Pir-adaptation-ruleLeaf2'
-        ),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:pir-adaptation-rule')
     ] = 'closest'
     """
     Defines how the user-configured values will be adjusted to available hardware values
@@ -1801,10 +1428,7 @@ class ReColorCase(BaseModel):
     )
     drop_probability: Annotated[
         Optional[EnumerationEnum25],
-        Field(
-            alias='srl_nokia-acl-policers:drop-probability',
-            title='Drop-probabilityLeaf11',
-        ),
+        Field(alias='srl_nokia-acl-policers:drop-probability'),
     ] = 'high'
     """
     Recolor violating packets to the specified drop-probability level
@@ -1850,21 +1474,14 @@ class SchedulingClassListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:index', ge=0, le=6, title='IndexLeaf2'),
-    ] = None
+    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=6)] = (
+        None
+    )
     """
     Scheduling-class index
     """
     scheduling_priority: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:scheduling-priority',
-            ge=0,
-            le=2,
-            title='Scheduling-priorityLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:scheduling-priority', ge=0, le=2)
     ] = None
     """
     Scheduling-priority assigned to the scheduling-class
@@ -1898,20 +1515,13 @@ class SchedulingContainer(BaseModel):
         regex_engine="python-re",
     )
     scheduling_class: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:scheduling-class',
-            ge=0,
-            le=6,
-            title='Scheduling-classLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:scheduling-class', ge=0, le=6)
     ] = 0
     """
     Scheduling-class of the queue
     """
     weight: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:weight', ge=1, le=127, title='WeightLeaf2'),
+        Optional[int], Field(alias='srl_nokia-qos:weight', ge=1, le=127)
     ] = 1
     """
     The scheduling weight of the given queue
@@ -1932,39 +1542,26 @@ class SchedulingContainer2(BaseModel):
         regex_engine="python-re",
     )
     peak_rate_percent: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-percent',
-            ge=1,
-            le=100,
-            title='Peak-rate-percentLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:peak-rate-percent', ge=1, le=100)
     ] = None
     """
     The maximum percentage of port bandwidth that is available to the traffic in this queue during the PIR scheduling loop. The default is 100
     """
     peak_rate_bps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-bps',
-            ge=0,
-            le=18446744073709551615,
-            title='Peak-rate-bpsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:peak-rate-bps', ge=0, le=18446744073709551615),
     ] = None
     """
     The actual/operational peak rate in bits per second
     """
     strict_priority: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:strict-priority', title='Strict-priorityLeaf'),
+        Optional[bool], Field(alias='srl_nokia-qos:strict-priority')
     ] = None
     """
     When set to true the queue is serviced as a strict priority queue, regardless of whether a weight is configured or its value. When set to false the queue is serviced using WRR, even if the queue does not have a configured weight; in this case the default weight value of 1 is used
     """
     weight: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:weight', ge=1, le=255, title='WeightLeaf3'),
+        Optional[int], Field(alias='srl_nokia-qos:weight', ge=1, le=255)
     ] = None
     """
     Configures the relative weight of a queue.
@@ -1996,13 +1593,7 @@ class SchedulingContainer2(BaseModel):
 
     """
     scheduling_class: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:scheduling-class',
-            ge=0,
-            le=6,
-            title='Scheduling-classLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:scheduling-class', ge=0, le=6)
     ] = None
     """
     The scheduling-class for output-queue
@@ -2023,7 +1614,6 @@ class StatisticsContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf',
         ),
     ] = None
     """
@@ -2035,7 +1625,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-qos:total-pfc-pause-frames-received',
             ge=0,
             le=18446744073709551615,
-            title='Total-pfc-pause-frames-receivedLeaf',
         ),
     ] = None
     """
@@ -2047,7 +1636,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-qos:total-pfc-pause-frames-generated',
             ge=0,
             le=18446744073709551615,
-            title='Total-pfc-pause-frames-generatedLeaf',
         ),
     ] = None
     """
@@ -2059,7 +1647,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-qos:total-packet-pfc-discards',
             ge=0,
             le=18446744073709551615,
-            title='Total-packet-pfc-discardsLeaf',
         ),
     ] = None
     """
@@ -2076,8 +1663,7 @@ class SubtractCase(BaseModel):
         regex_engine="python-re",
     )
     subtract: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:subtract', ge=0, le=64, title='SubtractLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:subtract', ge=0, le=64)
     ] = None
     """
     Number of bytes to be subtracted from the packet-length for the policer-algorithm calculation
@@ -2098,7 +1684,6 @@ class ThresholdSeparationPolicyListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf12',
         ),
     ] = None
     """
@@ -2115,9 +1700,9 @@ class ThresholdListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:index', ge=1, le=3, title='IndexLeaf')
-    ] = None
+    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=1, le=3)] = (
+        None
+    )
     """
     Threshold index
     """
@@ -2157,45 +1742,37 @@ class AdaptationRulesContainer(BaseModel):
         regex_engine="python-re",
     )
     peak_rate: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-qos:peak-rate', title='Peak-rateLeaf'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:peak-rate')
     ] = 'closest'
     """
     Adaptation rule for peak-rate-kbps parameter
     """
     committed_rate: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-qos:committed-rate', title='Committed-rateLeaf'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:committed-rate')
     ] = 'closest'
     """
     Adaptation rule for committed-rate-kbps parameter
     """
     excess_rate: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-qos:excess-rate', title='Excess-rateLeaf'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:excess-rate')
     ] = 'closest'
     """
     Adaptation rule for excess-rate-kbs parameter
     """
     maximum_burst_size: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-qos:maximum-burst-size', title='Maximum-burst-sizeLeaf'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:maximum-burst-size')
     ] = 'closest'
     """
     Adaptation rule for maximum-burst-size parameter
     """
     committed_burst_size: Annotated[
-        Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-qos:committed-burst-size', title='Committed-burst-sizeLeaf'
-        ),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:committed-burst-size')
     ] = 'closest'
     """
     Adaptation rule for committed-burst-size parameter
     """
     excess_burst_size: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-qos:excess-burst-size', title='Excess-burst-sizeLeaf'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:excess-burst-size')
     ] = 'closest'
     """
     Adaptation rule for excess-burst-size parameter
@@ -2216,7 +1793,6 @@ class AggregateStatisticsContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf2',
         ),
     ] = None
     """
@@ -2224,12 +1800,7 @@ class AggregateStatisticsContainer(BaseModel):
     """
     accepted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:accepted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets that were accepted by the policer, counting all input profiles.
@@ -2238,12 +1809,7 @@ class AggregateStatisticsContainer(BaseModel):
     """
     accepted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:accepted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were accepted by the policer, counting all input profiles.
@@ -2253,10 +1819,7 @@ class AggregateStatisticsContainer(BaseModel):
     accepted_inplus_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:accepted-inplus-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-inplus-packetsLeaf',
+            alias='srl_nokia-qos:accepted-inplus-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -2267,10 +1830,7 @@ class AggregateStatisticsContainer(BaseModel):
     accepted_inplus_octets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:accepted-inplus-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-inplus-octetsLeaf',
+            alias='srl_nokia-qos:accepted-inplus-octets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -2280,12 +1840,7 @@ class AggregateStatisticsContainer(BaseModel):
     """
     accepted_in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-in-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:accepted-in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets that were considered as Green by the policer and their input profile was 'in'.
@@ -2294,12 +1849,7 @@ class AggregateStatisticsContainer(BaseModel):
     """
     accepted_in_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-in-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:accepted-in-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were considered as Green by the policer and their input profile was 'in'.
@@ -2309,10 +1859,7 @@ class AggregateStatisticsContainer(BaseModel):
     accepted_out_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:accepted-out-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-out-packetsLeaf',
+            alias='srl_nokia-qos:accepted-out-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -2322,12 +1869,7 @@ class AggregateStatisticsContainer(BaseModel):
     """
     accepted_out_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-out-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-out-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:accepted-out-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were considered Yellow having input profile 'inplus' or 'in', and packets that were considered Green and Yellow having input profile 'out'.
@@ -2336,12 +1878,7 @@ class AggregateStatisticsContainer(BaseModel):
     """
     exceed_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:exceed-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceed-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:exceed-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets that were accepted having input profile 'exceed'.
@@ -2350,12 +1887,7 @@ class AggregateStatisticsContainer(BaseModel):
     """
     exceed_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:exceed-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceed-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:exceed-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were accepted having input profile 'exceed'.
@@ -2374,13 +1906,7 @@ class AllocationSizeContainer(BaseModel):
         regex_engine="python-re",
     )
     explicit_percentage: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:explicit-percentage',
-            ge=0,
-            le=100,
-            title='Explicit-percentageLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:explicit-percentage', ge=0, le=100)
     ] = 0
     """
     Interface-pool size as percentage of mid-pool. The value equal '0' means that bw-proportinal distribution is used
@@ -2396,8 +1922,7 @@ class AutoInputCase(BaseModel):
         regex_engine="python-re",
     )
     inputs: Annotated[
-        Optional[EnumerationEnum13],
-        Field(alias='srl_nokia-qos:inputs', title='InputsLeaf'),
+        Optional[EnumerationEnum13], Field(alias='srl_nokia-qos:inputs')
     ] = None
     """
     This options defines that all queues defined in this queue-scheduling-policy are input to this tier-0 scheduler or all tier-0 schedulers are input to tier-1 scheduler
@@ -2410,8 +1935,7 @@ class AutoInputCase2(BaseModel):
         regex_engine="python-re",
     )
     inputs: Annotated[
-        Optional[EnumerationEnum14],
-        Field(alias='srl_nokia-qos:inputs', title='InputsLeaf2'),
+        Optional[EnumerationEnum14], Field(alias='srl_nokia-qos:inputs')
     ] = None
     """
     This options defines that all scheduling-classes are input to this tier-0 scheduler or all tier-0 schedulers are input to tier-1 scheduler
@@ -2448,17 +1972,13 @@ class DropProbabilityListEntry2(BaseModel):
         regex_engine="python-re",
     )
     drop_probability: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf5'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     A drop probability level within the FC for which a different remarking is desired
     """
     traffic_class: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-qos:traffic-class', ge=0, le=7, title='Traffic-classLeaf'
-        ),
+        int, Field(alias='srl_nokia-qos:traffic-class', ge=0, le=7)
     ]
     """
     The MPLS traffic class marking to be used for this specific drop-probability
@@ -2471,15 +1991,12 @@ class DropProbabilityListEntry3(BaseModel):
         regex_engine="python-re",
     )
     drop_probability: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf6'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     A drop probability level within the FC for which a different remarking is desired
     """
-    dot1p: Annotated[
-        int, Field(alias='srl_nokia-qos:dot1p', ge=0, le=7, title='Dot1pLeaf')
-    ]
+    dot1p: Annotated[int, Field(alias='srl_nokia-qos:dot1p', ge=0, le=7)]
     """
     The dot1p marking to be used for this specific drop-probability
     """
@@ -2515,48 +2032,28 @@ class ExceedProfileContainer(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf4',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -2574,48 +2071,28 @@ class ExceedProfileContainer2(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf8',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf8',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf8',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf8',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -2632,7 +2109,6 @@ class ExplicitCongestionNotificationContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:ecn-dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ecn-dscp-policyLeaf',
         ),
     ]
     """
@@ -2656,7 +2132,6 @@ class ForwardingClassListEntry2(BaseModel):
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf5',
         ),
     ] = None
     """
@@ -2677,7 +2152,6 @@ class ForwardingClassListEntry3(BaseModel):
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf7',
         ),
     ] = None
     """
@@ -2697,10 +2171,9 @@ class ForwardingComplexListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[EnumerationEnum19],
-        Field(alias='srl_nokia-qos:name', title='NameLeaf27'),
-    ] = None
+    name: Annotated[Optional[EnumerationEnum19], Field(alias='srl_nokia-qos:name')] = (
+        None
+    )
     """
     Forwarding-complex name
     """
@@ -2709,7 +2182,6 @@ class ForwardingComplexListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf3',
         ),
     ] = None
     """
@@ -2717,12 +2189,7 @@ class ForwardingComplexListEntry(BaseModel):
     """
     accepted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:accepted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets that were accepted by the policer, counting all input profiles.
@@ -2731,12 +2198,7 @@ class ForwardingComplexListEntry(BaseModel):
     """
     accepted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:accepted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were accepted by the policer, counting all input profiles.
@@ -2746,10 +2208,7 @@ class ForwardingComplexListEntry(BaseModel):
     accepted_inplus_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:accepted-inplus-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-inplus-packetsLeaf2',
+            alias='srl_nokia-qos:accepted-inplus-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -2760,10 +2219,7 @@ class ForwardingComplexListEntry(BaseModel):
     accepted_inplus_octets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:accepted-inplus-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-inplus-octetsLeaf2',
+            alias='srl_nokia-qos:accepted-inplus-octets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -2773,12 +2229,7 @@ class ForwardingComplexListEntry(BaseModel):
     """
     accepted_in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-in-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:accepted-in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets that were considered as Green by the policer and their input profile was 'in'.
@@ -2787,12 +2238,7 @@ class ForwardingComplexListEntry(BaseModel):
     """
     accepted_in_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-in-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:accepted-in-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were considered as Green by the policer and their input profile was 'in'.
@@ -2802,10 +2248,7 @@ class ForwardingComplexListEntry(BaseModel):
     accepted_out_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:accepted-out-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-out-packetsLeaf2',
+            alias='srl_nokia-qos:accepted-out-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -2815,12 +2258,7 @@ class ForwardingComplexListEntry(BaseModel):
     """
     accepted_out_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:accepted-out-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Accepted-out-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:accepted-out-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were considered Yellow having input profile 'inplus' or 'in', and packets that were considered Green and Yellow having input profile 'out'.
@@ -2829,12 +2267,7 @@ class ForwardingComplexListEntry(BaseModel):
     """
     exceed_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:exceed-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceed-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:exceed-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets that were accepted having input profile 'exceed'.
@@ -2843,12 +2276,7 @@ class ForwardingComplexListEntry(BaseModel):
     """
     exceed_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:exceed-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceed-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:exceed-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets in packets that were accepted having input profile 'exceed'.
@@ -2868,48 +2296,28 @@ class InPlusProfileContainer(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -2927,48 +2335,28 @@ class InPlusProfileContainer2(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf6',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf6',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf6',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf6',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -2986,48 +2374,28 @@ class InProfileContainer(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -3045,48 +2413,28 @@ class InProfileContainer2(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf5',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf5',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf5',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf5',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -3123,40 +2471,31 @@ class InputListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[str], Field(alias='srl_nokia-qos:id', title='IdLeaf')] = None
+    id: Annotated[Optional[str], Field(alias='srl_nokia-qos:id')] = None
     """
     User-defined identifier for the scheduler input
     """
     input_type: Annotated[
-        Optional[EnumerationEnum12],
-        Field(alias='srl_nokia-qos:input-type', title='Input-typeLeaf'),
+        Optional[EnumerationEnum12], Field(alias='srl_nokia-qos:input-type')
     ] = 'queue'
     queue_name: Annotated[
         Optional[str],
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Queue-nameLeaf2',
         ),
     ] = None
     """
     The queue name
     """
     peak_rate_percent: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-percent',
-            ge=1,
-            le=100,
-            title='Peak-rate-percentLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:peak-rate-percent', ge=1, le=100)
     ] = 100
     """
     The maximum percentage of port bandwidth that is available to the traffic in this queue during the PIR scheduling loop. The default is 100
     """
     weight: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:weight', ge=1, le=255, title='WeightLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:weight', ge=1, le=255)
     ] = None
     """
     For weighted round-robin schedulers, this leaf indicates the weight of the corresponding input
@@ -3202,17 +2541,11 @@ class InterfaceInstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     interface_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-qos:interface-name', title='Interface-nameLeaf'),
+        Optional[str], Field(alias='srl_nokia-qos:interface-name')
     ] = None
     peak_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-kbps',
-            ge=0,
-            le=18446744073709551615,
-            title='Peak-rate-kbpsLeaf6',
-        ),
+        Field(alias='srl_nokia-qos:peak-rate-kbps', ge=0, le=18446744073709551615),
     ] = None
 
 
@@ -3226,17 +2559,11 @@ class InterfaceInstanceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     interface_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-qos:interface-name', title='Interface-nameLeaf2'),
+        Optional[str], Field(alias='srl_nokia-qos:interface-name')
     ] = None
     peak_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-kbps',
-            ge=0,
-            le=18446744073709551615,
-            title='Peak-rate-kbpsLeaf7',
-        ),
+        Field(alias='srl_nokia-qos:peak-rate-kbps', ge=0, le=18446744073709551615),
     ] = None
 
 
@@ -3258,7 +2585,6 @@ class InterfacePoolListEntry2(BaseModel):
         Field(
             alias='srl_nokia-qos:slope-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Slope-policyLeaf4',
         ),
     ] = 'default'
     """
@@ -3278,9 +2604,9 @@ class LinecardListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    slot: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:slot', ge=1, le=16, title='SlotLeaf')
-    ] = None
+    slot: Annotated[Optional[int], Field(alias='srl_nokia-qos:slot', ge=1, le=16)] = (
+        None
+    )
     """
     Numeric identifier for the linecard
     """
@@ -3299,21 +2625,15 @@ class MidPoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:index', ge=0, le=7, title='IndexLeaf9'),
-    ] = None
+    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=7)] = (
+        None
+    )
     """
     Mid-pool index
     """
     allocation_percentage_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:allocation-percentage-size',
-            ge=0,
-            le=100,
-            title='Allocation-percentage-sizeLeaf',
-        ),
+        Field(alias='srl_nokia-qos:allocation-percentage-size', ge=0, le=100),
     ] = None
     """
     The size of the mid-pool as a percentage of root-pool
@@ -3323,7 +2643,6 @@ class MidPoolListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:slope-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Slope-policyLeaf3',
         ),
     ] = 'default'
     """
@@ -3356,48 +2675,28 @@ class OutProfileContainer(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -3415,48 +2714,28 @@ class OutProfileContainer2(BaseModel):
     )
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf7',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue, including transit traffic and locally originated traffic
     """
     transmitted_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:transmitted-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-octetsLeaf7',
-        ),
+        Field(alias='srl_nokia-qos:transmitted-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue, including transit traffic and locally originated traffic
     """
     dropped_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-packetsLeaf7',
-        ),
+        Field(alias='srl_nokia-qos:dropped-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of packets transmitted by the queue dropped by the queue
     """
     dropped_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:dropped-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Dropped-octetsLeaf7',
-        ),
+        Field(alias='srl_nokia-qos:dropped-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of octets transmitted by the queue dropped by the queue
@@ -3473,7 +2752,6 @@ class OutputContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:slope-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Slope-policyLeaf',
         ),
     ] = None
     """
@@ -3484,7 +2762,6 @@ class OutputContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:queue',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='QueueLeaf',
         ),
     ]
     """
@@ -3495,7 +2772,6 @@ class OutputContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:unicast-queue',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Unicast-queueLeaf',
         ),
     ]
     """
@@ -3516,7 +2792,6 @@ class OutputContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:multicast-queue',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Multicast-queueLeaf',
         ),
     ] = None
     """
@@ -3538,7 +2813,6 @@ class OutputContainer3(BaseModel):
         Field(
             alias='srl_nokia-qos:fp-pool-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Fp-pool-policyLeaf',
         ),
     ] = 'default'
     """
@@ -3585,7 +2859,6 @@ class PfcQueueListEntry2(BaseModel):
         Field(
             alias='srl_nokia-qos:pfc-queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Pfc-queue-nameLeaf2',
         ),
     ] = None
     """
@@ -3614,9 +2887,9 @@ class PfcQueueListEntry2(BaseModel):
     """
     PFC priorities indicated in generated pfc-pause-frame if congestion occurs in a given pfc-queue
     """
-    enable_pfc: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:enable-pfc', title='Enable-pfcLeaf')
-    ] = False
+    enable_pfc: Annotated[Optional[bool], Field(alias='srl_nokia-qos:enable-pfc')] = (
+        False
+    )
     """
     Enables/disables pfc-frame generation for a given pfc-queue
     """
@@ -3636,7 +2909,6 @@ class PfcQueueListEntry3(BaseModel):
         Field(
             alias='srl_nokia-qos:pfc-queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Pfc-queue-nameLeaf3',
         ),
     ] = None
     """
@@ -3654,48 +2926,28 @@ class PfcQueueListEntry3(BaseModel):
     """
     pfc_on_threshold_bytes: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-on-threshold-bytes',
-            ge=0,
-            le=4294967295,
-            title='Pfc-on-threshold-bytesLeaf',
-        ),
+        Field(alias='srl_nokia-qos:pfc-on-threshold-bytes', ge=0, le=4294967295),
     ] = None
     """
     Displays the actual on-threshold of the pfc-queue
     """
     pfc_off_threshold_bytes: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-off-threshold-bytes',
-            ge=0,
-            le=4294967295,
-            title='Pfc-off-threshold-bytesLeaf',
-        ),
+        Field(alias='srl_nokia-qos:pfc-off-threshold-bytes', ge=0, le=4294967295),
     ] = None
     """
     Displays the actual off-threshold of the pfc-queue
     """
     pfc_committed_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-committed-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Pfc-committed-burst-sizeLeaf',
-        ),
+        Field(alias='srl_nokia-qos:pfc-committed-burst-size', ge=0, le=4294967295),
     ] = None
     """
     Displays the actual committed-burst-size of the pfc-queue
     """
     pfc_maximum_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:pfc-maximum-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Pfc-maximum-burst-sizeLeaf',
-        ),
+        Field(alias='srl_nokia-qos:pfc-maximum-burst-size', ge=0, le=4294967295),
     ] = None
     """
     Displays the actual maximum-burst-size of the pfc-queue
@@ -3703,10 +2955,7 @@ class PfcQueueListEntry3(BaseModel):
     pfc_maximum_pfc_reserved_share: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-qos:pfc-maximum-pfc-reserved-share',
-            ge=0,
-            le=4294967295,
-            title='Pfc-maximum-pfc-reserved-shareLeaf',
+            alias='srl_nokia-qos:pfc-maximum-pfc-reserved-share', ge=0, le=4294967295
         ),
     ] = None
     """
@@ -3728,15 +2977,14 @@ class PfcContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:pfc-mapping-profile',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Pfc-mapping-profileLeaf',
         ),
     ] = None
     """
     Assigns a pfc-mapping-profile to the interface. There is always default pfc-mapping-profile assigned named 'default'
     """
-    pfc_enable: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:pfc-enable', title='Pfc-enableLeaf')
-    ] = False
+    pfc_enable: Annotated[Optional[bool], Field(alias='srl_nokia-qos:pfc-enable')] = (
+        False
+    )
     """
     Enables/disables reaction to received pfc-frames for a given interface
     """
@@ -3748,27 +2996,20 @@ class PfcContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:source-pfc-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Source-pfc-macLeaf',
         ),
     ] = None
     """
     MAC address used as source-mac address used in generated pfc-pause-frames on the interface
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum15],
-        Field(alias='srl_nokia-qos:oper-state', title='Oper-stateLeaf'),
+        Optional[EnumerationEnum15], Field(alias='srl_nokia-qos:oper-state')
     ] = None
     """
     Details if the PFC feature is operationally available
     """
     deadlock_detection_timer: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:deadlock-detection-timer',
-            ge=0,
-            le=65535,
-            title='Deadlock-detection-timerLeaf',
-        ),
+        Field(alias='srl_nokia-qos:deadlock-detection-timer', ge=0, le=65535),
     ] = None
     """
     The actual value of deadlock-detection-timer
@@ -3803,15 +3044,13 @@ class ProfileListEntry2(BaseModel):
         regex_engine="python-re",
     )
     profile: Annotated[
-        Optional[EnumerationEnum10],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf6'),
+        Optional[EnumerationEnum10], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     A packet profile within the FC for which a different remarking is desired
     """
     dscp: Annotated[
-        Union[DscpValueType, EnumerationEnum3],
-        Field(alias='srl_nokia-qos:dscp', title='DscpLeaf2'),
+        Union[DscpValueType, EnumerationEnum3], Field(alias='srl_nokia-qos:dscp')
     ]
     """
     The DSCP marking to be used for this specific profile
@@ -3824,17 +3063,13 @@ class ProfileListEntry3(BaseModel):
         regex_engine="python-re",
     )
     profile: Annotated[
-        Optional[EnumerationEnum10],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf7'),
+        Optional[EnumerationEnum10], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     A packet profile within the FC for which a different remarking is desired
     """
     traffic_class: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-qos:traffic-class', ge=0, le=7, title='Traffic-classLeaf2'
-        ),
+        int, Field(alias='srl_nokia-qos:traffic-class', ge=0, le=7)
     ]
     """
     The MPLS traffic class marking to be used for this specific profile
@@ -3847,35 +3082,28 @@ class ProfileListEntry4(BaseModel):
         regex_engine="python-re",
     )
     profile: Annotated[
-        Optional[EnumerationEnum10],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf8'),
+        Optional[EnumerationEnum10], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     A packet profile within the FC for which a different remarking is desired
     """
     inner_dot1p: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:inner-dot1p', ge=0, le=7, title='Inner-dot1pLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:inner-dot1p', ge=0, le=7)
     ] = None
     """
     The inner-dot1p marking to be used for this specific forwarding-class and profile
     """
     outer_dot1p: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:outer-dot1p', ge=0, le=7, title='Outer-dot1pLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:outer-dot1p', ge=0, le=7)
     ] = None
     """
     The outer-dot1p marking to be used for this specific forwarding-class and profile
     """
-    inner_de: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:inner-de', title='Inner-deLeaf')
-    ] = False
+    inner_de: Annotated[Optional[bool], Field(alias='srl_nokia-qos:inner-de')] = False
     """
     Re-marking inner-vlan discard-eligibility bit for this speciific forwarding-class and profile
     """
-    outer_de: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:outer-de', title='Outer-deLeaf')
-    ] = False
+    outer_de: Annotated[Optional[bool], Field(alias='srl_nokia-qos:outer-de')] = False
     """
     Re-marking outer-vlan discard-eligibility bit for this specific forwarding-class and profile
     """
@@ -3891,20 +3119,13 @@ class QueueDepthSamplingContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-qos:admin-state', title='Admin-stateLeaf'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-qos:admin-state')
     ] = 'disable'
     """
     Set to enable to activate queue-depth sampling on all ports
     """
     polling_interval: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:polling-interval',
-            ge=30,
-            le=1000,
-            title='Polling-intervalLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:polling-interval', ge=30, le=1000)
     ] = 1000
     """
     The interval of time between each sample of queue depth
@@ -3938,10 +3159,7 @@ class QueueSchedulerListEntry(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:sequence-id', ge=0, le=255, title='Sequence-idLeaf3'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=255)
     ] = None
     """
     Sequence-id of the scheduler as configured in the respective queue-scheduling-policy
@@ -3979,15 +3197,13 @@ class QueueContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf10',
         ),
     ]
     """
     The queue name
     """
     re_direct_to: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-qos:re-direct-to', title='Re-direct-toLeaf'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-qos:re-direct-to')
     ] = None
     """
     The re-direction to interface level queue
@@ -4008,7 +3224,6 @@ class QueueListEntry3(BaseModel):
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Queue-nameLeaf3',
         ),
     ] = None
     """
@@ -4050,32 +3265,19 @@ class RateContainer(BaseModel):
         regex_engine="python-re",
     )
     peak_rate_kbps: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-kbps',
-            ge=64,
-            le=800000000,
-            title='Peak-rate-kbpsLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:peak-rate-kbps', ge=64, le=800000000)
     ] = None
     """
     Defines peak-rate of the parent-policer
     """
     adaptation_rule: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-qos:adaptation-rule', title='Adaptation-ruleLeaf'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-qos:adaptation-rule')
     ] = 'closest'
     """
     Defines adaptation-rule for peak-rate of the parent-policer
     """
     burst_allowance: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:burst-allowance',
-            ge=0,
-            le=16383936,
-            title='Burst-allowanceLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:burst-allowance', ge=0, le=16383936)
     ] = 40000
     """
     Defines burst-allowance for the parent-policer
@@ -4106,7 +3308,6 @@ class RewriteRulesContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:ipv4-dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ipv4-dscp-policyLeaf2',
         ),
     ] = None
     """
@@ -4117,7 +3318,6 @@ class RewriteRulesContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:ipv6-dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ipv6-dscp-policyLeaf2',
         ),
     ] = None
     """
@@ -4128,7 +3328,6 @@ class RewriteRulesContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Dscp-policyLeaf2',
         ),
     ] = None
     """
@@ -4139,7 +3338,6 @@ class RewriteRulesContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:dot1p-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Dot1p-policyLeaf2',
         ),
     ] = None
     """
@@ -4150,7 +3348,6 @@ class RewriteRulesContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:mpls-traffic-class-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Mpls-traffic-class-policyLeaf2',
         ),
     ] = None
     """
@@ -4160,11 +3357,7 @@ class RewriteRulesContainer2(BaseModel):
         Optional[DscpRewriteContainer], Field(alias='srl_nokia-qos:dscp-rewrite')
     ] = None
     qinq_rewrite_outer_only: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-qos:qinq-rewrite-outer-only',
-            title='Qinq-rewrite-outer-onlyLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-qos:qinq-rewrite-outer-only')
     ] = True
     """
     Enables remarking only outer-dot1p bits
@@ -4185,7 +3378,6 @@ class RootTierContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:default-slope-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Default-slope-policyLeaf',
         ),
     ] = 'default'
     """
@@ -4206,10 +3398,7 @@ class SchedClassSchedulerListEntry(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:sequence-id', ge=0, le=255, title='Sequence-idLeaf4'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=255)
     ] = None
     """
     Sequence-id of the scheduler as configured in the respective sched-class-scheduling-policy
@@ -4252,7 +3441,6 @@ class SchedulerContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:queue-scheduling-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Queue-scheduling-policyLeaf',
         ),
     ] = None
     """
@@ -4267,7 +3455,6 @@ class SchedulerContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:sched-class-scheduling-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Sched-class-scheduling-policyLeaf',
         ),
     ] = None
     """
@@ -4282,7 +3469,6 @@ class SchedulerContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:scheduler-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Scheduler-policyLeaf',
         ),
     ] = None
     """
@@ -4300,15 +3486,13 @@ class SchedulerListEntry(BaseModel):
         regex_engine="python-re",
     )
     sequence: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:sequence', ge=0, le=1, title='SequenceLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:sequence', ge=0, le=1)
     ] = None
     """
     Sequence number for the scheduler within the scheduler policy. Schedulers are processed from lowest sequence to highest
     """
     priority: Annotated[
-        Optional[EnumerationEnum11],
-        Field(alias='srl_nokia-qos:priority', title='PriorityLeaf'),
+        Optional[EnumerationEnum11], Field(alias='srl_nokia-qos:priority')
     ] = None
     """
     Priority of the scheduler within the scheduler policy
@@ -4328,38 +3512,25 @@ class SchedulerListEntry3(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:sequence-id', ge=0, le=8, title='Sequence-idLeaf2'),
+        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=8)
     ] = None
     """
     Identifier of the scheduler
     """
-    tier: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:tier', ge=0, le=1, title='TierLeaf2')
-    ] = 0
+    tier: Annotated[Optional[int], Field(alias='srl_nokia-qos:tier', ge=0, le=1)] = 0
     """
     Scheduling-hierarchy level
     """
     burst_allowance: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:burst-allowance',
-            ge=0,
-            le=18446744073709551615,
-            title='Burst-allowanceLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:burst-allowance', ge=0, le=18446744073709551615),
     ] = 9000
     """
     Burst allowance for the scheduler in bytes
     """
     threshold_separation: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:threshold-separation',
-            ge=0,
-            le=4294967295,
-            title='Threshold-separationLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:threshold-separation', ge=0, le=4294967295),
     ] = 28672
     """
     Separation between thresholds in scheduling bucket in bytes
@@ -4390,10 +3561,9 @@ class TrafficClassListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:value', ge=0, le=7, title='ValueLeaf3'),
-    ] = None
+    value: Annotated[Optional[int], Field(alias='srl_nokia-qos:value', ge=0, le=7)] = (
+        None
+    )
     """
     A single traffic-class value
     """
@@ -4402,29 +3572,25 @@ class TrafficClassListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf3',
         ),
     ] = None
     """
     The forwarding class
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf2'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     The drop probability to which the traffic-class value is mapped
     """
     profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf3'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     The profile to which the traffic-class value is mapped
     """
     de_out_profile: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:de-out-profile', title='De-out-profileLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-qos:de-out-profile')
     ] = True
     """
     The discard-eligibility to which the traffic-class value is mapped
@@ -4434,7 +3600,6 @@ class TrafficClassListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:ip-rewrite-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ip-rewrite-policyLeaf2',
         ),
     ] = None
     """
@@ -4466,63 +3631,43 @@ class WredSlopeListEntry(BaseModel):
         regex_engine="python-re",
     )
     traffic_type: Annotated[
-        Optional[EnumerationEnum21],
-        Field(alias='srl_nokia-qos:traffic-type', title='Traffic-typeLeaf'),
+        Optional[EnumerationEnum21], Field(alias='srl_nokia-qos:traffic-type')
     ] = None
     """
     The traffic type to which the WRED slope applies
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum22],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf8'),
+        Optional[EnumerationEnum22], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     The drop probability to which the WRED slope applies
     """
-    drop: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:drop', title='DropLeaf')
-    ] = None
+    drop: Annotated[Optional[bool], Field(alias='srl_nokia-qos:drop')] = None
     """
     Indicates that packets will be dropped based on WRED slope policy
     """
-    enable_ecn: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:enable-ecn', title='Enable-ecnLeaf')
-    ] = None
+    enable_ecn: Annotated[Optional[bool], Field(alias='srl_nokia-qos:enable-ecn')] = (
+        None
+    )
     """
     Indicates that packets should be marked with ecn-bit when the result of wred-slope would discard the packet. It is mutually exclusive with 'drop' flag
     """
     min_threshold_bytes: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:min-threshold-bytes',
-            ge=0,
-            le=4294967295,
-            title='Min-threshold-bytesLeaf',
-        ),
+        Field(alias='srl_nokia-qos:min-threshold-bytes', ge=0, le=4294967295),
     ] = None
     """
     The queue depth in bytes that corresponds to the WRED mininum threshold parameter
     """
     max_threshold_bytes: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:max-threshold-bytes',
-            ge=0,
-            le=4294967295,
-            title='Max-threshold-bytesLeaf',
-        ),
+        Field(alias='srl_nokia-qos:max-threshold-bytes', ge=0, le=4294967295),
     ] = None
     """
     The queue depth in bytes that corresponds to the WRED maximum threshold parameter
     """
     max_probability: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:max-probability',
-            ge=0,
-            le=100,
-            title='Max-probabilityLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:max-probability', ge=0, le=100)
     ] = None
     """
     The maximum probability of dropping a packet (at or above the max-threshold).
@@ -4541,46 +3686,34 @@ class WredSlopeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     traffic_type: Annotated[
-        Optional[EnumerationEnum21],
-        Field(alias='srl_nokia-qos:traffic-type', title='Traffic-typeLeaf2'),
+        Optional[EnumerationEnum21], Field(alias='srl_nokia-qos:traffic-type')
     ] = None
     """
     The traffic type to which the WRED slope applies
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum22],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf9'),
+        Optional[EnumerationEnum22], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     The drop probability to which the WRED slope applies
     """
-    enable_ecn: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:enable-ecn', title='Enable-ecnLeaf2')
-    ] = None
+    enable_ecn: Annotated[Optional[bool], Field(alias='srl_nokia-qos:enable-ecn')] = (
+        None
+    )
     """
     When this leaf is true and the number of packets in the queue is between the minimum threshold and the maximum threshold, if the ECN field on the packet indicates that the endpoints are ECN capable and the WRED algorithm determines that the packet should have been dropped based on the drop probability, the CE bits for the packet are changed to 1, and the packet is transmitted.
     When set to false, the such packets will be discarded based on wred-slope
     """
     min_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:min-threshold',
-            ge=0,
-            le=18446744073709551615,
-            title='Min-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-qos:min-threshold', ge=0, le=18446744073709551615),
     ] = None
     """
     The mininum threshold parameter for a RED-managed queue. When the average queue length is less than min-threshold, the packets are admitted to the queue (without any ECN marking change)
     """
     max_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:max-threshold',
-            ge=0,
-            le=18446744073709551615,
-            title='Max-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-qos:max-threshold', ge=0, le=18446744073709551615),
     ] = None
     """
     The maximum threshold parameter for a RED-managed queue. When the average queue length exceeds the max-threshold, the packets are dropped (or marked if ECN is enabled).
@@ -4588,53 +3721,32 @@ class WredSlopeListEntry2(BaseModel):
     When both, 'drop' and 'ecn-enable' flags are set to false, packets will be drop only if the mbs of the queue is reached
     """
     min_threshold_percent: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:min-threshold-percent',
-            ge=0,
-            le=100,
-            title='Min-threshold-percentLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:min-threshold-percent', ge=0, le=100)
     ] = None
     """
     The percentage of the MBS that corresponds to the WRED mininum threshold parameter
     """
     max_threshold_percent: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:max-threshold-percent',
-            ge=0,
-            le=100,
-            title='Max-threshold-percentLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:max-threshold-percent', ge=0, le=100)
     ] = None
     """
     The percentage of the MBS that corresponds to the WRED maximum threshold parameter
     """
     slope_enabled: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:slope-enabled', title='Slope-enabledLeaf'),
+        Optional[bool], Field(alias='srl_nokia-qos:slope-enabled')
     ] = None
     """
     Reads true if traffic is dropped by WRED
     """
     max_drop_probability_percent: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:max-drop-probability-percent',
-            ge=0,
-            le=100,
-            title='Max-drop-probability-percentLeaf',
-        ),
+        Field(alias='srl_nokia-qos:max-drop-probability-percent', ge=0, le=100),
     ] = None
     """
     The probability with which packets are dropped or marked at max-threshold
     """
     weight_factor: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:weight-factor', ge=0, le=15, title='Weight-factorLeaf2'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:weight-factor', ge=0, le=15)
     ] = None
     """
     Actual Weight factor used in the calculation of the current (average weighted) queue depth
@@ -4647,51 +3759,31 @@ class WredSlopeListEntry3(BaseModel):
         regex_engine="python-re",
     )
     wred_profile: Annotated[
-        Optional[EnumerationEnum23],
-        Field(alias='srl_nokia-qos:wred-profile', title='Wred-profileLeaf'),
+        Optional[EnumerationEnum23], Field(alias='srl_nokia-qos:wred-profile')
     ] = None
     """
     The key for individual wred-slopes 
     """
     slope_enabled: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:slope-enabled', title='Slope-enabledLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-qos:slope-enabled')
     ] = False
     """
     Enables/disables the corresponding wred-slope
     """
     min_threshold_percent: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:min-threshold-percent',
-            ge=0,
-            le=100,
-            title='Min-threshold-percentLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:min-threshold-percent', ge=0, le=100)
     ] = 85
     """
     The buffer threshold defining when the drop-probability starts rising from zero for the corresponding wred-slope
     """
     max_threshold_percent: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:max-threshold-percent',
-            ge=0,
-            le=100,
-            title='Max-threshold-percentLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:max-threshold-percent', ge=0, le=100)
     ] = 100
     """
     The buffer threshold defining when the drop-probability reaches its max-probabilty value for the corresponding wred-slope
     """
     max_probability: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:max-probability',
-            ge=0,
-            le=100,
-            title='Max-probabilityLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:max-probability', ge=0, le=100)
     ] = 80
     """
     The drop probability at max-threshold level for the corresponding wred-slope
@@ -4736,7 +3828,6 @@ class AggregateStatisticsContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf4',
         ),
     ] = None
     """
@@ -4766,22 +3857,19 @@ class DefaultContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf9',
         ),
     ] = None
     """
     The forwarding class
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf7'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     The default drop-probability for packets arriving on this subinterface that do not match any classification rule
     """
     profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf9'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile')
     ] = 'out'
     """
     The default profile for packets arriving on this subinterface that do not match any classification rule
@@ -4793,38 +3881,33 @@ class Dot1pListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:value', ge=0, le=7, title='ValueLeaf4'),
-    ] = None
+    value: Annotated[Optional[int], Field(alias='srl_nokia-qos:value', ge=0, le=7)] = (
+        None
+    )
     forwarding_class: Annotated[
         Optional[str],
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf4',
         ),
     ] = None
     """
     The forwarding class
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf3'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     The drop probability to which the dot1p value is mapped
     """
     profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf4'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     The profile to which the dot1p value is mapped
     """
     de_out_profile: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:de-out-profile', title='De-out-profileLeaf3'),
+        Optional[bool], Field(alias='srl_nokia-qos:de-out-profile')
     ] = True
     """
     The discard-eligibility to which dot1p value is mapped 
@@ -4834,7 +3917,6 @@ class Dot1pListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:ip-rewrite-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ip-rewrite-policyLeaf3',
         ),
     ] = None
     """
@@ -4848,15 +3930,13 @@ class DropProbabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     drop_probability: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf4'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     A drop probability level within the FC for which a different remarking is desired
     """
     dscp: Annotated[
-        Union[DscpValueType, EnumerationEnum3],
-        Field(alias='srl_nokia-qos:dscp', title='DscpLeaf'),
+        Union[DscpValueType, EnumerationEnum3], Field(alias='srl_nokia-qos:dscp')
     ]
     """
     The DSCP marking to be used for this specific drop-probability
@@ -4870,7 +3950,7 @@ class DscpCase(BaseModel):
     )
     dscp: Annotated[
         Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:dscp', title='DscpLeaf4'),
+        Field(alias='srl_nokia-qos:dscp'),
     ] = None
     """
     The DSCP marking to be used for this specific profile
@@ -4884,7 +3964,7 @@ class DscpCase2(BaseModel):
     )
     dscp: Annotated[
         Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:dscp', title='DscpLeaf5'),
+        Field(alias='srl_nokia-qos:dscp'),
     ] = None
     """
     The DSCP marking to be used for this specific profile
@@ -4898,7 +3978,7 @@ class DscpCase3(BaseModel):
     )
     dscp: Annotated[
         Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:dscp', title='DscpLeaf6'),
+        Field(alias='srl_nokia-qos:dscp'),
     ] = None
     """
     The DSCP marking to be used for this specific profile
@@ -4912,7 +3992,7 @@ class DscpCase4(BaseModel):
     )
     dscp: Annotated[
         Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:dscp', title='DscpLeaf7'),
+        Field(alias='srl_nokia-qos:dscp'),
     ] = None
     """
     The DSCP marking to be used for this specific profile
@@ -4926,7 +4006,7 @@ class DscpListEntry(BaseModel):
     )
     value: Annotated[
         Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:value', title='ValueLeaf'),
+        Field(alias='srl_nokia-qos:value'),
     ] = None
     """
     A DiffServ Code Point represented numerically or by a PHB name.
@@ -4936,15 +4016,13 @@ class DscpListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf',
         ),
     ] = None
     """
     The forwarding class
     """
     profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     The profile to which the DSCP value is mapped
@@ -4958,7 +4036,7 @@ class DscpListEntry2(BaseModel):
     )
     value: Annotated[
         Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:value', title='ValueLeaf2'),
+        Field(alias='srl_nokia-qos:value'),
     ] = None
     """
     A DiffServ Code Point represented numerically or by a PHB name.
@@ -4968,29 +4046,25 @@ class DscpListEntry2(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf2',
         ),
     ] = None
     """
     The forwarding class
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-qos:drop-probability', title='Drop-probabilityLeaf'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
     ] = None
     """
     The drop probability to which the DSCP value is mapped
     """
     profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf2'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     The profile to which the DSCP value is mapped
     """
     de_out_profile: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:de-out-profile', title='De-out-profileLeaf'),
+        Optional[bool], Field(alias='srl_nokia-qos:de-out-profile')
     ] = True
     """
     The discard-eligibility to which the DSCP value is mapped
@@ -5000,7 +4074,6 @@ class DscpListEntry2(BaseModel):
         Field(
             alias='srl_nokia-qos:ip-rewrite-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ip-rewrite-policyLeaf',
         ),
     ] = None
     """
@@ -5015,7 +4088,7 @@ class DscpListEntry3(BaseModel):
     )
     value: Annotated[
         Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:value', title='ValueLeaf5'),
+        Field(alias='srl_nokia-qos:value'),
     ] = None
     """
     A DiffServ Code Point represented numerically or by a PHB name.
@@ -5025,15 +4098,13 @@ class DscpListEntry3(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf5',
         ),
     ] = None
     """
     The forwarding class
     """
     profile: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-qos:profile', title='ProfileLeaf5'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile')
     ] = None
     """
     The profile to which the DSCP value is mapped
@@ -5102,13 +4173,7 @@ class ForwardingClassListEntry(BaseModel):
     fc15
     """
     forwarding_class_index: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-qos:forwarding-class-index',
-            ge=0,
-            le=15,
-            title='Forwarding-class-indexLeaf',
-        ),
+        int, Field(alias='srl_nokia-qos:forwarding-class-index', ge=0, le=15)
     ]
     """
     Associates the forwarding class name with an index representing the forwarding-class-index. Forwarding classes with a higher forwarding-class-index are generally (subject to scheduler configuration) serviced more preferentially than forwarding classes with a lower forwarding-class-index.
@@ -5146,7 +4211,6 @@ class ForwardingClassListEntry4(BaseModel):
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf9',
         ),
     ] = None
     """
@@ -5157,7 +4221,6 @@ class ForwardingClassListEntry4(BaseModel):
         Field(
             alias='srl_nokia-qos:slope-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Slope-policyLeaf2',
         ),
     ] = None
     """
@@ -5178,7 +4241,6 @@ class ForwardingClassListEntry5(BaseModel):
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf26',
         ),
     ] = None
     """
@@ -5206,7 +4268,6 @@ class ForwardingClassListEntry6(BaseModel):
         Field(
             alias='srl_nokia-acl-policers:fc',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='FcLeaf',
         ),
     ] = None
     """
@@ -5245,10 +4306,9 @@ class ForwardingComplexListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[EnumerationEnum24],
-        Field(alias='srl_nokia-qos:name', title='NameLeaf32'),
-    ] = None
+    name: Annotated[Optional[EnumerationEnum24], Field(alias='srl_nokia-qos:name')] = (
+        None
+    )
     """
     Forwarding-complex name
     """
@@ -5281,12 +4341,7 @@ class FpPoolPolicyListEntry(BaseModel):
     """
     system_reserve_percentage: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:system-reserve-percentage',
-            ge=0,
-            le=100,
-            title='System-reserve-percentageLeaf',
-        ),
+        Field(alias='srl_nokia-qos:system-reserve-percentage', ge=0, le=100),
     ] = 10
     """
     The ammount of the global buffer-pool reserved for system generated traffic expressed as percentage of total available buffer space. The sum of all root-pools and system-reserved has to be 100%
@@ -5370,17 +4425,12 @@ class InterfaceRefContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface: Annotated[
-        Optional[str], Field(alias='srl_nokia-qos:interface', title='InterfaceLeaf')
-    ] = None
+    interface: Annotated[Optional[str], Field(alias='srl_nokia-qos:interface')] = None
     """
     Reference to a base interface, for example a port or LAG
     """
     subinterface: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:subinterface', ge=0, le=9999, title='SubinterfaceLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:subinterface', ge=0, le=9999)
     ] = None
     """
     Reference to a subinterface
@@ -5398,9 +4448,9 @@ class LinecardListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    slot: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:slot', ge=1, le=16, title='SlotLeaf2')
-    ] = None
+    slot: Annotated[Optional[int], Field(alias='srl_nokia-qos:slot', ge=1, le=16)] = (
+        None
+    )
     """
     Numeric identifier for the linecard
     """
@@ -5420,7 +4470,6 @@ class MapListEntry(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf6',
         ),
     ] = None
     """
@@ -5434,8 +4483,7 @@ class MapListEntry(BaseModel):
         Optional[List[ProfileListEntry2]], Field(alias='srl_nokia-qos:profile')
     ] = None
     dscp: Annotated[
-        Union[DscpValueType, EnumerationEnum3],
-        Field(alias='srl_nokia-qos:dscp', title='DscpLeaf3'),
+        Union[DscpValueType, EnumerationEnum3], Field(alias='srl_nokia-qos:dscp')
     ]
     """
     The DSCP marking to be used for all packets associated with the FC, except those with a drop-probability-specific or profile-specific override
@@ -5452,7 +4500,6 @@ class MapListEntry2(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf7',
         ),
     ] = None
     """
@@ -5466,10 +4513,7 @@ class MapListEntry2(BaseModel):
         Optional[List[ProfileListEntry3]], Field(alias='srl_nokia-qos:profile')
     ] = None
     traffic_class: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-qos:traffic-class', ge=0, le=7, title='Traffic-classLeaf3'
-        ),
+        int, Field(alias='srl_nokia-qos:traffic-class', ge=0, le=7)
     ]
     """
     The MPLS traffic class marking to be used for all packets associated with the FC, except those with a drop-probability-specific or profile-specific override
@@ -5486,7 +4530,6 @@ class MapListEntry3(BaseModel):
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf8',
         ),
     ] = None
     """
@@ -5499,35 +4542,27 @@ class MapListEntry3(BaseModel):
     profile: Annotated[
         Optional[List[ProfileListEntry4]], Field(alias='srl_nokia-qos:profile')
     ] = None
-    dot1p: Annotated[
-        int, Field(alias='srl_nokia-qos:dot1p', ge=0, le=7, title='Dot1pLeaf2')
-    ]
+    dot1p: Annotated[int, Field(alias='srl_nokia-qos:dot1p', ge=0, le=7)]
     """
     The dot1p marking to be used for all packets associated with the FC, except those with a drop-probability-specific or profile-specific override
     """
     inner_dot1p: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:inner-dot1p', ge=0, le=7, title='Inner-dot1pLeaf2'),
+        Optional[int], Field(alias='srl_nokia-qos:inner-dot1p', ge=0, le=7)
     ] = None
     """
     The inner-dot1p marking to be used for all packets associated with the FC, except those with a profile-specific override
     """
     outer_dot1p: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:outer-dot1p', ge=0, le=7, title='Outer-dot1pLeaf2'),
+        Optional[int], Field(alias='srl_nokia-qos:outer-dot1p', ge=0, le=7)
     ] = None
     """
     The outer-dot1p marking to be used for all packets associated with the FC, except those with a profile-specific override
     """
-    inner_de: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:inner-de', title='Inner-deLeaf2')
-    ] = False
+    inner_de: Annotated[Optional[bool], Field(alias='srl_nokia-qos:inner-de')] = False
     """
     Re-marking inner-vlan discard-eligibility bit for the respecitve forwarding-class
     """
-    outer_de: Annotated[
-        Optional[bool], Field(alias='srl_nokia-qos:outer-de', title='Outer-deLeaf2')
-    ] = False
+    outer_de: Annotated[Optional[bool], Field(alias='srl_nokia-qos:outer-de')] = False
     """
     Re-marking outer-vlan discard-eligibility bit for the respecitve forwarding-class
     """
@@ -5539,11 +4574,7 @@ class MemberInterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     member_interface_name: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-qos:member-interface-name',
-            title='Member-interface-nameLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-qos:member-interface-name')
     ] = None
     in_profile: Annotated[
         Optional[InProfileContainer2], Field(alias='srl_nokia-qos:in-profile')
@@ -5648,7 +4679,6 @@ class ParentPolicerContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:parent-policer-threshold-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Parent-policer-threshold-policyLeaf',
         ),
     ] = None
     """
@@ -5691,8 +4721,7 @@ class PolicerListEntry(BaseModel):
     A number to identify given policer within policer-policy
     """
     algorithm_type: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-qos:algorithm-type', title='Algorithm-typeLeaf'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-qos:algorithm-type')
     ] = 'trtcm2'
     """
     Defines the algorithm-type used for the given policer
@@ -5710,13 +4739,7 @@ class PolicerListEntry(BaseModel):
         Field(alias='srl_nokia-qos:packet-length-adjustment'),
     ] = None
     peak_rate_kbps: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-kbps',
-            ge=64,
-            le=800000000,
-            title='Peak-rate-kbpsLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:peak-rate-kbps', ge=64, le=800000000)
     ] = 64
     """
     The peak information rate (PIR) of the policer, defined in kilobits (1024 bits) per second.
@@ -5725,24 +4748,14 @@ class PolicerListEntry(BaseModel):
     """
     committed_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:committed-rate-kbps',
-            ge=0,
-            le=800000000,
-            title='Committed-rate-kbpsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:committed-rate-kbps', ge=0, le=800000000),
     ] = 64
     """
     The committed information rate (CIR) of the policer, defined in kilobits (1024 bits) per second
     """
     excess_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:excess-rate-kbps',
-            ge=64,
-            le=800000000,
-            title='Excess-rate-kbpsLeaf',
-        ),
+        Field(alias='srl_nokia-qos:excess-rate-kbps', ge=64, le=800000000),
     ] = 64
     """
     The excess information rate (EIR) of the policer, defined in kilobits (1024 bits) per second.
@@ -5750,13 +4763,7 @@ class PolicerListEntry(BaseModel):
     This parameter is ignored if 'algorithm-type' is set to 'trtcm1'
     """
     maximum_burst_size: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:maximum-burst-size',
-            ge=64,
-            le=253952,
-            title='Maximum-burst-sizeLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:maximum-burst-size', ge=64, le=253952)
     ] = 40000
     """
     Maximum PIR bucket depth in bytes.
@@ -5765,24 +4772,13 @@ class PolicerListEntry(BaseModel):
     """
     committed_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:committed-burst-size',
-            ge=64,
-            le=190941,
-            title='Committed-burst-sizeLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:committed-burst-size', ge=64, le=190941),
     ] = 40000
     """
     Maximum CIR bucket depth in bytes
     """
     excess_burst_size: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:excess-burst-size',
-            ge=64,
-            le=253952,
-            title='Excess-burst-sizeLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:excess-burst-size', ge=64, le=253952)
     ] = 40000
     """
     Maximum EIR bucket depth in bytes.
@@ -5790,15 +4786,13 @@ class PolicerListEntry(BaseModel):
     This parameter is ignored if 'algorithm-type' is set to 'trtcm1'
     """
     violate_action: Annotated[
-        Optional[EnumerationEnum7],
-        Field(alias='srl_nokia-qos:violate-action', title='Violate-actionLeaf'),
+        Optional[EnumerationEnum7], Field(alias='srl_nokia-qos:violate-action')
     ] = 'drop'
     """
     Defines action when policer will evaluate the packet as violating
     """
     statistics_mode: Annotated[
-        Optional[EnumerationEnum8],
-        Field(alias='srl_nokia-qos:statistics-mode', title='Statistics-modeLeaf'),
+        Optional[EnumerationEnum8], Field(alias='srl_nokia-qos:statistics-mode')
     ] = 'extended'
     """
     Defines the number and type of the counters collected for the policer. The modes are mutually exclusive
@@ -5811,8 +4805,7 @@ class PolicerListEntry3(BaseModel):
         regex_engine="python-re",
     )
     policer_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:policer-id', ge=0, le=31, title='Policer-idLeaf3'),
+        Optional[int], Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)
     ] = None
     """
     A number to identify given policer within policer-policy
@@ -5823,30 +4816,21 @@ class PolicerListEntry3(BaseModel):
     ] = None
     eir_policer_threshold_separation_policy: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-qos:eir-policer-threshold-separation-policy',
-            title='Eir-policer-threshold-separation-policyLeaf',
-        ),
+        Field(alias='srl_nokia-qos:eir-policer-threshold-separation-policy'),
     ] = None
     """
     The name of eir-policer-threshold-separation policy assigned to the policer
     """
     pir_policer_threshold_separation_policy: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-qos:pir-policer-threshold-separation-policy',
-            title='Pir-policer-threshold-separation-policyLeaf',
-        ),
+        Field(alias='srl_nokia-qos:pir-policer-threshold-separation-policy'),
     ] = None
     """
     The name of pir-policer-threshold-separation policy assigned to the policer
     """
     cir_policer_threshold_separation_policy: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-qos:cir-policer-threshold-separation-policy',
-            title='Cir-policer-threshold-separation-policyLeaf',
-        ),
+        Field(alias='srl_nokia-qos:cir-policer-threshold-separation-policy'),
     ] = None
     """
     The name of cir-policer-threshold-separation policy assigned to the policer
@@ -5856,73 +4840,42 @@ class PolicerListEntry3(BaseModel):
         Field(alias='srl_nokia-qos:operational-separation-thresholds'),
     ] = None
     peak_rate_kbps: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:peak-rate-kbps',
-            ge=0,
-            le=4294967295,
-            title='Peak-rate-kbpsLeaf5',
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:peak-rate-kbps', ge=0, le=4294967295)
     ] = None
     """
     The actual/operational peak information rate (PIR) of the policer as it is programmed into hardware
     """
     excess_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:excess-rate-kbps',
-            ge=0,
-            le=4294967295,
-            title='Excess-rate-kbpsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:excess-rate-kbps', ge=0, le=4294967295),
     ] = None
     """
     The actual/operational excess information rate (EIR) of the policer as it is programmed into hardware
     """
     committed_rate_kbps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:committed-rate-kbps',
-            ge=0,
-            le=4294967295,
-            title='Committed-rate-kbpsLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:committed-rate-kbps', ge=0, le=4294967295),
     ] = None
     """
     The actual/operational committed information rate (CIR) of the policer as it is programmed into hardware
     """
     maximum_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:maximum-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Maximum-burst-sizeLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:maximum-burst-size', ge=0, le=4294967295),
     ] = None
     """
     The actual/operational maximum PIR bucket depth in bytes as it is programmed into hardware
     """
     committed_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:committed-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Committed-burst-sizeLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:committed-burst-size', ge=0, le=4294967295),
     ] = None
     """
     The actual/operational maximum CIR bucket depth in bytes as it is programmed into hardware
     """
     excess_burst_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:excess-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Excess-burst-sizeLeaf3',
-        ),
+        Field(alias='srl_nokia-qos:excess-burst-size', ge=0, le=4294967295),
     ] = None
     """
     The actual/operational maximum EIR bucket depth in bytes as it is programmed into hardware
@@ -5943,13 +4896,7 @@ class PolicerListEntry4(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl-policers:sequence-id',
-            ge=1,
-            le=65535,
-            title='Sequence-idLeaf5',
-        ),
+        Optional[int], Field(alias='srl_nokia-acl-policers:sequence-id', ge=1, le=65535)
     ] = None
     """
     A number to indicate the relative evaluation order of the different policers in a template; policers with lower sequence-id numbers are evaluated before policers with higher sequence-id numbers
@@ -5959,13 +4906,7 @@ class PolicerListEntry4(BaseModel):
         Field(alias='srl_nokia-acl-policers:forwarding-class'),
     ] = None
     peak_rate_kbps: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-acl-policers:peak-rate-kbps',
-            ge=0,
-            le=4294967295,
-            title='Peak-rate-kbpsLeaf8',
-        ),
+        int, Field(alias='srl_nokia-acl-policers:peak-rate-kbps', ge=0, le=4294967295)
     ]
     """
     The peak information rate (PIR) of the policer, defined in kilobits (1024 bits) per second.
@@ -5973,12 +4914,7 @@ class PolicerListEntry4(BaseModel):
     """
     committed_rate_kbps: Annotated[
         int,
-        Field(
-            alias='srl_nokia-acl-policers:committed-rate-kbps',
-            ge=0,
-            le=4294967295,
-            title='Committed-rate-kbpsLeaf3',
-        ),
+        Field(alias='srl_nokia-acl-policers:committed-rate-kbps', ge=0, le=4294967295),
     ]
     """
     The committed information rate (CIR) of the policer, defined in kilobits (1024 bits) per second
@@ -5986,12 +4922,7 @@ class PolicerListEntry4(BaseModel):
     """
     maximum_burst_size: Annotated[
         int,
-        Field(
-            alias='srl_nokia-acl-policers:maximum-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Maximum-burst-sizeLeaf7',
-        ),
+        Field(alias='srl_nokia-acl-policers:maximum-burst-size', ge=0, le=4294967295),
     ]
     """
     Maximum PIR bucket depth in bytes
@@ -6000,12 +4931,7 @@ class PolicerListEntry4(BaseModel):
     """
     committed_burst_size: Annotated[
         int,
-        Field(
-            alias='srl_nokia-acl-policers:committed-burst-size',
-            ge=0,
-            le=4294967295,
-            title='Committed-burst-sizeLeaf7',
-        ),
+        Field(alias='srl_nokia-acl-policers:committed-burst-size', ge=0, le=4294967295),
     ]
     """
     Maximum CIR bucket depth in bytes
@@ -6042,10 +4968,7 @@ class QueueManagementProfileListEntry(BaseModel):
     Unique string name used for the queue management profile
     """
     weight_factor: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:weight-factor', ge=0, le=15, title='Weight-factorLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:weight-factor', ge=0, le=15)
     ] = 0
     """
     Weight factor to use in the calculation of the current (average weighted) queue depth
@@ -6082,7 +5005,6 @@ class QueueListEntry4(BaseModel):
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Queue-nameLeaf4',
         ),
     ] = None
     """
@@ -6093,7 +5015,6 @@ class QueueListEntry4(BaseModel):
         Field(
             alias='srl_nokia-qos:queue-management-profile',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Queue-management-profileLeaf',
         ),
     ] = None
     """
@@ -6108,8 +5029,7 @@ class QueueListEntry4(BaseModel):
     The list of forwarding classes that map to this queue
     """
     queue_type: Annotated[
-        Optional[EnumerationEnum20],
-        Field(alias='srl_nokia-qos:queue-type', title='Queue-typeLeaf'),
+        Optional[EnumerationEnum20], Field(alias='srl_nokia-qos:queue-type')
     ] = None
     """
     Indicates whether given queue is local to subinterface or interface-queue
@@ -6234,47 +5154,31 @@ class SchedulerListEntry2(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-qos:sequence-id', ge=0, le=16, title='Sequence-idLeaf'),
+        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=16)
     ] = None
     """
     Identifier of the scheduler
     """
-    tier: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:tier', ge=0, le=1, title='TierLeaf')
-    ] = 0
+    tier: Annotated[Optional[int], Field(alias='srl_nokia-qos:tier', ge=0, le=1)] = 0
     """
     Scheduling-hierarchy level
     """
     output_weight: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-qos:output-weight', ge=1, le=127, title='Output-weightLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-qos:output-weight', ge=1, le=127)
     ] = 1
     """
     Output weight of the scheduler
     """
     burst_allowance: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:burst-allowance',
-            ge=0,
-            le=18446744073709551615,
-            title='Burst-allowanceLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:burst-allowance', ge=0, le=18446744073709551615),
     ] = 9000
     """
     Burst allowance for the scheduler in bytes
     """
     threshold_separation: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-qos:threshold-separation',
-            ge=0,
-            le=4294967295,
-            title='Threshold-separationLeaf2',
-        ),
+        Field(alias='srl_nokia-qos:threshold-separation', ge=0, le=4294967295),
     ] = 28672
     """
     Separation between thresholds in scheduling bucket in bytes
@@ -6374,7 +5278,6 @@ class ClassifiersContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:ipv4-dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ipv4-dscp-policyLeaf',
         ),
     ] = None
     """
@@ -6385,7 +5288,6 @@ class ClassifiersContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:ipv6-dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ipv6-dscp-policyLeaf',
         ),
     ] = None
     """
@@ -6396,7 +5298,6 @@ class ClassifiersContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Dscp-policyLeaf',
         ),
     ] = None
     """
@@ -6407,7 +5308,6 @@ class ClassifiersContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:dot1p-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Dot1p-policyLeaf',
         ),
     ] = None
     """
@@ -6418,29 +5318,25 @@ class ClassifiersContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:mpls-traffic-class-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Mpls-traffic-class-policyLeaf',
         ),
     ] = None
     """
     Reference to the name of an MPLS traffic-class mapping policy
     """
     ler_use_dscp: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:ler-use-dscp', title='Ler-use-dscpLeaf'),
+        Optional[bool], Field(alias='srl_nokia-qos:ler-use-dscp')
     ] = False
     """
     Enables short-pipe model for all lsp-bindings terminated on the subinterface
     """
     match_qinq_dot1p: Annotated[
-        Optional[EnumerationEnum16],
-        Field(alias='srl_nokia-qos:match-qinq-dot1p', title='Match-qinq-dot1pLeaf'),
+        Optional[EnumerationEnum16], Field(alias='srl_nokia-qos:match-qinq-dot1p')
     ] = 'outer'
     """
     Defines which dot1p bits will be used for dot1p-classification in case of QinQ encapsulation
     """
     tos_rewrite_state: Annotated[
-        Optional[EnumerationEnum17],
-        Field(alias='srl_nokia-qos:tos-rewrite-state', title='Tos-rewrite-stateLeaf'),
+        Optional[EnumerationEnum17], Field(alias='srl_nokia-qos:tos-rewrite-state')
     ] = 'trusted'
     """
     Defines whether given subinterface is considered as trusted/untrusted for ToS rewrite purpose
@@ -6594,7 +5490,6 @@ class OutputContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:interface-pool-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Interface-pool-policyLeaf',
         ),
     ] = None
     """
@@ -6611,7 +5506,6 @@ class OutputContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:dscp-reclassify-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Dscp-reclassify-policyLeaf',
         ),
     ] = None
     """
@@ -6622,7 +5516,6 @@ class OutputContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:output-class-map',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Output-class-mapLeaf',
         ),
     ] = None
     """
@@ -6642,7 +5535,6 @@ class OutputContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:buffer-allocation-profile',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Buffer-allocation-profileLeaf',
         ),
     ] = None
     """
@@ -6689,7 +5581,6 @@ class PolicerPoliciesContainer2(BaseModel):
         Field(
             alias='srl_nokia-qos:policer-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Policer-policyLeaf',
         ),
     ] = None
     """
@@ -6744,7 +5635,6 @@ class PolicerTemplateListEntry(BaseModel):
         Field(
             alias='srl_nokia-acl-policers:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf33',
         ),
     ] = None
     """
@@ -6755,9 +5645,7 @@ class PolicerTemplateListEntry(BaseModel):
     ] = None
     statistics_mode: Annotated[
         Optional[EnumerationEnum26],
-        Field(
-            alias='srl_nokia-acl-policers:statistics-mode', title='Statistics-modeLeaf2'
-        ),
+        Field(alias='srl_nokia-acl-policers:statistics-mode'),
     ] = 'violating-focus'
     """
     The statistics mode of all policers belonging to this template
@@ -6812,7 +5700,6 @@ class RewriteRulesContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:vxlan-outer-header-dscp-policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Vxlan-outer-header-dscp-policyLeaf',
         ),
     ] = None
     """
@@ -6871,7 +5758,6 @@ class ClassifiersContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:vxlan-default',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Vxlan-defaultLeaf',
         ),
     ] = None
     """
@@ -6910,7 +5796,6 @@ class InputContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:input-class-map',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Input-class-mapLeaf',
         ),
     ] = None
     """
@@ -6925,7 +5810,6 @@ class InputContainer(BaseModel):
         Field(
             alias='srl_nokia-qos:pfc-buffer-allocation-profile',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Pfc-buffer-allocation-profileLeaf',
         ),
     ] = None
     """
@@ -6947,8 +5831,7 @@ class InterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     interface_id: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-qos:interface-id', title='Interface-idLeaf'),
+        Optional[str], Field(alias='srl_nokia-qos:interface-id')
     ] = None
     """
     Identifier for the interface or subinterface
@@ -7057,8 +5940,7 @@ class QosContainer(BaseModel):
         Field(alias='srl_nokia-qos:scheduler-policies'),
     ] = None
     preserve_dscp: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-qos:preserve-dscp', title='Preserve-dscpLeaf'),
+        Optional[bool], Field(alias='srl_nokia-qos:preserve-dscp')
     ] = None
     """
     When forwarding an untunneled IP packet or decapsulating an IP-in-IP packet, preserve the received DSCP and use it in the transmitted packet.

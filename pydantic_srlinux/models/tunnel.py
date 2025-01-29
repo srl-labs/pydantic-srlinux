@@ -57,10 +57,7 @@ class StatisticsContainer(BaseModel):
     in_octets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-vxlan-tunnel-vtep:in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-octetsLeaf',
+            alias='srl_nokia-vxlan-tunnel-vtep:in-octets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -72,7 +69,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:in-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-packetsLeaf',
         ),
     ] = 0
     """
@@ -86,7 +82,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-discarded-packetsLeaf',
         ),
     ] = 0
     """
@@ -106,7 +101,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:out-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-octetsLeaf',
         ),
     ] = 0
     """
@@ -118,7 +112,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:out-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-packetsLeaf',
         ),
     ] = 0
     """
@@ -132,7 +125,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:out-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-discarded-packetsLeaf',
         ),
     ] = 0
     """
@@ -147,7 +139,6 @@ class StatisticsContainer(BaseModel):
         Field(
             alias='srl_nokia-vxlan-tunnel-vtep:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf',
         ),
     ] = None
     """
@@ -163,8 +154,7 @@ class Ipv4AddressUnicastType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Ipv4-address-unicastType',
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
         ),
     ]
     """
@@ -183,7 +173,7 @@ class StatisticsContainer2(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(alias='srl_nokia-vxlan-tunnel-vtep:admin-state', title='Admin-stateLeaf'),
+        Field(alias='srl_nokia-vxlan-tunnel-vtep:admin-state'),
     ] = 'disable'
     """
     The configured state of the VXLAN statistics on the router
@@ -197,10 +187,7 @@ class StatisticsContainer2(BaseModel):
     in_octets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-vxlan-tunnel-vtep:in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-octetsLeaf2',
+            alias='srl_nokia-vxlan-tunnel-vtep:in-octets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -212,7 +199,6 @@ class StatisticsContainer2(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:in-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-packetsLeaf2',
         ),
     ] = 0
     """
@@ -226,7 +212,6 @@ class StatisticsContainer2(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-discarded-packetsLeaf2',
         ),
     ] = 0
     """
@@ -242,7 +227,6 @@ class StatisticsContainer2(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:out-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-octetsLeaf2',
         ),
     ] = 0
     """
@@ -254,7 +238,6 @@ class StatisticsContainer2(BaseModel):
             alias='srl_nokia-vxlan-tunnel-vtep:out-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-packetsLeaf2',
         ),
     ] = 0
     """
@@ -267,7 +250,6 @@ class StatisticsContainer2(BaseModel):
         Field(
             alias='srl_nokia-vxlan-tunnel-vtep:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf2',
         ),
     ] = None
     """
@@ -283,8 +265,7 @@ class Ipv6AddressUnicastWithoutLocalType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Ipv6-address-unicast-without-localType',
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
         ),
     ]
     """
@@ -303,19 +284,14 @@ class VtepListEntry(BaseModel):
     )
     address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-vxlan-tunnel-vtep:address', title='AddressLeaf'),
+        Field(alias='srl_nokia-vxlan-tunnel-vtep:address'),
     ] = None
     """
     The IP address that identifies the remote VXLAN Termination Endpoint (VTEP).
     """
     index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-vxlan-tunnel-vtep:index',
-            ge=0,
-            le=18446744073709551615,
-            title='IndexLeaf2',
-        ),
+        Field(alias='srl_nokia-vxlan-tunnel-vtep:index', ge=0, le=18446744073709551615),
     ] = None
     """
     the next-hop-group-id (system allocated) for resolving the VXLAN termination endpoint
@@ -325,7 +301,6 @@ class VtepListEntry(BaseModel):
         Field(
             alias='srl_nokia-vxlan-tunnel-vtep:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf2',
         ),
     ] = None
     """
@@ -365,7 +340,6 @@ class TunnelListEntry(BaseModel):
         Field(
             alias='srl_nokia-pw-tunnel:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf',
         ),
     ] = None
     """
@@ -373,19 +347,14 @@ class TunnelListEntry(BaseModel):
     """
     remote_system: Annotated[
         Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
-        Field(alias='srl_nokia-pw-tunnel:remote-system', title='Remote-systemLeaf'),
+        Field(alias='srl_nokia-pw-tunnel:remote-system'),
     ]
     """
     The ip-address of the remote system that hosts the remote pseudowire-tunnel
     """
     index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-pw-tunnel:index',
-            ge=0,
-            le=18446744073709551615,
-            title='IndexLeaf',
-        ),
+        Field(alias='srl_nokia-pw-tunnel:index', ge=0, le=18446744073709551615),
     ] = None
     """
     The system allocated ID of the pw tunnel
@@ -405,27 +374,17 @@ class TunnelListEntry(BaseModel):
         Field(
             alias='srl_nokia-pw-tunnel:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf',
         ),
     ] = None
     """
     The date and time of the most recent change to the tunnel state
     """
     operational_tunnel_type: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-pw-tunnel:operational-tunnel-type',
-            title='Operational-tunnel-typeLeaf',
-        ),
+        Optional[Any], Field(alias='srl_nokia-pw-tunnel:operational-tunnel-type')
     ] = None
     operational_tunnel_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-pw-tunnel:operational-tunnel-id',
-            ge=0,
-            le=4294967295,
-            title='Operational-tunnel-idLeaf',
-        ),
+        Field(alias='srl_nokia-pw-tunnel:operational-tunnel-id', ge=0, le=4294967295),
     ] = None
     """
     The owner-assigned tunnel table index value that identifies

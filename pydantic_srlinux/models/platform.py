@@ -12,7 +12,7 @@ class IndexLeaf121(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=4294967295, title='IndexLeaf12')]
+    root: Annotated[int, Field(ge=0, le=4294967295)]
     """
     CPU index for each processor core on the system
 
@@ -25,7 +25,7 @@ class IndexLeaf51(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=7, title='IndexLeaf5')]
+    root: Annotated[int, Field(ge=0, le=7)]
     """
     The pipeline number (TH3 systems) or direction (J2 and J2C+ systems).
     """
@@ -41,13 +41,7 @@ class P4rtContainer(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-platform-p4rt:id',
-            ge=1,
-            le=18446744073709551615,
-            title='IdLeaf2',
-        ),
+        int, Field(alias='srl_nokia-platform-p4rt:id', ge=1, le=18446744073709551615)
     ]
     """
     The numeric ID used by the controller to address the forwarding complex
@@ -69,12 +63,7 @@ class Sha1HashListEntry(BaseModel):
     )
     index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-secure-boot:index',
-            ge=0,
-            le=4294967295,
-            title='IndexLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
     ] = None
     """
     The index of the hash
@@ -84,7 +73,6 @@ class Sha1HashListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-secure-boot:digest-value',
             max_length=18446744073709551615,
-            title='Digest-valueLeaf',
         ),
     ] = None
     """
@@ -103,12 +91,7 @@ class Sha256HashCertListEntry(BaseModel):
     )
     index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-secure-boot:index',
-            ge=0,
-            le=4294967295,
-            title='IndexLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
     ] = None
     """
     The index of the hash
@@ -118,18 +101,13 @@ class Sha256HashCertListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-secure-boot:digest-value',
             max_length=18446744073709551615,
-            title='Digest-valueLeaf3',
         ),
     ] = None
     """
     SHA-256 digest of an X.509 certificate
     """
     revocation_time: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-secure-boot:revocation-time',
-            title='Revocation-timeLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-secure-boot:revocation-time')
     ] = None
     """
     Certificate revocation start time
@@ -147,12 +125,7 @@ class Sha256HashListEntry(BaseModel):
     )
     index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-secure-boot:index',
-            ge=0,
-            le=4294967295,
-            title='IndexLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
     ] = None
     """
     The index of the hash
@@ -162,7 +135,6 @@ class Sha256HashListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-secure-boot:digest-value',
             max_length=18446744073709551615,
-            title='Digest-valueLeaf2',
         ),
     ] = None
     """
@@ -181,12 +153,7 @@ class SystemReservedPoolContainer(BaseModel):
     )
     operational_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:operational-size',
-            ge=0,
-            le=4294967295,
-            title='Operational-sizeLeaf',
-        ),
+        Field(alias='srl_nokia-platform-qos:operational-size', ge=0, le=4294967295),
     ] = None
     """
     Operational size of the system-reserved-pool
@@ -384,12 +351,7 @@ class CertificateListEntry(BaseModel):
     )
     index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-secure-boot:index',
-            ge=0,
-            le=4294967295,
-            title='IndexLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
     ] = None
     """
     The index of the certificate
@@ -397,9 +359,7 @@ class CertificateListEntry(BaseModel):
     data: Annotated[
         Optional[bytes],
         Field(
-            alias='srl_nokia-platform-secure-boot:data',
-            max_length=18446744073709551615,
-            title='DataLeaf',
+            alias='srl_nokia-platform-secure-boot:data', max_length=18446744073709551615
         ),
     ] = None
     """
@@ -417,9 +377,7 @@ class CertificatesListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-tpm:name', title='NameLeaf')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-tpm:name')] = None
     """
     An arbitrary name uniquely identifying a certificate associated to a key within a TPM
     Endorsement Key Certificate (EK): endorsement-certificate
@@ -428,23 +386,14 @@ class CertificatesListEntry(BaseModel):
     """
     nv_index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-tpm:nv-index',
-            ge=0,
-            le=4294967295,
-            title='Nv-indexLeaf',
-        ),
+        Field(alias='srl_nokia-platform-tpm:nv-index', ge=0, le=4294967295),
     ] = None
     """
     NV index for the certificate
     """
     data: Annotated[
         Optional[bytes],
-        Field(
-            alias='srl_nokia-platform-tpm:data',
-            max_length=18446744073709551615,
-            title='DataLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-tpm:data', max_length=18446744073709551615),
     ] = None
     """
     DER encoded X.509 certificate
@@ -489,24 +438,14 @@ class CpuacctStatisticsContainer(BaseModel):
     )
     user: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:user',
-            ge=0,
-            le=18446744073709551615,
-            title='UserLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:user', ge=0, le=18446744073709551615),
     ] = None
     """
     CPU usage user mode
     """
     system: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:system',
-            ge=0,
-            le=18446744073709551615,
-            title='SystemLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:system', ge=0, le=18446744073709551615),
     ] = None
     """
     CPU usage user system
@@ -523,8 +462,7 @@ class DramContainer(BaseModel):
         regex_engine="python-re",
     )
     used: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-qos:used', ge=0, le=100, title='UsedLeaf6'),
+        Optional[int], Field(alias='srl_nokia-platform-qos:used', ge=0, le=100)
     ] = None
     """
     Used DRAM memory
@@ -540,9 +478,7 @@ class ExtractionReasonListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-lc:reason', title='ReasonLeaf')
-    ] = None
+    reason: Annotated[Optional[Any], Field(alias='srl_nokia-platform-lc:reason')] = None
     """
     A reason for extracting the packet towards the host CPU
     """
@@ -552,7 +488,6 @@ class ExtractionReasonListEntry(BaseModel):
             alias='srl_nokia-platform-lc:extracted-packets',
             ge=0,
             le=18446744073709551615,
-            title='Extracted-packetsLeaf2',
         ),
     ] = 0
     """
@@ -564,7 +499,6 @@ class ExtractionReasonListEntry(BaseModel):
             alias='srl_nokia-platform-lc:extracted-octets',
             ge=0,
             le=18446744073709551615,
-            title='Extracted-octetsLeaf2',
         ),
     ] = 0
     """
@@ -582,13 +516,7 @@ class FabricContainer(BaseModel):
         regex_engine="python-re",
     )
     availability: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:availability',
-            ge=0,
-            le=100,
-            title='AvailabilityLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-lc:availability', ge=0, le=100)
     ] = None
     """
     Details the percentage bandwidth available to the fabric for the line card
@@ -596,10 +524,7 @@ class FabricContainer(BaseModel):
     total_capacity: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-platform-lc:total-capacity',
-            ge=0,
-            le=18446744073709551615,
-            title='Total-capacityLeaf',
+            alias='srl_nokia-platform-lc:total-capacity', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -611,7 +536,6 @@ class FabricContainer(BaseModel):
             alias='srl_nokia-platform-lc:operational-capacity',
             ge=0,
             le=18446744073709551615,
-            title='Operational-capacityLeaf',
         ),
     ] = None
     """
@@ -623,7 +547,6 @@ class FabricContainer(BaseModel):
             alias='srl_nokia-platform-lc:consumed-capacity',
             ge=0,
             le=18446744073709551615,
-            title='Consumed-capacityLeaf',
         ),
     ] = None
     """
@@ -635,7 +558,6 @@ class FabricContainer(BaseModel):
             alias='srl_nokia-platform-lc:utilization-ingress',
             ge=0,
             le=18446744073709551615,
-            title='Utilization-ingressLeaf',
         ),
     ] = None
     """
@@ -647,7 +569,6 @@ class FabricContainer(BaseModel):
             alias='srl_nokia-platform-lc:utilization-egress',
             ge=0,
             le=18446744073709551615,
-            title='Utilization-egressLeaf',
         ),
     ] = None
     """
@@ -665,20 +586,13 @@ class FanContainer(BaseModel):
         regex_engine="python-re",
     )
     speed: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-psu:speed', ge=0, le=100, title='SpeedLeaf3'),
+        Optional[int], Field(alias='srl_nokia-platform-psu:speed', ge=0, le=100)
     ] = None
     """
     The current speed of the fan
     """
     speed_rpm: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-psu:speed-rpm',
-            ge=0,
-            le=65535,
-            title='Speed-rpmLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-psu:speed-rpm', ge=0, le=65535)
     ] = None
     """
     The current RPM of the fan
@@ -695,8 +609,7 @@ class FeedListEntry(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-psu:id', ge=0, le=255, title='IdLeaf6'),
+        Optional[int], Field(alias='srl_nokia-platform-psu:id', ge=0, le=255)
     ] = None
     """
     ID of the feed
@@ -707,7 +620,6 @@ class FeedListEntry(BaseModel):
             alias='srl_nokia-platform-psu:voltage',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='VoltageLeaf3',
         ),
     ] = None
     """
@@ -719,7 +631,6 @@ class FeedListEntry(BaseModel):
             alias='srl_nokia-platform-psu:current',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='CurrentLeaf4',
         ),
     ] = None
     """
@@ -742,7 +653,6 @@ class InputContainer(BaseModel):
             alias='srl_nokia-platform-psu:voltage',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='VoltageLeaf',
         ),
     ] = None
     """
@@ -754,7 +664,6 @@ class InputContainer(BaseModel):
             alias='srl_nokia-platform-psu:current',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='CurrentLeaf2',
         ),
     ] = None
     """
@@ -766,7 +675,6 @@ class InputContainer(BaseModel):
             alias='srl_nokia-platform-psu:power',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='PowerLeaf',
         ),
     ] = None
     """
@@ -784,46 +692,25 @@ class IowaitContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf8'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf6',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf6',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf6',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -840,8 +727,7 @@ class LastSwitchoverReasonContainer(BaseModel):
         regex_engine="python-re",
     )
     trigger: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-platform-control:trigger', title='TriggerLeaf'),
+        Optional[Any], Field(alias='srl_nokia-platform-control:trigger')
     ] = None
     """
     Indicates the trigger of the last switchover
@@ -849,8 +735,7 @@ class LastSwitchoverReasonContainer(BaseModel):
     This field is not populated if the system has not performed a switchover since initial startup.
     """
     details: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-control:details', title='DetailsLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-control:details')
     ] = None
     """
     Any additional details relating to the last switchover
@@ -870,12 +755,7 @@ class MemoryEventsContainer(BaseModel):
     )
     low: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:low',
-            ge=0,
-            le=18446744073709551615,
-            title='LowLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:low', ge=0, le=18446744073709551615),
     ] = None
     """
     The number of times the cgroup is reclaimed due to high memory pressure
@@ -883,12 +763,7 @@ class MemoryEventsContainer(BaseModel):
     """
     high: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:high',
-            ge=0,
-            le=18446744073709551615,
-            title='HighLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:high', ge=0, le=18446744073709551615),
     ] = None
     """
     The number of times processes of the cgroup are throttled and routed to perform direct memory reclaim
@@ -896,24 +771,14 @@ class MemoryEventsContainer(BaseModel):
     """
     max: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:max',
-            ge=0,
-            le=18446744073709551615,
-            title='MaxLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:max', ge=0, le=18446744073709551615),
     ] = None
     """
     The number of times the cgroup’s memory usage was about to go over the max boundary
     """
     oom: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:oom',
-            ge=0,
-            le=18446744073709551615,
-            title='OomLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:oom', ge=0, le=18446744073709551615),
     ] = None
     """
     The number of time the cgroup’s memory usage had reached the limit and allocation was about to fail
@@ -921,10 +786,7 @@ class MemoryEventsContainer(BaseModel):
     oom_kill: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-platform-cgroup:oom-kill',
-            ge=0,
-            le=18446744073709551615,
-            title='Oom-killLeaf',
+            alias='srl_nokia-platform-cgroup:oom-kill', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -943,12 +805,7 @@ class MemoryStatisticsContainer(BaseModel):
     )
     current: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:current',
-            ge=0,
-            le=18446744073709551615,
-            title='CurrentLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:current', ge=0, le=18446744073709551615),
     ] = None
     """
     The total amount of memory currently being used by the cgroup and its descendants. Read from memory.current
@@ -959,7 +816,6 @@ class MemoryStatisticsContainer(BaseModel):
             alias='srl_nokia-platform-cgroup:current-swap',
             ge=0,
             le=18446744073709551615,
-            title='Current-swapLeaf',
         ),
     ] = None
     """
@@ -967,12 +823,7 @@ class MemoryStatisticsContainer(BaseModel):
     """
     anon: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:anon',
-            ge=0,
-            le=18446744073709551615,
-            title='AnonLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:anon', ge=0, le=18446744073709551615),
     ] = None
     """
     Amount of memory used in anonymous mappings such as brk(), sbrk(), and mmap(MAP_ANONYMOUS)
@@ -983,7 +834,6 @@ class MemoryStatisticsContainer(BaseModel):
             alias='srl_nokia-platform-cgroup:kernel-stack',
             ge=0,
             le=18446744073709551615,
-            title='Kernel-stackLeaf',
         ),
     ] = None
     """
@@ -991,24 +841,14 @@ class MemoryStatisticsContainer(BaseModel):
     """
     slab: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:slab',
-            ge=0,
-            le=18446744073709551615,
-            title='SlabLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:slab', ge=0, le=18446744073709551615),
     ] = None
     """
     Amount of memory used for storing in-kernel data structures
     """
     sock: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:sock',
-            ge=0,
-            le=18446744073709551615,
-            title='SockLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:sock', ge=0, le=18446744073709551615),
     ] = None
     """
     Amount of memory used in network transmission buffers
@@ -1016,10 +856,7 @@ class MemoryStatisticsContainer(BaseModel):
     anon_thp: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-platform-cgroup:anon-thp',
-            ge=0,
-            le=18446744073709551615,
-            title='Anon-thpLeaf',
+            alias='srl_nokia-platform-cgroup:anon-thp', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -1027,12 +864,7 @@ class MemoryStatisticsContainer(BaseModel):
     """
     file: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cgroup:file',
-            ge=0,
-            le=18446744073709551615,
-            title='FileLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cgroup:file', ge=0, le=18446744073709551615),
     ] = None
     """
     Amount of memory used to cache filesystem data, including tmpfs and shared memory
@@ -1043,7 +875,6 @@ class MemoryStatisticsContainer(BaseModel):
             alias='srl_nokia-platform-cgroup:file-writeback',
             ge=0,
             le=18446744073709551615,
-            title='File-writebackLeaf',
         ),
     ] = None
     """
@@ -1052,10 +883,7 @@ class MemoryStatisticsContainer(BaseModel):
     file_dirty: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-platform-cgroup:file-dirty',
-            ge=0,
-            le=18446744073709551615,
-            title='File-dirtyLeaf',
+            alias='srl_nokia-platform-cgroup:file-dirty', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -1079,10 +907,7 @@ class MemoryContainer(BaseModel):
     physical: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-platform-memory:physical',
-            ge=0,
-            le=18446744073709551615,
-            title='PhysicalLeaf',
+            alias='srl_nokia-platform-memory:physical', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -1091,10 +916,7 @@ class MemoryContainer(BaseModel):
     reserved: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-platform-memory:reserved',
-            ge=0,
-            le=18446744073709551615,
-            title='ReservedLeaf2',
+            alias='srl_nokia-platform-memory:reserved', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -1102,24 +924,14 @@ class MemoryContainer(BaseModel):
     """
     free: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-memory:free',
-            ge=0,
-            le=18446744073709551615,
-            title='FreeLeaf8',
-        ),
+        Field(alias='srl_nokia-platform-memory:free', ge=0, le=18446744073709551615),
     ] = None
     """
     Memory available for system use
     """
     utilization: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-memory:utilization',
-            ge=0,
-            le=100,
-            title='UtilizationLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-memory:utilization', ge=0, le=100),
     ] = None
     """
     Total memory utilized
@@ -1132,29 +944,20 @@ class MidPoolListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-qos:index', ge=0, le=255, title='IndexLeaf11'),
+        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=255)
     ] = None
     """
     Mid-pool index
     """
     operational_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:operational-size',
-            ge=0,
-            le=4294967295,
-            title='Operational-sizeLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-qos:operational-size', ge=0, le=4294967295),
     ] = None
     """
     Operational size of the mid-pool
     """
     used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:used', ge=0, le=4294967295, title='UsedLeaf8'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:used', ge=0, le=4294967295)
     ] = None
     """
     Actual usage of the mid-pool
@@ -1176,7 +979,6 @@ class NextHopGroupsContainer(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-add',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-addLeaf2',
         ),
     ] = None
     """
@@ -1188,7 +990,6 @@ class NextHopGroupsContainer(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-modify',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-modifyLeaf2',
         ),
     ] = None
     """
@@ -1199,7 +1000,6 @@ class NextHopGroupsContainer(BaseModel):
         Field(
             alias='srl_nokia-ip-route-tables:last-sync-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-sync-timeLeaf2',
         ),
     ] = None
     """
@@ -1224,7 +1024,6 @@ class NextHopGroupsContainer2(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-add',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-addLeaf4',
         ),
     ] = None
     """
@@ -1236,7 +1035,6 @@ class NextHopGroupsContainer2(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-modify',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-modifyLeaf4',
         ),
     ] = None
     """
@@ -1247,7 +1045,6 @@ class NextHopGroupsContainer2(BaseModel):
         Field(
             alias='srl_nokia-ip-route-tables:last-sync-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-sync-timeLeaf4',
         ),
     ] = None
     """
@@ -1267,53 +1064,31 @@ class NicContainer(BaseModel):
         regex_engine="python-re",
     )
     idle: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-vxdp:idle', ge=0, le=100, title='IdleLeaf'),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:idle', ge=0, le=100)
     ] = None
     """
     The aggregate idle percentage of threads
     """
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:instant', ge=0, le=100, title='InstantLeaf13'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf9',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf9',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf9',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -1330,46 +1105,25 @@ class NiceContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf6'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf4',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf4',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf4',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -1391,7 +1145,6 @@ class OutputContainer(BaseModel):
             alias='srl_nokia-platform-psu:voltage',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='VoltageLeaf2',
         ),
     ] = None
     """
@@ -1403,7 +1156,6 @@ class OutputContainer(BaseModel):
             alias='srl_nokia-platform-psu:current',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='CurrentLeaf3',
         ),
     ] = None
     """
@@ -1415,7 +1167,6 @@ class OutputContainer(BaseModel):
             alias='srl_nokia-platform-psu:power',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='PowerLeaf2',
         ),
     ] = None
     """
@@ -1438,7 +1189,6 @@ class OverlayContainer(BaseModel):
             alias='srl_nokia-platform-redundancy:synchronization-frequency',
             ge=30,
             le=65535,
-            title='Synchronization-frequencyLeaf',
         ),
     ] = 60
     """
@@ -1451,7 +1201,6 @@ class OverlayContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-redundancy:last-synchronization',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-synchronizationLeaf2',
         ),
     ] = None
     """
@@ -1462,7 +1211,6 @@ class OverlayContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-redundancy:next-synchronization',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Next-synchronizationLeaf',
         ),
     ] = None
     """
@@ -1485,7 +1233,6 @@ class PacketExtractionContainer(BaseModel):
             alias='srl_nokia-platform-lc:extracted-packets',
             ge=0,
             le=18446744073709551615,
-            title='Extracted-packetsLeaf',
         ),
     ] = 0
     """
@@ -1497,7 +1244,6 @@ class PacketExtractionContainer(BaseModel):
             alias='srl_nokia-platform-lc:extracted-octets',
             ge=0,
             le=18446744073709551615,
-            title='Extracted-octetsLeaf',
         ),
     ] = 0
     """
@@ -1520,33 +1266,20 @@ class PowerContainer(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf',
-        ),
+        Field(alias='srl_nokia-platform-lc:allocated', ge=0, le=4294967295),
     ] = None
     """
     The power budget allocated to this component
     """
     used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:used', ge=0, le=4294967295, title='UsedLeaf10'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-lc:used', ge=0, le=4294967295)
     ] = None
     """
     The power in use by this component
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf',
-        ),
+        Field(alias='srl_nokia-platform-lc:required', ge=0, le=4294967295),
     ] = None
     """
     The power budget required to enable this component
@@ -1564,36 +1297,21 @@ class PowerContainer2(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-control:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-control:allocated', ge=0, le=4294967295),
     ] = None
     """
     The power budget allocated to this component
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-control:used',
-            ge=0,
-            le=4294967295,
-            title='UsedLeaf11',
-        ),
+        Field(alias='srl_nokia-platform-control:used', ge=0, le=4294967295),
     ] = None
     """
     The power in use by this component
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-control:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-control:required', ge=0, le=4294967295),
     ] = None
     """
     The power budget required to enable this component
@@ -1611,36 +1329,21 @@ class PowerContainer4(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fabric:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf8',
-        ),
+        Field(alias='srl_nokia-platform-fabric:allocated', ge=0, le=4294967295),
     ] = None
     """
     The power budget allocated to this component
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fabric:used',
-            ge=0,
-            le=4294967295,
-            title='UsedLeaf18',
-        ),
+        Field(alias='srl_nokia-platform-fabric:used', ge=0, le=4294967295),
     ] = None
     """
     The power in use by this component
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fabric:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf8',
-        ),
+        Field(alias='srl_nokia-platform-fabric:required', ge=0, le=4294967295),
     ] = None
     """
     The power budget required to enable this component
@@ -1658,33 +1361,20 @@ class PowerContainer5(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fan:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf9',
-        ),
+        Field(alias='srl_nokia-platform-fan:allocated', ge=0, le=4294967295),
     ] = None
     """
     The power budget allocated to this component
     """
     used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-fan:used', ge=0, le=4294967295, title='UsedLeaf19'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-fan:used', ge=0, le=4294967295)
     ] = None
     """
     The power in use by this component
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fan:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf9',
-        ),
+        Field(alias='srl_nokia-platform-fan:required', ge=0, le=4294967295),
     ] = None
     """
     The power budget required to enable this component
@@ -1697,19 +1387,13 @@ class ResourceGroupsContainer(BaseModel):
         regex_engine="python-re",
     )
     used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:used', ge=0, le=4294967295, title='UsedLeaf2'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:used', ge=0, le=4294967295)
     ] = None
     """
     The number of resource-groups that are in use
     """
     free: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:free', ge=0, le=4294967295, title='FreeLeaf2'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:free', ge=0, le=4294967295)
     ] = None
     """
     The number of resource-groups that are unused and available
@@ -1722,19 +1406,13 @@ class ResourceSetsContainer(BaseModel):
         regex_engine="python-re",
     )
     used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:used', ge=0, le=4294967295, title='UsedLeaf3'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:used', ge=0, le=4294967295)
     ] = None
     """
     The number of resource-sets that are in use
     """
     free: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:free', ge=0, le=4294967295, title='FreeLeaf3'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:free', ge=0, le=4294967295)
     ] = None
     """
     The number of resource-sets that are unused and available
@@ -1751,20 +1429,14 @@ class ResourceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-platform-datapath-resources:name', title='NameLeaf3'),
+        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the XDP datapath resource
     """
     used_percent: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-datapath-resources:used-percent',
-            ge=0,
-            le=100,
-            title='Used-percentLeaf',
-        ),
+        Field(alias='srl_nokia-platform-datapath-resources:used-percent', ge=0, le=100),
     ] = None
     """
     The percentage of the resource that is currently used
@@ -1775,7 +1447,6 @@ class ResourceListEntry(BaseModel):
             alias='srl_nokia-platform-datapath-resources:used-entries',
             ge=0,
             le=4294967295,
-            title='Used-entriesLeaf',
         ),
     ] = None
     """
@@ -1787,7 +1458,6 @@ class ResourceListEntry(BaseModel):
             alias='srl_nokia-platform-datapath-resources:free-entries',
             ge=0,
             le=4294967295,
-            title='Free-entriesLeaf',
         ),
     ] = None
     """
@@ -1800,26 +1470,18 @@ class ResourceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-qos:name', title='NameLeaf4')
-    ] = None
+    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-qos:name')] = None
     """
     The name of the QoS resource
     """
     used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:used', ge=0, le=4294967295, title='UsedLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:used', ge=0, le=4294967295)
     ] = None
     """
     The number of resources that are in use
     """
     free: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:free', ge=0, le=4294967295, title='FreeLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:free', ge=0, le=4294967295)
     ] = None
     """
     The number of resources that are unused and available
@@ -1831,22 +1493,18 @@ class ResourceListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-mtu:name', title='NameLeaf5')
-    ] = None
+    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-mtu:name')] = None
     """
     The name of the MTU resource
     """
     used: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-mtu:used', ge=0, le=255, title='UsedLeaf9'),
+        Optional[int], Field(alias='srl_nokia-platform-mtu:used', ge=0, le=255)
     ] = None
     """
     The number of resources that are in use
     """
     free: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-mtu:free', ge=0, le=255, title='FreeLeaf6'),
+        Optional[int], Field(alias='srl_nokia-platform-mtu:free', ge=0, le=255)
     ] = None
     """
     The number of resources that are unused and available
@@ -1858,32 +1516,20 @@ class ResourceListEntry6(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-qos:name', title='NameLeaf13')
-    ] = None
+    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-qos:name')] = None
     """
     The name of the QoS resource
     """
     rising_threshold_log: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:rising-threshold-log',
-            ge=0,
-            le=100,
-            title='Rising-threshold-logLeaf',
-        ),
+        Field(alias='srl_nokia-platform-qos:rising-threshold-log', ge=0, le=100),
     ] = 90
     """
     Sets the threshold that triggers the generation of a WARNING log whenever the utilization of the QoS resource in any linecard/complex/core reaches this value in a rising direction
     """
     falling_threshold_log: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:falling-threshold-log',
-            ge=0,
-            le=100,
-            title='Falling-threshold-logLeaf',
-        ),
+        Field(alias='srl_nokia-platform-qos:falling-threshold-log', ge=0, le=100),
     ] = 70
     """
     Sets the threshold that triggers the generation of a NOTICE log whenever the utilization of the QoS resource in any linecard/complex/core falls reaches this value in a falling direction
@@ -1895,32 +1541,20 @@ class ResourceListEntry7(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-mtu:name', title='NameLeaf14')
-    ] = None
+    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-mtu:name')] = None
     """
     The name of the MTU resource
     """
     rising_threshold_log: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-mtu:rising-threshold-log',
-            ge=0,
-            le=100,
-            title='Rising-threshold-logLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-mtu:rising-threshold-log', ge=0, le=100),
     ] = 90
     """
     Sets the threshold that triggers the generation of a WARNING log whenever the utilization of the MTU resource in any linecard/complex/core reaches this value in a rising direction and this is the first trigger since the last restart or since the last falling-threshold-log was triggered.
     """
     falling_threshold_log: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-mtu:falling-threshold-log',
-            ge=0,
-            le=100,
-            title='Falling-threshold-logLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-mtu:falling-threshold-log', ge=0, le=100),
     ] = 70
     """
     Sets the threshold that triggers the generation of a NOTICE log whenever the utilization of the MTU resource in any linecard/complex/core reaches this value in a falling direction and this is the first trigger since the last rising-threshold-log was triggered.
@@ -1937,8 +1571,7 @@ class ResourceListEntry8(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-platform-datapath-resources:name', title='NameLeaf15'),
+        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the XDP datapath resource.
@@ -1953,7 +1586,6 @@ class ResourceListEntry8(BaseModel):
             alias='srl_nokia-platform-datapath-resources:upper-threshold-set',
             ge=0,
             le=100,
-            title='Upper-threshold-setLeaf',
         ),
     ] = 90
     """
@@ -1965,7 +1597,6 @@ class ResourceListEntry8(BaseModel):
             alias='srl_nokia-platform-datapath-resources:upper-threshold-clear',
             ge=0,
             le=100,
-            title='Upper-threshold-clearLeaf',
         ),
     ] = 70
     """
@@ -1983,8 +1614,7 @@ class ResourceListEntry9(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-platform-datapath-resources:name', title='NameLeaf16'),
+        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the ASIC-specific datapath resource.
@@ -1995,7 +1625,6 @@ class ResourceListEntry9(BaseModel):
             alias='srl_nokia-platform-datapath-resources:upper-threshold-set',
             ge=0,
             le=100,
-            title='Upper-threshold-setLeaf2',
         ),
     ] = 90
     """
@@ -2007,7 +1636,6 @@ class ResourceListEntry9(BaseModel):
             alias='srl_nokia-platform-datapath-resources:upper-threshold-clear',
             ge=0,
             le=100,
-            title='Upper-threshold-clearLeaf2',
         ),
     ] = 70
     """
@@ -2021,29 +1649,20 @@ class RootPoolListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-qos:index', ge=0, le=255, title='IndexLeaf10'),
+        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=255)
     ] = None
     """
     Root-pool index
     """
     operational_size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:operational-size',
-            ge=0,
-            le=4294967295,
-            title='Operational-sizeLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-qos:operational-size', ge=0, le=4294967295),
     ] = None
     """
     Operational size of the root-pool
     """
     used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:used', ge=0, le=4294967295, title='UsedLeaf7'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-qos:used', ge=0, le=4294967295)
     ] = None
     """
     Actual usage of the root-pool
@@ -2063,46 +1682,25 @@ class SoftwareInterruptContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf10'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf8',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf8',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf8',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -2120,24 +1718,14 @@ class SramContainer(BaseModel):
     )
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:used',
-            ge=0,
-            le=18446744073709551615,
-            title='UsedLeaf5',
-        ),
+        Field(alias='srl_nokia-platform-qos:used', ge=0, le=18446744073709551615),
     ] = None
     """
     Used SRAM memory
     """
     free: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:free',
-            ge=0,
-            le=18446744073709551615,
-            title='FreeLeaf5',
-        ),
+        Field(alias='srl_nokia-platform-qos:free', ge=0, le=18446744073709551615),
     ] = None
     """
     Available SRAM memory
@@ -2154,13 +1742,7 @@ class StatisticsContainer(BaseModel):
         regex_engine="python-re",
     )
     utilization: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-disk:utilization',
-            ge=0,
-            le=100,
-            title='UtilizationLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-disk:utilization', ge=0, le=100)
     ] = None
     """
     The current tps utilization of the disk, expressed as a percentage
@@ -2171,7 +1753,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-platform-disk:transfers-per-second',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='Transfers-per-secondLeaf',
         ),
     ] = None
     """
@@ -2184,7 +1765,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-platform-disk:read-per-second',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='Read-per-secondLeaf',
         ),
     ] = None
     """
@@ -2196,7 +1776,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-platform-disk:written-per-second',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='Written-per-secondLeaf',
         ),
     ] = None
     """
@@ -2204,12 +1783,7 @@ class StatisticsContainer(BaseModel):
     """
     io_errors: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-disk:io-errors',
-            ge=0,
-            le=18446744073709551615,
-            title='Io-errorsLeaf',
-        ),
+        Field(alias='srl_nokia-platform-disk:io-errors', ge=0, le=18446744073709551615),
     ] = None
     max_erase_count: Annotated[
         Optional[int],
@@ -2217,7 +1791,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-platform-disk:max-erase-count',
             ge=0,
             le=18446744073709551615,
-            title='Max-erase-countLeaf',
         ),
     ] = None
 
@@ -2234,46 +1807,25 @@ class SystemContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf5'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf3',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf3',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf3',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -2290,13 +1842,7 @@ class TemperatureContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:instant',
-            ge=-32768,
-            le=32767,
-            title='InstantLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-lc:instant', ge=-32768, le=32767)
     ] = None
     """
     Represents the highest current temperature of any sensor on this component
@@ -2304,13 +1850,7 @@ class TemperatureContainer(BaseModel):
     Note that as multiple sensors may feed in, that this field and the margin field may be referencing different sensors.
     """
     maximum: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:maximum',
-            ge=-32768,
-            le=32767,
-            title='MaximumLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-lc:maximum', ge=-32768, le=32767)
     ] = None
     """
     Represents the highest temperature any sensor on this component has reached since it booted
@@ -2320,15 +1860,13 @@ class TemperatureContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-lc:maximum-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Maximum-timeLeaf',
         ),
     ] = None
     """
     Indicates the time this component reached the temperature referenced in the maximum field
     """
     alarm_status: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-lc:alarm-status', title='Alarm-statusLeaf'),
+        Optional[bool], Field(alias='srl_nokia-platform-lc:alarm-status')
     ] = None
     """
     Indicates if a temperature sensor of this component is currently in an alarm state
@@ -2336,13 +1874,7 @@ class TemperatureContainer(BaseModel):
     An alarm state is triggered if the margin is <=2 degrees, indicating that a thermal protection shut down is imminent unless adequate system cooling is provided to bring the temperature sensor back into safe operating ranges.
     """
     margin: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:margin',
-            ge=-32768,
-            le=32767,
-            title='MarginLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-lc:margin', ge=-32768, le=32767)
     ] = None
     """
     Indicates the lowest alarm margin of any sensor on this component
@@ -2362,12 +1894,7 @@ class TemperatureContainer2(BaseModel):
     )
     instant: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-control:instant',
-            ge=-32768,
-            le=32767,
-            title='InstantLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-control:instant', ge=-32768, le=32767),
     ] = None
     """
     Represents the highest current temperature of any sensor on this component
@@ -2376,12 +1903,7 @@ class TemperatureContainer2(BaseModel):
     """
     maximum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-control:maximum',
-            ge=-32768,
-            le=32767,
-            title='MaximumLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-control:maximum', ge=-32768, le=32767),
     ] = None
     """
     Represents the highest temperature any sensor on this component has reached since it booted
@@ -2391,17 +1913,13 @@ class TemperatureContainer2(BaseModel):
         Field(
             alias='srl_nokia-platform-control:maximum-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Maximum-timeLeaf2',
         ),
     ] = None
     """
     Indicates the time this component reached the temperature referenced in the maximum field
     """
     alarm_status: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-platform-control:alarm-status', title='Alarm-statusLeaf2'
-        ),
+        Optional[bool], Field(alias='srl_nokia-platform-control:alarm-status')
     ] = None
     """
     Indicates if a temperature sensor of this component is currently in an alarm state
@@ -2410,12 +1928,7 @@ class TemperatureContainer2(BaseModel):
     """
     margin: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-control:margin',
-            ge=-32768,
-            le=32767,
-            title='MarginLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-control:margin', ge=-32768, le=32767),
     ] = None
     """
     Indicates the lowest alarm margin of any sensor on this component
@@ -2435,12 +1948,7 @@ class TemperatureContainer3(BaseModel):
     )
     instant: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fabric:instant',
-            ge=-32768,
-            le=32767,
-            title='InstantLeaf11',
-        ),
+        Field(alias='srl_nokia-platform-fabric:instant', ge=-32768, le=32767),
     ] = None
     """
     Represents the highest current temperature of any sensor on this component
@@ -2449,12 +1957,7 @@ class TemperatureContainer3(BaseModel):
     """
     maximum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fabric:maximum',
-            ge=-32768,
-            le=32767,
-            title='MaximumLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-fabric:maximum', ge=-32768, le=32767),
     ] = None
     """
     Represents the highest temperature any sensor on this component has reached since it booted
@@ -2464,17 +1967,13 @@ class TemperatureContainer3(BaseModel):
         Field(
             alias='srl_nokia-platform-fabric:maximum-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Maximum-timeLeaf3',
         ),
     ] = None
     """
     Indicates the time this component reached the temperature referenced in the maximum field
     """
     alarm_status: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-platform-fabric:alarm-status', title='Alarm-statusLeaf3'
-        ),
+        Optional[bool], Field(alias='srl_nokia-platform-fabric:alarm-status')
     ] = None
     """
     Indicates if a temperature sensor of this component is currently in an alarm state
@@ -2483,12 +1982,7 @@ class TemperatureContainer3(BaseModel):
     """
     margin: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-fabric:margin',
-            ge=-32768,
-            le=32767,
-            title='MarginLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-fabric:margin', ge=-32768, le=32767),
     ] = None
     """
     Indicates the lowest alarm margin of any sensor on this component
@@ -2508,12 +2002,7 @@ class TemperatureContainer4(BaseModel):
     )
     instant: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-psu:instant',
-            ge=-32768,
-            le=32767,
-            title='InstantLeaf12',
-        ),
+        Field(alias='srl_nokia-platform-psu:instant', ge=-32768, le=32767),
     ] = None
     """
     Represents the highest current temperature of any sensor on this component
@@ -2522,12 +2011,7 @@ class TemperatureContainer4(BaseModel):
     """
     maximum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-psu:maximum',
-            ge=-32768,
-            le=32767,
-            title='MaximumLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-psu:maximum', ge=-32768, le=32767),
     ] = None
     """
     Represents the highest temperature any sensor on this component has reached since it booted
@@ -2537,15 +2021,13 @@ class TemperatureContainer4(BaseModel):
         Field(
             alias='srl_nokia-platform-psu:maximum-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Maximum-timeLeaf4',
         ),
     ] = None
     """
     Indicates the time this component reached the temperature referenced in the maximum field
     """
     alarm_status: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-psu:alarm-status', title='Alarm-statusLeaf4'),
+        Optional[bool], Field(alias='srl_nokia-platform-psu:alarm-status')
     ] = None
     """
     Indicates if a temperature sensor of this component is currently in an alarm state
@@ -2564,46 +2046,25 @@ class TotalContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf3'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -2625,7 +2086,6 @@ class Tpm20PcrBankListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-tpm:tpm20-hash-algo',
             pattern='^(?=^sha1|sha256$).*$',
-            title='Tpm20-hash-algoLeaf',
         ),
     ] = None
     """
@@ -2651,20 +2111,14 @@ class UefiVariablesUpdateContainer(BaseModel):
     )
     modification_dataset_present: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:modification-dataset-present',
-            title='Modification-dataset-presentLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:modification-dataset-present'),
     ] = None
     """
     The modification dataset is present
     """
     modification_dataset_valid: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:modification-dataset-valid',
-            title='Modification-dataset-validLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:modification-dataset-valid'),
     ] = None
     """
     The status of the modification dataset
@@ -2672,10 +2126,7 @@ class UefiVariablesUpdateContainer(BaseModel):
     false = the modification dataset is invalid
     """
     up_to_date: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:up-to-date', title='Up-to-dateLeaf'
-        ),
+        Optional[bool], Field(alias='srl_nokia-platform-secure-boot:up-to-date')
     ] = None
     """
     Status of the Secure Boot variables programmed in the control module compared to the current modification dataset
@@ -2684,10 +2135,7 @@ class UefiVariablesUpdateContainer(BaseModel):
     """
     dbx_update_required: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:dbx-update-required',
-            title='Dbx-update-requiredLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:dbx-update-required'),
     ] = None
     """
     The forbidden database (dbx) update status compared to the modification dataset
@@ -2695,11 +2143,7 @@ class UefiVariablesUpdateContainer(BaseModel):
     false = the forbidden database (dbx) is up to date
     """
     db_update_required: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:db-update-required',
-            title='Db-update-requiredLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-platform-secure-boot:db-update-required')
     ] = None
     """
     The authorized database (db) update status compared to the modification dataset
@@ -2707,11 +2151,7 @@ class UefiVariablesUpdateContainer(BaseModel):
     false = the authorized database (db) is up to date
     """
     pk_update_required: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:pk-update-required',
-            title='Pk-update-requiredLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-platform-secure-boot:pk-update-required')
     ] = None
     """
     The Platform Key (PK) update status compared to the modification dataset
@@ -2720,10 +2160,7 @@ class UefiVariablesUpdateContainer(BaseModel):
     """
     kek_update_required: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:kek-update-required',
-            title='Kek-update-requiredLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:kek-update-required'),
     ] = None
     """
     The Key Exchange Key database (KEK) update status compared to the modification dataset
@@ -2732,10 +2169,7 @@ class UefiVariablesUpdateContainer(BaseModel):
     """
     modification_dataset_db_conflict: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:modification-dataset-db-conflict',
-            title='Modification-dataset-db-conflictLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:modification-dataset-db-conflict'),
     ] = None
     """
     The authorized database (db) conflict status between the modification dataset and the current running image
@@ -2744,10 +2178,7 @@ class UefiVariablesUpdateContainer(BaseModel):
     """
     modification_dataset_dbx_conflict: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-platform-secure-boot:modification-dataset-dbx-conflict',
-            title='Modification-dataset-dbx-conflictLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:modification-dataset-dbx-conflict'),
     ] = None
     """
     The forbidden database (dbx) conflict status between the modification dataset and the current running image
@@ -2759,7 +2190,6 @@ class UefiVariablesUpdateContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-secure-boot:modification-dataset-digest',
             max_length=18446744073709551615,
-            title='Modification-dataset-digestLeaf',
         ),
     ] = None
     """
@@ -2777,8 +2207,7 @@ class UefiVariablesListEntry(BaseModel):
         regex_engine="python-re",
     )
     variable: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-secure-boot:variable', title='VariableLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-secure-boot:variable')
     ] = None
     """
     UEFI Secure Boot database variable name
@@ -2800,17 +2229,14 @@ class UnifiedForwardingResourcesContainer(BaseModel):
     )
     xdp_restart_required: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-platform-resource-mgmt:xdp-restart-required',
-            title='Xdp-restart-requiredLeaf',
-        ),
+        Field(alias='srl_nokia-platform-resource-mgmt:xdp-restart-required'),
     ] = None
     """
     Reads true if the user has committed a change to one or more of the configurable values in the uft container but has not yet restarted XDP so the operational values are still the values initialized at the last XDP restart.
     """
     alpm: Annotated[
         Optional[EnumerationEnum19],
-        Field(alias='srl_nokia-platform-resource-mgmt:alpm', title='AlpmLeaf'),
+        Field(alias='srl_nokia-platform-resource-mgmt:alpm'),
     ] = None
     """
     Controls the ALPM mode.
@@ -2827,7 +2253,6 @@ class UnifiedForwardingResourcesContainer(BaseModel):
             alias='srl_nokia-platform-resource-mgmt:requested-extra-ip-host-entries',
             ge=0,
             le=262144,
-            title='Requested-extra-ip-host-entriesLeaf',
         ),
     ] = None
     """
@@ -2854,7 +2279,6 @@ class UnifiedForwardingResourcesContainer(BaseModel):
             alias='srl_nokia-platform-resource-mgmt:allocated-extra-ip-host-entries',
             ge=0,
             le=262144,
-            title='Allocated-extra-ip-host-entriesLeaf',
         ),
     ] = None
     """
@@ -2866,7 +2290,6 @@ class UnifiedForwardingResourcesContainer(BaseModel):
             alias='srl_nokia-platform-resource-mgmt:allocated-extra-mac-entries',
             ge=0,
             le=262144,
-            title='Allocated-extra-mac-entriesLeaf',
         ),
     ] = None
     """
@@ -2878,7 +2301,6 @@ class UnifiedForwardingResourcesContainer(BaseModel):
             alias='srl_nokia-platform-resource-mgmt:ipv6-128bit-lpm-entries',
             ge=0,
             le=8192,
-            title='Ipv6-128bit-lpm-entriesLeaf',
         ),
     ] = None
     """
@@ -2902,46 +2324,25 @@ class UserContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf4'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -3007,36 +2408,21 @@ class BufferMemoryContainer(BaseModel):
     )
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:used',
-            ge=0,
-            le=18446744073709551615,
-            title='UsedLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-qos:used', ge=0, le=18446744073709551615),
     ] = None
     """
     Used buffer memory, excluding reserved memory.
     """
     free: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:free',
-            ge=0,
-            le=18446744073709551615,
-            title='FreeLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-qos:free', ge=0, le=18446744073709551615),
     ] = None
     """
     Available buffer memory, which equals the total memory less the used memory and the reserved memory.
     """
     reserved: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-qos:reserved',
-            ge=0,
-            le=18446744073709551615,
-            title='ReservedLeaf',
-        ),
+        Field(alias='srl_nokia-platform-qos:reserved', ge=0, le=18446744073709551615),
     ] = None
     """
     Buffer memory reserved for proper system operation and by the user (due to assignment of non-zero CBS for certain queues, on platforms that support CBS).
@@ -3066,9 +2452,7 @@ class CgroupListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-cgroup:name', title='NameLeaf9')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-cgroup:name')] = None
     """
     Name of the cgroup, as defined by its directory location in the filesystem
     """
@@ -3097,7 +2481,6 @@ class ControlPlaneTrafficContainer(BaseModel):
             alias='srl_nokia-platform-lc:queued-aggregate',
             ge=0,
             le=18446744073709551615,
-            title='Queued-aggregateLeaf',
         ),
     ] = 0
     """
@@ -3109,7 +2492,6 @@ class ControlPlaneTrafficContainer(BaseModel):
             alias='srl_nokia-platform-lc:queued-bytes-aggregate',
             ge=0,
             le=18446744073709551615,
-            title='Queued-bytes-aggregateLeaf',
         ),
     ] = 0
     """
@@ -3121,7 +2503,6 @@ class ControlPlaneTrafficContainer(BaseModel):
             alias='srl_nokia-platform-lc:dropped-aggregate',
             ge=0,
             le=18446744073709551615,
-            title='Dropped-aggregateLeaf',
         ),
     ] = 0
     """
@@ -3133,7 +2514,6 @@ class ControlPlaneTrafficContainer(BaseModel):
             alias='srl_nokia-platform-lc:dropped-bytes-aggregate',
             ge=0,
             le=18446744073709551615,
-            title='Dropped-bytes-aggregateLeaf',
         ),
     ] = 0
     """
@@ -3152,48 +2532,28 @@ class ControlContainer(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf5',
-        ),
+        Field(alias='srl_nokia-platform-chassis:allocated', ge=0, le=4294967295),
     ] = None
     """
     Power allocated to components as part of power management
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf5',
-        ),
+        Field(alias='srl_nokia-platform-chassis:required', ge=0, le=4294967295),
     ] = None
     """
     Power required to power on all present admin enabled components as part of power management
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:used',
-            ge=0,
-            le=4294967295,
-            title='UsedLeaf15',
-        ),
+        Field(alias='srl_nokia-platform-chassis:used', ge=0, le=4294967295),
     ] = None
     """
     Used power
     """
     peak: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:peak',
-            ge=0,
-            le=4294967295,
-            title='PeakLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-chassis:peak', ge=0, le=4294967295),
     ] = None
     """
     Peak power used
@@ -3211,30 +2571,21 @@ class ControlListEntry(BaseModel):
     )
     slot: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-platform-secure-boot:slot',
-            pattern='^(?=^A|B$).*$',
-            title='SlotLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:slot', pattern='^(?=^A|B$).*$'),
     ] = None
     """
     Slot identifier for the control module
     """
     oper_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-platform-secure-boot:oper-state', title='Oper-stateLeaf'
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:oper-state'),
     ] = None
     """
     Secure Boot operational state
     """
     root_of_trust: Annotated[
         Optional[EnumerationEnum2],
-        Field(
-            alias='srl_nokia-platform-secure-boot:root-of-trust',
-            title='Root-of-trustLeaf',
-        ),
+        Field(alias='srl_nokia-platform-secure-boot:root-of-trust'),
     ] = None
     """
     Root of Trust for Secure Boot execution
@@ -3260,19 +2611,14 @@ class ControlListEntry2(BaseModel):
     )
     slot: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-platform-tpm:slot',
-            pattern='^(?=^A|B$).*$',
-            title='SlotLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-tpm:slot', pattern='^(?=^A|B$).*$'),
     ] = None
     """
     Slot identifier for the control module.
     The slot identifier is the system wide unique name for the module's TPM
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum3],
-        Field(alias='srl_nokia-platform-tpm:oper-state', title='Oper-stateLeaf2'),
+        Optional[EnumerationEnum3], Field(alias='srl_nokia-platform-tpm:oper-state')
     ] = None
     """
     TPM chip self-test status
@@ -3335,7 +2681,6 @@ class DropCountersContainer(BaseModel):
             alias='srl_nokia-platform-lc:adverse-aggregate',
             ge=0,
             le=18446744073709551615,
-            title='Adverse-aggregateLeaf',
         ),
     ] = 0
     """
@@ -3351,7 +2696,6 @@ class DropCountersContainer(BaseModel):
             alias='srl_nokia-platform-lc:congestion-aggregate',
             ge=0,
             le=18446744073709551615,
-            title='Congestion-aggregateLeaf',
         ),
     ] = 0
     """
@@ -3363,7 +2707,6 @@ class DropCountersContainer(BaseModel):
             alias='srl_nokia-platform-lc:packet-processing-aggregate',
             ge=0,
             le=18446744073709551615,
-            title='Packet-processing-aggregateLeaf',
         ),
     ] = 0
     """
@@ -3377,12 +2720,7 @@ class DropCountersContainer(BaseModel):
     """
     no_route: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-lc:no-route',
-            ge=0,
-            le=18446744073709551615,
-            title='No-routeLeaf',
-        ),
+        Field(alias='srl_nokia-platform-lc:no-route', ge=0, le=18446744073709551615),
     ] = 0
     """
     Aggregation of all counters incremented when packets are dropped due to no FIB entry for an IPv4 or IPv6 packet
@@ -3402,48 +2740,28 @@ class FabricContainer2(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf7',
-        ),
+        Field(alias='srl_nokia-platform-chassis:allocated', ge=0, le=4294967295),
     ] = None
     """
     Power allocated to components as part of power management
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf7',
-        ),
+        Field(alias='srl_nokia-platform-chassis:required', ge=0, le=4294967295),
     ] = None
     """
     Power required to power on all present admin enabled components as part of power management
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:used',
-            ge=0,
-            le=4294967295,
-            title='UsedLeaf17',
-        ),
+        Field(alias='srl_nokia-platform-chassis:used', ge=0, le=4294967295),
     ] = None
     """
     Used power
     """
     peak: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:peak',
-            ge=0,
-            le=4294967295,
-            title='PeakLeaf5',
-        ),
+        Field(alias='srl_nokia-platform-chassis:peak', ge=0, le=4294967295),
     ] = None
     """
     Peak power used
@@ -3461,48 +2779,28 @@ class FanTrayContainer(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-chassis:allocated', ge=0, le=4294967295),
     ] = None
     """
     Power allocated to components as part of power management
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-chassis:required', ge=0, le=4294967295),
     ] = None
     """
     Power required to power on all present admin enabled components as part of power management
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:used',
-            ge=0,
-            le=4294967295,
-            title='UsedLeaf14',
-        ),
+        Field(alias='srl_nokia-platform-chassis:used', ge=0, le=4294967295),
     ] = None
     """
     Used power
     """
     peak: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:peak',
-            ge=0,
-            le=4294967295,
-            title='PeakLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-chassis:peak', ge=0, le=4294967295),
     ] = None
     """
     Peak power used
@@ -3519,53 +2817,31 @@ class ForwarderContainer(BaseModel):
         regex_engine="python-re",
     )
     idle: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-vxdp:idle', ge=0, le=100, title='IdleLeaf2'),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:idle', ge=0, le=100)
     ] = None
     """
     The aggregate idle percentage of threads
     """
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:instant', ge=0, le=100, title='InstantLeaf14'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf10',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf10',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf10',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -3582,46 +2858,25 @@ class HardwareInterruptContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf9'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf7',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf7',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf7',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -3647,8 +2902,7 @@ class HealthzContainer(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum10],
-        Field(alias='srl_nokia-platform-healthz:status', title='StatusLeaf'),
+        Optional[EnumerationEnum10], Field(alias='srl_nokia-platform-healthz:status')
     ] = None
     """
     Health status
@@ -3660,7 +2914,6 @@ class HealthzContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-healthz:last-unhealthy',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-unhealthyLeaf',
         ),
     ] = None
     """
@@ -3676,7 +2929,6 @@ class HealthzContainer(BaseModel):
             alias='srl_nokia-platform-healthz:unhealthy-count',
             ge=0,
             le=18446744073709551615,
-            title='Unhealthy-countLeaf',
         ),
     ] = 0
     """
@@ -3706,8 +2958,7 @@ class HealthzContainer2(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum12],
-        Field(alias='srl_nokia-platform-healthz:status', title='StatusLeaf2'),
+        Optional[EnumerationEnum12], Field(alias='srl_nokia-platform-healthz:status')
     ] = None
     """
     Health status
@@ -3719,7 +2970,6 @@ class HealthzContainer2(BaseModel):
         Field(
             alias='srl_nokia-platform-healthz:last-unhealthy',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-unhealthyLeaf2',
         ),
     ] = None
     """
@@ -3735,7 +2985,6 @@ class HealthzContainer2(BaseModel):
             alias='srl_nokia-platform-healthz:unhealthy-count',
             ge=0,
             le=18446744073709551615,
-            title='Unhealthy-countLeaf2',
         ),
     ] = 0
     """
@@ -3765,8 +3014,7 @@ class HealthzContainer3(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum22],
-        Field(alias='srl_nokia-platform-healthz:status', title='StatusLeaf4'),
+        Optional[EnumerationEnum22], Field(alias='srl_nokia-platform-healthz:status')
     ] = None
     """
     Health status
@@ -3778,7 +3026,6 @@ class HealthzContainer3(BaseModel):
         Field(
             alias='srl_nokia-platform-healthz:last-unhealthy',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-unhealthyLeaf3',
         ),
     ] = None
     """
@@ -3794,7 +3041,6 @@ class HealthzContainer3(BaseModel):
             alias='srl_nokia-platform-healthz:unhealthy-count',
             ge=0,
             le=18446744073709551615,
-            title='Unhealthy-countLeaf3',
         ),
     ] = 0
     """
@@ -3824,8 +3070,7 @@ class HealthzContainer4(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum23],
-        Field(alias='srl_nokia-platform-healthz:status', title='StatusLeaf5'),
+        Optional[EnumerationEnum23], Field(alias='srl_nokia-platform-healthz:status')
     ] = None
     """
     Health status
@@ -3837,7 +3082,6 @@ class HealthzContainer4(BaseModel):
         Field(
             alias='srl_nokia-platform-healthz:last-unhealthy',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-unhealthyLeaf4',
         ),
     ] = None
     """
@@ -3853,7 +3097,6 @@ class HealthzContainer4(BaseModel):
             alias='srl_nokia-platform-healthz:unhealthy-count',
             ge=0,
             le=18446744073709551615,
-            title='Unhealthy-countLeaf4',
         ),
     ] = 0
     """
@@ -3883,8 +3126,7 @@ class HealthzContainer5(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum25],
-        Field(alias='srl_nokia-platform-healthz:status', title='StatusLeaf6'),
+        Optional[EnumerationEnum25], Field(alias='srl_nokia-platform-healthz:status')
     ] = None
     """
     Health status
@@ -3896,7 +3138,6 @@ class HealthzContainer5(BaseModel):
         Field(
             alias='srl_nokia-platform-healthz:last-unhealthy',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-unhealthyLeaf5',
         ),
     ] = None
     """
@@ -3912,7 +3153,6 @@ class HealthzContainer5(BaseModel):
             alias='srl_nokia-platform-healthz:unhealthy-count',
             ge=0,
             le=18446744073709551615,
-            title='Unhealthy-countLeaf5',
         ),
     ] = 0
     """
@@ -3942,8 +3182,7 @@ class HealthzContainer6(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum27],
-        Field(alias='srl_nokia-platform-healthz:status', title='StatusLeaf7'),
+        Optional[EnumerationEnum27], Field(alias='srl_nokia-platform-healthz:status')
     ] = None
     """
     Health status
@@ -3955,7 +3194,6 @@ class HealthzContainer6(BaseModel):
         Field(
             alias='srl_nokia-platform-healthz:last-unhealthy',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-unhealthyLeaf6',
         ),
     ] = None
     """
@@ -3971,7 +3209,6 @@ class HealthzContainer6(BaseModel):
             alias='srl_nokia-platform-healthz:unhealthy-count',
             ge=0,
             le=18446744073709551615,
-            title='Unhealthy-countLeaf6',
         ),
     ] = 0
     """
@@ -4007,46 +3244,25 @@ class IdleContainer(BaseModel):
         regex_engine="python-re",
     )
     instant: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:instant', ge=0, le=100, title='InstantLeaf7'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:instant', ge=0, le=100)
     ] = None
     """
     The instantaneous percentage value
     """
     average_1: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-1',
-            ge=0,
-            le=100,
-            title='Average-1Leaf5',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-1', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last minute
     """
     average_5: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-5',
-            ge=0,
-            le=100,
-            title='Average-5Leaf5',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-5', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last five minutes
     """
     average_15: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:average-15',
-            ge=0,
-            le=100,
-            title='Average-15Leaf5',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-cpu:average-15', ge=0, le=100)
     ] = None
     """
     The arithmetic mean value of this statistic over the last fifteen minutes
@@ -4068,7 +3284,6 @@ class IpRoutesContainer(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-add',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-addLeaf',
         ),
     ] = None
     """
@@ -4080,7 +3295,6 @@ class IpRoutesContainer(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-modify',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-modifyLeaf',
         ),
     ] = None
     """
@@ -4091,7 +3305,6 @@ class IpRoutesContainer(BaseModel):
         Field(
             alias='srl_nokia-ip-route-tables:last-sync-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-sync-timeLeaf',
         ),
     ] = None
     """
@@ -4116,7 +3329,6 @@ class IpRoutesContainer2(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-add',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-addLeaf3',
         ),
     ] = None
     """
@@ -4128,7 +3340,6 @@ class IpRoutesContainer2(BaseModel):
             alias='srl_nokia-ip-route-tables:entries-remaining-to-modify',
             ge=0,
             le=18446744073709551615,
-            title='Entries-remaining-to-modifyLeaf3',
         ),
     ] = None
     """
@@ -4139,7 +3350,6 @@ class IpRoutesContainer2(BaseModel):
         Field(
             alias='srl_nokia-ip-route-tables:last-sync-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-sync-timeLeaf3',
         ),
     ] = None
     """
@@ -4160,48 +3370,28 @@ class LinecardContainer(BaseModel):
     )
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf6',
-        ),
+        Field(alias='srl_nokia-platform-chassis:allocated', ge=0, le=4294967295),
     ] = None
     """
     Power allocated to components as part of power management
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf6',
-        ),
+        Field(alias='srl_nokia-platform-chassis:required', ge=0, le=4294967295),
     ] = None
     """
     Power required to power on all present admin enabled components as part of power management
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:used',
-            ge=0,
-            le=4294967295,
-            title='UsedLeaf16',
-        ),
+        Field(alias='srl_nokia-platform-chassis:used', ge=0, le=4294967295),
     ] = None
     """
     Used power
     """
     peak: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:peak',
-            ge=0,
-            le=4294967295,
-            title='PeakLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-chassis:peak', ge=0, le=4294967295),
     ] = None
     """
     Peak power used
@@ -4236,10 +3426,7 @@ class NextHopListEntry(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-linecard-fib:id', ge=0, le=1023, title='IdLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-linecard-fib:id', ge=0, le=1023)
     ] = None
     """
     Index of the next-hop within the NHG
@@ -4250,7 +3437,6 @@ class NextHopListEntry(BaseModel):
             alias='srl_nokia-platform-linecard-fib:next-hop',
             ge=0,
             le=18446744073709551615,
-            title='Next-hopLeaf',
         ),
     ] = None
     """
@@ -4258,21 +3444,14 @@ class NextHopListEntry(BaseModel):
     """
     oper_state: Annotated[
         Optional[EnumerationEnum8],
-        Field(
-            alias='srl_nokia-platform-linecard-fib:oper-state', title='Oper-stateLeaf6'
-        ),
+        Field(alias='srl_nokia-platform-linecard-fib:oper-state'),
     ] = None
     """
     Operational state of the next-hop member
     """
     normalized_weight: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-linecard-fib:normalized-weight',
-            ge=0,
-            le=255,
-            title='Normalized-weightLeaf',
-        ),
+        Field(alias='srl_nokia-platform-linecard-fib:normalized-weight', ge=0, le=255),
     ] = None
     """
     The normalized weight assigned to the next-hop within the group
@@ -4290,83 +3469,55 @@ class PartitionListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-disk:name', title='NameLeaf12')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-disk:name')] = None
     """
     Name of the partition
     """
-    uuid: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-disk:uuid', title='UuidLeaf')
-    ] = None
+    uuid: Annotated[Optional[str], Field(alias='srl_nokia-platform-disk:uuid')] = None
     """
     UUID of the partition
     """
     mount_point: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-disk:mount-point', title='Mount-pointLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-disk:mount-point')
     ] = None
     """
     Path to where this partition is mounted
     """
     mount_status: Annotated[
-        Optional[EnumerationEnum16],
-        Field(alias='srl_nokia-platform-disk:mount-status', title='Mount-statusLeaf'),
+        Optional[EnumerationEnum16], Field(alias='srl_nokia-platform-disk:mount-status')
     ] = None
     """
     Current mount status of this partition
     """
     size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-disk:size',
-            ge=0,
-            le=18446744073709551615,
-            title='SizeLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-disk:size', ge=0, le=18446744073709551615),
     ] = None
     """
     Size of the partition
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-disk:used',
-            ge=0,
-            le=18446744073709551615,
-            title='UsedLeaf12',
-        ),
+        Field(alias='srl_nokia-platform-disk:used', ge=0, le=18446744073709551615),
     ] = None
     """
     Space used on the partition
     """
     free: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-disk:free',
-            ge=0,
-            le=18446744073709551615,
-            title='FreeLeaf7',
-        ),
+        Field(alias='srl_nokia-platform-disk:free', ge=0, le=18446744073709551615),
     ] = None
     """
     Space free on the partition
     """
     percent_used: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-disk:percent-used',
-            ge=0,
-            le=100,
-            title='Percent-usedLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-disk:percent-used', ge=0, le=100)
     ] = None
     """
     Percentage of the partition in use
     """
     encrypted: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-disk:encrypted', title='EncryptedLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-platform-disk:encrypted')
     ] = None
     """
     Indicates if the partition is encrypted using disk encryption
@@ -4399,7 +3550,7 @@ class PipelineListEntry(BaseModel):
     )
     index: Annotated[
         Optional[Union[IndexLeaf51, EnumerationEnum7]],
-        Field(alias='srl_nokia-platform-lc:index', title='IndexLeaf5'),
+        Field(alias='srl_nokia-platform-lc:index'),
     ] = None
     """
     The pipeline number (TH3 systems) or direction (J2 and J2C+ systems).
@@ -4424,26 +3575,18 @@ class PowerSupplyListEntry(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-psu:id', ge=1, le=255, title='IdLeaf5'),
+        Optional[int], Field(alias='srl_nokia-platform-psu:id', ge=1, le=255)
     ] = None
     """
     Numeric identifier for the power supply module
     """
-    type: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-psu:type', title='TypeLeaf8')
-    ] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-platform-psu:type')] = None
     """
     Power-supply type, as translated from the components EEPROM
     """
     capacity: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-psu:capacity',
-            ge=0,
-            le=4294967295,
-            title='CapacityLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-psu:capacity', ge=0, le=4294967295),
     ] = None
     """
     The total capacity the power supply module can provide
@@ -4461,15 +3604,13 @@ class PowerSupplyListEntry(BaseModel):
         Optional[List[FeedListEntry]], Field(alias='srl_nokia-platform-psu:feed')
     ] = None
     oper_reason: Annotated[
-        Optional[EnumerationEnum26],
-        Field(alias='srl_nokia-platform-psu:oper-reason', title='Oper-reasonLeaf2'),
+        Optional[EnumerationEnum26], Field(alias='srl_nokia-platform-psu:oper-reason')
     ] = None
     """
     Indicates the reason for the current state of the component
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-psu:oper-state', title='Oper-stateLeaf12'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-psu:oper-state')
     ] = None
     """
     The operational state of this component
@@ -4479,7 +3620,6 @@ class PowerSupplyListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-psu:last-booted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-bootedLeaf7',
         ),
     ] = None
     """
@@ -4488,11 +3628,7 @@ class PowerSupplyListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-platform-psu:last-booted-reason',
-            title='Last-booted-reasonLeaf7',
-        ),
+        Optional[Any], Field(alias='srl_nokia-platform-psu:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -4504,31 +3640,25 @@ class PowerSupplyListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-psu:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf7',
         ),
     ] = None
     """
     The date and time this component last changed state
     """
     part_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-psu:part-number', title='Part-numberLeaf7'),
+        Optional[str], Field(alias='srl_nokia-platform-psu:part-number')
     ] = None
     """
     Part number for this component
     """
     removable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-psu:removable', title='RemovableLeaf7'),
+        Optional[bool], Field(alias='srl_nokia-platform-psu:removable')
     ] = None
     """
     Details if this component can be removed from the system
     """
     failure_reason: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-psu:failure-reason', title='Failure-reasonLeaf6'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-psu:failure-reason')
     ] = None
     """
     The reason the component transitioned to a failed state
@@ -4536,15 +3666,13 @@ class PowerSupplyListEntry(BaseModel):
     Field is empty if the component is not currently in a failure state
     """
     clei_code: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-psu:clei-code', title='Clei-codeLeaf6'),
+        Optional[str], Field(alias='srl_nokia-platform-psu:clei-code')
     ] = None
     """
     The Common Language Identification Code for this component
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-psu:serial-number', title='Serial-numberLeaf7'),
+        Optional[str], Field(alias='srl_nokia-platform-psu:serial-number')
     ] = None
     """
     The serial number for this component
@@ -4554,7 +3682,6 @@ class PowerSupplyListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-psu:manufactured-date',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Manufactured-dateLeaf6',
         ),
     ] = None
     """
@@ -4580,19 +3707,12 @@ class ProcessListEntry(BaseModel):
     )
     pid: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:pid',
-            ge=0,
-            le=18446744073709551615,
-            title='PidLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cpu:pid', ge=0, le=18446744073709551615),
     ] = None
     """
     The process ID
     """
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-cpu:name', title='NameLeaf10')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-cpu:name')] = None
     """
     The process name
     """
@@ -4608,7 +3728,6 @@ class ProcessListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-cpu:start-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Start-timeLeaf',
         ),
     ] = None
     """
@@ -4616,12 +3735,7 @@ class ProcessListEntry(BaseModel):
     """
     cpu_utilization: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:cpu-utilization',
-            ge=0,
-            le=100,
-            title='Cpu-utilizationLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cpu:cpu-utilization', ge=0, le=100),
     ] = None
     """
     The percentage of CPU that is being used by the process
@@ -4629,10 +3743,7 @@ class ProcessListEntry(BaseModel):
     memory_usage: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-platform-cpu:memory-usage',
-            ge=0,
-            le=18446744073709551615,
-            title='Memory-usageLeaf',
+            alias='srl_nokia-platform-cpu:memory-usage', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -4640,12 +3751,7 @@ class ProcessListEntry(BaseModel):
     """
     memory_utilization: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-cpu:memory-utilization',
-            ge=0,
-            le=100,
-            title='Memory-utilizationLeaf',
-        ),
+        Field(alias='srl_nokia-platform-cpu:memory-utilization', ge=0, le=100),
     ] = None
     """
     The percentage of RAM that is being used by the process
@@ -4709,8 +3815,7 @@ class RedundancyContainer2(BaseModel):
         regex_engine="python-re",
     )
     mode: Annotated[
-        Optional[EnumerationEnum20],
-        Field(alias='srl_nokia-platform-chassis:mode', title='ModeLeaf'),
+        Optional[EnumerationEnum20], Field(alias='srl_nokia-platform-chassis:mode')
     ] = 'none'
     """
     Set the power redundancy mode in use
@@ -4718,8 +3823,7 @@ class RedundancyContainer2(BaseModel):
     This only sets the level at which power redundancy will be assumed unavailable, and will not result in the powering down of components unless there is insufficient non-redundant power available.
     """
     status: Annotated[
-        Optional[EnumerationEnum21],
-        Field(alias='srl_nokia-platform-chassis:status', title='StatusLeaf3'),
+        Optional[EnumerationEnum21], Field(alias='srl_nokia-platform-chassis:status')
     ] = None
     """
     Current status of the selected power redundancy mode
@@ -4739,8 +3843,7 @@ class ResourceGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-qos:index', ge=0, le=61, title='IndexLeaf9'),
+        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=61)
     ] = None
     resource_sets: Annotated[
         Optional[ResourceSetsContainer],
@@ -4793,20 +3896,14 @@ class ResourceListEntry4(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-platform-datapath-resources:name', title='NameLeaf6'),
+        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the XDP datapath resource
     """
     used_percent: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-datapath-resources:used-percent',
-            ge=0,
-            le=100,
-            title='Used-percentLeaf2',
-        ),
+        Field(alias='srl_nokia-platform-datapath-resources:used-percent', ge=0, le=100),
     ] = None
     """
     The percentage of the resource that is currently used
@@ -4817,7 +3914,6 @@ class ResourceListEntry4(BaseModel):
             alias='srl_nokia-platform-datapath-resources:used-entries',
             ge=0,
             le=4294967295,
-            title='Used-entriesLeaf2',
         ),
     ] = None
     """
@@ -4829,7 +3925,6 @@ class ResourceListEntry4(BaseModel):
             alias='srl_nokia-platform-datapath-resources:free-entries',
             ge=0,
             le=4294967295,
-            title='Free-entriesLeaf2',
         ),
     ] = None
     """
@@ -4841,7 +3936,6 @@ class ResourceListEntry4(BaseModel):
             alias='srl_nokia-platform-datapath-resources:used-high-watermark',
             ge=0,
             le=4294967295,
-            title='Used-high-watermarkLeaf',
         ),
     ] = None
     """
@@ -4852,7 +3946,6 @@ class ResourceListEntry4(BaseModel):
         Field(
             alias='srl_nokia-platform-datapath-resources:used-last-high-watermark-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Used-last-high-watermark-timeLeaf',
         ),
     ] = None
     """
@@ -4861,8 +3954,7 @@ class ResourceListEntry4(BaseModel):
     used_upper_threshold_exceeded: Annotated[
         Optional[bool],
         Field(
-            alias='srl_nokia-platform-datapath-resources:used-upper-threshold-exceeded',
-            title='Used-upper-threshold-exceededLeaf',
+            alias='srl_nokia-platform-datapath-resources:used-upper-threshold-exceeded'
         ),
     ] = None
     """
@@ -4880,20 +3972,14 @@ class ResourceListEntry5(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-platform-datapath-resources:name', title='NameLeaf7'),
+        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the ASIC-specific datapath resource
     """
     used_percent: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-datapath-resources:used-percent',
-            ge=0,
-            le=100,
-            title='Used-percentLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-datapath-resources:used-percent', ge=0, le=100),
     ] = None
     """
     The percentage of the resource that is currently used
@@ -4904,7 +3990,6 @@ class ResourceListEntry5(BaseModel):
             alias='srl_nokia-platform-datapath-resources:used-entries',
             ge=0,
             le=4294967295,
-            title='Used-entriesLeaf3',
         ),
     ] = None
     """
@@ -4916,7 +4001,6 @@ class ResourceListEntry5(BaseModel):
             alias='srl_nokia-platform-datapath-resources:free-entries',
             ge=0,
             le=4294967295,
-            title='Free-entriesLeaf3',
         ),
     ] = None
     """
@@ -4928,7 +4012,6 @@ class ResourceListEntry5(BaseModel):
             alias='srl_nokia-platform-datapath-resources:used-high-watermark',
             ge=0,
             le=4294967295,
-            title='Used-high-watermarkLeaf2',
         ),
     ] = None
     """
@@ -4939,7 +4022,6 @@ class ResourceListEntry5(BaseModel):
         Field(
             alias='srl_nokia-platform-datapath-resources:used-last-high-watermark-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Used-last-high-watermark-timeLeaf2',
         ),
     ] = None
     """
@@ -4948,8 +4030,7 @@ class ResourceListEntry5(BaseModel):
     used_upper_threshold_exceeded: Annotated[
         Optional[bool],
         Field(
-            alias='srl_nokia-platform-datapath-resources:used-upper-threshold-exceeded',
-            title='Used-upper-threshold-exceededLeaf2',
+            alias='srl_nokia-platform-datapath-resources:used-upper-threshold-exceeded'
         ),
     ] = None
     """
@@ -4999,17 +4080,13 @@ class SynchronizationContainer(BaseModel):
         regex_engine="python-re",
     )
     state: Annotated[
-        Optional[EnumerationEnum18],
-        Field(alias='srl_nokia-platform-redundancy:state', title='StateLeaf'),
+        Optional[EnumerationEnum18], Field(alias='srl_nokia-platform-redundancy:state')
     ] = None
     """
     Current synchronization status
     """
     state_reason: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-redundancy:state-reason', title='State-reasonLeaf'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-redundancy:state-reason')
     ] = None
     """
     One or more reasons separated by semicolons for the current synchronization state
@@ -5021,7 +4098,6 @@ class SynchronizationContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-redundancy:last-synchronization',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-synchronizationLeaf',
         ),
     ] = None
     """
@@ -5043,60 +4119,35 @@ class TotalContainer2(BaseModel):
     )
     capacity: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:capacity',
-            ge=0,
-            le=4294967295,
-            title='CapacityLeaf',
-        ),
+        Field(alias='srl_nokia-platform-chassis:capacity', ge=0, le=4294967295),
     ] = None
     """
     Total power capacity provided by all power supplies
     """
     allocated: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:allocated',
-            ge=0,
-            le=4294967295,
-            title='AllocatedLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-chassis:allocated', ge=0, le=4294967295),
     ] = None
     """
     Power allocated to components as part of power management
     """
     required: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:required',
-            ge=0,
-            le=4294967295,
-            title='RequiredLeaf3',
-        ),
+        Field(alias='srl_nokia-platform-chassis:required', ge=0, le=4294967295),
     ] = None
     """
     Power required to power on all present admin enabled components as part of power management
     """
     used: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:used',
-            ge=0,
-            le=4294967295,
-            title='UsedLeaf13',
-        ),
+        Field(alias='srl_nokia-platform-chassis:used', ge=0, le=4294967295),
     ] = None
     """
     Used power
     """
     peak: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:peak',
-            ge=0,
-            le=4294967295,
-            title='PeakLeaf',
-        ),
+        Field(alias='srl_nokia-platform-chassis:peak', ge=0, le=4294967295),
     ] = None
     """
     Peak power used
@@ -5172,7 +4223,7 @@ class CpuListEntry(BaseModel):
     )
     index: Annotated[
         Optional[Union[EnumerationEnum13, IndexLeaf121]],
-        Field(alias='srl_nokia-platform-cpu:index', title='IndexLeaf12'),
+        Field(alias='srl_nokia-platform-cpu:index'),
     ] = None
     """
     CPU index for each processor core on the system
@@ -5180,15 +4231,12 @@ class CpuListEntry(BaseModel):
     On a single-core system, the index should be zero.  The 'all' index signifies an aggregation of the CPU utilization statistics over all cores in the system.
     """
     architecture: Annotated[
-        Optional[EnumerationEnum14],
-        Field(alias='srl_nokia-platform-cpu:architecture', title='ArchitectureLeaf'),
+        Optional[EnumerationEnum14], Field(alias='srl_nokia-platform-cpu:architecture')
     ] = None
     """
     Architecture supported by the CPU
     """
-    type: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-cpu:type', title='TypeLeaf3')
-    ] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-platform-cpu:type')] = None
     """
     Model name of the CPU
     """
@@ -5198,7 +4246,6 @@ class CpuListEntry(BaseModel):
             alias='srl_nokia-platform-cpu:speed',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='SpeedLeaf',
         ),
     ] = None
     """
@@ -5242,55 +4289,37 @@ class CpuListEntry2(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-vxdp:id', ge=0, le=65535, title='IdLeaf7'),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:id', ge=0, le=65535)
     ] = None
     """
     Reference to a CPU within the configured cpu-set
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-vxdp:oper-state', title='Oper-stateLeaf13'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-vxdp:oper-state')
     ] = None
     """
     The operational state of the CPU
     """
     oper_reason: Annotated[
-        Optional[EnumerationEnum28],
-        Field(alias='srl_nokia-platform-vxdp:oper-reason', title='Oper-reasonLeaf3'),
+        Optional[EnumerationEnum28], Field(alias='srl_nokia-platform-vxdp:oper-reason')
     ] = None
     """
     The reason (if any) that this CPU is in its current operational state
     """
     socket_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:socket-id',
-            ge=0,
-            le=255,
-            title='Socket-idLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:socket-id', ge=0, le=255)
     ] = None
     """
     The socket this CPU resides on
     """
     core_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:core-id', ge=0, le=255, title='Core-idLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:core-id', ge=0, le=255)
     ] = None
     """
     The physical core this CPU resides on
     """
     sibling_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:sibling-id',
-            ge=0,
-            le=65535,
-            title='Sibling-idLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-vxdp:sibling-id', ge=0, le=65535)
     ] = None
     """
     The sibling CPU (if any) residing on the same core
@@ -5325,50 +4354,37 @@ class DiskListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-disk:name', title='NameLeaf11')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-disk:name')] = None
     """
     Name of the disk, as defined by its physical location in the system
     """
     model_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-disk:model-number', title='Model-numberLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-disk:model-number')
     ] = None
     """
     Model name of the disk
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-disk:serial-number', title='Serial-numberLeaf3'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-disk:serial-number')
     ] = None
     """
     Serial number of the disk
     """
     size: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-disk:size',
-            ge=0,
-            le=18446744073709551615,
-            title='SizeLeaf',
-        ),
+        Field(alias='srl_nokia-platform-disk:size', ge=0, le=18446744073709551615),
     ] = None
     """
     Total size of the disk
     """
     type: Annotated[
-        Optional[EnumerationEnum15],
-        Field(alias='srl_nokia-platform-disk:type', title='TypeLeaf4'),
+        Optional[EnumerationEnum15], Field(alias='srl_nokia-platform-disk:type')
     ] = None
     """
     Type of disk
     """
     encrypted: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-disk:encrypted', title='EncryptedLeaf'),
+        Optional[bool], Field(alias='srl_nokia-platform-disk:encrypted')
     ] = None
     """
     Indicates if the disk is encrypted
@@ -5392,28 +4408,23 @@ class FabricListEntry(BaseModel):
         regex_engine="python-re",
     )
     slot: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-fabric:slot', ge=1, le=255, title='SlotLeaf5'),
+        Optional[int], Field(alias='srl_nokia-platform-fabric:slot', ge=1, le=255)
     ] = None
     """
     Numeric identifier for the fabric module
     """
-    type: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-fabric:type', title='TypeLeaf6')
-    ] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-platform-fabric:type')] = None
     """
     Fabric module type, as translated from the components EEPROM
     """
     admin_state: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-platform-fabric:admin-state', title='Admin-stateLeaf3'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-platform-fabric:admin-state')
     ] = 'enable'
     """
     The administrative state of this component
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-fabric:oper-state', title='Oper-stateLeaf10'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-fabric:oper-state')
     ] = None
     """
     The operational state of this component
@@ -5423,7 +4434,6 @@ class FabricListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-fabric:last-booted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-bootedLeaf5',
         ),
     ] = None
     """
@@ -5432,11 +4442,7 @@ class FabricListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-platform-fabric:last-booted-reason',
-            title='Last-booted-reasonLeaf5',
-        ),
+        Optional[Any], Field(alias='srl_nokia-platform-fabric:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -5448,32 +4454,25 @@ class FabricListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-fabric:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf5',
         ),
     ] = None
     """
     The date and time this component last changed state
     """
     part_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-fabric:part-number', title='Part-numberLeaf5'),
+        Optional[str], Field(alias='srl_nokia-platform-fabric:part-number')
     ] = None
     """
     Part number for this component
     """
     removable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-fabric:removable', title='RemovableLeaf5'),
+        Optional[bool], Field(alias='srl_nokia-platform-fabric:removable')
     ] = None
     """
     Details if this component can be removed from the system
     """
     failure_reason: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-fabric:failure-reason',
-            title='Failure-reasonLeaf4',
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-fabric:failure-reason')
     ] = None
     """
     The reason the component transitioned to a failed state
@@ -5481,17 +4480,13 @@ class FabricListEntry(BaseModel):
     Field is empty if the component is not currently in a failure state
     """
     clei_code: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-fabric:clei-code', title='Clei-codeLeaf4'),
+        Optional[str], Field(alias='srl_nokia-platform-fabric:clei-code')
     ] = None
     """
     The Common Language Identification Code for this component
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-fabric:serial-number', title='Serial-numberLeaf5'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-fabric:serial-number')
     ] = None
     """
     The serial number for this component
@@ -5501,7 +4496,6 @@ class FabricListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-fabric:manufactured-date',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Manufactured-dateLeaf4',
         ),
     ] = None
     """
@@ -5512,7 +4506,6 @@ class FabricListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-fabric:rebooting-at',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Rebooting-atLeaf4',
         ),
     ] = None
     """
@@ -5524,9 +4517,7 @@ class FabricListEntry(BaseModel):
     """
     locator_state: Annotated[
         Optional[EnumerationEnum9],
-        Field(
-            alias='srl_nokia-platform-fabric:locator-state', title='Locator-stateLeaf3'
-        ),
+        Field(alias='srl_nokia-platform-fabric:locator-state'),
     ] = 'inactive'
     """
     Details if the locator LED is active on this component
@@ -5553,47 +4544,35 @@ class FanTrayListEntry(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-fan:id', ge=1, le=255, title='IdLeaf4'),
+        Optional[int], Field(alias='srl_nokia-platform-fan:id', ge=1, le=255)
     ] = None
     """
     Numeric identifier for the fan tray
     """
-    type: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-fan:type', title='TypeLeaf7')
-    ] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-platform-fan:type')] = None
     """
     Fan tray type, as translated from the components EEPROM
     """
     speed: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-fan:speed', ge=0, le=100, title='SpeedLeaf2'),
+        Optional[int], Field(alias='srl_nokia-platform-fan:speed', ge=0, le=100)
     ] = None
     """
     The current speed of the fan tray
     """
     speed_rpm: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-fan:speed-rpm',
-            ge=0,
-            le=65535,
-            title='Speed-rpmLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-fan:speed-rpm', ge=0, le=65535)
     ] = None
     """
     The current RPM of the fan tray
     """
     oper_reason: Annotated[
-        Optional[EnumerationEnum24],
-        Field(alias='srl_nokia-platform-fan:oper-reason', title='Oper-reasonLeaf'),
+        Optional[EnumerationEnum24], Field(alias='srl_nokia-platform-fan:oper-reason')
     ] = None
     """
     Indicates the reason for the current state of this fan tray
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-fan:oper-state', title='Oper-stateLeaf11'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-fan:oper-state')
     ] = None
     """
     The operational state of this component
@@ -5603,7 +4582,6 @@ class FanTrayListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-fan:last-booted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-bootedLeaf6',
         ),
     ] = None
     """
@@ -5612,11 +4590,7 @@ class FanTrayListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-platform-fan:last-booted-reason',
-            title='Last-booted-reasonLeaf6',
-        ),
+        Optional[Any], Field(alias='srl_nokia-platform-fan:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -5628,31 +4602,25 @@ class FanTrayListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-fan:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf6',
         ),
     ] = None
     """
     The date and time this component last changed state
     """
     part_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-fan:part-number', title='Part-numberLeaf6'),
+        Optional[str], Field(alias='srl_nokia-platform-fan:part-number')
     ] = None
     """
     Part number for this component
     """
     removable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-fan:removable', title='RemovableLeaf6'),
+        Optional[bool], Field(alias='srl_nokia-platform-fan:removable')
     ] = None
     """
     Details if this component can be removed from the system
     """
     failure_reason: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-fan:failure-reason', title='Failure-reasonLeaf5'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-fan:failure-reason')
     ] = None
     """
     The reason the component transitioned to a failed state
@@ -5660,15 +4628,13 @@ class FanTrayListEntry(BaseModel):
     Field is empty if the component is not currently in a failure state
     """
     clei_code: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-fan:clei-code', title='Clei-codeLeaf5'),
+        Optional[str], Field(alias='srl_nokia-platform-fan:clei-code')
     ] = None
     """
     The Common Language Identification Code for this component
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-fan:serial-number', title='Serial-numberLeaf6'),
+        Optional[str], Field(alias='srl_nokia-platform-fan:serial-number')
     ] = None
     """
     The serial number for this component
@@ -5678,15 +4644,13 @@ class FanTrayListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-fan:manufactured-date',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Manufactured-dateLeaf5',
         ),
     ] = None
     """
     The date this component was manufactured
     """
     locator_state: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-platform-fan:locator-state', title='Locator-stateLeaf4'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-platform-fan:locator-state')
     ] = 'inactive'
     """
     Details if the locator LED is active on this component
@@ -5741,8 +4705,7 @@ class InterfaceGroupResourcePoolListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-qos:index', ge=0, le=15, title='IndexLeaf8'),
+        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=15)
     ] = None
     resource_group: Annotated[
         Optional[List[ResourceGroupListEntry]],
@@ -5755,22 +4718,21 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-control:name', title='NameLeaf8')
-    ] = None
+    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-control:name')] = (
+        None
+    )
     """
     Name of a specific control module interface
     """
     admin_state: Annotated[
         Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-platform-control:admin-state', title='Admin-stateLeaf2'),
+        Field(alias='srl_nokia-platform-control:admin-state'),
     ] = None
     """
     Set the administrative state of this interface
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-control:oper-state', title='Oper-stateLeaf8'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-control:oper-state')
     ] = None
     """
     Indicates the current operational state of this interface
@@ -5797,9 +4759,7 @@ class NextHopGroupListEntry(BaseModel):
     """
     oper_state: Annotated[
         Optional[EnumerationEnum8],
-        Field(
-            alias='srl_nokia-platform-linecard-fib:oper-state', title='Oper-stateLeaf5'
-        ),
+        Field(alias='srl_nokia-platform-linecard-fib:oper-state'),
     ] = None
     """
     Operational state of the next-hop group
@@ -5810,18 +4770,13 @@ class NextHopGroupListEntry(BaseModel):
             alias='srl_nokia-platform-linecard-fib:backup-next-hop-group',
             ge=0,
             le=18446744073709551615,
-            title='Backup-next-hop-groupLeaf',
         ),
     ] = None
     """
     The backup next-hop-group for the current group. When all entries within the next-hop group become unusable, the backup next-hop group is used if specified.
     """
     backup_active: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-platform-linecard-fib:backup-active',
-            title='Backup-activeLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-platform-linecard-fib:backup-active')
     ] = None
     """
     When true, this NHG is not being used to forward traffic and its backup NHG is being relied upon to provide reachability
@@ -5873,10 +4828,7 @@ class RedundancyContainer(BaseModel):
     )
     active_module: Annotated[
         Optional[EnumerationEnum17],
-        Field(
-            alias='srl_nokia-platform-redundancy:active-module',
-            title='Active-moduleLeaf',
-        ),
+        Field(alias='srl_nokia-platform-redundancy:active-module'),
     ] = None
     """
     Control module currently active
@@ -5886,7 +4838,6 @@ class RedundancyContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-redundancy:failover-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Failover-timeLeaf',
         ),
     ] = None
     """
@@ -5904,8 +4855,7 @@ class ResourceSetPoolListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-qos:index', ge=0, le=1, title='IndexLeaf7'),
+        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=1)
     ] = None
     """
     Resource-set-pool resources for the given forwarding-complex
@@ -5964,7 +4914,6 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-chassis:secondary-mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Secondary-mac-addressLeaf',
         ),
     ] = None
     """
@@ -5973,28 +4922,21 @@ class ChassisContainer(BaseModel):
     If an IP packet is received on a routed subinterface and it arrives with a DMAC equal to the secondary-mac-address then it is terminated and forwarded exactly the same way it would be forwarded if it had arrived on this subinterface with a DMAC equal to the subinterface MAC address.
     """
     id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:id', ge=0, le=4294967295, title='IdLeaf3'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-chassis:id', ge=0, le=4294967295)
     ] = None
     """
     A user configured chassis ID
 
     This value is not used by the system, but is provided for user convenience.
     """
-    type: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-chassis:type', title='TypeLeaf5')
-    ] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-platform-chassis:type')] = (
+        None
+    )
     """
     The chassis type
     """
     last_boot_type: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-chassis:last-boot-type',
-            title='Last-boot-typeLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-chassis:last-boot-type')
     ] = None
     """
     The type of boot the chassis initialized from
@@ -6006,7 +4948,6 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-chassis:rebooting-at',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Rebooting-atLeaf3',
         ),
     ] = None
     """
@@ -6021,7 +4962,6 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-chassis:hw-mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Hw-mac-addressLeaf',
         ),
     ] = None
     """
@@ -6030,10 +4970,7 @@ class ChassisContainer(BaseModel):
     Read from hardware, or derived from the systems UUID
     """
     slots: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-platform-chassis:slots', ge=0, le=255, title='SlotsLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-platform-chassis:slots', ge=0, le=255)
     ] = None
     """
     The number of line card slots supported by the chassis
@@ -6042,8 +4979,7 @@ class ChassisContainer(BaseModel):
         Optional[PowerContainer3], Field(alias='srl_nokia-platform-chassis:power')
     ] = None
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-chassis:oper-state', title='Oper-stateLeaf9'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-chassis:oper-state')
     ] = None
     """
     The operational state of this component
@@ -6053,7 +4989,6 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-chassis:last-booted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-bootedLeaf4',
         ),
     ] = None
     """
@@ -6062,11 +4997,7 @@ class ChassisContainer(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-platform-chassis:last-booted-reason',
-            title='Last-booted-reasonLeaf4',
-        ),
+        Optional[Any], Field(alias='srl_nokia-platform-chassis:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -6078,32 +5009,25 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-chassis:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf4',
         ),
     ] = None
     """
     The date and time this component last changed state
     """
     part_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-chassis:part-number', title='Part-numberLeaf4'),
+        Optional[str], Field(alias='srl_nokia-platform-chassis:part-number')
     ] = None
     """
     Part number for this component
     """
     removable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-chassis:removable', title='RemovableLeaf4'),
+        Optional[bool], Field(alias='srl_nokia-platform-chassis:removable')
     ] = None
     """
     Details if this component can be removed from the system
     """
     failure_reason: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-chassis:failure-reason',
-            title='Failure-reasonLeaf3',
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-chassis:failure-reason')
     ] = None
     """
     The reason the component transitioned to a failed state
@@ -6111,17 +5035,13 @@ class ChassisContainer(BaseModel):
     Field is empty if the component is not currently in a failure state
     """
     clei_code: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-chassis:clei-code', title='Clei-codeLeaf3'),
+        Optional[str], Field(alias='srl_nokia-platform-chassis:clei-code')
     ] = None
     """
     The Common Language Identification Code for this component
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-chassis:serial-number', title='Serial-numberLeaf4'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-chassis:serial-number')
     ] = None
     """
     The serial number for this component
@@ -6131,7 +5051,6 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-chassis:manufactured-date',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Manufactured-dateLeaf3',
         ),
     ] = None
     """
@@ -6145,7 +5064,6 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-vxdp:uuid',
             pattern='^(?=^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$).*$',
-            title='UuidLeaf2',
         ),
     ] = None
     """
@@ -6153,12 +5071,7 @@ class ChassisContainer(BaseModel):
     """
     mac_address_allocation: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-platform-vxdp:mac-address-allocation',
-            ge=1,
-            le=8192,
-            title='Mac-address-allocationLeaf',
-        ),
+        Field(alias='srl_nokia-platform-vxdp:mac-address-allocation', ge=1, le=8192),
     ] = 1024
     """
     The number of MAC addresses to generate from the chassis MAC address
@@ -6170,7 +5083,6 @@ class ChassisContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-vxdp:mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Mac-addressLeaf',
         ),
     ] = None
     """
@@ -6198,26 +5110,21 @@ class ControlListEntry3(BaseModel):
     )
     slot: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-platform-control:slot',
-            pattern='^(?=^A|B$).*$',
-            title='SlotLeaf4',
-        ),
+        Field(alias='srl_nokia-platform-control:slot', pattern='^(?=^A|B$).*$'),
     ] = None
     """
     Slot identifier for the control module
 
     This is set to 'A' for systems without removable control modules.
     """
-    type: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-control:type', title='TypeLeaf2')
-    ] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-platform-control:type')] = (
+        None
+    )
     """
     Control module type, as translated from the components EEPROM
     """
     role: Annotated[
-        Optional[EnumerationEnum11],
-        Field(alias='srl_nokia-platform-control:role', title='RoleLeaf'),
+        Optional[EnumerationEnum11], Field(alias='srl_nokia-platform-control:role')
     ] = None
     """
     Control module role, detailing active or standby state
@@ -6225,18 +5132,13 @@ class ControlListEntry3(BaseModel):
     This field is not present on systems without removable control modules.
     """
     disk_encrypted: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-platform-control:disk-encrypted',
-            title='Disk-encryptedLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-platform-control:disk-encrypted')
     ] = None
     """
     Indicates if the disk is encrypted on a control module
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-control:oper-state', title='Oper-stateLeaf7'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-control:oper-state')
     ] = None
     """
     The operational state of this component
@@ -6246,7 +5148,6 @@ class ControlListEntry3(BaseModel):
         Field(
             alias='srl_nokia-platform-control:last-booted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-bootedLeaf3',
         ),
     ] = None
     """
@@ -6255,11 +5156,7 @@ class ControlListEntry3(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-platform-control:last-booted-reason',
-            title='Last-booted-reasonLeaf3',
-        ),
+        Optional[Any], Field(alias='srl_nokia-platform-control:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -6271,32 +5168,25 @@ class ControlListEntry3(BaseModel):
         Field(
             alias='srl_nokia-platform-control:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf3',
         ),
     ] = None
     """
     The date and time this component last changed state
     """
     part_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-control:part-number', title='Part-numberLeaf3'),
+        Optional[str], Field(alias='srl_nokia-platform-control:part-number')
     ] = None
     """
     Part number for this component
     """
     removable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-control:removable', title='RemovableLeaf3'),
+        Optional[bool], Field(alias='srl_nokia-platform-control:removable')
     ] = None
     """
     Details if this component can be removed from the system
     """
     failure_reason: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-control:failure-reason',
-            title='Failure-reasonLeaf2',
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-control:failure-reason')
     ] = None
     """
     The reason the component transitioned to a failed state
@@ -6304,17 +5194,13 @@ class ControlListEntry3(BaseModel):
     Field is empty if the component is not currently in a failure state
     """
     clei_code: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-control:clei-code', title='Clei-codeLeaf2'),
+        Optional[str], Field(alias='srl_nokia-platform-control:clei-code')
     ] = None
     """
     The Common Language Identification Code for this component
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-control:serial-number', title='Serial-numberLeaf2'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-control:serial-number')
     ] = None
     """
     The serial number for this component
@@ -6324,7 +5210,6 @@ class ControlListEntry3(BaseModel):
         Field(
             alias='srl_nokia-platform-control:manufactured-date',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Manufactured-dateLeaf2',
         ),
     ] = None
     """
@@ -6343,7 +5228,6 @@ class ControlListEntry3(BaseModel):
         Field(
             alias='srl_nokia-platform-control:rebooting-at',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Rebooting-atLeaf2',
         ),
     ] = None
     """
@@ -6354,11 +5238,7 @@ class ControlListEntry3(BaseModel):
     A non empty value implies that a delayed reboot operation has been triggered for this component, which can be aborted using 'tools platform <component> reboot cancel'.
     """
     software_version: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-control:software-version',
-            title='Software-versionLeaf2',
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-control:software-version')
     ] = None
     """
     Image version version running on this component
@@ -6367,9 +5247,7 @@ class ControlListEntry3(BaseModel):
     """
     locator_state: Annotated[
         Optional[EnumerationEnum9],
-        Field(
-            alias='srl_nokia-platform-control:locator-state', title='Locator-stateLeaf2'
-        ),
+        Field(alias='srl_nokia-platform-control:locator-state'),
     ] = 'inactive'
     """
     Details if the locator LED is active on this component
@@ -6445,8 +5323,7 @@ class ForwardingComplexListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-platform-lc:name', title='NameLeaf2'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-platform-lc:name')
     ] = None
     """
     The identifier of the forwarding complex
@@ -6458,8 +5335,7 @@ class ForwardingComplexListEntry(BaseModel):
     List of interfaces that belong to this forwarding complex
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-lc:oper-state', title='Oper-stateLeaf4'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-lc:oper-state')
     ] = None
     """
     The operational state of this component
@@ -6469,7 +5345,6 @@ class ForwardingComplexListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-lc:last-booted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-bootedLeaf2',
         ),
     ] = None
     """
@@ -6478,11 +5353,7 @@ class ForwardingComplexListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-platform-lc:last-booted-reason',
-            title='Last-booted-reasonLeaf2',
-        ),
+        Optional[Any], Field(alias='srl_nokia-platform-lc:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -6494,22 +5365,19 @@ class ForwardingComplexListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-lc:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf2',
         ),
     ] = None
     """
     The date and time this component last changed state
     """
     part_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-lc:part-number', title='Part-numberLeaf2'),
+        Optional[str], Field(alias='srl_nokia-platform-lc:part-number')
     ] = None
     """
     Part number for this component
     """
     removable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-lc:removable', title='RemovableLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-platform-lc:removable')
     ] = None
     """
     Details if this component can be removed from the system
@@ -6561,22 +5429,19 @@ class LinecardListEntry(BaseModel):
         regex_engine="python-re",
     )
     slot: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-lc:slot', ge=1, le=16, title='SlotLeaf3'),
+        Optional[int], Field(alias='srl_nokia-platform-lc:slot', ge=1, le=16)
     ] = None
     """
     Numeric identifier for the linecard
     """
     admin_state: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-platform-lc:admin-state', title='Admin-stateLeaf'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-platform-lc:admin-state')
     ] = 'enable'
     """
     The administrative state of this component
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-platform-lc:oper-state', title='Oper-stateLeaf3'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-platform-lc:oper-state')
     ] = None
     """
     The operational state of this component
@@ -6586,7 +5451,6 @@ class LinecardListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-lc:last-booted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-bootedLeaf',
         ),
     ] = None
     """
@@ -6595,11 +5459,7 @@ class LinecardListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-platform-lc:last-booted-reason',
-            title='Last-booted-reasonLeaf',
-        ),
+        Optional[Any], Field(alias='srl_nokia-platform-lc:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -6611,29 +5471,25 @@ class LinecardListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-lc:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf',
         ),
     ] = None
     """
     The date and time this component last changed state
     """
     part_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-lc:part-number', title='Part-numberLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-lc:part-number')
     ] = None
     """
     Part number for this component
     """
     removable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-platform-lc:removable', title='RemovableLeaf'),
+        Optional[bool], Field(alias='srl_nokia-platform-lc:removable')
     ] = None
     """
     Details if this component can be removed from the system
     """
     failure_reason: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-lc:failure-reason', title='Failure-reasonLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-lc:failure-reason')
     ] = None
     """
     The reason the component transitioned to a failed state
@@ -6641,15 +5497,13 @@ class LinecardListEntry(BaseModel):
     Field is empty if the component is not currently in a failure state
     """
     clei_code: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-lc:clei-code', title='Clei-codeLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-lc:clei-code')
     ] = None
     """
     The Common Language Identification Code for this component
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-lc:serial-number', title='Serial-numberLeaf'),
+        Optional[str], Field(alias='srl_nokia-platform-lc:serial-number')
     ] = None
     """
     The serial number for this component
@@ -6659,7 +5513,6 @@ class LinecardListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-lc:manufactured-date',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Manufactured-dateLeaf',
         ),
     ] = None
     """
@@ -6670,7 +5523,6 @@ class LinecardListEntry(BaseModel):
         Field(
             alias='srl_nokia-platform-lc:rebooting-at',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Rebooting-atLeaf',
         ),
     ] = None
     """
@@ -6680,9 +5532,7 @@ class LinecardListEntry(BaseModel):
 
     A non empty value implies that a delayed reboot operation has been triggered for this component, which can be aborted using 'tools platform <component> reboot cancel'.
     """
-    type: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-lc:type', title='TypeLeaf')
-    ] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-platform-lc:type')] = None
     """
     Linecard type, as translated from the components EEPROM
     """
@@ -6691,10 +5541,7 @@ class LinecardListEntry(BaseModel):
         Field(alias='srl_nokia-platform-lc:forwarding-complex'),
     ] = None
     software_version: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-platform-lc:software-version', title='Software-versionLeaf'
-        ),
+        Optional[str], Field(alias='srl_nokia-platform-lc:software-version')
     ] = None
     """
     Image version version running on this component
@@ -6702,8 +5549,7 @@ class LinecardListEntry(BaseModel):
     This version is the squashfs version, and may not represent the current per-application versions if versions have been modified after the system has been installed.
     """
     locator_state: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-platform-lc:locator-state', title='Locator-stateLeaf'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-platform-lc:locator-state')
     ] = 'inactive'
     """
     Details if the locator LED is active on this component

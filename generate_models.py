@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 import argparse
+import os
+import subprocess
 import sys
 from pathlib import Path
 from posixpath import expandvars
@@ -35,6 +37,12 @@ def main() -> None:
 
     repo: Repo = collection.repo
     expanded_repo_path = expandvars(repo.path)
+
+    # Checkout the specified version
+    subprocess.run(
+        ["git", "-C", expandvars(repo.path), "checkout", repo.version],
+        check=True,
+    )
 
     # Build the pydantify command
     relay_args: List[str] = []

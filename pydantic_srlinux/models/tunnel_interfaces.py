@@ -22,7 +22,6 @@ class MulticastLimitContainer(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:maximum-entries',
             ge=-2147483648,
             le=2147483647,
-            title='Maximum-entriesLeaf',
         ),
     ] = None
     """
@@ -34,7 +33,6 @@ class MulticastLimitContainer(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:current-usage',
             ge=-2147483648,
             le=2147483647,
-            title='Current-usageLeaf',
         ),
     ] = None
     """
@@ -113,10 +111,7 @@ class IngressContainer(BaseModel):
         regex_engine="python-re",
     )
     vni: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-tunnel-interfaces:vni', ge=1, le=16777215, title='VniLeaf'
-        ),
+        int, Field(alias='srl_nokia-tunnel-interfaces:vni', ge=1, le=16777215)
     ]
     """
     Ingress VXLAN Network Identifier of the VXLAN subinterface.
@@ -140,7 +135,6 @@ class InnerEthernetHeaderContainer2(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces:destination-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Destination-macLeaf',
         ),
     ] = None
     """
@@ -160,8 +154,7 @@ class Ipv4AddressType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Ipv4-addressType',
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
         ),
     ]
     """
@@ -177,8 +170,7 @@ class Ipv6AddressType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Ipv6-addressType',
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
         ),
     ]
     """
@@ -193,31 +185,20 @@ class DestinationListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-tunnel-interfaces:index',
-            ge=0,
-            le=65535,
-            title='IndexLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-tunnel-interfaces:index', ge=0, le=65535)
     ] = None
     """
     Numerical index of the destination member
     """
     admin_state: Annotated[
         Optional[EnumerationEnum5],
-        Field(
-            alias='srl_nokia-tunnel-interfaces:admin-state', title='Admin-stateLeaf2'
-        ),
+        Field(alias='srl_nokia-tunnel-interfaces:admin-state'),
     ] = 'enable'
     """
     Used to enable or disable a particular destination.
     """
     vni: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-tunnel-interfaces:vni', ge=1, le=16777215, title='VniLeaf2'
-        ),
+        Optional[int], Field(alias='srl_nokia-tunnel-interfaces:vni', ge=1, le=16777215)
     ] = None
     """
     Egress VXLAN Network Identifier of the vxlan-interface.
@@ -244,7 +225,6 @@ class GroupListEntry(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf2',
         ),
     ] = None
     """
@@ -252,7 +232,7 @@ class GroupListEntry(BaseModel):
     """
     admin_state: Annotated[
         Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-tunnel-interfaces:admin-state', title='Admin-stateLeaf'),
+        Field(alias='srl_nokia-tunnel-interfaces:admin-state'),
     ] = 'enable'
     """
     Used to enable or disable a destination group
@@ -262,7 +242,6 @@ class GroupListEntry(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
-            title='EsiLeaf',
         ),
     ] = None
     """
@@ -286,7 +265,7 @@ class InnerEthernetHeaderContainer(BaseModel):
     )
     source_mac: Annotated[
         Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-tunnel-interfaces:source-mac', title='Source-macLeaf'),
+        Field(alias='srl_nokia-tunnel-interfaces:source-mac'),
     ] = 'use-system-mac'
     """
     VXLAN inner ethernet source mac-address. Present when the VXLAN tunnel is associated
@@ -297,7 +276,6 @@ class InnerEthernetHeaderContainer(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces:used-source-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Used-source-macLeaf',
         ),
     ] = None
     """
@@ -318,8 +296,7 @@ class MacTypeListEntry(BaseModel):
     type: Annotated[
         Optional[EnumerationEnum6],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type',
-            title='TypeLeaf2',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type'
         ),
     ] = None
     """
@@ -331,7 +308,6 @@ class MacTypeListEntry(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf2',
         ),
     ] = 0
     """
@@ -343,7 +319,6 @@ class MacTypeListEntry(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf2',
         ),
     ] = 0
     """
@@ -355,7 +330,6 @@ class MacTypeListEntry(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf2',
         ),
     ] = 0
     """
@@ -375,8 +349,7 @@ class MacTypeListEntry2(BaseModel):
     type: Annotated[
         Optional[EnumerationEnum6],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type',
-            title='TypeLeaf4',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type'
         ),
     ] = None
     """
@@ -388,7 +361,6 @@ class MacTypeListEntry2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf4',
         ),
     ] = 0
     """
@@ -400,7 +372,6 @@ class MacTypeListEntry2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf4',
         ),
     ] = 0
     """
@@ -412,7 +383,6 @@ class MacTypeListEntry2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf4',
         ),
     ] = 0
     """
@@ -431,10 +401,7 @@ class MacTypeListEntry3(BaseModel):
     )
     type: Annotated[
         Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:type',
-            title='TypeLeaf6',
-        ),
+        Field(alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:type'),
     ] = None
     """
     type of mac addresses in the system
@@ -445,7 +412,6 @@ class MacTypeListEntry3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf6',
         ),
     ] = 0
     """
@@ -457,7 +423,6 @@ class MacTypeListEntry3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf6',
         ),
     ] = 0
     """
@@ -469,7 +434,6 @@ class MacTypeListEntry3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf6',
         ),
     ] = 0
     """
@@ -491,7 +455,6 @@ class MacListEntry(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='AddressLeaf',
         ),
     ] = None
     """
@@ -504,8 +467,7 @@ class MacListEntry(BaseModel):
     type: Annotated[
         Optional[EnumerationEnum6],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type',
-            title='TypeLeaf3',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type'
         ),
     ] = None
     """
@@ -516,7 +478,6 @@ class MacListEntry(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:last-update',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-updateLeaf',
         ),
     ] = None
     """
@@ -525,8 +486,7 @@ class MacListEntry(BaseModel):
     not_programmed_reason: Annotated[
         Optional[EnumerationEnum7],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:not-programmed-reason',
-            title='Not-programmed-reasonLeaf',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:not-programmed-reason'
         ),
     ] = None
     """
@@ -559,7 +519,6 @@ class MacListEntry2(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='AddressLeaf2',
         ),
     ] = None
     """
@@ -572,8 +531,7 @@ class MacListEntry2(BaseModel):
     type: Annotated[
         Optional[EnumerationEnum6],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type',
-            title='TypeLeaf5',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type'
         ),
     ] = None
     """
@@ -584,7 +542,6 @@ class MacListEntry2(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:last-update',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-updateLeaf2',
         ),
     ] = None
     """
@@ -593,8 +550,7 @@ class MacListEntry2(BaseModel):
     not_programmed_reason: Annotated[
         Optional[EnumerationEnum8],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:not-programmed-reason',
-            title='Not-programmed-reasonLeaf2',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:not-programmed-reason'
         ),
     ] = None
     """
@@ -624,7 +580,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf',
         ),
     ] = 0
     """
@@ -636,7 +591,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf',
         ),
     ] = 0
     """
@@ -648,7 +602,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf',
         ),
     ] = 0
     """
@@ -673,7 +626,6 @@ class StatisticsContainer2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf3',
         ),
     ] = 0
     """
@@ -685,7 +637,6 @@ class StatisticsContainer2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf3',
         ),
     ] = 0
     """
@@ -697,7 +648,6 @@ class StatisticsContainer2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf3',
         ),
     ] = 0
     """
@@ -722,7 +672,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf5',
         ),
     ] = 0
     """
@@ -734,7 +683,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf5',
         ),
     ] = 0
     """
@@ -746,7 +694,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf5',
         ),
     ] = 0
     """
@@ -778,8 +725,7 @@ class DestinationListEntry3(BaseModel):
     vtep: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:vtep',
-            title='VtepLeaf2',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:vtep'
         ),
     ] = None
     """
@@ -791,7 +737,6 @@ class DestinationListEntry3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:vni',
             ge=1,
             le=16777215,
-            title='VniLeaf5',
         ),
     ] = None
     """
@@ -800,8 +745,7 @@ class DestinationListEntry3(BaseModel):
     multicast_forwarding: Annotated[
         Optional[EnumerationEnum9],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:multicast-forwarding',
-            title='Multicast-forwardingLeaf',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:multicast-forwarding'
         ),
     ] = None
     """
@@ -813,7 +757,6 @@ class DestinationListEntry3(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:destination-index',
             ge=0,
             le=18446744073709551615,
-            title='Destination-indexLeaf3',
         ),
     ] = None
     """
@@ -822,8 +765,7 @@ class DestinationListEntry3(BaseModel):
     not_programmed_reason: Annotated[
         Optional[EnumerationEnum10],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:not-programmed-reason',
-            title='Not-programmed-reasonLeaf3',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:not-programmed-reason'
         ),
     ] = None
     """
@@ -837,8 +779,7 @@ class EgressContainer(BaseModel):
         regex_engine="python-re",
     )
     source_ip: Annotated[
-        Optional[EnumerationEnum3],
-        Field(alias='srl_nokia-tunnel-interfaces:source-ip', title='Source-ipLeaf'),
+        Optional[EnumerationEnum3], Field(alias='srl_nokia-tunnel-interfaces:source-ip')
     ] = 'use-system-ipv4-address'
     """
     The ip-address that will be used as the source-ip for all vxlan traffic egressing this vxlan-interface.
@@ -906,8 +847,7 @@ class VtepListEntry(BaseModel):
     address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps:address',
-            title='AddressLeaf3',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps:address'
         ),
     ] = None
     """
@@ -919,7 +859,6 @@ class VtepListEntry(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps:vni',
             ge=1,
             le=16777215,
-            title='VniLeaf4',
         ),
     ] = None
     """
@@ -935,8 +874,7 @@ class DestinationListEntry2(BaseModel):
     vtep: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:vtep',
-            title='VtepLeaf',
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:vtep'
         ),
     ] = None
     """
@@ -948,7 +886,6 @@ class DestinationListEntry2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:vni',
             ge=1,
             le=16777215,
-            title='VniLeaf3',
         ),
     ] = None
     """
@@ -960,7 +897,6 @@ class DestinationListEntry2(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:destination-index',
             ge=0,
             le=18446744073709551615,
-            title='Destination-indexLeaf',
         ),
     ] = None
     """
@@ -990,7 +926,6 @@ class EsDestinationListEntry(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
-            title='EsiLeaf2',
         ),
     ] = None
     """
@@ -1003,7 +938,6 @@ class EsDestinationListEntry(BaseModel):
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:destination-index',
             ge=0,
             le=18446744073709551615,
-            title='Destination-indexLeaf2',
         ),
     ] = None
     """
@@ -1084,36 +1018,25 @@ class VxlanInterfaceListEntry(BaseModel):
     )
     index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-tunnel-interfaces:index',
-            ge=0,
-            le=99999999,
-            title='IndexLeaf',
-        ),
+        Field(alias='srl_nokia-tunnel-interfaces:index', ge=0, le=99999999),
     ] = None
     """
     The index of the vxlan-tunnel.
     """
-    type: Annotated[
-        Any, Field(alias='srl_nokia-tunnel-interfaces:type', title='TypeLeaf')
-    ]
+    type: Annotated[Any, Field(alias='srl_nokia-tunnel-interfaces:type')]
     """
     The value of this leaf indicates the context in which the
     vxlan-interface will be used in.
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-tunnel-interfaces:oper-state', title='Oper-stateLeaf'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-tunnel-interfaces:oper-state')
     ] = None
     """
     The operational state of the vxlan-interface
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum2],
-        Field(
-            alias='srl_nokia-tunnel-interfaces:oper-down-reason',
-            title='Oper-down-reasonLeaf',
-        ),
+        Field(alias='srl_nokia-tunnel-interfaces:oper-down-reason'),
     ] = None
     """
     The reason why the vxlan-interface is oper-down
@@ -1148,7 +1071,6 @@ class TunnelInterfaceListEntry(BaseModel):
         Field(
             alias='srl_nokia-tunnel-interfaces:name',
             pattern='^(?=^(vxlan(0|1[0-9][0-9]|2([0-4][0-9]|5[0-5])|[1-9][0-9]|[1-9]))$).*$',
-            title='NameLeaf',
         ),
     ] = None
     """

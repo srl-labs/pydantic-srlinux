@@ -33,7 +33,7 @@ class DscpValueType(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=63, title='Dscp-valueType')]
+    root: Annotated[int, Field(ge=0, le=63)]
     """
     A DiffServ Code Point represented numerically.
     """
@@ -88,9 +88,7 @@ class PrefixListListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:name', title='NameLeaf4')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
     """
     Reference to the name of the IPv4 prefix list
     """
@@ -105,9 +103,7 @@ class PrefixListListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:name', title='NameLeaf7')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
     """
     Reference to the name of the IPv6 prefix list
     """
@@ -426,20 +422,13 @@ class ForwardingComplexListEntry(BaseModel):
         regex_engine="python-re",
     )
     complex_identifier: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-acl:complex-identifier', title='Complex-identifierLeaf'),
+        Optional[str], Field(alias='srl_nokia-acl:complex-identifier')
     ] = None
     """
     A forwarding complex in the format (slot-number,complex-number).
     """
     single_instance: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl:single-instance',
-            ge=0,
-            le=65535,
-            title='Single-instanceLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-acl:single-instance', ge=0, le=65535)
     ] = None
     """
     The number of TCAM entries required to implement this entry if it is applied to only one subinterface and one traffic direction specific to this slot.
@@ -494,48 +483,28 @@ class PolicerContainer(BaseModel):
     )
     conforming_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-acl:conforming-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered conforming by the policer
     """
     conforming_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-acl:conforming-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered conforming by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
     """
     exceeding_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered exceeding by the policer
     """
     exceeding_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered exceeding by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
@@ -555,48 +524,28 @@ class PolicerContainer2(BaseModel):
     )
     conforming_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-packetsLeaf3',
-        ),
+        Field(alias='srl_nokia-acl:conforming-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered conforming by the policer
     """
     conforming_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-octetsLeaf3',
-        ),
+        Field(alias='srl_nokia-acl:conforming-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered conforming by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
     """
     exceeding_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-packetsLeaf3',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered exceeding by the policer
     """
     exceeding_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-octetsLeaf3',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered exceeding by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
@@ -612,9 +561,7 @@ class PrefixListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:name', title='NameLeaf2')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
     """
     Reference to the name of the IPv4 prefix list
     """
@@ -629,9 +576,7 @@ class PrefixListListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:name', title='NameLeaf5')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
     """
     Reference to the name of the IPv6 prefix list
     """
@@ -651,7 +596,6 @@ class PrefixListEntry(BaseModel):
         Field(
             alias='srl_nokia-acl:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
-            title='Ipv4-prefixLeaf',
         ),
     ] = None
     """
@@ -673,7 +617,6 @@ class PrefixListEntry2(BaseModel):
         Field(
             alias='srl_nokia-acl:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
-            title='Ipv6-prefixLeaf',
         ),
     ] = None
     """
@@ -695,7 +638,6 @@ class StatisticsContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf4',
         ),
     ] = None
     """
@@ -703,24 +645,14 @@ class StatisticsContainer2(BaseModel):
     """
     matched_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:matched-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Matched-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-acl:matched-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets matching the entry since it was programmed or since the last clear, considering the mgmt0 subinterface and all subinterfaces of all linecard ports that use the ACL as an input ACL
     """
     matched_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:matched-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Matched-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-acl:matched-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets packets matching the entry since it was programmed or since the last clear, considering the mgmt0 subinterface and all subinterfaces of all linecard ports that use the ACL as an input ACL
@@ -730,7 +662,6 @@ class StatisticsContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:last-match',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-matchLeaf2',
         ),
     ] = None
     """
@@ -752,7 +683,6 @@ class StatisticsContainer3(BaseModel):
         Field(
             alias='srl_nokia-acl:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf5',
         ),
     ] = None
     """
@@ -776,48 +706,28 @@ class StatisticsContainer4(BaseModel):
     )
     conforming_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-packetsLeaf4',
-        ),
+        Field(alias='srl_nokia-acl:conforming-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered conforming by the policer
     """
     conforming_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-octetsLeaf4',
-        ),
+        Field(alias='srl_nokia-acl:conforming-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered conforming by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
     """
     exceeding_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-packetsLeaf4',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered exceeding by the policer
     """
     exceeding_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-octetsLeaf4',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered exceeding by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
@@ -827,7 +737,6 @@ class StatisticsContainer4(BaseModel):
         Field(
             alias='srl_nokia-acl:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf6',
         ),
     ] = None
     """
@@ -848,48 +757,28 @@ class SystemCpuPolicerContainer(BaseModel):
     )
     conforming_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-acl:conforming-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered conforming by the policer
     """
     conforming_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-acl:conforming-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered conforming by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
     """
     exceeding_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered exceeding by the policer
     """
     exceeding_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered exceeding by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
@@ -916,8 +805,7 @@ class SystemCpuPolicerListEntry(BaseModel):
     User-defined name of the policer
     """
     entry_specific: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-acl:entry-specific', title='Entry-specificLeaf'),
+        Optional[bool], Field(alias='srl_nokia-acl:entry-specific')
     ] = False
     """
     If set to false, only one policer instance is created from this template and it is shared by all entries of all cpm-filter ACLs that refer to this policer.
@@ -925,25 +813,13 @@ class SystemCpuPolicerListEntry(BaseModel):
     If set to true, multiple policer instances are created from this template, one for each cpm-filter entry that refers to the policer template.
     """
     peak_packet_rate: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl:peak-packet-rate',
-            ge=1,
-            le=4000000,
-            title='Peak-packet-rateLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-acl:peak-packet-rate', ge=1, le=4000000)
     ] = None
     """
     The maximum number of packets per second (bucket empty/fill rate)
     """
     max_packet_burst: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl:max-packet-burst',
-            ge=16,
-            le=4000000,
-            title='Max-packet-burstLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-acl:max-packet-burst', ge=16, le=4000000)
     ] = 16
     """
     The maximum depth of the policer bucket in number of packets
@@ -986,7 +862,6 @@ class AggregateContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf7',
         ),
     ] = None
     """
@@ -994,48 +869,28 @@ class AggregateContainer(BaseModel):
     """
     conforming_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-packetsLeaf5',
-        ),
+        Field(alias='srl_nokia-acl:conforming-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered conforming by the policer
     """
     conforming_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:conforming-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Conforming-octetsLeaf5',
-        ),
+        Field(alias='srl_nokia-acl:conforming-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered conforming by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
     """
     exceeding_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-packetsLeaf5',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets (actually Ethernet frames) that were considered exceeding by the policer
     """
     exceeding_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:exceeding-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Exceeding-octetsLeaf5',
-        ),
+        Field(alias='srl_nokia-acl:exceeding-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of bytes that were considered exceeding by the policer. The byte count includes 18 bytes of Ethernet overhead for every IP packet.
@@ -1056,7 +911,6 @@ class DestinationIpContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
-            title='PrefixLeaf',
         ),
     ] = None
     """
@@ -1070,7 +924,6 @@ class DestinationIpContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='AddressLeaf',
         ),
     ] = None
     """
@@ -1081,7 +934,6 @@ class DestinationIpContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:mask',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='MaskLeaf',
         ),
     ] = None
     """
@@ -1103,7 +955,6 @@ class DestinationIpContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
-            title='PrefixLeaf3',
         ),
     ] = None
     """
@@ -1117,7 +968,6 @@ class DestinationIpContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='AddressLeaf3',
         ),
     ] = None
     """
@@ -1128,7 +978,6 @@ class DestinationIpContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:mask',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='MaskLeaf3',
         ),
     ] = None
     """
@@ -1146,10 +995,7 @@ class EntryListEntry2(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl:sequence-id', ge=0, le=65535, title='Sequence-idLeaf2'
-        ),
+        Optional[int], Field(alias='srl_nokia-acl:sequence-id', ge=0, le=65535)
     ] = None
     """
     Reference to type entry ID key
@@ -1172,24 +1018,19 @@ class ForwardingComplexListEntry2(BaseModel):
         regex_engine="python-re",
     )
     slot_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-acl:slot-id', ge=0, le=255, title='Slot-idLeaf'),
+        Optional[int], Field(alias='srl_nokia-acl:slot-id', ge=0, le=255)
     ] = None
     """
     The slot id
     """
     complex_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-acl:complex-id', ge=0, le=1, title='Complex-idLeaf'),
+        Optional[int], Field(alias='srl_nokia-acl:complex-id', ge=0, le=1)
     ] = None
     """
     The complex id
     """
     programming_complete: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-acl:programming-complete', title='Programming-completeLeaf'
-        ),
+        Optional[bool], Field(alias='srl_nokia-acl:programming-complete')
     ] = None
     """
     Reads false when there are still pending entries to program from prior configuration transactions
@@ -1201,7 +1042,6 @@ class ForwardingComplexListEntry2(BaseModel):
         Field(
             alias='srl_nokia-acl:last-completed-timestamp',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-completed-timestampLeaf',
         ),
     ] = None
     """
@@ -1222,7 +1062,7 @@ class Icmp6Container(BaseModel):
     )
     type: Annotated[
         Optional[Union[Icmp6TypeType1, EnumerationEnum5]],
-        Field(alias='srl_nokia-acl:type', title='TypeLeaf3'),
+        Field(alias='srl_nokia-acl:type'),
     ] = None
     """
     Match a single ICMPv6 type value
@@ -1250,7 +1090,7 @@ class IcmpContainer(BaseModel):
     )
     type: Annotated[
         Optional[Union[IcmpTypeType1, EnumerationEnum3]],
-        Field(alias='srl_nokia-acl:type', title='TypeLeaf2'),
+        Field(alias='srl_nokia-acl:type'),
     ] = None
     """
     Match a single ICMP type value.
@@ -1280,12 +1120,7 @@ class Ipv4PrefixListListEntry(BaseModel):
     """
     description: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-acl:description',
-            max_length=255,
-            min_length=1,
-            title='DescriptionLeaf3',
-        ),
+        Field(alias='srl_nokia-acl:description', max_length=255, min_length=1),
     ] = None
     """
     Description string for the prefix list
@@ -1310,12 +1145,7 @@ class Ipv6PrefixListListEntry(BaseModel):
     """
     description: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-acl:description',
-            max_length=255,
-            min_length=1,
-            title='DescriptionLeaf4',
-        ),
+        Field(alias='srl_nokia-acl:description', max_length=255, min_length=1),
     ] = None
     """
     Description string for the prefix list
@@ -1355,14 +1185,14 @@ class RangeContainer(BaseModel):
     )
     start: Annotated[
         Optional[Union[L4PortTypeType1, EnumerationEnum7]],
-        Field(alias='srl_nokia-acl:start', title='StartLeaf'),
+        Field(alias='srl_nokia-acl:start'),
     ] = None
     """
     The starting port number to include in the range
     """
     end: Annotated[
         Optional[Union[L4PortTypeType1, EnumerationEnum7]],
-        Field(alias='srl_nokia-acl:end', title='EndLeaf'),
+        Field(alias='srl_nokia-acl:end'),
     ] = None
     """
     The ending port number to include in the range
@@ -1380,14 +1210,14 @@ class RangeContainer2(BaseModel):
     )
     start: Annotated[
         Optional[Union[L4PortTypeType1, EnumerationEnum7]],
-        Field(alias='srl_nokia-acl:start', title='StartLeaf2'),
+        Field(alias='srl_nokia-acl:start'),
     ] = None
     """
     The starting port number to include in the range
     """
     end: Annotated[
         Optional[Union[L4PortTypeType1, EnumerationEnum7]],
-        Field(alias='srl_nokia-acl:end', title='EndLeaf2'),
+        Field(alias='srl_nokia-acl:end'),
     ] = None
     """
     The ending port number to include in the range
@@ -1408,7 +1238,6 @@ class RateLimitContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:system-cpu-policer',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='System-cpu-policerLeaf',
         ),
     ] = None
     """
@@ -1419,7 +1248,6 @@ class RateLimitContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:policer',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='PolicerLeaf',
         ),
     ] = None
     """
@@ -1441,7 +1269,6 @@ class SourceIpContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
-            title='PrefixLeaf2',
         ),
     ] = None
     """
@@ -1455,7 +1282,6 @@ class SourceIpContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='AddressLeaf2',
         ),
     ] = None
     """
@@ -1466,7 +1292,6 @@ class SourceIpContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:mask',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='MaskLeaf2',
         ),
     ] = None
     """
@@ -1488,7 +1313,6 @@ class SourceIpContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
-            title='PrefixLeaf4',
         ),
     ] = None
     """
@@ -1502,7 +1326,6 @@ class SourceIpContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='AddressLeaf4',
         ),
     ] = None
     """
@@ -1513,7 +1336,6 @@ class SourceIpContainer2(BaseModel):
         Field(
             alias='srl_nokia-acl:mask',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='MaskLeaf4',
         ),
     ] = None
     """
@@ -1533,8 +1355,7 @@ class SourcePortContainer(BaseModel):
         regex_engine="python-re",
     )
     operator: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-acl:operator', title='OperatorLeaf2'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-acl:operator')
     ] = None
     """
     Comparison operator
@@ -1545,7 +1366,7 @@ class SourcePortContainer(BaseModel):
     """
     value: Annotated[
         Optional[Union[L4PortTypeType1, EnumerationEnum7]],
-        Field(alias='srl_nokia-acl:value', title='ValueLeaf2'),
+        Field(alias='srl_nokia-acl:value'),
     ] = None
     """
     A source port number
@@ -1569,7 +1390,6 @@ class StatisticsContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf3',
         ),
     ] = None
     """
@@ -1577,24 +1397,14 @@ class StatisticsContainer(BaseModel):
     """
     matched_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:matched-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Matched-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-acl:matched-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of packets matching the entry since it was programmed or since the last clear, considering the mgmt0 subinterface and all subinterfaces of all linecard ports that use the ACL as an input ACL
     """
     matched_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-acl:matched-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Matched-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-acl:matched-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The number of octets packets matching the entry since it was programmed or since the last clear, considering the mgmt0 subinterface and all subinterfaces of all linecard ports that use the ACL as an input ACL
@@ -1604,7 +1414,6 @@ class StatisticsContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:last-match',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-matchLeaf',
         ),
     ] = None
     """
@@ -1641,15 +1450,11 @@ class AclFilterListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:name', title='NameLeaf13')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
     """
     ACL Filter policy name
     """
-    type: Annotated[
-        Optional[EnumerationEnum], Field(alias='srl_nokia-acl:type', title='TypeLeaf4')
-    ] = None
+    type: Annotated[Optional[EnumerationEnum], Field(alias='srl_nokia-acl:type')] = None
     """
     Defines the type of ACL filter:
     ipv4: IPv4 ACL filter
@@ -1688,8 +1493,7 @@ class DestinationPortContainer(BaseModel):
         regex_engine="python-re",
     )
     operator: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-acl:operator', title='OperatorLeaf'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-acl:operator')
     ] = None
     """
     Comparison operator
@@ -1700,7 +1504,7 @@ class DestinationPortContainer(BaseModel):
     """
     value: Annotated[
         Optional[Union[L4PortTypeType1, EnumerationEnum7]],
-        Field(alias='srl_nokia-acl:value', title='ValueLeaf'),
+        Field(alias='srl_nokia-acl:value'),
     ] = None
     """
     A destination port number
@@ -1736,17 +1540,12 @@ class InterfaceRefContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:interface', title='InterfaceLeaf')
-    ] = None
+    interface: Annotated[Optional[str], Field(alias='srl_nokia-acl:interface')] = None
     """
     Reference to a base interface, for example a port or LAG
     """
     subinterface: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl:subinterface', ge=0, le=9999, title='SubinterfaceLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-acl:subinterface', ge=0, le=9999)
     ] = None
     """
     Reference to a subinterface
@@ -1765,8 +1564,7 @@ class InterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     interface_id: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-acl:interface-id', title='Interface-idLeaf'),
+        Optional[str], Field(alias='srl_nokia-acl:interface-id')
     ] = None
     """
     Identifier for the interface or subinterface.
@@ -1798,17 +1596,14 @@ class Ipv4Container(BaseModel):
     """
     A list of DSCP values to be matched for incoming packets. An OR match should be performed, such that a packet must match one of the values defined in this list. If the field is left empty then any DSCP value matches.
     """
-    fragment: Annotated[
-        Optional[bool], Field(alias='srl_nokia-acl:fragment', title='FragmentLeaf')
-    ] = None
+    fragment: Annotated[Optional[bool], Field(alias='srl_nokia-acl:fragment')] = None
     """
     Match an IPv4 fragment
 
     A packet matches the true condition if the IPv4 header indicates that the fragment-offset is zero and and the more-fragments bit is 1 or if the IPv4 header indicates that the fragment-offset is greater than 0. A packet matches the false condition if it is unfragmented.
     """
     first_fragment: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-acl:first-fragment', title='First-fragmentLeaf'),
+        Optional[bool], Field(alias='srl_nokia-acl:first-fragment')
     ] = None
     """
     Match the first fragment of an IPv4 datagram
@@ -1820,7 +1615,7 @@ class Ipv4Container(BaseModel):
     icmp: Annotated[Optional[IcmpContainer], Field(alias='srl_nokia-acl:icmp')] = None
     protocol: Annotated[
         Optional[Union[IpProtocolTypeType1, EnumerationEnum4]],
-        Field(alias='srl_nokia-acl:protocol', title='ProtocolLeaf'),
+        Field(alias='srl_nokia-acl:protocol'),
     ] = None
     """
     An IPv4 packet matches this condition if its IP protocol type field matches the specified value
@@ -1854,7 +1649,7 @@ class Ipv6Container(BaseModel):
     )
     next_header: Annotated[
         Optional[Union[IpProtocolTypeType1, EnumerationEnum4]],
-        Field(alias='srl_nokia-acl:next-header', title='Next-headerLeaf'),
+        Field(alias='srl_nokia-acl:next-header'),
     ] = None
     """
     An IPv6 packet matches this condition if its first next-header field (in the IPv6 fixed header) contains the specified value
@@ -1871,7 +1666,7 @@ class NextHopContainer(BaseModel):
     )
     address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-acl:address', title='AddressLeaf5'),
+        Field(alias='srl_nokia-acl:address'),
     ] = None
     """
     IP address of next hop to forward matching packets.
@@ -1897,10 +1692,9 @@ class PolicerListEntry(BaseModel):
     """
     User-defined name of the policer
     """
-    scope: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-acl:scope', title='ScopeLeaf'),
-    ] = 'global'
+    scope: Annotated[Optional[EnumerationEnum9], Field(alias='srl_nokia-acl:scope')] = (
+        'global'
+    )
     """
     Controls the instantiation of the policer between subinterfaces
 
@@ -1909,19 +1703,13 @@ class PolicerListEntry(BaseModel):
     subinterface: policer is instantiated per subinterface and per direction, requires filter subinterface-specific input-and-ouput
     """
     peak_rate: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl:peak-rate', ge=1, le=800000000, title='Peak-rateLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-acl:peak-rate', ge=1, le=800000000)
     ] = None
     """
     The PIR rate in kbps (bucket empty/fill rate).
     """
     max_burst: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-acl:max-burst', ge=1, le=125000000, title='Max-burstLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-acl:max-burst', ge=1, le=125000000)
     ] = None
     """
     The MBS bucket depth in bytes
@@ -1970,7 +1758,6 @@ class TransportContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:tcp-flags',
             pattern='^(?=^(\\(|\\)|&|\\||!|ack|rst|syn)+$).*$',
-            title='Tcp-flagsLeaf',
         ),
     ] = None
     """
@@ -1997,7 +1784,6 @@ class MatchContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:network-instance',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-            title='Network-instanceLeaf',
         ),
     ] = None
     """
@@ -2043,15 +1829,13 @@ class AcceptContainer(BaseModel):
         Field(
             alias='srl_nokia-acl:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Forwarding-classLeaf',
         ),
     ] = None
     """
     The QoS forwarding class to which the packet is mapped
     """
     profile: Annotated[
-        Optional[EnumerationEnum8],
-        Field(alias='srl_nokia-acl:profile', title='ProfileLeaf'),
+        Optional[EnumerationEnum8], Field(alias='srl_nokia-acl:profile')
     ] = None
     """
     The QoS profile to which the packet is mapped
@@ -2088,8 +1872,7 @@ class ActionContainer(BaseModel):
         Field(alias='srl_nokia-acl:action'),
     ] = None
     collect_stats: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-acl:collect-stats', title='Collect-statsLeaf'),
+        Optional[bool], Field(alias='srl_nokia-acl:collect-stats')
     ] = False
     """
     Collect statistics for each entry of the ACL. If this is set to false no hardware resources are allocated to collecting statistics for this ACL entry.
@@ -2113,12 +1896,7 @@ class EntryListEntry(BaseModel):
     """
     description: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-acl:description',
-            max_length=255,
-            min_length=1,
-            title='DescriptionLeaf2',
-        ),
+        Field(alias='srl_nokia-acl:description', max_length=255, min_length=1),
     ] = None
     """
     Description string for the filter entry
@@ -2128,7 +1906,6 @@ class EntryListEntry(BaseModel):
         Field(
             alias='srl_nokia-acl:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf2',
         ),
     ] = None
     """
@@ -2170,12 +1947,7 @@ class AclFilterListEntry(BaseModel):
     """
     description: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-acl:description',
-            max_length=255,
-            min_length=1,
-            title='DescriptionLeaf',
-        ),
+        Field(alias='srl_nokia-acl:description', max_length=255, min_length=1),
     ] = None
     """
     Description string for the filter policy
@@ -2185,7 +1957,6 @@ class AclFilterListEntry(BaseModel):
         Field(
             alias='srl_nokia-acl:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf',
         ),
     ] = None
     """
@@ -2222,17 +1993,13 @@ class AclContainer(BaseModel):
         Optional[MatchListContainer], Field(alias='srl_nokia-acl:match-list')
     ] = None
     tcam_profile: Annotated[
-        Optional[EnumerationEnum10],
-        Field(alias='srl_nokia-acl:tcam-profile', title='Tcam-profileLeaf'),
+        Optional[EnumerationEnum10], Field(alias='srl_nokia-acl:tcam-profile')
     ] = None
     """
     Specify the TCAM resource management profile
     """
     egress_mac_filtering: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-acl:egress-mac-filtering', title='Egress-mac-filteringLeaf'
-        ),
+        Optional[bool], Field(alias='srl_nokia-acl:egress-mac-filtering')
     ] = False
     """
     Must be set to true in order to apply any MAC ACLs to any subinterface in the egress traffic direction.

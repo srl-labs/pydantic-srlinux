@@ -84,8 +84,7 @@ class Ipv4AddressType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Ipv4-addressType',
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
         ),
     ]
     """
@@ -101,8 +100,7 @@ class Ipv6AddressType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Ipv6-addressType',
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
         ),
     ]
     """
@@ -125,7 +123,6 @@ class AsyncContainer(BaseModel):
         Field(
             alias='srl_nokia-bfd:last-packet-transmitted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-packet-transmittedLeaf',
         ),
     ] = None
     """
@@ -136,7 +133,6 @@ class AsyncContainer(BaseModel):
         Field(
             alias='srl_nokia-bfd:last-packet-received',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-packet-receivedLeaf',
         ),
     ] = None
     """
@@ -144,36 +140,21 @@ class AsyncContainer(BaseModel):
     """
     transmitted_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:transmitted-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Transmitted-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:transmitted-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Counter for the number of BFD packets transmitted for this session
     """
     received_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:received-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Received-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:received-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Counter for the number of BFD packets received for this session
     """
     up_transitions: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:up-transitions',
-            ge=0,
-            le=18446744073709551615,
-            title='Up-transitionsLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:up-transitions', ge=0, le=18446744073709551615),
     ] = 0
     """
     Counter for the number of UP transitions for this BFD session
@@ -184,7 +165,6 @@ class AsyncContainer(BaseModel):
             alias='srl_nokia-bfd:received-errored-packets',
             ge=0,
             le=18446744073709551615,
-            title='Received-errored-packetsLeaf',
         ),
     ] = 0
     """
@@ -195,7 +175,6 @@ class AsyncContainer(BaseModel):
         Field(
             alias='srl_nokia-bfd:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf',
         ),
     ] = None
     """
@@ -217,7 +196,6 @@ class AsyncContainer2(BaseModel):
         Field(
             alias='srl_nokia-micro-bfd:last-packet-transmitted',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-packet-transmittedLeaf2',
         ),
     ] = None
     """
@@ -228,7 +206,6 @@ class AsyncContainer2(BaseModel):
         Field(
             alias='srl_nokia-micro-bfd:last-packet-received',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-packet-receivedLeaf2',
         ),
     ] = None
     """
@@ -240,7 +217,6 @@ class AsyncContainer2(BaseModel):
             alias='srl_nokia-micro-bfd:transmitted-packets',
             ge=0,
             le=18446744073709551615,
-            title='Transmitted-packetsLeaf2',
         ),
     ] = 0
     """
@@ -249,10 +225,7 @@ class AsyncContainer2(BaseModel):
     received_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-micro-bfd:received-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Received-packetsLeaf2',
+            alias='srl_nokia-micro-bfd:received-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -261,10 +234,7 @@ class AsyncContainer2(BaseModel):
     up_transitions: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-micro-bfd:up-transitions',
-            ge=0,
-            le=18446744073709551615,
-            title='Up-transitionsLeaf2',
+            alias='srl_nokia-micro-bfd:up-transitions', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -276,7 +246,6 @@ class AsyncContainer2(BaseModel):
             alias='srl_nokia-micro-bfd:received-errored-packets',
             ge=0,
             le=18446744073709551615,
-            title='Received-errored-packetsLeaf2',
         ),
     ] = 0
     """
@@ -287,7 +256,6 @@ class AsyncContainer2(BaseModel):
         Field(
             alias='srl_nokia-micro-bfd:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf2',
         ),
     ] = None
     """
@@ -304,26 +272,20 @@ class MemberInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-micro-bfd:name', title='NameLeaf4')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-micro-bfd:name')] = None
     """
     Reference ID for associated interface
     Example: ethernet-2/1 (Reference Interface ethernet-2/1).
     """
     session_state: Annotated[
-        Optional[EnumerationEnum7],
-        Field(alias='srl_nokia-micro-bfd:session-state', title='Session-stateLeaf2'),
+        Optional[EnumerationEnum7], Field(alias='srl_nokia-micro-bfd:session-state')
     ] = None
     """
     The state of the BFD session perceived by the local system
     """
     remote_session_state: Annotated[
         Optional[EnumerationEnum7],
-        Field(
-            alias='srl_nokia-micro-bfd:remote-session-state',
-            title='Remote-session-stateLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:remote-session-state'),
     ] = None
     """
     The reported state of the BFD session according to the remote system
@@ -335,7 +297,6 @@ class MemberInterfaceListEntry(BaseModel):
         Field(
             alias='srl_nokia-micro-bfd:last-state-transition',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-state-transitionLeaf2',
         ),
     ] = None
     """
@@ -347,7 +308,6 @@ class MemberInterfaceListEntry(BaseModel):
         Field(
             alias='srl_nokia-micro-bfd:last-failure-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-failure-timeLeaf2',
         ),
     ] = None
     """
@@ -359,7 +319,6 @@ class MemberInterfaceListEntry(BaseModel):
             alias='srl_nokia-micro-bfd:failure-transitions',
             ge=0,
             le=18446744073709551615,
-            title='Failure-transitionsLeaf2',
         ),
     ] = None
     """
@@ -367,44 +326,28 @@ class MemberInterfaceListEntry(BaseModel):
     """
     local_discriminator: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-micro-bfd:local-discriminator',
-            ge=0,
-            le=4294967295,
-            title='Local-discriminatorLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:local-discriminator', ge=0, le=4294967295),
     ] = None
     """
     BFD session local discriminator
     """
     remote_discriminator: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-micro-bfd:remote-discriminator',
-            ge=0,
-            le=4294967295,
-            title='Remote-discriminatorLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:remote-discriminator', ge=0, le=4294967295),
     ] = None
     """
     A unique identifier used by the remote system to identify this BFD session
     """
     local_diagnostic_code: Annotated[
         Optional[EnumerationEnum8],
-        Field(
-            alias='srl_nokia-micro-bfd:local-diagnostic-code',
-            title='Local-diagnostic-codeLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:local-diagnostic-code'),
     ] = None
     """
     The local BFD diagnostic code indicating the most recent reason for failure of this BFD session
     """
     remote_diagnostic_code: Annotated[
         Optional[EnumerationEnum8],
-        Field(
-            alias='srl_nokia-micro-bfd:remote-diagnostic-code',
-            title='Remote-diagnostic-codeLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:remote-diagnostic-code'),
     ] = None
     """
     The remote BFD diagnostic code indicating the remote system's reason for failure of the BFD session
@@ -415,7 +358,6 @@ class MemberInterfaceListEntry(BaseModel):
             alias='srl_nokia-micro-bfd:remote-minimum-receive-interval',
             ge=0,
             le=4294967295,
-            title='Remote-minimum-receive-intervalLeaf2',
         ),
     ] = None
     """
@@ -426,10 +368,7 @@ class MemberInterfaceListEntry(BaseModel):
     """
     remote_control_plane_independent: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-micro-bfd:remote-control-plane-independent',
-            title='Remote-control-plane-independentLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:remote-control-plane-independent'),
     ] = None
     """
     Indicates if the remote neighbor has set the control independent flag
@@ -437,10 +376,7 @@ class MemberInterfaceListEntry(BaseModel):
     active_transmit_interval: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-micro-bfd:active-transmit-interval',
-            ge=0,
-            le=4294967295,
-            title='Active-transmit-intervalLeaf2',
+            alias='srl_nokia-micro-bfd:active-transmit-interval', ge=0, le=4294967295
         ),
     ] = None
     """
@@ -451,12 +387,7 @@ class MemberInterfaceListEntry(BaseModel):
     """
     active_receive_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-micro-bfd:active-receive-interval',
-            ge=0,
-            le=4294967295,
-            title='Active-receive-intervalLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:active-receive-interval', ge=0, le=4294967295),
     ] = None
     """
     The receive interval currently being used by this BFD session
@@ -466,12 +397,7 @@ class MemberInterfaceListEntry(BaseModel):
     """
     remote_multiplier: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-micro-bfd:remote-multiplier',
-            ge=0,
-            le=255,
-            title='Remote-multiplierLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:remote-multiplier', ge=0, le=255),
     ] = None
     """
     The current number of packets that must be missed to declare the session as down
@@ -493,14 +419,13 @@ class SubinterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[str], Field(alias='srl_nokia-bfd:id', title='IdLeaf')] = None
+    id: Annotated[Optional[str], Field(alias='srl_nokia-bfd:id')] = None
     """
     Reference ID for associated subinterface
     Example: ethernet-2/1.100 (Reference Interface ethernet-2/1, subinterface 100).
     """
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-bfd:admin-state', title='Admin-stateLeaf'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-bfd:admin-state')
     ] = 'disable'
     """
     Administratively enable or disable BFD for this subinterface
@@ -511,7 +436,6 @@ class SubinterfaceListEntry(BaseModel):
             alias='srl_nokia-bfd:desired-minimum-transmit-interval',
             ge=10000,
             le=100000000,
-            title='Desired-minimum-transmit-intervalLeaf',
         ),
     ] = 1000000
     """
@@ -524,12 +448,7 @@ class SubinterfaceListEntry(BaseModel):
     """
     required_minimum_receive: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:required-minimum-receive',
-            ge=10000,
-            le=100000000,
-            title='Required-minimum-receiveLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:required-minimum-receive', ge=10000, le=100000000),
     ] = 1000000
     """
     The minimum interval between received BFD control packets that this system should support
@@ -539,13 +458,7 @@ class SubinterfaceListEntry(BaseModel):
     This value is specified as an integer number of microseconds.
     """
     detection_multiplier: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-bfd:detection-multiplier',
-            ge=3,
-            le=20,
-            title='Detection-multiplierLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-bfd:detection-multiplier', ge=3, le=20)
     ] = 3
     """
     The number of packets that must be missed to declare this session as down
@@ -555,12 +468,7 @@ class SubinterfaceListEntry(BaseModel):
     """
     minimum_echo_receive_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:minimum-echo-receive-interval',
-            ge=0,
-            le=100000000,
-            title='Minimum-echo-receive-intervalLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:minimum-echo-receive-interval', ge=0, le=100000000),
     ] = 0
     """
     The minimum interval between echo packets the local node can receive
@@ -568,10 +476,7 @@ class SubinterfaceListEntry(BaseModel):
     Implicitly enabled echo mode on the associated interface.
     """
     max_hop_count: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-bfd:max-hop-count', ge=2, le=255, title='Max-hop-countLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-bfd:max-hop-count', ge=2, le=255)
     ] = 255
     """
     TTL to be used in the BFD IP header for multihop BFD.
@@ -587,30 +492,27 @@ class LagInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-micro-bfd:name', title='NameLeaf2')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-micro-bfd:name')] = None
     """
     Reference ID for associated lag interface
     Example: lag1 (Reference Interface lag1).
     """
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-micro-bfd:admin-state', title='Admin-stateLeaf2'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-micro-bfd:admin-state')
     ] = 'disable'
     """
     Administratively enable or disable BFD for this subinterface
     """
     local_address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-micro-bfd:local-address', title='Local-addressLeaf2'),
+        Field(alias='srl_nokia-micro-bfd:local-address'),
     ] = None
     """
     IP address to be used as source address in BFD packets
     """
     remote_address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-micro-bfd:remote-address', title='Remote-addressLeaf2'),
+        Field(alias='srl_nokia-micro-bfd:remote-address'),
     ] = None
     """
     The remote IP address for the far-end of the BFD session
@@ -623,7 +525,6 @@ class LagInterfaceListEntry(BaseModel):
             alias='srl_nokia-micro-bfd:desired-minimum-transmit-interval',
             ge=10000,
             le=100000000,
-            title='Desired-minimum-transmit-intervalLeaf2',
         ),
     ] = 1000000
     """
@@ -637,10 +538,7 @@ class LagInterfaceListEntry(BaseModel):
     required_minimum_receive: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-micro-bfd:required-minimum-receive',
-            ge=10000,
-            le=100000000,
-            title='Required-minimum-receiveLeaf2',
+            alias='srl_nokia-micro-bfd:required-minimum-receive', ge=10000, le=100000000
         ),
     ] = 1000000
     """
@@ -652,12 +550,7 @@ class LagInterfaceListEntry(BaseModel):
     """
     detection_multiplier: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-micro-bfd:detection-multiplier',
-            ge=3,
-            le=20,
-            title='Detection-multiplierLeaf2',
-        ),
+        Field(alias='srl_nokia-micro-bfd:detection-multiplier', ge=3, le=20),
     ] = 3
     """
     The number of packets that must be missed to declare this session as down
@@ -697,53 +590,39 @@ class PeerListEntry(BaseModel):
     )
     local_discriminator: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:local-discriminator',
-            ge=0,
-            le=4294967295,
-            title='Local-discriminatorLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:local-discriminator', ge=0, le=4294967295),
     ] = None
     """
     BFD session local discriminator
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum2],
-        Field(alias='srl_nokia-bfd:oper-state', title='Oper-stateLeaf'),
+        Optional[EnumerationEnum2], Field(alias='srl_nokia-bfd:oper-state')
     ] = None
     """
     Details the operational state of the session
     """
     ipv6_link_local_interface: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-bfd:ipv6-link-local-interface',
-            title='Ipv6-link-local-interfaceLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-bfd:ipv6-link-local-interface')
     ] = None
     """
     For IPv6 link local sessions only, indicates the local interface with which the session is associated.
     """
     ipv4_unnumbered_interface: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-bfd:ipv4-unnumbered-interface',
-            title='Ipv4-unnumbered-interfaceLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-bfd:ipv4-unnumbered-interface')
     ] = None
     """
     For IPv4 unnumbered sessions only, indicates the local interface with which the session is associated.
     """
     local_address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-bfd:local-address', title='Local-addressLeaf'),
+        Field(alias='srl_nokia-bfd:local-address'),
     ] = None
     """
     IP address to be used as source address in BFD packets
     """
     remote_address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-bfd:remote-address', title='Remote-addressLeaf'),
+        Field(alias='srl_nokia-bfd:remote-address'),
     ] = None
     """
     The remote IP address for the far-end of the BFD session
@@ -752,37 +631,25 @@ class PeerListEntry(BaseModel):
     """
     remote_discriminator: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:remote-discriminator',
-            ge=0,
-            le=4294967295,
-            title='Remote-discriminatorLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:remote-discriminator', ge=0, le=4294967295),
     ] = None
     """
     A unique identifier used by the remote system to identify this BFD session
     """
     subscribed_protocols: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-bfd:subscribed-protocols', title='Subscribed-protocolsLeaf'
-        ),
+        Optional[str], Field(alias='srl_nokia-bfd:subscribed-protocols')
     ] = None
     """
     Indicates the set of protocols that currently use this BFD session for liveliness detection
     """
     session_state: Annotated[
-        Optional[EnumerationEnum3],
-        Field(alias='srl_nokia-bfd:session-state', title='Session-stateLeaf'),
+        Optional[EnumerationEnum3], Field(alias='srl_nokia-bfd:session-state')
     ] = None
     """
     The state of the BFD session perceived by the local system
     """
     remote_session_state: Annotated[
-        Optional[EnumerationEnum3],
-        Field(
-            alias='srl_nokia-bfd:remote-session-state', title='Remote-session-stateLeaf'
-        ),
+        Optional[EnumerationEnum3], Field(alias='srl_nokia-bfd:remote-session-state')
     ] = None
     """
     The reported state of the BFD session according to the remote system
@@ -794,7 +661,6 @@ class PeerListEntry(BaseModel):
         Field(
             alias='srl_nokia-bfd:last-state-transition',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-state-transitionLeaf',
         ),
     ] = None
     """
@@ -806,7 +672,6 @@ class PeerListEntry(BaseModel):
         Field(
             alias='srl_nokia-bfd:last-failure-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-failure-timeLeaf',
         ),
     ] = None
     """
@@ -814,32 +679,19 @@ class PeerListEntry(BaseModel):
     """
     failure_transitions: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:failure-transitions',
-            ge=0,
-            le=18446744073709551615,
-            title='Failure-transitionsLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:failure-transitions', ge=0, le=18446744073709551615),
     ] = None
     """
     The number of times that the BFD session has transitioned out of the up state
     """
     local_diagnostic_code: Annotated[
-        Optional[EnumerationEnum4],
-        Field(
-            alias='srl_nokia-bfd:local-diagnostic-code',
-            title='Local-diagnostic-codeLeaf',
-        ),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-bfd:local-diagnostic-code')
     ] = None
     """
     The local BFD diagnostic code indicating the most recent reason for failure of this BFD session
     """
     remote_diagnostic_code: Annotated[
-        Optional[EnumerationEnum4],
-        Field(
-            alias='srl_nokia-bfd:remote-diagnostic-code',
-            title='Remote-diagnostic-codeLeaf',
-        ),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-bfd:remote-diagnostic-code')
     ] = None
     """
     The remote BFD diagnostic code indicating the remote system's reason for failure of the BFD session
@@ -847,10 +699,7 @@ class PeerListEntry(BaseModel):
     remote_minimum_receive_interval: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-bfd:remote-minimum-receive-interval',
-            ge=0,
-            le=4294967295,
-            title='Remote-minimum-receive-intervalLeaf',
+            alias='srl_nokia-bfd:remote-minimum-receive-interval', ge=0, le=4294967295
         ),
     ] = None
     """
@@ -860,23 +709,14 @@ class PeerListEntry(BaseModel):
     received from the peer.
     """
     remote_control_plane_independent: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-bfd:remote-control-plane-independent',
-            title='Remote-control-plane-independentLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-bfd:remote-control-plane-independent')
     ] = None
     """
     Indicates if the remote neighbor has set the control independent flag
     """
     active_transmit_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:active-transmit-interval',
-            ge=0,
-            le=4294967295,
-            title='Active-transmit-intervalLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:active-transmit-interval', ge=0, le=4294967295),
     ] = None
     """
     The transmit interval currently being used by this BFD session
@@ -886,12 +726,7 @@ class PeerListEntry(BaseModel):
     """
     active_receive_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:active-receive-interval',
-            ge=0,
-            le=4294967295,
-            title='Active-receive-intervalLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:active-receive-interval', ge=0, le=4294967295),
     ] = None
     """
     The receive interval currently being used by this BFD session
@@ -900,13 +735,7 @@ class PeerListEntry(BaseModel):
     receiving BFD messages from the remote peer.
     """
     remote_multiplier: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-bfd:remote-multiplier',
-            ge=0,
-            le=255,
-            title='Remote-multiplierLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-bfd:remote-multiplier', ge=0, le=255)
     ] = None
     """
     The current number of packets that must be missed to declare the session as down
@@ -915,37 +744,27 @@ class PeerListEntry(BaseModel):
     value of the negotiated transmission interval by this value.
     """
     te_policy_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-bfd:te-policy-name', title='Te-policy-nameLeaf'),
+        Optional[str], Field(alias='srl_nokia-bfd:te-policy-name')
     ] = None
     """
     Name of the TE-Policy associated with this seamless BFD session
     """
     te_policy_type: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-bfd:te-policy-type', title='Te-policy-typeLeaf'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-bfd:te-policy-type')
     ] = None
     """
     Type of TE-Policy associated with this seamless BFD session
     """
     te_policy_segment_list_index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:te-policy-segment-list-index',
-            ge=0,
-            le=4294967295,
-            title='Te-policy-segment-list-indexLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:te-policy-segment-list-index', ge=0, le=4294967295),
     ] = None
     """
     Indicates the segment list index of the TE-Policy associated with this seamless BFD session
     """
     te_policy_protocol_origin: Annotated[
         Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-bfd:te-policy-protocol-origin',
-            title='Te-policy-protocol-originLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:te-policy-protocol-origin'),
     ] = None
     """
     Indicates the protocol type used to originate the TE-Policy associated with this seamless BFD session
@@ -953,10 +772,7 @@ class PeerListEntry(BaseModel):
     te_policy_segment_list_lsp_index: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-bfd:te-policy-segment-list-lsp-index',
-            ge=0,
-            le=4294967295,
-            title='Te-policy-segment-list-lsp-indexLeaf',
+            alias='srl_nokia-bfd:te-policy-segment-list-lsp-index', ge=0, le=4294967295
         ),
     ] = None
     """
@@ -964,7 +780,7 @@ class PeerListEntry(BaseModel):
     """
     sr_policy_endpoint: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-bfd:sr-policy-endpoint', title='Sr-policy-endpointLeaf'),
+        Field(alias='srl_nokia-bfd:sr-policy-endpoint'),
     ] = None
     """
     SR-Policy endpoint IP address associated with this seamless BFD session
@@ -983,9 +799,7 @@ class NetworkInstanceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-bfd:name', title='NameLeaf')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-bfd:name')] = None
     """
     A unique name identifying the network instance
     """
@@ -1012,12 +826,7 @@ class BfdContainer(BaseModel):
     ] = None
     total_bfd_sessions: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-bfd:total-bfd-sessions',
-            ge=0,
-            le=4294967295,
-            title='Total-bfd-sessionsLeaf',
-        ),
+        Field(alias='srl_nokia-bfd:total-bfd-sessions', ge=0, le=4294967295),
     ] = 0
     """
     Counter for the total number of BFD sessions
@@ -1028,7 +837,6 @@ class BfdContainer(BaseModel):
             alias='srl_nokia-bfd:total-unmatched-bfd-packets',
             ge=0,
             le=18446744073709551615,
-            title='Total-unmatched-bfd-packetsLeaf',
         ),
     ] = 0
     """

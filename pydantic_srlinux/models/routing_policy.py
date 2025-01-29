@@ -26,8 +26,7 @@ class BgpExtCommunityRegexpType2Type1(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^[\\^]?link-bandwidth:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+[kMGT]?[$]?$).*$',
-            title='Bgp-ext-community-regexp-type2Type',
+            pattern='^(?=^[\\^]?link-bandwidth:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+[kMGT]?[$]?$).*$'
         ),
     ]
     """
@@ -62,8 +61,7 @@ class BgpExtCommunityRegexpType2Type2(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^[\\^]?target:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+[$]?$).*$',
-            title='Bgp-ext-community-regexp-type2Type',
+            pattern='^(?=^[\\^]?target:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+[$]?$).*$'
         ),
     ]
     """
@@ -98,8 +96,7 @@ class BgpExtCommunityRegexpType2Type3(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^[\\^]?origin:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+[$]?$).*$',
-            title='Bgp-ext-community-regexp-type2Type',
+            pattern='^(?=^[\\^]?origin:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+:[0-9()*+,.{}\\[\\]\\-\\|\\?\\\\]+[$]?$).*$'
         ),
     ]
     """
@@ -134,8 +131,7 @@ class BgpExtCommunityRegexpTypeType1(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^target:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$',
-            title='Bgp-ext-community-regexp-typeType',
+            pattern='^(?=^target:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$'
         ),
     ]
     """
@@ -172,8 +168,7 @@ class BgpExtCommunityRegexpTypeType2(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^origin:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$',
-            title='Bgp-ext-community-regexp-typeType',
+            pattern='^(?=^origin:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$'
         ),
     ]
     """
@@ -210,8 +205,7 @@ class BgpExtCommunityType2Type1(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^link-bandwidth:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):[0-9]+[kMGT]?$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^link-bandwidth:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):[0-9]+[kMGT]?$).*$'
         ),
     ]
     """
@@ -227,8 +221,7 @@ class BgpExtCommunityType2Type2(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$'
         ),
     ]
     """
@@ -244,8 +237,7 @@ class BgpExtCommunityType2Type3(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -261,8 +253,7 @@ class BgpExtCommunityType2Type4(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -278,8 +269,7 @@ class BgpExtCommunityType2Type5(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$'
         ),
     ]
     """
@@ -295,8 +285,7 @@ class BgpExtCommunityType2Type6(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -312,8 +301,7 @@ class BgpExtCommunityType2Type7(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -329,8 +317,7 @@ class BgpExtCommunityType2Type8(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^color:[0-1]{2}:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$',
-            title='Bgp-ext-community-type2Type',
+            pattern='^(?=^color:[0-1]{2}:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$'
         ),
     ]
     """
@@ -343,13 +330,7 @@ class BgpExtCommunityType2Type9(RootModel[str]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        str,
-        Field(
-            pattern='^(?=^bgp-tunnel-encap:(VXLAN|MPLS)$).*$',
-            title='Bgp-ext-community-type2Type',
-        ),
-    ]
+    root: Annotated[str, Field(pattern='^(?=^bgp-tunnel-encap:(VXLAN|MPLS)$).*$')]
     """
     Type definition for extended community members
     """
@@ -363,8 +344,7 @@ class BgpExtCommunityTypeType1(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$',
-            title='Bgp-ext-community-typeType',
+            pattern='^(?=^target:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$'
         ),
     ]
     """
@@ -389,8 +369,7 @@ class BgpExtCommunityTypeType2(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-typeType',
+            pattern='^(?=^target:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -415,8 +394,7 @@ class BgpExtCommunityTypeType3(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-typeType',
+            pattern='^(?=^target:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -441,8 +419,7 @@ class BgpExtCommunityTypeType4(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$',
-            title='Bgp-ext-community-typeType',
+            pattern='^(?=^origin:(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$'
         ),
     ]
     """
@@ -467,8 +444,7 @@ class BgpExtCommunityTypeType5(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-typeType',
+            pattern='^(?=^origin:(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -493,8 +469,7 @@ class BgpExtCommunityTypeType6(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-ext-community-typeType',
+            pattern='^(?=^origin:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -519,8 +494,7 @@ class BgpExtCommunityTypeType7(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^color:[0-1]{2}:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$',
-            title='Bgp-ext-community-typeType',
+            pattern='^(?=^color:[0-1]{2}:(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$'
         ),
     ]
     """
@@ -542,13 +516,7 @@ class BgpExtCommunityTypeType8(RootModel[str]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        str,
-        Field(
-            pattern='^(?=^bgp-tunnel-encap:(VXLAN|MPLS)$).*$',
-            title='Bgp-ext-community-typeType',
-        ),
-    ]
+    root: Annotated[str, Field(pattern='^(?=^bgp-tunnel-encap:(VXLAN|MPLS)$).*$')]
     """
     Type definition for extended community attributes. In the case that
     common communities are utilised, they are represented as a string
@@ -571,8 +539,7 @@ class BgpLargeCommunityRegexpTypeType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$',
-            title='Bgp-large-community-regexp-typeType',
+            pattern='^(?=^[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$'
         ),
     ]
     """
@@ -588,8 +555,7 @@ class BgpLargeCommunityTypeType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$',
-            title='Bgp-large-community-typeType',
+            pattern='^(?=^(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9]):(429496729[0-5]|42949672[0-8][0-9]|4294967[0-1][0-9]{2}|429496[0-6][0-9]{3}|42949[0-5][0-9]{4}|4294[0-8][0-9]{5}|429[0-3][0-9]{6}|42[0-8][0-9]{7}|4[0-1][0-9]{8}|[1-3][0-9]{9}|[1-9][0-9]{1,8}|[0-9])$).*$'
         ),
     ]
     """
@@ -605,8 +571,7 @@ class BgpStdCommunityRegexpTypeType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$',
-            title='Bgp-std-community-regexp-typeType',
+            pattern='^(?=^[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+:[0-9$()*+,.^{}\\[\\]\\-\\|?\\\\]+$).*$'
         ),
     ]
     """
@@ -622,8 +587,7 @@ class BgpStdCommunityTypeType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$',
-            title='Bgp-std-community-typeType',
+            pattern='^(?=^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
     """
@@ -636,13 +600,7 @@ class HexStringType(RootModel[str]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        str,
-        Field(
-            pattern='^(?=^([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?$).*$',
-            title='Hex-stringType',
-        ),
-    ]
+    root: Annotated[str, Field(pattern='^(?=^([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?$).*$')]
     """
     A hexadecimal string with octets represented as hex digits
     separated by colons.  The canonical representation uses
@@ -658,8 +616,7 @@ class Ipv4PrefixType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
-            title='Ipv4-prefixType',
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$'
         ),
     ]
     """
@@ -675,8 +632,7 @@ class Ipv6PrefixType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
-            title='Ipv6-prefixType',
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$'
         ),
     ]
     """
@@ -690,7 +646,7 @@ class SetLeaf21(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=4294967295, title='SetLeaf2')]
+    root: Annotated[int, Field(ge=0, le=4294967295)]
     """
     The new value of the Multi-Exit Discriminator attribute value to write into the matching BGP routes. The route-table-cost option derives the MED from the route metric.
     """
@@ -701,7 +657,7 @@ class SetLeaf71(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=4294967295, title='SetLeaf7')]
+    root: Annotated[int, Field(ge=0, le=4294967295)]
     """
     The new value of the Multi-Exit Discriminator attribute value to write into the matching BGP routes. The route-table-cost option derives the MED from the route metric.
     """
@@ -717,15 +673,13 @@ class StatisticsContainer(BaseModel):
         regex_engine="python-re",
     )
     ingress: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:ingress', title='IngressLeaf'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:ingress')
     ] = None
     """
     Ingress statistics collection for BGP-LU tunnels
     """
     egress: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:egress', title='EgressLeaf'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:egress')
     ] = None
     """
     Egress statistics collection for BGP-LU tunnels
@@ -742,15 +696,13 @@ class StatisticsContainer2(BaseModel):
         regex_engine="python-re",
     )
     ingress: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:ingress', title='IngressLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:ingress')
     ] = None
     """
     Ingress statistics collection for BGP-LU tunnels
     """
     egress: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:egress', title='EgressLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:egress')
     ] = None
     """
     Egress statistics collection for BGP-LU tunnels
@@ -916,8 +868,7 @@ class Ipv4AddressType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Ipv4-addressType',
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
         ),
     ]
     """
@@ -933,8 +884,7 @@ class Ipv6AddressType(RootModel[str]):
     root: Annotated[
         str,
         Field(
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Ipv6-addressType',
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
         ),
     ]
     """
@@ -949,10 +899,7 @@ class LocalPreferenceContainer(BaseModel):
         regex_engine="python-re",
     )
     set: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:set', ge=0, le=4294967295, title='SetLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-routing-policy:set', ge=0, le=4294967295)
     ] = None
     """
     The new value of LOCAL_PREF to write into the matching BGP routes
@@ -965,10 +912,7 @@ class LocalPreferenceContainer2(BaseModel):
         regex_engine="python-re",
     )
     set: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:set', ge=0, le=4294967295, title='SetLeaf6'
-        ),
+        Optional[int], Field(alias='srl_nokia-routing-policy:set', ge=0, le=4294967295)
     ] = None
     """
     The new value of LOCAL_PREF to write into the matching BGP routes
@@ -989,27 +933,19 @@ class OspfContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:area-id',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Area-idLeaf',
         ),
     ] = None
     """
     The area identifier as a dotted-quad.
     """
     route_type: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-routing-policy:route-type', title='Route-typeLeaf2'),
+        Optional[Any], Field(alias='srl_nokia-routing-policy:route-type')
     ] = None
     """
     The OSPF route type.
     """
     instance_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:instance-id',
-            ge=0,
-            le=255,
-            title='Instance-idLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-routing-policy:instance-id', ge=0, le=255)
     ] = None
     """
     OSPFv3 instance identifier
@@ -1026,8 +962,7 @@ class PrefixSidContainer(BaseModel):
         regex_engine="python-re",
     )
     reuse_igp: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:reuse-igp', title='Reuse-igpLeaf'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:reuse-igp')
     ] = None
     """
     When true use the programmed SR-IGP label index for the matching prefix, resulting in a stitch to the IGP segment routing tunnel
@@ -1044,8 +979,7 @@ class PrefixSidContainer2(BaseModel):
         regex_engine="python-re",
     )
     reuse_igp: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:reuse-igp', title='Reuse-igpLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:reuse-igp')
     ] = None
     """
     When true use the programmed SR-IGP label index for the matching prefix, resulting in a stitch to the IGP segment routing tunnel
@@ -1062,7 +996,6 @@ class PrefixContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:prefix-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Prefix-setLeaf2',
         ),
     ] = None
     """
@@ -1070,10 +1003,7 @@ class PrefixContainer(BaseModel):
     """
     match_set_options: Annotated[
         Optional[EnumerationEnum12],
-        Field(
-            alias='srl_nokia-routing-policy:match-set-options',
-            title='Match-set-optionsLeaf2',
-        ),
+        Field(alias='srl_nokia-routing-policy:match-set-options'),
     ] = None
 
 
@@ -1088,7 +1018,7 @@ class PrependContainer(BaseModel):
     )
     as_number: Annotated[
         Optional[Union[AsNumberType, EnumerationEnum3]],
-        Field(alias='srl_nokia-routing-policy:as-number', title='As-numberLeaf'),
+        Field(alias='srl_nokia-routing-policy:as-number'),
     ] = None
     """
     The AS number to prepend to the AS Path attributes
@@ -1096,10 +1026,7 @@ class PrependContainer(BaseModel):
     If 'auto' is specified then the peer's AS number is used in the context of an import policy and the local AS number is used in the context of an export policy.
     """
     repeat_n: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:repeat-n', ge=1, le=50, title='Repeat-nLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-routing-policy:repeat-n', ge=1, le=50)
     ] = None
     """
     The number of repetitions of the prepended AS number
@@ -1117,7 +1044,7 @@ class PrependContainer2(BaseModel):
     )
     as_number: Annotated[
         Optional[Union[AsNumberType, EnumerationEnum20]],
-        Field(alias='srl_nokia-routing-policy:as-number', title='As-numberLeaf2'),
+        Field(alias='srl_nokia-routing-policy:as-number'),
     ] = None
     """
     The AS number to prepend to the AS Path attributes
@@ -1125,13 +1052,7 @@ class PrependContainer2(BaseModel):
     If 'auto' is specified then the peer's AS number is used in the context of an import policy and the local AS number is used in the context of an export policy.
     """
     repeat_n: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:repeat-n',
-            ge=1,
-            le=50,
-            title='Repeat-nLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-routing-policy:repeat-n', ge=1, le=50)
     ] = None
     """
     The number of repetitions of the prepended AS number
@@ -1148,8 +1069,7 @@ class RoutePreferenceContainer(BaseModel):
         regex_engine="python-re",
     )
     set: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-routing-policy:set', ge=0, le=255, title='SetLeaf5'),
+        Optional[int], Field(alias='srl_nokia-routing-policy:set', ge=0, le=255)
     ] = None
     """
     Overwrite the route preference with the specified value
@@ -1170,8 +1090,7 @@ class RoutePreferenceContainer2(BaseModel):
         regex_engine="python-re",
     )
     set: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-routing-policy:set', ge=0, le=255, title='SetLeaf10'),
+        Optional[int], Field(alias='srl_nokia-routing-policy:set', ge=0, le=255)
     ] = None
     """
     Overwrite the route preference with the specified value
@@ -1192,7 +1111,6 @@ class SourceAddressContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:prefix-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Prefix-setLeaf4',
         ),
     ] = None
     """
@@ -1238,8 +1156,7 @@ class StandardCommunityContainer(BaseModel):
         regex_engine="python-re",
     )
     operation: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-routing-policy:operation', title='OperationLeaf'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-routing-policy:operation')
     ] = None
     """
     The type of operation for modifying the community attribute with the specified values
@@ -1252,8 +1169,7 @@ class StandardCommunityContainer(BaseModel):
         ),
     ] = []
     method: Annotated[
-        Optional[EnumerationEnum5],
-        Field(alias='srl_nokia-routing-policy:method', title='MethodLeaf'),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-routing-policy:method')
     ] = 'reference'
     """
     Indicates the method used to specify the standard communities for the action
@@ -1270,7 +1186,6 @@ class StandardCommunityContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:standard-community-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Standard-community-setLeaf',
         ),
     ] = None
     """
@@ -1280,10 +1195,7 @@ class StandardCommunityContainer2(BaseModel):
     """
     match_set_options: Annotated[
         Optional[EnumerationEnum15],
-        Field(
-            alias='srl_nokia-routing-policy:match-set-options',
-            title='Match-set-optionsLeaf4',
-        ),
+        Field(alias='srl_nokia-routing-policy:match-set-options'),
     ] = 'any'
     """
     Options that determine the matching criteria that applies to the members in the referenced set
@@ -1296,8 +1208,7 @@ class StandardCommunityContainer3(BaseModel):
         regex_engine="python-re",
     )
     operation: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-routing-policy:operation', title='OperationLeaf3'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-routing-policy:operation')
     ] = None
     """
     The type of operation for modifying the community attribute with the specified values
@@ -1310,8 +1221,7 @@ class StandardCommunityContainer3(BaseModel):
         ),
     ] = []
     method: Annotated[
-        Optional[EnumerationEnum21],
-        Field(alias='srl_nokia-routing-policy:method', title='MethodLeaf3'),
+        Optional[EnumerationEnum21], Field(alias='srl_nokia-routing-policy:method')
     ] = 'reference'
     """
     Indicates the method used to specify the standard communities for the action
@@ -1346,12 +1256,7 @@ class TagSetListEntry(BaseModel):
     """
     tag_set_index: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:tag-set-index',
-            ge=0,
-            le=4294967295,
-            title='Tag-set-indexLeaf',
-        ),
+        Field(alias='srl_nokia-routing-policy:tag-set-index', ge=0, le=4294967295),
     ] = None
     """
     System-wide persistent unique identifier assigned to the tag-set
@@ -1368,22 +1273,19 @@ class AsPathLengthContainer(BaseModel):
         regex_engine="python-re",
     )
     value: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-routing-policy:value', ge=0, le=255, title='ValueLeaf'),
+        Optional[int], Field(alias='srl_nokia-routing-policy:value', ge=0, le=255)
     ] = None
     """
     The number of (unique) AS numbers in the AS path
     """
     operator: Annotated[
-        Optional[EnumerationEnum14],
-        Field(alias='srl_nokia-routing-policy:operator', title='OperatorLeaf'),
+        Optional[EnumerationEnum14], Field(alias='srl_nokia-routing-policy:operator')
     ] = None
     """
     The comparison operator that applies to the value
     """
     unique: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:unique', title='UniqueLeaf'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:unique')
     ] = None
     """
     Count a repeated sequence of the same AS number as just 1 element
@@ -1412,10 +1314,7 @@ class AsPathSetListEntry(BaseModel):
     expression: Annotated[
         Optional[str],
         Field(
-            alias='srl_nokia-routing-policy:expression',
-            max_length=65535,
-            min_length=1,
-            title='ExpressionLeaf',
+            alias='srl_nokia-routing-policy:expression', max_length=65535, min_length=1
         ),
     ] = None
     """
@@ -1444,8 +1343,7 @@ class AsPathContainer(BaseModel):
         regex_engine="python-re",
     )
     remove: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:remove', title='RemoveLeaf'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:remove')
     ] = None
     """
     Clear the AS path to make it empty.
@@ -1472,7 +1370,6 @@ class AsPathContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:as-path-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='As-path-setLeaf2',
         ),
     ] = None
     """
@@ -1482,10 +1379,7 @@ class AsPathContainer2(BaseModel):
     """
     match_set_options: Annotated[
         Optional[EnumerationEnum13],
-        Field(
-            alias='srl_nokia-routing-policy:match-set-options',
-            title='Match-set-optionsLeaf3',
-        ),
+        Field(alias='srl_nokia-routing-policy:match-set-options'),
     ] = None
 
 
@@ -1499,8 +1393,7 @@ class AsPathContainer3(BaseModel):
         regex_engine="python-re",
     )
     remove: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-routing-policy:remove', title='RemoveLeaf3'),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:remove')
     ] = None
     """
     Clear the AS path to make it empty.
@@ -1531,7 +1424,6 @@ class CommunitiesContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:add',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='AddLeaf',
         ),
     ] = None
     """
@@ -1544,7 +1436,6 @@ class CommunitiesContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:remove',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='RemoveLeaf2',
         ),
     ] = None
     """
@@ -1557,7 +1448,6 @@ class CommunitiesContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:replace',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='ReplaceLeaf',
         ),
     ] = None
     """
@@ -1581,7 +1471,6 @@ class CommunitiesContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:add',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='AddLeaf2',
         ),
     ] = None
     """
@@ -1594,7 +1483,6 @@ class CommunitiesContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:remove',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='RemoveLeaf4',
         ),
     ] = None
     """
@@ -1607,7 +1495,6 @@ class CommunitiesContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:replace',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='ReplaceLeaf2',
         ),
     ] = None
     """
@@ -1668,10 +1555,7 @@ class CommunitySetListEntry(BaseModel):
     """
     match_set_options: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-routing-policy:match-set-options',
-            title='Match-set-optionsLeaf',
-        ),
+        Field(alias='srl_nokia-routing-policy:match-set-options'),
     ] = 'all'
     """
     Options that determine the matching criteria that applies to the list of community members
@@ -1733,8 +1617,7 @@ class ExtendedCommunityContainer(BaseModel):
         regex_engine="python-re",
     )
     operation: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-routing-policy:operation', title='OperationLeaf2'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-routing-policy:operation')
     ] = None
     """
     The type of operation for modifying the community attribute with the specified values
@@ -1747,8 +1630,7 @@ class ExtendedCommunityContainer(BaseModel):
         ),
     ] = []
     method: Annotated[
-        Optional[EnumerationEnum6],
-        Field(alias='srl_nokia-routing-policy:method', title='MethodLeaf2'),
+        Optional[EnumerationEnum6], Field(alias='srl_nokia-routing-policy:method')
     ] = 'reference'
     """
     Indicates the method used to specify the extended communities for the action
@@ -1765,7 +1647,6 @@ class ExtendedCommunityContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:extended-community-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Extended-community-setLeaf',
         ),
     ] = None
     """
@@ -1775,10 +1656,7 @@ class ExtendedCommunityContainer2(BaseModel):
     """
     match_set_options: Annotated[
         Optional[EnumerationEnum16],
-        Field(
-            alias='srl_nokia-routing-policy:match-set-options',
-            title='Match-set-optionsLeaf5',
-        ),
+        Field(alias='srl_nokia-routing-policy:match-set-options'),
     ] = 'any'
     """
     Options that determine the matching criteria that applies to the members in the referenced set
@@ -1791,8 +1669,7 @@ class ExtendedCommunityContainer3(BaseModel):
         regex_engine="python-re",
     )
     operation: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-routing-policy:operation', title='OperationLeaf4'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-routing-policy:operation')
     ] = None
     """
     The type of operation for modifying the community attribute with the specified values
@@ -1805,8 +1682,7 @@ class ExtendedCommunityContainer3(BaseModel):
         ),
     ] = []
     method: Annotated[
-        Optional[EnumerationEnum22],
-        Field(alias='srl_nokia-routing-policy:method', title='MethodLeaf4'),
+        Optional[EnumerationEnum22], Field(alias='srl_nokia-routing-policy:method')
     ] = 'reference'
     """
     Indicates the method used to specify the extended communities for the action
@@ -1823,7 +1699,6 @@ class GroupAddressContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:prefix-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Prefix-setLeaf3',
         ),
     ] = None
     """
@@ -1878,10 +1753,7 @@ class InternalTagsContainer2(BaseModel):
     """
     match_set_options: Annotated[
         Optional[EnumerationEnum17],
-        Field(
-            alias='srl_nokia-routing-policy:match-set-options',
-            title='Match-set-optionsLeaf6',
-        ),
+        Field(alias='srl_nokia-routing-policy:match-set-options'),
     ] = 'any'
     """
     Options that determine the matching criteria that applies to the members in the referenced set
@@ -1919,15 +1791,13 @@ class IsisContainer2(BaseModel):
         regex_engine="python-re",
     )
     level: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-routing-policy:level', ge=1, le=2, title='LevelLeaf2'),
+        Optional[int], Field(alias='srl_nokia-routing-policy:level', ge=1, le=2)
     ] = None
     """
     Match an IS-IS route based on its level
     """
     route_type: Annotated[
-        Optional[EnumerationEnum18],
-        Field(alias='srl_nokia-routing-policy:route-type', title='Route-typeLeaf'),
+        Optional[EnumerationEnum18], Field(alias='srl_nokia-routing-policy:route-type')
     ] = None
     """
     Match an IS-IS route based on its type
@@ -1943,7 +1813,7 @@ class MedContainer(BaseModel):
     )
     set: Annotated[
         Optional[Union[SetLeaf21, EnumerationEnum7]],
-        Field(alias='srl_nokia-routing-policy:set', title='SetLeaf2'),
+        Field(alias='srl_nokia-routing-policy:set'),
     ] = None
     """
     The new value of the Multi-Exit Discriminator attribute value to write into the matching BGP routes. The route-table-cost option derives the MED from the route metric.
@@ -1957,7 +1827,7 @@ class MedContainer2(BaseModel):
     )
     set: Annotated[
         Optional[Union[SetLeaf71, EnumerationEnum23]],
-        Field(alias='srl_nokia-routing-policy:set', title='SetLeaf7'),
+        Field(alias='srl_nokia-routing-policy:set'),
     ] = None
     """
     The new value of the Multi-Exit Discriminator attribute value to write into the matching BGP routes. The route-table-cost option derives the MED from the route metric.
@@ -1974,27 +1844,20 @@ class MetricContainer(BaseModel):
         regex_engine="python-re",
     )
     set_type: Annotated[
-        Optional[EnumerationEnum10],
-        Field(alias='srl_nokia-routing-policy:set-type', title='Set-typeLeaf'),
+        Optional[EnumerationEnum10], Field(alias='srl_nokia-routing-policy:set-type')
     ] = None
     """
     Set the metric type, internal or external
     """
     set_style: Annotated[
-        Optional[EnumerationEnum11],
-        Field(alias='srl_nokia-routing-policy:set-style', title='Set-styleLeaf'),
+        Optional[EnumerationEnum11], Field(alias='srl_nokia-routing-policy:set-style')
     ] = None
     """
     Set the style of the metric, narrow or wide
     """
     set_value: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:set-value',
-            ge=0,
-            le=16777215,
-            title='Set-valueLeaf',
-        ),
+        Field(alias='srl_nokia-routing-policy:set-value', ge=0, le=16777215),
     ] = None
     """
     Set the metric of the IS-IS prefix
@@ -2011,27 +1874,20 @@ class MetricContainer2(BaseModel):
         regex_engine="python-re",
     )
     set_type: Annotated[
-        Optional[EnumerationEnum10],
-        Field(alias='srl_nokia-routing-policy:set-type', title='Set-typeLeaf2'),
+        Optional[EnumerationEnum10], Field(alias='srl_nokia-routing-policy:set-type')
     ] = None
     """
     Set the metric type, internal or external
     """
     set_style: Annotated[
-        Optional[EnumerationEnum11],
-        Field(alias='srl_nokia-routing-policy:set-style', title='Set-styleLeaf2'),
+        Optional[EnumerationEnum11], Field(alias='srl_nokia-routing-policy:set-style')
     ] = None
     """
     Set the style of the metric, narrow or wide
     """
     set_value: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-routing-policy:set-value',
-            ge=0,
-            le=16777215,
-            title='Set-valueLeaf2',
-        ),
+        Field(alias='srl_nokia-routing-policy:set-value', ge=0, le=16777215),
     ] = None
     """
     Set the metric of the IS-IS prefix
@@ -2067,7 +1923,6 @@ class NextHopResolutionContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:set-tag-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Set-tag-setLeaf',
         ),
     ] = None
     """
@@ -2089,7 +1944,6 @@ class NextHopResolutionContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:set-tag-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Set-tag-setLeaf2',
         ),
     ] = None
     """
@@ -2103,8 +1957,7 @@ class OriginContainer(BaseModel):
         regex_engine="python-re",
     )
     set: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-routing-policy:set', title='SetLeaf4'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-routing-policy:set')
     ] = None
     """
     The new value of the ORIGIN attribute to write into the matching BGP routes
@@ -2117,8 +1970,7 @@ class OriginContainer2(BaseModel):
         regex_engine="python-re",
     )
     set: Annotated[
-        Optional[EnumerationEnum24],
-        Field(alias='srl_nokia-routing-policy:set', title='SetLeaf9'),
+        Optional[EnumerationEnum24], Field(alias='srl_nokia-routing-policy:set')
     ] = None
     """
     The new value of the ORIGIN attribute to write into the matching BGP routes
@@ -2157,7 +2009,7 @@ class PrefixListEntry(BaseModel):
     )
     ip_prefix: Annotated[
         Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-routing-policy:ip-prefix', title='Ip-prefixLeaf'),
+        Field(alias='srl_nokia-routing-policy:ip-prefix'),
     ] = None
     """
     The IPv4 or IPv6 prefix in CIDR notation
@@ -2167,7 +2019,6 @@ class PrefixListEntry(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:mask-length-range',
             pattern='^(?=^([0-9]+\\.\\.[0-9]+)|exact$).*$',
-            title='Mask-length-rangeLeaf',
         ),
     ] = None
     """
@@ -2194,7 +2045,6 @@ class BgpContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:as-path-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='As-path-setLeaf',
         ),
     ] = None
     """
@@ -2214,7 +2064,6 @@ class BgpContainer2(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:community-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Community-setLeaf',
         ),
     ] = None
     """
@@ -2241,8 +2090,7 @@ class IsisContainer(BaseModel):
         regex_engine="python-re",
     )
     level: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-routing-policy:level', ge=1, le=2, title='LevelLeaf'),
+        Optional[int], Field(alias='srl_nokia-routing-policy:level', ge=1, le=2)
     ] = None
     """
     Set the level that a prefix is to be imported into
@@ -2258,8 +2106,7 @@ class IsisContainer3(BaseModel):
         regex_engine="python-re",
     )
     level: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-routing-policy:level', ge=1, le=2, title='LevelLeaf3'),
+        Optional[int], Field(alias='srl_nokia-routing-policy:level', ge=1, le=2)
     ] = None
     """
     Set the level that a prefix is to be imported into
@@ -2313,7 +2160,6 @@ class MatchContainer(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:prefix-set',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Prefix-setLeaf',
         ),
     ] = None
     """
@@ -2334,8 +2180,7 @@ class MatchContainer(BaseModel):
     A route meets this condition if the prefix belongs to one of the indicated address families.
     """
     protocol: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-routing-policy:protocol', title='ProtocolLeaf'),
+        Optional[Any], Field(alias='srl_nokia-routing-policy:protocol')
     ] = None
     """
     The route type to match
@@ -2402,7 +2247,7 @@ class NextHopContainer(BaseModel):
     )
     set: Annotated[
         Optional[Union[EnumerationEnum8, Union[Ipv4AddressType, Ipv6AddressType]]],
-        Field(alias='srl_nokia-routing-policy:set', title='SetLeaf3'),
+        Field(alias='srl_nokia-routing-policy:set'),
     ] = None
     """
     Set the protocol next-hop addres of matched BGP routes
@@ -2420,7 +2265,7 @@ class NextHopContainer2(BaseModel):
     )
     set: Annotated[
         Optional[Union[EnumerationEnum8, Union[Ipv4AddressType, Ipv6AddressType]]],
-        Field(alias='srl_nokia-routing-policy:set', title='SetLeaf8'),
+        Field(alias='srl_nokia-routing-policy:set'),
     ] = None
     """
     Set the protocol next-hop addres of matched BGP routes
@@ -2448,11 +2293,7 @@ class BgpContainer(BaseModel):
         Field(alias='srl_nokia-routing-policy:extended-community'),
     ] = None
     disable_ip_route_install: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-routing-policy:disable-ip-route-install',
-            title='Disable-ip-route-installLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:disable-ip-route-install')
     ] = None
     """
     Accept the route, allowing its re-advertisement, but do not install the route to the IP FIB
@@ -2505,11 +2346,7 @@ class BgpContainer3(BaseModel):
         Field(alias='srl_nokia-routing-policy:extended-community'),
     ] = None
     disable_ip_route_install: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-routing-policy:disable-ip-route-install',
-            title='Disable-ip-route-installLeaf2',
-        ),
+        Optional[bool], Field(alias='srl_nokia-routing-policy:disable-ip-route-install')
     ] = None
     """
     Accept the route, allowing its re-advertisement, but do not install the route to the IP FIB
@@ -2552,9 +2389,7 @@ class DefaultActionContainer(BaseModel):
     )
     policy_result: Annotated[
         Optional[EnumerationEnum2],
-        Field(
-            alias='srl_nokia-routing-policy:policy-result', title='Policy-resultLeaf'
-        ),
+        Field(alias='srl_nokia-routing-policy:policy-result'),
     ] = None
     """
     Select the action type for routes that do not match any policy statement.
@@ -2586,9 +2421,7 @@ class ActionContainer(BaseModel):
     )
     policy_result: Annotated[
         Optional[EnumerationEnum19],
-        Field(
-            alias='srl_nokia-routing-policy:policy-result', title='Policy-resultLeaf2'
-        ),
+        Field(alias='srl_nokia-routing-policy:policy-result'),
     ] = None
     """
     Select the action to apply to matching routes
@@ -2625,7 +2458,6 @@ class StatementListEntry(BaseModel):
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='NameLeaf8',
         ),
     ] = None
     """

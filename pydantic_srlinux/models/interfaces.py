@@ -12,7 +12,7 @@ class AgingLeaf1(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=18446744073709551615, title='AgingLeaf')]
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
     """
     remaining age time for learnt macs
     """
@@ -72,9 +72,7 @@ class HoldDownTimeRemainingLeaf1(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        int, Field(ge=0, le=18446744073709551615, title='Hold-down-time-remainingLeaf')
-    ]
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
     """
     remaining hold down time for duplicate mac
     """
@@ -85,9 +83,7 @@ class LastReportedDynamicDelayLeaf1(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[
-        int, Field(ge=0, le=2147483647, title='Last-reported-dynamic-delayLeaf')
-    ]
+    root: Annotated[int, Field(ge=0, le=2147483647)]
     """
     Indicates the last delay measurement reported to the routing engine
     """
@@ -105,10 +101,7 @@ class LinuxContainer(BaseModel):
     device_name: Annotated[
         Optional[str],
         Field(
-            alias='srl_nokia-interfaces-vxdp:device-name',
-            max_length=10,
-            min_length=0,
-            title='Device-nameLeaf3',
+            alias='srl_nokia-interfaces-vxdp:device-name', max_length=10, min_length=0
         ),
     ] = None
     """
@@ -135,7 +128,6 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='CurrentLeaf3',
         ),
     ] = None
     """
@@ -147,7 +139,6 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='AverageLeaf3',
         ),
     ] = None
     """
@@ -159,7 +150,6 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MinimumLeaf4',
         ),
     ] = None
     """
@@ -171,7 +161,6 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MaximumLeaf5',
         ),
     ] = None
     """
@@ -194,7 +183,6 @@ class PolarizationDependentLossContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='CurrentLeaf10',
         ),
     ] = None
     """
@@ -206,7 +194,6 @@ class PolarizationDependentLossContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='AverageLeaf10',
         ),
     ] = None
     """
@@ -218,7 +205,6 @@ class PolarizationDependentLossContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MinimumLeaf11',
         ),
     ] = None
     """
@@ -230,7 +216,6 @@ class PolarizationDependentLossContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MaximumLeaf12',
         ),
     ] = None
     """
@@ -253,7 +238,6 @@ class PowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='CurrentLeaf8',
         ),
     ] = None
     """
@@ -265,7 +249,6 @@ class PowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='AverageLeaf8',
         ),
     ] = None
     """
@@ -277,7 +260,6 @@ class PowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MinimumLeaf9',
         ),
     ] = None
     """
@@ -289,7 +271,6 @@ class PowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MaximumLeaf10',
         ),
     ] = None
     """
@@ -312,7 +293,6 @@ class PowerContainer2(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='CurrentLeaf13',
         ),
     ] = None
     """
@@ -324,7 +304,6 @@ class PowerContainer2(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='AverageLeaf13',
         ),
     ] = None
     """
@@ -336,7 +315,6 @@ class PowerContainer2(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MinimumLeaf14',
         ),
     ] = None
     """
@@ -348,7 +326,6 @@ class PowerContainer2(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MaximumLeaf15',
         ),
     ] = None
     """
@@ -361,7 +338,7 @@ class PreferredLifetimeLeaf1(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=4294967295, title='Preferred-lifetimeLeaf')]
+    root: Annotated[int, Field(ge=0, le=4294967295)]
     """
     The length of time in seconds (relative to the time the packet is sent) that addresses generated from the prefix via stateless address autoconfiguration remain preferred.
     """
@@ -399,11 +376,7 @@ class PtpTimestampingContainer(BaseModel):
         regex_engine="python-re",
     )
     disable_ip_timestamping: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:disable-ip-timestamping',
-            title='Disable-ip-timestampingLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:disable-ip-timestamping')
     ] = None
     """
     Disables timestamping of PTP over IP messages on this port
@@ -427,7 +400,6 @@ class QualityContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='CurrentLeaf7',
         ),
     ] = None
     """
@@ -439,7 +411,6 @@ class QualityContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='AverageLeaf7',
         ),
     ] = None
     """
@@ -451,7 +422,6 @@ class QualityContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MinimumLeaf8',
         ),
     ] = None
     """
@@ -463,7 +433,6 @@ class QualityContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MaximumLeaf9',
         ),
     ] = None
     """
@@ -481,17 +450,13 @@ class SignalDegradeContainer(BaseModel):
         regex_engine="python-re",
     )
     exponent: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9, title='ExponentLeaf'),
+        Optional[int], Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9)
     ] = 5
     """
     Signal-degrade exponent
     """
     multiplier: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:multiplier', ge=1, le=9, title='MultiplierLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:multiplier', ge=1, le=9)
     ] = 1
     """
     Signal-degrade multiplier
@@ -508,17 +473,13 @@ class SignalDegradeContainer2(BaseModel):
         regex_engine="python-re",
     )
     exponent: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9, title='ExponentLeaf3'),
+        Optional[int], Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9)
     ] = 5
     """
     Signal-degrade exponent
     """
     multiplier: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:multiplier', ge=1, le=9, title='MultiplierLeaf3'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:multiplier', ge=1, le=9)
     ] = 1
     """
     Signal-degrade multiplier
@@ -535,17 +496,13 @@ class SignalFailureContainer(BaseModel):
         regex_engine="python-re",
     )
     exponent: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9, title='ExponentLeaf2'),
+        Optional[int], Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9)
     ] = 5
     """
     Signal-failure exponent
     """
     multiplier: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:multiplier', ge=1, le=9, title='MultiplierLeaf2'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:multiplier', ge=1, le=9)
     ] = 1
     """
     Signal-failure multiplier
@@ -562,17 +519,13 @@ class SignalFailureContainer2(BaseModel):
         regex_engine="python-re",
     )
     exponent: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9, title='ExponentLeaf4'),
+        Optional[int], Field(alias='srl_nokia-interfaces:exponent', ge=1, le=9)
     ] = 5
     """
     Signal-failure exponent
     """
     multiplier: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:multiplier', ge=1, le=9, title='MultiplierLeaf4'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:multiplier', ge=1, le=9)
     ] = 1
     """
     Signal-failure multiplier
@@ -594,7 +547,6 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='CurrentLeaf11',
         ),
     ] = None
     """
@@ -606,7 +558,6 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='AverageLeaf11',
         ),
     ] = None
     """
@@ -618,7 +569,6 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MinimumLeaf12',
         ),
     ] = None
     """
@@ -630,7 +580,6 @@ class StateOfPolarizationRateOfChangeContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MaximumLeaf13',
         ),
     ] = None
     """
@@ -643,7 +592,7 @@ class StaticDelayLeaf1(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=1, le=16777215, title='Static-delayLeaf')]
+    root: Annotated[int, Field(ge=1, le=16777215)]
     """
     A statically configured unidirectional delay value that can be advertised as an interface attribute by an IGP
     """
@@ -660,21 +609,13 @@ class SweepContainer(BaseModel):
     )
     start: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:start',
-            ge=-50000,
-            le=50000,
-            title='StartLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:start', ge=-50000, le=50000),
     ] = -25500
     """
     Lower bound of the dispersion compensation range
     """
     end: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:end', ge=-50000, le=50000, title='EndLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-dco:end', ge=-50000, le=50000)
     ] = 2000
     """
     Upper bound of the dispersion compensation range
@@ -696,7 +637,6 @@ class TotalPowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='CurrentLeaf9',
         ),
     ] = None
     """
@@ -708,7 +648,6 @@ class TotalPowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='AverageLeaf9',
         ),
     ] = None
     """
@@ -720,7 +659,6 @@ class TotalPowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MinimumLeaf10',
         ),
     ] = None
     """
@@ -732,7 +670,6 @@ class TotalPowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MaximumLeaf11',
         ),
     ] = None
     """
@@ -751,24 +688,14 @@ class TrafficRateContainer(BaseModel):
     )
     in_bps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-bps',
-            ge=0,
-            le=18446744073709551615,
-            title='In-bpsLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:in-bps', ge=0, le=18446744073709551615),
     ] = None
     """
     The ingress bandwidth utilization of the port
     """
     out_bps: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-bps',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-bpsLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:out-bps', ge=0, le=18446744073709551615),
     ] = None
     """
     The egress bandwidth utilization of the port
@@ -790,7 +717,6 @@ class TransmitPowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MinimumLeaf15',
         ),
     ] = None
     """
@@ -802,7 +728,6 @@ class TransmitPowerContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MaximumLeaf16',
         ),
     ] = None
     """
@@ -840,7 +765,7 @@ class ValidLifetimeLeaf1(RootModel[int]):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    root: Annotated[int, Field(ge=0, le=4294967295, title='Valid-lifetimeLeaf')]
+    root: Annotated[int, Field(ge=0, le=4294967295)]
     """
     The length of time in seconds (relative to the time the packet is sent) that the prefix is valid for the purpose of on-link determination. 
     """
@@ -867,8 +792,7 @@ class VlanListListEntry(BaseModel):
         regex_engine="python-re",
     )
     vlan_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-ra_guard:vlan-id', ge=0, le=4095, title='Vlan-idLeaf2'),
+        Optional[int], Field(alias='srl_nokia-ra_guard:vlan-id', ge=0, le=4095)
     ] = None
 
 
@@ -883,18 +807,13 @@ class VoltageContainer(BaseModel):
             alias='srl_nokia-interfaces:latest-value',
             ge=-922337203685477.6,
             le=922337203685477.6,
-            title='Latest-valueLeaf2',
         ),
     ] = None
     """
     The current voltage reading of the transceiver module (in Volts)
     """
     high_alarm_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:high-alarm-condition',
-            title='High-alarm-conditionLeaf2',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:high-alarm-condition')
     ] = None
     """
     High alarm threshold condition.
@@ -907,7 +826,6 @@ class VoltageContainer(BaseModel):
             alias='srl_nokia-interfaces:high-alarm-threshold',
             ge=-922337203685477.6,
             le=922337203685477.6,
-            title='High-alarm-thresholdLeaf2',
         ),
     ] = None
     """
@@ -916,11 +834,7 @@ class VoltageContainer(BaseModel):
     Read from the installed transceiver
     """
     low_alarm_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:low-alarm-condition',
-            title='Low-alarm-conditionLeaf2',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:low-alarm-condition')
     ] = None
     """
     Low alarm threshold condition.
@@ -933,7 +847,6 @@ class VoltageContainer(BaseModel):
             alias='srl_nokia-interfaces:low-alarm-threshold',
             ge=-922337203685477.6,
             le=922337203685477.6,
-            title='Low-alarm-thresholdLeaf2',
         ),
     ] = None
     """
@@ -942,11 +855,7 @@ class VoltageContainer(BaseModel):
     Read from the installed transceiver
     """
     high_warning_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:high-warning-condition',
-            title='High-warning-conditionLeaf2',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:high-warning-condition')
     ] = None
     """
     High warning threshold condition.
@@ -959,7 +868,6 @@ class VoltageContainer(BaseModel):
             alias='srl_nokia-interfaces:high-warning-threshold',
             ge=-922337203685477.6,
             le=922337203685477.6,
-            title='High-warning-thresholdLeaf2',
         ),
     ] = None
     """
@@ -968,11 +876,7 @@ class VoltageContainer(BaseModel):
     Read from the installed transceiver
     """
     low_warning_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:low-warning-condition',
-            title='Low-warning-conditionLeaf2',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:low-warning-condition')
     ] = None
     """
     Low warning threshold condition.
@@ -985,7 +889,6 @@ class VoltageContainer(BaseModel):
             alias='srl_nokia-interfaces:low-warning-threshold',
             ge=-922337203685477.6,
             le=922337203685477.6,
-            title='Low-warning-thresholdLeaf2',
         ),
     ] = None
     """
@@ -1742,7 +1645,6 @@ class BitErrorRateContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776,
             le=9.223372036854776,
-            title='CurrentLeaf',
         ),
     ] = None
     """
@@ -1754,7 +1656,6 @@ class BitErrorRateContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776,
             le=9.223372036854776,
-            title='AverageLeaf',
         ),
     ] = None
     """
@@ -1766,7 +1667,6 @@ class BitErrorRateContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776,
             le=9.223372036854776,
-            title='MinimumLeaf2',
         ),
     ] = None
     """
@@ -1778,7 +1678,6 @@ class BitErrorRateContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776,
             le=9.223372036854776,
-            title='MaximumLeaf3',
         ),
     ] = None
     """
@@ -1807,7 +1706,6 @@ class ChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces:wavelength',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='WavelengthLeaf2',
         ),
     ] = None
     """
@@ -1821,13 +1719,7 @@ class ChromaticDispersionRangeContainer(BaseModel):
         regex_engine="python-re",
     )
     minimum: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:minimum',
-            ge=-100000,
-            le=0,
-            title='MinimumLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-dco:minimum', ge=-100000, le=0)
     ] = None
     """
     Chromatic dispersion sweep range minimum
@@ -1836,12 +1728,7 @@ class ChromaticDispersionRangeContainer(BaseModel):
     """
     maximum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:maximum',
-            ge=-100000,
-            le=100000,
-            title='MaximumLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:maximum', ge=-100000, le=100000),
     ] = None
     """
     Chromatic dispersion sweep range maximum
@@ -1861,48 +1748,28 @@ class ChromaticDispersionContainer(BaseModel):
     )
     current: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:current',
-            ge=-2147483648,
-            le=2147483647,
-            title='CurrentLeaf4',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:current', ge=-2147483648, le=2147483647),
     ] = None
     """
     Current chromatic dispersion received on the optical channel
     """
     average: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:average',
-            ge=-2147483648,
-            le=2147483647,
-            title='AverageLeaf4',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:average', ge=-2147483648, le=2147483647),
     ] = None
     """
     Average chromatic dispersion received on the optical channel
     """
     minimum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:minimum',
-            ge=-2147483648,
-            le=2147483647,
-            title='MinimumLeaf5',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:minimum', ge=-2147483648, le=2147483647),
     ] = None
     """
     Minimum chromatic dispersion received on the optical channel
     """
     maximum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:maximum',
-            ge=-2147483648,
-            le=2147483647,
-            title='MaximumLeaf6',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:maximum', ge=-2147483648, le=2147483647),
     ] = None
     """
     Maximum chromatic dispersion received on the optical channel
@@ -1924,7 +1791,6 @@ class DifferentialGroupDelayContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='CurrentLeaf5',
         ),
     ] = None
     """
@@ -1936,7 +1802,6 @@ class DifferentialGroupDelayContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='AverageLeaf5',
         ),
     ] = None
     """
@@ -1948,7 +1813,6 @@ class DifferentialGroupDelayContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MinimumLeaf6',
         ),
     ] = None
     """
@@ -1960,7 +1824,6 @@ class DifferentialGroupDelayContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='MaximumLeaf7',
         ),
     ] = None
     """
@@ -1983,7 +1846,6 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:current',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='CurrentLeaf2',
         ),
     ] = None
     """
@@ -1995,7 +1857,6 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:average',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='AverageLeaf2',
         ),
     ] = None
     """
@@ -2007,7 +1868,6 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MinimumLeaf3',
         ),
     ] = None
     """
@@ -2019,7 +1879,6 @@ class ElectricalSignalToNoiseRatioContainer(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='MaximumLeaf4',
         ),
     ] = None
     """
@@ -2038,12 +1897,7 @@ class FineTuningContainer(BaseModel):
     )
     range: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:range',
-            ge=0,
-            le=4294967295,
-            title='RangeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:range', ge=0, le=4294967295),
     ] = None
     """
     The positive or negative offset that can be applied when using frequency fine tuning
@@ -2052,12 +1906,7 @@ class FineTuningContainer(BaseModel):
     """
     resolution: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:resolution',
-            ge=0,
-            le=4294967295,
-            title='ResolutionLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:resolution', ge=0, le=4294967295),
     ] = None
     """
     The resolution that can be used for frequency fine tuning.
@@ -2077,25 +1926,13 @@ class FirmwareVersionContainer(BaseModel):
         regex_engine="python-re",
     )
     major_revision: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:major-revision',
-            ge=0,
-            le=255,
-            title='Major-revisionLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:major-revision', ge=0, le=255)
     ] = None
     """
     Major revision number
     """
     minor_revision: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:minor-revision',
-            ge=0,
-            le=255,
-            title='Minor-revisionLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:minor-revision', ge=0, le=255)
     ] = None
     """
     Minor revision number
@@ -2107,17 +1944,16 @@ class FlowControlContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    receive: Annotated[
-        Optional[bool], Field(alias='srl_nokia-interfaces:receive', title='ReceiveLeaf')
-    ] = None
+    receive: Annotated[Optional[bool], Field(alias='srl_nokia-interfaces:receive')] = (
+        None
+    )
     """
     When this is true PAUSE frames received on this interface are accepted and processed, and, if auto-negotiation is enabled it also causes the capability to receive PAUSE frames to be signaled to the peer (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports).
 
     When this is false PAUSE frames received on this interface are ignored, and, if auto-negotiation is enabled it causes the capability to receive PAUSE frames to be signaled to the peer as non-support (applicable only to ports 1-48 of the 7220 IXR-D1 and to mgmt0 and mgmt0-standby ports)
     """
     transmit: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces:transmit', title='TransmitLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces:transmit')
     ] = None
     """
     Enables/disables the sending of PAUSE frames.
@@ -2137,48 +1973,28 @@ class FrequencyOffsetContainer(BaseModel):
     )
     current: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:current',
-            ge=-2147483648,
-            le=2147483647,
-            title='CurrentLeaf6',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:current', ge=-2147483648, le=2147483647),
     ] = None
     """
     Current frequency offset received on the optical channel
     """
     average: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:average',
-            ge=-2147483648,
-            le=2147483647,
-            title='AverageLeaf6',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:average', ge=-2147483648, le=2147483647),
     ] = None
     """
     Average frequency offset received on the optical channel
     """
     minimum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:minimum',
-            ge=-2147483648,
-            le=2147483647,
-            title='MinimumLeaf7',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:minimum', ge=-2147483648, le=2147483647),
     ] = None
     """
     Minimum frequency offset received on the optical channel
     """
     maximum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:maximum',
-            ge=-2147483648,
-            le=2147483647,
-            title='MaximumLeaf8',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:maximum', ge=-2147483648, le=2147483647),
     ] = None
     """
     Maximum frequency offset received on the optical channel
@@ -2229,12 +2045,7 @@ class LimitContainer(BaseModel):
     )
     max_entries: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-nbr:max-entries',
-            ge=0,
-            le=4294967295,
-            title='Max-entriesLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:max-entries', ge=0, le=4294967295),
     ] = None
     """
     The maximum number of neighbor entries allowed on the subinterface
@@ -2243,8 +2054,7 @@ class LimitContainer(BaseModel):
     is only limited by the total amount of entries supported by the router.
     """
     log_only: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-nbr:log-only', title='Log-onlyLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-nbr:log-only')
     ] = False
     """
     Generate only a log message when limit is reached
@@ -2254,12 +2064,7 @@ class LimitContainer(BaseModel):
     """
     warning_threshold_pct: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-nbr:warning-threshold-pct',
-            ge=1,
-            le=100,
-            title='Warning-threshold-pctLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:warning-threshold-pct', ge=1, le=100),
     ] = 90
     """
     Threshold percentage of the configured maximum number of entries
@@ -2282,7 +2087,6 @@ class MacAddressListEntry(BaseModel):
         Field(
             alias='srl_nokia-dot1x:mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='MacLeaf',
         ),
     ] = None
     """
@@ -2301,24 +2105,14 @@ class MacLimitContainer(BaseModel):
     )
     maximum_entries: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:maximum-entries',
-            ge=1,
-            le=8192,
-            title='Maximum-entriesLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:maximum-entries', ge=1, le=8192),
     ] = 250
     """
     Maximum number of mac addresses allowed in the bridge-table.
     """
     warning_threshold_pct: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:warning-threshold-pct',
-            ge=6,
-            le=100,
-            title='Warning-threshold-pctLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces:warning-threshold-pct', ge=6, le=100),
     ] = 95
     """
     Percentage of the configured max-number-macs over which a warning is triggered.
@@ -2341,7 +2135,6 @@ class MacListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-learning-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='AddressLeaf2',
         ),
     ] = None
     """
@@ -2356,7 +2149,6 @@ class MacListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-learning-entries:last-update',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-updateLeaf3',
         ),
     ] = None
     """
@@ -2364,10 +2156,7 @@ class MacListEntry(BaseModel):
     """
     aging: Annotated[
         Optional[Union[AgingLeaf1, EnumerationEnum70]],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-mac-learning-entries:aging',
-            title='AgingLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-mac-learning-entries:aging'),
     ] = None
     """
     remaining age time for learnt macs
@@ -2388,7 +2177,6 @@ class MacListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-duplication-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='AddressLeaf3',
         ),
     ] = None
     """
@@ -2403,7 +2191,6 @@ class MacListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-duplication-entries:dup-detect-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Dup-detect-timeLeaf',
         ),
     ] = None
     """
@@ -2412,8 +2199,7 @@ class MacListEntry2(BaseModel):
     hold_down_time_remaining: Annotated[
         Optional[Union[EnumerationEnum72, HoldDownTimeRemainingLeaf1]],
         Field(
-            alias='srl_nokia-interfaces-bridge-table-mac-duplication-entries:hold-down-time-remaining',
-            title='Hold-down-time-remainingLeaf',
+            alias='srl_nokia-interfaces-bridge-table-mac-duplication-entries:hold-down-time-remaining'
         ),
     ] = None
     """
@@ -2432,48 +2218,28 @@ class MediaFrameErrorCountContainer(BaseModel):
     )
     current: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:current',
-            ge=0,
-            le=18446744073709551615,
-            title='CurrentLeaf12',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:current', ge=0, le=18446744073709551615),
     ] = None
     """
     Indicates the current Media Frame Rate Error Count received on the optical channel
     """
     average: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:average',
-            ge=0,
-            le=18446744073709551615,
-            title='AverageLeaf12',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:average', ge=0, le=18446744073709551615),
     ] = None
     """
     Indicates the average Media Frame Rate Error Count received on the optical channel
     """
     minimum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:minimum',
-            ge=0,
-            le=18446744073709551615,
-            title='MinimumLeaf13',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:minimum', ge=0, le=18446744073709551615),
     ] = None
     """
     Indicates the minimum Media Frame Rate Error Count received on the optical channel
     """
     maximum: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:maximum',
-            ge=0,
-            le=18446744073709551615,
-            title='MaximumLeaf14',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:maximum', ge=0, le=18446744073709551615),
     ] = None
     """
     Indicates the maximum Media Frame Rate Error Count received on the optical channel
@@ -2509,10 +2275,7 @@ class P4rtContainer(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-p4rt:id', ge=1, le=4294967295, title='IdLeaf2'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-p4rt:id', ge=1, le=4294967295)
     ] = None
     """
     The numeric identifier used by the controller to address the interface
@@ -2531,10 +2294,7 @@ class P4rtContainer(BaseModel):
     parent_id: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces-p4rt:parent-id',
-            ge=0,
-            le=18446744073709551615,
-            title='Parent-idLeaf',
+            alias='srl_nokia-interfaces-p4rt:parent-id', ge=0, le=18446744073709551615
         ),
     ] = None
     """
@@ -2560,8 +2320,7 @@ class PtpContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf5'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming ptp frames are tunneled.
@@ -2569,8 +2328,7 @@ class PtpContainer(BaseModel):
     ptp frames are identified by MAC DA 01-80-c2-00-00-0e and Ethertype 0x88f7.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf5'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress ptp frames.
@@ -2587,7 +2345,6 @@ class RaGuardContainer(BaseModel):
         Field(
             alias='srl_nokia-ra_guard:policy',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='PolicyLeaf',
         ),
     ] = None
     """
@@ -2662,24 +2419,14 @@ class StatisticsContainer(BaseModel):
     )
     in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Sum of all received packets, independent of protocol and forwarding type and before discards and errors
     """
     in_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:in-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Corresponds to ifHCInOctets from the IFMIB
@@ -2690,7 +2437,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:in-unicast-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-unicast-packetsLeaf',
         ),
     ] = 0
     """
@@ -2702,7 +2448,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:in-broadcast-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-broadcast-packetsLeaf',
         ),
     ] = 0
     """
@@ -2714,7 +2459,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:in-multicast-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-multicast-packetsLeaf',
         ),
     ] = 0
     """
@@ -2726,7 +2470,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-discarded-packetsLeaf',
         ),
     ] = 0
     """
@@ -2737,10 +2480,7 @@ class StatisticsContainer(BaseModel):
     in_error_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:in-error-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-error-packetsLeaf',
+            alias='srl_nokia-interfaces:in-error-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -2752,7 +2492,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:in-fcs-error-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-fcs-error-packetsLeaf',
         ),
     ] = 0
     """
@@ -2760,24 +2499,14 @@ class StatisticsContainer(BaseModel):
     """
     out_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:out-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Sum of all transmitted packets, independent of protocol and forwarding type and before discards and errors
     """
     out_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-octetsLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:out-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     Corresponds to ifHCOutOctets from the IF-MIB
@@ -2788,7 +2517,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:out-mirror-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-mirror-octetsLeaf',
         ),
     ] = 0
     """
@@ -2800,7 +2528,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:out-unicast-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-unicast-packetsLeaf',
         ),
     ] = 0
     """
@@ -2812,7 +2539,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:out-broadcast-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-broadcast-packetsLeaf',
         ),
     ] = 0
     """
@@ -2824,7 +2550,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:out-multicast-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-multicast-packetsLeaf',
         ),
     ] = 0
     """
@@ -2836,7 +2561,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:out-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-discarded-packetsLeaf',
         ),
     ] = 0
     """
@@ -2850,7 +2574,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:out-error-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-error-packetsLeaf',
         ),
     ] = 0
     """
@@ -2862,7 +2585,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:out-mirror-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-mirror-packetsLeaf',
         ),
     ] = 0
     """
@@ -2874,7 +2596,6 @@ class StatisticsContainer(BaseModel):
             alias='srl_nokia-interfaces:carrier-transitions',
             ge=0,
             le=18446744073709551615,
-            title='Carrier-transitionsLeaf',
         ),
     ] = 0
     """
@@ -2887,7 +2608,6 @@ class StatisticsContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf',
         ),
     ] = None
     """
@@ -2906,7 +2626,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-sent',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-sentLeaf2',
         ),
     ] = 0
     """
@@ -2918,7 +2637,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-received',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-receivedLeaf2',
         ),
     ] = 0
     """
@@ -2930,7 +2648,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-version-mismatch',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-version-mismatchLeaf2',
         ),
     ] = 0
     """
@@ -2942,7 +2659,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authfail',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-authfailLeaf2',
         ),
     ] = 0
     """
@@ -2954,7 +2670,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authtype-mismatch',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-authtype-mismatchLeaf2',
         ),
     ] = 0
     """
@@ -2966,7 +2681,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-address-mismatch',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-address-mismatchLeaf2',
         ),
     ] = 0
     """
@@ -2978,7 +2692,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:priority-zero-packets-sent',
             ge=0,
             le=18446744073709551615,
-            title='Priority-zero-packets-sentLeaf2',
         ),
     ] = 0
     """
@@ -2990,7 +2703,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:priority-zero-packets-received',
             ge=0,
             le=18446744073709551615,
-            title='Priority-zero-packets-receivedLeaf2',
         ),
     ] = 0
     """
@@ -3002,7 +2714,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-ttl',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-ttlLeaf2',
         ),
     ] = 0
     """
@@ -3014,7 +2725,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-length',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-lengthLeaf2',
         ),
     ] = 0
     """
@@ -3026,7 +2736,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-interval',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-intervalLeaf2',
         ),
     ] = 0
     """
@@ -3038,7 +2747,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-interval-error',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-interval-errorLeaf2',
         ),
     ] = 0
     """
@@ -3050,7 +2758,6 @@ class StatisticsContainer10(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-total',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-totalLeaf2',
         ),
     ] = 0
     """
@@ -3069,12 +2776,7 @@ class StatisticsContainer11(BaseModel):
     )
     in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-packetsLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces:in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of input packets received, counting transit and terminating traffic
@@ -3087,12 +2789,7 @@ class StatisticsContainer11(BaseModel):
     """
     in_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-octetsLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces:in-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets received in input packets, counting transit and terminating traffic
@@ -3100,10 +2797,7 @@ class StatisticsContainer11(BaseModel):
     in_error_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:in-error-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-error-packetsLeaf3',
+            alias='srl_nokia-interfaces:in-error-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -3127,7 +2821,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-discarded-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3151,7 +2844,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:in-terminated-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-packetsLeaf2',
         ),
     ] = 0
     """
@@ -3169,7 +2861,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:in-terminated-octets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-octetsLeaf2',
         ),
     ] = 0
     """
@@ -3181,7 +2872,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:in-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-forwarded-packetsLeaf2',
         ),
     ] = 0
     """
@@ -3195,7 +2885,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:in-forwarded-octets',
             ge=0,
             le=18446744073709551615,
-            title='In-forwarded-octetsLeaf2',
         ),
     ] = 0
     """
@@ -3207,7 +2896,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:in-matched-ra-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-matched-ra-packetsLeaf2',
         ),
     ] = 0
     """
@@ -3219,7 +2907,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:out-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-packetsLeaf2',
         ),
     ] = 0
     """
@@ -3231,7 +2918,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:out-forwarded-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-octetsLeaf2',
         ),
     ] = 0
     """
@@ -3243,7 +2929,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:out-originated-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-packetsLeaf2',
         ),
     ] = 0
     """
@@ -3255,7 +2940,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:out-originated-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-octetsLeaf2',
         ),
     ] = 0
     """
@@ -3267,7 +2951,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:out-error-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-error-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3281,7 +2964,6 @@ class StatisticsContainer11(BaseModel):
             alias='srl_nokia-interfaces:out-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-discarded-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3291,12 +2973,7 @@ class StatisticsContainer11(BaseModel):
     """
     out_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-packetsLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces:out-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of packets that this router supplied to the lower layers for transmission
@@ -3309,12 +2986,7 @@ class StatisticsContainer11(BaseModel):
     """
     out_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-octetsLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces:out-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets in packets delivered to the lower layers for transmission
@@ -3324,7 +2996,6 @@ class StatisticsContainer11(BaseModel):
         Field(
             alias='srl_nokia-interfaces:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf5',
         ),
     ] = None
     """
@@ -3347,7 +3018,6 @@ class StatisticsContainer12(BaseModel):
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:out-probe-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-probe-packetsLeaf2',
         ),
     ] = 0
     """
@@ -3370,7 +3040,6 @@ class StatisticsContainer13(BaseModel):
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:out-total-probe-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-total-probe-packetsLeaf2',
         ),
     ] = 0
     """
@@ -3389,7 +3058,6 @@ class StatisticsContainer14(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:client-packets-received',
             ge=0,
             le=18446744073709551615,
-            title='Client-packets-receivedLeaf2',
         ),
     ] = 0
     """
@@ -3401,7 +3069,6 @@ class StatisticsContainer14(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:client-packets-relayed',
             ge=0,
             le=18446744073709551615,
-            title='Client-packets-relayedLeaf2',
         ),
     ] = 0
     """
@@ -3413,7 +3080,6 @@ class StatisticsContainer14(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:client-packets-discarded',
             ge=0,
             le=18446744073709551615,
-            title='Client-packets-discardedLeaf2',
         ),
     ] = 0
     """
@@ -3425,7 +3091,6 @@ class StatisticsContainer14(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:server-packets-received',
             ge=0,
             le=18446744073709551615,
-            title='Server-packets-receivedLeaf2',
         ),
     ] = 0
     """
@@ -3437,7 +3102,6 @@ class StatisticsContainer14(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:server-packets-relayed',
             ge=0,
             le=18446744073709551615,
-            title='Server-packets-relayedLeaf2',
         ),
     ] = 0
     """
@@ -3449,7 +3113,6 @@ class StatisticsContainer14(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:server-packets-discarded',
             ge=0,
             le=18446744073709551615,
-            title='Server-packets-discardedLeaf2',
         ),
     ] = 0
     """
@@ -3468,12 +3131,7 @@ class StatisticsContainer15(BaseModel):
     )
     in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-packetsLeaf4',
-        ),
+        Field(alias='srl_nokia-interfaces:in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of input packets received, counting transit and terminating traffic
@@ -3486,12 +3144,7 @@ class StatisticsContainer15(BaseModel):
     """
     in_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-octetsLeaf4',
-        ),
+        Field(alias='srl_nokia-interfaces:in-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets received in input packets, counting transit and terminating traffic
@@ -3499,10 +3152,7 @@ class StatisticsContainer15(BaseModel):
     in_error_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:in-error-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-error-packetsLeaf4',
+            alias='srl_nokia-interfaces:in-error-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -3526,7 +3176,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-discarded-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3550,7 +3199,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:in-terminated-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3568,7 +3216,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:in-terminated-octets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-octetsLeaf3',
         ),
     ] = 0
     """
@@ -3580,7 +3227,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:in-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-forwarded-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3594,7 +3240,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:in-forwarded-octets',
             ge=0,
             le=18446744073709551615,
-            title='In-forwarded-octetsLeaf3',
         ),
     ] = 0
     """
@@ -3606,7 +3251,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:in-matched-ra-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-matched-ra-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3618,7 +3262,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:out-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3630,7 +3273,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:out-forwarded-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-octetsLeaf3',
         ),
     ] = 0
     """
@@ -3642,7 +3284,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:out-originated-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-packetsLeaf3',
         ),
     ] = 0
     """
@@ -3654,7 +3295,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:out-originated-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-octetsLeaf3',
         ),
     ] = 0
     """
@@ -3666,7 +3306,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:out-error-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-error-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3680,7 +3319,6 @@ class StatisticsContainer15(BaseModel):
             alias='srl_nokia-interfaces:out-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-discarded-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3690,12 +3328,7 @@ class StatisticsContainer15(BaseModel):
     """
     out_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-packetsLeaf4',
-        ),
+        Field(alias='srl_nokia-interfaces:out-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of packets that this router supplied to the lower layers for transmission
@@ -3708,12 +3341,7 @@ class StatisticsContainer15(BaseModel):
     """
     out_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-octetsLeaf4',
-        ),
+        Field(alias='srl_nokia-interfaces:out-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets in packets delivered to the lower layers for transmission
@@ -3723,7 +3351,6 @@ class StatisticsContainer15(BaseModel):
         Field(
             alias='srl_nokia-interfaces:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf6',
         ),
     ] = None
     """
@@ -3739,10 +3366,7 @@ class StatisticsContainer17(BaseModel):
     discarded_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-ethcfm:discarded-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Discarded-packetsLeaf',
+            alias='srl_nokia-ethcfm:discarded-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -3761,12 +3385,7 @@ class StatisticsContainer18(BaseModel):
     )
     in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-if-mpls:in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-packetsLeaf5',
-        ),
+        Field(alias='srl_nokia-if-mpls:in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of input packets received, counting transit and terminating traffic
@@ -3779,12 +3398,7 @@ class StatisticsContainer18(BaseModel):
     """
     in_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-if-mpls:in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-octetsLeaf5',
-        ),
+        Field(alias='srl_nokia-if-mpls:in-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets received in input packets, counting transit and terminating traffic
@@ -3792,10 +3406,7 @@ class StatisticsContainer18(BaseModel):
     in_error_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-if-mpls:in-error-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-error-packetsLeaf5',
+            alias='srl_nokia-if-mpls:in-error-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -3819,7 +3430,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-discarded-packetsLeaf5',
         ),
     ] = 0
     """
@@ -3843,7 +3453,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:in-terminated-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3861,7 +3470,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:in-terminated-octets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-octetsLeaf4',
         ),
     ] = 0
     """
@@ -3873,7 +3481,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:in-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-forwarded-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3884,10 +3491,7 @@ class StatisticsContainer18(BaseModel):
     in_forwarded_octets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-if-mpls:in-forwarded-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-forwarded-octetsLeaf4',
+            alias='srl_nokia-if-mpls:in-forwarded-octets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -3899,7 +3503,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:in-matched-ra-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-matched-ra-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3911,7 +3514,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:out-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3923,7 +3525,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:out-forwarded-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-octetsLeaf4',
         ),
     ] = 0
     """
@@ -3935,7 +3536,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:out-originated-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-packetsLeaf4',
         ),
     ] = 0
     """
@@ -3947,7 +3547,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:out-originated-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-octetsLeaf4',
         ),
     ] = 0
     """
@@ -3956,10 +3555,7 @@ class StatisticsContainer18(BaseModel):
     out_error_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-if-mpls:out-error-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-error-packetsLeaf5',
+            alias='srl_nokia-if-mpls:out-error-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -3973,7 +3569,6 @@ class StatisticsContainer18(BaseModel):
             alias='srl_nokia-if-mpls:out-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-discarded-packetsLeaf5',
         ),
     ] = 0
     """
@@ -3983,12 +3578,7 @@ class StatisticsContainer18(BaseModel):
     """
     out_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-if-mpls:out-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-packetsLeaf5',
-        ),
+        Field(alias='srl_nokia-if-mpls:out-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of packets that this router supplied to the lower layers for transmission
@@ -4001,12 +3591,7 @@ class StatisticsContainer18(BaseModel):
     """
     out_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-if-mpls:out-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-octetsLeaf5',
-        ),
+        Field(alias='srl_nokia-if-mpls:out-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets in packets delivered to the lower layers for transmission
@@ -4016,7 +3601,6 @@ class StatisticsContainer18(BaseModel):
         Field(
             alias='srl_nokia-if-mpls:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf7',
         ),
     ] = None
     """
@@ -4035,48 +3619,28 @@ class StatisticsContainer19(BaseModel):
     )
     lacp_in_pkts: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-lacp:lacp-in-pkts',
-            ge=0,
-            le=18446744073709551615,
-            title='Lacp-in-pktsLeaf',
-        ),
+        Field(alias='srl_nokia-lacp:lacp-in-pkts', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of LACPDUs received
     """
     lacp_out_pkts: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-lacp:lacp-out-pkts',
-            ge=0,
-            le=18446744073709551615,
-            title='Lacp-out-pktsLeaf',
-        ),
+        Field(alias='srl_nokia-lacp:lacp-out-pkts', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of LACPDUs transmitted
     """
     lacp_rx_errors: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-lacp:lacp-rx-errors',
-            ge=0,
-            le=18446744073709551615,
-            title='Lacp-rx-errorsLeaf',
-        ),
+        Field(alias='srl_nokia-lacp:lacp-rx-errors', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of LACPDU receive packet errors
     """
     lacp_tx_errors: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-lacp:lacp-tx-errors',
-            ge=0,
-            le=18446744073709551615,
-            title='Lacp-tx-errorsLeaf',
-        ),
+        Field(alias='srl_nokia-lacp:lacp-tx-errors', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of LACPDU transmit packet errors
@@ -4084,10 +3648,7 @@ class StatisticsContainer19(BaseModel):
     lacp_unknown_errors: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-lacp:lacp-unknown-errors',
-            ge=0,
-            le=18446744073709551615,
-            title='Lacp-unknown-errorsLeaf',
+            alias='srl_nokia-lacp:lacp-unknown-errors', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -4095,12 +3656,7 @@ class StatisticsContainer19(BaseModel):
     """
     lacp_errors: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-lacp:lacp-errors',
-            ge=0,
-            le=18446744073709551615,
-            title='Lacp-errorsLeaf',
-        ),
+        Field(alias='srl_nokia-lacp:lacp-errors', ge=0, le=18446744073709551615),
     ] = 0
     """
     Number of LACPDU illegal packet errors
@@ -4138,7 +3694,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-mac-pause-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-mac-pause-framesLeaf',
         ),
     ] = 0
     """
@@ -4150,7 +3705,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-oversize-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-oversize-framesLeaf',
         ),
     ] = 0
     """
@@ -4159,10 +3713,7 @@ class StatisticsContainer3(BaseModel):
     in_jabber_frames: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:in-jabber-frames',
-            ge=0,
-            le=18446744073709551615,
-            title='In-jabber-framesLeaf',
+            alias='srl_nokia-interfaces:in-jabber-frames', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -4174,7 +3725,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-fragment-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-fragment-framesLeaf',
         ),
     ] = 0
     """
@@ -4186,7 +3736,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-crc-error-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-crc-error-framesLeaf',
         ),
     ] = 0
     """
@@ -4198,7 +3747,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:out-mac-pause-frames',
             ge=0,
             le=18446744073709551615,
-            title='Out-mac-pause-framesLeaf',
         ),
     ] = 0
     """
@@ -4207,10 +3755,7 @@ class StatisticsContainer3(BaseModel):
     in_64b_frames: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:in-64b-frames',
-            ge=0,
-            le=18446744073709551615,
-            title='In-64b-framesLeaf',
+            alias='srl_nokia-interfaces:in-64b-frames', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -4222,7 +3767,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-65b-to-127b-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-65b-to-127b-framesLeaf',
         ),
     ] = 0
     """
@@ -4234,7 +3778,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-128b-to-255b-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-128b-to-255b-framesLeaf',
         ),
     ] = 0
     """
@@ -4246,7 +3789,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-256b-to-511b-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-256b-to-511b-framesLeaf',
         ),
     ] = 0
     """
@@ -4258,7 +3800,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-512b-to-1023b-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-512b-to-1023b-framesLeaf',
         ),
     ] = 0
     """
@@ -4270,7 +3811,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-1024b-to-1518b-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-1024b-to-1518b-framesLeaf',
         ),
     ] = 0
     """
@@ -4282,7 +3822,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:in-1519b-or-longer-frames',
             ge=0,
             le=18446744073709551615,
-            title='In-1519b-or-longer-framesLeaf',
         ),
     ] = 0
     """
@@ -4291,10 +3830,7 @@ class StatisticsContainer3(BaseModel):
     out_64b_frames: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:out-64b-frames',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-64b-framesLeaf',
+            alias='srl_nokia-interfaces:out-64b-frames', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -4306,7 +3842,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:out-65b-to-127b-frames',
             ge=0,
             le=18446744073709551615,
-            title='Out-65b-to-127b-framesLeaf',
         ),
     ] = 0
     """
@@ -4318,7 +3853,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:out-128b-to-255b-frames',
             ge=0,
             le=18446744073709551615,
-            title='Out-128b-to-255b-framesLeaf',
         ),
     ] = 0
     """
@@ -4330,7 +3864,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:out-256b-to-511b-frames',
             ge=0,
             le=18446744073709551615,
-            title='Out-256b-to-511b-framesLeaf',
         ),
     ] = 0
     """
@@ -4342,7 +3875,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:out-512b-to-1023b-frames',
             ge=0,
             le=18446744073709551615,
-            title='Out-512b-to-1023b-framesLeaf',
         ),
     ] = 0
     """
@@ -4354,7 +3886,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:out-1024b-to-1518b-frames',
             ge=0,
             le=18446744073709551615,
-            title='Out-1024b-to-1518b-framesLeaf',
         ),
     ] = 0
     """
@@ -4366,7 +3897,6 @@ class StatisticsContainer3(BaseModel):
             alias='srl_nokia-interfaces:out-1519b-or-longer-frames',
             ge=0,
             le=18446744073709551615,
-            title='Out-1519b-or-longer-framesLeaf',
         ),
     ] = 0
     """
@@ -4377,7 +3907,6 @@ class StatisticsContainer3(BaseModel):
         Field(
             alias='srl_nokia-interfaces:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf2',
         ),
     ] = None
     """
@@ -4396,7 +3925,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-sent',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-sentLeaf',
         ),
     ] = 0
     """
@@ -4408,7 +3936,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-received',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-receivedLeaf',
         ),
     ] = 0
     """
@@ -4420,7 +3947,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-version-mismatch',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-version-mismatchLeaf',
         ),
     ] = 0
     """
@@ -4432,7 +3958,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authfail',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-authfailLeaf',
         ),
     ] = 0
     """
@@ -4444,7 +3969,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-authtype-mismatch',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-authtype-mismatchLeaf',
         ),
     ] = 0
     """
@@ -4456,7 +3980,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-address-mismatch',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-address-mismatchLeaf',
         ),
     ] = 0
     """
@@ -4468,7 +3991,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:priority-zero-packets-sent',
             ge=0,
             le=18446744073709551615,
-            title='Priority-zero-packets-sentLeaf',
         ),
     ] = 0
     """
@@ -4480,7 +4002,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:priority-zero-packets-received',
             ge=0,
             le=18446744073709551615,
-            title='Priority-zero-packets-receivedLeaf',
         ),
     ] = 0
     """
@@ -4492,7 +4013,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-ttl',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-ttlLeaf',
         ),
     ] = 0
     """
@@ -4504,7 +4024,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-length',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-lengthLeaf',
         ),
     ] = 0
     """
@@ -4516,7 +4035,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-interval',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-intervalLeaf',
         ),
     ] = 0
     """
@@ -4528,7 +4046,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-interval-error',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-interval-errorLeaf',
         ),
     ] = 0
     """
@@ -4540,7 +4057,6 @@ class StatisticsContainer5(BaseModel):
             alias='srl_nokia-interfaces-ip-vrrp:advertisements-discarded-total',
             ge=0,
             le=18446744073709551615,
-            title='Advertisements-discarded-totalLeaf',
         ),
     ] = 0
     """
@@ -4559,12 +4075,7 @@ class StatisticsContainer6(BaseModel):
     )
     in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces:in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of input packets received, counting transit and terminating traffic
@@ -4577,12 +4088,7 @@ class StatisticsContainer6(BaseModel):
     """
     in_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:in-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces:in-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets received in input packets, counting transit and terminating traffic
@@ -4590,10 +4096,7 @@ class StatisticsContainer6(BaseModel):
     in_error_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:in-error-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-error-packetsLeaf2',
+            alias='srl_nokia-interfaces:in-error-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -4617,7 +4120,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-discarded-packetsLeaf2',
         ),
     ] = 0
     """
@@ -4641,7 +4143,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:in-terminated-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-packetsLeaf',
         ),
     ] = 0
     """
@@ -4659,7 +4160,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:in-terminated-octets',
             ge=0,
             le=18446744073709551615,
-            title='In-terminated-octetsLeaf',
         ),
     ] = 0
     """
@@ -4671,7 +4171,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:in-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-forwarded-packetsLeaf',
         ),
     ] = 0
     """
@@ -4685,7 +4184,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:in-forwarded-octets',
             ge=0,
             le=18446744073709551615,
-            title='In-forwarded-octetsLeaf',
         ),
     ] = 0
     """
@@ -4697,7 +4195,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:in-matched-ra-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-matched-ra-packetsLeaf',
         ),
     ] = 0
     """
@@ -4709,7 +4206,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:out-forwarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-packetsLeaf',
         ),
     ] = 0
     """
@@ -4721,7 +4217,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:out-forwarded-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-forwarded-octetsLeaf',
         ),
     ] = 0
     """
@@ -4733,7 +4228,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:out-originated-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-packetsLeaf',
         ),
     ] = 0
     """
@@ -4745,7 +4239,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:out-originated-octets',
             ge=0,
             le=18446744073709551615,
-            title='Out-originated-octetsLeaf',
         ),
     ] = 0
     """
@@ -4757,7 +4250,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:out-error-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-error-packetsLeaf2',
         ),
     ] = 0
     """
@@ -4771,7 +4263,6 @@ class StatisticsContainer6(BaseModel):
             alias='srl_nokia-interfaces:out-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-discarded-packetsLeaf2',
         ),
     ] = 0
     """
@@ -4781,12 +4272,7 @@ class StatisticsContainer6(BaseModel):
     """
     out_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-packetsLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces:out-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of packets that this router supplied to the lower layers for transmission
@@ -4799,12 +4285,7 @@ class StatisticsContainer6(BaseModel):
     """
     out_octets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:out-octets',
-            ge=0,
-            le=18446744073709551615,
-            title='Out-octetsLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces:out-octets', ge=0, le=18446744073709551615),
     ] = 0
     """
     The total number of octets in packets delivered to the lower layers for transmission
@@ -4814,7 +4295,6 @@ class StatisticsContainer6(BaseModel):
         Field(
             alias='srl_nokia-interfaces:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf4',
         ),
     ] = None
     """
@@ -4837,7 +4317,6 @@ class StatisticsContainer7(BaseModel):
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:out-probe-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-probe-packetsLeaf',
         ),
     ] = 0
     """
@@ -4860,7 +4339,6 @@ class StatisticsContainer8(BaseModel):
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:out-total-probe-packets',
             ge=0,
             le=18446744073709551615,
-            title='Out-total-probe-packetsLeaf',
         ),
     ] = 0
     """
@@ -4879,7 +4357,6 @@ class StatisticsContainer9(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:client-packets-received',
             ge=0,
             le=18446744073709551615,
-            title='Client-packets-receivedLeaf',
         ),
     ] = 0
     """
@@ -4891,7 +4368,6 @@ class StatisticsContainer9(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:client-packets-relayed',
             ge=0,
             le=18446744073709551615,
-            title='Client-packets-relayedLeaf',
         ),
     ] = 0
     """
@@ -4903,7 +4379,6 @@ class StatisticsContainer9(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:client-packets-discarded',
             ge=0,
             le=18446744073709551615,
-            title='Client-packets-discardedLeaf',
         ),
     ] = 0
     """
@@ -4915,7 +4390,6 @@ class StatisticsContainer9(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:server-packets-received',
             ge=0,
             le=18446744073709551615,
-            title='Server-packets-receivedLeaf',
         ),
     ] = 0
     """
@@ -4927,7 +4401,6 @@ class StatisticsContainer9(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:server-packets-relayed',
             ge=0,
             le=18446744073709551615,
-            title='Server-packets-relayedLeaf',
         ),
     ] = 0
     """
@@ -4939,7 +4412,6 @@ class StatisticsContainer9(BaseModel):
             alias='srl_nokia-interfaces-ip-dhcp-relay:server-packets-discarded',
             ge=0,
             le=18446744073709551615,
-            title='Server-packets-discardedLeaf',
         ),
     ] = 0
     """
@@ -4957,15 +4429,13 @@ class SubsystemContainer(BaseModel):
         regex_engine="python-re",
     )
     vendor_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:vendor-name', title='Vendor-nameLeaf2'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:vendor-name')
     ] = None
     """
     PCI device vendor
     """
     vendor_id: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:vendor-id', title='Vendor-idLeaf2'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:vendor-id')
     ] = None
     """
     PCI device vendor ID
@@ -4973,15 +4443,13 @@ class SubsystemContainer(BaseModel):
     This field is the two byte vendor ID reported over PCI.
     """
     device_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:device-name', title='Device-nameLeaf2'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:device-name')
     ] = None
     """
     PCI device name
     """
     device_id: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:device-id', title='Device-idLeaf2'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:device-id')
     ] = None
     """
     PCI device ID
@@ -4997,24 +4465,13 @@ class TemperatureContainer(BaseModel):
     )
     latest_value: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:latest-value',
-            ge=-32768,
-            le=32767,
-            title='Latest-valueLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:latest-value', ge=-32768, le=32767),
     ] = None
     """
     The current temperature of the transceiver module in degrees Celsius
     """
     maximum: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:maximum',
-            ge=-32768,
-            le=32767,
-            title='MaximumLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:maximum', ge=-32768, le=32767)
     ] = None
     """
     Represents the highest temperature the transceiver has reached since it booted
@@ -5024,18 +4481,13 @@ class TemperatureContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:maximum-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Maximum-timeLeaf',
         ),
     ] = None
     """
     Indicates the time this transceiver reached the temperature referenced in maximum
     """
     high_alarm_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:high-alarm-condition',
-            title='High-alarm-conditionLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:high-alarm-condition')
     ] = None
     """
     High alarm threshold condition
@@ -5044,12 +4496,7 @@ class TemperatureContainer(BaseModel):
     """
     high_alarm_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:high-alarm-threshold',
-            ge=-32768,
-            le=32767,
-            title='High-alarm-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:high-alarm-threshold', ge=-32768, le=32767),
     ] = None
     """
     High alarm threshold
@@ -5057,11 +4504,7 @@ class TemperatureContainer(BaseModel):
     Read from the installed transceiver
     """
     low_alarm_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:low-alarm-condition',
-            title='Low-alarm-conditionLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:low-alarm-condition')
     ] = None
     """
     Low alarm threshold condition.
@@ -5070,12 +4513,7 @@ class TemperatureContainer(BaseModel):
     """
     low_alarm_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:low-alarm-threshold',
-            ge=-32768,
-            le=32767,
-            title='Low-alarm-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:low-alarm-threshold', ge=-32768, le=32767),
     ] = None
     """
     Low alarm threshold.
@@ -5083,11 +4521,7 @@ class TemperatureContainer(BaseModel):
     Read from the installed transceiver
     """
     high_warning_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:high-warning-condition',
-            title='High-warning-conditionLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:high-warning-condition')
     ] = None
     """
     High warning threshold condition.
@@ -5096,12 +4530,7 @@ class TemperatureContainer(BaseModel):
     """
     high_warning_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:high-warning-threshold',
-            ge=-32768,
-            le=32767,
-            title='High-warning-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:high-warning-threshold', ge=-32768, le=32767),
     ] = None
     """
     High warning threshold.
@@ -5109,11 +4538,7 @@ class TemperatureContainer(BaseModel):
     Read from the installed transceiver
     """
     low_warning_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:low-warning-condition',
-            title='Low-warning-conditionLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:low-warning-condition')
     ] = None
     """
     Low warning threshold condition.
@@ -5122,12 +4547,7 @@ class TemperatureContainer(BaseModel):
     """
     low_warning_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:low-warning-threshold',
-            ge=-32768,
-            le=32767,
-            title='Low-warning-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:low-warning-threshold', ge=-32768, le=32767),
     ] = None
     """
     Low warning threshold.
@@ -5147,17 +4567,14 @@ class UnidirectionalLinkDelayContainer(BaseModel):
     )
     static_delay: Annotated[
         Optional[Union[StaticDelayLeaf1, EnumerationEnum36]],
-        Field(alias='srl_nokia-interfaces:static-delay', title='Static-delayLeaf'),
+        Field(alias='srl_nokia-interfaces:static-delay'),
     ] = 'none'
     """
     A statically configured unidirectional delay value that can be advertised as an interface attribute by an IGP
     """
     last_reported_dynamic_delay: Annotated[
         Optional[Union[LastReportedDynamicDelayLeaf1, EnumerationEnum37]],
-        Field(
-            alias='srl_nokia-interfaces:last-reported-dynamic-delay',
-            title='Last-reported-dynamic-delayLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:last-reported-dynamic-delay'),
     ] = None
     """
     Indicates the last delay measurement reported to the routing engine
@@ -5178,7 +4595,6 @@ class VhostContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces-vxdp:vhost-socket-path',
             pattern='^(?=^(/[0-9A-Za-z_\\-\\.]+)+$).*$',
-            title='Vhost-socket-pathLeaf',
         ),
     ]
     """
@@ -5186,10 +4602,7 @@ class VhostContainer(BaseModel):
     """
     vhost_socket_mode: Annotated[
         Optional[EnumerationEnum94],
-        Field(
-            alias='srl_nokia-interfaces-vxdp:vhost-socket-mode',
-            title='Vhost-socket-modeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-vxdp:vhost-socket-mode'),
     ] = 'client'
     """
     The vhost-user socket mode
@@ -5198,12 +4611,7 @@ class VhostContainer(BaseModel):
     """
     vhost_socket_queues: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vxdp:vhost-socket-queues',
-            ge=1,
-            le=1024,
-            title='Vhost-socket-queuesLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-vxdp:vhost-socket-queues', ge=1, le=1024),
     ] = None
     """
     The number of vhost-user queues
@@ -5211,13 +4619,7 @@ class VhostContainer(BaseModel):
     The number of queues are retrieved from the vhost-user socket if not configured. This should be set equivalent to the number of vCPUs allocated to the other end of the vhost-user interface. This value must not exceed the count of vCPUs provided as the vXDP cpu-set.
     """
     socket_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vxdp:socket-id',
-            ge=0,
-            le=255,
-            title='Socket-idLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-vxdp:socket-id', ge=0, le=255)
     ] = None
     """
     Socket this interface is physically or logically attached to
@@ -5245,8 +4647,7 @@ class XstpContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf3'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming xSTP frames are tunneled.
@@ -5254,8 +4655,7 @@ class XstpContainer(BaseModel):
     xSTP frames are identified by MAC DA 01-80-c2-00-00-00 and any Ethertype.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf3'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress xSTP frames.
@@ -5272,8 +4672,7 @@ class AdapterContainer(BaseModel):
         regex_engine="python-re",
     )
     model_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces:model-number', title='Model-numberLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces:model-number')
     ] = None
     """
     Model information for the adapter
@@ -5281,18 +4680,13 @@ class AdapterContainer(BaseModel):
     This is the information as read from the EEPROM of the part.  The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
     """
     type: Annotated[
-        Optional[EnumerationEnum8],
-        Field(alias='srl_nokia-interfaces:type', title='TypeLeaf'),
+        Optional[EnumerationEnum8], Field(alias='srl_nokia-interfaces:type')
     ] = None
     """
     Type of adapter for the port
     """
     vendor_manufacture_date: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:vendor-manufacture-date',
-            title='Vendor-manufacture-dateLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-interfaces:vendor-manufacture-date')
     ] = None
     """
     Vendor's date code.
@@ -5300,8 +4694,7 @@ class AdapterContainer(BaseModel):
     This is the information as read from the EEPROM of the part.  
     """
     vendor_oui: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces:vendor-oui', title='Vendor-ouiLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces:vendor-oui')
     ] = None
     """
     Vendor's OUI which contains the IEEE company identifier for the vendor
@@ -5309,11 +4702,7 @@ class AdapterContainer(BaseModel):
     This is the information as read from the EEPROM of the part.  A value of all zero indicates that the vendor OUI is unspecified.
     """
     vendor_part_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:vendor-part-number',
-            title='Vendor-part-numberLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-interfaces:vendor-part-number')
     ] = None
     """
     Vendor's part number or product name of the adapter
@@ -5321,11 +4710,7 @@ class AdapterContainer(BaseModel):
     This is the information as read from the EEPROM of the part.  An empty string indicates the vendor part number is unspecified. The string is expected to contain printable ASCII characters, but unprintable ASCII characters read from the EEPROM are not filtered out.
     """
     vendor_serial_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:vendor-serial-number',
-            title='Vendor-serial-numberLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-interfaces:vendor-serial-number')
     ] = None
     """
     Vendor's serial number of the adapter
@@ -5340,8 +4725,7 @@ class AgingContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf18'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'enable'
     """
     Configurable state of the aging for the dynamic mac entries in the bridge table.
@@ -5357,12 +4741,7 @@ class AnycastGwContainer(BaseModel):
     )
     virtual_router_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:virtual-router-id',
-            ge=1,
-            le=255,
-            title='Virtual-router-idLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces:virtual-router-id', ge=1, le=255),
     ] = 1
     """
     The Virtual Router Identifier (VRID) value used to auto-derive the anycast-gw-mac in the format 00:00:5E:00:01:VRID.
@@ -5372,7 +4751,6 @@ class AnycastGwContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:anycast-gw-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Anycast-gw-macLeaf',
         ),
     ] = None
     """
@@ -5383,10 +4761,7 @@ class AnycastGwContainer(BaseModel):
     """
     anycast_gw_mac_origin: Annotated[
         Optional[EnumerationEnum69],
-        Field(
-            alias='srl_nokia-interfaces:anycast-gw-mac-origin',
-            title='Anycast-gw-mac-originLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:anycast-gw-mac-origin'),
     ] = None
     """
     Origin of the active anycast-gateway MAC address.
@@ -5445,21 +4820,13 @@ class BreakoutModeContainer(BaseModel):
         regex_engine="python-re",
     )
     num_breakout_ports: Annotated[
-        EnumerationEnum2,
-        Field(
-            alias='srl_nokia-interfaces:num-breakout-ports',
-            title='Num-breakout-portsLeaf',
-        ),
+        EnumerationEnum2, Field(alias='srl_nokia-interfaces:num-breakout-ports')
     ]
     """
     The number of breakout ports supported by this connector
     """
     breakout_port_speed: Annotated[
-        EnumerationEnum3,
-        Field(
-            alias='srl_nokia-interfaces:breakout-port-speed',
-            title='Breakout-port-speedLeaf',
-        ),
+        EnumerationEnum3, Field(alias='srl_nokia-interfaces:breakout-port-speed')
     ]
     """
     The speed of each breakout port
@@ -5476,8 +4843,7 @@ class DatapathProgrammingContainer(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum46],
-        Field(alias='srl_nokia-interfaces-nbr:status', title='StatusLeaf4'),
+        Optional[EnumerationEnum46], Field(alias='srl_nokia-interfaces-nbr:status')
     ] = None
     """
     The status of the ARP or neighbor entry with respect to datapath programming
@@ -5504,8 +4870,7 @@ class DatapathProgrammingContainer2(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum58],
-        Field(alias='srl_nokia-interfaces-nbr:status', title='StatusLeaf6'),
+        Optional[EnumerationEnum58], Field(alias='srl_nokia-interfaces-nbr:status')
     ] = None
     """
     The status of the ARP or neighbor entry with respect to datapath programming
@@ -5532,8 +4897,7 @@ class Dot1xContainer2(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf4'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming dot1x frames are tunneled.
@@ -5541,8 +4905,7 @@ class Dot1xContainer2(BaseModel):
     Dot1x frames are identified by MAC DA 01-80-c2-00-00-03 and Ethertype 0x888e.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf4'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress dot1x frames.
@@ -5562,18 +4925,14 @@ class DoubleTaggedContainer(BaseModel):
     )
     inner_vlan_id: Annotated[
         Union[VlanIdType, EnumerationEnum81],
-        Field(
-            alias='srl_nokia-interfaces-vlans:inner-vlan-id', title='Inner-vlan-idLeaf'
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:inner-vlan-id'),
     ]
     """
     Inner VLAN tag identifier for double-tagged packets
     """
     outer_vlan_id: Annotated[
         Union[VlanIdType, EnumerationEnum82],
-        Field(
-            alias='srl_nokia-interfaces-vlans:outer-vlan-id', title='Outer-vlan-idLeaf'
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:outer-vlan-id'),
     ]
     """
     Outer VLAN tag identifier for double-tagged packets
@@ -5601,8 +4960,7 @@ class EfmOamContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf8'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming EFM-OAM frames are tunneled
@@ -5610,8 +4968,7 @@ class EfmOamContainer(BaseModel):
     EFM-OAM frames are identified by Ethertype 0x8809 and slow protocol subtype 0x03.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf8'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress EFM-OAM frames.
@@ -5628,8 +4985,7 @@ class ElmiContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf7'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming ELMI frames are tunneled
@@ -5637,8 +4993,7 @@ class ElmiContainer(BaseModel):
     ELMI frames are identified by MAC DA 01-80-C2-00-00-07 and Ethertype 0x88ee.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf7'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress ELMI frames
@@ -5655,8 +5010,7 @@ class EsmcContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf6'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming esmc frames are tunneled
@@ -5664,8 +5018,7 @@ class EsmcContainer(BaseModel):
     ESMC frames are identified by Ethertype 0x8809 and slow protocol subtype 0x0A.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf6'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress ESMC frames
@@ -5686,7 +5039,6 @@ class EthernetSegmentAssociationContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ethernet-segment-association:ethernet-segment',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='Ethernet-segmentLeaf',
         ),
     ] = None
     """
@@ -5695,10 +5047,7 @@ class EthernetSegmentAssociationContainer(BaseModel):
     """
     es_managed: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-ethernet-segment-association:es-managed',
-            title='Es-managedLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ethernet-segment-association:es-managed'),
     ] = False
     """
     The value of this leaf indicates if the interface is managed
@@ -5707,8 +5056,7 @@ class EthernetSegmentAssociationContainer(BaseModel):
     designated_forwarder: Annotated[
         Optional[bool],
         Field(
-            alias='srl_nokia-interfaces-ethernet-segment-association:designated-forwarder',
-            title='Designated-forwarderLeaf',
+            alias='srl_nokia-interfaces-ethernet-segment-association:designated-forwarder'
         ),
     ] = False
     """
@@ -5727,53 +5075,34 @@ class ExponentialPortDampeningContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf4'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'disable'
     """
     Administrative state of exponential port dampening
     """
     half_life: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:half-life', ge=1, le=2000, title='Half-lifeLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:half-life', ge=1, le=2000)
     ] = 5
     """
     Half-life decay time
     """
     max_suppress_time: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:max-suppress-time',
-            ge=1,
-            le=43200,
-            title='Max-suppress-timeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:max-suppress-time', ge=1, le=43200),
     ] = 20
     """
     Maximum suppression time
     """
     reuse_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:reuse-threshold',
-            ge=1,
-            le=20000,
-            title='Reuse-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:reuse-threshold', ge=1, le=20000),
     ] = 1000
     """
     Threshold which port-up state is no longer suppressed
     """
     suppress_threshold: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:suppress-threshold',
-            ge=1,
-            le=20000,
-            title='Suppress-thresholdLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:suppress-threshold', ge=1, le=20000),
     ] = 2000
     """
     Threshold at which the port-up state is suppressed
@@ -5784,7 +5113,6 @@ class ExponentialPortDampeningContainer(BaseModel):
             alias='srl_nokia-interfaces:current-penalties',
             ge=0,
             le=18446744073709551615,
-            title='Current-penaltiesLeaf',
         ),
     ] = 0
     """
@@ -5795,18 +5123,14 @@ class ExponentialPortDampeningContainer(BaseModel):
     max_penalties: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:max-penalties',
-            ge=0,
-            le=18446744073709551615,
-            title='Max-penaltiesLeaf',
+            alias='srl_nokia-interfaces:max-penalties', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
     Indicates the maximum possible value of the accumulated penalties against the port
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum29],
-        Field(alias='srl_nokia-interfaces:oper-state', title='Oper-stateLeaf3'),
+        Optional[EnumerationEnum29], Field(alias='srl_nokia-interfaces:oper-state')
     ] = None
     """
     Indicates if the port up state of the port is suppressed or not
@@ -5837,8 +5161,7 @@ class HealthzContainer(BaseModel):
         regex_engine="python-re",
     )
     status: Annotated[
-        Optional[EnumerationEnum13],
-        Field(alias='srl_nokia-platform-healthz:status', title='StatusLeaf'),
+        Optional[EnumerationEnum13], Field(alias='srl_nokia-platform-healthz:status')
     ] = None
     """
     Health status
@@ -5850,7 +5173,6 @@ class HealthzContainer(BaseModel):
         Field(
             alias='srl_nokia-platform-healthz:last-unhealthy',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-unhealthyLeaf',
         ),
     ] = None
     """
@@ -5866,7 +5188,6 @@ class HealthzContainer(BaseModel):
             alias='srl_nokia-platform-healthz:unhealthy-count',
             ge=0,
             le=18446744073709551615,
-            title='Unhealthy-countLeaf',
         ),
     ] = 0
     """
@@ -5887,8 +5208,7 @@ class HoldTimeContainer(BaseModel):
         regex_engine="python-re",
     )
     up: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:up', ge=0, le=86400000, title='UpLeaf'),
+        Optional[int], Field(alias='srl_nokia-interfaces:up', ge=0, le=86400000)
     ] = 0
     """
     Holds link up events for the configured time
@@ -5903,15 +5223,13 @@ class HoldTimeContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:up-expires',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Up-expiresLeaf',
         ),
     ] = None
     """
     The remaining time until the hold-time up expires and the interface comes up.
     """
     down: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:down', ge=0, le=86400000, title='DownLeaf'),
+        Optional[int], Field(alias='srl_nokia-interfaces:down', ge=0, le=86400000)
     ] = 0
     """
     Holds link down events for the configured time
@@ -5930,7 +5248,6 @@ class HoldTimeContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:down-expires',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Down-expiresLeaf',
         ),
     ] = None
     """
@@ -5958,8 +5275,7 @@ class HostsContainer(BaseModel):
     Host MAC address
     """
     status: Annotated[
-        Optional[EnumerationEnum34],
-        Field(alias='srl_nokia-dot1x:status', title='StatusLeaf2'),
+        Optional[EnumerationEnum34], Field(alias='srl_nokia-dot1x:status')
     ] = None
     """
     The status of the 802.1X session for a device
@@ -5980,7 +5296,6 @@ class IngressSquelchingContainer(BaseModel):
         Field(
             alias='srl_nokia-ethcfm:squelch-levels',
             pattern='^(?=^(0|0 1|0 1 2|0 1 2 3|0 1 2 3 4|0 1 2 3 4 5|0 1 2 3 4 5 6|0 1 2 3 4 5 6 7)$).*$',
-            title='Squelch-levelsLeaf',
         ),
     ] = None
     """
@@ -6092,8 +5407,7 @@ class LacpContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming LACP frames are tunneled.
@@ -6102,8 +5416,7 @@ class LacpContainer(BaseModel):
     sub-type 0x01.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf2'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress LACP frames.
@@ -6120,31 +5433,27 @@ class LacpContainer2(BaseModel):
         regex_engine="python-re",
     )
     activity: Annotated[
-        Optional[EnumerationEnum90],
-        Field(alias='srl_nokia-lacp:activity', title='ActivityLeaf'),
+        Optional[EnumerationEnum90], Field(alias='srl_nokia-lacp:activity')
     ] = None
     """
     Indicates participant is active or passive
     """
     timeout: Annotated[
-        Optional[EnumerationEnum91],
-        Field(alias='srl_nokia-lacp:timeout', title='TimeoutLeaf2'),
+        Optional[EnumerationEnum91], Field(alias='srl_nokia-lacp:timeout')
     ] = None
     """
     The timeout type (short or long) used by the
     participant
     """
     synchronization: Annotated[
-        Optional[EnumerationEnum92],
-        Field(alias='srl_nokia-lacp:synchronization', title='SynchronizationLeaf'),
+        Optional[EnumerationEnum92], Field(alias='srl_nokia-lacp:synchronization')
     ] = None
     """
     Indicates whether the participant is in-sync or
     out-of-sync
     """
     aggregatable: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-lacp:aggregatable', title='AggregatableLeaf'),
+        Optional[bool], Field(alias='srl_nokia-lacp:aggregatable')
     ] = None
     """
     A true value indicates that the participant will allow
@@ -6152,16 +5461,15 @@ class LacpContainer2(BaseModel):
     value indicates the link should be used as an individual
     link
     """
-    collecting: Annotated[
-        Optional[bool], Field(alias='srl_nokia-lacp:collecting', title='CollectingLeaf')
-    ] = None
+    collecting: Annotated[Optional[bool], Field(alias='srl_nokia-lacp:collecting')] = (
+        None
+    )
     """
     If true, the participant is collecting incoming frames
     on the link, otherwise false
     """
     distributing: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-lacp:distributing', title='DistributingLeaf'),
+        Optional[bool], Field(alias='srl_nokia-lacp:distributing')
     ] = None
     """
     When true, the participant is distributing outgoing
@@ -6172,7 +5480,6 @@ class LacpContainer2(BaseModel):
         Field(
             alias='srl_nokia-lacp:system-id',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='System-idLeaf',
         ),
     ] = None
     """
@@ -6180,8 +5487,7 @@ class LacpContainer2(BaseModel):
     aggregate interface
     """
     oper_key: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-lacp:oper-key', ge=0, le=65535, title='Oper-keyLeaf'),
+        Optional[int], Field(alias='srl_nokia-lacp:oper-key', ge=0, le=65535)
     ] = None
     """
     Current operational value of the key for the aggregate
@@ -6192,7 +5498,6 @@ class LacpContainer2(BaseModel):
         Field(
             alias='srl_nokia-lacp:partner-id',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Partner-idLeaf',
         ),
     ] = None
     """
@@ -6200,42 +5505,26 @@ class LacpContainer2(BaseModel):
     system ID
     """
     partner_key: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-lacp:partner-key', ge=0, le=65535, title='Partner-keyLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-lacp:partner-key', ge=0, le=65535)
     ] = None
     """
     Operational value of the protocol partner's key
     """
     port_num: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-lacp:port-num', ge=0, le=65535, title='Port-numLeaf'),
+        Optional[int], Field(alias='srl_nokia-lacp:port-num', ge=0, le=65535)
     ] = None
     """
     Port number of the local (actor) aggregation member
     """
     partner_port_num: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-lacp:partner-port-num',
-            ge=0,
-            le=65535,
-            title='Partner-port-numLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-lacp:partner-port-num', ge=0, le=65535)
     ] = None
     """
     Port number of the partner (remote) port for this member
     port
     """
     lacp_port_priority: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-lacp:lacp-port-priority',
-            ge=0,
-            le=65535,
-            title='Lacp-port-priorityLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-lacp:lacp-port-priority', ge=0, le=65535)
     ] = None
     """
     Configure the port priority for LACP.  This value is used to  determine which port should be activated with LACP fallback mode. Lower values are more preferred.
@@ -6255,16 +5544,14 @@ class LacpContainer3(BaseModel):
         regex_engine="python-re",
     )
     interval: Annotated[
-        Optional[EnumerationEnum93],
-        Field(alias='srl_nokia-lacp:interval', title='IntervalLeaf'),
+        Optional[EnumerationEnum93], Field(alias='srl_nokia-lacp:interval')
     ] = 'SLOW'
     """
     Set the period between LACP messages -- uses
           the lacp-period-type enumeration.
     """
     lacp_mode: Annotated[
-        Optional[EnumerationEnum90],
-        Field(alias='srl_nokia-lacp:lacp-mode', title='Lacp-modeLeaf'),
+        Optional[EnumerationEnum90], Field(alias='srl_nokia-lacp:lacp-mode')
     ] = 'ACTIVE'
     """
     ACTIVE is to initiate the transmission of LACP packets.
@@ -6272,8 +5559,7 @@ class LacpContainer3(BaseModel):
     LACP packets.
     """
     admin_key: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-lacp:admin-key', ge=1, le=65535, title='Admin-keyLeaf'),
+        Optional[int], Field(alias='srl_nokia-lacp:admin-key', ge=1, le=65535)
     ] = None
     """
     Configure the LACP admin-key to be advertised by the local system.
@@ -6285,7 +5571,6 @@ class LacpContainer3(BaseModel):
         Field(
             alias='srl_nokia-lacp:system-id-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='System-id-macLeaf',
         ),
     ] = None
     """
@@ -6295,13 +5580,7 @@ class LacpContainer3(BaseModel):
     If not configured, the system-ID configured at the system/ level is used.
     """
     system_priority: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-lacp:system-priority',
-            ge=0,
-            le=65535,
-            title='System-priorityLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-lacp:system-priority', ge=0, le=65535)
     ] = None
     """
     System priority used by the node on this LAG interface.
@@ -6332,8 +5611,7 @@ class LldpContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-l2cp:tunnel', title='TunnelLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel')
     ] = False
     """
     Configures if incoming LLDP frames are tunneled.
@@ -6341,8 +5619,7 @@ class LldpContainer(BaseModel):
     LLDP frames are identified by MAC DA 01-80-c2-00-00-00 and Ethertype 0x88cc.
     """
     oper_rule: Annotated[
-        Optional[EnumerationEnum35],
-        Field(alias='srl_nokia-interfaces-l2cp:oper-rule', title='Oper-ruleLeaf'),
+        Optional[EnumerationEnum35], Field(alias='srl_nokia-interfaces-l2cp:oper-rule')
     ] = None
     """
     The operational state of the TCAM rule applied to ingress LLDP frames.
@@ -6356,25 +5633,14 @@ class LowVlanIdListEntry(BaseModel):
     )
     range_low_vlan_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vlans:range-low-vlan-id',
-            ge=1,
-            le=4094,
-            title='Range-low-vlan-idLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:range-low-vlan-id', ge=1, le=4094),
     ] = None
     """
     The low-value VLAN identifier in a range for single-tagged packets
     The range is matched inclusively.
     """
     high_vlan_id: Annotated[
-        int,
-        Field(
-            alias='srl_nokia-interfaces-vlans:high-vlan-id',
-            ge=1,
-            le=4094,
-            title='High-vlan-idLeaf',
-        ),
+        int, Field(alias='srl_nokia-interfaces-vlans:high-vlan-id', ge=1, le=4094)
     ]
     """
     The high-value VLAN identifier in a range for single-tagged packets
@@ -6388,8 +5654,7 @@ class MacDuplicationContainer(BaseModel):
         regex_engine="python-re",
     )
     action: Annotated[
-        Optional[EnumerationEnum71],
-        Field(alias='srl_nokia-interfaces:action', title='ActionLeaf'),
+        Optional[EnumerationEnum71], Field(alias='srl_nokia-interfaces:action')
     ] = 'use-net-instance-action'
     """
     Action to take on the subinterface upon detecting at least one mac addresses as duplicate
@@ -6424,8 +5689,7 @@ class MacLearningContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf17'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'enable'
     """
     Configurable state of the learning procedures for dynamic mac addresses.
@@ -6456,9 +5720,7 @@ class MacTypeListEntry(BaseModel):
     )
     type: Annotated[
         Optional[EnumerationEnum77],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-statistics:type', title='TypeLeaf4'
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-statistics:type'),
     ] = None
     """
     type of mac addresses in the system
@@ -6469,7 +5731,6 @@ class MacTypeListEntry(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-statistics:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf2',
         ),
     ] = 0
     """
@@ -6481,7 +5742,6 @@ class MacTypeListEntry(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-statistics:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf2',
         ),
     ] = 0
     """
@@ -6493,7 +5753,6 @@ class MacTypeListEntry(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-statistics:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf2',
         ),
     ] = 0
     """
@@ -6515,7 +5774,6 @@ class MacListEntry3(BaseModel):
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-table:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='AddressLeaf4',
         ),
     ] = None
     """
@@ -6527,9 +5785,7 @@ class MacListEntry3(BaseModel):
     """
     type: Annotated[
         Optional[EnumerationEnum77],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-mac-table:type', title='TypeLeaf5'
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-mac-table:type'),
     ] = None
     """
     the type of the mac installed in the fib.
@@ -6539,7 +5795,6 @@ class MacListEntry3(BaseModel):
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-table:last-update',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-updateLeaf4',
         ),
     ] = None
     """
@@ -6548,8 +5803,7 @@ class MacListEntry3(BaseModel):
     not_programmed_reason: Annotated[
         Optional[EnumerationEnum78],
         Field(
-            alias='srl_nokia-interfaces-bridge-table-mac-table:not-programmed-reason',
-            title='Not-programmed-reasonLeaf',
+            alias='srl_nokia-interfaces-bridge-table-mac-table:not-programmed-reason'
         ),
     ] = None
     """
@@ -6597,7 +5851,6 @@ class MstInstanceListEntry(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-stp:mst-instance',
             ge=0,
             le=4294967295,
-            title='Mst-instanceLeaf',
         ),
     ] = None
     """
@@ -6609,7 +5862,6 @@ class MstInstanceListEntry(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-stp:mst-port-priority',
             ge=16,
             le=255,
-            title='Mst-port-priorityLeaf',
         ),
     ] = 128
     """
@@ -6625,10 +5877,7 @@ class MstInstanceListEntry(BaseModel):
     mst_path_cost: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:mst-path-cost',
-            ge=1,
-            le=65535,
-            title='Mst-path-costLeaf',
+            alias='srl_nokia-interfaces-bridge-table-stp:mst-path-cost', ge=1, le=65535
         ),
     ] = 16
     """
@@ -6654,7 +5903,6 @@ class NeighborListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Ipv4-addressLeaf',
         ),
     ] = None
     """
@@ -6667,7 +5915,6 @@ class NeighborListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr:link-layer-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Link-layer-addressLeaf',
         ),
     ]
     """
@@ -6676,8 +5923,7 @@ class NeighborListEntry(BaseModel):
     To configure a static ARP entry a value must be written into this leaf and the ipv4-address leaf.
     """
     origin: Annotated[
-        Optional[EnumerationEnum45],
-        Field(alias='srl_nokia-interfaces-nbr:origin', title='OriginLeaf2'),
+        Optional[EnumerationEnum45], Field(alias='srl_nokia-interfaces-nbr:origin')
     ] = None
     """
     The origin of the ARP entry
@@ -6687,7 +5933,6 @@ class NeighborListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr:expiration-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Expiration-timeLeaf',
         ),
     ] = None
     """
@@ -6713,7 +5958,6 @@ class NeighborListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Ipv6-addressLeaf',
         ),
     ] = None
     """
@@ -6726,7 +5970,6 @@ class NeighborListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr:link-layer-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Link-layer-addressLeaf2',
         ),
     ]
     """
@@ -6735,24 +5978,20 @@ class NeighborListEntry2(BaseModel):
     To configure a static neighbor entry a value must be written into this leaf and the ipv6-address leaf.
     """
     origin: Annotated[
-        Optional[EnumerationEnum45],
-        Field(alias='srl_nokia-interfaces-nbr:origin', title='OriginLeaf4'),
+        Optional[EnumerationEnum45], Field(alias='srl_nokia-interfaces-nbr:origin')
     ] = None
     """
     The origin of the neighbor cache entry.
     """
     is_router: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-nbr:is-router', title='Is-routerLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-nbr:is-router')
     ] = None
     """
     Indicates that the neighbor node claims to be a router (R bit in the Neighbor Advertisement message)
     """
     current_state: Annotated[
         Optional[EnumerationEnum57],
-        Field(
-            alias='srl_nokia-interfaces-nbr:current-state', title='Current-stateLeaf'
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:current-state'),
     ] = None
     """
     The Neighbor Unreachability Detection state
@@ -6762,7 +6001,6 @@ class NeighborListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr:next-state-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Next-state-timeLeaf',
         ),
     ] = None
     """
@@ -6784,30 +6022,20 @@ class OpticalChannelListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces-dco:index', ge=1, le=1, title='IndexLeaf2'),
+        Optional[int], Field(alias='srl_nokia-interfaces-dco:index', ge=1, le=1)
     ] = None
     """
     Index of the optical channel
     """
     frequency: Annotated[
         int,
-        Field(
-            alias='srl_nokia-interfaces-dco:frequency',
-            ge=191100000,
-            le=196150000,
-            title='FrequencyLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:frequency', ge=191100000, le=196150000),
     ]
     """
     Center frequency for tunable DWDM optical interface
     """
     operational_mode: Annotated[
-        EnumerationEnum14,
-        Field(
-            alias='srl_nokia-interfaces-dco:operational-mode',
-            title='Operational-modeLeaf',
-        ),
+        EnumerationEnum14, Field(alias='srl_nokia-interfaces-dco:operational-mode')
     ]
     """
     Operational mode for the transceiver
@@ -6816,11 +6044,7 @@ class OpticalChannelListEntry(BaseModel):
      Refer to Nokia documentation for details by transceiver part number.
     """
     tx_filter_enable: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-dco:tx-filter-enable',
-            title='Tx-filter-enableLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-dco:tx-filter-enable')
     ] = False
     """
     Controls transmit filtering
@@ -6831,22 +6055,14 @@ class OpticalChannelListEntry(BaseModel):
     ] = None
     target_power: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-interfaces-dco:target-power',
-            ge=-20.0,
-            le=3.0,
-            title='Target-powerLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:target-power', ge=-20.0, le=3.0),
     ] = 100
     """
     Average output power target for the port
     """
     laser_tunability: Annotated[
         Optional[EnumerationEnum15],
-        Field(
-            alias='srl_nokia-interfaces-dco:laser-tunability',
-            title='Laser-tunabilityLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:laser-tunability'),
     ] = None
     """
     Tunability of the optical interface.
@@ -6856,10 +6072,7 @@ class OpticalChannelListEntry(BaseModel):
     oper_frequency: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces-dco:oper-frequency',
-            ge=191100000,
-            le=196150000,
-            title='Oper-frequencyLeaf',
+            alias='srl_nokia-interfaces-dco:oper-frequency', ge=191100000, le=196150000
         ),
     ] = None
     """
@@ -6871,7 +6084,6 @@ class OpticalChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces-dco:minimum-frequency',
             ge=191100000,
             le=196150000,
-            title='Minimum-frequencyLeaf',
         ),
     ] = None
     """
@@ -6883,7 +6095,6 @@ class OpticalChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces-dco:maximum-frequency',
             ge=191100000,
             le=196150000,
-            title='Maximum-frequencyLeaf',
         ),
     ] = None
     """
@@ -6902,51 +6113,35 @@ class OpticalChannelListEntry(BaseModel):
     ] = None
     dispersion: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:dispersion',
-            ge=-50000,
-            le=50000,
-            title='DispersionLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:dispersion', ge=-50000, le=50000),
     ] = None
     """
     Residual chromatic dispersion compensation
     """
     dispersion_control_mode: Annotated[
         Optional[EnumerationEnum17],
-        Field(
-            alias='srl_nokia-interfaces-dco:dispersion-control-mode',
-            title='Dispersion-control-modeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:dispersion-control-mode'),
     ] = 'automatic'
     """
     Mode used to compensate for chromatic dispersion
     """
     rx_los_reaction: Annotated[
         Optional[EnumerationEnum18],
-        Field(
-            alias='srl_nokia-interfaces-dco:rx-los-reaction',
-            title='Rx-los-reactionLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:rx-los-reaction'),
     ] = 'squelch'
     """
     Reaction to an RX LOS
     """
     rx_los_thresh: Annotated[
         Optional[float],
-        Field(
-            alias='srl_nokia-interfaces-dco:rx-los-thresh',
-            ge=-30.0,
-            le=-13.0,
-            title='Rx-los-threshLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:rx-los-thresh', ge=-30.0, le=-13.0),
     ] = -2300
     """
     Average input power LOS threshold
     """
     module_state: Annotated[
         Optional[EnumerationEnum19],
-        Field(alias='srl_nokia-interfaces-dco:module-state', title='Module-stateLeaf'),
+        Field(alias='srl_nokia-interfaces-dco:module-state'),
     ] = None
     """
     Indicates the state of the coherent optical module.
@@ -6971,7 +6166,6 @@ class OpticalChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces-dco:rx-electrical-snr-x-polarization',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='Rx-electrical-snr-x-polarizationLeaf',
         ),
     ] = None
     """
@@ -6983,7 +6177,6 @@ class OpticalChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces-dco:rx-electrical-snr-y-polarization',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='Rx-electrical-snr-y-polarizationLeaf',
         ),
     ] = None
     """
@@ -6995,7 +6188,6 @@ class OpticalChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces-dco:rx-quality-margin',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='Rx-quality-marginLeaf',
         ),
     ] = None
     """
@@ -7007,7 +6199,6 @@ class OpticalChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces-dco:rx-optical-snr-x-polarization',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='Rx-optical-snr-x-polarizationLeaf',
         ),
     ] = None
     """
@@ -7019,7 +6210,6 @@ class OpticalChannelListEntry(BaseModel):
             alias='srl_nokia-interfaces-dco:rx-optical-snr-y-polarization',
             ge=-9.223372036854776e17,
             le=9.223372036854776e17,
-            title='Rx-optical-snr-y-polarizationLeaf',
         ),
     ] = None
     """
@@ -7052,12 +6242,7 @@ class OpticalChannelListEntry(BaseModel):
     ] = None
     logical_channel: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-dco:logical-channel',
-            ge=0,
-            le=4294967295,
-            title='Logical-channelLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-dco:logical-channel', ge=0, le=4294967295),
     ] = None
     """
     Logical channel associated to this optical channel
@@ -7080,7 +6265,6 @@ class PciContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces-vxdp:address',
             pattern='^(?=^[a-zA-Z0-9]{4}:[a-zA-Z0-9]{2}:[a-zA-Z0-9]{2}\\.[a-zA-Z0-9]$).*$',
-            title='AddressLeaf5',
         ),
     ] = None
     """
@@ -7089,13 +6273,7 @@ class PciContainer(BaseModel):
     Unpopulated if interface is not available for PCI passthrough. This format follows the extended Domain:Bus:Device.Function (or BDF) notation. In most cases domain will be padded with four 0000's.
     """
     socket_id: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vxdp:socket-id',
-            ge=0,
-            le=255,
-            title='Socket-idLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-vxdp:socket-id', ge=0, le=255)
     ] = None
     """
     Socket this interface is physically or logically attached to
@@ -7110,15 +6288,13 @@ class PciContainer(BaseModel):
     List of CPUs present on the socket this interface is attached to
     """
     vendor_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:vendor-name', title='Vendor-nameLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:vendor-name')
     ] = None
     """
     PCI device vendor
     """
     vendor_id: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:vendor-id', title='Vendor-idLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:vendor-id')
     ] = None
     """
     PCI device vendor ID
@@ -7126,15 +6302,13 @@ class PciContainer(BaseModel):
     This field is the two byte vendor ID reported over PCI.
     """
     device_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:device-name', title='Device-nameLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:device-name')
     ] = None
     """
     PCI device name
     """
     device_id: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-vxdp:device-id', title='Device-idLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces-vxdp:device-id')
     ] = None
     """
     PCI device ID
@@ -7152,18 +6326,13 @@ class PopulateListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_type: Annotated[
-        Optional[EnumerationEnum47],
-        Field(alias='srl_nokia-interfaces-nbr:route-type', title='Route-typeLeaf'),
+        Optional[EnumerationEnum47], Field(alias='srl_nokia-interfaces-nbr:route-type')
     ] = None
     """
     Controls what type of ARP or ND entries generate a host route.
     """
     datapath_programming: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-nbr:datapath-programming',
-            title='Datapath-programmingLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-nbr:datapath-programming')
     ] = None
     """
     When set to true, the host route is programmed in the datapath
@@ -7180,18 +6349,13 @@ class PopulateListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_type: Annotated[
-        Optional[EnumerationEnum59],
-        Field(alias='srl_nokia-interfaces-nbr:route-type', title='Route-typeLeaf3'),
+        Optional[EnumerationEnum59], Field(alias='srl_nokia-interfaces-nbr:route-type')
     ] = None
     """
     Controls what type of ARP or ND entries generate a host route.
     """
     datapath_programming: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-nbr:datapath-programming',
-            title='Datapath-programmingLeaf2',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-nbr:datapath-programming')
     ] = None
     """
     When set to true, the host route is programmed in the datapath
@@ -7216,48 +6380,33 @@ class PrefixListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-router-adv:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
-            title='Ipv6-prefixLeaf',
         ),
     ] = None
     """
     An IPv6 global unicast address prefix.
     """
     autonomous_flag: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:autonomous-flag',
-            title='Autonomous-flagLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-router-adv:autonomous-flag')
     ] = True
     """
     When this is set in the prefix information option hosts can use the prefix for stateless address autoconfiguration (SLAAC). 
     """
     on_link_flag: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:on-link-flag',
-            title='On-link-flagLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-router-adv:on-link-flag')
     ] = True
     """
     When this is set in the prefix information option hosts can use the prefix for on-link determination.
     """
     preferred_lifetime: Annotated[
         Optional[Union[EnumerationEnum65, PreferredLifetimeLeaf1]],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:preferred-lifetime',
-            title='Preferred-lifetimeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:preferred-lifetime'),
     ] = '604800'
     """
     The length of time in seconds (relative to the time the packet is sent) that addresses generated from the prefix via stateless address autoconfiguration remain preferred.
     """
     valid_lifetime: Annotated[
         Optional[Union[EnumerationEnum66, ValidLifetimeLeaf1]],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:valid-lifetime',
-            title='Valid-lifetimeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:valid-lifetime'),
     ] = '2592000'
     """
     The length of time in seconds (relative to the time the packet is sent) that the prefix is valid for the purpose of on-link determination. 
@@ -7274,7 +6423,6 @@ class ResultListEntry(BaseModel):
         Field(
             alias='srl_nokia-packet-link-qual:id',
             pattern="^(?=^[<>A-Za-z0-9!@#$%^&()|+=`~.,'/_:;?-][<>A-Za-z0-9 !@#$%^&()|+=`~.,'/_:;?-]*$).*$",
-            title='IdLeaf',
         ),
     ] = None
     """
@@ -7282,7 +6430,7 @@ class ResultListEntry(BaseModel):
     """
     oper_state: Annotated[
         Optional[EnumerationEnum84],
-        Field(alias='srl_nokia-packet-link-qual:oper-state', title='Oper-stateLeaf12'),
+        Field(alias='srl_nokia-packet-link-qual:oper-state'),
     ] = None
     """
     State of the qualification test
@@ -7293,7 +6441,6 @@ class ResultListEntry(BaseModel):
             alias='srl_nokia-packet-link-qual:packets-sent',
             ge=0,
             le=18446744073709551615,
-            title='Packets-sentLeaf',
         ),
     ] = None
     """
@@ -7305,7 +6452,6 @@ class ResultListEntry(BaseModel):
             alias='srl_nokia-packet-link-qual:packets-received',
             ge=0,
             le=18446744073709551615,
-            title='Packets-receivedLeaf',
         ),
     ] = None
     """
@@ -7317,7 +6463,6 @@ class ResultListEntry(BaseModel):
             alias='srl_nokia-packet-link-qual:packets-error',
             ge=0,
             le=18446744073709551615,
-            title='Packets-errorLeaf',
         ),
     ] = None
     """
@@ -7329,7 +6474,6 @@ class ResultListEntry(BaseModel):
             alias='srl_nokia-packet-link-qual:packets-dropped',
             ge=0,
             le=18446744073709551615,
-            title='Packets-droppedLeaf',
         ),
     ] = None
     """
@@ -7340,7 +6484,6 @@ class ResultListEntry(BaseModel):
         Field(
             alias='srl_nokia-packet-link-qual:start-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Start-timeLeaf',
         ),
     ] = None
     """
@@ -7351,7 +6494,6 @@ class ResultListEntry(BaseModel):
         Field(
             alias='srl_nokia-packet-link-qual:end-time',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='End-timeLeaf',
         ),
     ] = None
     """
@@ -7363,7 +6505,6 @@ class ResultListEntry(BaseModel):
             alias='srl_nokia-packet-link-qual:expected-rate',
             ge=0,
             le=18446744073709551615,
-            title='Expected-rateLeaf',
         ),
     ] = None
     """
@@ -7379,7 +6520,6 @@ class ResultListEntry(BaseModel):
             alias='srl_nokia-packet-link-qual:qualification-rate',
             ge=0,
             le=18446744073709551615,
-            title='Qualification-rateLeaf',
         ),
     ] = None
     """
@@ -7390,8 +6530,7 @@ class ResultListEntry(BaseModel):
     throughout the qualification duration.
     """
     status: Annotated[
-        Optional[EnumerationEnum85],
-        Field(alias='srl_nokia-packet-link-qual:status', title='StatusLeaf7'),
+        Optional[EnumerationEnum85], Field(alias='srl_nokia-packet-link-qual:status')
     ] = None
     """
     Status of the test
@@ -7399,11 +6538,7 @@ class ResultListEntry(BaseModel):
     Only set when the test is in the error state.
     """
     status_message: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-packet-link-qual:status-message',
-            title='Status-messageLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-packet-link-qual:status-message')
     ] = None
     """
     Status message of the test
@@ -7423,34 +6558,21 @@ class RouterRoleContainer(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:admin-state',
-            title='Admin-stateLeaf15',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:admin-state'),
     ] = 'disable'
     """
     Administratively enable or disable the sending of router advertisements on the subinterface.
     """
     current_hop_limit: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:current-hop-limit',
-            ge=0,
-            le=255,
-            title='Current-hop-limitLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:current-hop-limit', ge=0, le=255),
     ] = 64
     """
     The current hop limit to advertise in the router advertisement messages.
     """
     ip_mtu: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:ip-mtu',
-            ge=1280,
-            le=9486,
-            title='Ip-mtuLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:ip-mtu', ge=1280, le=9486),
     ] = None
     """
     The IP MTU to advertise in the router advertisement messages and that hosts should associate with the link on which these messages are received.
@@ -7459,20 +6581,14 @@ class RouterRoleContainer(BaseModel):
     """
     managed_configuration_flag: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:managed-configuration-flag',
-            title='Managed-configuration-flagLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:managed-configuration-flag'),
     ] = False
     """
     When this is set the M-bit is set in the router advertisement messages, indicating that hosts should use DHCPv6 to obtain IPv6 addresses.
     """
     other_configuration_flag: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:other-configuration-flag',
-            title='Other-configuration-flagLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:other-configuration-flag'),
     ] = False
     """
     When this is set the O-bit is set in the router advertisement messages, indicating that hosts should use DHCPv6 to obtain other configuration information (besides addresses).
@@ -7483,7 +6599,6 @@ class RouterRoleContainer(BaseModel):
             alias='srl_nokia-interfaces-router-adv:max-advertisement-interval',
             ge=4,
             le=1800,
-            title='Max-advertisement-intervalLeaf',
         ),
     ] = 600
     """
@@ -7497,7 +6612,6 @@ class RouterRoleContainer(BaseModel):
             alias='srl_nokia-interfaces-router-adv:min-advertisement-interval',
             ge=3,
             le=1350,
-            title='Min-advertisement-intervalLeaf',
         ),
     ] = 200
     """
@@ -7507,12 +6621,7 @@ class RouterRoleContainer(BaseModel):
     """
     reachable_time: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:reachable-time',
-            ge=0,
-            le=3600000,
-            title='Reachable-timeLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:reachable-time', ge=0, le=3600000),
     ] = 0
     """
     The time, in milliseconds, that is advertised as the reachable time in RA messages and that hosts use for the ICMPv6 Neighbor Unreachability Detection algorithm. A value of zero means unspecified by this router.
@@ -7520,10 +6629,7 @@ class RouterRoleContainer(BaseModel):
     retransmit_time: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces-router-adv:retransmit-time',
-            ge=0,
-            le=1800000,
-            title='Retransmit-timeLeaf',
+            alias='srl_nokia-interfaces-router-adv:retransmit-time', ge=0, le=1800000
         ),
     ] = 0
     """
@@ -7531,12 +6637,7 @@ class RouterRoleContainer(BaseModel):
     """
     router_lifetime: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-router-adv:router-lifetime',
-            ge=0,
-            le=9000,
-            title='Router-lifetimeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-router-adv:router-lifetime', ge=0, le=9000),
     ] = 1800
     """
     The lifetime in seconds that is advertised as the router lifetime in RA messages. This indicates the time period for which the advertising router can be used as a default router/gateway. A value of 0 means the router should not be used as a default gateway.
@@ -7561,7 +6662,6 @@ class ServerListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:domain',
             pattern='^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$',
-            title='DomainLeaf',
         ),
     ] = None
     """
@@ -7569,10 +6669,7 @@ class ServerListEntry(BaseModel):
     """
     resolved_ip_address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address',
-            title='Resolved-ip-addressLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address'),
     ] = None
     """
     The resolved IP address of the server domain name.
@@ -7584,7 +6681,6 @@ class ServerListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:last-update',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-updateLeaf',
         ),
     ] = None
     """
@@ -7606,7 +6702,6 @@ class ServerListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:domain',
             pattern='^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$',
-            title='DomainLeaf2',
         ),
     ] = None
     """
@@ -7614,10 +6709,7 @@ class ServerListEntry2(BaseModel):
     """
     resolved_ip_address: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address',
-            title='Resolved-ip-addressLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:resolved-ip-address'),
     ] = None
     """
     The resolved IP address of the server domain name.
@@ -7629,7 +6721,6 @@ class ServerListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:last-update',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-updateLeaf2',
         ),
     ] = None
     """
@@ -7647,20 +6738,14 @@ class SflowContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf21'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = None
     """
     Administratively enable or disable sFlow on this interface
     """
     ingress_sampling_rate: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:ingress-sampling-rate',
-            ge=0,
-            le=2000000,
-            title='Ingress-sampling-rateLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:ingress-sampling-rate', ge=0, le=2000000),
     ] = None
     """
     Specify sFlow Ingress packet sample rate.
@@ -7668,12 +6753,7 @@ class SflowContainer(BaseModel):
     """
     egress_sampling_rate: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:egress-sampling-rate',
-            ge=0,
-            le=2000000,
-            title='Egress-sampling-rateLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:egress-sampling-rate', ge=0, le=2000000),
     ] = None
     """
     Specify sFlow Egress packet sample rate.
@@ -7711,7 +6791,7 @@ class SingleTaggedContainer(BaseModel):
     )
     vlan_id: Annotated[
         Optional[Union[VlanIdType, EnumerationEnum80]],
-        Field(alias='srl_nokia-interfaces-vlans:vlan-id', title='Vlan-idLeaf'),
+        Field(alias='srl_nokia-interfaces-vlans:vlan-id'),
     ] = None
     """
     VLAN identifier for single-tagged packets
@@ -7728,8 +6808,7 @@ class SsmContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf5'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'disable'
     """
     Configure the administrative state for SyncE in line/client ports.
@@ -7750,7 +6829,6 @@ class StatisticsContainer16(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-statistics:active-entries',
             ge=0,
             le=18446744073709551615,
-            title='Active-entriesLeaf',
         ),
     ] = 0
     """
@@ -7762,7 +6840,6 @@ class StatisticsContainer16(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-statistics:total-entries',
             ge=0,
             le=18446744073709551615,
-            title='Total-entriesLeaf',
         ),
     ] = 0
     """
@@ -7774,7 +6851,6 @@ class StatisticsContainer16(BaseModel):
             alias='srl_nokia-interfaces-bridge-table-statistics:failed-entries',
             ge=0,
             le=18446744073709551615,
-            title='Failed-entriesLeaf',
         ),
     ] = 0
     """
@@ -7793,12 +6869,7 @@ class StatisticsContainer4(BaseModel):
     )
     total_in_packets: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-dot1x:total-in-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='Total-in-packetsLeaf',
-        ),
+        Field(alias='srl_nokia-dot1x:total-in-packets', ge=0, le=18446744073709551615),
     ] = 0
     """
     System or interface level total incoming dot1x frames
@@ -7811,7 +6882,6 @@ class StatisticsContainer4(BaseModel):
             alias='srl_nokia-dot1x:total-in-discarded-packets',
             ge=0,
             le=18446744073709551615,
-            title='Total-in-discarded-packetsLeaf',
         ),
     ] = 0
     """
@@ -7822,10 +6892,7 @@ class StatisticsContainer4(BaseModel):
     in_tunneled_packets: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-dot1x:in-tunneled-packets',
-            ge=0,
-            le=18446744073709551615,
-            title='In-tunneled-packetsLeaf',
+            alias='srl_nokia-dot1x:in-tunneled-packets', ge=0, le=18446744073709551615
         ),
     ] = 0
     """
@@ -7840,7 +6907,6 @@ class StatisticsContainer4(BaseModel):
             alias='srl_nokia-dot1x:in-trap-to-cpu-packets',
             ge=0,
             le=18446744073709551615,
-            title='In-trap-to-cpu-packetsLeaf',
         ),
     ] = 0
     """
@@ -7854,7 +6920,6 @@ class StatisticsContainer4(BaseModel):
         Field(
             alias='srl_nokia-dot1x:last-clear',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-clearLeaf3',
         ),
     ] = None
     """
@@ -7868,20 +6933,14 @@ class StormControlContainer(BaseModel):
         regex_engine="python-re",
     )
     units: Annotated[
-        Optional[EnumerationEnum30],
-        Field(alias='srl_nokia-interfaces:units', title='UnitsLeaf'),
+        Optional[EnumerationEnum30], Field(alias='srl_nokia-interfaces:units')
     ] = 'percentage'
     """
     Units of storm-control policer in kbps or percentage of the interface bandwidth
     """
     broadcast_rate: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:broadcast-rate',
-            ge=0,
-            le=132000000,
-            title='Broadcast-rateLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:broadcast-rate', ge=0, le=132000000),
     ] = None
     """
     The maximum rate allowed for ingress broadcast frames on the interface
@@ -7898,12 +6957,7 @@ class StormControlContainer(BaseModel):
     """
     multicast_rate: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:multicast-rate',
-            ge=0,
-            le=132000000,
-            title='Multicast-rateLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:multicast-rate', ge=0, le=132000000),
     ] = None
     """
     The maximum rate allowed for ingress multicast frames on the interface
@@ -7920,12 +6974,7 @@ class StormControlContainer(BaseModel):
     """
     unknown_unicast_rate: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:unknown-unicast-rate',
-            ge=0,
-            le=132000000,
-            title='Unknown-unicast-rateLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:unknown-unicast-rate', ge=0, le=132000000),
     ] = None
     """
     The maximum rate allowed for ingress unknown unicast frames on the interface
@@ -7943,10 +6992,7 @@ class StormControlContainer(BaseModel):
     operational_broadcast_rate: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:operational-broadcast-rate',
-            ge=0,
-            le=4294967295,
-            title='Operational-broadcast-rateLeaf',
+            alias='srl_nokia-interfaces:operational-broadcast-rate', ge=0, le=4294967295
         ),
     ] = None
     """
@@ -7955,10 +7001,7 @@ class StormControlContainer(BaseModel):
     operational_multicast_rate: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:operational-multicast-rate',
-            ge=0,
-            le=4294967295,
-            title='Operational-multicast-rateLeaf',
+            alias='srl_nokia-interfaces:operational-multicast-rate', ge=0, le=4294967295
         ),
     ] = None
     """
@@ -7970,7 +7013,6 @@ class StormControlContainer(BaseModel):
             alias='srl_nokia-interfaces:operational-unknown-unicast-rate',
             ge=0,
             le=4294967295,
-            title='Operational-unknown-unicast-rateLeaf',
         ),
     ] = None
     """
@@ -7978,10 +7020,7 @@ class StormControlContainer(BaseModel):
     """
     rising_threshold_action: Annotated[
         Optional[EnumerationEnum31],
-        Field(
-            alias='srl_nokia-interfaces:rising-threshold-action',
-            title='Rising-threshold-actionLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:rising-threshold-action'),
     ] = 'none'
     """
     Configures the action triggered when traffic exceeds the configured storm-control rates
@@ -7995,10 +7034,7 @@ class StpContainer(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:admin-state',
-            title='Admin-stateLeaf19',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:admin-state'),
     ] = 'enable'
     """
     Administratively enable or disable the STP protocol for this interface
@@ -8010,12 +7046,7 @@ class StpContainer(BaseModel):
     """
     port_number: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:port-number',
-            ge=0,
-            le=2047,
-            title='Port-numberLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:port-number', ge=0, le=2047),
     ] = 0
     """
     The virtual port number uniquely identifies subinterface within
@@ -8032,12 +7063,7 @@ class StpContainer(BaseModel):
     """
     priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:priority',
-            ge=16,
-            le=255,
-            title='PriorityLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:priority', ge=16, le=255),
     ] = 128
     """
     The port-priority command is used to populate the priority portion
@@ -8051,12 +7077,7 @@ class StpContainer(BaseModel):
     """
     path_cost: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:path-cost',
-            ge=1,
-            le=65535,
-            title='Path-costLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:path-cost', ge=1, le=65535),
     ] = 16
     """
     The interface path-cost is used by STP to calculate the path cost
@@ -8065,10 +7086,7 @@ class StpContainer(BaseModel):
     """
     edge_port: Annotated[
         Optional[EnumerationEnum73],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:edge-port',
-            title='Edge-portLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:edge-port'),
     ] = 'no'
     """
     When subInterface is participating in STP it will experience delays,
@@ -8085,10 +7103,7 @@ class StpContainer(BaseModel):
     """
     auto_edge: Annotated[
         Optional[EnumerationEnum74],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:auto-edge',
-            title='Auto-edgeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:auto-edge'),
     ] = 'no'
     """
     When auto-edge is enabled, STP will send bpdu to determine if there
@@ -8099,17 +7114,11 @@ class StpContainer(BaseModel):
     """
     link_type: Annotated[
         Optional[EnumerationEnum75],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:link-type',
-            title='Link-typeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:link-type'),
     ] = 'pt-pt'
     root_guard: Annotated[
         Optional[EnumerationEnum76],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-stp:root-guard',
-            title='Root-guardLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-bridge-table-stp:root-guard'),
     ] = 'no'
     mst_instance: Annotated[
         Optional[List[MstInstanceListEntry]],
@@ -8132,20 +7141,13 @@ class SymbolMonitorContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf3'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'disable'
     """
     Administrative state of symbol monitoring on the port
     """
     window_size: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:window-size',
-            ge=5,
-            le=60,
-            title='Window-sizeLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:window-size', ge=5, le=60)
     ] = 10
     """
     Sliding window size over which errors are measured
@@ -8264,20 +7266,14 @@ class TrackInterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     interface: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:interface', title='InterfaceLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces-ip-vrrp:interface')
     ] = None
     """
     Interface to track
     """
     priority_decrement: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:priority-decrement',
-            ge=0,
-            le=255,
-            title='Priority-decrementLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:priority-decrement', ge=0, le=255),
     ] = None
     """
     For each tracked interface that is down then the priority
@@ -8296,20 +7292,14 @@ class TrackInterfaceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     interface: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:interface', title='InterfaceLeaf3'),
+        Optional[str], Field(alias='srl_nokia-interfaces-ip-vrrp:interface')
     ] = None
     """
     Interface to track
     """
     priority_decrement: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:priority-decrement',
-            ge=0,
-            le=255,
-            title='Priority-decrementLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:priority-decrement', ge=0, le=255),
     ] = None
     """
     For each tracked interface that is down then the priority
@@ -8323,10 +7313,7 @@ class TransceiverContainer(BaseModel):
         regex_engine="python-re",
     )
     functional_type: Annotated[
-        Optional[Any],
-        Field(
-            alias='srl_nokia-interfaces:functional-type', title='Functional-typeLeaf'
-        ),
+        Optional[Any], Field(alias='srl_nokia-interfaces:functional-type')
     ] = None
     """
     Indicates the module functional type which will be deployed for this interface
@@ -8334,8 +7321,7 @@ class TransceiverContainer(BaseModel):
     This refines the set of leaves available within the transceiver configuration.
     """
     tx_laser: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces:tx-laser', title='Tx-laserLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces:tx-laser')
     ] = None
     """
     Enable (true) or disable (false) the transmit laser of the transceiver
@@ -8345,8 +7331,7 @@ class TransceiverContainer(BaseModel):
     Default is true (for interfaces that support transceivers).
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum9],
-        Field(alias='srl_nokia-interfaces:oper-state', title='Oper-stateLeaf2'),
+        Optional[EnumerationEnum9], Field(alias='srl_nokia-interfaces:oper-state')
     ] = None
     """
     The operational state of the transceiver
@@ -8355,16 +7340,13 @@ class TransceiverContainer(BaseModel):
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum10],
-        Field(
-            alias='srl_nokia-interfaces:oper-down-reason', title='Oper-down-reasonLeaf2'
-        ),
+        Field(alias='srl_nokia-interfaces:oper-down-reason'),
     ] = None
     """
     The reason for the transceiver being operationally down
     """
     ddm_events: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces:ddm-events', title='Ddm-eventsLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces:ddm-events')
     ] = None
     """
     Controls the reporting of DDM events
@@ -8376,40 +7358,31 @@ class TransceiverContainer(BaseModel):
     When read from state this leaf always returns false (even if the configured value is true) when the Ethernet port is a copper/RJ45 port.
     """
     form_factor: Annotated[
-        Optional[EnumerationEnum11],
-        Field(alias='srl_nokia-interfaces:form-factor', title='Form-factorLeaf'),
+        Optional[EnumerationEnum11], Field(alias='srl_nokia-interfaces:form-factor')
     ] = None
     """
     Specifies the transceiver form factor associated with the port
     """
     ethernet_pmd: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces:ethernet-pmd', title='Ethernet-pmdLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces:ethernet-pmd')
     ] = None
     """
     Specifies the Ethernet compliance code of the transceiver associated with the port
     """
     connector_type: Annotated[
-        Optional[EnumerationEnum12],
-        Field(alias='srl_nokia-interfaces:connector-type', title='Connector-typeLeaf'),
+        Optional[EnumerationEnum12], Field(alias='srl_nokia-interfaces:connector-type')
     ] = None
     """
     Specifies the fiber connector type of the transceiver associated with the port
     """
-    vendor: Annotated[
-        Optional[str], Field(alias='srl_nokia-interfaces:vendor', title='VendorLeaf')
-    ] = None
+    vendor: Annotated[Optional[str], Field(alias='srl_nokia-interfaces:vendor')] = None
     """
     Name of the transceiver vendor
 
     This is the information as read from the EEPROM of the part.
     """
     vendor_part_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:vendor-part-number',
-            title='Vendor-part-numberLeaf2',
-        ),
+        Optional[str], Field(alias='srl_nokia-interfaces:vendor-part-number')
     ] = None
     """
     Vendor's part number for the transceiver
@@ -8417,10 +7390,7 @@ class TransceiverContainer(BaseModel):
     This is the information as read from the EEPROM of the part.
     """
     vendor_revision: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:vendor-revision', title='Vendor-revisionLeaf'
-        ),
+        Optional[str], Field(alias='srl_nokia-interfaces:vendor-revision')
     ] = None
     """
     Vendor's revision number for the transceiver
@@ -8428,11 +7398,7 @@ class TransceiverContainer(BaseModel):
     This is the information as read from the EEPROM of the part.
     """
     vendor_lot_number: Annotated[
-        Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:vendor-lot-number',
-            title='Vendor-lot-numberLeaf',
-        ),
+        Optional[str], Field(alias='srl_nokia-interfaces:vendor-lot-number')
     ] = None
     """
     Vendor's lot number for the transceiver
@@ -8440,8 +7406,7 @@ class TransceiverContainer(BaseModel):
     This is the information as read from the EEPROM of the part.
     """
     serial_number: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces:serial-number', title='Serial-numberLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces:serial-number')
     ] = None
     """
     Transceiver serial number
@@ -8453,7 +7418,6 @@ class TransceiverContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:date-code',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Date-codeLeaf',
         ),
     ] = None
     """
@@ -8464,10 +7428,7 @@ class TransceiverContainer(BaseModel):
         Field(alias='srl_nokia-interfaces:firmware-version'),
     ] = None
     fault_condition: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:fault-condition', title='Fault-conditionLeaf'
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:fault-condition')
     ] = None
     """
     Indicates if a fault condition exists in the transceiver.
@@ -8478,7 +7439,6 @@ class TransceiverContainer(BaseModel):
             alias='srl_nokia-interfaces:wavelength',
             ge=-9.223372036854776e16,
             le=9.223372036854776e16,
-            title='WavelengthLeaf',
         ),
     ] = None
     """
@@ -8516,31 +7476,26 @@ class TunnelContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    tunnel_all: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-dot1x:tunnel-all', title='Tunnel-allLeaf'),
-    ] = False
+    tunnel_all: Annotated[Optional[bool], Field(alias='srl_nokia-dot1x:tunnel-all')] = (
+        False
+    )
     """
     tunnel all dot1x PDUs through the interface
 
     tunnel untagged and tagged dot1x PDUs.
     """
-    untagged: Annotated[
-        Optional[bool], Field(alias='srl_nokia-dot1x:untagged', title='UntaggedLeaf')
-    ] = False
+    untagged: Annotated[Optional[bool], Field(alias='srl_nokia-dot1x:untagged')] = False
     """
     tunnel untagged dot1x PDUs through the interface
     """
     single_tagged: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-dot1x:single-tagged', title='Single-taggedLeaf'),
+        Optional[bool], Field(alias='srl_nokia-dot1x:single-tagged')
     ] = True
     """
     tunnel single tagged dot1x PDUs through the interface
     """
     double_tagged: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-dot1x:double-tagged', title='Double-taggedLeaf'),
+        Optional[bool], Field(alias='srl_nokia-dot1x:double-tagged')
     ] = True
     """
     tunnel double tagged dot1x PDUs through the interface
@@ -8560,15 +7515,13 @@ class UnnumberedContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf9'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'disable'
     """
     When enabled, the subinterface should operate in unnumbered mode for IPv4
     """
     interface: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces:interface', title='InterfaceLeaf2'),
+        Optional[str], Field(alias='srl_nokia-interfaces:interface')
     ] = None
     """
     Reference to the subinterface with the IPv4 address to be borrowed
@@ -8578,7 +7531,6 @@ class UnnumberedContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='AddressLeaf',
         ),
     ] = None
     """
@@ -8586,10 +7538,7 @@ class UnnumberedContainer(BaseModel):
     """
     unavailable_address_reason: Annotated[
         Optional[EnumerationEnum44],
-        Field(
-            alias='srl_nokia-interfaces:unavailable-address-reason',
-            title='Unavailable-address-reasonLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:unavailable-address-reason'),
     ] = None
     """
     The reason why there is no operational IPv4 address to use for this subinterface
@@ -8606,8 +7555,7 @@ class VlanDiscoveryContainer(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum79],
-        Field(alias='srl_nokia-interfaces-vlans:type', title='TypeLeaf6'),
+        Optional[EnumerationEnum79], Field(alias='srl_nokia-interfaces-vlans:type')
     ] = 'IPv4v6'
     """
     Types of addresses over which vlan discovery is performed
@@ -8628,7 +7576,6 @@ class AddressListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Ipv4-addressLeaf2',
         ),
     ] = None
     """
@@ -8650,7 +7597,6 @@ class AddressListEntry2(BaseModel):
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-interval',
             ge=0,
             le=86400,
-            title='Probe-intervalLeaf',
         ),
     ] = 0
     """
@@ -8694,7 +7640,6 @@ class AddressListEntry4(BaseModel):
         Field(
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Ipv6-addressLeaf2',
         ),
     ] = None
     """
@@ -8716,7 +7661,6 @@ class AddressListEntry4(BaseModel):
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:probe-interval',
             ge=0,
             le=86400,
-            title='Probe-intervalLeaf2',
         ),
     ] = 0
     """
@@ -8753,9 +7697,7 @@ class AdvertiseListEntry(BaseModel):
     )
     route_type: Annotated[
         Optional[EnumerationEnum49],
-        Field(
-            alias='srl_nokia-interfaces-nbr-evpn:route-type', title='Route-typeLeaf2'
-        ),
+        Field(alias='srl_nokia-interfaces-nbr-evpn:route-type'),
     ] = None
     """
     Controls what type of ARP or ND entries to advertise.
@@ -8773,9 +7715,7 @@ class AdvertiseListEntry2(BaseModel):
     )
     route_type: Annotated[
         Optional[EnumerationEnum61],
-        Field(
-            alias='srl_nokia-interfaces-nbr-evpn:route-type', title='Route-typeLeaf4'
-        ),
+        Field(alias='srl_nokia-interfaces-nbr-evpn:route-type'),
     ] = None
     """
     Controls what type of ARP or ND entries to advertise.
@@ -8800,7 +7740,6 @@ class AuthenticatedSessionListEntry(BaseModel):
         Field(
             alias='srl_nokia-dot1x:mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='MacLeaf2',
         ),
     ] = None
     """
@@ -8840,7 +7779,6 @@ class AuthenticationContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-vrrp:keychain',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='KeychainLeaf',
         ),
     ] = None
     """
@@ -8862,7 +7800,6 @@ class AuthenticationContainer2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-vrrp:keychain',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-            title='KeychainLeaf2',
         ),
     ] = None
     """
@@ -8880,44 +7817,32 @@ class AuthenticatorContainer(BaseModel):
         regex_engine="python-re",
     )
     authenticate_port: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-dot1x:authenticate-port', title='Authenticate-portLeaf'),
+        Optional[bool], Field(alias='srl_nokia-dot1x:authenticate-port')
     ] = True
     """
     Enable IEEE802.1X port control on an interface
     """
     port_control: Annotated[
-        Optional[EnumerationEnum32],
-        Field(alias='srl_nokia-dot1x:port-control', title='Port-controlLeaf'),
+        Optional[EnumerationEnum32], Field(alias='srl_nokia-dot1x:port-control')
     ] = 'force-authorized'
     """
     IEEE802.1x authentication mode
     """
     authenticator_initiated: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-dot1x:authenticator-initiated',
-            title='Authenticator-initiatedLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-dot1x:authenticator-initiated')
     ] = True
     """
     When true the authenticator sends an EAP-Request/EAP-Identity to the Supplicant
     """
     host_mode: Annotated[
-        Optional[EnumerationEnum33],
-        Field(alias='srl_nokia-dot1x:host-mode', title='Host-modeLeaf'),
+        Optional[EnumerationEnum33], Field(alias='srl_nokia-dot1x:host-mode')
     ] = None
     """
     Allow for single or multiple hosts to communicate through an IEEE802.1X controlled port
     """
     reauthenticate_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-dot1x:reauthenticate-interval',
-            ge=0,
-            le=65535,
-            title='Reauthenticate-intervalLeaf',
-        ),
+        Field(alias='srl_nokia-dot1x:reauthenticate-interval', ge=0, le=65535),
     ] = None
     """
     Enable periodic re-authentication of the device connected to this port
@@ -8927,12 +7852,7 @@ class AuthenticatorContainer(BaseModel):
     """
     retransmit_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-dot1x:retransmit-interval',
-            ge=0,
-            le=65535,
-            title='Retransmit-intervalLeaf',
-        ),
+        Field(alias='srl_nokia-dot1x:retransmit-interval', ge=0, le=65535),
     ] = None
     """
     How long the interface waits for a response before restarting authentication
@@ -8940,46 +7860,26 @@ class AuthenticatorContainer(BaseModel):
     How long the interface waits for a response from an EAPoL Start before restarting 802.1X authentication on the port.
     """
     quiet_period: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-dot1x:quiet-period',
-            ge=1,
-            le=3600,
-            title='Quiet-periodLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-dot1x:quiet-period', ge=1, le=3600)
     ] = 60
     """
     Time to wait after a failed session when no EAPoL frames are processed
     """
     supplicant_timeout: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-dot1x:supplicant-timeout',
-            ge=1,
-            le=300,
-            title='Supplicant-timeoutLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-dot1x:supplicant-timeout', ge=1, le=300)
     ] = 30
     """
     Time to wait for a response from the supplicant before restarting the authentication process
     """
     max_requests: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-dot1x:max-requests', ge=1, le=10, title='Max-requestsLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-dot1x:max-requests', ge=1, le=10)
     ] = 2
     """
     Maximum number of times an EAPoL request packet is retransmitted to the supplicant before the authentication session fails
     """
     max_authentication_requests: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-dot1x:max-authentication-requests',
-            ge=1,
-            le=10,
-            title='Max-authentication-requestsLeaf',
-        ),
+        Field(alias='srl_nokia-dot1x:max-authentication-requests', ge=1, le=10),
     ] = 2
     """
     Maximum number of RADIUS retries before the authentication fails
@@ -8994,8 +7894,7 @@ class AuthenticatorContainer(BaseModel):
         Field(alias='srl_nokia-dot1x:multi-domain-allowed-source-macs'),
     ] = None
     radius_policy: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-dot1x:radius-policy', title='Radius-policyLeaf'),
+        Optional[str], Field(alias='srl_nokia-dot1x:radius-policy')
     ] = None
     """
     RADIUS policy used for 802.1x authentication
@@ -9021,20 +7920,13 @@ class CrcMonitorContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf2'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'disable'
     """
     Administrative state of crc monitoring on the port
     """
     window_size: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:window-size',
-            ge=5,
-            le=60,
-            title='Window-sizeLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:window-size', ge=5, le=60)
     ] = 10
     """
     Sliding window size over which errors are measured
@@ -9093,20 +7985,14 @@ class DhcpServerContainer(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-server:admin-state',
-            title='Admin-stateLeaf11',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-server:admin-state'),
     ] = 'disable'
     """
     Enables/Disables DHCP server function on subinterface
     """
     oper_state: Annotated[
         Optional[EnumerationEnum42],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-server:oper-state',
-            title='Oper-stateLeaf7',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-server:oper-state'),
     ] = None
     """
     Details if the dhcp server is operationally available
@@ -9120,20 +8006,14 @@ class Dhcpv6ServerContainer(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-server:admin-state',
-            title='Admin-stateLeaf16',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-server:admin-state'),
     ] = 'disable'
     """
     Enables/Disables DHCPv6 server function on subinterface
     """
     oper_state: Annotated[
         Optional[EnumerationEnum42],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-server:oper-state',
-            title='Oper-stateLeaf10',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-server:oper-state'),
     ] = None
     """
     Details if the dhcp server is operationally available
@@ -9186,10 +8066,7 @@ class EgressMappingContainer(BaseModel):
     )
     vlan_stack_action: Annotated[
         Optional[EnumerationEnum83],
-        Field(
-            alias='srl_nokia-interfaces-vlans:vlan-stack-action',
-            title='Vlan-stack-actionLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:vlan-stack-action'),
     ] = None
     """
     The action to take on the VLAN stack of a packet
@@ -9199,12 +8076,7 @@ class EgressMappingContainer(BaseModel):
     """
     outer_vlan_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vlans:outer-vlan-id',
-            ge=1,
-            le=4094,
-            title='Outer-vlan-idLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:outer-vlan-id', ge=1, le=4094),
     ] = None
     """
     Optionally specifies the outer VLAN tag identifier
@@ -9215,8 +8087,7 @@ class EgressMappingContainer(BaseModel):
     the addition or replacement of a VLAN tag.
     """
     outer_tpid: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-interfaces-vlans:outer-tpid', title='Outer-tpidLeaf2'),
+        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:outer-tpid')
     ] = None
     """
     Optionally override the outer tag protocol identifier field (TPID)
@@ -9226,12 +8097,7 @@ class EgressMappingContainer(BaseModel):
     """
     inner_vlan_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vlans:inner-vlan-id',
-            ge=1,
-            le=4094,
-            title='Inner-vlan-idLeaf3',
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:inner-vlan-id', ge=1, le=4094),
     ] = None
     """
     Optionally specifies the inner VLAN tag identifier
@@ -9242,8 +8108,7 @@ class EgressMappingContainer(BaseModel):
     'vlan-stack-action' requires the addition or replacement of an inner VLAN tag.
     """
     inner_tpid: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-interfaces-vlans:inner-tpid', title='Inner-tpidLeaf2'),
+        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:inner-tpid')
     ] = None
     """
     Optionally override the inner tag protocol identifier field (TPID)
@@ -9363,10 +8228,7 @@ class IngressMappingContainer(BaseModel):
     )
     vlan_stack_action: Annotated[
         Optional[EnumerationEnum83],
-        Field(
-            alias='srl_nokia-interfaces-vlans:vlan-stack-action',
-            title='Vlan-stack-actionLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:vlan-stack-action'),
     ] = None
     """
     The action to take on the VLAN stack of a packet
@@ -9376,12 +8238,7 @@ class IngressMappingContainer(BaseModel):
     """
     outer_vlan_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vlans:outer-vlan-id',
-            ge=1,
-            le=4094,
-            title='Outer-vlan-idLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:outer-vlan-id', ge=1, le=4094),
     ] = None
     """
     Optionally specifies the outer VLAN tag identifier
@@ -9392,8 +8249,7 @@ class IngressMappingContainer(BaseModel):
     the addition or replacement of a VLAN tag.
     """
     outer_tpid: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-interfaces-vlans:outer-tpid', title='Outer-tpidLeaf'),
+        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:outer-tpid')
     ] = None
     """
     Optionally override the outer tag protocol identifier field (TPID)
@@ -9403,12 +8259,7 @@ class IngressMappingContainer(BaseModel):
     """
     inner_vlan_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-vlans:inner-vlan-id',
-            ge=1,
-            le=4094,
-            title='Inner-vlan-idLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-vlans:inner-vlan-id', ge=1, le=4094),
     ] = None
     """
     Optionally specifies the inner VLAN tag identifier
@@ -9419,8 +8270,7 @@ class IngressMappingContainer(BaseModel):
     'vlan-stack-action' is one 'PUSH-PUSH' or 'POP-SWAP'.
     """
     inner_tpid: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-interfaces-vlans:inner-tpid', title='Inner-tpidLeaf'),
+        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:inner-tpid')
     ] = None
     """
     Optionally override the inner tag protocol identifier field (TPID)
@@ -9470,11 +8320,7 @@ class L2cpTransparencyContainer(BaseModel):
         regex_engine="python-re",
     )
     tunnel_all_l2cp: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-l2cp:tunnel-all-l2cp',
-            title='Tunnel-all-l2cpLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-l2cp:tunnel-all-l2cp')
     ] = False
     """
     Configures the tunneling of all the L2CP protocols.
@@ -9522,20 +8368,14 @@ class LocalMirrorDestinationContainer(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-local-mirror-destination:admin-state',
-            title='Admin-stateLeaf20',
-        ),
+        Field(alias='srl_nokia-interfaces-local-mirror-destination:admin-state'),
     ] = 'enable'
     """
     The configurable state of the local mirror destination
     """
     oper_state: Annotated[
         Optional[EnumerationEnum42],
-        Field(
-            alias='srl_nokia-interfaces-local-mirror-destination:oper-state',
-            title='Oper-stateLeaf11',
-        ),
+        Field(alias='srl_nokia-interfaces-local-mirror-destination:oper-state'),
     ] = None
     """
     The operational state of the local mirror destination
@@ -9562,9 +8402,7 @@ class MemberListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-interfaces-lag:name', title='NameLeaf8')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-interfaces-lag:name')] = None
     """
     The name of the interface
 
@@ -9602,28 +8440,20 @@ class MemberListEntry(BaseModel):
      IXR-X3b: 512 (N must be 1..512)
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum42],
-        Field(alias='srl_nokia-interfaces-lag:oper-state', title='Oper-stateLeaf13'),
+        Optional[EnumerationEnum42], Field(alias='srl_nokia-interfaces-lag:oper-state')
     ] = None
     """
     Operational state for the associated LAG
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum89],
-        Field(
-            alias='srl_nokia-interfaces-lag:oper-down-reason',
-            title='Oper-down-reasonLeaf8',
-        ),
+        Field(alias='srl_nokia-interfaces-lag:oper-down-reason'),
     ] = None
     """
     Reason for operational down state for the associated LAG
     """
     microbfd_enabled: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-lag:microbfd-enabled',
-            title='Microbfd-enabledLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-lag:microbfd-enabled')
     ] = None
     """
     Indicates if microBFD is currently used in the determination of the member-link oper-status
@@ -9633,7 +8463,6 @@ class MemberListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-lag:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf3',
         ),
     ] = None
     """
@@ -9760,40 +8589,27 @@ class VrrpGroupListEntry(BaseModel):
     )
     virtual_router_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id',
-            ge=1,
-            le=255,
-            title='Virtual-router-idLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id', ge=1, le=255),
     ] = None
     """
     VRRP Group Index
     """
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:admin-state', title='Admin-stateLeaf8'
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:admin-state'),
     ] = 'enable'
     """
     Administrative state for the associated VRRP group instance
     """
     priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:priority',
-            ge=1,
-            le=254,
-            title='PriorityLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:priority', ge=1, le=254),
     ] = 100
     """
     Base VRRP Priority for associated Virtual Address
     """
     preempt: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:preempt', title='PreemptLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-ip-vrrp:preempt')
     ] = None
     """
     Enable VRRP master pre-emption.
@@ -9807,7 +8623,6 @@ class VrrpGroupListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-vrrp:virtual-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Virtual-macLeaf',
         ),
     ] = None
     """
@@ -9815,12 +8630,7 @@ class VrrpGroupListEntry(BaseModel):
     """
     preempt_delay: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:preempt-delay',
-            ge=1,
-            le=65535,
-            title='Preempt-delayLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:preempt-delay', ge=1, le=65535),
     ] = None
     """
     Delay in seconds before a router preempts an existing
@@ -9828,12 +8638,7 @@ class VrrpGroupListEntry(BaseModel):
     """
     init_delay: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:init-delay',
-            ge=1,
-            le=65535,
-            title='Init-delayLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:init-delay', ge=1, le=65535),
     ] = None
     """
     Initialization delay in seconds before a router that
@@ -9841,10 +8646,7 @@ class VrrpGroupListEntry(BaseModel):
     Only applicable if preempt is enabled
     """
     accept_mode: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:accept-mode', title='Accept-modeLeaf'
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-ip-vrrp:accept-mode')
     ] = None
     """
     Allows ssh,ping,traceroute to be accepted on the virtual
@@ -9853,10 +8655,7 @@ class VrrpGroupListEntry(BaseModel):
     advertise_interval: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces-ip-vrrp:advertise-interval',
-            ge=1000,
-            le=40950,
-            title='Advertise-intervalLeaf',
+            alias='srl_nokia-interfaces-ip-vrrp:advertise-interval', ge=1000, le=40950
         ),
     ] = 1000
     """
@@ -9871,76 +8670,55 @@ class VrrpGroupListEntry(BaseModel):
         Field(alias='srl_nokia-interfaces-ip-vrrp:interface-tracking'),
     ] = None
     state: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:state', title='StateLeaf'),
+        Optional[Any], Field(alias='srl_nokia-interfaces-ip-vrrp:state')
     ] = None
     """
     Virtual Router state (Initialize, Backup, Master)
     """
     oper_state: Annotated[
         Optional[EnumerationEnum42],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-state', title='Oper-stateLeaf5'),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-state'),
     ] = None
     """
     VRRP Operational state
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum43],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:oper-down-reason',
-            title='Oper-down-reasonLeaf4',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-down-reason'),
     ] = None
     """
     The first (and possibly only) reason for the vrrp-group being operationally down
     """
     owner: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:owner', title='OwnerLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-ip-vrrp:owner')
     ] = None
     """
     VRRP instance is owner or not
     """
     operational_priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:operational-priority',
-            ge=0,
-            le=255,
-            title='Operational-priorityLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:operational-priority', ge=0, le=255),
     ] = None
     """
     Reports the current VRRP operational priority.
     """
     master_inherit_interval: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:master-inherit-interval',
-            title='Master-inherit-intervalLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:master-inherit-interval'),
     ] = False
     """
     Learn VRRP advertisement interval from master
     """
     oper_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:oper-interval',
-            ge=0,
-            le=65535,
-            title='Oper-intervalLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-interval', ge=0, le=65535),
     ] = None
     """
     The operational advertisement interval between VRRP messages
     """
     current_master: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:current-master',
-            title='Current-masterLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:current-master'),
     ] = None
     """
     IP address of node currently acting as VRRP master
@@ -9950,7 +8728,6 @@ class VrrpGroupListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-vrrp:last-transition',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-transitionLeaf',
         ),
     ] = None
     """
@@ -9968,13 +8745,7 @@ class VrrpGroupListEntry(BaseModel):
     Associated Virtual IP address.
     """
     version: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:version',
-            ge=2,
-            le=3,
-            title='VersionLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-ip-vrrp:version', ge=2, le=3)
     ] = 2
     """
     VRRP version for the Instance
@@ -9992,40 +8763,27 @@ class VrrpGroupListEntry2(BaseModel):
     )
     virtual_router_id: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id',
-            ge=1,
-            le=255,
-            title='Virtual-router-idLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id', ge=1, le=255),
     ] = None
     """
     VRRP Group Index
     """
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:admin-state', title='Admin-stateLeaf13'
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:admin-state'),
     ] = 'enable'
     """
     Administrative state for the associated VRRP group instance
     """
     priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:priority',
-            ge=1,
-            le=254,
-            title='PriorityLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:priority', ge=1, le=254),
     ] = 100
     """
     Base VRRP Priority for associated Virtual Address
     """
     preempt: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:preempt', title='PreemptLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-ip-vrrp:preempt')
     ] = None
     """
     Enable VRRP master pre-emption.
@@ -10039,7 +8797,6 @@ class VrrpGroupListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-vrrp:virtual-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Virtual-macLeaf2',
         ),
     ] = None
     """
@@ -10047,12 +8804,7 @@ class VrrpGroupListEntry2(BaseModel):
     """
     preempt_delay: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:preempt-delay',
-            ge=1,
-            le=65535,
-            title='Preempt-delayLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:preempt-delay', ge=1, le=65535),
     ] = None
     """
     Delay in seconds before a router preempts an existing
@@ -10060,12 +8812,7 @@ class VrrpGroupListEntry2(BaseModel):
     """
     init_delay: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:init-delay',
-            ge=1,
-            le=65535,
-            title='Init-delayLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:init-delay', ge=1, le=65535),
     ] = None
     """
     Initialization delay in seconds before a router that
@@ -10073,10 +8820,7 @@ class VrrpGroupListEntry2(BaseModel):
     Only applicable if preempt is enabled
     """
     accept_mode: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:accept-mode', title='Accept-modeLeaf2'
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-ip-vrrp:accept-mode')
     ] = None
     """
     Allows ssh,ping,traceroute to be accepted on the virtual
@@ -10085,10 +8829,7 @@ class VrrpGroupListEntry2(BaseModel):
     advertise_interval: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces-ip-vrrp:advertise-interval',
-            ge=1000,
-            le=40950,
-            title='Advertise-intervalLeaf2',
+            alias='srl_nokia-interfaces-ip-vrrp:advertise-interval', ge=1000, le=40950
         ),
     ] = 1000
     """
@@ -10103,76 +8844,55 @@ class VrrpGroupListEntry2(BaseModel):
         Field(alias='srl_nokia-interfaces-ip-vrrp:interface-tracking'),
     ] = None
     state: Annotated[
-        Optional[Any],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:state', title='StateLeaf2'),
+        Optional[Any], Field(alias='srl_nokia-interfaces-ip-vrrp:state')
     ] = None
     """
     Virtual Router state (Initialize, Backup, Master)
     """
     oper_state: Annotated[
         Optional[EnumerationEnum42],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-state', title='Oper-stateLeaf8'),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-state'),
     ] = None
     """
     VRRP Operational state
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum43],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:oper-down-reason',
-            title='Oper-down-reasonLeaf6',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-down-reason'),
     ] = None
     """
     The first (and possibly only) reason for the vrrp-group being operationally down
     """
     owner: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:owner', title='OwnerLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-ip-vrrp:owner')
     ] = None
     """
     VRRP instance is owner or not
     """
     operational_priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:operational-priority',
-            ge=0,
-            le=255,
-            title='Operational-priorityLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:operational-priority', ge=0, le=255),
     ] = None
     """
     Reports the current VRRP operational priority.
     """
     master_inherit_interval: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:master-inherit-interval',
-            title='Master-inherit-intervalLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:master-inherit-interval'),
     ] = False
     """
     Learn VRRP advertisement interval from master
     """
     oper_interval: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:oper-interval',
-            ge=0,
-            le=65535,
-            title='Oper-intervalLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:oper-interval', ge=0, le=65535),
     ] = None
     """
     The operational advertisement interval between VRRP messages
     """
     current_master: Annotated[
         Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:current-master',
-            title='Current-masterLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-vrrp:current-master'),
     ] = None
     """
     IP address of node currently acting as VRRP master
@@ -10182,7 +8902,6 @@ class VrrpGroupListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-vrrp:last-transition',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-transitionLeaf2',
         ),
     ] = None
     """
@@ -10203,13 +8922,7 @@ class VrrpGroupListEntry2(BaseModel):
     Associated Virtual IP address.
     """
     version: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:version',
-            ge=2,
-            le=3,
-            title='VersionLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-ip-vrrp:version', ge=2, le=3)
     ] = 3
     """
     VRRP version for the Instance
@@ -10219,7 +8932,6 @@ class VrrpGroupListEntry2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-vrrp:virtual-link-local-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Virtual-link-local-addressLeaf',
         ),
     ] = None
     """
@@ -10273,7 +8985,6 @@ class AddressListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces:ip-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
-            title='Ip-prefixLeaf',
         ),
     ] = None
     """
@@ -10282,8 +8993,7 @@ class AddressListEntry(BaseModel):
     Subnets on the same subinterface are allowed to overlap as long as the host bits are different. When a locally originated unicast packet is destined to a host covered by multiple subnets associated with a subinterface, the source address is chosen to be the numerically lowest IP address among all these subnets. For example, if the addresses 172.16.1.1/12, 172.16.1.2/12, and 172.16.1.3/12 are configured on the same interface, 172.16.1.1 would be used as a local address when you issue a ping 172.16.1.5 command
     """
     anycast_gw: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces:anycast-gw', title='Anycast-gwLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces:anycast-gw')
     ] = None
     """
     This designates the associated IPv4 address as an anycast-gateway IPv4 address of the subinterface.
@@ -10295,8 +9005,7 @@ class AddressListEntry(BaseModel):
       Because of that ARP duplicate-address-detection procedures do not apply to anycast-gw IP addresses.
     """
     origin: Annotated[
-        Optional[EnumerationEnum40],
-        Field(alias='srl_nokia-interfaces:origin', title='OriginLeaf'),
+        Optional[EnumerationEnum40], Field(alias='srl_nokia-interfaces:origin')
     ] = None
     """
     The origin of the IPv4 address.
@@ -10305,8 +9014,7 @@ class AddressListEntry(BaseModel):
         Optional[PrimaryLeaf], Field(alias='srl_nokia-interfaces:primary')
     ] = None
     status: Annotated[
-        Optional[EnumerationEnum41],
-        Field(alias='srl_nokia-interfaces:status', title='StatusLeaf3'),
+        Optional[EnumerationEnum41], Field(alias='srl_nokia-interfaces:status')
     ] = None
     """
     The status of an IPv4 address
@@ -10330,7 +9038,6 @@ class AddressListEntry3(BaseModel):
         Field(
             alias='srl_nokia-interfaces:ip-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
-            title='Ip-prefixLeaf2',
         ),
     ] = None
     """
@@ -10339,8 +9046,7 @@ class AddressListEntry3(BaseModel):
     Up to 16 global unicast IPv6 addresses can be assigned to each subinterface. Global unicast IPv6 address subnets on the same subinterface are allowed to overlap as long as the host bits are different. When a locally originated unicast packet is destined to a host covered by multiple subnets associated with a subinterface, the source address is chosen to be the numerically lowest IP address among all these subnets.
     """
     type: Annotated[
-        Optional[EnumerationEnum54],
-        Field(alias='srl_nokia-interfaces:type', title='TypeLeaf3'),
+        Optional[EnumerationEnum54], Field(alias='srl_nokia-interfaces:type')
     ] = 'global-unicast'
     """
     Specifies the explicit type of the IPv6 address being assigned to the subinterface
@@ -10348,8 +9054,7 @@ class AddressListEntry3(BaseModel):
     By default, addresses are assumed to be global unicast.  Where a link-local address is to be explicitly configured, this leaf should be set to link-local.
     """
     anycast_gw: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces:anycast-gw', title='Anycast-gwLeaf2'),
+        Optional[bool], Field(alias='srl_nokia-interfaces:anycast-gw')
     ] = None
     """
     This designates the associated IPv6 address as an anycast-gateway IPv6 address of the subinterface.
@@ -10361,8 +9066,7 @@ class AddressListEntry3(BaseModel):
       Because of that, ND duplicate-address-detection procedures do not apply to anycast-gw IP addresses.
     """
     origin: Annotated[
-        Optional[EnumerationEnum40],
-        Field(alias='srl_nokia-interfaces:origin', title='OriginLeaf3'),
+        Optional[EnumerationEnum40], Field(alias='srl_nokia-interfaces:origin')
     ] = None
     """
     The origin of the IPv6 address
@@ -10371,8 +9075,7 @@ class AddressListEntry3(BaseModel):
         Optional[PrimaryLeaf2], Field(alias='srl_nokia-interfaces:primary')
     ] = None
     status: Annotated[
-        Optional[EnumerationEnum55],
-        Field(alias='srl_nokia-interfaces:status', title='StatusLeaf5'),
+        Optional[EnumerationEnum55], Field(alias='srl_nokia-interfaces:status')
     ] = None
     """
     The status of an IPv6 address
@@ -10393,22 +9096,13 @@ class ArpContainer(BaseModel):
     )
     duplicate_address_detection: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-nbr:duplicate-address-detection',
-            title='Duplicate-address-detectionLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:duplicate-address-detection'),
     ] = True
     """
     If set to true IPv4 Address Conflict Detection per RFC 5227 is performed on the IPv4 address assigned to the subinterface
     """
     timeout: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-nbr:timeout',
-            ge=60,
-            le=65535,
-            title='TimeoutLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-nbr:timeout', ge=60, le=65535)
     ] = 14400
     """
     Duration of time that dynamic ARP entries remain in the ARP cache before they expire
@@ -10416,11 +9110,7 @@ class ArpContainer(BaseModel):
     A change to this value does not affect existing entries until they are refreshed.
     """
     learn_unsolicited: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-nbr:learn-unsolicited',
-            title='Learn-unsolicitedLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-nbr:learn-unsolicited')
     ] = False
     """
     If set to true an ARP entry should be learned from any received ARP packets.
@@ -10433,8 +9123,7 @@ class ArpContainer(BaseModel):
         Optional[HostRouteContainer], Field(alias='srl_nokia-interfaces-nbr:host-route')
     ] = None
     proxy_arp: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-nbr:proxy-arp', title='Proxy-arpLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-nbr:proxy-arp')
     ] = False
     """
     When set to true, the router replies with its own MAC to ARP Request destined to any host.
@@ -10466,11 +9155,7 @@ class BridgeTableContainer(BaseModel):
         regex_engine="python-re",
     )
     discard_unknown_src_mac: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:discard-unknown-src-mac',
-            title='Discard-unknown-src-macLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:discard-unknown-src-mac')
     ] = False
     """
     Discard frames with unknown source mac addresses. The source mac address of
@@ -10510,30 +9195,21 @@ class DhcpRelayContainer(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:admin-state',
-            title='Admin-stateLeaf10',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:admin-state'),
     ] = 'enable'
     """
     The configurable state of the dhcp relay agent
     """
     oper_state: Annotated[
         Optional[EnumerationEnum42],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:oper-state',
-            title='Oper-stateLeaf6',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:oper-state'),
     ] = None
     """
     The operational state of the dhcp relay agent
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum50],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason',
-            title='Oper-down-reasonLeaf5',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason'),
     ] = None
     """
     The reason causing the dhcp relay agent to go into operational down state
@@ -10557,7 +9233,6 @@ class DhcpRelayContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:gi-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-            title='Gi-addressLeaf',
         ),
     ] = None
     """
@@ -10566,10 +9241,7 @@ class DhcpRelayContainer(BaseModel):
     """
     use_gi_addr_as_src_ip_addr: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:use-gi-addr-as-src-ip-addr',
-            title='Use-gi-addr-as-src-ip-addrLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:use-gi-addr-as-src-ip-addr'),
     ] = False
     """
     When this is set, the configured giaddress will be used as source ip address.
@@ -10579,7 +9251,6 @@ class DhcpRelayContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:network-instance',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-            title='Network-instanceLeaf',
         ),
     ] = None
     """
@@ -10610,30 +9281,21 @@ class DhcpRelayContainer2(BaseModel):
     )
     admin_state: Annotated[
         Optional[EnumerationEnum],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:admin-state',
-            title='Admin-stateLeaf14',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:admin-state'),
     ] = 'enable'
     """
     The configurable state of the dhcp relay agent
     """
     oper_state: Annotated[
         Optional[EnumerationEnum42],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:oper-state',
-            title='Oper-stateLeaf9',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:oper-state'),
     ] = None
     """
     The operational state of the dhcp relay agent
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum62],
-        Field(
-            alias='srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason',
-            title='Oper-down-reasonLeaf7',
-        ),
+        Field(alias='srl_nokia-interfaces-ip-dhcp-relay:oper-down-reason'),
     ] = None
     """
     The reason causing the dhcp relay agent to go into operational down state
@@ -10657,7 +9319,6 @@ class DhcpRelayContainer2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:source-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-            title='Source-addressLeaf',
         ),
     ] = None
     """
@@ -10669,7 +9330,6 @@ class DhcpRelayContainer2(BaseModel):
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:network-instance',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-            title='Network-instanceLeaf2',
         ),
     ] = None
     """
@@ -10695,18 +9355,13 @@ class EthernetContainer(BaseModel):
         regex_engine="python-re",
     )
     aggregate_id: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces:aggregate-id', title='Aggregate-idLeaf'),
+        Optional[str], Field(alias='srl_nokia-interfaces:aggregate-id')
     ] = None
     """
     lag interface with which this interface is associated
     """
     forwarding_viable: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:forwarding-viable',
-            title='Forwarding-viableLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:forwarding-viable')
     ] = None
     """
     If true:
@@ -10719,8 +9374,7 @@ class EthernetContainer(BaseModel):
     This LAG member link should process any received frames when it is an active member link.  L2 protocols such as LLDP, LACP and micro-BFD should continue to be sent and processed.
     """
     auto_negotiate: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces:auto-negotiate', title='Auto-negotiateLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces:auto-negotiate')
     ] = None
     """
     When set to true the interface uses auto-negotiation for speed, duplex and flow-control settings.
@@ -10728,18 +9382,13 @@ class EthernetContainer(BaseModel):
     When set to false, the transmission parameters are specified manually.
     """
     duplex_mode: Annotated[
-        Optional[EnumerationEnum24],
-        Field(alias='srl_nokia-interfaces:duplex-mode', title='Duplex-modeLeaf'),
+        Optional[EnumerationEnum24], Field(alias='srl_nokia-interfaces:duplex-mode')
     ] = None
     """
     When auto-negotiate is true, this sets the duplex mode that will be advertised to the peer.  When auto-negotiate is false, this directly sets the duplex mode of the interface.
     """
     dac_link_training: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:dac-link-training',
-            title='Dac-link-trainingLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:dac-link-training')
     ] = None
     """
     If the system detects that the transceiver is connected to a DAC cable then a true setting enables link training for better link stability. The link training setting must be the same at both ends of the DAC cable or else the link may not come up.
@@ -10749,19 +9398,13 @@ class EthernetContainer(BaseModel):
     ] = None
     lacp_port_priority: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:lacp-port-priority',
-            ge=0,
-            le=65535,
-            title='Lacp-port-priorityLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:lacp-port-priority', ge=0, le=65535),
     ] = None
     """
     Configure the port priority for LACP.  This value is used to  determine which port should be activated with LACP fallback mode. Lower values are more preferred.
     """
     port_speed: Annotated[
-        Optional[EnumerationEnum25],
-        Field(alias='srl_nokia-interfaces:port-speed', title='Port-speedLeaf'),
+        Optional[EnumerationEnum25], Field(alias='srl_nokia-interfaces:port-speed')
     ] = None
     """
     The speed of the port or channel
@@ -10892,7 +9535,6 @@ class EthernetContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:hw-mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Hw-mac-addressLeaf',
         ),
     ] = None
     """
@@ -10903,7 +9545,6 @@ class EthernetContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-            title='Mac-addressLeaf',
         ),
     ] = None
     """
@@ -10917,10 +9558,7 @@ class EthernetContainer(BaseModel):
     When deleted, will revert back to the value of hw-mac-address.
     """
     physical_medium: Annotated[
-        Optional[EnumerationEnum26],
-        Field(
-            alias='srl_nokia-interfaces:physical-medium', title='Physical-mediumLeaf'
-        ),
+        Optional[EnumerationEnum26], Field(alias='srl_nokia-interfaces:physical-medium')
     ] = None
     """
     Indicates the PHY supported by the RJ45 port.
@@ -10930,10 +9568,7 @@ class EthernetContainer(BaseModel):
     ptp_asymmetry: Annotated[
         Optional[int],
         Field(
-            alias='srl_nokia-interfaces:ptp-asymmetry',
-            ge=-2147483648,
-            le=2147483647,
-            title='Ptp-asymmetryLeaf',
+            alias='srl_nokia-interfaces:ptp-asymmetry', ge=-2147483648, le=2147483647
         ),
     ] = 0
     """
@@ -10948,10 +9583,7 @@ class EthernetContainer(BaseModel):
     ] = None
     standby_signaling: Annotated[
         Optional[EnumerationEnum27],
-        Field(
-            alias='srl_nokia-interfaces:standby-signaling',
-            title='Standby-signalingLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:standby-signaling'),
     ] = None
     """
     Indicates the standby-signaling used in the interface.
@@ -10960,11 +9592,7 @@ class EthernetContainer(BaseModel):
     interface if the interface is selected as standby.
     """
     link_loss_forwarding: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:link-loss-forwarding',
-            title='Link-loss-forwardingLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:link-loss-forwarding')
     ] = None
     """
     Indicates whether link-loss-forwarding is enabled in the interface
@@ -10976,13 +9604,7 @@ class EthernetContainer(BaseModel):
     signaling to be used with the connected Customer Equipment.
     """
     reload_delay: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:reload-delay',
-            ge=1,
-            le=86400,
-            title='Reload-delayLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:reload-delay', ge=1, le=86400)
     ] = None
     """
     Configure reload-delay timer for Ethernet interfaces.
@@ -10998,7 +9620,6 @@ class EthernetContainer(BaseModel):
         Field(
             alias='srl_nokia-interfaces:reload-delay-expires',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Reload-delay-expiresLeaf',
         ),
     ] = None
     """
@@ -11047,8 +9668,7 @@ class Ipv4Container(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf7'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'disable'
     """
     Enable/disable IPv4 on the subinterface
@@ -11059,11 +9679,7 @@ class Ipv4Container(BaseModel):
         Optional[List[AddressListEntry]], Field(alias='srl_nokia-interfaces:address')
     ] = None
     allow_directed_broadcast: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:allow-directed-broadcast',
-            title='Allow-directed-broadcastLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:allow-directed-broadcast')
     ] = False
     """
     When this is set to true the software is allowed to re-broadcast targeted broadcast IPv4 packets on this subinterface
@@ -11109,21 +9725,14 @@ class LagContainer(BaseModel):
         regex_engine="python-re",
     )
     lag_type: Annotated[
-        Optional[EnumerationEnum86],
-        Field(alias='srl_nokia-interfaces-lag:lag-type', title='Lag-typeLeaf'),
+        Optional[EnumerationEnum86], Field(alias='srl_nokia-interfaces-lag:lag-type')
     ] = 'static'
     """
     Sets the type of LAG, i.e., how it is
     configured / maintained
     """
     min_links: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-lag:min-links',
-            ge=1,
-            le=64,
-            title='Min-linksLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces-lag:min-links', ge=1, le=64)
     ] = 1
     """
     Specifies the mininum number of member
@@ -11132,41 +9741,28 @@ class LagContainer(BaseModel):
     """
     member_speed: Annotated[
         Optional[EnumerationEnum87],
-        Field(alias='srl_nokia-interfaces-lag:member-speed', title='Member-speedLeaf'),
+        Field(alias='srl_nokia-interfaces-lag:member-speed'),
     ] = None
     """
     Specifies the link speed of allowed member-links
     """
     lacp_fallback_mode: Annotated[
         Optional[EnumerationEnum88],
-        Field(
-            alias='srl_nokia-interfaces-lag:lacp-fallback-mode',
-            title='Lacp-fallback-modeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-lag:lacp-fallback-mode'),
     ] = None
     """
     Specifies lacp-fallback mode if enabled
     """
     lacp_fallback_timeout: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-lag:lacp-fallback-timeout',
-            ge=4,
-            le=3600,
-            title='Lacp-fallback-timeoutLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-lag:lacp-fallback-timeout', ge=4, le=3600),
     ] = None
     """
     Specifies the LACP-fallback timeout interval in seconds
     """
     lag_speed: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-lag:lag-speed',
-            ge=0,
-            le=4294967295,
-            title='Lag-speedLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-lag:lag-speed', ge=0, le=4294967295),
     ] = None
     """
     reports current aggregate bandwidth speed of the associated LAG
@@ -11188,10 +9784,7 @@ class NeighborDiscoveryContainer(BaseModel):
     )
     duplicate_address_detection: Annotated[
         Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-nbr:duplicate-address-detection',
-            title='Duplicate-address-detectionLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:duplicate-address-detection'),
     ] = True
     """
     Enables Duplicate Addres Detection on all tentative addresses
@@ -11202,12 +9795,7 @@ class NeighborDiscoveryContainer(BaseModel):
     """
     reachable_time: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-nbr:reachable-time',
-            ge=30,
-            le=3600,
-            title='Reachable-timeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:reachable-time', ge=30, le=3600),
     ] = 30
     """
     The period of time that a dynamic IPv6 neighbor cache entry is considered reachable after a reachability confirmation event
@@ -11216,12 +9804,7 @@ class NeighborDiscoveryContainer(BaseModel):
     """
     stale_time: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces-nbr:stale-time',
-            ge=60,
-            le=65535,
-            title='Stale-timeLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:stale-time', ge=60, le=65535),
     ] = 14400
     """
     The maximum time that a dynamic IPv6 neighbor cache entry can remain in the STALE state before it is removed
@@ -11230,10 +9813,7 @@ class NeighborDiscoveryContainer(BaseModel):
     """
     learn_unsolicited: Annotated[
         Optional[EnumerationEnum56],
-        Field(
-            alias='srl_nokia-interfaces-nbr:learn-unsolicited',
-            title='Learn-unsolicitedLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces-nbr:learn-unsolicited'),
     ] = 'none'
     """
     Sets if neighbors should be learned from unsolicited neighbor advertisements for global or link local addresses or both.
@@ -11250,8 +9830,7 @@ class NeighborDiscoveryContainer(BaseModel):
         Optional[LimitContainer], Field(alias='srl_nokia-interfaces-nbr:limit')
     ] = None
     proxy_nd: Annotated[
-        Optional[bool],
-        Field(alias='srl_nokia-interfaces-nbr:proxy-nd', title='Proxy-ndLeaf'),
+        Optional[bool], Field(alias='srl_nokia-interfaces-nbr:proxy-nd')
     ] = False
     """
     When set to true, the router replies with its own MAC to Neighbor Solicitations destined to any host.
@@ -11283,8 +9862,7 @@ class Ipv6Container(BaseModel):
         regex_engine="python-re",
     )
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf12'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'disable'
     """
     Enable/disable IPv6 on the subinterface
@@ -11333,42 +9911,30 @@ class SubinterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:index', ge=0, le=9999, title='IndexLeaf4'),
+        Optional[int], Field(alias='srl_nokia-interfaces:index', ge=0, le=9999)
     ] = None
     """
     The index of the subinterface, or logical interface number
     """
-    type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces:type', title='TypeLeaf2')
-    ] = None
+    type: Annotated[Optional[Any], Field(alias='srl_nokia-interfaces:type')] = None
     """
     Indicates the context in which the ethernet subinterface will be used
     """
     description: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:description',
-            max_length=255,
-            min_length=1,
-            title='DescriptionLeaf2',
-        ),
+        Field(alias='srl_nokia-interfaces:description', max_length=255, min_length=1),
     ] = None
     """
     A user-configured description of the interface
     """
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf6'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'enable'
     """
     The configured, desired state of the subinterface
     """
     ip_mtu: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:ip-mtu', ge=1280, le=9486, title='Ip-mtuLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:ip-mtu', ge=1280, le=9486)
     ] = None
     """
     IP MTU of the subinterface in bytes.
@@ -11388,10 +9954,7 @@ class SubinterfaceListEntry(BaseModel):
     Each 7250 IXR IMM supports a maximum of 4 different IP MTU values. 7220 IXR systems do not have any limit on the maximum number of different IP MTU values.
     """
     l2_mtu: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:l2-mtu', ge=1450, le=9500, title='L2-mtuLeaf'
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:l2-mtu', ge=1450, le=9500)
     ] = None
     """
     Layer-2 MTU of the subinterface in bytes.
@@ -11410,13 +9973,7 @@ class SubinterfaceListEntry(BaseModel):
     All other systems support a maximum L2 MTU of 9500 and minimum of 1500 bytes.
     """
     mpls_mtu: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:mpls-mtu',
-            ge=1284,
-            le=9496,
-            title='Mpls-mtuLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:mpls-mtu', ge=1284, le=9496)
     ] = None
     """
     MPLS MTU of the subinterface in bytes, including the transmitted label stack.
@@ -11435,38 +9992,27 @@ class SubinterfaceListEntry(BaseModel):
         Optional[UnidirectionalLinkDelayContainer],
         Field(alias='srl_nokia-interfaces:unidirectional-link-delay'),
     ] = None
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-interfaces:name', title='NameLeaf3')
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-interfaces:name')] = None
     """
     The system assigned name of the subinterface.
 
     It is formed by taking the base interface name and appending a dot (.) and the subinterface index number. For example, ethernet-2/1.0
     """
     ifindex: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:ifindex',
-            ge=0,
-            le=4294967295,
-            title='IfindexLeaf2',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:ifindex', ge=0, le=4294967295)
     ] = None
     """
     System-wide persistent unique ifIndex assigned to the subinterface
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum38],
-        Field(alias='srl_nokia-interfaces:oper-state', title='Oper-stateLeaf4'),
+        Optional[EnumerationEnum38], Field(alias='srl_nokia-interfaces:oper-state')
     ] = None
     """
     The operational state of the subinterface
     """
     oper_down_reason: Annotated[
         Optional[EnumerationEnum39],
-        Field(
-            alias='srl_nokia-interfaces:oper-down-reason', title='Oper-down-reasonLeaf3'
-        ),
+        Field(alias='srl_nokia-interfaces:oper-down-reason'),
     ] = None
     """
     The first (and possibly only) reason for the subinterface being operationally down
@@ -11476,18 +10022,13 @@ class SubinterfaceListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf2',
         ),
     ] = None
     """
     The date and time of the most recent change to the subinterface state
     """
     collect_irb_stats: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:collect-irb-stats',
-            title='Collect-irb-statsLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:collect-irb-stats')
     ] = None
     """
     Set to false to disable statistics collection on the IRB subinterface
@@ -11495,11 +10036,7 @@ class SubinterfaceListEntry(BaseModel):
     By default basic statistics are collected for each IRB subinterface
     """
     collect_detailed_stats: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces:collect-detailed-stats',
-            title='Collect-detailed-statsLeaf',
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces:collect-detailed-stats')
     ] = None
     """
     Set to false to disable detailed statistics collection on the routed (non IRB) subinterface
@@ -11544,7 +10081,6 @@ class SubinterfaceListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-vxdp:uuid',
             pattern='^(?=^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$).*$',
-            title='UuidLeaf',
         ),
     ] = None
     """
@@ -11567,10 +10103,7 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-interfaces:name', title='Interface-allType'),
-    ] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-interfaces:name')] = None
     """
     The name of the interface
 
@@ -11609,31 +10142,20 @@ class InterfaceListEntry(BaseModel):
     """
     description: Annotated[
         Optional[str],
-        Field(
-            alias='srl_nokia-interfaces:description',
-            max_length=255,
-            min_length=1,
-            title='DescriptionLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:description', max_length=255, min_length=1),
     ] = None
     """
     A user-configured description of the interface
     """
     admin_state: Annotated[
-        Optional[EnumerationEnum],
-        Field(alias='srl_nokia-interfaces:admin-state', title='Admin-stateLeaf'),
+        Optional[EnumerationEnum], Field(alias='srl_nokia-interfaces:admin-state')
     ] = 'enable'
     """
     The configured, desired state of the interface
     """
     num_physical_channels: Annotated[
         Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:num-physical-channels',
-            ge=1,
-            le=8,
-            title='Num-physical-channelsLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:num-physical-channels', ge=1, le=8),
     ] = None
     """
     Sets the number of lanes or physical channels assigned to this interface or to the set of interfaces within this breakout group
@@ -11656,8 +10178,7 @@ class InterfaceListEntry(BaseModel):
         Field(alias='srl_nokia-interfaces:breakout-mode'),
     ] = None
     mtu: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:mtu', ge=1450, le=9500, title='MtuLeaf'),
+        Optional[int], Field(alias='srl_nokia-interfaces:mtu', ge=1450, le=9500)
     ] = None
     """
     Port MTU in bytes including ethernet overhead but excluding 4-bytes FCS
@@ -11672,29 +10193,19 @@ class InterfaceListEntry(BaseModel):
     Each 7250 IXR IMM supports a maximum of 8 different port MTU values. 7220 IXR systems do not have any limit on the maximum number of different port MTU values.
     """
     ifindex: Annotated[
-        Optional[int],
-        Field(
-            alias='srl_nokia-interfaces:ifindex',
-            ge=0,
-            le=4294967295,
-            title='IfindexLeaf',
-        ),
+        Optional[int], Field(alias='srl_nokia-interfaces:ifindex', ge=0, le=4294967295)
     ] = None
     """
     System-wide persistent unique ifIndex assigned to the interface
     """
     oper_state: Annotated[
-        Optional[EnumerationEnum4],
-        Field(alias='srl_nokia-interfaces:oper-state', title='Oper-stateLeaf'),
+        Optional[EnumerationEnum4], Field(alias='srl_nokia-interfaces:oper-state')
     ] = None
     """
     The operational state of the interface
     """
     oper_down_reason: Annotated[
-        Optional[EnumerationEnum5],
-        Field(
-            alias='srl_nokia-interfaces:oper-down-reason', title='Oper-down-reasonLeaf'
-        ),
+        Optional[EnumerationEnum5], Field(alias='srl_nokia-interfaces:oper-down-reason')
     ] = None
     """
     The first (and possibly only) reason for the port being operationally down
@@ -11704,15 +10215,13 @@ class InterfaceListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces:last-change',
             pattern='^(?=^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[\\+\\-]\\d{2}:\\d{2})$).*$',
-            title='Last-changeLeaf',
         ),
     ] = None
     """
     The date and time of the most recent change to the interface state
     """
     linecard: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces:linecard', ge=1, le=16, title='LinecardLeaf'),
+        Optional[int], Field(alias='srl_nokia-interfaces:linecard', ge=1, le=16)
     ] = None
     """
     The linecard on which this interface resides
@@ -11721,10 +10230,7 @@ class InterfaceListEntry(BaseModel):
     """
     forwarding_complex: Annotated[
         Optional[EnumerationEnum6],
-        Field(
-            alias='srl_nokia-interfaces:forwarding-complex',
-            title='Forwarding-complexLeaf',
-        ),
+        Field(alias='srl_nokia-interfaces:forwarding-complex'),
     ] = None
     """
     The forwarding-complex on which this interface resides
@@ -11747,10 +10253,7 @@ class InterfaceListEntry(BaseModel):
     The list of transceiver channels associated with this port
     """
     forwarding_mode: Annotated[
-        Optional[EnumerationEnum7],
-        Field(
-            alias='srl_nokia-interfaces:forwarding-mode', title='Forwarding-modeLeaf'
-        ),
+        Optional[EnumerationEnum7], Field(alias='srl_nokia-interfaces:forwarding-mode')
     ] = None
     """
     The forwarding mode for Ethernet frames received on this interface
@@ -11778,17 +10281,14 @@ class InterfaceListEntry(BaseModel):
         Optional[SflowContainer], Field(alias='srl_nokia-interfaces:sflow')
     ] = None
     vlan_tagging: Annotated[
-        Optional[bool],
-        Field(
-            alias='srl_nokia-interfaces-vlans:vlan-tagging', title='Vlan-taggingLeaf'
-        ),
+        Optional[bool], Field(alias='srl_nokia-interfaces-vlans:vlan-tagging')
     ] = None
     """
     When set to true the interface is allowed to accept frames with one or more VLAN tags
     """
-    tpid: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:tpid', title='TpidLeaf')
-    ] = None
+    tpid: Annotated[Optional[Any], Field(alias='srl_nokia-interfaces-vlans:tpid')] = (
+        None
+    )
     """
     Optionally set the tag protocol identifier field (TPID) that is accepted on the VLAN
 
@@ -11810,7 +10310,6 @@ class InterfaceListEntry(BaseModel):
         Field(
             alias='srl_nokia-interfaces-vxdp:uuid',
             pattern='^(?=^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$).*$',
-            title='UuidLeaf2',
         ),
     ] = None
     """
