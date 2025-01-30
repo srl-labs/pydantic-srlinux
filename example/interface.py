@@ -11,7 +11,7 @@ e1_1 = srl_if.InterfaceListEntry(
     vlan_tagging=True,
     subinterface=[
         srl_if.SubinterfaceListEntry(
-            index=0,
+            index=100,
             type="bridged",
             admin_state=srl_if.EnumerationEnum.enable,
             vlan=srl_if.VlanContainer(
@@ -19,25 +19,16 @@ e1_1 = srl_if.InterfaceListEntry(
                     single_tagged=srl_if.SingleTaggedContainer(
                         vlan_id=srl_if.VlanIdType(100)
                     )
-                )
+                ),
             ),
         )
     ],
 )
 
-# print(
-#     e1_1.model_dump_json(indent=2, exclude_none=True, exclude_unset=True, by_alias=True)
-# )
-
-
-with SRLClient(host="clab-vlan-srl1") as client:
+with SRLClient(host="srl") as client:
     client.add_command(
-        action=Action.REPLACE,
+        action=Action.UPDATE,
         path="/interface[name=ethernet-1/1]",
-        value=e1_1.model_dump(
-            exclude_none=True,
-            exclude_unset=True,
-            by_alias=True,
-        ),
+        value=e1_1,
     )
     client.send_request()

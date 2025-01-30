@@ -3,7 +3,7 @@
 manually sent payload:
 
 ```bash
-curl 'http://admin:NokiaSrl1!@clab-vlan-srl1/jsonrpc' -d @- <<EOF | jq
+curl 'http://admin:NokiaSrl1!@srl/jsonrpc' -d @- <<EOF | jq
 {
     "jsonrpc": "2.0",
     "id": 0,

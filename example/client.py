@@ -45,12 +45,18 @@ class SRLClient(httpx.Client):
         self.req_id: int = 0
         self.auth = (self.username, self.password)
 
-    def add_command(self, action: Action, path: str, value: Any) -> None:
-        """Add command to request"""
+    def add_command(self, action: Action, path: str, value: BaseModel) -> None:
+        """Add command to request
+        value: srlinux pydantic model to be dumped to json
+        """
         cmd = Command(
             action=action,
             path=path,
-            value=value,
+            value=value.model_dump(
+                exclude_none=True,
+                exclude_unset=True,
+                by_alias=True,
+            ),
         )
         if self.commands is None:
             self.commands = []
