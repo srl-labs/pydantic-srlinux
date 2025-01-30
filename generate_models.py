@@ -23,6 +23,13 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    # exit if ${SRL_REPO_PATH} is not set
+    if not os.environ.get("SRL_YANG_REPO_DIR"):
+        print(
+            "SRL_YANG_REPO_DIR env var must be set and point to a path where the srlinux-yang-models repo has been cloned"
+        )
+        sys.exit(1)
+
     with open("yang_map.yml", "r") as f:
         data = yaml.safe_load(f)
 

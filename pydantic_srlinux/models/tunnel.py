@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
@@ -360,7 +360,7 @@ class TunnelListEntry(BaseModel):
     The system allocated ID of the pw tunnel
     """
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-pw-tunnel:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-pw-tunnel:allowed-tunnel-types')
     ] = []
     """
     List of allowed transport tunnel types for the pseudowire
@@ -380,7 +380,7 @@ class TunnelListEntry(BaseModel):
     The date and time of the most recent change to the tunnel state
     """
     operational_tunnel_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-pw-tunnel:operational-tunnel-type')
+        Optional[str], Field(alias='srl_nokia-pw-tunnel:operational-tunnel-type')
     ] = None
     operational_tunnel_id: Annotated[
         Optional[int],

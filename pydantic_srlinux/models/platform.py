@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
@@ -478,7 +478,7 @@ class ExtractionReasonListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    reason: Annotated[Optional[Any], Field(alias='srl_nokia-platform-lc:reason')] = None
+    reason: Annotated[Optional[str], Field(alias='srl_nokia-platform-lc:reason')] = None
     """
     A reason for extracting the packet towards the host CPU
     """
@@ -727,7 +727,7 @@ class LastSwitchoverReasonContainer(BaseModel):
         regex_engine="python-re",
     )
     trigger: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-control:trigger')
+        Optional[str], Field(alias='srl_nokia-platform-control:trigger')
     ] = None
     """
     Indicates the trigger of the last switchover
@@ -1429,7 +1429,7 @@ class ResourceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
+        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the XDP datapath resource
@@ -1470,7 +1470,7 @@ class ResourceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-qos:name')] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-qos:name')] = None
     """
     The name of the QoS resource
     """
@@ -1493,7 +1493,7 @@ class ResourceListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-mtu:name')] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-mtu:name')] = None
     """
     The name of the MTU resource
     """
@@ -1516,7 +1516,7 @@ class ResourceListEntry6(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-qos:name')] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-qos:name')] = None
     """
     The name of the QoS resource
     """
@@ -1541,7 +1541,7 @@ class ResourceListEntry7(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-mtu:name')] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-mtu:name')] = None
     """
     The name of the MTU resource
     """
@@ -1571,7 +1571,7 @@ class ResourceListEntry8(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
+        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the XDP datapath resource.
@@ -1614,7 +1614,7 @@ class ResourceListEntry9(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
+        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the ASIC-specific datapath resource.
@@ -3628,7 +3628,7 @@ class PowerSupplyListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-psu:last-booted-reason')
+        Optional[str], Field(alias='srl_nokia-platform-psu:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -3896,7 +3896,7 @@ class ResourceListEntry4(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
+        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the XDP datapath resource
@@ -3972,7 +3972,7 @@ class ResourceListEntry5(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-datapath-resources:name')
+        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
     ] = None
     """
     The name of the ASIC-specific datapath resource
@@ -4442,7 +4442,7 @@ class FabricListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-fabric:last-booted-reason')
+        Optional[str], Field(alias='srl_nokia-platform-fabric:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -4590,7 +4590,7 @@ class FanTrayListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-fan:last-booted-reason')
+        Optional[str], Field(alias='srl_nokia-platform-fan:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -4718,7 +4718,7 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-platform-control:name')] = (
+    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-control:name')] = (
         None
     )
     """
@@ -4997,7 +4997,7 @@ class ChassisContainer(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-chassis:last-booted-reason')
+        Optional[str], Field(alias='srl_nokia-platform-chassis:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -5156,7 +5156,7 @@ class ControlListEntry3(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-control:last-booted-reason')
+        Optional[str], Field(alias='srl_nokia-platform-control:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -5353,7 +5353,7 @@ class ForwardingComplexListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-lc:last-booted-reason')
+        Optional[str], Field(alias='srl_nokia-platform-lc:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted
@@ -5459,7 +5459,7 @@ class LinecardListEntry(BaseModel):
     For components that do not boot, this is the time the component was last discovered by the active control module
     """
     last_booted_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-platform-lc:last-booted-reason')
+        Optional[str], Field(alias='srl_nokia-platform-lc:last-booted-reason')
     ] = None
     """
     The reason this component last booted or rebooted

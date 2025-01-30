@@ -24,4 +24,4 @@ build-backend = "hatchling.build"
 packages = ["pydantic_srlinux"]
 
 [tool.uv.sources]
-pydantify = { git = "https://github.com/pydantify/pydantify", rev = "a3554d9" }
+pydantify = { git = "https://github.com/pydantify/pydantify", rev = "v0.7.1" }

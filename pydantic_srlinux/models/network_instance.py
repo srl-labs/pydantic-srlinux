@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
@@ -2226,7 +2226,7 @@ class RouteTypeListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_route_type_name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
+        Optional[str], Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
     ] = None
     """
     IP route type
@@ -2246,7 +2246,7 @@ class RouteTypeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ip_route_type_name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
+        Optional[str], Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
     ] = None
     """
     IP route type
@@ -3356,7 +3356,7 @@ class UnconstrainedLspContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -3377,7 +3377,7 @@ class UnconstrainedLspContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -3398,7 +3398,7 @@ class UnconstrainedLspContainer3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -3419,7 +3419,7 @@ class UnconstrainedLspContainer4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -7333,7 +7333,7 @@ class AfiSafiListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-bgp:name')] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-bgp:name')] = None
     forwarding_preserved: Annotated[
         Optional[bool], Field(alias='srl_nokia-bgp:forwarding-preserved')
     ] = None
@@ -7817,7 +7817,7 @@ class CommunitiesContainer2(BaseModel):
         regex_engine="python-re",
     )
     add: Annotated[
-        Optional[List[Union[BgpStdCommunityTypeType, BgpLargeCommunityTypeType, Any]]],
+        Optional[List[Union[BgpStdCommunityTypeType, BgpLargeCommunityTypeType, str]]],
         Field(alias='srl_nokia-aggregate-routes:add'),
     ] = []
 
@@ -11581,7 +11581,7 @@ class LsaOptionsContainer(BaseModel):
         regex_engine="python-re",
     )
     lsa_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:lsa-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:lsa-options')
     ] = []
     """
     OSPFv3 LSA Option flags list. This list will contain
@@ -11600,7 +11600,7 @@ class LsaOptionsContainer2(BaseModel):
         regex_engine="python-re",
     )
     lsa_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:lsa-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:lsa-options')
     ] = []
     """
     OSPFv3 LSA Option flags list. This list will contain
@@ -11619,7 +11619,7 @@ class LsaOptionsContainer3(BaseModel):
         regex_engine="python-re",
     )
     lsa_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:lsa-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:lsa-options')
     ] = []
     """
     OSPFv3 LSA Option flags list. This list will contain
@@ -11638,7 +11638,7 @@ class LsaOptionsContainer4(BaseModel):
         regex_engine="python-re",
     )
     lsa_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:lsa-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:lsa-options')
     ] = []
     """
     OSPFv3 LSA Option flags list. This list will contain
@@ -14041,7 +14041,7 @@ class PrefixOptionsContainer(BaseModel):
         regex_engine="python-re",
     )
     prefix_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:prefix-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:prefix-options')
     ] = []
     """
     OSPFv3 prefix option flag list. This list will
@@ -14060,7 +14060,7 @@ class PrefixOptionsContainer2(BaseModel):
         regex_engine="python-re",
     )
     prefix_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:prefix-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:prefix-options')
     ] = []
     """
     OSPFv3 prefix option flag list. This list will
@@ -14079,7 +14079,7 @@ class PrefixOptionsContainer3(BaseModel):
         regex_engine="python-re",
     )
     prefix_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:prefix-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:prefix-options')
     ] = []
     """
     OSPFv3 prefix option flag list. This list will
@@ -14098,7 +14098,7 @@ class PrefixOptionsContainer4(BaseModel):
         regex_engine="python-re",
     )
     prefix_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:prefix-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:prefix-options')
     ] = []
     """
     OSPFv3 prefix option flag list. This list will
@@ -14117,7 +14117,7 @@ class PrefixOptionsContainer5(BaseModel):
         regex_engine="python-re",
     )
     prefix_options: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-ospf:prefix-options')
+        Optional[List[str]], Field(alias='srl_nokia-ospf:prefix-options')
     ] = []
     """
     OSPFv3 prefix option flag list. This list will
@@ -18495,7 +18495,7 @@ class TableListEntry(BaseModel):
         regex_engine="python-re",
     )
     address_family: Annotated[
-        Optional[Any], Field(alias='srl_nokia-bgp:address-family')
+        Optional[str], Field(alias='srl_nokia-bgp:address-family')
     ] = None
     """
     BGP address family
@@ -18789,7 +18789,7 @@ class TlvListEntry14(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-rib-bgp:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-rib-bgp:type')] = None
     """
     The type of TLV being described. The type of TLV is expressed as a canonical name.
     """
@@ -19218,7 +19218,7 @@ class TunnelResolutionContainer(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19239,7 +19239,7 @@ class TunnelResolutionContainer10(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19260,7 +19260,7 @@ class TunnelResolutionContainer11(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19281,7 +19281,7 @@ class TunnelResolutionContainer12(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19302,7 +19302,7 @@ class TunnelResolutionContainer2(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19329,7 +19329,7 @@ class TunnelResolutionContainer3(BaseModel):
     Mode to control the order of tunnel resolution compared to route resolution
     """
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19356,7 +19356,7 @@ class TunnelResolutionContainer4(BaseModel):
     Mode to control the order of tunnel resolution compared to route resolution
     """
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19377,7 +19377,7 @@ class TunnelResolutionContainer5(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19398,7 +19398,7 @@ class TunnelResolutionContainer6(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19425,7 +19425,7 @@ class TunnelResolutionContainer7(BaseModel):
     Mode to control the order of tunnel resolution compared to route resolution
     """
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19452,7 +19452,7 @@ class TunnelResolutionContainer8(BaseModel):
     Mode to control the order of tunnel resolution compared to route resolution
     """
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19473,7 +19473,7 @@ class TunnelResolutionContainer9(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -19489,7 +19489,7 @@ class TunnelTypeListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
     """
     Tunneling encapsulation format
     """
@@ -19523,7 +19523,7 @@ class TunnelTypeListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
     """
     Tunneling encapsulation format
     """
@@ -20687,7 +20687,7 @@ class UtilizedBandwidthContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -20709,7 +20709,7 @@ class UtilizedBandwidthContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -20731,7 +20731,7 @@ class UtilizedBandwidthContainer3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -20753,7 +20753,7 @@ class UtilizedBandwidthContainer4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -21498,7 +21498,7 @@ class AvailableBandwidthContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -21520,7 +21520,7 @@ class AvailableBandwidthContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -21542,7 +21542,7 @@ class AvailableBandwidthContainer3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -21564,7 +21564,7 @@ class AvailableBandwidthContainer4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -23922,7 +23922,7 @@ class FlagsContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -23943,7 +23943,7 @@ class FlagsContainer3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -23964,7 +23964,7 @@ class FlagsContainer4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -23985,7 +23985,7 @@ class FlagsContainer5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -25313,7 +25313,7 @@ class Ipv4EntryListEntry(BaseModel):
     Metadata persistently stored with the entry
     """
     origin_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-aft:origin-protocol')
+        Optional[str], Field(alias='srl_nokia-aft:origin-protocol')
     ] = None
     """
     The protocol that submitted the route for the IPv4 prefix
@@ -25770,7 +25770,7 @@ class Ipv4SourceRouterIdContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -25795,7 +25795,7 @@ class Ipv4SourceRouterIdContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -25820,7 +25820,7 @@ class Ipv4SourceRouterIdContainer3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -25845,7 +25845,7 @@ class Ipv4SourceRouterIdContainer4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -26123,7 +26123,7 @@ class Ipv6EntryListEntry(BaseModel):
     Metadata persistently stored with the entry
     """
     origin_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-aft:origin-protocol')
+        Optional[str], Field(alias='srl_nokia-aft:origin-protocol')
     ] = None
     """
     The protocol that submitted the route for the IPv6 prefix
@@ -26516,7 +26516,7 @@ class Ipv6SourceRouterIdContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -26541,7 +26541,7 @@ class Ipv6SourceRouterIdContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -26566,7 +26566,7 @@ class Ipv6SourceRouterIdContainer3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -26591,7 +26591,7 @@ class Ipv6SourceRouterIdContainer4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -27135,7 +27135,7 @@ class LabelEntryListEntry(BaseModel):
     The forwarding operation associated with the MPLS label entry.
     """
     entry_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-mpls-route-tables:entry-type')
+        Optional[str], Field(alias='srl_nokia-mpls-route-tables:entry-type')
     ] = None
     """
     The entry type of the MPLS FIB entry.
@@ -27817,7 +27817,7 @@ class LastMbbContainer(BaseModel):
     Specifies the system time when the last MBB ended.
     """
     failed_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:failed-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:failed-reason')
     ] = None
     """
     Indicates the reason code for last MBB failure.
@@ -27856,7 +27856,7 @@ class LastMbbContainer2(BaseModel):
     Specifies the system time when the last MBB ended.
     """
     failed_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:failed-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:failed-reason')
     ] = None
     """
     Indicates the reason code for last MBB failure.
@@ -27892,7 +27892,7 @@ class LastPceUpdateContainer(BaseModel):
     Indicates whether the last update was successful or failed.
     """
     failure_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:failure-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:failure-reason')
     ] = None
     """
     Indicates the reason code for last MBB failure.
@@ -27928,7 +27928,7 @@ class LastPceUpdateContainer2(BaseModel):
     Indicates whether the last update was successful or failed.
     """
     failure_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:failure-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:failure-reason')
     ] = None
     """
     Indicates the reason code for last MBB failure.
@@ -28234,7 +28234,7 @@ class LinkListEntry(BaseModel):
     """
     Neighbor's Router ID for link.
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The sub-type of the Router LSA.
     """
@@ -28251,7 +28251,7 @@ class LinksListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The sub-type of the Router LSA.
     """
@@ -30934,7 +30934,7 @@ class NeighborListEntry9(BaseModel):
     Time then OSPF neighbor was last established
     """
     adjacency_state: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ospf:adjacency-state')
+        Optional[str], Field(alias='srl_nokia-ospf:adjacency-state')
     ] = None
     """
     Current OSPF Neighbor state
@@ -31072,7 +31072,7 @@ class NextHopResolutionContainer(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp-evpn:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp-evpn:allowed-tunnel-types')
     ] = []
     """
     list of allowed tunnel types
@@ -31093,7 +31093,7 @@ class NextHopResolutionContainer2(BaseModel):
         regex_engine="python-re",
     )
     allowed_tunnel_types: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp-ipvpn:allowed-tunnel-types')
+        Optional[List[str]], Field(alias='srl_nokia-bgp-ipvpn:allowed-tunnel-types')
     ] = []
     """
     List of allowed tunnel types
@@ -31386,7 +31386,7 @@ class Ospfv3IntraAreaPrefixLsaContainer(BaseModel):
         regex_engine="python-re",
     )
     referenced_ls_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ospf:referenced-ls-type')
+        Optional[str], Field(alias='srl_nokia-ospf:referenced-ls-type')
     ] = None
     """
     Referenced Link State type.
@@ -33444,7 +33444,7 @@ class ResolvingRouteContainer(BaseModel):
     The prefix of the resolving route.
     """
     route_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ip-route-tables:route-type')
+        Optional[str], Field(alias='srl_nokia-ip-route-tables:route-type')
     ] = None
     """
     The type of the resolving route.
@@ -33481,7 +33481,7 @@ class ResolvingTunnelContainer(BaseModel):
     The prefix of the resolving tunnel.
     """
     tunnel_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ip-route-tables:tunnel-type')
+        Optional[str], Field(alias='srl_nokia-ip-route-tables:tunnel-type')
     ] = None
     """
     The type of the tunnel.
@@ -34731,7 +34731,7 @@ class RouteListEntry19(BaseModel):
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     origin_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-rib-bgp:origin-protocol')
+        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
     ] = None
     """
     If the route was imported from another protocol, this is the protocol name.
@@ -34968,7 +34968,7 @@ class RouteListEntry23(BaseModel):
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     origin_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-rib-bgp:origin-protocol')
+        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
     ] = None
     """
     If the route was imported from another protocol, this is the protocol name.
@@ -35393,7 +35393,7 @@ class RouteListEntry3(BaseModel):
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     origin_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-rib-bgp:origin-protocol')
+        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
     ] = None
     """
     If the route was imported from another protocol, this is the protocol name.
@@ -35748,7 +35748,7 @@ class RouteListEntry7(BaseModel):
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     origin_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-rib-bgp:origin-protocol')
+        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
     ] = None
     """
     If the route was imported from another protocol, this is the protocol name.
@@ -39197,7 +39197,7 @@ class SubtlvListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39227,7 +39227,7 @@ class SubtlvListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39336,7 +39336,7 @@ class SubtlvListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39369,7 +39369,7 @@ class SubtlvListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39402,7 +39402,7 @@ class SubtlvListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39508,7 +39508,7 @@ class SubtlvListEntry6(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39618,7 +39618,7 @@ class SubtlvListEntry7(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39728,7 +39728,7 @@ class SubtlvListEntry8(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -39761,7 +39761,7 @@ class SubtlvListEntry9(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -40021,7 +40021,7 @@ class TableConnectionListEntry(BaseModel):
         regex_engine="python-re",
     )
     source_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-table-connections:source-protocol')
+        Optional[str], Field(alias='srl_nokia-table-connections:source-protocol')
     ] = None
     """
     The source protocol for the table connection
@@ -40036,7 +40036,7 @@ class TableConnectionListEntry(BaseModel):
     The target address family is implicitly the same as the address family specified for the source protocol.
     """
     destination_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-table-connections:destination-protocol')
+        Optional[str], Field(alias='srl_nokia-table-connections:destination-protocol')
     ] = None
     """
     The destination protocol for the table connection
@@ -40306,7 +40306,7 @@ class TlvListEntry10(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of the sub-TLV received within the Grace LSA
     """
@@ -40351,7 +40351,7 @@ class TlvListEntry11(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[Union[Any, EnumerationEnum241]], Field(alias='srl_nokia-ospf:type')
+        Optional[Union[str, EnumerationEnum241]], Field(alias='srl_nokia-ospf:type')
     ] = None
     """
     The type of sub-TLV of the Router Information opaque LSA
@@ -40378,7 +40378,7 @@ class TlvListEntry12(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of sub-TLV as indicated by the Extended Prefix LSA
     """
@@ -40400,7 +40400,7 @@ class TlvListEntry13(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of the sub-TLV contained within the extended link TLV
     """
@@ -40419,7 +40419,7 @@ class TlvListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of the sub-TLV received within the Grace LSA
     """
@@ -40464,7 +40464,7 @@ class TlvListEntry3(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[Union[Any, EnumerationEnum219]], Field(alias='srl_nokia-ospf:type')
+        Optional[Union[str, EnumerationEnum219]], Field(alias='srl_nokia-ospf:type')
     ] = None
     """
     The type of sub-TLV of the Router Information opaque LSA
@@ -40491,7 +40491,7 @@ class TlvListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of sub-TLV as indicated by the Extended Prefix LSA
     """
@@ -40513,7 +40513,7 @@ class TlvListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of the sub-TLV contained within the extended link TLV
     """
@@ -40532,7 +40532,7 @@ class TlvListEntry6(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of the sub-TLV received within the Grace LSA
     """
@@ -40577,7 +40577,7 @@ class TlvListEntry7(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[Union[Any, EnumerationEnum233]], Field(alias='srl_nokia-ospf:type')
+        Optional[Union[str, EnumerationEnum233]], Field(alias='srl_nokia-ospf:type')
     ] = None
     """
     The type of sub-TLV of the Router Information opaque LSA
@@ -40604,7 +40604,7 @@ class TlvListEntry8(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of sub-TLV as indicated by the Extended Prefix LSA
     """
@@ -40626,7 +40626,7 @@ class TlvListEntry9(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of the sub-TLV contained within the extended link TLV
     """
@@ -42082,7 +42082,7 @@ class AfiSafiListEntry4(BaseModel):
         regex_engine="python-re",
     )
     afi_safi_name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-bgp:afi-safi-name')
+        Optional[str], Field(alias='srl_nokia-bgp:afi-safi-name')
     ] = None
     """
     The name of a BGP address family, which translates to a specific AFI value and a specific SAFI value
@@ -44415,11 +44415,11 @@ class ExtendedLinkContainer(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    link_type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:link-type')] = None
+    link_type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:link-type')] = None
     """
     The type of link with which extended attributes are associated
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The sub-type of the Router LSA.
     """
@@ -44464,11 +44464,11 @@ class ExtendedLinkContainer2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    link_type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:link-type')] = None
+    link_type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:link-type')] = None
     """
     The type of link with which extended attributes are associated
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The sub-type of the Router LSA.
     """
@@ -44513,11 +44513,11 @@ class ExtendedLinkContainer3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    link_type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:link-type')] = None
+    link_type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:link-type')] = None
     """
     The type of link with which extended attributes are associated
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The sub-type of the Router LSA.
     """
@@ -51491,19 +51491,19 @@ class NeighborListEntry(BaseModel):
     List of BGP capabilities received by the local routing device from the peer
     """
     received_afi_safi: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:received-afi-safi')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:received-afi-safi')
     ] = []
     """
     List of multiprotocol BGP address families supported by the peer, derived from the AFI/SAFI list in the MP-BGP capability received by the local routing device from the peer
     """
     received_end_of_rib: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:received-end-of-rib')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:received-end-of-rib')
     ] = []
     """
     List of address families for which the peer has signaled the End of RIB marker
     """
     sent_end_of_rib: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-bgp:sent-end-of-rib')
+        Optional[List[str]], Field(alias='srl_nokia-bgp:sent-end-of-rib')
     ] = []
     """
     List of address families for which this router sent the peer an End of RIB marker
@@ -51893,7 +51893,7 @@ class NextHopListEntry4(BaseModel):
     """
     The index assigned to the next-hop by the gRIBI client
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ip-route-tables:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ip-route-tables:type')] = None
     """
     The next-hop type used by the datapath.
     """
@@ -52090,7 +52090,7 @@ class Ospfv3ExternalLsaContainer(BaseModel):
     Flags.
     """
     referenced_ls_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ospf:referenced-ls-type')
+        Optional[str], Field(alias='srl_nokia-ospf:referenced-ls-type')
     ] = None
     """
     Referenced Link State type.
@@ -52157,7 +52157,7 @@ class Ospfv3ExternalLsaContainer2(BaseModel):
     Flags.
     """
     referenced_ls_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ospf:referenced-ls-type')
+        Optional[str], Field(alias='srl_nokia-ospf:referenced-ls-type')
     ] = None
     """
     Referenced Link State type.
@@ -53290,7 +53290,7 @@ class RouteListEntry(BaseModel):
     An owner-assigned index value that is unique for each of the routes for a given prefix.
     """
     route_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ip-route-tables:route-type')
+        Optional[str], Field(alias='srl_nokia-ip-route-tables:route-type')
     ] = None
     """
     The type of the IP route
@@ -53433,7 +53433,7 @@ class RouteListEntry2(BaseModel):
     An owner-assigned index value that is unique for each of the routes for a given prefix.
     """
     route_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ip-route-tables:route-type')
+        Optional[str], Field(alias='srl_nokia-ip-route-tables:route-type')
     ] = None
     """
     The type of the IP route
@@ -54777,7 +54777,7 @@ class AfiSafiListEntry2(BaseModel):
         regex_engine="python-re",
     )
     afi_safi_name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-bgp:afi-safi-name')
+        Optional[str], Field(alias='srl_nokia-bgp:afi-safi-name')
     ] = None
     """
     The name of a BGP address family, which translates to a specific AFI value and a specific SAFI value
@@ -57689,7 +57689,7 @@ class OpaqueLsaContainer(BaseModel):
     determines both the flooding domain, and the type
     of the LSA.
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The Opaque Type of the LSA. This value is used to
     indicate the type of data carried by the opaque LSA
@@ -57730,7 +57730,7 @@ class OpaqueLsaContainer2(BaseModel):
     determines both the flooding domain, and the type
     of the LSA.
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The Opaque Type of the LSA. This value is used to
     indicate the type of data carried by the opaque LSA
@@ -57772,7 +57772,7 @@ class OpaqueLsaContainer3(BaseModel):
     determines both the flooding domain, and the type
     of the LSA.
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The Opaque Type of the LSA. This value is used to
     indicate the type of data carried by the opaque LSA
@@ -58876,7 +58876,7 @@ class TlvListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
     """
     The type of TLV being described. The type of TLV is expressed as a canonical name.
     """
@@ -59054,7 +59054,7 @@ class TunnelListEntry(BaseModel):
     """
     The IPv4 prefix associated with the endpoint of the tunnel.
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
     """
     The tunnel (encapsulation) type
     """
@@ -59147,7 +59147,7 @@ class TunnelListEntry2(BaseModel):
     """
     The IPv6 prefix associated with the endpoint of the tunnel.
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
     """
     The tunnel (encapsulation) type
     """
@@ -59297,7 +59297,7 @@ class AfiSafiListEntry(BaseModel):
         regex_engine="python-re",
     )
     afi_safi_name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-bgp:afi-safi-name')
+        Optional[str], Field(alias='srl_nokia-bgp:afi-safi-name')
     ] = None
     """
     The name of a BGP address family, which translates to a specific AFI value and a specific SAFI value
@@ -62230,7 +62230,7 @@ class AfiSafiListEntry5(BaseModel):
         regex_engine="python-re",
     )
     afi_safi_name: Annotated[
-        Optional[Any], Field(alias='srl_nokia-rib-bgp:afi-safi-name')
+        Optional[str], Field(alias='srl_nokia-rib-bgp:afi-safi-name')
     ] = None
     """
     The name of the address family
@@ -62971,7 +62971,7 @@ class LsaTypeListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of LSA being described. The type of the LSA is
     expressed as a canonical name.
@@ -62989,7 +62989,7 @@ class LsaTypeListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of LSA being described. The type of the LSA is
     expressed as a canonical name.
@@ -63007,7 +63007,7 @@ class LsaTypeListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
     """
     The type of LSA being described. The type of the LSA is
     expressed as a canonical name.
@@ -63438,7 +63438,7 @@ class SegmentListListEntry(BaseModel):
     Segment list operational state
     """
     failed_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:failed-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:failed-reason')
     ] = None
     """
     The reason why the segment list is invalid.
@@ -63504,7 +63504,7 @@ class SegmentListListEntry2(BaseModel):
     Segment list operational state
     """
     failed_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:failed-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:failed-reason')
     ] = None
     """
     The reason why the segment list is invalid.
@@ -63734,7 +63734,7 @@ class SegmentListListEntry3(BaseModel):
     Segment list operational state
     """
     failed_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:failed-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:failed-reason')
     ] = None
     """
     The reason why the segment list is invalid.
@@ -64229,7 +64229,7 @@ class CandidatePathListEntry(BaseModel):
     True when the candidate path is valid.
     """
     invalid_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:invalid-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:invalid-reason')
     ] = None
     """
     The reason why the candidate path is invalid.
@@ -64969,7 +64969,7 @@ class PolicyListEntry4(BaseModel):
     Traffic Engineering policy operational state.
     """
     oper_down_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:oper-down-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:oper-down-reason')
     ] = None
     """
     The reason why the Traffic Engineering policy is operationally down.
@@ -65140,7 +65140,7 @@ class PolicyListEntry6(BaseModel):
     Traffic Engineering policy operational state.
     """
     oper_down_reason: Annotated[
-        Optional[Any], Field(alias='srl_nokia-te-policies:oper-down-reason')
+        Optional[str], Field(alias='srl_nokia-te-policies:oper-down-reason')
     ] = None
     """
     The reason why the Traffic Engineering policy is operationally down.
@@ -65597,12 +65597,12 @@ class InstanceListEntry6(BaseModel):
     """
     Used to administratively enable or disable the OSPF instance
     """
-    version: Annotated[Any, Field(alias='srl_nokia-ospf:version')]
+    version: Annotated[str, Field(alias='srl_nokia-ospf:version')]
     """
     The version that this ospf instance supports.
     """
     address_family: Annotated[
-        Optional[Any], Field(alias='srl_nokia-ospf:address-family')
+        Optional[str], Field(alias='srl_nokia-ospf:address-family')
     ] = None
     """
     The address family that this instance supports.
@@ -66278,7 +66278,7 @@ class NetworkInstanceListEntry(BaseModel):
     """
     A unique name identifying the network instance
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-network-instance:type')] = (
+    type: Annotated[Optional[str], Field(alias='srl_nokia-network-instance:type')] = (
         'default'
     )
     """

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
@@ -939,7 +939,7 @@ class OspfContainer(BaseModel):
     The area identifier as a dotted-quad.
     """
     route_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-routing-policy:route-type')
+        Optional[str], Field(alias='srl_nokia-routing-policy:route-type')
     ] = None
     """
     The OSPF route type.
@@ -1141,7 +1141,7 @@ class StandardCommunitySetListEntry(BaseModel):
     """
     member: Annotated[
         Optional[
-            List[Union[BgpStdCommunityTypeType, BgpStdCommunityRegexpTypeType, Any]]
+            List[Union[BgpStdCommunityTypeType, BgpStdCommunityRegexpTypeType, str]]
         ],
         Field(alias='srl_nokia-routing-policy:member'),
     ] = []
@@ -1531,7 +1531,7 @@ class CommunitySetListEntry(BaseModel):
                     BgpLargeCommunityTypeType,
                     BgpLargeCommunityRegexpTypeType,
                     BgpStdCommunityRegexpTypeType,
-                    Any,
+                    str,
                     Union[
                         BgpExtCommunityTypeType1,
                         BgpExtCommunityTypeType2,
@@ -2172,7 +2172,7 @@ class MatchContainer(BaseModel):
         Optional[BgpContainer2], Field(alias='srl_nokia-routing-policy:bgp')
     ] = None
     family: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-routing-policy:family')
+        Optional[List[str]], Field(alias='srl_nokia-routing-policy:family')
     ] = []
     """
     The name of an address family
@@ -2180,7 +2180,7 @@ class MatchContainer(BaseModel):
     A route meets this condition if the prefix belongs to one of the indicated address families.
     """
     protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-routing-policy:protocol')
+        Optional[str], Field(alias='srl_nokia-routing-policy:protocol')
     ] = None
     """
     The route type to match

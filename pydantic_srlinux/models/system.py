@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
@@ -705,7 +705,7 @@ class UserListEntry2(BaseModel):
     Index number used to enumerate the clients
     """
     owner: Annotated[
-        Optional[Any], Field(alias='srl_nokia-mpls-label-management:owner')
+        Optional[str], Field(alias='srl_nokia-mpls-label-management:owner')
     ] = None
     """
     The protocol or service associated with the client
@@ -729,7 +729,7 @@ class UserListEntry3(BaseModel):
     Index number used to enumerate the clients
     """
     owner: Annotated[
-        Optional[Any], Field(alias='srl_nokia-mpls-label-management:owner')
+        Optional[str], Field(alias='srl_nokia-mpls-label-management:owner')
     ] = None
     """
     The protocol or service associated with the client
@@ -2049,7 +2049,7 @@ class CapabilityListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-lldp:name')] = None
+    name: Annotated[Optional[str], Field(alias='srl_nokia-lldp:name')] = None
     """
     Name of the system capability advertised by the neighbor
 
@@ -2467,11 +2467,11 @@ class EventListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    event_type: Annotated[Optional[Any], Field(alias='srl_nokia-aaa:event-type')] = None
+    event_type: Annotated[Optional[str], Field(alias='srl_nokia-aaa:event-type')] = None
     """
     The type of activity to record at the accounting server
     """
-    record: Annotated[Optional[Any], Field(alias='srl_nokia-aaa:record')] = None
+    record: Annotated[Optional[str], Field(alias='srl_nokia-aaa:record')] = None
     """
     Type of record to send to the accounting server for this activity type
     """
@@ -8519,7 +8519,7 @@ class ResourceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[Any], Field(alias='srl_nokia-system-utilization:name')] = (
+    name: Annotated[Optional[str], Field(alias='srl_nokia-system-utilization:name')] = (
         None
     )
     """
@@ -14174,7 +14174,7 @@ class ProtocolAddressContainer(BaseModel):
         regex_engine="python-re",
     )
     network_protocol: Annotated[
-        Optional[Any], Field(alias='srl_nokia-sync:network-protocol')
+        Optional[str], Field(alias='srl_nokia-sync:network-protocol')
     ] = None
     """
     Protocol used by a PTP instance to transport PTP messages
@@ -14351,8 +14351,13 @@ class ServerProfileListEntry(BaseModel):
     This includes the '-----BEGIN X509 CRL' and '-----END X509 CRL' header and footer
     """
     cipher_list: Annotated[
-        Optional[List[Any]], Field(alias='srl_nokia-tls:cipher-list')
-    ] = None
+        Optional[List[str]], Field(alias='srl_nokia-tls:cipher-list')
+    ] = [
+        'ecdhe-ecdsa-aes256-gcm-sha384',
+        'ecdhe-ecdsa-aes128-gcm-sha256',
+        'ecdhe-rsa-aes256-gcm-sha384',
+        'ecdhe-rsa-aes128-gcm-sha256',
+    ]
     """
     List of ciphers to use when negotiating TLS 1.2 with clients
 
@@ -15483,7 +15488,7 @@ class GrpcServerListEntry(BaseModel):
     """
     Specify yang-models to be used when origin field is not present in requests
     """
-    services: Annotated[Optional[List[Any]], Field(alias='srl_nokia-grpc:services')] = (
+    services: Annotated[Optional[List[str]], Field(alias='srl_nokia-grpc:services')] = (
         []
     )
     """
@@ -16241,7 +16246,7 @@ class ServerGroupListEntry(BaseModel):
     """
     User defined name for the server group
     """
-    type: Annotated[Any, Field(alias='srl_nokia-aaa:type')]
+    type: Annotated[str, Field(alias='srl_nokia-aaa:type')]
     """
     AAA server type -- all servers in the group must be of this type
     """

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
@@ -7313,7 +7313,7 @@ class TransceiverContainer(BaseModel):
         regex_engine="python-re",
     )
     functional_type: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces:functional-type')
+        Optional[str], Field(alias='srl_nokia-interfaces:functional-type')
     ] = None
     """
     Indicates the module functional type which will be deployed for this interface
@@ -8087,7 +8087,7 @@ class EgressMappingContainer(BaseModel):
     the addition or replacement of a VLAN tag.
     """
     outer_tpid: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:outer-tpid')
+        Optional[str], Field(alias='srl_nokia-interfaces-vlans:outer-tpid')
     ] = None
     """
     Optionally override the outer tag protocol identifier field (TPID)
@@ -8108,7 +8108,7 @@ class EgressMappingContainer(BaseModel):
     'vlan-stack-action' requires the addition or replacement of an inner VLAN tag.
     """
     inner_tpid: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:inner-tpid')
+        Optional[str], Field(alias='srl_nokia-interfaces-vlans:inner-tpid')
     ] = None
     """
     Optionally override the inner tag protocol identifier field (TPID)
@@ -8249,7 +8249,7 @@ class IngressMappingContainer(BaseModel):
     the addition or replacement of a VLAN tag.
     """
     outer_tpid: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:outer-tpid')
+        Optional[str], Field(alias='srl_nokia-interfaces-vlans:outer-tpid')
     ] = None
     """
     Optionally override the outer tag protocol identifier field (TPID)
@@ -8270,7 +8270,7 @@ class IngressMappingContainer(BaseModel):
     'vlan-stack-action' is one 'PUSH-PUSH' or 'POP-SWAP'.
     """
     inner_tpid: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces-vlans:inner-tpid')
+        Optional[str], Field(alias='srl_nokia-interfaces-vlans:inner-tpid')
     ] = None
     """
     Optionally override the inner tag protocol identifier field (TPID)
@@ -8670,7 +8670,7 @@ class VrrpGroupListEntry(BaseModel):
         Field(alias='srl_nokia-interfaces-ip-vrrp:interface-tracking'),
     ] = None
     state: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces-ip-vrrp:state')
+        Optional[str], Field(alias='srl_nokia-interfaces-ip-vrrp:state')
     ] = None
     """
     Virtual Router state (Initialize, Backup, Master)
@@ -8844,7 +8844,7 @@ class VrrpGroupListEntry2(BaseModel):
         Field(alias='srl_nokia-interfaces-ip-vrrp:interface-tracking'),
     ] = None
     state: Annotated[
-        Optional[Any], Field(alias='srl_nokia-interfaces-ip-vrrp:state')
+        Optional[str], Field(alias='srl_nokia-interfaces-ip-vrrp:state')
     ] = None
     """
     Virtual Router state (Initialize, Backup, Master)
@@ -9916,7 +9916,7 @@ class SubinterfaceListEntry(BaseModel):
     """
     The index of the subinterface, or logical interface number
     """
-    type: Annotated[Optional[Any], Field(alias='srl_nokia-interfaces:type')] = None
+    type: Annotated[Optional[str], Field(alias='srl_nokia-interfaces:type')] = None
     """
     Indicates the context in which the ethernet subinterface will be used
     """
@@ -10286,7 +10286,7 @@ class InterfaceListEntry(BaseModel):
     """
     When set to true the interface is allowed to accept frames with one or more VLAN tags
     """
-    tpid: Annotated[Optional[Any], Field(alias='srl_nokia-interfaces-vlans:tpid')] = (
+    tpid: Annotated[Optional[str], Field(alias='srl_nokia-interfaces-vlans:tpid')] = (
         None
     )
     """

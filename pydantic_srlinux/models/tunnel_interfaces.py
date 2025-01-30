@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from enum import Enum
-from typing import Any, List, Optional, Union
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
@@ -1023,7 +1023,7 @@ class VxlanInterfaceListEntry(BaseModel):
     """
     The index of the vxlan-tunnel.
     """
-    type: Annotated[Any, Field(alias='srl_nokia-tunnel-interfaces:type')]
+    type: Annotated[str, Field(alias='srl_nokia-tunnel-interfaces:type')]
     """
     The value of this leaf indicates the context in which the
     vxlan-interface will be used in.
