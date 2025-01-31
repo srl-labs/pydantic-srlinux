@@ -111,6 +111,97 @@ class AdjacencyContainer(BaseModel):
     )
 
 
+class AdminGroupLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
+
+    Each set bit corresponds to one administrative group assigned to the interface. By convention, the least significant bit is referred to as group 0, and the most significant bit is referred to as group 31.
+    """
+
+
+class AdminGroupLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
+
+    Each set bit corresponds to one administrative group assigned to the interface. By convention, the least significant bit is referred to as group 0, and the most significant bit is referred to as group 31.
+    """
+
+
+class AdminGroupLeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
+
+    Each set bit corresponds to one administrative group assigned to the interface. By convention, the least significant bit is referred to as group 0, and the most significant bit is referred to as group 31.
+    """
+
+
+class AdminGroupLeafList4(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
+
+    Each set bit corresponds to one administrative group assigned to the interface. By convention, the least significant bit is referred to as group 0, and the most significant bit is referred to as group 31.
+    """
+
+
+class AdministrativeTagsLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The set of administrative tags assigned to the local system by
+    the network operator. The meaning of these tags is opaque to OSPF
+    - and their interpretation is per-domain specific
+    """
+
+
+class AdministrativeTagsLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The set of administrative tags assigned to the local system by
+    the network operator. The meaning of these tags is opaque to OSPF
+    - and their interpretation is per-domain specific
+    """
+
+
+class AdministrativeTagsLeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The set of administrative tags assigned to the local system by
+    the network operator. The meaning of these tags is opaque to OSPF
+    - and their interpretation is per-domain specific
+    """
+
+
 class AgeTimeLeaf21(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -178,6 +269,17 @@ class AgingLeaf41(RootModel[int]):
     root: Annotated[int, Field(ge=0, le=18446744073709551615)]
     """
     remaining age time for learnt macs
+    """
+
+
+class AlgorithmLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=255)]
+    """
+    List of algorithm types supported by the router. Algorithm 0 should always be in the list
     """
 
 
@@ -289,6 +391,34 @@ class AllLeaf4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
+
+
+class AllowedPeerAsLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^([1-9][0-9]*)|([1-9][0-9]*)\\.\\.([1-9][0-9]*)$).*$')
+    ]
+    """
+    The allowed AS numbers that can establish incoming BGP sessions from this prefix and group-id-range combination
+
+    If the OPEN message from a peer matched to this prefix contains a MyAS number that is not in this allowed list then a NOTIFICATION is sent to the peer with the indication Bad Peer AS. Each entry in this list can be a single AS number or a range of AS numbers in the format as1..as2
+    """
+
+
+class AllowedPeerAsLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^([1-9][0-9]*)|([1-9][0-9]*)\\.\\.([1-9][0-9]*)$).*$')
+    ]
+    """
+    Specifies the allowed AS numbers of dynamic BGP neighbors on this interface. If the OPEN message from a peer on this interface contains a MyAS number that is not in this allowed list then a NOTIFICATION is sent to the peer with the indication Bad Peer AS. Each entry in this list can be a single AS number or a range of AS numbers in the string format as1..as2.
+    """
 
 
 class BestPathSelectionContainer(BaseModel):
@@ -558,6 +688,19 @@ class BgpStdCommunityTypeType(RootModel[str]):
     """
 
 
+class BmiMsdLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=65535)]
+    """
+    Base MPLS Imposition MSD (BMI-MSD) signals the total number of MPLS
+    labels that can be imposed, including all service/transport/special
+    labels. sub-tlv 1
+    """
+
+
 class ClusterIdTypeType1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -634,6 +777,17 @@ class DisableLeaf3(BaseModel):
     )
 
 
+class DiscriminatorLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    Advertised Seamless BFD (S-BFD) Discriminator.
+    """
+
+
 class DottedQuadType(RootModel[str]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -708,6 +862,117 @@ class EntropyLabelContainer2(BaseModel):
     ] = False
     """
     Advertise the Entropy Label Capability
+    """
+
+
+class ErldMsdLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=65535)]
+    """
+    Entropy capable Readable Label Depth MSD (ERLD-MSD), is defined to advertise
+    the ERLD [RFC8662] of a given router. sub-tlv 2.
+    """
+
+
+class ExtendedAdminGroupLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
+    """
+
+
+class ExtendedAdminGroupLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
+    """
+
+
+class ExtendedAdminGroupLeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
+    """
+
+
+class ExtendedAdminGroupLeafList4(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
+    """
+
+
+class ExtendedProfilesLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of extended identifiers associated with the path profile identifier.
+    """
+
+
+class FailedSlotsLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=16)]
+    """
+    The list of slot IDs corresponding to the linecards that did not successfully program the mac
+    """
+
+
+class FailedSlotsLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=16)]
+    """
+    The list of slot IDs corresponding to the linecards that did not successfully program the mac
+    """
+
+
+class FailedSlotsLeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=16)]
+    """
+    The list of slot IDs corresponding to the linecards that did not successfully program the mac
+    """
+
+
+class FailedSlotsLeafList4(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=16)]
+    """
+    The list of slot IDs corresponding to the linecards that did not successfully program the mac
     """
 
 
@@ -1036,6 +1301,58 @@ class L4PortTypeType1(RootModel[int]):
     The IP protocol number may be expressed as a valid protocol
     number (integer) or using a protocol type defined by the
     IP_PROTOCOL identity
+    """
+
+
+class LargeCommunityLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(max_length=72, min_length=1)]
+    """
+    List of large 12-byte community values in the LARGE_COMMUNITY path
+    attribute. Each should be displayed in the format: <0..4294967295>:<0..4294967295>:<
+    0..4294967295>
+    """
+
+
+class LastFailedComplexesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$')
+    ]
+    """
+    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
+    """
+
+
+class LastFailedComplexesLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$')
+    ]
+    """
+    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
+    """
+
+
+class LastFailedComplexesLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$')
+    ]
+    """
+    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
     """
 
 
@@ -1412,6 +1729,18 @@ class MacIpContainer2(BaseModel):
     This gateway-MAC matches the MAC advertised along with the EVPN IFL routes type 5 for the ip-vrf
     network-instance. This advertisement is needed so that the EVPN IFL (Interface-Less) model in the
     ip-vrf can interoperate with a remote system working in EVPN IFF (Interface-ful) Unnumbered mode.
+    """
+
+
+class MemberLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    A list of AS numbers (each of which is a 2byte-ASN or a 4byte-ASN) that belong
+    to the AS path segment.
     """
 
 
@@ -1878,6 +2207,19 @@ class NameType(RootModel[str]):
     """
 
 
+class NetLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^[a-fA-F0-9]{2}(\\.[a-fA-F0-9]{4}){3,9}\\.[0]{2}$).*$')
+    ]
+    """
+    ISIS network entity title (NET)
+    """
+
+
 class NodeAdministrativeTagsContainer(BaseModel):
     """
     Per-node administrative tags associated with the local system
@@ -1889,8 +2231,8 @@ class NodeAdministrativeTagsContainer(BaseModel):
         regex_engine="python-re",
     )
     administrative_tags: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-ospf:administrative-tags', ge=0, le=4294967295),
+        Optional[List[AdministrativeTagsLeafList]],
+        Field(alias='srl_nokia-ospf:administrative-tags'),
     ] = []
     """
     The set of administrative tags assigned to the local system by
@@ -1910,8 +2252,8 @@ class NodeAdministrativeTagsContainer2(BaseModel):
         regex_engine="python-re",
     )
     administrative_tags: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-ospf:administrative-tags', ge=0, le=4294967295),
+        Optional[List[AdministrativeTagsLeafList2]],
+        Field(alias='srl_nokia-ospf:administrative-tags'),
     ] = []
     """
     The set of administrative tags assigned to the local system by
@@ -1931,8 +2273,8 @@ class NodeAdministrativeTagsContainer3(BaseModel):
         regex_engine="python-re",
     )
     administrative_tags: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-ospf:administrative-tags', ge=0, le=4294967295),
+        Optional[List[AdministrativeTagsLeafList3]],
+        Field(alias='srl_nokia-ospf:administrative-tags'),
     ] = []
     """
     The set of administrative tags assigned to the local system by
@@ -1951,7 +2293,7 @@ class NodeMsdsContainer(BaseModel):
         regex_engine="python-re",
     )
     bmi_msd: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:bmi-msd', ge=0, le=65535)
+        Optional[List[BmiMsdLeafList]], Field(alias='srl_nokia-isis:bmi-msd')
     ] = []
     """
     Base MPLS Imposition MSD (BMI-MSD) signals the total number of MPLS
@@ -1959,11 +2301,24 @@ class NodeMsdsContainer(BaseModel):
     labels. sub-tlv 1
     """
     erld_msd: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:erld-msd', ge=0, le=65535)
+        Optional[List[ErldMsdLeafList]], Field(alias='srl_nokia-isis:erld-msd')
     ] = []
     """
     Entropy capable Readable Label Depth MSD (ERLD-MSD), is defined to advertise
     the ERLD [RFC8662] of a given router. sub-tlv 2.
+    """
+
+
+class OperAreaIdLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$')
+    ]
+    """
+    The list of area IDs associated with this IS router
     """
 
 
@@ -2104,6 +2459,17 @@ class PreferenceContainer(BaseModel):
     """
 
 
+class ProfilesLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of path profile identifiers
+    """
+
+
 class ReOptimizationTimerLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -2220,6 +2586,94 @@ class RoutePreferenceContainer(BaseModel):
     """
 
 
+class RouteTag32bitLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=4294967295)]
+    """
+    List of 32-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
+class RouteTag32bitLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=4294967295)]
+    """
+    List of 32-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
+class RouteTag32bitLeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=4294967295)]
+    """
+    List of 32-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
+class RouteTag32bitLeafList4(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=4294967295)]
+    """
+    List of 32-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
+class RouteTag64bitLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
+class RouteTag64bitLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
+class RouteTag64bitLeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
+class RouteTag64bitLeafList4(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit administrative tag values associated with the IPv4 prefix.
+    """
+
+
 class RouteTypeListEntry(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -2270,8 +2724,8 @@ class SbfdDiscriminatorsContainer(BaseModel):
         regex_engine="python-re",
     )
     discriminator: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:discriminator', ge=0, le=4294967295),
+        Optional[List[DiscriminatorLeafList]],
+        Field(alias='srl_nokia-isis:discriminator'),
     ] = []
     """
     Advertised Seamless BFD (S-BFD) Discriminator.
@@ -2384,6 +2838,39 @@ class SessionHoldtimeContainer(BaseModel):
     ] = None
     """
     Remaining holdtime
+    """
+
+
+class SharedRiskLinkGroupLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of SRLGs that apply to the adjacency with this neighbor
+    """
+
+
+class SharedRiskLinkGroupLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of SRLGs that apply to the adjacency with this neighbor
+    """
+
+
+class SharedRiskLinkGroupLeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of SRLGs that apply to the adjacency with this neighbor
     """
 
 
@@ -2581,7 +3068,7 @@ class SrAlgorithmContainer(BaseModel):
         regex_engine="python-re",
     )
     algorithm: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:algorithm', ge=0, le=255)
+        Optional[List[AlgorithmLeafList2]], Field(alias='srl_nokia-isis:algorithm')
     ] = []
     """
     List of algorithm types supported by the router. Algorithm 0 should always be in the list
@@ -2612,6 +3099,17 @@ class SrgbDescriptorListEntry2(BaseModel):
     """
 
 
+class SrgbLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(pattern='^(?=^[0-9]+:[0-9]+$).*$')]
+    """
+    List of SRGB ranges, each in the format <first-label>:<number-of-labels>
+    """
+
+
 class SrlbDescriptorListEntry(BaseModel):
     """
     List of Segment Routing Local Block descriptors
@@ -2633,6 +3131,28 @@ class SrlbDescriptorListEntry(BaseModel):
     ] = None
     """
     The number of SRLB elements
+    """
+
+
+class SrlgValueLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of SRLG values.
+    """
+
+
+class SrlgValueLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    SRLG values.
     """
 
 
@@ -2725,6 +3245,94 @@ class TagTypeType1(RootModel[int]):
     Type for expressing route tags on a local system, including IS-IS and OSPF
 
     May be expressed as either decimal or hexidecimal integer
+    """
+
+
+class Tag32LeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class Tag32LeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class Tag32LeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class Tag32LeafList4(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class Tag64LeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class Tag64LeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class Tag64LeafList3(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class Tag64LeafList4(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=18446744073709551615)]
+    """
+    List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
     """
 
 
@@ -2842,7 +3450,7 @@ class TagContainer15(BaseModel):
         regex_engine="python-re",
     )
     tag32: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:tag32', ge=0, le=4294967295)
+        Optional[List[Tag32LeafList]], Field(alias='srl_nokia-isis:tag32')
     ] = []
     """
     List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
@@ -2859,7 +3467,7 @@ class TagContainer16(BaseModel):
         regex_engine="python-re",
     )
     tag32: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:tag32', ge=0, le=4294967295)
+        Optional[List[Tag32LeafList2]], Field(alias='srl_nokia-isis:tag32')
     ] = []
     """
     List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
@@ -2876,7 +3484,7 @@ class TagContainer17(BaseModel):
         regex_engine="python-re",
     )
     tag32: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:tag32', ge=0, le=4294967295)
+        Optional[List[Tag32LeafList3]], Field(alias='srl_nokia-isis:tag32')
     ] = []
     """
     List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
@@ -2893,7 +3501,7 @@ class TagContainer18(BaseModel):
         regex_engine="python-re",
     )
     tag32: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:tag32', ge=0, le=4294967295)
+        Optional[List[Tag32LeafList4]], Field(alias='srl_nokia-isis:tag32')
     ] = []
     """
     List of 32-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
@@ -3239,6 +3847,17 @@ class TldpMacFlushContainer(BaseModel):
     """
 
 
+class TopologyIdLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=65535)]
+    """
+    Instance-Specific Topology Identifiers (ITIDs).
+    """
+
+
 class TopologyListEntry2(BaseModel):
     """
     The list of multi-topology IDs that the router is participating in
@@ -3428,6 +4047,17 @@ class UnconstrainedLspContainer4(BaseModel):
     ] = None
     """
     Unconstrained TE LSP count(TE Label Switched Paths (LSPs) signalled with zero bandwidth).
+    """
+
+
+class UndefinedTlvsLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(pattern='^(?=^([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?$).*$')]
+    """
+    Undefined TLV-s as contents of the LSP.
     """
 
 
@@ -7244,6 +7874,19 @@ class EnumerationEnum99(Enum):
     wdraw_pending = 'wdraw-pending'
 
 
+class AddressLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$')
+    ]
+    """
+    Area adress(es) of the IS. Set of manual area addresses of this IS.
+    """
+
+
 class AdminGroupContainer(BaseModel):
     """
     This container defines sub-TLV 3.
@@ -7254,8 +7897,7 @@ class AdminGroupContainer(BaseModel):
         regex_engine="python-re",
     )
     admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:admin-group', ge=0, le=4294967295),
+        Optional[List[AdminGroupLeafList]], Field(alias='srl_nokia-isis:admin-group')
     ] = []
     """
     The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
@@ -7274,8 +7916,7 @@ class AdminGroupContainer2(BaseModel):
         regex_engine="python-re",
     )
     admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:admin-group', ge=0, le=4294967295),
+        Optional[List[AdminGroupLeafList2]], Field(alias='srl_nokia-isis:admin-group')
     ] = []
     """
     The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
@@ -7294,8 +7935,7 @@ class AdminGroupContainer3(BaseModel):
         regex_engine="python-re",
     )
     admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:admin-group', ge=0, le=4294967295),
+        Optional[List[AdminGroupLeafList3]], Field(alias='srl_nokia-isis:admin-group')
     ] = []
     """
     The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
@@ -7314,8 +7954,7 @@ class AdminGroupContainer4(BaseModel):
         regex_engine="python-re",
     )
     admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:admin-group', ge=0, le=4294967295),
+        Optional[List[AdminGroupLeafList4]], Field(alias='srl_nokia-isis:admin-group')
     ] = []
     """
     The administrative group sub-TLV contains a 4-octet bit mask assigned by the network administrator
@@ -7444,14 +8083,36 @@ class AreaAddressContainer(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$',
-        ),
+        Optional[List[AddressLeafList]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Area adress(es) of the IS. Set of manual area addresses of this IS.
+    """
+
+
+class AreaAddressLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$')
+    ]
+    """
+    Area address of the neighbor.
+    """
+
+
+class AreaAddressesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$')
+    ]
+    """
+    Each item represents an area address advertised by the LSP.
     """
 
 
@@ -7475,6 +8136,39 @@ class AttachedBitContainer(BaseModel):
     """
 
 
+class AttachedRouterLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A list of the router ID of the routers that are attached to
+    the network described by the Network LSA
+    """
+
+
+class AttachedRouterLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    List of the routers attached to the network.
+    """
+
+
 class AttachedRoutersContainer(BaseModel):
     """
     All attached routers.
@@ -7485,11 +8179,8 @@ class AttachedRoutersContainer(BaseModel):
         regex_engine="python-re",
     )
     attached_router: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ospf:attached-router',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AttachedRouterLeafList2]],
+        Field(alias='srl_nokia-ospf:attached-router'),
     ] = []
     """
     List of the routers attached to the network.
@@ -7801,8 +8492,8 @@ class CommunitiesContainer(BaseModel):
     attribute.
     """
     large_community: Annotated[
-        Optional[List[str]],
-        Field(alias='srl_nokia-rib-bgp:large-community', max_length=72, min_length=1),
+        Optional[List[LargeCommunityLeafList]],
+        Field(alias='srl_nokia-rib-bgp:large-community'),
     ] = []
     """
     List of large 12-byte community values in the LARGE_COMMUNITY path
@@ -8192,8 +8883,8 @@ class ExtendedAdminGroupContainer(BaseModel):
         regex_engine="python-re",
     )
     extended_admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:extended-admin-group', ge=0, le=4294967295),
+        Optional[List[ExtendedAdminGroupLeafList]],
+        Field(alias='srl_nokia-isis:extended-admin-group'),
     ] = []
     """
     The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
@@ -8210,8 +8901,8 @@ class ExtendedAdminGroupContainer2(BaseModel):
         regex_engine="python-re",
     )
     extended_admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:extended-admin-group', ge=0, le=4294967295),
+        Optional[List[ExtendedAdminGroupLeafList2]],
+        Field(alias='srl_nokia-isis:extended-admin-group'),
     ] = []
     """
     The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
@@ -8228,8 +8919,8 @@ class ExtendedAdminGroupContainer3(BaseModel):
         regex_engine="python-re",
     )
     extended_admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:extended-admin-group', ge=0, le=4294967295),
+        Optional[List[ExtendedAdminGroupLeafList3]],
+        Field(alias='srl_nokia-isis:extended-admin-group'),
     ] = []
     """
     The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
@@ -8246,8 +8937,8 @@ class ExtendedAdminGroupContainer4(BaseModel):
         regex_engine="python-re",
     )
     extended_admin_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:extended-admin-group', ge=0, le=4294967295),
+        Optional[List[ExtendedAdminGroupLeafList4]],
+        Field(alias='srl_nokia-isis:extended-admin-group'),
     ] = []
     """
     The extended-admin-group sub-TLV is used in addition to the Administrative Groups when it is desirable to make more than 32 colors available for advertisement in a network.
@@ -9155,7 +9846,7 @@ class InstanceIdListEntry(BaseModel):
     An Instance Identifier (IID) to uniquely identify an IS-IS instance. When the IID = 0, the list of supported ITIDs MUST NOT be present. An IID-TLV with IID = 0 MUST NOT appear in an SNP or LSP. When the TLV appears (with a non-zero IID) in an SNP or LSP, exactly one ITID. MUST be present indicating the topology with which the PDU is associated. If no ITIDs or multiple ITIDs are present or the IID is zero, then the PDU MUST be ignored.
     """
     topology_id: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-isis:topology-id', ge=0, le=65535)
+        Optional[List[TopologyIdLeafList]], Field(alias='srl_nokia-isis:topology-id')
     ] = []
     """
     Instance-Specific Topology Identifiers (ITIDs).
@@ -10569,8 +11260,7 @@ class Ipv4SrlgListEntry(BaseModel):
     IPv4 neighbor address.
     """
     srlg_value: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:srlg-value', ge=0, le=4294967295),
+        Optional[List[SrlgValueLeafList]], Field(alias='srl_nokia-isis:srlg-value')
     ] = []
     """
     List of SRLG values.
@@ -10621,8 +11311,8 @@ class Ipv4SrlgListEntry2(BaseModel):
     The IPv4 address of the neighbor
     """
     shared_risk_link_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:shared-risk-link-group', ge=0, le=4294967295),
+        Optional[List[SharedRiskLinkGroupLeafList]],
+        Field(alias='srl_nokia-isis:shared-risk-link-group'),
     ] = []
     """
     List of SRLGs that apply to the adjacency with this neighbor
@@ -10775,8 +11465,7 @@ class Ipv6SrlgListEntry(BaseModel):
     IPv6 neighbor address or Link Remote Identifier.
     """
     srlg_value: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:srlg-value', ge=0, le=4294967295),
+        Optional[List[SrlgValueLeafList2]], Field(alias='srl_nokia-isis:srlg-value')
     ] = []
     """
     SRLG values.
@@ -10829,8 +11518,8 @@ class Ipv6SrlgListEntry2(BaseModel):
     The IPv6 address of the neighbor
     """
     shared_risk_link_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:shared-risk-link-group', ge=0, le=4294967295),
+        Optional[List[SharedRiskLinkGroupLeafList2]],
+        Field(alias='srl_nokia-isis:shared-risk-link-group'),
     ] = []
     """
     List of SRLGs that apply to the adjacency with this neighbor
@@ -12521,11 +13210,8 @@ class NetworkLsaContainer(BaseModel):
     represented as a CIDR mask.
     """
     attached_router: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ospf:attached-router',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AttachedRouterLeafList]],
+        Field(alias='srl_nokia-ospf:attached-router'),
     ] = []
     """
     A list of the router ID of the routers that are attached to
@@ -14126,6 +14812,22 @@ class PrefixOptionsContainer5(BaseModel):
     """
 
 
+class PrefixPolicyLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Policy to exclude prefixes from LFA SPF calculation
+    """
+
+
 class PrefixSidListEntry2(BaseModel):
     """
     Prefix Segment-ID list. IGP-Prefix Segment is an IGP segment attached to an IGP prefix. An IGP-Prefix Segment is global (unless explicitly advertised otherwise) within the SR/IGP domain.
@@ -14545,6 +15247,22 @@ class ReceivedContainer2(BaseModel):
     The number of control PDU drops
 
     These can be on an operationally down interface or on an interface on which PIM is not enabled.
+    """
+
+
+class RegisterPolicyLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Policies that apply to the register message
     """
 
 
@@ -16183,6 +16901,38 @@ class RouteListEntry8(BaseModel):
     """
 
 
+class RouterIdLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    IPv4 Traffic Engineering router ID of the node. For traffic engineering, it guarantees that we have a single stable address that can always be referenced in a path that will be reachable from multiple hops away, regardless of the state of the node's interfaces.
+    """
+
+
+class RouterIdLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    IPv6 Traffic Engineering router ID of the node. For traffic engineering, it guarantees that we have a single stable address that can always be referenced in a path that will be reachable from multiple hops away, regardless of the state of the node's interfaces.
+    """
+
+
 class RtrAdvLsaLimitContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -17053,6 +17803,70 @@ class SendMultipathCase3(BaseModel):
     ] = None
 
 
+class SetTagSetLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
+class SetTagSetLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
+class SetTagSetLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
+class SetTagSetLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
 class SetupPriorityListEntry(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -17453,11 +18267,26 @@ class SrgbOriginatorContainer(BaseModel):
         regex_engine="python-re",
     )
     srgb: Annotated[
-        Optional[List[str]],
-        Field(alias='srl_nokia-rib-bgp:srgb', pattern='^(?=^[0-9]+:[0-9]+$).*$'),
+        Optional[List[SrgbLeafList]], Field(alias='srl_nokia-rib-bgp:srgb')
     ] = []
     """
     List of SRGB ranges, each in the format <first-label>:<number-of-labels>
+    """
+
+
+class SrlgMembershipLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    The list of srlgs generically associated with the interface (not application specific)
     """
 
 
@@ -18270,15 +19099,15 @@ class SubTlvsContainer2(BaseModel):
         regex_engine="python-re",
     )
     route_tag_32bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-32bit', ge=1, le=4294967295),
+        Optional[List[RouteTag32bitLeafList]],
+        Field(alias='srl_nokia-isis:route-tag-32bit'),
     ] = []
     """
     List of 32-bit administrative tag values associated with the IPv4 prefix.
     """
     route_tag_64bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-64bit', ge=0, le=18446744073709551615),
+        Optional[List[RouteTag64bitLeafList]],
+        Field(alias='srl_nokia-isis:route-tag-64bit'),
     ] = []
     """
     List of 64-bit administrative tag values associated with the IPv4 prefix.
@@ -18303,15 +19132,15 @@ class SubTlvsContainer3(BaseModel):
         regex_engine="python-re",
     )
     route_tag_32bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-32bit', ge=1, le=4294967295),
+        Optional[List[RouteTag32bitLeafList2]],
+        Field(alias='srl_nokia-isis:route-tag-32bit'),
     ] = []
     """
     List of 32-bit administrative tag values associated with the IPv4 prefix.
     """
     route_tag_64bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-64bit', ge=0, le=18446744073709551615),
+        Optional[List[RouteTag64bitLeafList2]],
+        Field(alias='srl_nokia-isis:route-tag-64bit'),
     ] = []
     """
     List of 64-bit administrative tag values associated with the IPv4 prefix.
@@ -18336,15 +19165,15 @@ class SubTlvsContainer5(BaseModel):
         regex_engine="python-re",
     )
     route_tag_32bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-32bit', ge=1, le=4294967295),
+        Optional[List[RouteTag32bitLeafList3]],
+        Field(alias='srl_nokia-isis:route-tag-32bit'),
     ] = []
     """
     List of 32-bit administrative tag values associated with the IPv4 prefix.
     """
     route_tag_64bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-64bit', ge=0, le=18446744073709551615),
+        Optional[List[RouteTag64bitLeafList3]],
+        Field(alias='srl_nokia-isis:route-tag-64bit'),
     ] = []
     """
     List of 64-bit administrative tag values associated with the IPv4 prefix.
@@ -18369,15 +19198,15 @@ class SubTlvsContainer6(BaseModel):
         regex_engine="python-re",
     )
     route_tag_32bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-32bit', ge=1, le=4294967295),
+        Optional[List[RouteTag32bitLeafList4]],
+        Field(alias='srl_nokia-isis:route-tag-32bit'),
     ] = []
     """
     List of 32-bit administrative tag values associated with the IPv4 prefix.
     """
     route_tag_64bit: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:route-tag-64bit', ge=0, le=18446744073709551615),
+        Optional[List[RouteTag64bitLeafList4]],
+        Field(alias='srl_nokia-isis:route-tag-64bit'),
     ] = []
     """
     List of 64-bit administrative tag values associated with the IPv4 prefix.
@@ -18452,8 +19281,8 @@ class SubTlvsContainer7(BaseModel):
     The IPv6 address of the neighbor
     """
     shared_risk_link_group: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:shared-risk-link-group', ge=0, le=4294967295),
+        Optional[List[SharedRiskLinkGroupLeafList3]],
+        Field(alias='srl_nokia-isis:shared-risk-link-group'),
     ] = []
     """
     List of SRLGs that apply to the adjacency with this neighbor
@@ -18522,8 +19351,7 @@ class Tag64Container(BaseModel):
         regex_engine="python-re",
     )
     tag64: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:tag64', ge=0, le=18446744073709551615),
+        Optional[List[Tag64LeafList]], Field(alias='srl_nokia-isis:tag64')
     ] = []
     """
     List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
@@ -18540,8 +19368,7 @@ class Tag64Container2(BaseModel):
         regex_engine="python-re",
     )
     tag64: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:tag64', ge=0, le=18446744073709551615),
+        Optional[List[Tag64LeafList2]], Field(alias='srl_nokia-isis:tag64')
     ] = []
     """
     List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
@@ -18558,8 +19385,7 @@ class Tag64Container3(BaseModel):
         regex_engine="python-re",
     )
     tag64: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:tag64', ge=0, le=18446744073709551615),
+        Optional[List[Tag64LeafList3]], Field(alias='srl_nokia-isis:tag64')
     ] = []
     """
     List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
@@ -18576,11 +19402,42 @@ class Tag64Container4(BaseModel):
         regex_engine="python-re",
     )
     tag64: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-isis:tag64', ge=0, le=18446744073709551615),
+        Optional[List[Tag64LeafList4]], Field(alias='srl_nokia-isis:tag64')
     ] = []
     """
     List of 64-bit tags associated with the prefix. Example uses of these tags include carrying BGP standard (or extended) communities and controlling redistribution between levels and areas, different routing protocols, or multiple instances of IS-IS running on the same router.
+    """
+
+
+class TargetNetworkInstancesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network-instances that have imported this route as a result of matching and accepting it in their inter-instance import-policy
+    """
+
+
+class TargetNetworkInstancesLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network-instances that have imported this route as a result of matching and accepting it in their inter-instance import-policy
     """
 
 
@@ -20859,6 +21716,294 @@ class AddPathsContainer3(BaseModel):
     ] = None
 
 
+class AddressLeafList10(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList11(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList12(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList13(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList14(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList15(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList16(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList17(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList18(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList19(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    IPv4 address(es) of the interface corresponding to the SNPA over which this PDU is to be transmitted.
+    """
+
+
+class AddressLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    IPv6 interface addresses of the node.  MUST contain only the non-link-local IPv6 addresses assigned to the IS.
+    """
+
+
+class AddressLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList5(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList6(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList7(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList8(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
+    """
+
+
+class AddressLeafList9(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
+    """
+
+
 class AdjacencySidListEntry(BaseModel):
     """
     Adjacency Segment-IDs List. An IGP-Adjacency Segment is an IGP segment attached to a unidirectional adjacency or a set of unidirectional adjacencies. By default, an IGP- Adjacency Segment is local to the node which advertises it.
@@ -21033,6 +22178,22 @@ class AdjacencySidsContainer4(BaseModel):
         Optional[List[AdjacencySidListEntry4]],
         Field(alias='srl_nokia-isis:adjacency-sid'),
     ] = None
+
+
+class AdminGroupLeafList5(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    The list of admin-groups generically associated with the interface (not application specific)
+    """
 
 
 class AdvertiseContainer(BaseModel):
@@ -23355,6 +24516,22 @@ class EvpnContainer3(BaseModel):
     """
 
 
+class ExcludeSrlgLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Excluded SRLGs during path computation
+    """
+
+
 class ExcludeContainer(BaseModel):
     """
     Set the exclude context for LFA SPF computation
@@ -23365,14 +24542,123 @@ class ExcludeContainer(BaseModel):
         regex_engine="python-re",
     )
     prefix_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:prefix-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[PrefixPolicyLeafList]],
+        Field(alias='srl_nokia-isis:prefix-policy'),
     ] = []
     """
     Policy to exclude prefixes from LFA SPF calculation
+    """
+
+
+class ExportPolicyLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an export policy to advertised BGP routes
+    """
+
+
+class ExportPolicyLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an export policy to advertised BGP routes
+    """
+
+
+class ExportPolicyLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an export policy to advertised BGP routes
+    """
+
+
+class ExportPolicyLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an export policy to advertised BGP routes
+    """
+
+
+class ExportPolicyLeafList5(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an export policy to advertised BGP routes
+    """
+
+
+class ExportPolicyLeafList6(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an export policy to advertised BGP routes
+    """
+
+
+class ExportPolicyLeafList7(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an export policy to advertised BGP routes
     """
 
 
@@ -24993,6 +26279,342 @@ class HostnamesContainer(BaseModel):
     ] = None
 
 
+class ImportPolicyLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an import policy to received BGP routes
+    """
+
+
+class ImportPolicyLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an import policy to received BGP routes
+    """
+
+
+class ImportPolicyLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an import policy to received BGP routes
+    """
+
+
+class ImportPolicyLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an import policy to received BGP routes
+    """
+
+
+class ImportPolicyLeafList5(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an import policy to received BGP routes
+    """
+
+
+class ImportPolicyLeafList6(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an import policy to received BGP routes
+    """
+
+
+class ImportPolicyLeafList7(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Apply an import policy to received BGP routes
+    """
+
+
+class ImportPolicyLeafList8(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    The sequence of import policies that determine the set of routes to be redistributed from the source protocol to the dest protocol
+    """
+
+
+class ImportedIpVrfNetworkInstancesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of IP-VRF network instances that imported the route
+    """
+
+
+class ImportedIpVrfNetworkInstancesLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of IP-VRF network instances that imported the route
+    """
+
+
+class ImportedIpVrfNetworkInstancesLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of IP-VRF network instances that imported the route
+    """
+
+
+class ImportedIpVrfNetworkInstancesLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of IP-VRF network instances that imported the route
+    """
+
+
+class ImportedIpVrfNetworkInstancesLeafList5(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of IP-VRF network instances that imported the route
+    """
+
+
+class ImportedIpVrfNetworkInstancesLeafList6(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of IP-VRF network instances that imported the route
+    """
+
+
+class ImportedNetworkInstancesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that imported the route
+    """
+
+
+class ImportedNetworkInstancesLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that imported the route
+    """
+
+
+class ImportedNetworkInstancesLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that imported the route
+    """
+
+
+class ImportedNetworkInstancesLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that imported the route
+    """
+
+
+class ImportedNetworkInstancesLeafList5(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that imported the route
+    """
+
+
+class ImportedNetworkInstancesLeafList6(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that imported the route
+    """
+
+
+class ImportedNetworkInstancesLeafList7(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that imported the route
+    """
+
+
 class InProgressMbbContainer(BaseModel):
     """
     The in progress make-before-break operational information.
@@ -25107,11 +26729,8 @@ class InterfaceListEntry2(BaseModel):
     When a subinterface is present in this list, received IPv6 router advertisement messages on this subinterface automatically trigger BGP session setup towards the sender of these messages, if there is not already an established session.
     """
     allowed_peer_as: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:allowed-peer-as',
-            pattern='^(?=^([1-9][0-9]*)|([1-9][0-9]*)\\.\\.([1-9][0-9]*)$).*$',
-        ),
+        Optional[List[AllowedPeerAsLeafList2]],
+        Field(alias='srl_nokia-bgp:allowed-peer-as'),
     ] = []
     """
     Specifies the allowed AS numbers of dynamic BGP neighbors on this interface. If the OPEN message from a peer on this interface contains a MyAS number that is not in this allowed list then a NOTIFICATION is sent to the peer with the indication Bad Peer AS. Each entry in this list can be a single AS number or a range of AS numbers in the string format as1..as2.
@@ -25180,11 +26799,7 @@ class InternalTagsContainer(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp-evpn:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList]], Field(alias='srl_nokia-bgp-evpn:set-tag-set')
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -25201,11 +26816,8 @@ class InternalTagsContainer2(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp-ipvpn:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList2]],
+        Field(alias='srl_nokia-bgp-ipvpn:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -25222,11 +26834,8 @@ class InternalTagsContainer3(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bridge-table-proxy-arp-nd:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList3]],
+        Field(alias='srl_nokia-bridge-table-proxy-arp-nd:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -25243,14 +26852,75 @@ class InternalTagsContainer4(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bridge-table-proxy-arp-nd:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList4]],
+        Field(alias='srl_nokia-bridge-table-proxy-arp-nd:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
+    """
+
+
+class IpAddressLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    The list of IPv4 address bindings received from the peer
+    """
+
+
+class IpAddressLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    The list of IPv4 address bindings sent to the peer
+    """
+
+
+class IpAddressLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    The list of IPv6 address bindings received from the peer
+    """
+
+
+class IpAddressLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    The list of IPv6 address bindings sent to the peer
     """
 
 
@@ -25399,11 +27069,7 @@ class Ipv4InterfaceAddressContainer(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList4]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -25420,11 +27086,7 @@ class Ipv4InterfaceAddressContainer2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList8]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -25441,11 +27103,7 @@ class Ipv4InterfaceAddressContainer3(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList12]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -25462,11 +27120,7 @@ class Ipv4InterfaceAddressContainer4(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList16]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A 4-octet IPv4 address for the interface described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -25483,11 +27137,7 @@ class Ipv4InterfaceAddressesContainer(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList2]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     IPv4 address(es) of the interface corresponding to the SNPA over which this PDU is to be transmitted.
@@ -25619,11 +27269,7 @@ class Ipv4NeighborAddressContainer(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList5]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
@@ -25640,11 +27286,7 @@ class Ipv4NeighborAddressContainer2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList9]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
@@ -25661,11 +27303,7 @@ class Ipv4NeighborAddressContainer3(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList13]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
@@ -25682,11 +27320,7 @@ class Ipv4NeighborAddressContainer4(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[AddressLeafList17]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     A single IPv4 address for a neighboring router on this link. This sub-TLV can occur multiple times.
@@ -25871,11 +27505,7 @@ class Ipv4TeRouterIdContainer(BaseModel):
         regex_engine="python-re",
     )
     router_id: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:router-id',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[RouterIdLeafList]], Field(alias='srl_nokia-isis:router-id')
     ] = []
     """
     IPv4 Traffic Engineering router ID of the node. For traffic engineering, it guarantees that we have a single stable address that can always be referenced in a path that will be reachable from multiple hops away, regardless of the state of the node's interfaces.
@@ -26171,11 +27801,7 @@ class Ipv6InterfaceAddressContainer(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList6]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
@@ -26192,11 +27818,7 @@ class Ipv6InterfaceAddressContainer2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList10]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
@@ -26213,11 +27835,7 @@ class Ipv6InterfaceAddressContainer3(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList14]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
@@ -26234,11 +27852,7 @@ class Ipv6InterfaceAddressContainer4(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList18]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for the interface described by the containing  Extended IS Reachability TLV. This sub-TLV can occur multiple times.
@@ -26255,11 +27869,7 @@ class Ipv6InterfaceAddressesContainer(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList3]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     IPv6 interface addresses of the node.  MUST contain only the non-link-local IPv6 addresses assigned to the IS.
@@ -26326,11 +27936,7 @@ class Ipv6NeighborAddressContainer(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList7]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -26347,11 +27953,7 @@ class Ipv6NeighborAddressContainer2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList11]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -26368,11 +27970,7 @@ class Ipv6NeighborAddressContainer3(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList15]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -26389,11 +27987,7 @@ class Ipv6NeighborAddressContainer4(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[AddressLeafList19]], Field(alias='srl_nokia-isis:address')
     ] = []
     """
     Contains a 16-octet IPv6 address for a neighboring router on the link described by the (main) TLV. This sub-TLV can occur multiple times.
@@ -26617,11 +28211,7 @@ class Ipv6TeRouterIdContainer(BaseModel):
         regex_engine="python-re",
     )
     router_id: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:router-id',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[RouterIdLeafList2]], Field(alias='srl_nokia-isis:router-id')
     ] = []
     """
     IPv6 Traffic Engineering router ID of the node. For traffic engineering, it guarantees that we have a single stable address that can always be referenced in a path that will be reachable from multiple hops away, regardless of the state of the node's interfaces.
@@ -26802,6 +28392,22 @@ class Ipv6Container9(BaseModel):
         Optional[DestinationIpContainer2],
         Field(alias='srl_nokia-policy-forwarding:destination-ip'),
     ] = None
+
+
+class JoinPolicyLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Policies that apply to the Join message
+    """
 
 
 class KeyContainer(BaseModel):
@@ -28920,11 +30526,9 @@ class MacListEntry(BaseModel):
     The reason why the mac is not programmed
     """
     failed_slots: Annotated[
-        Optional[List[int]],
+        Optional[List[FailedSlotsLeafList]],
         Field(
-            alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:failed-slots',
-            ge=1,
-            le=16,
+            alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:failed-slots'
         ),
     ] = []
     """
@@ -28982,12 +30586,8 @@ class MacListEntry10(BaseModel):
     The reason why the mac is not programmed
     """
     failed_slots: Annotated[
-        Optional[List[int]],
-        Field(
-            alias='srl_nokia-connection-point-bridge-table-mac-table:failed-slots',
-            ge=1,
-            le=16,
-        ),
+        Optional[List[FailedSlotsLeafList4]],
+        Field(alias='srl_nokia-connection-point-bridge-table-mac-table:failed-slots'),
     ] = []
     """
     The list of slot IDs corresponding to the linecards that did not successfully program the mac
@@ -29046,11 +30646,9 @@ class MacListEntry2(BaseModel):
     The reason why the mac is not programmed
     """
     failed_slots: Annotated[
-        Optional[List[int]],
+        Optional[List[FailedSlotsLeafList2]],
         Field(
-            alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:failed-slots',
-            ge=1,
-            le=16,
+            alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:failed-slots'
         ),
     ] = []
     """
@@ -29229,8 +30827,8 @@ class MacListEntry6(BaseModel):
     The reason why the mac is not programmed
     """
     failed_slots: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-bridge-table-mac-table:failed-slots', ge=1, le=16),
+        Optional[List[FailedSlotsLeafList3]],
+        Field(alias='srl_nokia-bridge-table-mac-table:failed-slots'),
     ] = []
     """
     The list of slot IDs corresponding to the linecards that did not successfully program the mac
@@ -29327,11 +30925,8 @@ class MatchListEntry(BaseModel):
     The IP prefix used to match an incoming dynamic BGP session to a group.
     """
     allowed_peer_as: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:allowed-peer-as',
-            pattern='^(?=^([1-9][0-9]*)|([1-9][0-9]*)\\.\\.([1-9][0-9]*)$).*$',
-        ),
+        Optional[List[AllowedPeerAsLeafList]],
+        Field(alias='srl_nokia-bgp:allowed-peer-as'),
     ] = []
     """
     The allowed AS numbers that can establish incoming BGP sessions from this prefix and group-id-range combination
@@ -33979,11 +35574,8 @@ class RouteListEntry11(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_ip_vrf_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedIpVrfNetworkInstancesLeafList]],
+        Field(alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances'),
     ] = []
     """
     List of IP-VRF network instances that imported the route
@@ -34048,11 +35640,8 @@ class RouteListEntry12(BaseModel):
     Path identifier of the BGP route
     """
     imported_ip_vrf_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedIpVrfNetworkInstancesLeafList2]],
+        Field(alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances'),
     ] = []
     """
     List of IP-VRF network instances that imported the route
@@ -34189,11 +35778,8 @@ class RouteListEntry13(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_ip_vrf_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedIpVrfNetworkInstancesLeafList3]],
+        Field(alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances'),
     ] = []
     """
     List of IP-VRF network instances that imported the route
@@ -34401,11 +35987,8 @@ class RouteListEntry15(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_ip_vrf_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedIpVrfNetworkInstancesLeafList4]],
+        Field(alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances'),
     ] = []
     """
     List of IP-VRF network instances that imported the route
@@ -34470,11 +36053,8 @@ class RouteListEntry16(BaseModel):
     Path identifier of the BGP route
     """
     imported_ip_vrf_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedIpVrfNetworkInstancesLeafList5]],
+        Field(alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances'),
     ] = []
     """
     List of IP-VRF network instances that imported the route
@@ -34611,11 +36191,8 @@ class RouteListEntry17(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_ip_vrf_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedIpVrfNetworkInstancesLeafList6]],
+        Field(alias='srl_nokia-rib-bgp:imported-ip-vrf-network-instances'),
     ] = []
     """
     List of IP-VRF network instances that imported the route
@@ -36064,8 +37641,7 @@ class SegmentListEntry(BaseModel):
     The type of the AS path segment.
     """
     member: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-rib-bgp:member', ge=0, le=4294967295),
+        Optional[List[MemberLeafList]], Field(alias='srl_nokia-rib-bgp:member')
     ] = []
     """
     A list of AS numbers (each of which is a 2byte-ASN or a 4byte-ASN) that belong
@@ -36521,11 +38097,8 @@ class SmetRouteListEntry(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedNetworkInstancesLeafList5]],
+        Field(alias='srl_nokia-rib-bgp:imported-network-instances'),
     ] = []
     """
     List of network instances that imported the route
@@ -40054,11 +41627,8 @@ class TableConnectionListEntry(BaseModel):
     * OSPF metric may be reflected in the BGP MED
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-table-connections:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList8]],
+        Field(alias='srl_nokia-table-connections:import-policy'),
     ] = []
     """
     The sequence of import policies that determine the set of routes to be redistributed from the source protocol to the dest protocol
@@ -41778,11 +43348,7 @@ class AdjacencyListEntry5(BaseModel):
     The hostname of the neighbor, as learned by TLV 137.
     """
     area_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:area-address',
-            pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$',
-        ),
+        Optional[List[AreaAddressLeafList]], Field(alias='srl_nokia-isis:area-address')
     ] = []
     """
     Area address of the neighbor.
@@ -42097,21 +43663,15 @@ class AfiSafiListEntry4(BaseModel):
         Optional[EnumerationEnum52], Field(alias='srl_nokia-bgp:oper-state')
     ] = None
     export_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:export-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExportPolicyLeafList6]],
+        Field(alias='srl_nokia-bgp:export-policy'),
     ] = []
     """
     Apply an export policy to advertised BGP routes
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList6]],
+        Field(alias='srl_nokia-bgp:import-policy'),
     ] = []
     """
     Apply an import policy to received BGP routes
@@ -42509,21 +44069,15 @@ class BgpInstanceListEntry3(BaseModel):
         Optional[RouteTargetContainer3], Field(alias='srl_nokia-bgp-vpn:route-target')
     ] = None
     export_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp-vpn:export-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExportPolicyLeafList7]],
+        Field(alias='srl_nokia-bgp-vpn:export-policy'),
     ] = []
     """
     Apply an export policy to advertised BGP routes
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp-vpn:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList7]],
+        Field(alias='srl_nokia-bgp-vpn:import-policy'),
     ] = []
     """
     Apply an import policy to received BGP routes
@@ -43520,11 +45074,8 @@ class EthernetAdRouteListEntry(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedNetworkInstancesLeafList]],
+        Field(alias='srl_nokia-rib-bgp:imported-network-instances'),
     ] = []
     """
     List of network instances that imported the route
@@ -44813,11 +46364,8 @@ class FibProgrammingContainer(BaseModel):
     The last operation type that failed.
     """
     last_failed_complexes: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ip-route-tables:last-failed-complexes',
-            pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$',
-        ),
+        Optional[List[LastFailedComplexesLeafList]],
+        Field(alias='srl_nokia-ip-route-tables:last-failed-complexes'),
     ] = []
     """
     List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
@@ -44873,11 +46421,8 @@ class FibProgrammingContainer2(BaseModel):
     The last operation type that failed.
     """
     last_failed_complexes: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ip-route-tables:last-failed-complexes',
-            pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$',
-        ),
+        Optional[List[LastFailedComplexesLeafList2]],
+        Field(alias='srl_nokia-ip-route-tables:last-failed-complexes'),
     ] = []
     """
     List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
@@ -44933,11 +46478,8 @@ class FibProgrammingContainer3(BaseModel):
     The last operation type that failed.
     """
     last_failed_complexes: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ip-route-tables:last-failed-complexes',
-            pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$',
-        ),
+        Optional[List[LastFailedComplexesLeafList3]],
+        Field(alias='srl_nokia-ip-route-tables:last-failed-complexes'),
     ] = []
     """
     List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
@@ -46579,11 +48121,8 @@ class ImetRouteListEntry(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedNetworkInstancesLeafList3]],
+        Field(alias='srl_nokia-rib-bgp:imported-network-instances'),
     ] = []
     """
     List of network instances that imported the route
@@ -46878,21 +48417,14 @@ class ImportPoliciesContainer(BaseModel):
         regex_engine="python-re",
     )
     join_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-pim:join-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[JoinPolicyLeafList]], Field(alias='srl_nokia-pim:join-policy')
     ] = []
     """
     Policies that apply to the Join message
     """
     register_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-pim:register-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[RegisterPolicyLeafList]],
+        Field(alias='srl_nokia-pim:register-policy'),
     ] = []
     """
     Policies that apply to the register message
@@ -47377,21 +48909,15 @@ class InterfaceListEntry16(BaseModel):
         Field(alias='srl_nokia-traffic-engineering:interface-ref'),
     ] = None
     admin_group: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-traffic-engineering:admin-group',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[AdminGroupLeafList5]],
+        Field(alias='srl_nokia-traffic-engineering:admin-group'),
     ] = []
     """
     The list of admin-groups generically associated with the interface (not application specific)
     """
     srlg_membership: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-traffic-engineering:srlg-membership',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SrlgMembershipLeafList]],
+        Field(alias='srl_nokia-traffic-engineering:srlg-membership'),
     ] = []
     """
     The list of srlgs generically associated with the interface (not application specific)
@@ -47670,11 +49196,8 @@ class IpPrefixRouteListEntry(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedNetworkInstancesLeafList4]],
+        Field(alias='srl_nokia-rib-bgp:imported-network-instances'),
     ] = []
     """
     List of network instances that imported the route
@@ -49030,11 +50553,8 @@ class MacIpRouteListEntry(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedNetworkInstancesLeafList2]],
+        Field(alias='srl_nokia-rib-bgp:imported-network-instances'),
     ] = []
     """
     List of network instances that imported the route
@@ -50091,11 +51611,8 @@ class MulticastLeaveSynchRouteListEntry(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedNetworkInstancesLeafList7]],
+        Field(alias='srl_nokia-rib-bgp:imported-network-instances'),
     ] = []
     """
     List of network instances that imported the route
@@ -50703,11 +52220,8 @@ class MulticastMembershipReportSynchRouteListEntry(BaseModel):
         Field(alias='srl_nokia-rib-bgp:route-flap-damping'),
     ] = None
     imported_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-rib-bgp:imported-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[ImportedNetworkInstancesLeafList6]],
+        Field(alias='srl_nokia-rib-bgp:imported-network-instances'),
     ] = []
     """
     List of network instances that imported the route
@@ -51300,21 +52814,15 @@ class NeighborListEntry(BaseModel):
     The session type. The type is EBGP when the local AS and peer AS are different, and the type is IBGP when the local AS and peer AS have the same value.
     """
     export_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:export-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExportPolicyLeafList5]],
+        Field(alias='srl_nokia-bgp:export-policy'),
     ] = []
     """
     Apply an export policy to advertised BGP routes
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList5]],
+        Field(alias='srl_nokia-bgp:import-policy'),
     ] = []
     """
     Apply an import policy to received BGP routes
@@ -53320,11 +54828,8 @@ class RouteListEntry(BaseModel):
     Reads true when the route was matched and accepted by the route-leaking inter-instance export-policy
     """
     target_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ip-route-tables:target-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[TargetNetworkInstancesLeafList]],
+        Field(alias='srl_nokia-ip-route-tables:target-network-instances'),
     ] = []
     """
     List of network-instances that have imported this route as a result of matching and accepting it in their inter-instance import-policy
@@ -53463,11 +54968,8 @@ class RouteListEntry2(BaseModel):
     Reads true when the route was matched and accepted by the route-leaking inter-instance export-policy
     """
     target_network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ip-route-tables:target-network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[TargetNetworkInstancesLeafList2]],
+        Field(alias='srl_nokia-ip-route-tables:target-network-instances'),
     ] = []
     """
     List of network-instances that have imported this route as a result of matching and accepting it in their inter-instance import-policy
@@ -54789,21 +56291,15 @@ class AfiSafiListEntry2(BaseModel):
     This leaf indicates whether the AFI-SAFI is enabled for the peer group
     """
     export_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:export-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExportPolicyLeafList4]],
+        Field(alias='srl_nokia-bgp:export-policy'),
     ] = []
     """
     Apply an export policy to advertised BGP routes
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList4]],
+        Field(alias='srl_nokia-bgp:import-policy'),
     ] = []
     """
     Apply an import policy to received BGP routes
@@ -55969,21 +57465,15 @@ class GroupListEntry(BaseModel):
     State field to display the maintenance group to which this group belongs to.
     """
     export_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:export-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExportPolicyLeafList3]],
+        Field(alias='srl_nokia-bgp:export-policy'),
     ] = []
     """
     Apply an export policy to advertised BGP routes
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList3]],
+        Field(alias='srl_nokia-bgp:import-policy'),
     ] = []
     """
     Apply an import policy to received BGP routes
@@ -57861,11 +59351,7 @@ class PeerListEntry2(BaseModel):
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
     ip_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ldp:ip-address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[IpAddressLeafList2]], Field(alias='srl_nokia-ldp:ip-address')
     ] = []
     """
     The list of IPv4 address bindings sent to the peer
@@ -57895,11 +59381,7 @@ class PeerListEntry3(BaseModel):
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
     ip_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ldp:ip-address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[IpAddressLeafList3]], Field(alias='srl_nokia-ldp:ip-address')
     ] = []
     """
     The list of IPv6 address bindings received from the peer
@@ -57929,11 +59411,7 @@ class PeerListEntry4(BaseModel):
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
     ip_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ldp:ip-address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[IpAddressLeafList4]], Field(alias='srl_nokia-ldp:ip-address')
     ] = []
     """
     The list of IPv6 address bindings sent to the peer
@@ -59309,21 +60787,15 @@ class AfiSafiListEntry(BaseModel):
     This leaf indicates whether the AFI-SAFI is enabled for the instance
     """
     export_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:export-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExportPolicyLeafList2]],
+        Field(alias='srl_nokia-bgp:export-policy'),
     ] = []
     """
     Apply an export policy to advertised BGP routes
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList2]],
+        Field(alias='srl_nokia-bgp:import-policy'),
     ] = []
     """
     Apply an import policy to received BGP routes
@@ -59449,21 +60921,13 @@ class BgpContainer(BaseModel):
     Values greater than 65535 must be entered in ASPLAIN format.
     """
     export_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:export-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExportPolicyLeafList]], Field(alias='srl_nokia-bgp:export-policy')
     ] = []
     """
     Apply an export policy to advertised BGP routes
     """
     import_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-bgp:import-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ImportPolicyLeafList]], Field(alias='srl_nokia-bgp:import-policy')
     ] = []
     """
     Apply an import policy to received BGP routes
@@ -59668,11 +61132,8 @@ class DefinedTlvsContainer(BaseModel):
         regex_engine="python-re",
     )
     area_addresses: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:area-addresses',
-            pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$',
-        ),
+        Optional[List[AreaAddressesLeafList]],
+        Field(alias='srl_nokia-isis:area-addresses'),
     ] = []
     """
     Each item represents an area address advertised by the LSP.
@@ -60484,11 +61945,8 @@ class LevelDatabaseListEntry(BaseModel):
         Optional[DefinedTlvsContainer], Field(alias='srl_nokia-isis:defined-tlvs')
     ] = None
     undefined_tlvs: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:undefined-tlvs',
-            pattern='^(?=^([0-9a-fA-F]{2}(:[0-9a-fA-F]{2})*)?$).*$',
-        ),
+        Optional[List[UndefinedTlvsLeafList]],
+        Field(alias='srl_nokia-isis:undefined-tlvs'),
     ] = []
     """
     Undefined TLV-s as contents of the LSP.
@@ -61129,14 +62587,14 @@ class PathRequestListEntry(BaseModel):
     The maximum segment routing label stack size for this LSP.
     """
     profiles: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-pcep:profiles', ge=0, le=4294967295)
+        Optional[List[ProfilesLeafList]], Field(alias='srl_nokia-pcep:profiles')
     ] = []
     """
     List of path profile identifiers
     """
     extended_profiles: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-pcep:extended-profiles', ge=0, le=4294967295),
+        Optional[List[ExtendedProfilesLeafList]],
+        Field(alias='srl_nokia-pcep:extended-profiles'),
     ] = []
     """
     List of extended identifiers associated with the path profile identifier.
@@ -61256,11 +62714,7 @@ class PeerListEntry(BaseModel):
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
     ip_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-ldp:ip-address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[IpAddressLeafList]], Field(alias='srl_nokia-ldp:ip-address')
     ] = []
     """
     The list of IPv4 address bindings received from the peer
@@ -61772,11 +63226,8 @@ class TeConstraintsContainer(BaseModel):
     Excluded IP addresses from path computation
     """
     exclude_srlg: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-te-policies:exclude-srlg',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ExcludeSrlgLeafList]],
+        Field(alias='srl_nokia-te-policies:exclude-srlg'),
     ] = []
     """
     Excluded SRLGs during path computation
@@ -65396,13 +66847,7 @@ class InstanceListEntry5(BaseModel):
     """
     ISIS instance number
     """
-    net: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:net',
-            pattern='^(?=^[a-fA-F0-9]{2}(\\.[a-fA-F0-9]{4}){3,9}\\.[0]{2}$).*$',
-        ),
-    ] = []
+    net: Annotated[Optional[List[NetLeafList]], Field(alias='srl_nokia-isis:net')] = []
     """
     ISIS network entity title (NET)
     """
@@ -65523,11 +66968,7 @@ class InstanceListEntry5(BaseModel):
     The value of the this object indicates the operational state of the destination.
     """
     oper_area_id: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-isis:oper-area-id',
-            pattern='^(?=^[0-9A-Fa-f]{2}(\\.[0-9A-Fa-f]{4}){0,6}$).*$',
-        ),
+        Optional[List[OperAreaIdLeafList]], Field(alias='srl_nokia-isis:oper-area-id')
     ] = []
     """
     The list of area IDs associated with this IS router
