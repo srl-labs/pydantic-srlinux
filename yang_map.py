@@ -31,7 +31,8 @@ class YangModule(BaseModel):
     imports: List[YangImport]
     augments: List[YangAugment]
     augmented_by: List[str] = []
-    tree_cmd: str
+    tree_cmd: str  # pyang tree cmd
+    yl_cmd: str  # yang lint tree cmd
 
 
 class Repo(BaseModel):
@@ -92,6 +93,7 @@ def parse_yang_file(base_dir, file_path: str, repo: Repo) -> YangModule:
         imports=imports,
         augments=augments,
         tree_cmd=f"pyang -f tree -p {repo.base_modules['srl']} -p {repo.base_modules['ietf']} -p {repo.base_modules['iana']} {DIR_ENV_VAR + base_file_path}",
+        yl_cmd=f"yanglint -f tree -p {repo.base_modules['srl']} -p {repo.base_modules['ietf']} -p {repo.base_modules['iana']} -i {DIR_ENV_VAR + base_file_path}",
     )
 
 
@@ -128,14 +130,31 @@ def process_yang_files(dir: str, repo: Repo) -> Dict[str, YangModule]:
                                 )
                                 # add this module as deviation to the tree command
                                 # as the penultimate argument
-                                cmd_parts = yang_files[augmented_mod].tree_cmd.split()
-                                cmd_parts.insert(-1, "--deviation-module")
-                                cmd_parts.insert(
+                                py_cmd_parts = yang_files[
+                                    augmented_mod
+                                ].tree_cmd.split()
+                                yl_cmd_parts = yang_files[augmented_mod].yl_cmd.split()
+
+                                # pyang cmd processing
+                                py_cmd_parts.insert(-1, "--deviation-module")
+                                py_cmd_parts.insert(
                                     -1,
                                     f"{repo.path + yang_files[module_file].path}",
                                 )
                                 # Join back into a space-separated string
-                                yang_files[augmented_mod].tree_cmd = " ".join(cmd_parts)
+                                yang_files[augmented_mod].tree_cmd = " ".join(
+                                    py_cmd_parts
+                                )
+
+                                # yanglint cmd processing
+                                yl_cmd_parts.append("-i")
+                                yl_cmd_parts.append(
+                                    f"{repo.path + yang_files[module_file].path}",
+                                )
+                                # Join back into a space-separated string
+                                yang_files[augmented_mod].yl_cmd = " ".join(
+                                    yl_cmd_parts
+                                )
                         break
     return yang_files
 

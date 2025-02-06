@@ -122,3 +122,19 @@ The full list of the top level modules:
 ```
 
 This will generate the `xxx.py` file in the `pydantic_srlinux/models` directory as well as create the CLI command used to generate the Pydantic models and store it in the `./temp` directory.
+
+## Pyang and Yanglint
+
+The yang map file contains pastable commands to generate YANG trees for all the modules. The commands are generated for `pyang` and `yanglint`. Before using these commands, make sure that the env var `${SRL_YANG_REPO_DIR}` is set to the path of the cloned YANG repo.
+
+### Yanglint
+
+Yanglint is easy to consume in a container flavor; paste this alias in your shell:
+
+```
+alias yanglint='docker run --rm -i -t -v ${SRL_YANG_REPO_DIR}:/${SRL_YANG_REPO_DIR} ghcr.io/hellt/yanglint:3.7.8 $@'
+```
+
+Then you will be able to paste the yanglint command from the map file and get the tree output.
+
+By default yanglint will output warnings for all the implemented modules (these are the modules that your particular module relies on). You can suppress the warnings by adding `-Q`
