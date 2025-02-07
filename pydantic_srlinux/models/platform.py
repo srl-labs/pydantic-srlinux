@@ -7,6 +7,20 @@ from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
 
 
+class CpuSetLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=1024)]
+    """
+    The list of CPUs used for vXDP PMD threads
+
+    These CPUs should be isolated out-of-band of SR Linux, and are used for forwarder and NIC threads for vhost-user, physical, and lif interfaces.
+    It is expected that the sibling of a CPU is always passed to vXDP, and in order to enforce this if a single CPU of a core is passed, vXDP will derive and bind to the undefined sibling. vXDP supports the passing of both single and both siblings together, and will perform a merge to ensure all siblings are consumed.
+    """
+
+
 class IndexLeaf121(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -1255,6 +1269,17 @@ class PacketExtractionContainer(BaseModel):
     ] = None
 
 
+class PcrIndexLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=31)]
+    """
+    List the TPM2.0 PCRs available to be extracted
+    """
+
+
 class PowerContainer(BaseModel):
     """
     State related to power consumption and allocation for this component
@@ -2092,8 +2117,8 @@ class Tpm20PcrBankListEntry(BaseModel):
     The hash algorithm that is used to hash TPM2.0 PCRs
     """
     pcr_index: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-platform-tpm:pcr-index', ge=0, le=31),
+        Optional[List[PcrIndexLeafList]],
+        Field(alias='srl_nokia-platform-tpm:pcr-index'),
     ] = []
     """
     List the TPM2.0 PCRs available to be extracted
@@ -4882,8 +4907,7 @@ class VxdpContainer(BaseModel):
         regex_engine="python-re",
     )
     cpu_set: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-platform-vxdp:cpu-set', ge=0, le=1024),
+        Optional[List[CpuSetLeafList]], Field(alias='srl_nokia-platform-vxdp:cpu-set')
     ] = []
     """
     The list of CPUs used for vXDP PMD threads

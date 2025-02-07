@@ -18,6 +18,17 @@ class AsNumberType(RootModel[int]):
     """
 
 
+class AsPathSetMemberLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(max_length=65535, min_length=1)]
+    """
+    A list of regular expressions
+    """
+
+
 class BgpExtCommunityRegexpType2Type1(RootModel[str]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -641,6 +652,39 @@ class Ipv6PrefixType(RootModel[str]):
     """
 
 
+class ReplaceLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=4294967295)]
+    """
+    Clear the existing AS path and replace it a new AS_SEQUENCE containing the listed AS numbers.
+    """
+
+
+class ReplaceLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=4294967295)]
+    """
+    Clear the existing AS path and replace it a new AS_SEQUENCE containing the listed AS numbers.
+    """
+
+
+class RouteTypeLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=8)]
+    """
+    An EVPN route meets this condition if the route-type field in the NLRI is one of the values provided in this list.
+    """
+
+
 class SetLeaf21(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -852,8 +896,8 @@ class EvpnContainer(BaseModel):
         regex_engine="python-re",
     )
     route_type: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-routing-policy:route-type', ge=1, le=8),
+        Optional[List[RouteTypeLeafList]],
+        Field(alias='srl_nokia-routing-policy:route-type'),
     ] = []
     """
     An EVPN route meets this condition if the route-type field in the NLRI is one of the values provided in this list.
@@ -1059,6 +1103,70 @@ class PrependContainer2(BaseModel):
     """
 
 
+class ReferencedSetsLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    A name used to identify the community set
+    """
+
+
+class ReferencedSetsLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    A name used to identify the community set
+    """
+
+
+class ReferencedSetsLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    A name used to identify the community set
+    """
+
+
+class ReferencedSetsLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    A name used to identify the community set
+    """
+
+
 class RoutePreferenceContainer(BaseModel):
     """
     Options for modifying route preference
@@ -1098,6 +1206,38 @@ class RoutePreferenceContainer2(BaseModel):
     The IP route table preference is sometimes called the administrative distance of the route. In general, when comparing any two routes, the route with the lower preference is the one that is activated and used for forwarding.
 
     This action has an effect only in BGP import policies and VRF import policies
+    """
+
+
+class SetTagSetLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
+class SetTagSetLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
     """
 
 
@@ -1162,11 +1302,8 @@ class StandardCommunityContainer(BaseModel):
     The type of operation for modifying the community attribute with the specified values
     """
     referenced_sets: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:referenced-sets',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ReferencedSetsLeafList]],
+        Field(alias='srl_nokia-routing-policy:referenced-sets'),
     ] = []
     method: Annotated[
         Optional[EnumerationEnum5], Field(alias='srl_nokia-routing-policy:method')
@@ -1214,17 +1351,30 @@ class StandardCommunityContainer3(BaseModel):
     The type of operation for modifying the community attribute with the specified values
     """
     referenced_sets: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:referenced-sets',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ReferencedSetsLeafList3]],
+        Field(alias='srl_nokia-routing-policy:referenced-sets'),
     ] = []
     method: Annotated[
         Optional[EnumerationEnum21], Field(alias='srl_nokia-routing-policy:method')
     ] = 'reference'
     """
     Indicates the method used to specify the standard communities for the action
+    """
+
+
+class TagSetLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
     """
 
 
@@ -1321,12 +1471,8 @@ class AsPathSetListEntry(BaseModel):
     A regular expression where each AS number is an elemental term
     """
     as_path_set_member: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:as-path-set-member',
-            max_length=65535,
-            min_length=1,
-        ),
+        Optional[List[AsPathSetMemberLeafList]],
+        Field(alias='srl_nokia-routing-policy:as-path-set-member'),
     ] = []
     """
     A list of regular expressions
@@ -1349,8 +1495,7 @@ class AsPathContainer(BaseModel):
     Clear the AS path to make it empty.
     """
     replace: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-routing-policy:replace', ge=1, le=4294967295),
+        Optional[List[ReplaceLeafList]], Field(alias='srl_nokia-routing-policy:replace')
     ] = []
     """
     Clear the existing AS path and replace it a new AS_SEQUENCE containing the listed AS numbers.
@@ -1399,8 +1544,8 @@ class AsPathContainer3(BaseModel):
     Clear the AS path to make it empty.
     """
     replace: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-routing-policy:replace', ge=1, le=4294967295),
+        Optional[List[ReplaceLeafList2]],
+        Field(alias='srl_nokia-routing-policy:replace'),
     ] = []
     """
     Clear the existing AS path and replace it a new AS_SEQUENCE containing the listed AS numbers.
@@ -1408,6 +1553,24 @@ class AsPathContainer3(BaseModel):
     prepend: Annotated[
         Optional[PrependContainer2], Field(alias='srl_nokia-routing-policy:prepend')
     ] = None
+
+
+class CallPolicyLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Call another policy as a subroutine
+
+    If the final action of the called policy (which may in turn call other policies) with respect to a route is 'accept' then the route is considered to satisfy this match condition. If the final action of the called policy with respect to a route is 'reject' then the route is considered a non-match of this condition and hence the policy statement
+    """
 
 
 class CommunitiesContainer(BaseModel):
@@ -1623,11 +1786,8 @@ class ExtendedCommunityContainer(BaseModel):
     The type of operation for modifying the community attribute with the specified values
     """
     referenced_sets: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:referenced-sets',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ReferencedSetsLeafList2]],
+        Field(alias='srl_nokia-routing-policy:referenced-sets'),
     ] = []
     method: Annotated[
         Optional[EnumerationEnum6], Field(alias='srl_nokia-routing-policy:method')
@@ -1675,11 +1835,8 @@ class ExtendedCommunityContainer3(BaseModel):
     The type of operation for modifying the community attribute with the specified values
     """
     referenced_sets: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:referenced-sets',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ReferencedSetsLeafList4]],
+        Field(alias='srl_nokia-routing-policy:referenced-sets'),
     ] = []
     method: Annotated[
         Optional[EnumerationEnum22], Field(alias='srl_nokia-routing-policy:method')
@@ -1721,11 +1878,8 @@ class InternalTagsContainer(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList]],
+        Field(alias='srl_nokia-routing-policy:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -1742,11 +1896,7 @@ class InternalTagsContainer2(BaseModel):
         regex_engine="python-re",
     )
     tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[TagSetLeafList]], Field(alias='srl_nokia-routing-policy:tag-set')
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -1770,11 +1920,8 @@ class InternalTagsContainer3(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList2]],
+        Field(alias='srl_nokia-routing-policy:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -2186,11 +2333,8 @@ class MatchContainer(BaseModel):
     The route type to match
     """
     call_policy: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-routing-policy:call-policy',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[CallPolicyLeafList]],
+        Field(alias='srl_nokia-routing-policy:call-policy'),
     ] = []
     """
     Call another policy as a subroutine

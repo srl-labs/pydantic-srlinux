@@ -7,6 +7,32 @@ from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
 
 
+class CodeLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=255)]
+    """
+    Match if the ICMP code value is any value in the list
+
+    Requires ICMP type to be specified because codes are type dependent.
+    """
+
+
+class CodeLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=255)]
+    """
+    Match if the ICMPv6 code value is any value in the list
+
+    Requires ICMPv6 type to be specified because codes are type dependent.
+    """
+
+
 class CopyCase(BaseModel):
     pass
     model_config = ConfigDict(
@@ -1068,7 +1094,7 @@ class Icmp6Container(BaseModel):
     Match a single ICMPv6 type value
     """
     code: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-acl:code', ge=0, le=255)
+        Optional[List[CodeLeafList2]], Field(alias='srl_nokia-acl:code')
     ] = []
     """
     Match if the ICMPv6 code value is any value in the list
@@ -1095,9 +1121,9 @@ class IcmpContainer(BaseModel):
     """
     Match a single ICMP type value.
     """
-    code: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-acl:code', ge=0, le=255)
-    ] = []
+    code: Annotated[Optional[List[CodeLeafList]], Field(alias='srl_nokia-acl:code')] = (
+        []
+    )
     """
     Match if the ICMP code value is any value in the list
 

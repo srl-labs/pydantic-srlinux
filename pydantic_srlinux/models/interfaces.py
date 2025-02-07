@@ -67,6 +67,17 @@ class DomainNameType(RootModel[str]):
     """
 
 
+class FailedSlotsLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=16)]
+    """
+    The list of slot IDs corresponding to the linecards that did not successfully program the mac
+    """
+
+
 class HoldDownTimeRemainingLeaf1(RootModel[int]):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +86,32 @@ class HoldDownTimeRemainingLeaf1(RootModel[int]):
     root: Annotated[int, Field(ge=0, le=18446744073709551615)]
     """
     remaining hold down time for duplicate mac
+    """
+
+
+class LastFailedComplexesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$')
+    ]
+    """
+    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
+    """
+
+
+class LastFailedComplexesLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str, Field(pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$')
+    ]
+    """
+    List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
     """
 
 
@@ -165,6 +202,17 @@ class OpticalSignalToNoiseRatioContainer(BaseModel):
     ] = None
     """
     Maximum SNR received on the optical channel
+    """
+
+
+class PhysicalChannelLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=10)]
+    """
+    The list of transceiver channels associated with this port
     """
 
 
@@ -529,6 +577,28 @@ class SignalFailureContainer2(BaseModel):
     ] = 1
     """
     Signal-failure multiplier
+    """
+
+
+class SocketCpusLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=65535)]
+    """
+    List of CPUs present on the socket this interface is attached to
+    """
+
+
+class SocketCpusLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=65535)]
+    """
+    List of CPUs present on the socket this interface is attached to
     """
 
 
@@ -1630,6 +1700,28 @@ class EnumerationEnum94(Enum):
     client = 'client'
 
 
+class AllowedMacsLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$')]
+    """
+    List of allowed mac addresses for a discovered virtual IP address.
+    """
+
+
+class AllowedMacsLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$')]
+    """
+    List of allowed mac addresses for a discovered virtual IP address.
+    """
+
+
 class BitErrorRateContainer(BaseModel):
     """
     Enter the bit-error-rate context
@@ -2410,6 +2502,70 @@ class ReceivedContainer(BaseModel):
         Optional[MediaFrameErrorCountContainer],
         Field(alias='srl_nokia-interfaces-dco:media-frame-error-count'),
     ] = None
+
+
+class SetTagSetLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
+class SetTagSetLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
+class SetTagSetLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
+
+
+class SetTagSetLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Reference to a tag-set defined under routing-policy
+    """
 
 
 class StatisticsContainer(BaseModel):
@@ -4627,11 +4783,27 @@ class VhostContainer(BaseModel):
     This field is not populated for interfaces that have no socket preference - e.g. veth, tap.
     """
     socket_cpus: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-interfaces-vxdp:socket-cpus', ge=0, le=65535),
+        Optional[List[SocketCpusLeafList]],
+        Field(alias='srl_nokia-interfaces-vxdp:socket-cpus'),
     ] = []
     """
     List of CPUs present on the socket this interface is attached to
+    """
+
+
+class VirtualAddressLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    Associated Virtual IP address.
     """
 
 
@@ -4849,11 +5021,8 @@ class DatapathProgrammingContainer(BaseModel):
     The status of the ARP or neighbor entry with respect to datapath programming
     """
     last_failed_complexes: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr:last-failed-complexes',
-            pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$',
-        ),
+        Optional[List[LastFailedComplexesLeafList]],
+        Field(alias='srl_nokia-interfaces-nbr:last-failed-complexes'),
     ] = []
     """
     List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
@@ -4876,11 +5045,8 @@ class DatapathProgrammingContainer2(BaseModel):
     The status of the ARP or neighbor entry with respect to datapath programming
     """
     last_failed_complexes: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr:last-failed-complexes',
-            pattern='^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$',
-        ),
+        Optional[List[LastFailedComplexesLeafList2]],
+        Field(alias='srl_nokia-interfaces-nbr:last-failed-complexes'),
     ] = []
     """
     List of forwarding complexes that reported a failure for the last operation. They appear in the format (slot-number,complex-number).
@@ -5323,11 +5489,8 @@ class InternalTagsContainer(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList]],
+        Field(alias='srl_nokia-interfaces-nbr:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -5344,11 +5507,8 @@ class InternalTagsContainer2(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr-evpn:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList2]],
+        Field(alias='srl_nokia-interfaces-nbr-evpn:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -5365,11 +5525,8 @@ class InternalTagsContainer3(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList3]],
+        Field(alias='srl_nokia-interfaces-nbr:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -5386,11 +5543,8 @@ class InternalTagsContainer4(BaseModel):
         regex_engine="python-re",
     )
     set_tag_set: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr-evpn:set-tag-set',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[SetTagSetLeafList4]],
+        Field(alias='srl_nokia-interfaces-nbr-evpn:set-tag-set'),
     ] = []
     """
     Reference to a tag-set defined under routing-policy
@@ -5810,12 +5964,8 @@ class MacListEntry3(BaseModel):
     The reason why the mac is not programmed
     """
     failed_slots: Annotated[
-        Optional[List[int]],
-        Field(
-            alias='srl_nokia-interfaces-bridge-table-mac-table:failed-slots',
-            ge=1,
-            le=16,
-        ),
+        Optional[List[FailedSlotsLeafList]],
+        Field(alias='srl_nokia-interfaces-bridge-table-mac-table:failed-slots'),
     ] = []
     """
     The list of slot IDs corresponding to the linecards that did not successfully program the mac
@@ -6281,8 +6431,8 @@ class PciContainer(BaseModel):
     This field is not populated for interfaces that have no socket preference - e.g. veth, tap.
     """
     socket_cpus: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-interfaces-vxdp:socket-cpus', ge=0, le=65535),
+        Optional[List[SocketCpusLeafList2]],
+        Field(alias='srl_nokia-interfaces-vxdp:socket-cpus'),
     ] = []
     """
     List of CPUs present on the socket this interface is attached to
@@ -7582,11 +7732,8 @@ class AddressListEntry2(BaseModel):
     The virtual IPv4 address.
     """
     allowed_macs: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs',
-            pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-        ),
+        Optional[List[AllowedMacsLeafList]],
+        Field(alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs'),
     ] = []
     """
     List of allowed mac addresses for a discovered virtual IP address.
@@ -7646,11 +7793,8 @@ class AddressListEntry4(BaseModel):
     The virtual IPv6 address.
     """
     allowed_macs: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs',
-            pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
-        ),
+        Optional[List[AllowedMacsLeafList2]],
+        Field(alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:allowed-macs'),
     ] = []
     """
     List of allowed mac addresses for a discovered virtual IP address.
@@ -8912,11 +9056,8 @@ class VrrpGroupListEntry2(BaseModel):
         Field(alias='srl_nokia-interfaces-ip-vrrp:statistics'),
     ] = None
     virtual_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-interfaces-ip-vrrp:virtual-address',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[VirtualAddressLeafList2]],
+        Field(alias='srl_nokia-interfaces-ip-vrrp:virtual-address'),
     ] = []
     """
     Associated Virtual IP address.
@@ -10246,8 +10387,8 @@ class InterfaceListEntry(BaseModel):
     On the 7220 IXR-D2 and 7220 IXR-D2L platforms this group of interfaces must be set to the same speed, either 1/10G or 25G.
     """
     physical_channel: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-interfaces:physical-channel', ge=1, le=10),
+        Optional[List[PhysicalChannelLeafList]],
+        Field(alias='srl_nokia-interfaces:physical-channel'),
     ] = []
     """
     The list of transceiver channels associated with this port
