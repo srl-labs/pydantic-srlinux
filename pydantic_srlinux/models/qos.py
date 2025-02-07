@@ -42,6 +42,17 @@ class CommittedBurstSizeTableContainer(BaseModel):
     """
 
 
+class Dot1pLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=7)]
+    """
+    List of dot1p values of the packets which will be assigned to a given pfc-queue
+    """
+
+
 class DropLeaf2(BaseModel):
     """
     Violating packets should be dropped immediately
@@ -111,6 +122,28 @@ class PacketLengthAdjustmentContainer2(BaseModel):
     """
 
 
+class PfcPauseFramePriorityLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=7)]
+    """
+    PFC priorities indicated in generated pfc-pause-frame if congestion occurs in a given pfc-queue
+    """
+
+
+class PfcPauseFramePriorityLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=7)]
+    """
+    The pfc-priority received in pfc-pause-frame
+    """
+
+
 class PirThresholdSeparationContainer(BaseModel):
     """
     Container defining selection of one from pre-defined policer-threshold-separation policies
@@ -165,6 +198,50 @@ class RootPoolListEntry(BaseModel):
     mid_pool_members: Annotated[
         Optional[MidPoolMembersContainer], Field(alias='srl_nokia-qos:mid-pool-members')
     ] = None
+
+
+class SchedClassInputsLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=255)]
+    """
+    List of scheduling-classes feeding the tier-0 sched-class-scheduler
+    """
+
+
+class SchedulerInputsLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of tier-0 queue-schedulers feeding the tier-1 queue-scheduler
+    """
+
+
+class SchedulerInputsLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=4294967295)]
+    """
+    List of tier-0 sched-class-schedulers feeding the tier-1 sched-class-scheduler
+    """
+
+
+class SchedulingClassLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=0, le=6)]
+    """
+    List of scheduling-classes which are input to this tier-0 scheduler
+    """
 
 
 class SchedulingResourcesPoolsContainer(BaseModel):
@@ -1205,6 +1282,22 @@ class QueueDepthContainer(BaseModel):
     """
 
 
+class QueueLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of queues which are input to the scheduler
+    """
+
+
 class QueueListEntry(BaseModel):
     """
     List of user-defined queues
@@ -1274,8 +1367,8 @@ class QueueListEntry2(BaseModel):
     Egress-queue name
     """
     pfc_pause_frame_priority: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-qos:pfc-pause-frame-priority', ge=0, le=7),
+        Optional[List[PfcPauseFramePriorityLeafList2]],
+        Field(alias='srl_nokia-qos:pfc-pause-frame-priority'),
     ] = []
     """
     The pfc-priority received in pfc-pause-frame
@@ -1458,7 +1551,8 @@ class SchedulingClassCase(BaseModel):
         regex_engine="python-re",
     )
     scheduling_class: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-qos:scheduling-class', ge=0, le=6)
+        Optional[List[SchedulingClassLeafList]],
+        Field(alias='srl_nokia-qos:scheduling-class'),
     ] = []
     """
     List of scheduling-classes which are input to this tier-0 scheduler
@@ -2115,6 +2209,38 @@ class ExplicitCongestionNotificationContainer(BaseModel):
     Reference to the DSCP rewrite policy to use when DSCP rewrite is required as a side effect of ECN remarking.
 
     This is required configuration in order to globally enable ECN on J2 platforms
+    """
+
+
+class ForwardingClassLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of forwarding-classes which packets are assigned to a given pfc-queue for untagged routed-interfaces
+    """
+
+
+class ForwardingClassLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    The forwarding class mapped in the given pfc-queue
     """
 
 
@@ -2865,24 +2991,21 @@ class PfcQueueListEntry2(BaseModel):
     PFC-queue the packets should be mapped to
     """
     dot1p: Annotated[
-        Optional[List[int]], Field(alias='srl_nokia-qos:dot1p', ge=0, le=7)
+        Optional[List[Dot1pLeafList]], Field(alias='srl_nokia-qos:dot1p')
     ] = []
     """
     List of dot1p values of the packets which will be assigned to a given pfc-queue
     """
     forwarding_class: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-qos:forwarding-class',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ForwardingClassLeafList]],
+        Field(alias='srl_nokia-qos:forwarding-class'),
     ] = []
     """
     List of forwarding-classes which packets are assigned to a given pfc-queue for untagged routed-interfaces
     """
     pfc_pause_frame_priority: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-qos:pfc-pause-frame-priority', ge=0, le=7),
+        Optional[List[PfcPauseFramePriorityLeafList]],
+        Field(alias='srl_nokia-qos:pfc-pause-frame-priority'),
     ] = []
     """
     PFC priorities indicated in generated pfc-pause-frame if congestion occurs in a given pfc-queue
@@ -2915,11 +3038,8 @@ class PfcQueueListEntry3(BaseModel):
     The pfc-queue name
     """
     forwarding_class: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-qos:forwarding-class',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[ForwardingClassLeafList2]],
+        Field(alias='srl_nokia-qos:forwarding-class'),
     ] = []
     """
     The forwarding class mapped in the given pfc-queue
@@ -3138,11 +3258,7 @@ class QueueListCase(BaseModel):
         regex_engine="python-re",
     )
     queue: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-qos:queue',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[QueueLeafList]], Field(alias='srl_nokia-qos:queue')
     ] = []
     """
     List of queues which are input to the scheduler
@@ -3171,8 +3287,8 @@ class QueueSchedulerListEntry(BaseModel):
     List of queues feeding the tier-0 queue-scheduler
     """
     scheduler_inputs: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-qos:scheduler-inputs', ge=0, le=4294967295),
+        Optional[List[SchedulerInputsLeafList]],
+        Field(alias='srl_nokia-qos:scheduler-inputs'),
     ] = []
     """
     List of tier-0 queue-schedulers feeding the tier-1 queue-scheduler
@@ -3404,15 +3520,15 @@ class SchedClassSchedulerListEntry(BaseModel):
     Sequence-id of the scheduler as configured in the respective sched-class-scheduling-policy
     """
     sched_class_inputs: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-qos:sched-class-inputs', ge=0, le=255),
+        Optional[List[SchedClassInputsLeafList]],
+        Field(alias='srl_nokia-qos:sched-class-inputs'),
     ] = []
     """
     List of scheduling-classes feeding the tier-0 sched-class-scheduler
     """
     scheduler_inputs: Annotated[
-        Optional[List[int]],
-        Field(alias='srl_nokia-qos:scheduler-inputs', ge=0, le=4294967295),
+        Optional[List[SchedulerInputsLeafList2]],
+        Field(alias='srl_nokia-qos:scheduler-inputs'),
     ] = []
     """
     List of tier-0 sched-class-schedulers feeding the tier-1 sched-class-scheduler

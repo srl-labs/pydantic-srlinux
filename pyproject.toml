@@ -3,15 +3,12 @@ name = "pydantic-srlinux"
 version = "0.1.0"
 description = "Pydantic models for Nokia SR Linux"
 readme = "README.md"
-requires-python = "~=3.12"
-dependencies = [
-    "datamodel-code-generator",
-    "pydantic>=2.10.6",
-]
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.10.6"]
 
 [dependency-groups]
 dev = [
-    "pydantify>=0.7.1",
+    "pydantify>=0.7.2",
     "httpx>=0.28.1",
     "pyyaml>=6.0.2",
     "rich>=13.9.4",
@@ -24,6 +21,3 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["pydantic_srlinux"]
-
-[tool.uv.sources]
-datamodel-code-generator = { git = "https://github.com/dpeachey/datamodel-code-generator", rev = "fix-collapse-root-model-when-list-contains-fields-with-constraints" }

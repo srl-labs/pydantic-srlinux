@@ -7,6 +7,28 @@ from pydantic import BaseModel, ConfigDict, Field, RootModel
 from typing_extensions import Annotated
 
 
+class FailedSlotsLeafList(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=16)]
+    """
+    The list of slot IDs corresponding to the linecards that did not successfully program the mac
+    """
+
+
+class FailedSlotsLeafList2(RootModel[int]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[int, Field(ge=1, le=16)]
+    """
+    The list of slot IDs corresponding to the linecards that did not successfully program the mac
+    """
+
+
 class MulticastLimitContainer(BaseModel):
     """
     Multicast limits per vxlan interface.
@@ -493,11 +515,9 @@ class MacListEntry(BaseModel):
     The reason why the mac is not programmed
     """
     failed_slots: Annotated[
-        Optional[List[int]],
+        Optional[List[FailedSlotsLeafList]],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-slots',
-            ge=1,
-            le=16,
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-slots'
         ),
     ] = []
     """
@@ -557,11 +577,9 @@ class MacListEntry2(BaseModel):
     The reason why the mac is not programmed
     """
     failed_slots: Annotated[
-        Optional[List[int]],
+        Optional[List[FailedSlotsLeafList2]],
         Field(
-            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-slots',
-            ge=1,
-            le=16,
+            alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:failed-slots'
         ),
     ] = []
     """

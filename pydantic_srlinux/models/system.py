@@ -318,6 +318,30 @@ class MulticastContainer(BaseModel):
     """
 
 
+class PathsLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?\\-{}*\\\\\\\\"\\[\\]]+$).*$'
+        ),
+    ]
+    """
+    List of valid YANG paths in CLI notation to monitor for changes
+
+    If any events are received on any of the provided paths, the configured script will be executed.
+
+    This path may include keys, wildcards, ranges, and other management server supported constructs.
+
+    E.g.
+        "interface * oper-state"
+        "acl ipv4-filter foo* description"
+    """
+
+
 class PtpContainer(BaseModel):
     pass
     model_config = ConfigDict(
@@ -430,6 +454,52 @@ class RouteDistinguisherType2bType(RootModel[str]):
             pattern='^(?=^(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]).(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9]):(6553[0-5]|655[0-2][0-9]|654[0-9]{2}|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{1,3}|[0-9])$).*$'
         ),
     ]
+
+
+class SearchListLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$'
+        ),
+    ]
+    """
+    An ordered list of domains to search when resolving a host name
+    """
+
+
+class SpiffeIdsLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(pattern='^(?=^spiffe://.*$).*$')]
+    """
+    The SPIFFE ID list for the user, including the spiffe:// URI
+
+    This list of IDs is evaluated by TLS-consuming servers (e.g. gNMI, JSON-RPC) that use a TLS server-profile with authenticate-client set to true.
+
+    If a match is found in any incoming offered client certificates, the provider of the certificate is associated with this local user, and given resulting permissions.
+    """
+
+
+class SpiffeIdsLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(pattern='^(?=^spiffe://.*$).*$')]
+    """
+    The SPIFFE ID list for the user, including the spiffe:// URI
+
+    This list of IDs is evaluated by TLS-consuming servers (e.g. gNMI, JSON-RPC) that use a TLS server-profile with authenticate-client set to true.
+
+    If a match is found in any incoming offered client certificates, the provider of the certificate is associated with this local user, and given resulting permissions.
+    """
 
 
 class StringOrBinaryType1(RootModel[bytes]):
@@ -2499,6 +2569,22 @@ class EviListEntry(BaseModel):
     """
 
 
+class FeaturesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Features enabled on this platform
+    """
+
+
 class ForwardingComplexContainer(BaseModel):
     model_config = ConfigDict(
         populate_by_name=True,
@@ -2657,6 +2743,19 @@ class IcmpContainer(BaseModel):
         Optional[RateLimitPerHostContainer],
         Field(alias='srl_nokia-system-datapath:rate-limit-per-host'),
     ] = None
+
+
+class ImageLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[str, Field(pattern='^(?=^[0-9A-Za-z_\\-\\.]*$).*$')]
+    """
+    Ordered list of local images used to boot the system
+
+    This directly translates into boot configuration in grub, where the images are tried in the order specified by the user. Images are sourced via the internal SD card, and the value passed is the folder that contains the initramfs, kernel, and squashfs image. The search path for these directories is /mnt/nokiaos/<folder>
+    """
 
 
 class InstanceListEntry4(BaseModel):
@@ -3167,6 +3266,72 @@ class NetconfContainer(BaseModel):
     """
 
 
+class NetworkInstanceLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances to enable LLDP BGP auto discovery in
+
+    Default is to run LLDP BGP auto discovery in all network instances
+    """
+
+
+class NetworkInstancesLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of network instances that should be part of the maintenance group.
+    """
+
+
+class NtpServerLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    List of NTP Servers to return to the dhcp client - option 42
+    """
+
+
+class NtpServerLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    List of NTP Servers to return to the dhcp client - option 42
+    """
+
+
 class OverloadContainer(BaseModel):
     """
     Container for ISIS overload configurations.
@@ -3343,6 +3508,24 @@ class PathsListEntry(BaseModel):
     ] = None
     """
     Time in seconds to provide updates to the remote host, set to 0 for all subscription modes except SAMPLE
+    """
+
+
+class PeerGroupLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of BGP peer groups that belong to the network instance and that should be part of the maintenance group
+
+    If this list is empty and so is the neighbor list, then the system interprets the meaning as ALL static and dynamic sessions belonging to the specified network-instance.
     """
 
 
@@ -3579,6 +3762,64 @@ class ReadsContainer(BaseModel):
     """
     A timestamp of the last time the gNSI.pathz allowed access to
     a schema path.
+    """
+
+
+class RoleLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of roles to assign to all dynamic SPIFFE clients
+
+    Dynamic SPIFFE clients are clients authenticated using a client certificate containing SPIFFE ID value that
+    is not configured under any local user. The most specific rule for a particular role takes precedence. Rules
+    from all user roles are evaluated together, most permissive privilege taking precedence.
+    """
+
+
+class RoleLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of roles to assign to this user
+
+    The most specific rule for a particular role takes precedence.
+    Rules from all user roles are evaluated together, most permissive privilege taking precedence.
+    """
+
+
+class RoleLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    List of roles to assign to this user
+
+    The most specific rule for a particular role takes precedence.
+    Rules from all user roles are evaluated together, most permissive privilege taking precedence.
     """
 
 
@@ -5424,6 +5665,38 @@ class Sync0Case2(BaseModel):
     )
 
 
+class TftpServerAddressLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    List of IP address of the TFTP servers the client will use to download bootfile/configuration script - option 150
+    """
+
+
+class TftpServerAddressLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    List of IP address of the TFTP servers the client will use to download bootfile/configuration script - option 150
+    """
+
+
 class TxAnnounceContainer(BaseModel):
     """
     Statistics for transmit announce sessions
@@ -5836,6 +6109,24 @@ class XstpContainer(BaseModel):
     """
 
 
+class AccountingMethodLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Ordered list of server-groups to use for accounting in the system
+
+    If accounting fails with one method, the next defined method is tried -- failure of all methods results in the accounting request failing.
+    """
+
+
 class AccountingContainer(BaseModel):
     """
     Top-level container for accounting
@@ -5846,11 +6137,8 @@ class AccountingContainer(BaseModel):
         regex_engine="python-re",
     )
     accounting_method: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-aaa:accounting-method',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[AccountingMethodLeafList]],
+        Field(alias='srl_nokia-aaa:accounting-method'),
     ] = []
     """
     Ordered list of server-groups to use for accounting in the system
@@ -5892,6 +6180,24 @@ class AdmfContainer(BaseModel):
     """
 
 
+class AuthenticationMethodLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$'
+        ),
+    ]
+    """
+    Ordered list of server-groups to be used during user authentication
+
+    If authentication fails with one method, the next defined method is tried -- failure of all methods results in the user being denied access.
+    """
+
+
 class BgpAutoDiscoveryContainer(BaseModel):
     """
     Top-level container for global LLDP BGP auto discovery
@@ -5911,11 +6217,8 @@ class BgpAutoDiscoveryContainer(BaseModel):
     BGP autodiscovery configuration
     """
     network_instance: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-lldp:network-instance',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[NetworkInstanceLeafList]],
+        Field(alias='srl_nokia-lldp:network-instance'),
     ] = []
     """
     List of network instances to enable LLDP BGP auto discovery in
@@ -6340,6 +6643,70 @@ class DatapathContainer(BaseModel):
     ] = None
 
 
+class DnsServerLeafList(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    An Ordered List of DNS servers to return to the dhcp client - option 6
+    """
+
+
+class DnsServerLeafList2(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$'
+        ),
+    ]
+    """
+    An Ordered List of DNS servers to return to the dhcp client - option 6
+    """
+
+
+class DnsServerLeafList3(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    An Ordered List of DNS servers to return to the dhcp client
+    """
+
+
+class DnsServerLeafList4(RootModel[str]):
+    model_config = ConfigDict(
+        populate_by_name=True,
+        regex_engine="python-re",
+    )
+    root: Annotated[
+        str,
+        Field(
+            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$'
+        ),
+    ]
+    """
+    An Ordered List of DNS servers to return to the dhcp client
+    """
+
+
 class Dot1xContainer2(BaseModel):
     """
     Container for 802.1x protocols.
@@ -6408,13 +6775,9 @@ class DynamicSpiffeContainer(BaseModel):
     will accept the client. Otherwise the SPIFFE ID must be configured under some local user. Even if enabled, any
     client using local user's configured SPIFFE ID will use that user's identity in all operations
     """
-    role: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-aaa:role',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
-    ] = []
+    role: Annotated[Optional[List[RoleLeafList]], Field(alias='srl_nokia-aaa:role')] = (
+        []
+    )
     """
     List of roles to assign to all dynamic SPIFFE clients
 
@@ -6919,11 +7282,8 @@ class IsisContainer(BaseModel):
         regex_engine="python-re",
     )
     network_instances: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-maintenance-mode:network-instances',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
-        ),
+        Optional[List[NetworkInstancesLeafList]],
+        Field(alias='srl_nokia-maintenance-mode:network-instances'),
     ] = []
     """
     List of network instances that should be part of the maintenance group.
@@ -7772,11 +8132,8 @@ class NetworkInstanceListEntry4(BaseModel):
     A unique name identifying the network instance
     """
     peer_group: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-maintenance-mode:peer-group',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[PeerGroupLeafList]],
+        Field(alias='srl_nokia-maintenance-mode:peer-group'),
     ] = []
     """
     List of BGP peer groups that belong to the network instance and that should be part of the maintenance group
@@ -7918,11 +8275,8 @@ class OptionsContainer2(BaseModel):
     The name of the configuration file the client will use during booting - option 67
     """
     dns_server: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:dns-server',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[DnsServerLeafList]],
+        Field(alias='srl_nokia-dhcp-server:dns-server'),
     ] = []
     """
     An Ordered List of DNS servers to return to the dhcp client - option 6
@@ -7948,11 +8302,8 @@ class OptionsContainer2(BaseModel):
     Host Name option of the dhcp client - option 12
     """
     ntp_server: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:ntp-server',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[NtpServerLeafList]],
+        Field(alias='srl_nokia-dhcp-server:ntp-server'),
     ] = []
     """
     List of NTP Servers to return to the dhcp client - option 42
@@ -7979,11 +8330,8 @@ class OptionsContainer2(BaseModel):
     anycast gateway address in case of multihoming - option 54
     """
     tftp_server_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:tftp-server-address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[TftpServerAddressLeafList]],
+        Field(alias='srl_nokia-dhcp-server:tftp-server-address'),
     ] = []
     """
     List of IP address of the TFTP servers the client will use to download bootfile/configuration script - option 150
@@ -8015,11 +8363,8 @@ class OptionsContainer3(BaseModel):
     The name of the configuration file the client will use during booting - option 67
     """
     dns_server: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:dns-server',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[DnsServerLeafList2]],
+        Field(alias='srl_nokia-dhcp-server:dns-server'),
     ] = []
     """
     An Ordered List of DNS servers to return to the dhcp client - option 6
@@ -8045,11 +8390,8 @@ class OptionsContainer3(BaseModel):
     Host Name option of the dhcp client - option 12
     """
     ntp_server: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:ntp-server',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[NtpServerLeafList2]],
+        Field(alias='srl_nokia-dhcp-server:ntp-server'),
     ] = []
     """
     List of NTP Servers to return to the dhcp client - option 42
@@ -8076,11 +8418,8 @@ class OptionsContainer3(BaseModel):
     anycast gateway address in case of multihoming - option 54
     """
     tftp_server_address: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:tftp-server-address',
-            pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
-        ),
+        Optional[List[TftpServerAddressLeafList2]],
+        Field(alias='srl_nokia-dhcp-server:tftp-server-address'),
     ] = []
     """
     List of IP address of the TFTP servers the client will use to download bootfile/configuration script - option 150
@@ -8103,11 +8442,8 @@ class OptionsContainer4(BaseModel):
         regex_engine="python-re",
     )
     dns_server: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:dns-server',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[DnsServerLeafList3]],
+        Field(alias='srl_nokia-dhcp-server:dns-server'),
     ] = []
     """
     An Ordered List of DNS servers to return to the dhcp client
@@ -8120,11 +8456,8 @@ class OptionsContainer5(BaseModel):
         regex_engine="python-re",
     )
     dns_server: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dhcp-server:dns-server',
-            pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
-        ),
+        Optional[List[DnsServerLeafList4]],
+        Field(alias='srl_nokia-dhcp-server:dns-server'),
     ] = []
     """
     An Ordered List of DNS servers to return to the dhcp client
@@ -12685,11 +13018,7 @@ class InstanceListEntry(BaseModel):
     Administratively enable or disable this event handler instance
     """
     paths: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-event-handler:paths',
-            pattern='^(?=^[A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?\\-{}*\\\\\\\\"\\[\\]]+$).*$',
-        ),
+        Optional[List[PathsLeafList]], Field(alias='srl_nokia-event-handler:paths')
     ] = []
     """
     List of valid YANG paths in CLI notation to monitor for changes
@@ -14710,11 +15039,7 @@ class UserListEntry(BaseModel):
     If provided as a hashed value, the value should include any '$' characters, for example '$ar2$aOvsuj0ALlU=$r750fMa3ZEA/Di8dIfU2fQ=='.
     """
     role: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-aaa:role',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[RoleLeafList3]], Field(alias='srl_nokia-aaa:role')
     ] = []
     """
     List of roles to assign to this user
@@ -14731,8 +15056,7 @@ class UserListEntry(BaseModel):
     Additionally, users with the superuser attribute are able to execute 'sudo' in bash. A user may also be assigned a role or list of roles, but these are only evaluated for service authorization.
     """
     spiffe_ids: Annotated[
-        Optional[List[str]],
-        Field(alias='srl_nokia-aaa:spiffe-ids', pattern='^(?=^spiffe://.*$).*$'),
+        Optional[List[SpiffeIdsLeafList2]], Field(alias='srl_nokia-aaa:spiffe-ids')
     ] = []
     """
     The SPIFFE ID list for the user, including the spiffe:// URI
@@ -14821,11 +15145,7 @@ class AdminUserContainer(BaseModel):
     If provided as a hashed value, the value should include any '$' characters, for example '$ar2$aOvsuj0ALlU=$r750fMa3ZEA/Di8dIfU2fQ=='.
     """
     role: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-aaa:role',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[RoleLeafList2]], Field(alias='srl_nokia-aaa:role')
     ] = []
     """
     List of roles to assign to this user
@@ -14842,8 +15162,7 @@ class AdminUserContainer(BaseModel):
     Additionally, users with the superuser attribute are able to execute 'sudo' in bash. A user may also be assigned a role or list of roles, but these are only evaluated for service authorization.
     """
     spiffe_ids: Annotated[
-        Optional[List[str]],
-        Field(alias='srl_nokia-aaa:spiffe-ids', pattern='^(?=^spiffe://.*$).*$'),
+        Optional[List[SpiffeIdsLeafList]], Field(alias='srl_nokia-aaa:spiffe-ids')
     ] = []
     """
     The SPIFFE ID list for the user, including the spiffe:// URI
@@ -14934,11 +15253,8 @@ class AuthenticationContainer(BaseModel):
         regex_engine="python-re",
     )
     authentication_method: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-aaa:authentication-method',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[AuthenticationMethodLeafList]],
+        Field(alias='srl_nokia-aaa:authentication-method'),
     ] = []
     """
     Ordered list of server-groups to be used during user authentication
@@ -15026,8 +15342,7 @@ class BootContainer(BaseModel):
         regex_engine="python-re",
     )
     image: Annotated[
-        Optional[List[str]],
-        Field(alias='srl_nokia-boot:image', pattern='^(?=^[0-9A-Za-z_\\-\\.]*$).*$'),
+        Optional[List[ImageLeafList]], Field(alias='srl_nokia-boot:image')
     ] = []
     """
     Ordered list of local images used to boot the system
@@ -15305,11 +15620,7 @@ class DnsContainer(BaseModel):
     Details the operational state of the DNS client
     """
     search_list: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-dns:search-list',
-            pattern='^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$',
-        ),
+        Optional[List[SearchListLeafList]], Field(alias='srl_nokia-dns:search-list')
     ] = []
     """
     An ordered list of domains to search when resolving a host name
@@ -16983,11 +17294,7 @@ class SystemContainer(BaseModel):
         regex_engine="python-re",
     )
     features: Annotated[
-        Optional[List[str]],
-        Field(
-            alias='srl_nokia-system:features',
-            pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
-        ),
+        Optional[List[FeaturesLeafList]], Field(alias='srl_nokia-system:features')
     ] = []
     """
     Features enabled on this platform
