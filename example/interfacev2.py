@@ -1,0 +1,44 @@
+from client import Action, SRLClient
+from log import setup_logging
+
+import pydantic_srlinux.models.interfaces as srl_if
+
+setup_logging()
+
+
+# creates a single tagged vlan
+def st_vlan(vlan_id: int) -> srl_if.VlanContainer:
+    return srl_if.VlanContainer(
+        encap=srl_if.EncapContainer(
+            single_tagged=srl_if.SingleTaggedContainer(
+                vlan_id=srl_if.VlanIdType(vlan_id)
+            )
+        ),
+    )
+
+
+def subif(index: int, type: str) -> srl_if.SubinterfaceListEntry:
+    return srl_if.SubinterfaceListEntry(
+        index=index,
+        type=type,
+        admin_state=srl_if.EnumerationEnum.enable,
+        vlan=st_vlan(vlan_id=index),
+    )
+
+
+e1_1 = srl_if.InterfaceListEntry(
+    name="ethernet-1/1",
+    admin_state=srl_if.EnumerationEnum.enable,
+    vlan_tagging=True,
+    subinterface=[
+        subif(index=100, type="bridged"),
+    ],
+)
+
+with SRLClient(host="srl") as client:
+    client.add_command(
+        action=Action.UPDATE,
+        path="/interface[name=ethernet-1/1]",
+        value=e1_1,
+    )
+    client.send_request()
