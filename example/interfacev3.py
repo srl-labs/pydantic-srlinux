@@ -1,11 +1,10 @@
 from client import Action, SRLClient
 from log import setup_logging
 from pydantic import BaseModel
-from rich import print
 
 import pydantic_srlinux.models.interfaces as srl_if
 
-setup_logging()
+logger = setup_logging()
 
 
 class Common(BaseModel):
@@ -54,7 +53,9 @@ class Interface(srl_if.InterfaceListEntry, Common):
             vlan_tagging=True,
         )
 
-        self.path: str = f"/interface[name={name}]"
+    @property
+    def path(self) -> str:
+        return f"/interface[name={self.name}]"
 
     def add_subif(self, subif: Subinterface):
         if self.subinterface is None:
@@ -70,7 +71,8 @@ def main():
     )
     e1_1.add_subif(subif=sub_if_100)
 
-    print(e1_1.to_json(by_alias=False))
+    logger.info(e1_1.to_json(by_alias=False))
+    logger.debug(e1_1.path)
 
     # Deploy configuration on a device
     with SRLClient(host="srl") as client:
