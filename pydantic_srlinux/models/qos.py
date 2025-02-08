@@ -84,9 +84,7 @@ class MidPoolMemberListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=7)] = (
-        None
-    )
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=0, le=7)]
     """
     Mid-pool index
     """
@@ -181,9 +179,7 @@ class RootPoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=4)] = (
-        None
-    )
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=0, le=4)]
     """
     Root-pool index
     """
@@ -274,8 +270,8 @@ class UnicastPriorityListEntry(BaseModel):
         regex_engine="python-re",
     )
     resource_priority: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:resource-priority', ge=0, le=3)
-    ] = None
+        int, Field(alias='srl_nokia-qos:resource-priority', ge=0, le=3)
+    ]
     """
     Resource-priority for unicast packets
     """
@@ -629,8 +625,8 @@ class InputProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     input_profile: Annotated[
-        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:input-profile')
-    ] = None
+        EnumerationEnum2, Field(alias='srl_nokia-qos:input-profile')
+    ]
     """
     The profile the input packet was classified to, based on applicable classification criteria
     """
@@ -675,9 +671,7 @@ class InterfacePoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=255)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=0, le=255)]
     """
     Interface-pool index
     """
@@ -702,8 +696,8 @@ class MulticastPriorityListEntry(BaseModel):
         regex_engine="python-re",
     )
     resource_priority: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:resource-priority', ge=0, le=3)
-    ] = None
+        int, Field(alias='srl_nokia-qos:resource-priority', ge=0, le=3)
+    ]
     """
     Resource-priority for multicast and broadcast packets
     """
@@ -733,8 +727,8 @@ class OperationalSeparationThresholdsListEntry(BaseModel):
         regex_engine="python-re",
     )
     input_profile: Annotated[
-        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:input-profile')
-    ] = None
+        EnumerationEnum2, Field(alias='srl_nokia-qos:input-profile')
+    ]
     """
     The profile the input packet was classified to, based on applicable classification criteria
     """
@@ -808,12 +802,12 @@ class ParentPolicerThresholdPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name assigned to the parent-policer-threshold-policy
     """
@@ -915,9 +909,7 @@ class PfcPriorityListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=7)] = (
-        None
-    )
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=0, le=7)]
     """
     PFC-priority index
     """
@@ -973,12 +965,12 @@ class PfcQueueListEntry(BaseModel):
         regex_engine="python-re",
     )
     pfc_queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:pfc-queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-defined name of the pfc-queue
     """
@@ -998,12 +990,12 @@ class PfcQueueListEntry4(BaseModel):
         regex_engine="python-re",
     )
     pfc_queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:pfc-queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The pfc-queue name
     """
@@ -1066,9 +1058,7 @@ class PolicerListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    policer_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)
-    ] = None
+    policer_id: Annotated[int, Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)]
     """
     Input policer-id
     """
@@ -1176,9 +1166,7 @@ class ProfileListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    profile_name: Annotated[
-        Optional[EnumerationEnum2], Field(alias='srl_nokia-qos:profile-name')
-    ] = None
+    profile_name: Annotated[EnumerationEnum2, Field(alias='srl_nokia-qos:profile-name')]
     """
     Profile-names for different profiles used during classification
     """
@@ -1308,12 +1296,12 @@ class QueueListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-defined name of the queue
 
@@ -1357,12 +1345,12 @@ class QueueListEntry2(BaseModel):
         regex_engine="python-re",
     )
     queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Egress-queue name
     """
@@ -1391,12 +1379,12 @@ class QueueListEntry5(BaseModel):
         regex_engine="python-re",
     )
     queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The queue name
     """
@@ -1568,9 +1556,7 @@ class SchedulingClassListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=6)] = (
-        None
-    )
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=0, le=6)]
     """
     Scheduling-class index
     """
@@ -1774,12 +1760,12 @@ class ThresholdSeparationPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     System wide pre-defined threshold-separation-policy name
     """
@@ -1794,9 +1780,7 @@ class ThresholdListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=1, le=3)] = (
-        None
-    )
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=1, le=3)]
     """
     Threshold index
     """
@@ -2046,12 +2030,12 @@ class BufferAllocationProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Unique string name used for the buffer-allocation-profile
     """
@@ -2066,8 +2050,8 @@ class DropProbabilityListEntry2(BaseModel):
         regex_engine="python-re",
     )
     drop_probability: Annotated[
-        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
-    ] = None
+        EnumerationEnum9, Field(alias='srl_nokia-qos:drop-probability')
+    ]
     """
     A drop probability level within the FC for which a different remarking is desired
     """
@@ -2085,8 +2069,8 @@ class DropProbabilityListEntry3(BaseModel):
         regex_engine="python-re",
     )
     drop_probability: Annotated[
-        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
-    ] = None
+        EnumerationEnum9, Field(alias='srl_nokia-qos:drop-probability')
+    ]
     """
     A drop probability level within the FC for which a different remarking is desired
     """
@@ -2254,12 +2238,12 @@ class ForwardingClassListEntry2(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The forwarding class
     """
@@ -2274,12 +2258,12 @@ class ForwardingClassListEntry3(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The forwarding class
     """
@@ -2297,9 +2281,7 @@ class ForwardingComplexListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[EnumerationEnum19], Field(alias='srl_nokia-qos:name')] = (
-        None
-    )
+    name: Annotated[EnumerationEnum19, Field(alias='srl_nokia-qos:name')]
     """
     Forwarding-complex name
     """
@@ -2573,12 +2555,12 @@ class InputClassMapListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User defined input-class-map name
     """
@@ -2597,7 +2579,7 @@ class InputListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[str], Field(alias='srl_nokia-qos:id')] = None
+    id: Annotated[str, Field(alias='srl_nokia-qos:id')]
     """
     User-defined identifier for the scheduler input
     """
@@ -2666,9 +2648,7 @@ class InterfaceInstanceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-qos:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-qos:interface-name')]
     peak_rate_kbps: Annotated[
         Optional[int],
         Field(alias='srl_nokia-qos:peak-rate-kbps', ge=0, le=18446744073709551615),
@@ -2684,9 +2664,7 @@ class InterfaceInstanceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-qos:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-qos:interface-name')]
     peak_rate_kbps: Annotated[
         Optional[int],
         Field(alias='srl_nokia-qos:peak-rate-kbps', ge=0, le=18446744073709551615),
@@ -2703,9 +2681,7 @@ class InterfacePoolListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=7)] = (
-        None
-    )
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=0, le=7)]
     slope_policy: Annotated[
         Optional[str],
         Field(
@@ -2730,9 +2706,7 @@ class LinecardListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    slot: Annotated[Optional[int], Field(alias='srl_nokia-qos:slot', ge=1, le=16)] = (
-        None
-    )
+    slot: Annotated[int, Field(alias='srl_nokia-qos:slot', ge=1, le=16)]
     """
     Numeric identifier for the linecard
     """
@@ -2751,9 +2725,7 @@ class MidPoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[Optional[int], Field(alias='srl_nokia-qos:index', ge=0, le=7)] = (
-        None
-    )
+    index: Annotated[int, Field(alias='srl_nokia-qos:index', ge=0, le=7)]
     """
     Mid-pool index
     """
@@ -2981,12 +2953,12 @@ class PfcQueueListEntry2(BaseModel):
         regex_engine="python-re",
     )
     pfc_queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:pfc-queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     PFC-queue the packets should be mapped to
     """
@@ -3028,12 +3000,12 @@ class PfcQueueListEntry3(BaseModel):
         regex_engine="python-re",
     )
     pfc_queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:pfc-queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The pfc-queue name
     """
@@ -3163,9 +3135,7 @@ class ProfileListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    profile: Annotated[
-        Optional[EnumerationEnum10], Field(alias='srl_nokia-qos:profile')
-    ] = None
+    profile: Annotated[EnumerationEnum10, Field(alias='srl_nokia-qos:profile')]
     """
     A packet profile within the FC for which a different remarking is desired
     """
@@ -3182,9 +3152,7 @@ class ProfileListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    profile: Annotated[
-        Optional[EnumerationEnum10], Field(alias='srl_nokia-qos:profile')
-    ] = None
+    profile: Annotated[EnumerationEnum10, Field(alias='srl_nokia-qos:profile')]
     """
     A packet profile within the FC for which a different remarking is desired
     """
@@ -3201,9 +3169,7 @@ class ProfileListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    profile: Annotated[
-        Optional[EnumerationEnum10], Field(alias='srl_nokia-qos:profile')
-    ] = None
+    profile: Annotated[EnumerationEnum10, Field(alias='srl_nokia-qos:profile')]
     """
     A packet profile within the FC for which a different remarking is desired
     """
@@ -3274,9 +3240,7 @@ class QueueSchedulerListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=255)
-    ] = None
+    sequence_id: Annotated[int, Field(alias='srl_nokia-qos:sequence-id', ge=0, le=255)]
     """
     Sequence-id of the scheduler as configured in the respective queue-scheduling-policy
     """
@@ -3336,12 +3300,12 @@ class QueueListEntry3(BaseModel):
         regex_engine="python-re",
     )
     queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The queue name
     """
@@ -3513,9 +3477,7 @@ class SchedClassSchedulerListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=255)
-    ] = None
+    sequence_id: Annotated[int, Field(alias='srl_nokia-qos:sequence-id', ge=0, le=255)]
     """
     Sequence-id of the scheduler as configured in the respective sched-class-scheduling-policy
     """
@@ -3601,9 +3563,7 @@ class SchedulerListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    sequence: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:sequence', ge=0, le=1)
-    ] = None
+    sequence: Annotated[int, Field(alias='srl_nokia-qos:sequence', ge=0, le=1)]
     """
     Sequence number for the scheduler within the scheduler policy. Schedulers are processed from lowest sequence to highest
     """
@@ -3627,9 +3587,7 @@ class SchedulerListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=8)
-    ] = None
+    sequence_id: Annotated[int, Field(alias='srl_nokia-qos:sequence-id', ge=0, le=8)]
     """
     Identifier of the scheduler
     """
@@ -3677,9 +3635,7 @@ class TrafficClassListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[Optional[int], Field(alias='srl_nokia-qos:value', ge=0, le=7)] = (
-        None
-    )
+    value: Annotated[int, Field(alias='srl_nokia-qos:value', ge=0, le=7)]
     """
     A single traffic-class value
     """
@@ -3747,14 +3703,14 @@ class WredSlopeListEntry(BaseModel):
         regex_engine="python-re",
     )
     traffic_type: Annotated[
-        Optional[EnumerationEnum21], Field(alias='srl_nokia-qos:traffic-type')
-    ] = None
+        EnumerationEnum21, Field(alias='srl_nokia-qos:traffic-type')
+    ]
     """
     The traffic type to which the WRED slope applies
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum22], Field(alias='srl_nokia-qos:drop-probability')
-    ] = None
+        EnumerationEnum22, Field(alias='srl_nokia-qos:drop-probability')
+    ]
     """
     The drop probability to which the WRED slope applies
     """
@@ -3762,9 +3718,7 @@ class WredSlopeListEntry(BaseModel):
     """
     Indicates that packets will be dropped based on WRED slope policy
     """
-    enable_ecn: Annotated[Optional[bool], Field(alias='srl_nokia-qos:enable-ecn')] = (
-        None
-    )
+    enable_ecn: Annotated[bool, Field(alias='srl_nokia-qos:enable-ecn')]
     """
     Indicates that packets should be marked with ecn-bit when the result of wred-slope would discard the packet. It is mutually exclusive with 'drop' flag
     """
@@ -3802,20 +3756,18 @@ class WredSlopeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     traffic_type: Annotated[
-        Optional[EnumerationEnum21], Field(alias='srl_nokia-qos:traffic-type')
-    ] = None
+        EnumerationEnum21, Field(alias='srl_nokia-qos:traffic-type')
+    ]
     """
     The traffic type to which the WRED slope applies
     """
     drop_probability: Annotated[
-        Optional[EnumerationEnum22], Field(alias='srl_nokia-qos:drop-probability')
-    ] = None
+        EnumerationEnum22, Field(alias='srl_nokia-qos:drop-probability')
+    ]
     """
     The drop probability to which the WRED slope applies
     """
-    enable_ecn: Annotated[Optional[bool], Field(alias='srl_nokia-qos:enable-ecn')] = (
-        None
-    )
+    enable_ecn: Annotated[bool, Field(alias='srl_nokia-qos:enable-ecn')]
     """
     When this leaf is true and the number of packets in the queue is between the minimum threshold and the maximum threshold, if the ECN field on the packet indicates that the endpoints are ECN capable and the WRED algorithm determines that the packet should have been dropped based on the drop probability, the CE bits for the packet are changed to 1, and the packet is transmitted.
     When set to false, the such packets will be discarded based on wred-slope
@@ -3875,8 +3827,8 @@ class WredSlopeListEntry3(BaseModel):
         regex_engine="python-re",
     )
     wred_profile: Annotated[
-        Optional[EnumerationEnum23], Field(alias='srl_nokia-qos:wred-profile')
-    ] = None
+        EnumerationEnum23, Field(alias='srl_nokia-qos:wred-profile')
+    ]
     """
     The key for individual wred-slopes 
     """
@@ -3997,9 +3949,7 @@ class Dot1pListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[Optional[int], Field(alias='srl_nokia-qos:value', ge=0, le=7)] = (
-        None
-    )
+    value: Annotated[int, Field(alias='srl_nokia-qos:value', ge=0, le=7)]
     forwarding_class: Annotated[
         Optional[str],
         Field(
@@ -4046,8 +3996,8 @@ class DropProbabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     drop_probability: Annotated[
-        Optional[EnumerationEnum9], Field(alias='srl_nokia-qos:drop-probability')
-    ] = None
+        EnumerationEnum9, Field(alias='srl_nokia-qos:drop-probability')
+    ]
     """
     A drop probability level within the FC for which a different remarking is desired
     """
@@ -4121,9 +4071,8 @@ class DscpListEntry(BaseModel):
         regex_engine="python-re",
     )
     value: Annotated[
-        Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:value'),
-    ] = None
+        Union[DscpValueType, EnumerationEnum3], Field(alias='srl_nokia-qos:value')
+    ]
     """
     A DiffServ Code Point represented numerically or by a PHB name.
     """
@@ -4151,9 +4100,8 @@ class DscpListEntry2(BaseModel):
         regex_engine="python-re",
     )
     value: Annotated[
-        Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:value'),
-    ] = None
+        Union[DscpValueType, EnumerationEnum3], Field(alias='srl_nokia-qos:value')
+    ]
     """
     A DiffServ Code Point represented numerically or by a PHB name.
     """
@@ -4203,9 +4151,8 @@ class DscpListEntry3(BaseModel):
         regex_engine="python-re",
     )
     value: Annotated[
-        Optional[Union[DscpValueType, EnumerationEnum3]],
-        Field(alias='srl_nokia-qos:value'),
-    ] = None
+        Union[DscpValueType, EnumerationEnum3], Field(alias='srl_nokia-qos:value')
+    ]
     """
     A DiffServ Code Point represented numerically or by a PHB name.
     """
@@ -4259,12 +4206,12 @@ class ForwardingClassListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-defined name of the forwarding class
 
@@ -4323,12 +4270,12 @@ class ForwardingClassListEntry4(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The forwarding class
     """
@@ -4353,12 +4300,12 @@ class ForwardingClassListEntry5(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The forwarding class
     """
@@ -4380,12 +4327,12 @@ class ForwardingClassListEntry6(BaseModel):
         regex_engine="python-re",
     )
     fc: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-acl-policers:fc',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A forwarding class that has traffic to match to the policer
     """
@@ -4422,9 +4369,7 @@ class ForwardingComplexListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[EnumerationEnum24], Field(alias='srl_nokia-qos:name')] = (
-        None
-    )
+    name: Annotated[EnumerationEnum24, Field(alias='srl_nokia-qos:name')]
     """
     Forwarding-complex name
     """
@@ -4446,12 +4391,12 @@ class FpPoolPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Unique string name used for the fp-pool-policy. There is a default fp-pool-policy named 'default', as a reserved name not usable for user-defined fp-pool-policies
     """
@@ -4517,12 +4462,12 @@ class InterfacePoolPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Unique string name used for the interface-pool-policy
     """
@@ -4564,9 +4509,7 @@ class LinecardListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    slot: Annotated[Optional[int], Field(alias='srl_nokia-qos:slot', ge=1, le=16)] = (
-        None
-    )
+    slot: Annotated[int, Field(alias='srl_nokia-qos:slot', ge=1, le=16)]
     """
     Numeric identifier for the linecard
     """
@@ -4582,12 +4525,12 @@ class MapListEntry(BaseModel):
         regex_engine="python-re",
     )
     forwarding_class: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The forwarding class
     """
@@ -4612,12 +4555,12 @@ class MapListEntry2(BaseModel):
         regex_engine="python-re",
     )
     forwarding_class: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The forwarding class
     """
@@ -4642,12 +4585,12 @@ class MapListEntry3(BaseModel):
         regex_engine="python-re",
     )
     forwarding_class: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:forwarding-class',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The forwarding class
     """
@@ -4690,8 +4633,8 @@ class MemberInterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     member_interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-qos:member-interface-name')
-    ] = None
+        str, Field(alias='srl_nokia-qos:member-interface-name')
+    ]
     in_profile: Annotated[
         Optional[InProfileContainer2], Field(alias='srl_nokia-qos:in-profile')
     ] = None
@@ -4712,12 +4655,12 @@ class MplsTrafficClassPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-configured name for an MPLS traffic-class mapping policy
 
@@ -4735,12 +4678,12 @@ class MplsTrafficClassPolicyListEntry2(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-configured name for an MPLS traffic-class rewrite policy
     """
@@ -4766,12 +4709,12 @@ class OutputClassMapListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User defined output-class-map name
     """
@@ -4830,9 +4773,7 @@ class PolicerListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    policer_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)
-    ] = None
+    policer_id: Annotated[int, Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)]
     """
     A number to identify given policer within policer-policy
     """
@@ -4920,9 +4861,7 @@ class PolicerListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    policer_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)
-    ] = None
+    policer_id: Annotated[int, Field(alias='srl_nokia-qos:policer-id', ge=0, le=31)]
     """
     A number to identify given policer within policer-policy
     """
@@ -5012,8 +4951,8 @@ class PolicerListEntry4(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-acl-policers:sequence-id', ge=1, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-acl-policers:sequence-id', ge=1, le=65535)
+    ]
     """
     A number to indicate the relative evaluation order of the different policers in a template; policers with lower sequence-id numbers are evaluated before policers with higher sequence-id numbers
     """
@@ -5074,12 +5013,12 @@ class QueueManagementProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Unique string name used for the queue management profile
     """
@@ -5117,12 +5056,12 @@ class QueueListEntry4(BaseModel):
         regex_engine="python-re",
     )
     queue_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:queue-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The queue name
     """
@@ -5222,12 +5161,12 @@ class SchedClassSchedulingPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name for the sched-class-scheduling-policy
     """
@@ -5246,12 +5185,12 @@ class SchedulerPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name for the scheduler policy
     """
@@ -5269,9 +5208,7 @@ class SchedulerListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-qos:sequence-id', ge=0, le=16)
-    ] = None
+    sequence_id: Annotated[int, Field(alias='srl_nokia-qos:sequence-id', ge=0, le=16)]
     """
     Identifier of the scheduler
     """
@@ -5315,12 +5252,12 @@ class SlopePolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Unique string name used for the slope-policy
     """
@@ -5465,12 +5402,12 @@ class Dot1pPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-configured name for a 802.1p prioriy code point mapping policy
 
@@ -5487,12 +5424,12 @@ class Dot1pPolicyListEntry2(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-configured name for an 802.1p priorty code point rewrite policy
     """
@@ -5507,12 +5444,12 @@ class DscpPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-configured name for a DSCP mapping policy
 
@@ -5529,12 +5466,12 @@ class DscpPolicyListEntry2(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-configured name for a DSCP rewrite policy
     """
@@ -5553,12 +5490,12 @@ class DscpReclassifyPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name of egress dscp-reclassifier policy
     """
@@ -5573,12 +5510,12 @@ class IpRewritePolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User defined ip-rewrite-policy name
     """
@@ -5668,12 +5605,12 @@ class PfcMappingProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User defined pfc-mapping-profile name. The name 'default' is reserved for system use
     """
@@ -5720,12 +5657,12 @@ class PolicerPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name assigned to the policer policy
     """
@@ -5747,12 +5684,12 @@ class PolicerTemplateListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-acl-policers:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name assigned to the policer template.
     """
@@ -5789,12 +5726,12 @@ class QueueSchedulingPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-qos:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name for the queue-scheduling-policy
     """
@@ -5946,9 +5883,7 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_id: Annotated[
-        Optional[str], Field(alias='srl_nokia-qos:interface-id')
-    ] = None
+    interface_id: Annotated[str, Field(alias='srl_nokia-qos:interface-id')]
     """
     Identifier for the interface or subinterface
     """

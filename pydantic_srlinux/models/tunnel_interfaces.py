@@ -207,8 +207,8 @@ class DestinationListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int], Field(alias='srl_nokia-tunnel-interfaces:index', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-tunnel-interfaces:index', ge=0, le=65535)
+    ]
     """
     Numerical index of the destination member
     """
@@ -243,12 +243,12 @@ class GroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tunnel-interfaces:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Specifies the destination group name
     """
@@ -316,11 +316,11 @@ class MacTypeListEntry(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum6],
+        EnumerationEnum6,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type'
         ),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -369,11 +369,11 @@ class MacTypeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum6],
+        EnumerationEnum6,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:type'
         ),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -422,9 +422,9 @@ class MacTypeListEntry3(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum6],
+        EnumerationEnum6,
         Field(alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table:type'),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -473,12 +473,12 @@ class MacListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -535,12 +535,12 @@ class MacListEntry2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -741,22 +741,22 @@ class DestinationListEntry3(BaseModel):
         regex_engine="python-re",
     )
     vtep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:vtep'
         ),
-    ] = None
+    ]
     """
     The IP address that identifies the remote VXLAN Termination Endpoint (VTEP).
     """
     vni: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-multicast-destinations:vni',
             ge=1,
             le=16777215,
         ),
-    ] = None
+    ]
     """
     VXLAN Network Identifier of the destination.
     """
@@ -863,22 +863,22 @@ class VtepListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps:address'
         ),
-    ] = None
+    ]
     """
     The IP address that identifies the remote VXLAN Termination Endpoint (VTEP).
     """
     vni: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-es-destination-vteps:vni',
             ge=1,
             le=16777215,
         ),
-    ] = None
+    ]
     """
     VXLAN Network Identifier of the destination.
     """
@@ -890,22 +890,22 @@ class DestinationListEntry2(BaseModel):
         regex_engine="python-re",
     )
     vtep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:vtep'
         ),
-    ] = None
+    ]
     """
     The IP address that identifies the remote VXLAN Termination Endpoint (VTEP).
     """
     vni: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:vni',
             ge=1,
             le=16777215,
         ),
-    ] = None
+    ]
     """
     VXLAN Network Identifier of the destination.
     """
@@ -940,12 +940,12 @@ class EsDestinationListEntry(BaseModel):
         regex_engine="python-re",
     )
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tunnel-interfaces-vxlan-interface-bridge-table-unicast-destinations:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The 10-byte Ethernet Segment Identifier of the ethernet segment.
     ESI-0 or MAX-ESI values are not allowed.
@@ -1035,9 +1035,8 @@ class VxlanInterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-tunnel-interfaces:index', ge=0, le=99999999),
-    ] = None
+        int, Field(alias='srl_nokia-tunnel-interfaces:index', ge=0, le=99999999)
+    ]
     """
     The index of the vxlan-tunnel.
     """
@@ -1085,12 +1084,12 @@ class TunnelInterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tunnel-interfaces:name',
             pattern='^(?=^(vxlan(0|1[0-9][0-9]|2([0-4][0-9]|5[0-5])|[1-9][0-9]|[1-9]))$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the tunnel-interface.
 

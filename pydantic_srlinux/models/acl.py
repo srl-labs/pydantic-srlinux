@@ -114,7 +114,7 @@ class PrefixListListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     Reference to the name of the IPv4 prefix list
     """
@@ -129,7 +129,7 @@ class PrefixListListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     Reference to the name of the IPv6 prefix list
     """
@@ -447,9 +447,7 @@ class ForwardingComplexListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    complex_identifier: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:complex-identifier')
-    ] = None
+    complex_identifier: Annotated[str, Field(alias='srl_nokia-acl:complex-identifier')]
     """
     A forwarding complex in the format (slot-number,complex-number).
     """
@@ -587,7 +585,7 @@ class PrefixListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     Reference to the name of the IPv4 prefix list
     """
@@ -602,7 +600,7 @@ class PrefixListListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     Reference to the name of the IPv6 prefix list
     """
@@ -618,12 +616,12 @@ class PrefixListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-acl:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     A user defined IPv4 prefix
     """
@@ -639,12 +637,12 @@ class PrefixListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ipv6_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-acl:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     A user defined IPv6 prefix
     """
@@ -821,12 +819,12 @@ class SystemCpuPolicerListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-acl:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-defined name of the policer
     """
@@ -1021,8 +1019,8 @@ class EntryListEntry2(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-acl:sequence-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-acl:sequence-id', ge=0, le=65535)
+    ]
     """
     Reference to type entry ID key
     """
@@ -1043,15 +1041,11 @@ class ForwardingComplexListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    slot_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-acl:slot-id', ge=0, le=255)
-    ] = None
+    slot_id: Annotated[int, Field(alias='srl_nokia-acl:slot-id', ge=0, le=255)]
     """
     The slot id
     """
-    complex_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-acl:complex-id', ge=0, le=1)
-    ] = None
+    complex_id: Annotated[int, Field(alias='srl_nokia-acl:complex-id', ge=0, le=1)]
     """
     The complex id
     """
@@ -1140,7 +1134,7 @@ class Ipv4PrefixListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     Reference to the name of the IPv4 prefix list
     """
@@ -1165,7 +1159,7 @@ class Ipv6PrefixListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     Reference to the name of the IPv6 prefix list
     """
@@ -1476,11 +1470,11 @@ class AclFilterListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     ACL Filter policy name
     """
-    type: Annotated[Optional[EnumerationEnum], Field(alias='srl_nokia-acl:type')] = None
+    type: Annotated[EnumerationEnum, Field(alias='srl_nokia-acl:type')]
     """
     Defines the type of ACL filter:
     ipv4: IPv4 ACL filter
@@ -1589,9 +1583,7 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_id: Annotated[
-        Optional[str], Field(alias='srl_nokia-acl:interface-id')
-    ] = None
+    interface_id: Annotated[str, Field(alias='srl_nokia-acl:interface-id')]
     """
     Identifier for the interface or subinterface.
     """
@@ -1709,12 +1701,12 @@ class PolicerListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-acl:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-defined name of the policer
     """
@@ -1915,8 +1907,8 @@ class EntryListEntry(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-acl:sequence-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-acl:sequence-id', ge=0, le=65535)
+    ]
     """
     A number to indicate the relative evaluation order of the different entries; lower numbered entries are evaluated before higher numbered entries
     """
@@ -1960,11 +1952,11 @@ class AclFilterListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     ACL Filter policy name
     """
-    type: Annotated[Optional[EnumerationEnum], Field(alias='srl_nokia-acl:type')] = None
+    type: Annotated[EnumerationEnum, Field(alias='srl_nokia-acl:type')]
     """
     Defines the type of ACL filter:
     ipv4: IPv4 ACL filter

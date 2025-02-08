@@ -76,9 +76,8 @@ class Sha1HashListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295)
+    ]
     """
     The index of the hash
     """
@@ -104,9 +103,8 @@ class Sha256HashCertListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295)
+    ]
     """
     The index of the hash
     """
@@ -138,9 +136,8 @@ class Sha256HashListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295)
+    ]
     """
     The index of the hash
     """
@@ -364,9 +361,8 @@ class CertificateListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-platform-secure-boot:index', ge=0, le=4294967295)
+    ]
     """
     The index of the certificate
     """
@@ -391,7 +387,7 @@ class CertificatesListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-tpm:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-tpm:name')]
     """
     An arbitrary name uniquely identifying a certificate associated to a key within a TPM
     Endorsement Key Certificate (EK): endorsement-certificate
@@ -492,7 +488,7 @@ class ExtractionReasonListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    reason: Annotated[Optional[str], Field(alias='srl_nokia-platform-lc:reason')] = None
+    reason: Annotated[str, Field(alias='srl_nokia-platform-lc:reason')]
     """
     A reason for extracting the packet towards the host CPU
     """
@@ -622,9 +618,7 @@ class FeedListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-psu:id', ge=0, le=255)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-platform-psu:id', ge=0, le=255)]
     """
     ID of the feed
     """
@@ -957,9 +951,7 @@ class MidPoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=255)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-platform-qos:index', ge=0, le=255)]
     """
     Mid-pool index
     """
@@ -1453,9 +1445,7 @@ class ResourceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
-    ] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-datapath-resources:name')]
     """
     The name of the XDP datapath resource
     """
@@ -1495,7 +1485,7 @@ class ResourceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-qos:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-qos:name')]
     """
     The name of the QoS resource
     """
@@ -1518,7 +1508,7 @@ class ResourceListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-mtu:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-mtu:name')]
     """
     The name of the MTU resource
     """
@@ -1541,7 +1531,7 @@ class ResourceListEntry6(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-qos:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-qos:name')]
     """
     The name of the QoS resource
     """
@@ -1566,7 +1556,7 @@ class ResourceListEntry7(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-mtu:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-mtu:name')]
     """
     The name of the MTU resource
     """
@@ -1595,9 +1585,7 @@ class ResourceListEntry8(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
-    ] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-datapath-resources:name')]
     """
     The name of the XDP datapath resource.
 
@@ -1638,9 +1626,7 @@ class ResourceListEntry9(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
-    ] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-datapath-resources:name')]
     """
     The name of the ASIC-specific datapath resource.
     """
@@ -1673,9 +1659,7 @@ class RootPoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=255)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-platform-qos:index', ge=0, le=255)]
     """
     Root-pool index
     """
@@ -2107,12 +2091,12 @@ class Tpm20PcrBankListEntry(BaseModel):
         regex_engine="python-re",
     )
     tpm20_hash_algo: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-platform-tpm:tpm20-hash-algo',
             pattern='^(?=^sha1|sha256$).*$',
         ),
-    ] = None
+    ]
     """
     The hash algorithm that is used to hash TPM2.0 PCRs
     """
@@ -2231,9 +2215,7 @@ class UefiVariablesListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    variable: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-secure-boot:variable')
-    ] = None
+    variable: Annotated[str, Field(alias='srl_nokia-platform-secure-boot:variable')]
     """
     UEFI Secure Boot database variable name
     """
@@ -2477,7 +2459,7 @@ class CgroupListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-cgroup:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-cgroup:name')]
     """
     Name of the cgroup, as defined by its directory location in the filesystem
     """
@@ -2595,9 +2577,8 @@ class ControlListEntry(BaseModel):
         regex_engine="python-re",
     )
     slot: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-secure-boot:slot', pattern='^(?=^A|B$).*$'),
-    ] = None
+        str, Field(alias='srl_nokia-platform-secure-boot:slot', pattern='^(?=^A|B$).*$')
+    ]
     """
     Slot identifier for the control module
     """
@@ -2635,9 +2616,8 @@ class ControlListEntry2(BaseModel):
         regex_engine="python-re",
     )
     slot: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-tpm:slot', pattern='^(?=^A|B$).*$'),
-    ] = None
+        str, Field(alias='srl_nokia-platform-tpm:slot', pattern='^(?=^A|B$).*$')
+    ]
     """
     Slot identifier for the control module.
     The slot identifier is the system wide unique name for the module's TPM
@@ -3450,9 +3430,7 @@ class NextHopListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-linecard-fib:id', ge=0, le=1023)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-platform-linecard-fib:id', ge=0, le=1023)]
     """
     Index of the next-hop within the NHG
     """
@@ -3494,7 +3472,7 @@ class PartitionListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-disk:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-disk:name')]
     """
     Name of the partition
     """
@@ -3574,9 +3552,8 @@ class PipelineListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[Union[IndexLeaf51, EnumerationEnum7]],
-        Field(alias='srl_nokia-platform-lc:index'),
-    ] = None
+        Union[IndexLeaf51, EnumerationEnum7], Field(alias='srl_nokia-platform-lc:index')
+    ]
     """
     The pipeline number (TH3 systems) or direction (J2 and J2C+ systems).
     """
@@ -3599,9 +3576,7 @@ class PowerSupplyListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-psu:id', ge=1, le=255)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-platform-psu:id', ge=1, le=255)]
     """
     Numeric identifier for the power supply module
     """
@@ -3731,9 +3706,8 @@ class ProcessListEntry(BaseModel):
         regex_engine="python-re",
     )
     pid: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-platform-cpu:pid', ge=0, le=18446744073709551615),
-    ] = None
+        int, Field(alias='srl_nokia-platform-cpu:pid', ge=0, le=18446744073709551615)
+    ]
     """
     The process ID
     """
@@ -3867,9 +3841,7 @@ class ResourceGroupListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=61)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-platform-qos:index', ge=0, le=61)]
     resource_sets: Annotated[
         Optional[ResourceSetsContainer],
         Field(alias='srl_nokia-platform-qos:resource-sets'),
@@ -3920,9 +3892,7 @@ class ResourceListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
-    ] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-datapath-resources:name')]
     """
     The name of the XDP datapath resource
     """
@@ -3996,9 +3966,7 @@ class ResourceListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[str], Field(alias='srl_nokia-platform-datapath-resources:name')
-    ] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-datapath-resources:name')]
     """
     The name of the ASIC-specific datapath resource
     """
@@ -4247,9 +4215,9 @@ class CpuListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[Union[EnumerationEnum13, IndexLeaf121]],
+        Union[EnumerationEnum13, IndexLeaf121],
         Field(alias='srl_nokia-platform-cpu:index'),
-    ] = None
+    ]
     """
     CPU index for each processor core on the system
 
@@ -4313,9 +4281,7 @@ class CpuListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-vxdp:id', ge=0, le=65535)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-platform-vxdp:id', ge=0, le=65535)]
     """
     Reference to a CPU within the configured cpu-set
     """
@@ -4379,7 +4345,7 @@ class DiskListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-disk:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-platform-disk:name')]
     """
     Name of the disk, as defined by its physical location in the system
     """
@@ -4432,9 +4398,7 @@ class FabricListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    slot: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-fabric:slot', ge=1, le=255)
-    ] = None
+    slot: Annotated[int, Field(alias='srl_nokia-platform-fabric:slot', ge=1, le=255)]
     """
     Numeric identifier for the fabric module
     """
@@ -4568,9 +4532,7 @@ class FanTrayListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-fan:id', ge=1, le=255)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-platform-fan:id', ge=1, le=255)]
     """
     Numeric identifier for the fan tray
     """
@@ -4729,9 +4691,7 @@ class InterfaceGroupResourcePoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=15)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-platform-qos:index', ge=0, le=15)]
     resource_group: Annotated[
         Optional[List[ResourceGroupListEntry]],
         Field(alias='srl_nokia-platform-qos:resource-group'),
@@ -4743,9 +4703,7 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-platform-control:name')] = (
-        None
-    )
+    name: Annotated[str, Field(alias='srl_nokia-platform-control:name')]
     """
     Name of a specific control module interface
     """
@@ -4774,11 +4732,11 @@ class NextHopGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-platform-linecard-fib:index', ge=0, le=18446744073709551615
         ),
-    ] = None
+    ]
     """
     A system-wide unique identifier of a next-hop-group
     """
@@ -4879,9 +4837,7 @@ class ResourceSetPoolListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-qos:index', ge=0, le=1)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-platform-qos:index', ge=0, le=1)]
     """
     Resource-set-pool resources for the given forwarding-complex
 
@@ -5133,9 +5089,8 @@ class ControlListEntry3(BaseModel):
         regex_engine="python-re",
     )
     slot: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-platform-control:slot', pattern='^(?=^A|B$).*$'),
-    ] = None
+        str, Field(alias='srl_nokia-platform-control:slot', pattern='^(?=^A|B$).*$')
+    ]
     """
     Slot identifier for the control module
 
@@ -5346,9 +5301,7 @@ class ForwardingComplexListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[EnumerationEnum6], Field(alias='srl_nokia-platform-lc:name')
-    ] = None
+    name: Annotated[EnumerationEnum6, Field(alias='srl_nokia-platform-lc:name')]
     """
     The identifier of the forwarding complex
     """
@@ -5452,9 +5405,7 @@ class LinecardListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    slot: Annotated[
-        Optional[int], Field(alias='srl_nokia-platform-lc:slot', ge=1, le=16)
-    ] = None
+    slot: Annotated[int, Field(alias='srl_nokia-platform-lc:slot', ge=1, le=16)]
     """
     Numeric identifier for the linecard
     """

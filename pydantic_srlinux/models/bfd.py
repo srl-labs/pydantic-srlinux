@@ -272,7 +272,7 @@ class MemberInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-micro-bfd:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-micro-bfd:name')]
     """
     Reference ID for associated interface
     Example: ethernet-2/1 (Reference Interface ethernet-2/1).
@@ -419,7 +419,7 @@ class SubinterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[str], Field(alias='srl_nokia-bfd:id')] = None
+    id: Annotated[str, Field(alias='srl_nokia-bfd:id')]
     """
     Reference ID for associated subinterface
     Example: ethernet-2/1.100 (Reference Interface ethernet-2/1, subinterface 100).
@@ -492,7 +492,7 @@ class LagInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-micro-bfd:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-micro-bfd:name')]
     """
     Reference ID for associated lag interface
     Example: lag1 (Reference Interface lag1).
@@ -589,9 +589,8 @@ class PeerListEntry(BaseModel):
         regex_engine="python-re",
     )
     local_discriminator: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-bfd:local-discriminator', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-bfd:local-discriminator', ge=0, le=4294967295)
+    ]
     """
     BFD session local discriminator
     """
@@ -799,7 +798,7 @@ class NetworkInstanceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-bfd:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-bfd:name')]
     """
     A unique name identifying the network instance
     """
