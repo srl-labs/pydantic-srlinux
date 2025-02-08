@@ -1,8 +1,9 @@
-from client import Action, SRLClient
-from log import setup_logging
 from pydantic import BaseModel
 
 import pydantic_srlinux.models.interfaces as srl_if
+
+from .client import Action, SRLClient
+from .log import setup_logging
 
 logger = setup_logging()
 
