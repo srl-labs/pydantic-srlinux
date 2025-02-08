@@ -64,7 +64,7 @@
             }
           ],
           "default": 0,
-          "title": "In-octetsLeaf"
+          "title": "In Octets"
         },
         "in_packets": {
           "anyOf": [
@@ -78,7 +78,7 @@
             }
           ],
           "default": 0,
-          "title": "In-packetsLeaf"
+          "title": "In Packets"
         },
         "in_discarded_packets": {
           "anyOf": [
@@ -92,7 +92,7 @@
             }
           ],
           "default": 0,
-          "title": "In-discarded-packetsLeaf"
+          "title": "In Discarded Packets"
         },
         "out_octets": {
           "anyOf": [
@@ -106,7 +106,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-octetsLeaf"
+          "title": "Out Octets"
         },
         "out_packets": {
           "anyOf": [
@@ -120,7 +120,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-packetsLeaf"
+          "title": "Out Packets"
         },
         "out_discarded_packets": {
           "anyOf": [
@@ -134,7 +134,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-discarded-packetsLeaf"
+          "title": "Out Discarded Packets"
         },
         "last_clear": {
           "anyOf": [
@@ -147,7 +147,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer",
@@ -165,8 +165,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf"
+          "default": "disable"
         },
         "in_octets": {
           "anyOf": [
@@ -180,7 +179,7 @@
             }
           ],
           "default": 0,
-          "title": "In-octetsLeaf2"
+          "title": "In Octets"
         },
         "in_packets": {
           "anyOf": [
@@ -194,7 +193,7 @@
             }
           ],
           "default": 0,
-          "title": "In-packetsLeaf2"
+          "title": "In Packets"
         },
         "in_discarded_packets": {
           "anyOf": [
@@ -208,7 +207,7 @@
             }
           ],
           "default": 0,
-          "title": "In-discarded-packetsLeaf2"
+          "title": "In Discarded Packets"
         },
         "out_octets": {
           "anyOf": [
@@ -222,7 +221,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-octetsLeaf2"
+          "title": "Out Octets"
         },
         "out_packets": {
           "anyOf": [
@@ -236,7 +235,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-packetsLeaf2"
+          "title": "Out Packets"
         },
         "last_clear": {
           "anyOf": [
@@ -249,7 +248,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf2"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer2",
@@ -288,17 +287,9 @@
       "description": "The name that identifies the remote system of the tunnel",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "remote_system": {
           "anyOf": [
@@ -309,7 +300,7 @@
               "$ref": "#/$defs/Ipv6AddressUnicastWithoutLocalType"
             }
           ],
-          "title": "Remote-systemLeaf"
+          "title": "Remote System"
         },
         "index": {
           "anyOf": [
@@ -323,12 +314,14 @@
             }
           ],
           "default": null,
-          "title": "IndexLeaf"
+          "title": "Index"
         },
         "allowed_tunnel_types": {
           "anyOf": [
             {
-              "items": {},
+              "items": {
+                "type": "string"
+              },
               "type": "array"
             },
             {
@@ -349,17 +342,19 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf"
+          "title": "Last Change"
         },
         "operational_tunnel_type": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Operational-tunnel-typeLeaf"
+          "title": "Operational Tunnel Type"
         },
         "operational_tunnel_id": {
           "anyOf": [
@@ -373,10 +368,11 @@
             }
           ],
           "default": null,
-          "title": "Operational-tunnel-idLeaf"
+          "title": "Operational Tunnel Id"
         }
       },
       "required": [
+        "name",
         "remote_system"
       ],
       "title": "TunnelListEntry",
@@ -392,13 +388,9 @@
             },
             {
               "$ref": "#/$defs/Ipv6AddressType"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "AddressLeaf"
+          "title": "Address"
         },
         "index": {
           "anyOf": [
@@ -412,7 +404,7 @@
             }
           ],
           "default": null,
-          "title": "IndexLeaf2"
+          "title": "Index"
         },
         "last_change": {
           "anyOf": [
@@ -425,7 +417,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf2"
+          "title": "Last Change"
         },
         "statistics": {
           "anyOf": [
@@ -439,6 +431,9 @@
           "default": null
         }
       },
+      "required": [
+        "address"
+      ],
       "title": "VtepListEntry",
       "type": "object"
     },

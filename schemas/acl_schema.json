@@ -31,7 +31,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-classLeaf"
+          "title": "Forwarding Class"
         },
         "profile": {
           "anyOf": [
@@ -42,8 +42,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ProfileLeaf"
+          "default": null
         },
         "rate_limit": {
           "anyOf": [
@@ -146,8 +145,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Tcam-profileLeaf"
+          "default": null
         },
         "egress_mac_filtering": {
           "anyOf": [
@@ -159,7 +157,7 @@
             }
           ],
           "default": false,
-          "title": "Egress-mac-filteringLeaf"
+          "title": "Egress Mac Filtering"
         }
       },
       "title": "AclContainer",
@@ -169,27 +167,11 @@
       "description": "List of MAC, IPv4, IPv6 filter policies",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "title": "Name",
+          "type": "string"
         },
         "type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null
+          "$ref": "#/$defs/EnumerationEnum"
         },
         "description": {
           "anyOf": [
@@ -203,7 +185,7 @@
             }
           ],
           "default": null,
-          "title": "DescriptionLeaf"
+          "title": "Description"
         },
         "last_clear": {
           "anyOf": [
@@ -216,7 +198,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf"
+          "title": "Last Clear"
         },
         "entry": {
           "anyOf": [
@@ -234,6 +216,10 @@
           "title": "Entry"
         }
       },
+      "required": [
+        "name",
+        "type"
+      ],
       "title": "AclFilterListEntry",
       "type": "object"
     },
@@ -241,28 +227,11 @@
       "description": "MAC, IPv4, IPv6 ACL filter(s) to be applied on this subinterface direction\n\nOn 7220 and 7250 IXR platforms only a single MAC, IPv4 or IPv6 filter is supported.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf13"
+          "title": "Name",
+          "type": "string"
         },
         "type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "TypeLeaf4"
+          "$ref": "#/$defs/EnumerationEnum"
         },
         "entry": {
           "anyOf": [
@@ -280,6 +249,10 @@
           "title": "Entry"
         }
       },
+      "required": [
+        "name",
+        "type"
+      ],
       "title": "AclFilterListEntry2",
       "type": "object"
     },
@@ -314,7 +287,7 @@
             }
           ],
           "default": false,
-          "title": "Collect-statsLeaf"
+          "title": "Collect Stats"
         }
       },
       "title": "ActionContainer",
@@ -334,7 +307,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf7"
+          "title": "Last Clear"
         },
         "conforming_packets": {
           "anyOf": [
@@ -348,7 +321,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-packetsLeaf5"
+          "title": "Conforming Packets"
         },
         "conforming_octets": {
           "anyOf": [
@@ -362,7 +335,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-octetsLeaf5"
+          "title": "Conforming Octets"
         },
         "exceeding_packets": {
           "anyOf": [
@@ -376,7 +349,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-packetsLeaf5"
+          "title": "Exceeding Packets"
         },
         "exceeding_octets": {
           "anyOf": [
@@ -390,11 +363,23 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-octetsLeaf5"
+          "title": "Exceeding Octets"
         }
       },
       "title": "AggregateContainer",
       "type": "object"
+    },
+    "CodeLeafList": {
+      "maximum": 255,
+      "minimum": 0,
+      "title": "CodeLeafList",
+      "type": "integer"
+    },
+    "CodeLeafList2": {
+      "maximum": 255,
+      "minimum": 0,
+      "title": "CodeLeafList2",
+      "type": "integer"
     },
     "CopyCase": {
       "properties": {},
@@ -437,7 +422,7 @@
             }
           ],
           "default": null,
-          "title": "PrefixLeaf"
+          "title": "Prefix"
         },
         "prefix_list": {
           "anyOf": [
@@ -465,7 +450,7 @@
             }
           ],
           "default": null,
-          "title": "AddressLeaf"
+          "title": "Address"
         },
         "mask": {
           "anyOf": [
@@ -478,7 +463,7 @@
             }
           ],
           "default": null,
-          "title": "MaskLeaf"
+          "title": "Mask"
         }
       },
       "title": "DestinationIpContainer",
@@ -498,7 +483,7 @@
             }
           ],
           "default": null,
-          "title": "PrefixLeaf3"
+          "title": "Prefix"
         },
         "prefix_list": {
           "anyOf": [
@@ -526,7 +511,7 @@
             }
           ],
           "default": null,
-          "title": "AddressLeaf3"
+          "title": "Address"
         },
         "mask": {
           "anyOf": [
@@ -539,7 +524,7 @@
             }
           ],
           "default": null,
-          "title": "MaskLeaf3"
+          "title": "Mask"
         }
       },
       "title": "DestinationIpContainer2",
@@ -557,8 +542,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OperatorLeaf"
+          "default": null
         },
         "value": {
           "anyOf": [
@@ -573,7 +557,7 @@
             }
           ],
           "default": null,
-          "title": "ValueLeaf"
+          "title": "Value"
         },
         "range": {
           "anyOf": [
@@ -623,18 +607,10 @@
       "description": "List of ACL entries comprising an ACL Filter",
       "properties": {
         "sequence_id": {
-          "anyOf": [
-            {
-              "maximum": 65535,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sequence Id"
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "Sequence Id",
+          "type": "integer"
         },
         "description": {
           "anyOf": [
@@ -648,7 +624,7 @@
             }
           ],
           "default": null,
-          "title": "DescriptionLeaf2"
+          "title": "Description"
         },
         "last_clear": {
           "anyOf": [
@@ -661,7 +637,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf2"
+          "title": "Last Clear"
         },
         "match": {
           "anyOf": [
@@ -708,6 +684,9 @@
           "default": null
         }
       },
+      "required": [
+        "sequence_id"
+      ],
       "title": "EntryListEntry",
       "type": "object"
     },
@@ -715,18 +694,10 @@
       "description": "ACL Filter statistics per entry and per subinterface",
       "properties": {
         "sequence_id": {
-          "anyOf": [
-            {
-              "maximum": 65535,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sequence-idLeaf2"
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "Sequence Id",
+          "type": "integer"
         },
         "statistics": {
           "anyOf": [
@@ -751,6 +722,9 @@
           "default": null
         }
       },
+      "required": [
+        "sequence_id"
+      ],
       "title": "EntryListEntry2",
       "type": "object"
     },
@@ -1101,16 +1075,8 @@
       "description": "List of forwarding complexes in the system",
       "properties": {
         "complex_identifier": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Complex-identifierLeaf"
+          "title": "Complex Identifier",
+          "type": "string"
         },
         "single_instance": {
           "anyOf": [
@@ -1124,9 +1090,12 @@
             }
           ],
           "default": null,
-          "title": "Single-instanceLeaf"
+          "title": "Single Instance"
         }
       },
+      "required": [
+        "complex_identifier"
+      ],
       "title": "ForwardingComplexListEntry",
       "type": "object"
     },
@@ -1134,32 +1103,16 @@
       "description": "List of forwarding complexes that are currently installed and online",
       "properties": {
         "slot_id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Slot-idLeaf"
+          "maximum": 255,
+          "minimum": 0,
+          "title": "Slot Id",
+          "type": "integer"
         },
         "complex_id": {
-          "anyOf": [
-            {
-              "maximum": 1,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Complex-idLeaf"
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Complex Id",
+          "type": "integer"
         },
         "programming_complete": {
           "anyOf": [
@@ -1171,7 +1124,7 @@
             }
           ],
           "default": null,
-          "title": "Programming-completeLeaf"
+          "title": "Programming Complete"
         },
         "last_completed_timestamp": {
           "anyOf": [
@@ -1184,9 +1137,13 @@
             }
           ],
           "default": null,
-          "title": "Last-completed-timestampLeaf"
+          "title": "Last Completed Timestamp"
         }
       },
+      "required": [
+        "slot_id",
+        "complex_id"
+      ],
       "title": "ForwardingComplexListEntry2",
       "type": "object"
     },
@@ -1206,16 +1163,14 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf3"
+          "title": "Type"
         },
         "code": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/CodeLeafList2"
               },
-              "le": 255,
               "type": "array"
             },
             {
@@ -1251,16 +1206,14 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf2"
+          "title": "Type"
         },
         "code": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/CodeLeafList"
               },
-              "le": 255,
               "type": "array"
             },
             {
@@ -1317,16 +1270,8 @@
       "description": "List of interfaces and subinterfaces referencing ACL filters.",
       "properties": {
         "interface_id": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Interface-idLeaf"
+          "title": "Interface Id",
+          "type": "string"
         },
         "interface_ref": {
           "anyOf": [
@@ -1351,6 +1296,9 @@
           "default": null
         }
       },
+      "required": [
+        "interface_id"
+      ],
       "title": "InterfaceListEntry",
       "type": "object"
     },
@@ -1367,7 +1315,7 @@
             }
           ],
           "default": null,
-          "title": "InterfaceLeaf"
+          "title": "Interface"
         },
         "subinterface": {
           "anyOf": [
@@ -1381,7 +1329,7 @@
             }
           ],
           "default": null,
-          "title": "SubinterfaceLeaf"
+          "title": "Subinterface"
         }
       },
       "title": "InterfaceRefContainer",
@@ -1444,7 +1392,7 @@
             }
           ],
           "default": null,
-          "title": "FragmentLeaf"
+          "title": "Fragment"
         },
         "first_fragment": {
           "anyOf": [
@@ -1456,7 +1404,7 @@
             }
           ],
           "default": null,
-          "title": "First-fragmentLeaf"
+          "title": "First Fragment"
         },
         "icmp": {
           "anyOf": [
@@ -1482,7 +1430,7 @@
             }
           ],
           "default": null,
-          "title": "ProtocolLeaf"
+          "title": "Protocol"
         },
         "source_ip": {
           "anyOf": [
@@ -1503,16 +1451,8 @@
       "description": "A user defined IPv4 prefix list description",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "title": "Name",
+          "type": "string"
         },
         "description": {
           "anyOf": [
@@ -1526,7 +1466,7 @@
             }
           ],
           "default": null,
-          "title": "DescriptionLeaf3"
+          "title": "Description"
         },
         "prefix": {
           "anyOf": [
@@ -1544,6 +1484,9 @@
           "title": "Prefix"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "Ipv4PrefixListListEntry",
       "type": "object"
     },
@@ -1612,7 +1555,7 @@
             }
           ],
           "default": null,
-          "title": "Next-headerLeaf"
+          "title": "Next Header"
         },
         "source_ip": {
           "anyOf": [
@@ -1633,16 +1576,8 @@
       "description": "A user defined IPv6 prefix list description",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "title": "Name",
+          "type": "string"
         },
         "description": {
           "anyOf": [
@@ -1656,7 +1591,7 @@
             }
           ],
           "default": null,
-          "title": "DescriptionLeaf4"
+          "title": "Description"
         },
         "prefix": {
           "anyOf": [
@@ -1674,6 +1609,9 @@
           "title": "Prefix"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "Ipv6PrefixListListEntry",
       "type": "object"
     },
@@ -1730,7 +1668,7 @@
             }
           ],
           "default": null,
-          "title": "Network-instanceLeaf"
+          "title": "Network Instance"
         }
       },
       "title": "MatchContainer",
@@ -1805,7 +1743,7 @@
             }
           ],
           "default": null,
-          "title": "AddressLeaf5"
+          "title": "Address"
         }
       },
       "title": "NextHopContainer",
@@ -1826,7 +1764,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-packetsLeaf2"
+          "title": "Conforming Packets"
         },
         "conforming_octets": {
           "anyOf": [
@@ -1840,7 +1778,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-octetsLeaf2"
+          "title": "Conforming Octets"
         },
         "exceeding_packets": {
           "anyOf": [
@@ -1854,7 +1792,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-packetsLeaf2"
+          "title": "Exceeding Packets"
         },
         "exceeding_octets": {
           "anyOf": [
@@ -1868,7 +1806,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-octetsLeaf2"
+          "title": "Exceeding Octets"
         }
       },
       "title": "PolicerContainer",
@@ -1889,7 +1827,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-packetsLeaf3"
+          "title": "Conforming Packets"
         },
         "conforming_octets": {
           "anyOf": [
@@ -1903,7 +1841,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-octetsLeaf3"
+          "title": "Conforming Octets"
         },
         "exceeding_packets": {
           "anyOf": [
@@ -1917,7 +1855,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-packetsLeaf3"
+          "title": "Exceeding Packets"
         },
         "exceeding_octets": {
           "anyOf": [
@@ -1931,7 +1869,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-octetsLeaf3"
+          "title": "Exceeding Octets"
         }
       },
       "title": "PolicerContainer2",
@@ -1941,17 +1879,9 @@
       "description": "List of policer templates used in subintreface and CPM Filter ACL.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "scope": {
           "anyOf": [
@@ -1962,8 +1892,7 @@
               "type": "null"
             }
           ],
-          "default": "global",
-          "title": "ScopeLeaf"
+          "default": "global"
         },
         "peak_rate": {
           "anyOf": [
@@ -1977,7 +1906,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-rateLeaf"
+          "title": "Peak Rate"
         },
         "max_burst": {
           "anyOf": [
@@ -1991,7 +1920,7 @@
             }
           ],
           "default": null,
-          "title": "Max-burstLeaf"
+          "title": "Max Burst"
         },
         "statistics": {
           "anyOf": [
@@ -2005,6 +1934,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PolicerListEntry",
       "type": "object"
     },
@@ -2049,19 +1981,14 @@
       "description": "List of IPv4 prefixes",
       "properties": {
         "ipv4_prefix": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ipv4-prefixLeaf"
+          "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
+          "title": "Ipv4 Prefix",
+          "type": "string"
         }
       },
+      "required": [
+        "ipv4_prefix"
+      ],
       "title": "PrefixListEntry",
       "type": "object"
     },
@@ -2069,19 +1996,14 @@
       "description": "List of IPv6 prefixes",
       "properties": {
         "ipv6_prefix": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ipv6-prefixLeaf"
+          "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
+          "title": "Ipv6 Prefix",
+          "type": "string"
         }
       },
+      "required": [
+        "ipv6_prefix"
+      ],
       "title": "PrefixListEntry2",
       "type": "object"
     },
@@ -2089,18 +2011,13 @@
       "description": "Match a packet if its destination IP address is within the specified IPv4 prefix list.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf2"
+          "title": "Name",
+          "type": "string"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PrefixListListEntry",
       "type": "object"
     },
@@ -2108,18 +2025,13 @@
       "description": "Match a packet if its source IP address is within the specified IPv4 prefix list.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf4"
+          "title": "Name",
+          "type": "string"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PrefixListListEntry2",
       "type": "object"
     },
@@ -2127,18 +2039,13 @@
       "description": "Match a packet if its destination IP address is within the specified IPv6 prefix list.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf5"
+          "title": "Name",
+          "type": "string"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PrefixListListEntry3",
       "type": "object"
     },
@@ -2146,18 +2053,13 @@
       "description": "Match a packet if its source IP address is within the specified IPv6 prefix list.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf7"
+          "title": "Name",
+          "type": "string"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PrefixListListEntry4",
       "type": "object"
     },
@@ -2177,7 +2079,7 @@
             }
           ],
           "default": null,
-          "title": "StartLeaf"
+          "title": "Start"
         },
         "end": {
           "anyOf": [
@@ -2192,7 +2094,7 @@
             }
           ],
           "default": null,
-          "title": "EndLeaf"
+          "title": "End"
         }
       },
       "title": "RangeContainer",
@@ -2214,7 +2116,7 @@
             }
           ],
           "default": null,
-          "title": "StartLeaf2"
+          "title": "Start"
         },
         "end": {
           "anyOf": [
@@ -2229,7 +2131,7 @@
             }
           ],
           "default": null,
-          "title": "EndLeaf2"
+          "title": "End"
         }
       },
       "title": "RangeContainer2",
@@ -2249,7 +2151,7 @@
             }
           ],
           "default": null,
-          "title": "System-cpu-policerLeaf"
+          "title": "System Cpu Policer"
         },
         "policer": {
           "anyOf": [
@@ -2262,7 +2164,7 @@
             }
           ],
           "default": null,
-          "title": "PolicerLeaf"
+          "title": "Policer"
         }
       },
       "title": "RateLimitContainer",
@@ -2282,7 +2184,7 @@
             }
           ],
           "default": null,
-          "title": "PrefixLeaf2"
+          "title": "Prefix"
         },
         "prefix_list": {
           "anyOf": [
@@ -2310,7 +2212,7 @@
             }
           ],
           "default": null,
-          "title": "AddressLeaf2"
+          "title": "Address"
         },
         "mask": {
           "anyOf": [
@@ -2323,7 +2225,7 @@
             }
           ],
           "default": null,
-          "title": "MaskLeaf2"
+          "title": "Mask"
         }
       },
       "title": "SourceIpContainer",
@@ -2343,7 +2245,7 @@
             }
           ],
           "default": null,
-          "title": "PrefixLeaf4"
+          "title": "Prefix"
         },
         "prefix_list": {
           "anyOf": [
@@ -2371,7 +2273,7 @@
             }
           ],
           "default": null,
-          "title": "AddressLeaf4"
+          "title": "Address"
         },
         "mask": {
           "anyOf": [
@@ -2384,7 +2286,7 @@
             }
           ],
           "default": null,
-          "title": "MaskLeaf4"
+          "title": "Mask"
         }
       },
       "title": "SourceIpContainer2",
@@ -2402,8 +2304,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OperatorLeaf2"
+          "default": null
         },
         "value": {
           "anyOf": [
@@ -2418,7 +2319,7 @@
             }
           ],
           "default": null,
-          "title": "ValueLeaf2"
+          "title": "Value"
         },
         "range": {
           "anyOf": [
@@ -2449,7 +2350,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf3"
+          "title": "Last Clear"
         },
         "matched_packets": {
           "anyOf": [
@@ -2463,7 +2364,7 @@
             }
           ],
           "default": 0,
-          "title": "Matched-packetsLeaf"
+          "title": "Matched Packets"
         },
         "matched_octets": {
           "anyOf": [
@@ -2477,7 +2378,7 @@
             }
           ],
           "default": 0,
-          "title": "Matched-octetsLeaf"
+          "title": "Matched Octets"
         },
         "last_match": {
           "anyOf": [
@@ -2490,7 +2391,7 @@
             }
           ],
           "default": null,
-          "title": "Last-matchLeaf"
+          "title": "Last Match"
         },
         "system_cpu_policer": {
           "anyOf": [
@@ -2521,7 +2422,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf4"
+          "title": "Last Clear"
         },
         "matched_packets": {
           "anyOf": [
@@ -2535,7 +2436,7 @@
             }
           ],
           "default": 0,
-          "title": "Matched-packetsLeaf2"
+          "title": "Matched Packets"
         },
         "matched_octets": {
           "anyOf": [
@@ -2549,7 +2450,7 @@
             }
           ],
           "default": 0,
-          "title": "Matched-octetsLeaf2"
+          "title": "Matched Octets"
         },
         "last_match": {
           "anyOf": [
@@ -2562,7 +2463,7 @@
             }
           ],
           "default": null,
-          "title": "Last-matchLeaf2"
+          "title": "Last Match"
         }
       },
       "title": "StatisticsContainer2",
@@ -2582,7 +2483,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf5"
+          "title": "Last Clear"
         },
         "policer": {
           "anyOf": [
@@ -2614,7 +2515,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-packetsLeaf4"
+          "title": "Conforming Packets"
         },
         "conforming_octets": {
           "anyOf": [
@@ -2628,7 +2529,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-octetsLeaf4"
+          "title": "Conforming Octets"
         },
         "exceeding_packets": {
           "anyOf": [
@@ -2642,7 +2543,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-packetsLeaf4"
+          "title": "Exceeding Packets"
         },
         "exceeding_octets": {
           "anyOf": [
@@ -2656,7 +2557,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-octetsLeaf4"
+          "title": "Exceeding Octets"
         },
         "last_clear": {
           "anyOf": [
@@ -2669,7 +2570,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf6"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer4",
@@ -2708,7 +2609,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-packetsLeaf"
+          "title": "Conforming Packets"
         },
         "conforming_octets": {
           "anyOf": [
@@ -2722,7 +2623,7 @@
             }
           ],
           "default": 0,
-          "title": "Conforming-octetsLeaf"
+          "title": "Conforming Octets"
         },
         "exceeding_packets": {
           "anyOf": [
@@ -2736,7 +2637,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-packetsLeaf"
+          "title": "Exceeding Packets"
         },
         "exceeding_octets": {
           "anyOf": [
@@ -2750,7 +2651,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceeding-octetsLeaf"
+          "title": "Exceeding Octets"
         }
       },
       "title": "SystemCpuPolicerContainer",
@@ -2760,17 +2661,9 @@
       "description": "List of system CPU policer templates. For each policer in this list one or more policer instances are implemented in the XDP-CPM software and these policer instances process the aggregate of terminating traffic received from all linecards.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "entry_specific": {
           "anyOf": [
@@ -2782,7 +2675,7 @@
             }
           ],
           "default": false,
-          "title": "Entry-specificLeaf"
+          "title": "Entry Specific"
         },
         "peak_packet_rate": {
           "anyOf": [
@@ -2796,7 +2689,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-packet-rateLeaf"
+          "title": "Peak Packet Rate"
         },
         "max_packet_burst": {
           "anyOf": [
@@ -2810,7 +2703,7 @@
             }
           ],
           "default": 16,
-          "title": "Max-packet-burstLeaf"
+          "title": "Max Packet Burst"
         },
         "statistics": {
           "anyOf": [
@@ -2824,6 +2717,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "SystemCpuPolicerListEntry",
       "type": "object"
     },
@@ -2885,7 +2781,7 @@
             }
           ],
           "default": null,
-          "title": "Tcp-flagsLeaf"
+          "title": "Tcp Flags"
         }
       },
       "title": "TransportContainer",

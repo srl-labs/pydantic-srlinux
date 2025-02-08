@@ -13,7 +13,7 @@
             }
           ],
           "default": null,
-          "title": "Model-numberLeaf"
+          "title": "Model Number"
         },
         "type": {
           "anyOf": [
@@ -24,8 +24,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "TypeLeaf"
+          "default": null
         },
         "vendor_manufacture_date": {
           "anyOf": [
@@ -37,7 +36,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-manufacture-dateLeaf"
+          "title": "Vendor Manufacture Date"
         },
         "vendor_oui": {
           "anyOf": [
@@ -49,7 +48,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-ouiLeaf"
+          "title": "Vendor Oui"
         },
         "vendor_part_number": {
           "anyOf": [
@@ -61,7 +60,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-part-numberLeaf"
+          "title": "Vendor Part Number"
         },
         "vendor_serial_number": {
           "anyOf": [
@@ -73,7 +72,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-serial-numberLeaf"
+          "title": "Vendor Serial Number"
         }
       },
       "title": "AdapterContainer",
@@ -83,17 +82,9 @@
       "description": "The list of  IPv4 addresses assigned to the subinterface.",
       "properties": {
         "ip_prefix": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ip-prefixLeaf"
+          "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$",
+          "title": "Ip Prefix",
+          "type": "string"
         },
         "anycast_gw": {
           "anyOf": [
@@ -105,7 +96,7 @@
             }
           ],
           "default": null,
-          "title": "Anycast-gwLeaf"
+          "title": "Anycast Gw"
         },
         "origin": {
           "anyOf": [
@@ -116,8 +107,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OriginLeaf"
+          "default": null
         },
         "primary": {
           "anyOf": [
@@ -139,8 +129,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf3"
+          "default": null
         },
         "vrrp": {
           "anyOf": [
@@ -154,6 +143,9 @@
           "default": null
         }
       },
+      "required": [
+        "ip_prefix"
+      ],
       "title": "AddressListEntry",
       "type": "object"
     },
@@ -161,23 +153,15 @@
       "description": "The list of virtual IPv4 addresses to be discovered on the subinterface.",
       "properties": {
         "ipv4_address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ipv4-addressLeaf2"
+          "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+          "title": "Ipv4 Address",
+          "type": "string"
         },
         "allowed_macs": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/AllowedMacsLeafList"
               },
               "type": "array"
             },
@@ -200,7 +184,7 @@
             }
           ],
           "default": 0,
-          "title": "Probe-intervalLeaf"
+          "title": "Probe Interval"
         },
         "probe_bridged_subinterfaces": {
           "anyOf": [
@@ -229,6 +213,9 @@
           "default": null
         }
       },
+      "required": [
+        "ipv4_address"
+      ],
       "title": "AddressListEntry2",
       "type": "object"
     },
@@ -236,17 +223,9 @@
       "description": "The list of IPv6 addresses assigned to the subinterface.",
       "properties": {
         "ip_prefix": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ip-prefixLeaf2"
+          "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
+          "title": "Ip Prefix",
+          "type": "string"
         },
         "type": {
           "anyOf": [
@@ -257,8 +236,7 @@
               "type": "null"
             }
           ],
-          "default": "global-unicast",
-          "title": "TypeLeaf3"
+          "default": "global-unicast"
         },
         "anycast_gw": {
           "anyOf": [
@@ -270,7 +248,7 @@
             }
           ],
           "default": null,
-          "title": "Anycast-gwLeaf2"
+          "title": "Anycast Gw"
         },
         "origin": {
           "anyOf": [
@@ -281,8 +259,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OriginLeaf3"
+          "default": null
         },
         "primary": {
           "anyOf": [
@@ -304,8 +281,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf5"
+          "default": null
         },
         "vrrp": {
           "anyOf": [
@@ -319,6 +295,9 @@
           "default": null
         }
       },
+      "required": [
+        "ip_prefix"
+      ],
       "title": "AddressListEntry3",
       "type": "object"
     },
@@ -326,23 +305,15 @@
       "description": "The list of virtual IPv6 addresses to be discovered on the subinterface.",
       "properties": {
         "ipv6_address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ipv6-addressLeaf2"
+          "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+          "title": "Ipv6 Address",
+          "type": "string"
         },
         "allowed_macs": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/AllowedMacsLeafList2"
               },
               "type": "array"
             },
@@ -365,7 +336,7 @@
             }
           ],
           "default": 0,
-          "title": "Probe-intervalLeaf2"
+          "title": "Probe Interval"
         },
         "probe_bridged_subinterfaces": {
           "anyOf": [
@@ -394,22 +365,16 @@
           "default": null
         }
       },
+      "required": [
+        "ipv6_address"
+      ],
       "title": "AddressListEntry4",
       "type": "object"
     },
     "AdvertiseListEntry": {
       "properties": {
         "route_type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum49"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Route-typeLeaf2"
+          "$ref": "#/$defs/EnumerationEnum49"
         },
         "internal_tags": {
           "anyOf": [
@@ -423,22 +388,16 @@
           "default": null
         }
       },
+      "required": [
+        "route_type"
+      ],
       "title": "AdvertiseListEntry",
       "type": "object"
     },
     "AdvertiseListEntry2": {
       "properties": {
         "route_type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum61"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Route-typeLeaf4"
+          "$ref": "#/$defs/EnumerationEnum61"
         },
         "internal_tags": {
           "anyOf": [
@@ -452,6 +411,9 @@
           "default": null
         }
       },
+      "required": [
+        "route_type"
+      ],
       "title": "AdvertiseListEntry2",
       "type": "object"
     },
@@ -466,8 +428,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf18"
+          "default": "enable"
         }
       },
       "title": "AgingContainer",
@@ -478,6 +439,16 @@
       "minimum": 0,
       "title": "AgingLeaf1",
       "type": "integer"
+    },
+    "AllowedMacsLeafList": {
+      "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+      "title": "AllowedMacsLeafList",
+      "type": "string"
+    },
+    "AllowedMacsLeafList2": {
+      "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+      "title": "AllowedMacsLeafList2",
+      "type": "string"
     },
     "AnycastGwContainer": {
       "properties": {
@@ -493,7 +464,7 @@
             }
           ],
           "default": 1,
-          "title": "Virtual-router-idLeaf3"
+          "title": "Virtual Router Id"
         },
         "anycast_gw_mac": {
           "anyOf": [
@@ -506,7 +477,7 @@
             }
           ],
           "default": null,
-          "title": "Anycast-gw-macLeaf"
+          "title": "Anycast Gw Mac"
         },
         "anycast_gw_mac_origin": {
           "anyOf": [
@@ -517,8 +488,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Anycast-gw-mac-originLeaf"
+          "default": null
         }
       },
       "title": "AnycastGwContainer",
@@ -537,7 +507,7 @@
             }
           ],
           "default": true,
-          "title": "Duplicate-address-detectionLeaf"
+          "title": "Duplicate Address Detection"
         },
         "timeout": {
           "anyOf": [
@@ -551,7 +521,7 @@
             }
           ],
           "default": 14400,
-          "title": "TimeoutLeaf"
+          "title": "Timeout"
         },
         "learn_unsolicited": {
           "anyOf": [
@@ -563,7 +533,7 @@
             }
           ],
           "default": false,
-          "title": "Learn-unsolicitedLeaf"
+          "title": "Learn Unsolicited"
         },
         "neighbor": {
           "anyOf": [
@@ -601,7 +571,7 @@
             }
           ],
           "default": false,
-          "title": "Proxy-arpLeaf"
+          "title": "Proxy Arp"
         },
         "debug": {
           "anyOf": [
@@ -648,17 +618,9 @@
       "description": "The list of authenticated sessions on this device",
       "properties": {
         "mac": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "MacLeaf2"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+          "title": "Mac",
+          "type": "string"
         },
         "hosts": {
           "anyOf": [
@@ -672,6 +634,9 @@
           "default": null
         }
       },
+      "required": [
+        "mac"
+      ],
       "title": "AuthenticatedSessionListEntry",
       "type": "object"
     },
@@ -711,7 +676,7 @@
             }
           ],
           "default": null,
-          "title": "KeychainLeaf"
+          "title": "Keychain"
         }
       },
       "title": "AuthenticationContainer",
@@ -731,7 +696,7 @@
             }
           ],
           "default": null,
-          "title": "KeychainLeaf2"
+          "title": "Keychain"
         }
       },
       "title": "AuthenticationContainer2",
@@ -750,7 +715,7 @@
             }
           ],
           "default": true,
-          "title": "Authenticate-portLeaf"
+          "title": "Authenticate Port"
         },
         "port_control": {
           "anyOf": [
@@ -761,8 +726,7 @@
               "type": "null"
             }
           ],
-          "default": "force-authorized",
-          "title": "Port-controlLeaf"
+          "default": "force-authorized"
         },
         "authenticator_initiated": {
           "anyOf": [
@@ -774,7 +738,7 @@
             }
           ],
           "default": true,
-          "title": "Authenticator-initiatedLeaf"
+          "title": "Authenticator Initiated"
         },
         "host_mode": {
           "anyOf": [
@@ -785,8 +749,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Host-modeLeaf"
+          "default": null
         },
         "reauthenticate_interval": {
           "anyOf": [
@@ -800,7 +763,7 @@
             }
           ],
           "default": null,
-          "title": "Reauthenticate-intervalLeaf"
+          "title": "Reauthenticate Interval"
         },
         "retransmit_interval": {
           "anyOf": [
@@ -814,7 +777,7 @@
             }
           ],
           "default": null,
-          "title": "Retransmit-intervalLeaf"
+          "title": "Retransmit Interval"
         },
         "quiet_period": {
           "anyOf": [
@@ -828,7 +791,7 @@
             }
           ],
           "default": 60,
-          "title": "Quiet-periodLeaf"
+          "title": "Quiet Period"
         },
         "supplicant_timeout": {
           "anyOf": [
@@ -842,7 +805,7 @@
             }
           ],
           "default": 30,
-          "title": "Supplicant-timeoutLeaf"
+          "title": "Supplicant Timeout"
         },
         "max_requests": {
           "anyOf": [
@@ -856,7 +819,7 @@
             }
           ],
           "default": 2,
-          "title": "Max-requestsLeaf"
+          "title": "Max Requests"
         },
         "max_authentication_requests": {
           "anyOf": [
@@ -870,7 +833,7 @@
             }
           ],
           "default": 2,
-          "title": "Max-authentication-requestsLeaf"
+          "title": "Max Authentication Requests"
         },
         "multi_domain_allowed_source_macs": {
           "anyOf": [
@@ -893,7 +856,7 @@
             }
           ],
           "default": null,
-          "title": "Radius-policyLeaf"
+          "title": "Radius Policy"
         },
         "authenticated_sessions": {
           "anyOf": [
@@ -925,7 +888,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -939,7 +902,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -953,7 +916,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf2"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -967,7 +930,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf3"
+          "title": "Maximum"
         }
       },
       "title": "BitErrorRateContainer",
@@ -977,12 +940,10 @@
       "description": "Configuration of breakout options.\n\n7220 D3 ports 3-33: 4x10G and 4x25G\n7220 D3L ports 1-31: 2x50G, 4x10G and 4x25G\n7220 H3 ports 3-34: 4x10G, 2x100G/4x100G, and 2x200G\n7220 H4 ports 1-64: 4x100G and 2x200G\n7220 D4 ports 29-32: 4x100G, 4x25G, and 4x10G\n7220 D4 ports 9, 23-27: 4x25G and 4x10G\n7220 D5 ports 1-32: 4x10G, 4x25G, 2x100G/4x100G, and 2x200G\n7730 SXR-1d-32D QSFP28 ports 1-16, 21-32: 4x10G and 4x25G (Note 3)\n7730 SXR-1d-32D QSFPDD ports 17-20: 4x100G, 3x100G (Note 1), 4x25G, and 4x10G\n7730 SXR-1x-44S SFPDD ports 1-20, 23-42: No breakouts\n7730 SXR-1x-44S QSFPDD ports 21,22,43,44: 4x100G, 3x100G (Note 1), 4x25G, and 4x10G\n7250 IXR-6e/10e 60p QSFP28 IMM 9,12,15,18,21,24,26,27,29,30,32,35,38,39,41,42,45,48: 4x25G and 4x10G (Note 2)\n7250 IXR-6e/10e 36p QSFPDD IMM all ports: 4x100G, 2x100G, 4x25G, and 4x10G\n7250 IXR-X1b QSFP28 ports 1-24: 4x25G, and 4x10G (Note 4)\n7250 IXR-X1b QSFPDD ports 25-36: 4x100G, 3x100G (Note 1), 2x100G, 4x25G, and 4x10G\n7250 IXR-X3b QSFPDD all ports: 4x100G, 3x100G (Note 1), 2x100G, 4x25G, and 4x10G\nNote 1: 3x100G is only supported for Digital Coherent Optic transceivers\n\nNote 2: For the following port groupings only the higher numbered port supports breakout-mode.\n        If the higher numbered port is to be configured for breakout-mode, then the lower numbered port should not be configured.\n        If both ports are configured, then the lower numbered port takes precedence and the higher numbered port shall be operationally down with reason unsupported-breakout-port.\n        Groupings are (8,9), (11,12), (14,15), (17,18), (20,21), (23,24), (44, 45), (47,48).\n\nNote 3: Breakout and 40G is only supported on odd numbered ports.\n        For the QSFP28 four port groupings [1-4], [5-8], [9-12], [13-16], [21-24], [25-28], and [29-32] if either of the odd numbered ports within a group is configured for 40G, 4x10G, or 4x25G,\n        then the other odd numbered port in the same group may only be configured if it is configured for one of 40G, 4x10G, or 4x25G (can differ between the odd ports) and neither of\n        the two even numbered ports within the same group can be configured.\n\nNote 4: For the QSFP28 ports, the following port groups exist [n, n+1, n+2, n+3] for n = 1, 5, 9, 13, 17, 21.  Breakout for 4x25G or 4x10G is only supported on ports n+1 and n+3.\n        When initially configuring a port with a breakout configuration or port speed that does not already exist on another configured port within the same group, then a link flap and traffic hit may occur on other ports within the same group.\n        When the breakout configuration or port speed is changed for a port in a group, then a link flap and traffic hit may occur on other ports within the same group.\n        If port n+1 within the group is configured for breakout, then port n cannot be configured.\n        In addition if port n+1 is configured for breakout and port n+3 is configured without breakout, then port n+2 may only be configured with the same speed as port n+3.\n        If port n+3 within the group is configured for breakout, then port n+2 cannot be configured.\n        In addition if port n+3 is configured for breakout and port n+1 is configured without breakout, then port n may only be configured with the same speed as port n+1.\n\nPort Groups and auto-configuration of port speed:\n Manually configured breakout-mode takes precedence over the auto-configured port-speed.  This means that configuring a port within a port-group can have a side effect to take down an operational port that had its speed set based on the auto configuration feature.  If there is risk of mixing transceiver types within a port group, then it is recommended to always manually configure the ports",
       "properties": {
         "num_breakout_ports": {
-          "$ref": "#/$defs/EnumerationEnum2",
-          "title": "Num-breakout-portsLeaf"
+          "$ref": "#/$defs/EnumerationEnum2"
         },
         "breakout_port_speed": {
-          "$ref": "#/$defs/EnumerationEnum3",
-          "title": "Breakout-port-speedLeaf"
+          "$ref": "#/$defs/EnumerationEnum3"
         }
       },
       "required": [
@@ -1005,7 +966,7 @@
             }
           ],
           "default": false,
-          "title": "Discard-unknown-src-macLeaf"
+          "title": "Discard Unknown Src Mac"
         },
         "mac_limit": {
           "anyOf": [
@@ -1081,18 +1042,10 @@
       "description": "List of physical channels supported by the transceiver associated with this port",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 10,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Index"
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Index",
+          "type": "integer"
         },
         "wavelength": {
           "anyOf": [
@@ -1106,9 +1059,12 @@
             }
           ],
           "default": null,
-          "title": "WavelengthLeaf2"
+          "title": "Wavelength"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "ChannelListEntry",
       "type": "object"
     },
@@ -1127,7 +1083,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf4"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -1141,7 +1097,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf4"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -1155,7 +1111,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf5"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -1169,7 +1125,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf6"
+          "title": "Maximum"
         }
       },
       "title": "ChromaticDispersionContainer",
@@ -1189,7 +1145,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -1203,7 +1159,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf2"
+          "title": "Maximum"
         }
       },
       "title": "ChromaticDispersionRangeContainer",
@@ -1221,8 +1177,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf2"
+          "default": "disable"
         },
         "window_size": {
           "anyOf": [
@@ -1236,7 +1191,7 @@
             }
           ],
           "default": 10,
-          "title": "Window-sizeLeaf"
+          "title": "Window Size"
         },
         "signal_degrade": {
           "anyOf": [
@@ -1291,14 +1246,13 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf4"
+          "default": null
         },
         "last_failed_complexes": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/LastFailedComplexesLeafList"
               },
               "type": "array"
             },
@@ -1325,14 +1279,13 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf6"
+          "default": null
         },
         "last_failed_complexes": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/LastFailedComplexesLeafList2"
               },
               "type": "array"
             },
@@ -1395,8 +1348,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf10"
+          "default": "enable"
         },
         "oper_state": {
           "anyOf": [
@@ -1407,8 +1359,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf6"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -1419,8 +1370,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf5"
+          "default": null
         },
         "option": {
           "anyOf": [
@@ -1470,7 +1420,7 @@
             }
           ],
           "default": null,
-          "title": "Gi-addressLeaf"
+          "title": "Gi Address"
         },
         "use_gi_addr_as_src_ip_addr": {
           "anyOf": [
@@ -1482,7 +1432,7 @@
             }
           ],
           "default": false,
-          "title": "Use-gi-addr-as-src-ip-addrLeaf"
+          "title": "Use Gi Addr As Src Ip Addr"
         },
         "network_instance": {
           "anyOf": [
@@ -1495,7 +1445,7 @@
             }
           ],
           "default": null,
-          "title": "Network-instanceLeaf"
+          "title": "Network Instance"
         },
         "trace_options": {
           "anyOf": [
@@ -1546,8 +1496,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf14"
+          "default": "enable"
         },
         "oper_state": {
           "anyOf": [
@@ -1558,8 +1507,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf9"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -1570,8 +1518,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf7"
+          "default": null
         },
         "option": {
           "anyOf": [
@@ -1621,7 +1568,7 @@
             }
           ],
           "default": null,
-          "title": "Source-addressLeaf"
+          "title": "Source Address"
         },
         "network_instance": {
           "anyOf": [
@@ -1634,7 +1581,7 @@
             }
           ],
           "default": null,
-          "title": "Network-instanceLeaf2"
+          "title": "Network Instance"
         },
         "trace_options": {
           "anyOf": [
@@ -1684,8 +1631,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf11"
+          "default": "disable"
         },
         "oper_state": {
           "anyOf": [
@@ -1696,8 +1642,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf7"
+          "default": null
         }
       },
       "title": "DhcpServerContainer",
@@ -1714,8 +1659,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf16"
+          "default": "disable"
         },
         "oper_state": {
           "anyOf": [
@@ -1726,8 +1670,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf10"
+          "default": null
         }
       },
       "title": "Dhcpv6ServerContainer",
@@ -1748,7 +1691,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf5"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -1762,7 +1705,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf5"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -1776,7 +1719,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf6"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -1790,7 +1733,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf7"
+          "title": "Maximum"
         }
       },
       "title": "DifferentialGroupDelayContainer",
@@ -1885,7 +1828,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf4"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -1896,8 +1839,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf4"
+          "default": null
         }
       },
       "title": "Dot1xContainer2",
@@ -1915,7 +1857,7 @@
               "$ref": "#/$defs/EnumerationEnum81"
             }
           ],
-          "title": "Inner-vlan-idLeaf"
+          "title": "Inner Vlan Id"
         },
         "outer_vlan_id": {
           "anyOf": [
@@ -1926,7 +1868,7 @@
               "$ref": "#/$defs/EnumerationEnum82"
             }
           ],
-          "title": "Outer-vlan-idLeaf"
+          "title": "Outer Vlan Id"
         }
       },
       "required": [
@@ -1970,7 +1912,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf8"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -1981,8 +1923,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf8"
+          "default": null
         }
       },
       "title": "EfmOamContainer",
@@ -1999,8 +1940,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Vlan-stack-actionLeaf2"
+          "default": null
         },
         "outer_vlan_id": {
           "anyOf": [
@@ -2014,17 +1954,19 @@
             }
           ],
           "default": null,
-          "title": "Outer-vlan-idLeaf3"
+          "title": "Outer Vlan Id"
         },
         "outer_tpid": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Outer-tpidLeaf2"
+          "title": "Outer Tpid"
         },
         "inner_vlan_id": {
           "anyOf": [
@@ -2038,17 +1980,19 @@
             }
           ],
           "default": null,
-          "title": "Inner-vlan-idLeaf3"
+          "title": "Inner Vlan Id"
         },
         "inner_tpid": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Inner-tpidLeaf2"
+          "title": "Inner Tpid"
         }
       },
       "title": "EgressMappingContainer",
@@ -2069,7 +2013,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf2"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -2083,7 +2027,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf2"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -2097,7 +2041,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf3"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -2111,7 +2055,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf4"
+          "title": "Maximum"
         }
       },
       "title": "ElectricalSignalToNoiseRatioContainer",
@@ -2130,7 +2074,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf7"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -2141,8 +2085,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf7"
+          "default": null
         }
       },
       "title": "ElmiContainer",
@@ -3216,7 +3159,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf6"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -3227,8 +3170,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf6"
+          "default": null
         }
       },
       "title": "EsmcContainer",
@@ -3264,7 +3206,7 @@
             }
           ],
           "default": null,
-          "title": "Aggregate-idLeaf"
+          "title": "Aggregate Id"
         },
         "forwarding_viable": {
           "anyOf": [
@@ -3276,7 +3218,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-viableLeaf"
+          "title": "Forwarding Viable"
         },
         "auto_negotiate": {
           "anyOf": [
@@ -3288,7 +3230,7 @@
             }
           ],
           "default": null,
-          "title": "Auto-negotiateLeaf"
+          "title": "Auto Negotiate"
         },
         "duplex_mode": {
           "anyOf": [
@@ -3299,8 +3241,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Duplex-modeLeaf"
+          "default": null
         },
         "dac_link_training": {
           "anyOf": [
@@ -3312,7 +3253,7 @@
             }
           ],
           "default": null,
-          "title": "Dac-link-trainingLeaf"
+          "title": "Dac Link Training"
         },
         "flow_control": {
           "anyOf": [
@@ -3337,7 +3278,7 @@
             }
           ],
           "default": null,
-          "title": "Lacp-port-priorityLeaf"
+          "title": "Lacp Port Priority"
         },
         "port_speed": {
           "anyOf": [
@@ -3348,8 +3289,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Port-speedLeaf"
+          "default": null
         },
         "hw_mac_address": {
           "anyOf": [
@@ -3362,7 +3302,7 @@
             }
           ],
           "default": null,
-          "title": "Hw-mac-addressLeaf"
+          "title": "Hw Mac Address"
         },
         "mac_address": {
           "anyOf": [
@@ -3375,7 +3315,7 @@
             }
           ],
           "default": null,
-          "title": "Mac-addressLeaf"
+          "title": "Mac Address"
         },
         "physical_medium": {
           "anyOf": [
@@ -3386,8 +3326,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Physical-mediumLeaf"
+          "default": null
         },
         "ptp_asymmetry": {
           "anyOf": [
@@ -3401,7 +3340,7 @@
             }
           ],
           "default": 0,
-          "title": "Ptp-asymmetryLeaf"
+          "title": "Ptp Asymmetry"
         },
         "ptp_timestamping": {
           "anyOf": [
@@ -3423,8 +3362,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Standby-signalingLeaf"
+          "default": null
         },
         "link_loss_forwarding": {
           "anyOf": [
@@ -3436,7 +3374,7 @@
             }
           ],
           "default": null,
-          "title": "Link-loss-forwardingLeaf"
+          "title": "Link Loss Forwarding"
         },
         "reload_delay": {
           "anyOf": [
@@ -3450,7 +3388,7 @@
             }
           ],
           "default": null,
-          "title": "Reload-delayLeaf"
+          "title": "Reload Delay"
         },
         "reload_delay_expires": {
           "anyOf": [
@@ -3463,7 +3401,7 @@
             }
           ],
           "default": null,
-          "title": "Reload-delay-expiresLeaf"
+          "title": "Reload Delay Expires"
         },
         "hold_time": {
           "anyOf": [
@@ -3582,7 +3520,7 @@
             }
           ],
           "default": null,
-          "title": "Ethernet-segmentLeaf"
+          "title": "Ethernet Segment"
         },
         "es_managed": {
           "anyOf": [
@@ -3594,7 +3532,7 @@
             }
           ],
           "default": false,
-          "title": "Es-managedLeaf"
+          "title": "Es Managed"
         },
         "designated_forwarder": {
           "anyOf": [
@@ -3606,7 +3544,7 @@
             }
           ],
           "default": false,
-          "title": "Designated-forwarderLeaf"
+          "title": "Designated Forwarder"
         }
       },
       "title": "EthernetSegmentAssociationContainer",
@@ -3668,8 +3606,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf4"
+          "default": "disable"
         },
         "half_life": {
           "anyOf": [
@@ -3683,7 +3620,7 @@
             }
           ],
           "default": 5,
-          "title": "Half-lifeLeaf"
+          "title": "Half Life"
         },
         "max_suppress_time": {
           "anyOf": [
@@ -3697,7 +3634,7 @@
             }
           ],
           "default": 20,
-          "title": "Max-suppress-timeLeaf"
+          "title": "Max Suppress Time"
         },
         "reuse_threshold": {
           "anyOf": [
@@ -3711,7 +3648,7 @@
             }
           ],
           "default": 1000,
-          "title": "Reuse-thresholdLeaf"
+          "title": "Reuse Threshold"
         },
         "suppress_threshold": {
           "anyOf": [
@@ -3725,7 +3662,7 @@
             }
           ],
           "default": 2000,
-          "title": "Suppress-thresholdLeaf"
+          "title": "Suppress Threshold"
         },
         "current_penalties": {
           "anyOf": [
@@ -3739,7 +3676,7 @@
             }
           ],
           "default": 0,
-          "title": "Current-penaltiesLeaf"
+          "title": "Current Penalties"
         },
         "max_penalties": {
           "anyOf": [
@@ -3753,7 +3690,7 @@
             }
           ],
           "default": 0,
-          "title": "Max-penaltiesLeaf"
+          "title": "Max Penalties"
         },
         "oper_state": {
           "anyOf": [
@@ -3764,12 +3701,17 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf3"
+          "default": null
         }
       },
       "title": "ExponentialPortDampeningContainer",
       "type": "object"
+    },
+    "FailedSlotsLeafList": {
+      "maximum": 16,
+      "minimum": 1,
+      "title": "FailedSlotsLeafList",
+      "type": "integer"
     },
     "FineTuningContainer": {
       "description": "State related to fine-tuning",
@@ -3786,7 +3728,7 @@
             }
           ],
           "default": null,
-          "title": "RangeLeaf"
+          "title": "Range"
         },
         "resolution": {
           "anyOf": [
@@ -3800,7 +3742,7 @@
             }
           ],
           "default": null,
-          "title": "ResolutionLeaf"
+          "title": "Resolution"
         }
       },
       "title": "FineTuningContainer",
@@ -3821,7 +3763,7 @@
             }
           ],
           "default": null,
-          "title": "Major-revisionLeaf"
+          "title": "Major Revision"
         },
         "minor_revision": {
           "anyOf": [
@@ -3835,7 +3777,7 @@
             }
           ],
           "default": null,
-          "title": "Minor-revisionLeaf"
+          "title": "Minor Revision"
         }
       },
       "title": "FirmwareVersionContainer",
@@ -3853,7 +3795,7 @@
             }
           ],
           "default": null,
-          "title": "ReceiveLeaf"
+          "title": "Receive"
         },
         "transmit": {
           "anyOf": [
@@ -3865,7 +3807,7 @@
             }
           ],
           "default": null,
-          "title": "TransmitLeaf"
+          "title": "Transmit"
         }
       },
       "title": "FlowControlContainer",
@@ -3886,7 +3828,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf6"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -3900,7 +3842,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf6"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -3914,7 +3856,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf7"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -3928,7 +3870,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf8"
+          "title": "Maximum"
         }
       },
       "title": "FrequencyOffsetContainer",
@@ -3946,8 +3888,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf"
+          "default": null
         },
         "last_unhealthy": {
           "anyOf": [
@@ -3960,7 +3901,7 @@
             }
           ],
           "default": null,
-          "title": "Last-unhealthyLeaf"
+          "title": "Last Unhealthy"
         },
         "unhealthy_count": {
           "anyOf": [
@@ -3974,7 +3915,7 @@
             }
           ],
           "default": 0,
-          "title": "Unhealthy-countLeaf"
+          "title": "Unhealthy Count"
         }
       },
       "title": "HealthzContainer",
@@ -4001,7 +3942,7 @@
             }
           ],
           "default": 0,
-          "title": "UpLeaf"
+          "title": "Up"
         },
         "up_expires": {
           "anyOf": [
@@ -4014,7 +3955,7 @@
             }
           ],
           "default": null,
-          "title": "Up-expiresLeaf"
+          "title": "Up Expires"
         },
         "down": {
           "anyOf": [
@@ -4028,7 +3969,7 @@
             }
           ],
           "default": 0,
-          "title": "DownLeaf"
+          "title": "Down"
         },
         "down_expires": {
           "anyOf": [
@@ -4041,7 +3982,7 @@
             }
           ],
           "default": null,
-          "title": "Down-expiresLeaf"
+          "title": "Down Expires"
         }
       },
       "title": "HoldTimeContainer",
@@ -4116,8 +4057,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf2"
+          "default": null
         }
       },
       "title": "HostsContainer",
@@ -4134,8 +4074,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Vlan-stack-actionLeaf"
+          "default": null
         },
         "outer_vlan_id": {
           "anyOf": [
@@ -4149,17 +4088,19 @@
             }
           ],
           "default": null,
-          "title": "Outer-vlan-idLeaf2"
+          "title": "Outer Vlan Id"
         },
         "outer_tpid": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Outer-tpidLeaf"
+          "title": "Outer Tpid"
         },
         "inner_vlan_id": {
           "anyOf": [
@@ -4173,17 +4114,19 @@
             }
           ],
           "default": null,
-          "title": "Inner-vlan-idLeaf2"
+          "title": "Inner Vlan Id"
         },
         "inner_tpid": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Inner-tpidLeaf"
+          "title": "Inner Tpid"
         }
       },
       "title": "IngressMappingContainer",
@@ -4203,7 +4146,7 @@
             }
           ],
           "default": null,
-          "title": "Squelch-levelsLeaf"
+          "title": "Squelch Levels"
         },
         "statistics": {
           "anyOf": [
@@ -4224,16 +4167,8 @@
       "description": "The list of named interfaces on the device",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Interface-allType"
+          "title": "Name",
+          "type": "string"
         },
         "description": {
           "anyOf": [
@@ -4247,7 +4182,7 @@
             }
           ],
           "default": null,
-          "title": "DescriptionLeaf"
+          "title": "Description"
         },
         "admin_state": {
           "anyOf": [
@@ -4258,8 +4193,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf"
+          "default": "enable"
         },
         "num_physical_channels": {
           "anyOf": [
@@ -4273,7 +4207,7 @@
             }
           ],
           "default": null,
-          "title": "Num-physical-channelsLeaf"
+          "title": "Num Physical Channels"
         },
         "breakout_mode": {
           "anyOf": [
@@ -4298,7 +4232,7 @@
             }
           ],
           "default": null,
-          "title": "MtuLeaf"
+          "title": "Mtu"
         },
         "ifindex": {
           "anyOf": [
@@ -4312,7 +4246,7 @@
             }
           ],
           "default": null,
-          "title": "IfindexLeaf"
+          "title": "Ifindex"
         },
         "oper_state": {
           "anyOf": [
@@ -4323,8 +4257,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -4335,8 +4268,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf"
+          "default": null
         },
         "last_change": {
           "anyOf": [
@@ -4349,7 +4281,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf"
+          "title": "Last Change"
         },
         "linecard": {
           "anyOf": [
@@ -4363,7 +4295,7 @@
             }
           ],
           "default": null,
-          "title": "LinecardLeaf"
+          "title": "Linecard"
         },
         "forwarding_complex": {
           "anyOf": [
@@ -4374,8 +4306,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Forwarding-complexLeaf"
+          "default": null
         },
         "phy_group_members": {
           "anyOf": [
@@ -4395,11 +4326,9 @@
         "physical_channel": {
           "anyOf": [
             {
-              "ge": 1,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/PhysicalChannelLeafList"
               },
-              "le": 10,
               "type": "array"
             },
             {
@@ -4418,8 +4347,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Forwarding-modeLeaf"
+          "default": null
         },
         "statistics": {
           "anyOf": [
@@ -4512,17 +4440,19 @@
             }
           ],
           "default": null,
-          "title": "Vlan-taggingLeaf"
+          "title": "Vlan Tagging"
         },
         "tpid": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "TpidLeaf"
+          "title": "Tpid"
         },
         "packet_link_qualification": {
           "anyOf": [
@@ -4568,7 +4498,7 @@
             }
           ],
           "default": null,
-          "title": "UuidLeaf2"
+          "title": "Uuid"
         },
         "vhost": {
           "anyOf": [
@@ -4604,6 +4534,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "InterfaceListEntry",
       "type": "object"
     },
@@ -4658,7 +4591,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/SetTagSetLeafList"
               },
               "type": "array"
             },
@@ -4680,7 +4613,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/SetTagSetLeafList2"
               },
               "type": "array"
             },
@@ -4702,7 +4635,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/SetTagSetLeafList3"
               },
               "type": "array"
             },
@@ -4724,7 +4657,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/SetTagSetLeafList4"
               },
               "type": "array"
             },
@@ -4756,8 +4689,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf7"
+          "default": "disable"
         },
         "address": {
           "anyOf": [
@@ -4784,7 +4716,7 @@
             }
           ],
           "default": false,
-          "title": "Allow-directed-broadcastLeaf"
+          "title": "Allow Directed Broadcast"
         },
         "unnumbered": {
           "anyOf": [
@@ -4873,8 +4805,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf12"
+          "default": "disable"
         },
         "address": {
           "anyOf": [
@@ -4974,7 +4905,7 @@
             }
           ],
           "default": false,
-          "title": "Tunnel-all-l2cpLeaf"
+          "title": "Tunnel All L2Cp"
         },
         "lldp": {
           "anyOf": [
@@ -5081,7 +5012,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf2"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -5092,8 +5023,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf2"
+          "default": null
         }
       },
       "title": "LacpContainer",
@@ -5111,8 +5041,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ActivityLeaf"
+          "default": null
         },
         "timeout": {
           "anyOf": [
@@ -5123,8 +5052,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "TimeoutLeaf2"
+          "default": null
         },
         "synchronization": {
           "anyOf": [
@@ -5135,8 +5063,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "SynchronizationLeaf"
+          "default": null
         },
         "aggregatable": {
           "anyOf": [
@@ -5148,7 +5075,7 @@
             }
           ],
           "default": null,
-          "title": "AggregatableLeaf"
+          "title": "Aggregatable"
         },
         "collecting": {
           "anyOf": [
@@ -5160,7 +5087,7 @@
             }
           ],
           "default": null,
-          "title": "CollectingLeaf"
+          "title": "Collecting"
         },
         "distributing": {
           "anyOf": [
@@ -5172,7 +5099,7 @@
             }
           ],
           "default": null,
-          "title": "DistributingLeaf"
+          "title": "Distributing"
         },
         "system_id": {
           "anyOf": [
@@ -5185,7 +5112,7 @@
             }
           ],
           "default": null,
-          "title": "System-idLeaf"
+          "title": "System Id"
         },
         "oper_key": {
           "anyOf": [
@@ -5199,7 +5126,7 @@
             }
           ],
           "default": null,
-          "title": "Oper-keyLeaf"
+          "title": "Oper Key"
         },
         "partner_id": {
           "anyOf": [
@@ -5212,7 +5139,7 @@
             }
           ],
           "default": null,
-          "title": "Partner-idLeaf"
+          "title": "Partner Id"
         },
         "partner_key": {
           "anyOf": [
@@ -5226,7 +5153,7 @@
             }
           ],
           "default": null,
-          "title": "Partner-keyLeaf"
+          "title": "Partner Key"
         },
         "port_num": {
           "anyOf": [
@@ -5240,7 +5167,7 @@
             }
           ],
           "default": null,
-          "title": "Port-numLeaf"
+          "title": "Port Num"
         },
         "partner_port_num": {
           "anyOf": [
@@ -5254,7 +5181,7 @@
             }
           ],
           "default": null,
-          "title": "Partner-port-numLeaf"
+          "title": "Partner Port Num"
         },
         "lacp_port_priority": {
           "anyOf": [
@@ -5268,7 +5195,7 @@
             }
           ],
           "default": null,
-          "title": "Lacp-port-priorityLeaf2"
+          "title": "Lacp Port Priority"
         },
         "statistics": {
           "anyOf": [
@@ -5297,8 +5224,7 @@
               "type": "null"
             }
           ],
-          "default": "SLOW",
-          "title": "IntervalLeaf"
+          "default": "SLOW"
         },
         "lacp_mode": {
           "anyOf": [
@@ -5309,8 +5235,7 @@
               "type": "null"
             }
           ],
-          "default": "ACTIVE",
-          "title": "Lacp-modeLeaf"
+          "default": "ACTIVE"
         },
         "admin_key": {
           "anyOf": [
@@ -5324,7 +5249,7 @@
             }
           ],
           "default": null,
-          "title": "Admin-keyLeaf"
+          "title": "Admin Key"
         },
         "system_id_mac": {
           "anyOf": [
@@ -5337,7 +5262,7 @@
             }
           ],
           "default": null,
-          "title": "System-id-macLeaf"
+          "title": "System Id Mac"
         },
         "system_priority": {
           "anyOf": [
@@ -5351,7 +5276,7 @@
             }
           ],
           "default": null,
-          "title": "System-priorityLeaf"
+          "title": "System Priority"
         }
       },
       "title": "LacpContainer3",
@@ -5369,8 +5294,7 @@
               "type": "null"
             }
           ],
-          "default": "static",
-          "title": "Lag-typeLeaf"
+          "default": "static"
         },
         "min_links": {
           "anyOf": [
@@ -5384,7 +5308,7 @@
             }
           ],
           "default": 1,
-          "title": "Min-linksLeaf"
+          "title": "Min Links"
         },
         "member_speed": {
           "anyOf": [
@@ -5395,8 +5319,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Member-speedLeaf"
+          "default": null
         },
         "lacp_fallback_mode": {
           "anyOf": [
@@ -5407,8 +5330,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Lacp-fallback-modeLeaf"
+          "default": null
         },
         "lacp_fallback_timeout": {
           "anyOf": [
@@ -5422,7 +5344,7 @@
             }
           ],
           "default": null,
-          "title": "Lacp-fallback-timeoutLeaf"
+          "title": "Lacp Fallback Timeout"
         },
         "lag_speed": {
           "anyOf": [
@@ -5436,7 +5358,7 @@
             }
           ],
           "default": null,
-          "title": "Lag-speedLeaf"
+          "title": "Lag Speed"
         },
         "member": {
           "anyOf": [
@@ -5467,6 +5389,16 @@
       },
       "title": "LagContainer",
       "type": "object"
+    },
+    "LastFailedComplexesLeafList": {
+      "pattern": "^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$",
+      "title": "LastFailedComplexesLeafList",
+      "type": "string"
+    },
+    "LastFailedComplexesLeafList2": {
+      "pattern": "^(?=^(\\(([0-9]|[1][0-9]|[2][0-4]),[0-1]\\))$).*$",
+      "title": "LastFailedComplexesLeafList2",
+      "type": "string"
     },
     "LastReportedDynamicDelayLeaf1": {
       "maximum": 2147483647,
@@ -5510,7 +5442,7 @@
             }
           ],
           "default": null,
-          "title": "Max-entriesLeaf"
+          "title": "Max Entries"
         },
         "log_only": {
           "anyOf": [
@@ -5522,7 +5454,7 @@
             }
           ],
           "default": false,
-          "title": "Log-onlyLeaf"
+          "title": "Log Only"
         },
         "warning_threshold_pct": {
           "anyOf": [
@@ -5536,7 +5468,7 @@
             }
           ],
           "default": 90,
-          "title": "Warning-threshold-pctLeaf"
+          "title": "Warning Threshold Pct"
         }
       },
       "title": "LimitContainer",
@@ -5557,7 +5489,7 @@
             }
           ],
           "default": null,
-          "title": "Device-nameLeaf3"
+          "title": "Device Name"
         }
       },
       "title": "LinuxContainer",
@@ -5576,7 +5508,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -5587,8 +5519,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf"
+          "default": null
         }
       },
       "title": "LldpContainer",
@@ -5606,8 +5537,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf20"
+          "default": "enable"
         },
         "oper_state": {
           "anyOf": [
@@ -5618,8 +5548,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf11"
+          "default": null
         }
       },
       "title": "LocalMirrorDestinationContainer",
@@ -5628,27 +5557,20 @@
     "LowVlanIdListEntry": {
       "properties": {
         "range_low_vlan_id": {
-          "anyOf": [
-            {
-              "maximum": 4094,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Range-low-vlan-idLeaf"
+          "maximum": 4094,
+          "minimum": 1,
+          "title": "Range Low Vlan Id",
+          "type": "integer"
         },
         "high_vlan_id": {
           "maximum": 4094,
           "minimum": 1,
-          "title": "High-vlan-idLeaf",
+          "title": "High Vlan Id",
           "type": "integer"
         }
       },
       "required": [
+        "range_low_vlan_id",
         "high_vlan_id"
       ],
       "title": "LowVlanIdListEntry",
@@ -5658,19 +5580,14 @@
       "description": "Add a list entry for source mac-address",
       "properties": {
         "mac": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "MacLeaf"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+          "title": "Mac",
+          "type": "string"
         }
       },
+      "required": [
+        "mac"
+      ],
       "title": "MacAddressListEntry",
       "type": "object"
     },
@@ -5685,8 +5602,7 @@
               "type": "null"
             }
           ],
-          "default": "use-net-instance-action",
-          "title": "ActionLeaf"
+          "default": "use-net-instance-action"
         },
         "duplicate_entries": {
           "anyOf": [
@@ -5714,8 +5630,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf17"
+          "default": "enable"
         },
         "aging": {
           "anyOf": [
@@ -5758,7 +5673,7 @@
             }
           ],
           "default": 250,
-          "title": "Maximum-entriesLeaf"
+          "title": "Maximum Entries"
         },
         "warning_threshold_pct": {
           "anyOf": [
@@ -5772,7 +5687,7 @@
             }
           ],
           "default": 95,
-          "title": "Warning-threshold-pctLeaf2"
+          "title": "Warning Threshold Pct"
         }
       },
       "title": "MacLimitContainer",
@@ -5782,17 +5697,9 @@
       "description": "macs learnt on the bridging instance",
       "properties": {
         "address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "AddressLeaf2"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+          "title": "Address",
+          "type": "string"
         },
         "last_update": {
           "anyOf": [
@@ -5805,7 +5712,7 @@
             }
           ],
           "default": null,
-          "title": "Last-updateLeaf3"
+          "title": "Last Update"
         },
         "aging": {
           "anyOf": [
@@ -5820,9 +5727,12 @@
             }
           ],
           "default": null,
-          "title": "AgingLeaf"
+          "title": "Aging"
         }
       },
+      "required": [
+        "address"
+      ],
       "title": "MacListEntry",
       "type": "object"
     },
@@ -5830,17 +5740,9 @@
       "description": "macs duplicate on the bridging instance",
       "properties": {
         "address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "AddressLeaf3"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+          "title": "Address",
+          "type": "string"
         },
         "dup_detect_time": {
           "anyOf": [
@@ -5853,7 +5755,7 @@
             }
           ],
           "default": null,
-          "title": "Dup-detect-timeLeaf"
+          "title": "Dup Detect Time"
         },
         "hold_down_time_remaining": {
           "anyOf": [
@@ -5868,9 +5770,12 @@
             }
           ],
           "default": null,
-          "title": "Hold-down-time-remainingLeaf"
+          "title": "Hold Down Time Remaining"
         }
       },
+      "required": [
+        "address"
+      ],
       "title": "MacListEntry2",
       "type": "object"
     },
@@ -5878,17 +5783,9 @@
       "description": "macs learnt on the bridging instance",
       "properties": {
         "address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "AddressLeaf4"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+          "title": "Address",
+          "type": "string"
         },
         "type": {
           "anyOf": [
@@ -5899,8 +5796,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "TypeLeaf5"
+          "default": null
         },
         "last_update": {
           "anyOf": [
@@ -5913,7 +5809,7 @@
             }
           ],
           "default": null,
-          "title": "Last-updateLeaf4"
+          "title": "Last Update"
         },
         "not_programmed_reason": {
           "anyOf": [
@@ -5924,17 +5820,14 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Not-programmed-reasonLeaf"
+          "default": null
         },
         "failed_slots": {
           "anyOf": [
             {
-              "ge": 1,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/FailedSlotsLeafList"
               },
-              "le": 16,
               "type": "array"
             },
             {
@@ -5945,6 +5838,9 @@
           "title": "Failed Slots"
         }
       },
+      "required": [
+        "address"
+      ],
       "title": "MacListEntry3",
       "type": "object"
     },
@@ -5973,16 +5869,7 @@
       "description": "the type of the mac on the sub-interface.",
       "properties": {
         "type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum77"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "TypeLeaf4"
+          "$ref": "#/$defs/EnumerationEnum77"
         },
         "active_entries": {
           "anyOf": [
@@ -5996,7 +5883,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf2"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -6010,7 +5897,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf2"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -6024,9 +5911,12 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf2"
+          "title": "Failed Entries"
         }
       },
+      "required": [
+        "type"
+      ],
       "title": "MacTypeListEntry",
       "type": "object"
     },
@@ -6045,7 +5935,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf12"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -6059,7 +5949,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf12"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -6073,7 +5963,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf13"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -6087,7 +5977,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf14"
+          "title": "Maximum"
         }
       },
       "title": "MediaFrameErrorCountContainer",
@@ -6097,16 +5987,8 @@
       "description": "Reports the list of interfaces associated with the LAG instance",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf8"
+          "title": "Name",
+          "type": "string"
         },
         "oper_state": {
           "anyOf": [
@@ -6117,8 +5999,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf13"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -6129,8 +6010,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf8"
+          "default": null
         },
         "microbfd_enabled": {
           "anyOf": [
@@ -6142,7 +6022,7 @@
             }
           ],
           "default": null,
-          "title": "Microbfd-enabledLeaf"
+          "title": "Microbfd Enabled"
         },
         "last_change": {
           "anyOf": [
@@ -6155,7 +6035,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf3"
+          "title": "Last Change"
         },
         "lacp": {
           "anyOf": [
@@ -6169,6 +6049,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "MemberListEntry",
       "type": "object"
     },
@@ -6194,18 +6077,10 @@
       "description": "List of subinterfaces used by this mstp-policy",
       "properties": {
         "mst_instance": {
-          "anyOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Mst-instanceLeaf"
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Mst Instance",
+          "type": "integer"
         },
         "mst_port_priority": {
           "anyOf": [
@@ -6219,7 +6094,7 @@
             }
           ],
           "default": 128,
-          "title": "Mst-port-priorityLeaf"
+          "title": "Mst Port Priority"
         },
         "mst_path_cost": {
           "anyOf": [
@@ -6233,9 +6108,12 @@
             }
           ],
           "default": 16,
-          "title": "Mst-path-costLeaf"
+          "title": "Mst Path Cost"
         }
       },
+      "required": [
+        "mst_instance"
+      ],
       "title": "MstInstanceListEntry",
       "type": "object"
     },
@@ -6274,7 +6152,7 @@
             }
           ],
           "default": true,
-          "title": "Duplicate-address-detectionLeaf2"
+          "title": "Duplicate Address Detection"
         },
         "reachable_time": {
           "anyOf": [
@@ -6288,7 +6166,7 @@
             }
           ],
           "default": 30,
-          "title": "Reachable-timeLeaf"
+          "title": "Reachable Time"
         },
         "stale_time": {
           "anyOf": [
@@ -6302,7 +6180,7 @@
             }
           ],
           "default": 14400,
-          "title": "Stale-timeLeaf"
+          "title": "Stale Time"
         },
         "learn_unsolicited": {
           "anyOf": [
@@ -6313,8 +6191,7 @@
               "type": "null"
             }
           ],
-          "default": "none",
-          "title": "Learn-unsolicitedLeaf2"
+          "default": "none"
         },
         "neighbor": {
           "anyOf": [
@@ -6363,7 +6240,7 @@
             }
           ],
           "default": false,
-          "title": "Proxy-ndLeaf"
+          "title": "Proxy Nd"
         },
         "debug": {
           "anyOf": [
@@ -6410,21 +6287,13 @@
       "description": "List of static and dynamic ARP cache entries that map an IPv4 address to a MAC address\n\nTo configure a static ARP entry a value must be written into this leaf and the link-layer-address leaf.",
       "properties": {
         "ipv4_address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ipv4-addressLeaf"
+          "pattern": "^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$",
+          "title": "Ipv4 Address",
+          "type": "string"
         },
         "link_layer_address": {
           "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-          "title": "Link-layer-addressLeaf",
+          "title": "Link Layer Address",
           "type": "string"
         },
         "origin": {
@@ -6436,8 +6305,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OriginLeaf2"
+          "default": null
         },
         "expiration_time": {
           "anyOf": [
@@ -6450,7 +6318,7 @@
             }
           ],
           "default": null,
-          "title": "Expiration-timeLeaf"
+          "title": "Expiration Time"
         },
         "datapath_programming": {
           "anyOf": [
@@ -6465,6 +6333,7 @@
         }
       },
       "required": [
+        "ipv4_address",
         "link_layer_address"
       ],
       "title": "NeighborListEntry",
@@ -6474,21 +6343,13 @@
       "description": "List of static and dynamic ND cache entries that map an IPv6 address to a MAC address",
       "properties": {
         "ipv6_address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ipv6-addressLeaf"
+          "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+          "title": "Ipv6 Address",
+          "type": "string"
         },
         "link_layer_address": {
           "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-          "title": "Link-layer-addressLeaf2",
+          "title": "Link Layer Address",
           "type": "string"
         },
         "origin": {
@@ -6500,8 +6361,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OriginLeaf4"
+          "default": null
         },
         "is_router": {
           "anyOf": [
@@ -6513,7 +6373,7 @@
             }
           ],
           "default": null,
-          "title": "Is-routerLeaf"
+          "title": "Is Router"
         },
         "current_state": {
           "anyOf": [
@@ -6524,8 +6384,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Current-stateLeaf"
+          "default": null
         },
         "next_state_time": {
           "anyOf": [
@@ -6538,7 +6397,7 @@
             }
           ],
           "default": null,
-          "title": "Next-state-timeLeaf"
+          "title": "Next State Time"
         },
         "datapath_programming": {
           "anyOf": [
@@ -6553,6 +6412,7 @@
         }
       },
       "required": [
+        "ipv6_address",
         "link_layer_address"
       ],
       "title": "NeighborListEntry2",
@@ -6562,28 +6422,19 @@
       "description": "List of optical channels supported by the transceiver associated with this port.",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 1,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf2"
+          "maximum": 1,
+          "minimum": 1,
+          "title": "Index",
+          "type": "integer"
         },
         "frequency": {
           "maximum": 196150000,
           "minimum": 191100000,
-          "title": "FrequencyLeaf",
+          "title": "Frequency",
           "type": "integer"
         },
         "operational_mode": {
-          "$ref": "#/$defs/EnumerationEnum14",
-          "title": "Operational-modeLeaf"
+          "$ref": "#/$defs/EnumerationEnum14"
         },
         "tx_filter_enable": {
           "anyOf": [
@@ -6595,7 +6446,7 @@
             }
           ],
           "default": false,
-          "title": "Tx-filter-enableLeaf"
+          "title": "Tx Filter Enable"
         },
         "chromatic_dispersion_range": {
           "anyOf": [
@@ -6620,7 +6471,7 @@
             }
           ],
           "default": 100,
-          "title": "Target-powerLeaf"
+          "title": "Target Power"
         },
         "laser_tunability": {
           "anyOf": [
@@ -6631,8 +6482,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Laser-tunabilityLeaf"
+          "default": null
         },
         "oper_frequency": {
           "anyOf": [
@@ -6646,7 +6496,7 @@
             }
           ],
           "default": null,
-          "title": "Oper-frequencyLeaf"
+          "title": "Oper Frequency"
         },
         "minimum_frequency": {
           "anyOf": [
@@ -6660,7 +6510,7 @@
             }
           ],
           "default": null,
-          "title": "Minimum-frequencyLeaf"
+          "title": "Minimum Frequency"
         },
         "maximum_frequency": {
           "anyOf": [
@@ -6674,7 +6524,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-frequencyLeaf"
+          "title": "Maximum Frequency"
         },
         "supported_grids": {
           "anyOf": [
@@ -6714,7 +6564,7 @@
             }
           ],
           "default": null,
-          "title": "DispersionLeaf"
+          "title": "Dispersion"
         },
         "dispersion_control_mode": {
           "anyOf": [
@@ -6725,8 +6575,7 @@
               "type": "null"
             }
           ],
-          "default": "automatic",
-          "title": "Dispersion-control-modeLeaf"
+          "default": "automatic"
         },
         "rx_los_reaction": {
           "anyOf": [
@@ -6737,8 +6586,7 @@
               "type": "null"
             }
           ],
-          "default": "squelch",
-          "title": "Rx-los-reactionLeaf"
+          "default": "squelch"
         },
         "rx_los_thresh": {
           "anyOf": [
@@ -6752,7 +6600,7 @@
             }
           ],
           "default": -2300,
-          "title": "Rx-los-threshLeaf"
+          "title": "Rx Los Thresh"
         },
         "module_state": {
           "anyOf": [
@@ -6763,8 +6611,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Module-stateLeaf"
+          "default": null
         },
         "module_tx_turn_up_states": {
           "anyOf": [
@@ -6808,7 +6655,7 @@
             }
           ],
           "default": null,
-          "title": "Rx-electrical-snr-x-polarizationLeaf"
+          "title": "Rx Electrical Snr X Polarization"
         },
         "rx_electrical_snr_y_polarization": {
           "anyOf": [
@@ -6822,7 +6669,7 @@
             }
           ],
           "default": null,
-          "title": "Rx-electrical-snr-y-polarizationLeaf"
+          "title": "Rx Electrical Snr Y Polarization"
         },
         "rx_quality_margin": {
           "anyOf": [
@@ -6836,7 +6683,7 @@
             }
           ],
           "default": null,
-          "title": "Rx-quality-marginLeaf"
+          "title": "Rx Quality Margin"
         },
         "rx_optical_snr_x_polarization": {
           "anyOf": [
@@ -6850,7 +6697,7 @@
             }
           ],
           "default": null,
-          "title": "Rx-optical-snr-x-polarizationLeaf"
+          "title": "Rx Optical Snr X Polarization"
         },
         "rx_optical_snr_y_polarization": {
           "anyOf": [
@@ -6864,7 +6711,7 @@
             }
           ],
           "default": null,
-          "title": "Rx-optical-snr-y-polarizationLeaf"
+          "title": "Rx Optical Snr Y Polarization"
         },
         "current_alarms": {
           "anyOf": [
@@ -6941,10 +6788,11 @@
             }
           ],
           "default": null,
-          "title": "Logical-channelLeaf"
+          "title": "Logical Channel"
         }
       },
       "required": [
+        "index",
         "frequency",
         "operational_mode"
       ],
@@ -6966,7 +6814,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf3"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -6980,7 +6828,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf3"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -6994,7 +6842,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf4"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -7008,7 +6856,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf5"
+          "title": "Maximum"
         }
       },
       "title": "OpticalSignalToNoiseRatioContainer",
@@ -7029,7 +6877,7 @@
             }
           ],
           "default": null,
-          "title": "IdLeaf2"
+          "title": "Id"
         },
         "parent_id": {
           "anyOf": [
@@ -7043,7 +6891,7 @@
             }
           ],
           "default": null,
-          "title": "Parent-idLeaf"
+          "title": "Parent Id"
         }
       },
       "title": "P4rtContainer",
@@ -7085,7 +6933,7 @@
             }
           ],
           "default": null,
-          "title": "AddressLeaf5"
+          "title": "Address"
         },
         "socket_id": {
           "anyOf": [
@@ -7099,16 +6947,14 @@
             }
           ],
           "default": null,
-          "title": "Socket-idLeaf2"
+          "title": "Socket Id"
         },
         "socket_cpus": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/SocketCpusLeafList2"
               },
-              "le": 65535,
               "type": "array"
             },
             {
@@ -7128,7 +6974,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-nameLeaf"
+          "title": "Vendor Name"
         },
         "vendor_id": {
           "anyOf": [
@@ -7140,7 +6986,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-idLeaf"
+          "title": "Vendor Id"
         },
         "device_name": {
           "anyOf": [
@@ -7152,7 +6998,7 @@
             }
           ],
           "default": null,
-          "title": "Device-nameLeaf"
+          "title": "Device Name"
         },
         "device_id": {
           "anyOf": [
@@ -7164,7 +7010,7 @@
             }
           ],
           "default": null,
-          "title": "Device-idLeaf"
+          "title": "Device Id"
         },
         "subsystem": {
           "anyOf": [
@@ -7181,6 +7027,12 @@
       "title": "PciContainer",
       "type": "object"
     },
+    "PhysicalChannelLeafList": {
+      "maximum": 10,
+      "minimum": 1,
+      "title": "PhysicalChannelLeafList",
+      "type": "integer"
+    },
     "PolarizationDependentLossContainer": {
       "description": "Enter the polarization-dependent-loss context",
       "properties": {
@@ -7196,7 +7048,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf10"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -7210,7 +7062,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf10"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -7224,7 +7076,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf11"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -7238,7 +7090,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf12"
+          "title": "Maximum"
         }
       },
       "title": "PolarizationDependentLossContainer",
@@ -7247,16 +7099,7 @@
     "PopulateListEntry": {
       "properties": {
         "route_type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum47"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Route-typeLeaf"
+          "$ref": "#/$defs/EnumerationEnum47"
         },
         "datapath_programming": {
           "anyOf": [
@@ -7268,7 +7111,7 @@
             }
           ],
           "default": null,
-          "title": "Datapath-programmingLeaf"
+          "title": "Datapath Programming"
         },
         "internal_tags": {
           "anyOf": [
@@ -7282,22 +7125,16 @@
           "default": null
         }
       },
+      "required": [
+        "route_type"
+      ],
       "title": "PopulateListEntry",
       "type": "object"
     },
     "PopulateListEntry2": {
       "properties": {
         "route_type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum59"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Route-typeLeaf3"
+          "$ref": "#/$defs/EnumerationEnum59"
         },
         "datapath_programming": {
           "anyOf": [
@@ -7309,7 +7146,7 @@
             }
           ],
           "default": null,
-          "title": "Datapath-programmingLeaf2"
+          "title": "Datapath Programming"
         },
         "internal_tags": {
           "anyOf": [
@@ -7323,6 +7160,9 @@
           "default": null
         }
       },
+      "required": [
+        "route_type"
+      ],
       "title": "PopulateListEntry2",
       "type": "object"
     },
@@ -7341,7 +7181,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf8"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -7355,7 +7195,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf8"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -7369,7 +7209,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf9"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -7383,7 +7223,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf10"
+          "title": "Maximum"
         }
       },
       "title": "PowerContainer",
@@ -7404,7 +7244,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf13"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -7418,7 +7258,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf13"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -7432,7 +7272,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf14"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -7446,7 +7286,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf15"
+          "title": "Maximum"
         }
       },
       "title": "PowerContainer2",
@@ -7462,17 +7302,9 @@
       "description": "The list of IPv6 prefixes to advertise in the router advertisement messages.",
       "properties": {
         "ipv6_prefix": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Ipv6-prefixLeaf"
+          "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$",
+          "title": "Ipv6 Prefix",
+          "type": "string"
         },
         "autonomous_flag": {
           "anyOf": [
@@ -7484,7 +7316,7 @@
             }
           ],
           "default": true,
-          "title": "Autonomous-flagLeaf"
+          "title": "Autonomous Flag"
         },
         "on_link_flag": {
           "anyOf": [
@@ -7496,7 +7328,7 @@
             }
           ],
           "default": true,
-          "title": "On-link-flagLeaf"
+          "title": "On Link Flag"
         },
         "preferred_lifetime": {
           "anyOf": [
@@ -7511,7 +7343,7 @@
             }
           ],
           "default": "604800",
-          "title": "Preferred-lifetimeLeaf"
+          "title": "Preferred Lifetime"
         },
         "valid_lifetime": {
           "anyOf": [
@@ -7526,9 +7358,12 @@
             }
           ],
           "default": "2592000",
-          "title": "Valid-lifetimeLeaf"
+          "title": "Valid Lifetime"
         }
       },
+      "required": [
+        "ipv6_prefix"
+      ],
       "title": "PrefixListEntry",
       "type": "object"
     },
@@ -7557,7 +7392,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf5"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -7568,8 +7403,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf5"
+          "default": null
         }
       },
       "title": "PtpContainer",
@@ -7587,7 +7421,7 @@
             }
           ],
           "default": null,
-          "title": "Disable-ip-timestampingLeaf"
+          "title": "Disable Ip Timestamping"
         }
       },
       "title": "PtpTimestampingContainer",
@@ -7608,7 +7442,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf7"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -7622,7 +7456,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf7"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -7636,7 +7470,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf8"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -7650,7 +7484,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf9"
+          "title": "Maximum"
         }
       },
       "title": "QualityContainer",
@@ -7669,7 +7503,7 @@
             }
           ],
           "default": null,
-          "title": "PolicyLeaf"
+          "title": "Policy"
         },
         "vlan_list": {
           "anyOf": [
@@ -7832,17 +7666,9 @@
     "ResultListEntry": {
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[<>A-Za-z0-9!@#$%^&()|+=`~.,'/_:;?-][<>A-Za-z0-9 !@#$%^&()|+=`~.,'/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf"
+          "pattern": "^(?=^[<>A-Za-z0-9!@#$%^&()|+=`~.,'/_:;?-][<>A-Za-z0-9 !@#$%^&()|+=`~.,'/_:;?-]*$).*$",
+          "title": "Id",
+          "type": "string"
         },
         "oper_state": {
           "anyOf": [
@@ -7853,8 +7679,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf12"
+          "default": null
         },
         "packets_sent": {
           "anyOf": [
@@ -7868,7 +7693,7 @@
             }
           ],
           "default": null,
-          "title": "Packets-sentLeaf"
+          "title": "Packets Sent"
         },
         "packets_received": {
           "anyOf": [
@@ -7882,7 +7707,7 @@
             }
           ],
           "default": null,
-          "title": "Packets-receivedLeaf"
+          "title": "Packets Received"
         },
         "packets_error": {
           "anyOf": [
@@ -7896,7 +7721,7 @@
             }
           ],
           "default": null,
-          "title": "Packets-errorLeaf"
+          "title": "Packets Error"
         },
         "packets_dropped": {
           "anyOf": [
@@ -7910,7 +7735,7 @@
             }
           ],
           "default": null,
-          "title": "Packets-droppedLeaf"
+          "title": "Packets Dropped"
         },
         "start_time": {
           "anyOf": [
@@ -7923,7 +7748,7 @@
             }
           ],
           "default": null,
-          "title": "Start-timeLeaf"
+          "title": "Start Time"
         },
         "end_time": {
           "anyOf": [
@@ -7936,7 +7761,7 @@
             }
           ],
           "default": null,
-          "title": "End-timeLeaf"
+          "title": "End Time"
         },
         "expected_rate": {
           "anyOf": [
@@ -7950,7 +7775,7 @@
             }
           ],
           "default": null,
-          "title": "Expected-rateLeaf"
+          "title": "Expected Rate"
         },
         "qualification_rate": {
           "anyOf": [
@@ -7964,7 +7789,7 @@
             }
           ],
           "default": null,
-          "title": "Qualification-rateLeaf"
+          "title": "Qualification Rate"
         },
         "status": {
           "anyOf": [
@@ -7975,8 +7800,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf7"
+          "default": null
         },
         "status_message": {
           "anyOf": [
@@ -7988,9 +7812,12 @@
             }
           ],
           "default": null,
-          "title": "Status-messageLeaf"
+          "title": "Status Message"
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "ResultListEntry",
       "type": "object"
     },
@@ -8039,8 +7866,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf15"
+          "default": "disable"
         },
         "current_hop_limit": {
           "anyOf": [
@@ -8054,7 +7880,7 @@
             }
           ],
           "default": 64,
-          "title": "Current-hop-limitLeaf"
+          "title": "Current Hop Limit"
         },
         "ip_mtu": {
           "anyOf": [
@@ -8068,7 +7894,7 @@
             }
           ],
           "default": null,
-          "title": "Ip-mtuLeaf2"
+          "title": "Ip Mtu"
         },
         "managed_configuration_flag": {
           "anyOf": [
@@ -8080,7 +7906,7 @@
             }
           ],
           "default": false,
-          "title": "Managed-configuration-flagLeaf"
+          "title": "Managed Configuration Flag"
         },
         "other_configuration_flag": {
           "anyOf": [
@@ -8092,7 +7918,7 @@
             }
           ],
           "default": false,
-          "title": "Other-configuration-flagLeaf"
+          "title": "Other Configuration Flag"
         },
         "max_advertisement_interval": {
           "anyOf": [
@@ -8106,7 +7932,7 @@
             }
           ],
           "default": 600,
-          "title": "Max-advertisement-intervalLeaf"
+          "title": "Max Advertisement Interval"
         },
         "min_advertisement_interval": {
           "anyOf": [
@@ -8120,7 +7946,7 @@
             }
           ],
           "default": 200,
-          "title": "Min-advertisement-intervalLeaf"
+          "title": "Min Advertisement Interval"
         },
         "reachable_time": {
           "anyOf": [
@@ -8134,7 +7960,7 @@
             }
           ],
           "default": 0,
-          "title": "Reachable-timeLeaf2"
+          "title": "Reachable Time"
         },
         "retransmit_time": {
           "anyOf": [
@@ -8148,7 +7974,7 @@
             }
           ],
           "default": 0,
-          "title": "Retransmit-timeLeaf"
+          "title": "Retransmit Time"
         },
         "router_lifetime": {
           "anyOf": [
@@ -8162,7 +7988,7 @@
             }
           ],
           "default": 1800,
-          "title": "Router-lifetimeLeaf"
+          "title": "Router Lifetime"
         },
         "prefix": {
           "anyOf": [
@@ -8187,17 +8013,9 @@
       "description": "Reports the resolved IP address for server entries using domain names",
       "properties": {
         "domain": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "DomainLeaf"
+          "pattern": "^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$",
+          "title": "Domain",
+          "type": "string"
         },
         "resolved_ip_address": {
           "anyOf": [
@@ -8212,7 +8030,7 @@
             }
           ],
           "default": null,
-          "title": "Resolved-ip-addressLeaf"
+          "title": "Resolved Ip Address"
         },
         "last_update": {
           "anyOf": [
@@ -8225,9 +8043,12 @@
             }
           ],
           "default": null,
-          "title": "Last-updateLeaf"
+          "title": "Last Update"
         }
       },
+      "required": [
+        "domain"
+      ],
       "title": "ServerListEntry",
       "type": "object"
     },
@@ -8235,17 +8056,9 @@
       "description": "Reports the resolved IP address for server entries using domain names",
       "properties": {
         "domain": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "DomainLeaf2"
+          "pattern": "^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$",
+          "title": "Domain",
+          "type": "string"
         },
         "resolved_ip_address": {
           "anyOf": [
@@ -8260,7 +8073,7 @@
             }
           ],
           "default": null,
-          "title": "Resolved-ip-addressLeaf2"
+          "title": "Resolved Ip Address"
         },
         "last_update": {
           "anyOf": [
@@ -8273,11 +8086,34 @@
             }
           ],
           "default": null,
-          "title": "Last-updateLeaf2"
+          "title": "Last Update"
         }
       },
+      "required": [
+        "domain"
+      ],
       "title": "ServerListEntry2",
       "type": "object"
+    },
+    "SetTagSetLeafList": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "SetTagSetLeafList",
+      "type": "string"
+    },
+    "SetTagSetLeafList2": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "SetTagSetLeafList2",
+      "type": "string"
+    },
+    "SetTagSetLeafList3": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "SetTagSetLeafList3",
+      "type": "string"
+    },
+    "SetTagSetLeafList4": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "SetTagSetLeafList4",
+      "type": "string"
     },
     "SflowContainer": {
       "description": "Context to configure sFlow parameters",
@@ -8291,8 +8127,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Admin-stateLeaf21"
+          "default": null
         },
         "ingress_sampling_rate": {
           "anyOf": [
@@ -8306,7 +8141,7 @@
             }
           ],
           "default": null,
-          "title": "Ingress-sampling-rateLeaf"
+          "title": "Ingress Sampling Rate"
         },
         "egress_sampling_rate": {
           "anyOf": [
@@ -8320,7 +8155,7 @@
             }
           ],
           "default": null,
-          "title": "Egress-sampling-rateLeaf"
+          "title": "Egress Sampling Rate"
         }
       },
       "title": "SflowContainer",
@@ -8341,7 +8176,7 @@
             }
           ],
           "default": 5,
-          "title": "ExponentLeaf"
+          "title": "Exponent"
         },
         "multiplier": {
           "anyOf": [
@@ -8355,7 +8190,7 @@
             }
           ],
           "default": 1,
-          "title": "MultiplierLeaf"
+          "title": "Multiplier"
         }
       },
       "title": "SignalDegradeContainer",
@@ -8376,7 +8211,7 @@
             }
           ],
           "default": 5,
-          "title": "ExponentLeaf3"
+          "title": "Exponent"
         },
         "multiplier": {
           "anyOf": [
@@ -8390,7 +8225,7 @@
             }
           ],
           "default": 1,
-          "title": "MultiplierLeaf3"
+          "title": "Multiplier"
         }
       },
       "title": "SignalDegradeContainer2",
@@ -8411,7 +8246,7 @@
             }
           ],
           "default": 5,
-          "title": "ExponentLeaf2"
+          "title": "Exponent"
         },
         "multiplier": {
           "anyOf": [
@@ -8425,7 +8260,7 @@
             }
           ],
           "default": 1,
-          "title": "MultiplierLeaf2"
+          "title": "Multiplier"
         }
       },
       "title": "SignalFailureContainer",
@@ -8446,7 +8281,7 @@
             }
           ],
           "default": 5,
-          "title": "ExponentLeaf4"
+          "title": "Exponent"
         },
         "multiplier": {
           "anyOf": [
@@ -8460,7 +8295,7 @@
             }
           ],
           "default": 1,
-          "title": "MultiplierLeaf4"
+          "title": "Multiplier"
         }
       },
       "title": "SignalFailureContainer2",
@@ -8482,7 +8317,7 @@
             }
           ],
           "default": null,
-          "title": "Vlan-idLeaf"
+          "title": "Vlan Id"
         }
       },
       "title": "SingleTaggedContainer",
@@ -8510,6 +8345,18 @@
       "title": "SingleTaggedRangeContainer",
       "type": "object"
     },
+    "SocketCpusLeafList": {
+      "maximum": 65535,
+      "minimum": 0,
+      "title": "SocketCpusLeafList",
+      "type": "integer"
+    },
+    "SocketCpusLeafList2": {
+      "maximum": 65535,
+      "minimum": 0,
+      "title": "SocketCpusLeafList2",
+      "type": "integer"
+    },
     "SsmContainer": {
       "description": "This struct containing all attributes for QL/SSM with SyncE in these ports.",
       "properties": {
@@ -8522,8 +8369,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf5"
+          "default": "disable"
         }
       },
       "title": "SsmContainer",
@@ -8544,7 +8390,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf11"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -8558,7 +8404,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf11"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -8572,7 +8418,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf12"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -8586,7 +8432,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf13"
+          "title": "Maximum"
         }
       },
       "title": "StateOfPolarizationRateOfChangeContainer",
@@ -8612,7 +8458,7 @@
             }
           ],
           "default": 0,
-          "title": "In-packetsLeaf"
+          "title": "In Packets"
         },
         "in_octets": {
           "anyOf": [
@@ -8626,7 +8472,7 @@
             }
           ],
           "default": 0,
-          "title": "In-octetsLeaf"
+          "title": "In Octets"
         },
         "in_unicast_packets": {
           "anyOf": [
@@ -8640,7 +8486,7 @@
             }
           ],
           "default": 0,
-          "title": "In-unicast-packetsLeaf"
+          "title": "In Unicast Packets"
         },
         "in_broadcast_packets": {
           "anyOf": [
@@ -8654,7 +8500,7 @@
             }
           ],
           "default": 0,
-          "title": "In-broadcast-packetsLeaf"
+          "title": "In Broadcast Packets"
         },
         "in_multicast_packets": {
           "anyOf": [
@@ -8668,7 +8514,7 @@
             }
           ],
           "default": 0,
-          "title": "In-multicast-packetsLeaf"
+          "title": "In Multicast Packets"
         },
         "in_discarded_packets": {
           "anyOf": [
@@ -8682,7 +8528,7 @@
             }
           ],
           "default": 0,
-          "title": "In-discarded-packetsLeaf"
+          "title": "In Discarded Packets"
         },
         "in_error_packets": {
           "anyOf": [
@@ -8696,7 +8542,7 @@
             }
           ],
           "default": 0,
-          "title": "In-error-packetsLeaf"
+          "title": "In Error Packets"
         },
         "in_fcs_error_packets": {
           "anyOf": [
@@ -8710,7 +8556,7 @@
             }
           ],
           "default": 0,
-          "title": "In-fcs-error-packetsLeaf"
+          "title": "In Fcs Error Packets"
         },
         "out_packets": {
           "anyOf": [
@@ -8724,7 +8570,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-packetsLeaf"
+          "title": "Out Packets"
         },
         "out_octets": {
           "anyOf": [
@@ -8738,7 +8584,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-octetsLeaf"
+          "title": "Out Octets"
         },
         "out_mirror_octets": {
           "anyOf": [
@@ -8752,7 +8598,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-mirror-octetsLeaf"
+          "title": "Out Mirror Octets"
         },
         "out_unicast_packets": {
           "anyOf": [
@@ -8766,7 +8612,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-unicast-packetsLeaf"
+          "title": "Out Unicast Packets"
         },
         "out_broadcast_packets": {
           "anyOf": [
@@ -8780,7 +8626,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-broadcast-packetsLeaf"
+          "title": "Out Broadcast Packets"
         },
         "out_multicast_packets": {
           "anyOf": [
@@ -8794,7 +8640,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-multicast-packetsLeaf"
+          "title": "Out Multicast Packets"
         },
         "out_discarded_packets": {
           "anyOf": [
@@ -8808,7 +8654,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-discarded-packetsLeaf"
+          "title": "Out Discarded Packets"
         },
         "out_error_packets": {
           "anyOf": [
@@ -8822,7 +8668,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-error-packetsLeaf"
+          "title": "Out Error Packets"
         },
         "out_mirror_packets": {
           "anyOf": [
@@ -8836,7 +8682,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-mirror-packetsLeaf"
+          "title": "Out Mirror Packets"
         },
         "carrier_transitions": {
           "anyOf": [
@@ -8850,7 +8696,7 @@
             }
           ],
           "default": 0,
-          "title": "Carrier-transitionsLeaf"
+          "title": "Carrier Transitions"
         },
         "last_clear": {
           "anyOf": [
@@ -8863,7 +8709,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer",
@@ -8883,7 +8729,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-sentLeaf2"
+          "title": "Advertisements Sent"
         },
         "advertisements_received": {
           "anyOf": [
@@ -8897,7 +8743,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-receivedLeaf2"
+          "title": "Advertisements Received"
         },
         "advertisements_discarded_version_mismatch": {
           "anyOf": [
@@ -8911,7 +8757,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-version-mismatchLeaf2"
+          "title": "Advertisements Discarded Version Mismatch"
         },
         "advertisements_discarded_authfail": {
           "anyOf": [
@@ -8925,7 +8771,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-authfailLeaf2"
+          "title": "Advertisements Discarded Authfail"
         },
         "advertisements_discarded_authtype_mismatch": {
           "anyOf": [
@@ -8939,7 +8785,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-authtype-mismatchLeaf2"
+          "title": "Advertisements Discarded Authtype Mismatch"
         },
         "advertisements_discarded_address_mismatch": {
           "anyOf": [
@@ -8953,7 +8799,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-address-mismatchLeaf2"
+          "title": "Advertisements Discarded Address Mismatch"
         },
         "priority_zero_packets_sent": {
           "anyOf": [
@@ -8967,7 +8813,7 @@
             }
           ],
           "default": 0,
-          "title": "Priority-zero-packets-sentLeaf2"
+          "title": "Priority Zero Packets Sent"
         },
         "priority_zero_packets_received": {
           "anyOf": [
@@ -8981,7 +8827,7 @@
             }
           ],
           "default": 0,
-          "title": "Priority-zero-packets-receivedLeaf2"
+          "title": "Priority Zero Packets Received"
         },
         "advertisements_discarded_ttl": {
           "anyOf": [
@@ -8995,7 +8841,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-ttlLeaf2"
+          "title": "Advertisements Discarded Ttl"
         },
         "advertisements_discarded_length": {
           "anyOf": [
@@ -9009,7 +8855,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-lengthLeaf2"
+          "title": "Advertisements Discarded Length"
         },
         "advertisements_discarded_interval": {
           "anyOf": [
@@ -9023,7 +8869,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-intervalLeaf2"
+          "title": "Advertisements Discarded Interval"
         },
         "advertisements_interval_error": {
           "anyOf": [
@@ -9037,7 +8883,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-interval-errorLeaf2"
+          "title": "Advertisements Interval Error"
         },
         "advertisements_discarded_total": {
           "anyOf": [
@@ -9051,7 +8897,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-totalLeaf2"
+          "title": "Advertisements Discarded Total"
         }
       },
       "title": "StatisticsContainer10",
@@ -9072,7 +8918,7 @@
             }
           ],
           "default": 0,
-          "title": "In-packetsLeaf3"
+          "title": "In Packets"
         },
         "in_octets": {
           "anyOf": [
@@ -9086,7 +8932,7 @@
             }
           ],
           "default": 0,
-          "title": "In-octetsLeaf3"
+          "title": "In Octets"
         },
         "in_error_packets": {
           "anyOf": [
@@ -9100,7 +8946,7 @@
             }
           ],
           "default": 0,
-          "title": "In-error-packetsLeaf3"
+          "title": "In Error Packets"
         },
         "in_discarded_packets": {
           "anyOf": [
@@ -9114,7 +8960,7 @@
             }
           ],
           "default": 0,
-          "title": "In-discarded-packetsLeaf3"
+          "title": "In Discarded Packets"
         },
         "in_terminated_packets": {
           "anyOf": [
@@ -9128,7 +8974,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-packetsLeaf2"
+          "title": "In Terminated Packets"
         },
         "in_terminated_octets": {
           "anyOf": [
@@ -9142,7 +8988,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-octetsLeaf2"
+          "title": "In Terminated Octets"
         },
         "in_forwarded_packets": {
           "anyOf": [
@@ -9156,7 +9002,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-packetsLeaf2"
+          "title": "In Forwarded Packets"
         },
         "in_forwarded_octets": {
           "anyOf": [
@@ -9170,7 +9016,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-octetsLeaf2"
+          "title": "In Forwarded Octets"
         },
         "in_matched_ra_packets": {
           "anyOf": [
@@ -9184,7 +9030,7 @@
             }
           ],
           "default": 0,
-          "title": "In-matched-ra-packetsLeaf2"
+          "title": "In Matched Ra Packets"
         },
         "out_forwarded_packets": {
           "anyOf": [
@@ -9198,7 +9044,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-packetsLeaf2"
+          "title": "Out Forwarded Packets"
         },
         "out_forwarded_octets": {
           "anyOf": [
@@ -9212,7 +9058,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-octetsLeaf2"
+          "title": "Out Forwarded Octets"
         },
         "out_originated_packets": {
           "anyOf": [
@@ -9226,7 +9072,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-packetsLeaf2"
+          "title": "Out Originated Packets"
         },
         "out_originated_octets": {
           "anyOf": [
@@ -9240,7 +9086,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-octetsLeaf2"
+          "title": "Out Originated Octets"
         },
         "out_error_packets": {
           "anyOf": [
@@ -9254,7 +9100,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-error-packetsLeaf3"
+          "title": "Out Error Packets"
         },
         "out_discarded_packets": {
           "anyOf": [
@@ -9268,7 +9114,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-discarded-packetsLeaf3"
+          "title": "Out Discarded Packets"
         },
         "out_packets": {
           "anyOf": [
@@ -9282,7 +9128,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-packetsLeaf3"
+          "title": "Out Packets"
         },
         "out_octets": {
           "anyOf": [
@@ -9296,7 +9142,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-octetsLeaf3"
+          "title": "Out Octets"
         },
         "last_clear": {
           "anyOf": [
@@ -9309,7 +9155,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf5"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer11",
@@ -9330,7 +9176,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-probe-packetsLeaf2"
+          "title": "Out Probe Packets"
         }
       },
       "title": "StatisticsContainer12",
@@ -9351,7 +9197,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-total-probe-packetsLeaf2"
+          "title": "Out Total Probe Packets"
         }
       },
       "title": "StatisticsContainer13",
@@ -9371,7 +9217,7 @@
             }
           ],
           "default": 0,
-          "title": "Client-packets-receivedLeaf2"
+          "title": "Client Packets Received"
         },
         "client_packets_relayed": {
           "anyOf": [
@@ -9385,7 +9231,7 @@
             }
           ],
           "default": 0,
-          "title": "Client-packets-relayedLeaf2"
+          "title": "Client Packets Relayed"
         },
         "client_packets_discarded": {
           "anyOf": [
@@ -9399,7 +9245,7 @@
             }
           ],
           "default": 0,
-          "title": "Client-packets-discardedLeaf2"
+          "title": "Client Packets Discarded"
         },
         "server_packets_received": {
           "anyOf": [
@@ -9413,7 +9259,7 @@
             }
           ],
           "default": 0,
-          "title": "Server-packets-receivedLeaf2"
+          "title": "Server Packets Received"
         },
         "server_packets_relayed": {
           "anyOf": [
@@ -9427,7 +9273,7 @@
             }
           ],
           "default": 0,
-          "title": "Server-packets-relayedLeaf2"
+          "title": "Server Packets Relayed"
         },
         "server_packets_discarded": {
           "anyOf": [
@@ -9441,7 +9287,7 @@
             }
           ],
           "default": 0,
-          "title": "Server-packets-discardedLeaf2"
+          "title": "Server Packets Discarded"
         }
       },
       "title": "StatisticsContainer14",
@@ -9462,7 +9308,7 @@
             }
           ],
           "default": 0,
-          "title": "In-packetsLeaf4"
+          "title": "In Packets"
         },
         "in_octets": {
           "anyOf": [
@@ -9476,7 +9322,7 @@
             }
           ],
           "default": 0,
-          "title": "In-octetsLeaf4"
+          "title": "In Octets"
         },
         "in_error_packets": {
           "anyOf": [
@@ -9490,7 +9336,7 @@
             }
           ],
           "default": 0,
-          "title": "In-error-packetsLeaf4"
+          "title": "In Error Packets"
         },
         "in_discarded_packets": {
           "anyOf": [
@@ -9504,7 +9350,7 @@
             }
           ],
           "default": 0,
-          "title": "In-discarded-packetsLeaf4"
+          "title": "In Discarded Packets"
         },
         "in_terminated_packets": {
           "anyOf": [
@@ -9518,7 +9364,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-packetsLeaf3"
+          "title": "In Terminated Packets"
         },
         "in_terminated_octets": {
           "anyOf": [
@@ -9532,7 +9378,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-octetsLeaf3"
+          "title": "In Terminated Octets"
         },
         "in_forwarded_packets": {
           "anyOf": [
@@ -9546,7 +9392,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-packetsLeaf3"
+          "title": "In Forwarded Packets"
         },
         "in_forwarded_octets": {
           "anyOf": [
@@ -9560,7 +9406,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-octetsLeaf3"
+          "title": "In Forwarded Octets"
         },
         "in_matched_ra_packets": {
           "anyOf": [
@@ -9574,7 +9420,7 @@
             }
           ],
           "default": 0,
-          "title": "In-matched-ra-packetsLeaf3"
+          "title": "In Matched Ra Packets"
         },
         "out_forwarded_packets": {
           "anyOf": [
@@ -9588,7 +9434,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-packetsLeaf3"
+          "title": "Out Forwarded Packets"
         },
         "out_forwarded_octets": {
           "anyOf": [
@@ -9602,7 +9448,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-octetsLeaf3"
+          "title": "Out Forwarded Octets"
         },
         "out_originated_packets": {
           "anyOf": [
@@ -9616,7 +9462,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-packetsLeaf3"
+          "title": "Out Originated Packets"
         },
         "out_originated_octets": {
           "anyOf": [
@@ -9630,7 +9476,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-octetsLeaf3"
+          "title": "Out Originated Octets"
         },
         "out_error_packets": {
           "anyOf": [
@@ -9644,7 +9490,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-error-packetsLeaf4"
+          "title": "Out Error Packets"
         },
         "out_discarded_packets": {
           "anyOf": [
@@ -9658,7 +9504,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-discarded-packetsLeaf4"
+          "title": "Out Discarded Packets"
         },
         "out_packets": {
           "anyOf": [
@@ -9672,7 +9518,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-packetsLeaf4"
+          "title": "Out Packets"
         },
         "out_octets": {
           "anyOf": [
@@ -9686,7 +9532,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-octetsLeaf4"
+          "title": "Out Octets"
         },
         "last_clear": {
           "anyOf": [
@@ -9699,7 +9545,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf6"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer15",
@@ -9719,7 +9565,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -9733,7 +9579,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -9747,7 +9593,7 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf"
+          "title": "Failed Entries"
         },
         "mac_type": {
           "anyOf": [
@@ -9782,7 +9628,7 @@
             }
           ],
           "default": 0,
-          "title": "Discarded-packetsLeaf"
+          "title": "Discarded Packets"
         }
       },
       "title": "StatisticsContainer17",
@@ -9803,7 +9649,7 @@
             }
           ],
           "default": 0,
-          "title": "In-packetsLeaf5"
+          "title": "In Packets"
         },
         "in_octets": {
           "anyOf": [
@@ -9817,7 +9663,7 @@
             }
           ],
           "default": 0,
-          "title": "In-octetsLeaf5"
+          "title": "In Octets"
         },
         "in_error_packets": {
           "anyOf": [
@@ -9831,7 +9677,7 @@
             }
           ],
           "default": 0,
-          "title": "In-error-packetsLeaf5"
+          "title": "In Error Packets"
         },
         "in_discarded_packets": {
           "anyOf": [
@@ -9845,7 +9691,7 @@
             }
           ],
           "default": 0,
-          "title": "In-discarded-packetsLeaf5"
+          "title": "In Discarded Packets"
         },
         "in_terminated_packets": {
           "anyOf": [
@@ -9859,7 +9705,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-packetsLeaf4"
+          "title": "In Terminated Packets"
         },
         "in_terminated_octets": {
           "anyOf": [
@@ -9873,7 +9719,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-octetsLeaf4"
+          "title": "In Terminated Octets"
         },
         "in_forwarded_packets": {
           "anyOf": [
@@ -9887,7 +9733,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-packetsLeaf4"
+          "title": "In Forwarded Packets"
         },
         "in_forwarded_octets": {
           "anyOf": [
@@ -9901,7 +9747,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-octetsLeaf4"
+          "title": "In Forwarded Octets"
         },
         "in_matched_ra_packets": {
           "anyOf": [
@@ -9915,7 +9761,7 @@
             }
           ],
           "default": 0,
-          "title": "In-matched-ra-packetsLeaf4"
+          "title": "In Matched Ra Packets"
         },
         "out_forwarded_packets": {
           "anyOf": [
@@ -9929,7 +9775,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-packetsLeaf4"
+          "title": "Out Forwarded Packets"
         },
         "out_forwarded_octets": {
           "anyOf": [
@@ -9943,7 +9789,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-octetsLeaf4"
+          "title": "Out Forwarded Octets"
         },
         "out_originated_packets": {
           "anyOf": [
@@ -9957,7 +9803,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-packetsLeaf4"
+          "title": "Out Originated Packets"
         },
         "out_originated_octets": {
           "anyOf": [
@@ -9971,7 +9817,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-octetsLeaf4"
+          "title": "Out Originated Octets"
         },
         "out_error_packets": {
           "anyOf": [
@@ -9985,7 +9831,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-error-packetsLeaf5"
+          "title": "Out Error Packets"
         },
         "out_discarded_packets": {
           "anyOf": [
@@ -9999,7 +9845,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-discarded-packetsLeaf5"
+          "title": "Out Discarded Packets"
         },
         "out_packets": {
           "anyOf": [
@@ -10013,7 +9859,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-packetsLeaf5"
+          "title": "Out Packets"
         },
         "out_octets": {
           "anyOf": [
@@ -10027,7 +9873,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-octetsLeaf5"
+          "title": "Out Octets"
         },
         "last_clear": {
           "anyOf": [
@@ -10040,7 +9886,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf7"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer18",
@@ -10061,7 +9907,7 @@
             }
           ],
           "default": 0,
-          "title": "Lacp-in-pktsLeaf"
+          "title": "Lacp In Pkts"
         },
         "lacp_out_pkts": {
           "anyOf": [
@@ -10075,7 +9921,7 @@
             }
           ],
           "default": 0,
-          "title": "Lacp-out-pktsLeaf"
+          "title": "Lacp Out Pkts"
         },
         "lacp_rx_errors": {
           "anyOf": [
@@ -10089,7 +9935,7 @@
             }
           ],
           "default": 0,
-          "title": "Lacp-rx-errorsLeaf"
+          "title": "Lacp Rx Errors"
         },
         "lacp_tx_errors": {
           "anyOf": [
@@ -10103,7 +9949,7 @@
             }
           ],
           "default": 0,
-          "title": "Lacp-tx-errorsLeaf"
+          "title": "Lacp Tx Errors"
         },
         "lacp_unknown_errors": {
           "anyOf": [
@@ -10117,7 +9963,7 @@
             }
           ],
           "default": 0,
-          "title": "Lacp-unknown-errorsLeaf"
+          "title": "Lacp Unknown Errors"
         },
         "lacp_errors": {
           "anyOf": [
@@ -10131,7 +9977,7 @@
             }
           ],
           "default": 0,
-          "title": "Lacp-errorsLeaf"
+          "title": "Lacp Errors"
         }
       },
       "title": "StatisticsContainer19",
@@ -10180,7 +10026,7 @@
             }
           ],
           "default": 0,
-          "title": "In-mac-pause-framesLeaf"
+          "title": "In Mac Pause Frames"
         },
         "in_oversize_frames": {
           "anyOf": [
@@ -10194,7 +10040,7 @@
             }
           ],
           "default": 0,
-          "title": "In-oversize-framesLeaf"
+          "title": "In Oversize Frames"
         },
         "in_jabber_frames": {
           "anyOf": [
@@ -10208,7 +10054,7 @@
             }
           ],
           "default": 0,
-          "title": "In-jabber-framesLeaf"
+          "title": "In Jabber Frames"
         },
         "in_fragment_frames": {
           "anyOf": [
@@ -10222,7 +10068,7 @@
             }
           ],
           "default": 0,
-          "title": "In-fragment-framesLeaf"
+          "title": "In Fragment Frames"
         },
         "in_crc_error_frames": {
           "anyOf": [
@@ -10236,7 +10082,7 @@
             }
           ],
           "default": 0,
-          "title": "In-crc-error-framesLeaf"
+          "title": "In Crc Error Frames"
         },
         "out_mac_pause_frames": {
           "anyOf": [
@@ -10250,7 +10096,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-mac-pause-framesLeaf"
+          "title": "Out Mac Pause Frames"
         },
         "in_64b_frames": {
           "anyOf": [
@@ -10264,7 +10110,7 @@
             }
           ],
           "default": 0,
-          "title": "In-64b-framesLeaf"
+          "title": "In 64B Frames"
         },
         "in_65b_to_127b_frames": {
           "anyOf": [
@@ -10278,7 +10124,7 @@
             }
           ],
           "default": 0,
-          "title": "In-65b-to-127b-framesLeaf"
+          "title": "In 65B To 127B Frames"
         },
         "in_128b_to_255b_frames": {
           "anyOf": [
@@ -10292,7 +10138,7 @@
             }
           ],
           "default": 0,
-          "title": "In-128b-to-255b-framesLeaf"
+          "title": "In 128B To 255B Frames"
         },
         "in_256b_to_511b_frames": {
           "anyOf": [
@@ -10306,7 +10152,7 @@
             }
           ],
           "default": 0,
-          "title": "In-256b-to-511b-framesLeaf"
+          "title": "In 256B To 511B Frames"
         },
         "in_512b_to_1023b_frames": {
           "anyOf": [
@@ -10320,7 +10166,7 @@
             }
           ],
           "default": 0,
-          "title": "In-512b-to-1023b-framesLeaf"
+          "title": "In 512B To 1023B Frames"
         },
         "in_1024b_to_1518b_frames": {
           "anyOf": [
@@ -10334,7 +10180,7 @@
             }
           ],
           "default": 0,
-          "title": "In-1024b-to-1518b-framesLeaf"
+          "title": "In 1024B To 1518B Frames"
         },
         "in_1519b_or_longer_frames": {
           "anyOf": [
@@ -10348,7 +10194,7 @@
             }
           ],
           "default": 0,
-          "title": "In-1519b-or-longer-framesLeaf"
+          "title": "In 1519B Or Longer Frames"
         },
         "out_64b_frames": {
           "anyOf": [
@@ -10362,7 +10208,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-64b-framesLeaf"
+          "title": "Out 64B Frames"
         },
         "out_65b_to_127b_frames": {
           "anyOf": [
@@ -10376,7 +10222,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-65b-to-127b-framesLeaf"
+          "title": "Out 65B To 127B Frames"
         },
         "out_128b_to_255b_frames": {
           "anyOf": [
@@ -10390,7 +10236,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-128b-to-255b-framesLeaf"
+          "title": "Out 128B To 255B Frames"
         },
         "out_256b_to_511b_frames": {
           "anyOf": [
@@ -10404,7 +10250,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-256b-to-511b-framesLeaf"
+          "title": "Out 256B To 511B Frames"
         },
         "out_512b_to_1023b_frames": {
           "anyOf": [
@@ -10418,7 +10264,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-512b-to-1023b-framesLeaf"
+          "title": "Out 512B To 1023B Frames"
         },
         "out_1024b_to_1518b_frames": {
           "anyOf": [
@@ -10432,7 +10278,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-1024b-to-1518b-framesLeaf"
+          "title": "Out 1024B To 1518B Frames"
         },
         "out_1519b_or_longer_frames": {
           "anyOf": [
@@ -10446,7 +10292,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-1519b-or-longer-framesLeaf"
+          "title": "Out 1519B Or Longer Frames"
         },
         "last_clear": {
           "anyOf": [
@@ -10459,7 +10305,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf2"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer3",
@@ -10479,7 +10325,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-in-packetsLeaf"
+          "title": "Total In Packets"
         },
         "total_in_discarded_packets": {
           "anyOf": [
@@ -10493,7 +10339,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-in-discarded-packetsLeaf"
+          "title": "Total In Discarded Packets"
         },
         "in_tunneled_packets": {
           "anyOf": [
@@ -10507,7 +10353,7 @@
             }
           ],
           "default": 0,
-          "title": "In-tunneled-packetsLeaf"
+          "title": "In Tunneled Packets"
         },
         "in_trap_to_cpu_packets": {
           "anyOf": [
@@ -10521,7 +10367,7 @@
             }
           ],
           "default": 0,
-          "title": "In-trap-to-cpu-packetsLeaf"
+          "title": "In Trap To Cpu Packets"
         },
         "last_clear": {
           "anyOf": [
@@ -10534,7 +10380,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf3"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer4",
@@ -10554,7 +10400,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-sentLeaf"
+          "title": "Advertisements Sent"
         },
         "advertisements_received": {
           "anyOf": [
@@ -10568,7 +10414,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-receivedLeaf"
+          "title": "Advertisements Received"
         },
         "advertisements_discarded_version_mismatch": {
           "anyOf": [
@@ -10582,7 +10428,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-version-mismatchLeaf"
+          "title": "Advertisements Discarded Version Mismatch"
         },
         "advertisements_discarded_authfail": {
           "anyOf": [
@@ -10596,7 +10442,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-authfailLeaf"
+          "title": "Advertisements Discarded Authfail"
         },
         "advertisements_discarded_authtype_mismatch": {
           "anyOf": [
@@ -10610,7 +10456,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-authtype-mismatchLeaf"
+          "title": "Advertisements Discarded Authtype Mismatch"
         },
         "advertisements_discarded_address_mismatch": {
           "anyOf": [
@@ -10624,7 +10470,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-address-mismatchLeaf"
+          "title": "Advertisements Discarded Address Mismatch"
         },
         "priority_zero_packets_sent": {
           "anyOf": [
@@ -10638,7 +10484,7 @@
             }
           ],
           "default": 0,
-          "title": "Priority-zero-packets-sentLeaf"
+          "title": "Priority Zero Packets Sent"
         },
         "priority_zero_packets_received": {
           "anyOf": [
@@ -10652,7 +10498,7 @@
             }
           ],
           "default": 0,
-          "title": "Priority-zero-packets-receivedLeaf"
+          "title": "Priority Zero Packets Received"
         },
         "advertisements_discarded_ttl": {
           "anyOf": [
@@ -10666,7 +10512,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-ttlLeaf"
+          "title": "Advertisements Discarded Ttl"
         },
         "advertisements_discarded_length": {
           "anyOf": [
@@ -10680,7 +10526,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-lengthLeaf"
+          "title": "Advertisements Discarded Length"
         },
         "advertisements_discarded_interval": {
           "anyOf": [
@@ -10694,7 +10540,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-intervalLeaf"
+          "title": "Advertisements Discarded Interval"
         },
         "advertisements_interval_error": {
           "anyOf": [
@@ -10708,7 +10554,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-interval-errorLeaf"
+          "title": "Advertisements Interval Error"
         },
         "advertisements_discarded_total": {
           "anyOf": [
@@ -10722,7 +10568,7 @@
             }
           ],
           "default": 0,
-          "title": "Advertisements-discarded-totalLeaf"
+          "title": "Advertisements Discarded Total"
         }
       },
       "title": "StatisticsContainer5",
@@ -10743,7 +10589,7 @@
             }
           ],
           "default": 0,
-          "title": "In-packetsLeaf2"
+          "title": "In Packets"
         },
         "in_octets": {
           "anyOf": [
@@ -10757,7 +10603,7 @@
             }
           ],
           "default": 0,
-          "title": "In-octetsLeaf2"
+          "title": "In Octets"
         },
         "in_error_packets": {
           "anyOf": [
@@ -10771,7 +10617,7 @@
             }
           ],
           "default": 0,
-          "title": "In-error-packetsLeaf2"
+          "title": "In Error Packets"
         },
         "in_discarded_packets": {
           "anyOf": [
@@ -10785,7 +10631,7 @@
             }
           ],
           "default": 0,
-          "title": "In-discarded-packetsLeaf2"
+          "title": "In Discarded Packets"
         },
         "in_terminated_packets": {
           "anyOf": [
@@ -10799,7 +10645,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-packetsLeaf"
+          "title": "In Terminated Packets"
         },
         "in_terminated_octets": {
           "anyOf": [
@@ -10813,7 +10659,7 @@
             }
           ],
           "default": 0,
-          "title": "In-terminated-octetsLeaf"
+          "title": "In Terminated Octets"
         },
         "in_forwarded_packets": {
           "anyOf": [
@@ -10827,7 +10673,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-packetsLeaf"
+          "title": "In Forwarded Packets"
         },
         "in_forwarded_octets": {
           "anyOf": [
@@ -10841,7 +10687,7 @@
             }
           ],
           "default": 0,
-          "title": "In-forwarded-octetsLeaf"
+          "title": "In Forwarded Octets"
         },
         "in_matched_ra_packets": {
           "anyOf": [
@@ -10855,7 +10701,7 @@
             }
           ],
           "default": 0,
-          "title": "In-matched-ra-packetsLeaf"
+          "title": "In Matched Ra Packets"
         },
         "out_forwarded_packets": {
           "anyOf": [
@@ -10869,7 +10715,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-packetsLeaf"
+          "title": "Out Forwarded Packets"
         },
         "out_forwarded_octets": {
           "anyOf": [
@@ -10883,7 +10729,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-forwarded-octetsLeaf"
+          "title": "Out Forwarded Octets"
         },
         "out_originated_packets": {
           "anyOf": [
@@ -10897,7 +10743,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-packetsLeaf"
+          "title": "Out Originated Packets"
         },
         "out_originated_octets": {
           "anyOf": [
@@ -10911,7 +10757,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-originated-octetsLeaf"
+          "title": "Out Originated Octets"
         },
         "out_error_packets": {
           "anyOf": [
@@ -10925,7 +10771,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-error-packetsLeaf2"
+          "title": "Out Error Packets"
         },
         "out_discarded_packets": {
           "anyOf": [
@@ -10939,7 +10785,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-discarded-packetsLeaf2"
+          "title": "Out Discarded Packets"
         },
         "out_packets": {
           "anyOf": [
@@ -10953,7 +10799,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-packetsLeaf2"
+          "title": "Out Packets"
         },
         "out_octets": {
           "anyOf": [
@@ -10967,7 +10813,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-octetsLeaf2"
+          "title": "Out Octets"
         },
         "last_clear": {
           "anyOf": [
@@ -10980,7 +10826,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf4"
+          "title": "Last Clear"
         }
       },
       "title": "StatisticsContainer6",
@@ -11001,7 +10847,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-probe-packetsLeaf"
+          "title": "Out Probe Packets"
         }
       },
       "title": "StatisticsContainer7",
@@ -11022,7 +10868,7 @@
             }
           ],
           "default": 0,
-          "title": "Out-total-probe-packetsLeaf"
+          "title": "Out Total Probe Packets"
         }
       },
       "title": "StatisticsContainer8",
@@ -11042,7 +10888,7 @@
             }
           ],
           "default": 0,
-          "title": "Client-packets-receivedLeaf"
+          "title": "Client Packets Received"
         },
         "client_packets_relayed": {
           "anyOf": [
@@ -11056,7 +10902,7 @@
             }
           ],
           "default": 0,
-          "title": "Client-packets-relayedLeaf"
+          "title": "Client Packets Relayed"
         },
         "client_packets_discarded": {
           "anyOf": [
@@ -11070,7 +10916,7 @@
             }
           ],
           "default": 0,
-          "title": "Client-packets-discardedLeaf"
+          "title": "Client Packets Discarded"
         },
         "server_packets_received": {
           "anyOf": [
@@ -11084,7 +10930,7 @@
             }
           ],
           "default": 0,
-          "title": "Server-packets-receivedLeaf"
+          "title": "Server Packets Received"
         },
         "server_packets_relayed": {
           "anyOf": [
@@ -11098,7 +10944,7 @@
             }
           ],
           "default": 0,
-          "title": "Server-packets-relayedLeaf"
+          "title": "Server Packets Relayed"
         },
         "server_packets_discarded": {
           "anyOf": [
@@ -11112,7 +10958,7 @@
             }
           ],
           "default": 0,
-          "title": "Server-packets-discardedLeaf"
+          "title": "Server Packets Discarded"
         }
       },
       "title": "StatisticsContainer9",
@@ -11129,8 +10975,7 @@
               "type": "null"
             }
           ],
-          "default": "percentage",
-          "title": "UnitsLeaf"
+          "default": "percentage"
         },
         "broadcast_rate": {
           "anyOf": [
@@ -11144,7 +10989,7 @@
             }
           ],
           "default": null,
-          "title": "Broadcast-rateLeaf"
+          "title": "Broadcast Rate"
         },
         "multicast_rate": {
           "anyOf": [
@@ -11158,7 +11003,7 @@
             }
           ],
           "default": null,
-          "title": "Multicast-rateLeaf"
+          "title": "Multicast Rate"
         },
         "unknown_unicast_rate": {
           "anyOf": [
@@ -11172,7 +11017,7 @@
             }
           ],
           "default": null,
-          "title": "Unknown-unicast-rateLeaf"
+          "title": "Unknown Unicast Rate"
         },
         "operational_broadcast_rate": {
           "anyOf": [
@@ -11186,7 +11031,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-broadcast-rateLeaf"
+          "title": "Operational Broadcast Rate"
         },
         "operational_multicast_rate": {
           "anyOf": [
@@ -11200,7 +11045,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-multicast-rateLeaf"
+          "title": "Operational Multicast Rate"
         },
         "operational_unknown_unicast_rate": {
           "anyOf": [
@@ -11214,7 +11059,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-unknown-unicast-rateLeaf"
+          "title": "Operational Unknown Unicast Rate"
         },
         "rising_threshold_action": {
           "anyOf": [
@@ -11225,8 +11070,7 @@
               "type": "null"
             }
           ],
-          "default": "none",
-          "title": "Rising-threshold-actionLeaf"
+          "default": "none"
         }
       },
       "title": "StormControlContainer",
@@ -11243,8 +11087,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf19"
+          "default": "enable"
         },
         "port_number": {
           "anyOf": [
@@ -11258,7 +11101,7 @@
             }
           ],
           "default": 0,
-          "title": "Port-numberLeaf"
+          "title": "Port Number"
         },
         "priority": {
           "anyOf": [
@@ -11272,7 +11115,7 @@
             }
           ],
           "default": 128,
-          "title": "PriorityLeaf3"
+          "title": "Priority"
         },
         "path_cost": {
           "anyOf": [
@@ -11286,7 +11129,7 @@
             }
           ],
           "default": 16,
-          "title": "Path-costLeaf"
+          "title": "Path Cost"
         },
         "edge_port": {
           "anyOf": [
@@ -11297,8 +11140,7 @@
               "type": "null"
             }
           ],
-          "default": "no",
-          "title": "Edge-portLeaf"
+          "default": "no"
         },
         "auto_edge": {
           "anyOf": [
@@ -11309,8 +11151,7 @@
               "type": "null"
             }
           ],
-          "default": "no",
-          "title": "Auto-edgeLeaf"
+          "default": "no"
         },
         "link_type": {
           "anyOf": [
@@ -11321,8 +11162,7 @@
               "type": "null"
             }
           ],
-          "default": "pt-pt",
-          "title": "Link-typeLeaf"
+          "default": "pt-pt"
         },
         "root_guard": {
           "anyOf": [
@@ -11333,8 +11173,7 @@
               "type": "null"
             }
           ],
-          "default": "no",
-          "title": "Root-guardLeaf"
+          "default": "no"
         },
         "mst_instance": {
           "anyOf": [
@@ -11359,28 +11198,22 @@
       "description": "The list of subinterfaces (logical interfaces) associated with a physical interface",
       "properties": {
         "index": {
+          "maximum": 9999,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
+        },
+        "type": {
           "anyOf": [
             {
-              "maximum": 9999,
-              "minimum": 0,
-              "type": "integer"
+              "type": "string"
             },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "IndexLeaf4"
-        },
-        "type": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "TypeLeaf2"
+          "title": "Type"
         },
         "description": {
           "anyOf": [
@@ -11394,7 +11227,7 @@
             }
           ],
           "default": null,
-          "title": "DescriptionLeaf2"
+          "title": "Description"
         },
         "admin_state": {
           "anyOf": [
@@ -11405,8 +11238,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf6"
+          "default": "enable"
         },
         "ip_mtu": {
           "anyOf": [
@@ -11420,7 +11252,7 @@
             }
           ],
           "default": null,
-          "title": "Ip-mtuLeaf"
+          "title": "Ip Mtu"
         },
         "l2_mtu": {
           "anyOf": [
@@ -11434,7 +11266,7 @@
             }
           ],
           "default": null,
-          "title": "L2-mtuLeaf"
+          "title": "L2 Mtu"
         },
         "mpls_mtu": {
           "anyOf": [
@@ -11448,7 +11280,7 @@
             }
           ],
           "default": null,
-          "title": "Mpls-mtuLeaf"
+          "title": "Mpls Mtu"
         },
         "unidirectional_link_delay": {
           "anyOf": [
@@ -11471,7 +11303,7 @@
             }
           ],
           "default": null,
-          "title": "NameLeaf3"
+          "title": "Name"
         },
         "ifindex": {
           "anyOf": [
@@ -11485,7 +11317,7 @@
             }
           ],
           "default": null,
-          "title": "IfindexLeaf2"
+          "title": "Ifindex"
         },
         "oper_state": {
           "anyOf": [
@@ -11496,8 +11328,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf4"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -11508,8 +11339,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf3"
+          "default": null
         },
         "last_change": {
           "anyOf": [
@@ -11522,7 +11352,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf2"
+          "title": "Last Change"
         },
         "collect_irb_stats": {
           "anyOf": [
@@ -11534,7 +11364,7 @@
             }
           ],
           "default": null,
-          "title": "Collect-irb-statsLeaf"
+          "title": "Collect Irb Stats"
         },
         "collect_detailed_stats": {
           "anyOf": [
@@ -11546,7 +11376,7 @@
             }
           ],
           "default": null,
-          "title": "Collect-detailed-statsLeaf"
+          "title": "Collect Detailed Stats"
         },
         "ipv4": {
           "anyOf": [
@@ -11669,7 +11499,7 @@
             }
           ],
           "default": null,
-          "title": "UuidLeaf"
+          "title": "Uuid"
         },
         "ethernet_segment_association": {
           "anyOf": [
@@ -11683,6 +11513,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "SubinterfaceListEntry",
       "type": "object"
     },
@@ -11699,7 +11532,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-nameLeaf2"
+          "title": "Vendor Name"
         },
         "vendor_id": {
           "anyOf": [
@@ -11711,7 +11544,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-idLeaf2"
+          "title": "Vendor Id"
         },
         "device_name": {
           "anyOf": [
@@ -11723,7 +11556,7 @@
             }
           ],
           "default": null,
-          "title": "Device-nameLeaf2"
+          "title": "Device Name"
         },
         "device_id": {
           "anyOf": [
@@ -11735,7 +11568,7 @@
             }
           ],
           "default": null,
-          "title": "Device-idLeaf2"
+          "title": "Device Id"
         }
       },
       "title": "SubsystemContainer",
@@ -11756,7 +11589,7 @@
             }
           ],
           "default": -25500,
-          "title": "StartLeaf"
+          "title": "Start"
         },
         "end": {
           "anyOf": [
@@ -11770,7 +11603,7 @@
             }
           ],
           "default": 2000,
-          "title": "EndLeaf"
+          "title": "End"
         }
       },
       "title": "SweepContainer",
@@ -11788,8 +11621,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf3"
+          "default": "disable"
         },
         "window_size": {
           "anyOf": [
@@ -11803,7 +11635,7 @@
             }
           ],
           "default": 10,
-          "title": "Window-sizeLeaf2"
+          "title": "Window Size"
         },
         "signal_degrade": {
           "anyOf": [
@@ -11878,7 +11710,7 @@
             }
           ],
           "default": null,
-          "title": "Latest-valueLeaf"
+          "title": "Latest Value"
         },
         "maximum": {
           "anyOf": [
@@ -11892,7 +11724,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf"
+          "title": "Maximum"
         },
         "maximum_time": {
           "anyOf": [
@@ -11905,7 +11737,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-timeLeaf"
+          "title": "Maximum Time"
         },
         "high_alarm_condition": {
           "anyOf": [
@@ -11917,7 +11749,7 @@
             }
           ],
           "default": null,
-          "title": "High-alarm-conditionLeaf"
+          "title": "High Alarm Condition"
         },
         "high_alarm_threshold": {
           "anyOf": [
@@ -11931,7 +11763,7 @@
             }
           ],
           "default": null,
-          "title": "High-alarm-thresholdLeaf"
+          "title": "High Alarm Threshold"
         },
         "low_alarm_condition": {
           "anyOf": [
@@ -11943,7 +11775,7 @@
             }
           ],
           "default": null,
-          "title": "Low-alarm-conditionLeaf"
+          "title": "Low Alarm Condition"
         },
         "low_alarm_threshold": {
           "anyOf": [
@@ -11957,7 +11789,7 @@
             }
           ],
           "default": null,
-          "title": "Low-alarm-thresholdLeaf"
+          "title": "Low Alarm Threshold"
         },
         "high_warning_condition": {
           "anyOf": [
@@ -11969,7 +11801,7 @@
             }
           ],
           "default": null,
-          "title": "High-warning-conditionLeaf"
+          "title": "High Warning Condition"
         },
         "high_warning_threshold": {
           "anyOf": [
@@ -11983,7 +11815,7 @@
             }
           ],
           "default": null,
-          "title": "High-warning-thresholdLeaf"
+          "title": "High Warning Threshold"
         },
         "low_warning_condition": {
           "anyOf": [
@@ -11995,7 +11827,7 @@
             }
           ],
           "default": null,
-          "title": "Low-warning-conditionLeaf"
+          "title": "Low Warning Condition"
         },
         "low_warning_threshold": {
           "anyOf": [
@@ -12009,7 +11841,7 @@
             }
           ],
           "default": null,
-          "title": "Low-warning-thresholdLeaf"
+          "title": "Low Warning Threshold"
         }
       },
       "title": "TemperatureContainer",
@@ -12030,7 +11862,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf9"
+          "title": "Current"
         },
         "average": {
           "anyOf": [
@@ -12044,7 +11876,7 @@
             }
           ],
           "default": null,
-          "title": "AverageLeaf9"
+          "title": "Average"
         },
         "minimum": {
           "anyOf": [
@@ -12058,7 +11890,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf10"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -12072,7 +11904,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf11"
+          "title": "Maximum"
         }
       },
       "title": "TotalPowerContainer",
@@ -12170,16 +12002,8 @@
       "description": "Interface reference for interface tracking.\nVRRP Group can track multiple interfaces.",
       "properties": {
         "interface": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "InterfaceLeaf"
+          "title": "Interface",
+          "type": "string"
         },
         "priority_decrement": {
           "anyOf": [
@@ -12193,9 +12017,12 @@
             }
           ],
           "default": null,
-          "title": "Priority-decrementLeaf"
+          "title": "Priority Decrement"
         }
       },
+      "required": [
+        "interface"
+      ],
       "title": "TrackInterfaceListEntry",
       "type": "object"
     },
@@ -12203,16 +12030,8 @@
       "description": "Interface reference for interface tracking.\nVRRP Group can track multiple interfaces.",
       "properties": {
         "interface": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "InterfaceLeaf3"
+          "title": "Interface",
+          "type": "string"
         },
         "priority_decrement": {
           "anyOf": [
@@ -12226,9 +12045,12 @@
             }
           ],
           "default": null,
-          "title": "Priority-decrementLeaf2"
+          "title": "Priority Decrement"
         }
       },
+      "required": [
+        "interface"
+      ],
       "title": "TrackInterfaceListEntry2",
       "type": "object"
     },
@@ -12247,7 +12069,7 @@
             }
           ],
           "default": null,
-          "title": "In-bpsLeaf"
+          "title": "In Bps"
         },
         "out_bps": {
           "anyOf": [
@@ -12261,7 +12083,7 @@
             }
           ],
           "default": null,
-          "title": "Out-bpsLeaf"
+          "title": "Out Bps"
         }
       },
       "title": "TrafficRateContainer",
@@ -12271,13 +12093,15 @@
       "properties": {
         "functional_type": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Functional-typeLeaf"
+          "title": "Functional Type"
         },
         "tx_laser": {
           "anyOf": [
@@ -12289,7 +12113,7 @@
             }
           ],
           "default": null,
-          "title": "Tx-laserLeaf"
+          "title": "Tx Laser"
         },
         "oper_state": {
           "anyOf": [
@@ -12300,8 +12124,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf2"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -12312,8 +12135,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf2"
+          "default": null
         },
         "ddm_events": {
           "anyOf": [
@@ -12325,7 +12147,7 @@
             }
           ],
           "default": null,
-          "title": "Ddm-eventsLeaf"
+          "title": "Ddm Events"
         },
         "form_factor": {
           "anyOf": [
@@ -12336,8 +12158,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Form-factorLeaf"
+          "default": null
         },
         "ethernet_pmd": {
           "anyOf": [
@@ -12349,7 +12170,7 @@
             }
           ],
           "default": null,
-          "title": "Ethernet-pmdLeaf"
+          "title": "Ethernet Pmd"
         },
         "connector_type": {
           "anyOf": [
@@ -12360,8 +12181,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Connector-typeLeaf"
+          "default": null
         },
         "vendor": {
           "anyOf": [
@@ -12373,7 +12193,7 @@
             }
           ],
           "default": null,
-          "title": "VendorLeaf"
+          "title": "Vendor"
         },
         "vendor_part_number": {
           "anyOf": [
@@ -12385,7 +12205,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-part-numberLeaf2"
+          "title": "Vendor Part Number"
         },
         "vendor_revision": {
           "anyOf": [
@@ -12397,7 +12217,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-revisionLeaf"
+          "title": "Vendor Revision"
         },
         "vendor_lot_number": {
           "anyOf": [
@@ -12409,7 +12229,7 @@
             }
           ],
           "default": null,
-          "title": "Vendor-lot-numberLeaf"
+          "title": "Vendor Lot Number"
         },
         "serial_number": {
           "anyOf": [
@@ -12421,7 +12241,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf"
+          "title": "Serial Number"
         },
         "date_code": {
           "anyOf": [
@@ -12434,7 +12254,7 @@
             }
           ],
           "default": null,
-          "title": "Date-codeLeaf"
+          "title": "Date Code"
         },
         "firmware_version": {
           "anyOf": [
@@ -12457,7 +12277,7 @@
             }
           ],
           "default": null,
-          "title": "Fault-conditionLeaf"
+          "title": "Fault Condition"
         },
         "wavelength": {
           "anyOf": [
@@ -12471,7 +12291,7 @@
             }
           ],
           "default": null,
-          "title": "WavelengthLeaf"
+          "title": "Wavelength"
         },
         "temperature": {
           "anyOf": [
@@ -12570,7 +12390,7 @@
             }
           ],
           "default": null,
-          "title": "MinimumLeaf15"
+          "title": "Minimum"
         },
         "maximum": {
           "anyOf": [
@@ -12584,7 +12404,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf16"
+          "title": "Maximum"
         }
       },
       "title": "TransmitPowerContainer",
@@ -12620,7 +12440,7 @@
             }
           ],
           "default": false,
-          "title": "Tunnel-allLeaf"
+          "title": "Tunnel All"
         },
         "untagged": {
           "anyOf": [
@@ -12632,7 +12452,7 @@
             }
           ],
           "default": false,
-          "title": "UntaggedLeaf"
+          "title": "Untagged"
         },
         "single_tagged": {
           "anyOf": [
@@ -12644,7 +12464,7 @@
             }
           ],
           "default": true,
-          "title": "Single-taggedLeaf"
+          "title": "Single Tagged"
         },
         "double_tagged": {
           "anyOf": [
@@ -12656,7 +12476,7 @@
             }
           ],
           "default": true,
-          "title": "Double-taggedLeaf"
+          "title": "Double Tagged"
         },
         "statistics": {
           "anyOf": [
@@ -12689,7 +12509,7 @@
             }
           ],
           "default": "none",
-          "title": "Static-delayLeaf"
+          "title": "Static Delay"
         },
         "last_reported_dynamic_delay": {
           "anyOf": [
@@ -12704,7 +12524,7 @@
             }
           ],
           "default": null,
-          "title": "Last-reported-dynamic-delayLeaf"
+          "title": "Last Reported Dynamic Delay"
         }
       },
       "title": "UnidirectionalLinkDelayContainer",
@@ -12722,8 +12542,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf9"
+          "default": "disable"
         },
         "interface": {
           "anyOf": [
@@ -12735,7 +12554,7 @@
             }
           ],
           "default": null,
-          "title": "InterfaceLeaf2"
+          "title": "Interface"
         },
         "address": {
           "anyOf": [
@@ -12748,7 +12567,7 @@
             }
           ],
           "default": null,
-          "title": "AddressLeaf"
+          "title": "Address"
         },
         "unavailable_address_reason": {
           "anyOf": [
@@ -12759,8 +12578,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Unavailable-address-reasonLeaf"
+          "default": null
         }
       },
       "title": "UnnumberedContainer",
@@ -12783,7 +12601,7 @@
       "properties": {
         "vhost_socket_path": {
           "pattern": "^(?=^(/[0-9A-Za-z_\\-\\.]+)+$).*$",
-          "title": "Vhost-socket-pathLeaf",
+          "title": "Vhost Socket Path",
           "type": "string"
         },
         "vhost_socket_mode": {
@@ -12795,8 +12613,7 @@
               "type": "null"
             }
           ],
-          "default": "client",
-          "title": "Vhost-socket-modeLeaf"
+          "default": "client"
         },
         "vhost_socket_queues": {
           "anyOf": [
@@ -12810,7 +12627,7 @@
             }
           ],
           "default": null,
-          "title": "Vhost-socket-queuesLeaf"
+          "title": "Vhost Socket Queues"
         },
         "socket_id": {
           "anyOf": [
@@ -12824,16 +12641,14 @@
             }
           ],
           "default": null,
-          "title": "Socket-idLeaf"
+          "title": "Socket Id"
         },
         "socket_cpus": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/SocketCpusLeafList"
               },
-              "le": 65535,
               "type": "array"
             },
             {
@@ -12849,6 +12664,11 @@
       ],
       "title": "VhostContainer",
       "type": "object"
+    },
+    "VirtualAddressLeafList2": {
+      "pattern": "^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$",
+      "title": "VirtualAddressLeafList2",
+      "type": "string"
     },
     "VirtualIpv4DiscoveryContainer": {
       "description": "Enable Virtual IPv4 discovery on the subinterface and configure associated parameters\n\nWhen enabled, the system will attempt to discover the configured virtual IPv4\naddresses on the listed bridged subinterfaces.",
@@ -12979,8 +12799,7 @@
               "type": "null"
             }
           ],
-          "default": "IPv4v6",
-          "title": "TypeLeaf6"
+          "default": "IPv4v6"
         }
       },
       "title": "VlanDiscoveryContainer",
@@ -12996,20 +12815,15 @@
       "description": "List of VLAN IDs that the RA policy should be matched against",
       "properties": {
         "vlan_id": {
-          "anyOf": [
-            {
-              "maximum": 4095,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Vlan-idLeaf2"
+          "maximum": 4095,
+          "minimum": 0,
+          "title": "Vlan Id",
+          "type": "integer"
         }
       },
+      "required": [
+        "vlan_id"
+      ],
       "title": "VlanListListEntry",
       "type": "object"
     },
@@ -13027,7 +12841,7 @@
             }
           ],
           "default": null,
-          "title": "Latest-valueLeaf2"
+          "title": "Latest Value"
         },
         "high_alarm_condition": {
           "anyOf": [
@@ -13039,7 +12853,7 @@
             }
           ],
           "default": null,
-          "title": "High-alarm-conditionLeaf2"
+          "title": "High Alarm Condition"
         },
         "high_alarm_threshold": {
           "anyOf": [
@@ -13053,7 +12867,7 @@
             }
           ],
           "default": null,
-          "title": "High-alarm-thresholdLeaf2"
+          "title": "High Alarm Threshold"
         },
         "low_alarm_condition": {
           "anyOf": [
@@ -13065,7 +12879,7 @@
             }
           ],
           "default": null,
-          "title": "Low-alarm-conditionLeaf2"
+          "title": "Low Alarm Condition"
         },
         "low_alarm_threshold": {
           "anyOf": [
@@ -13079,7 +12893,7 @@
             }
           ],
           "default": null,
-          "title": "Low-alarm-thresholdLeaf2"
+          "title": "Low Alarm Threshold"
         },
         "high_warning_condition": {
           "anyOf": [
@@ -13091,7 +12905,7 @@
             }
           ],
           "default": null,
-          "title": "High-warning-conditionLeaf2"
+          "title": "High Warning Condition"
         },
         "high_warning_threshold": {
           "anyOf": [
@@ -13105,7 +12919,7 @@
             }
           ],
           "default": null,
-          "title": "High-warning-thresholdLeaf2"
+          "title": "High Warning Threshold"
         },
         "low_warning_condition": {
           "anyOf": [
@@ -13117,7 +12931,7 @@
             }
           ],
           "default": null,
-          "title": "Low-warning-conditionLeaf2"
+          "title": "Low Warning Condition"
         },
         "low_warning_threshold": {
           "anyOf": [
@@ -13131,7 +12945,7 @@
             }
           ],
           "default": null,
-          "title": "Low-warning-thresholdLeaf2"
+          "title": "Low Warning Threshold"
         }
       },
       "title": "VoltageContainer",
@@ -13185,18 +12999,10 @@
       "description": "VRRP Group Specific Configuration under IPv4 context",
       "properties": {
         "virtual_router_id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Virtual-router-idLeaf"
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Virtual Router Id",
+          "type": "integer"
         },
         "admin_state": {
           "anyOf": [
@@ -13207,8 +13013,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf8"
+          "default": "enable"
         },
         "priority": {
           "anyOf": [
@@ -13222,7 +13027,7 @@
             }
           ],
           "default": 100,
-          "title": "PriorityLeaf"
+          "title": "Priority"
         },
         "preempt": {
           "anyOf": [
@@ -13234,7 +13039,7 @@
             }
           ],
           "default": null,
-          "title": "PreemptLeaf"
+          "title": "Preempt"
         },
         "virtual_mac": {
           "anyOf": [
@@ -13247,7 +13052,7 @@
             }
           ],
           "default": null,
-          "title": "Virtual-macLeaf"
+          "title": "Virtual Mac"
         },
         "preempt_delay": {
           "anyOf": [
@@ -13261,7 +13066,7 @@
             }
           ],
           "default": null,
-          "title": "Preempt-delayLeaf"
+          "title": "Preempt Delay"
         },
         "init_delay": {
           "anyOf": [
@@ -13275,7 +13080,7 @@
             }
           ],
           "default": null,
-          "title": "Init-delayLeaf"
+          "title": "Init Delay"
         },
         "accept_mode": {
           "anyOf": [
@@ -13287,7 +13092,7 @@
             }
           ],
           "default": null,
-          "title": "Accept-modeLeaf"
+          "title": "Accept Mode"
         },
         "advertise_interval": {
           "anyOf": [
@@ -13301,7 +13106,7 @@
             }
           ],
           "default": 1000,
-          "title": "Advertise-intervalLeaf"
+          "title": "Advertise Interval"
         },
         "authentication": {
           "anyOf": [
@@ -13327,13 +13132,15 @@
         },
         "state": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "StateLeaf"
+          "title": "State"
         },
         "oper_state": {
           "anyOf": [
@@ -13344,8 +13151,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf5"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -13356,8 +13162,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf4"
+          "default": null
         },
         "owner": {
           "anyOf": [
@@ -13369,7 +13174,7 @@
             }
           ],
           "default": null,
-          "title": "OwnerLeaf"
+          "title": "Owner"
         },
         "operational_priority": {
           "anyOf": [
@@ -13383,7 +13188,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-priorityLeaf"
+          "title": "Operational Priority"
         },
         "master_inherit_interval": {
           "anyOf": [
@@ -13395,7 +13200,7 @@
             }
           ],
           "default": false,
-          "title": "Master-inherit-intervalLeaf"
+          "title": "Master Inherit Interval"
         },
         "oper_interval": {
           "anyOf": [
@@ -13409,7 +13214,7 @@
             }
           ],
           "default": null,
-          "title": "Oper-intervalLeaf"
+          "title": "Oper Interval"
         },
         "current_master": {
           "anyOf": [
@@ -13424,7 +13229,7 @@
             }
           ],
           "default": null,
-          "title": "Current-masterLeaf"
+          "title": "Current Master"
         },
         "last_transition": {
           "anyOf": [
@@ -13437,7 +13242,7 @@
             }
           ],
           "default": null,
-          "title": "Last-transitionLeaf"
+          "title": "Last Transition"
         },
         "statistics": {
           "anyOf": [
@@ -13484,9 +13289,12 @@
             }
           ],
           "default": 2,
-          "title": "VersionLeaf"
+          "title": "Version"
         }
       },
+      "required": [
+        "virtual_router_id"
+      ],
       "title": "VrrpGroupListEntry",
       "type": "object"
     },
@@ -13494,18 +13302,10 @@
       "description": "VRRP Group Specific Configuration under IPv6 context",
       "properties": {
         "virtual_router_id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Virtual-router-idLeaf2"
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Virtual Router Id",
+          "type": "integer"
         },
         "admin_state": {
           "anyOf": [
@@ -13516,8 +13316,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf13"
+          "default": "enable"
         },
         "priority": {
           "anyOf": [
@@ -13531,7 +13330,7 @@
             }
           ],
           "default": 100,
-          "title": "PriorityLeaf2"
+          "title": "Priority"
         },
         "preempt": {
           "anyOf": [
@@ -13543,7 +13342,7 @@
             }
           ],
           "default": null,
-          "title": "PreemptLeaf2"
+          "title": "Preempt"
         },
         "virtual_mac": {
           "anyOf": [
@@ -13556,7 +13355,7 @@
             }
           ],
           "default": null,
-          "title": "Virtual-macLeaf2"
+          "title": "Virtual Mac"
         },
         "preempt_delay": {
           "anyOf": [
@@ -13570,7 +13369,7 @@
             }
           ],
           "default": null,
-          "title": "Preempt-delayLeaf2"
+          "title": "Preempt Delay"
         },
         "init_delay": {
           "anyOf": [
@@ -13584,7 +13383,7 @@
             }
           ],
           "default": null,
-          "title": "Init-delayLeaf2"
+          "title": "Init Delay"
         },
         "accept_mode": {
           "anyOf": [
@@ -13596,7 +13395,7 @@
             }
           ],
           "default": null,
-          "title": "Accept-modeLeaf2"
+          "title": "Accept Mode"
         },
         "advertise_interval": {
           "anyOf": [
@@ -13610,7 +13409,7 @@
             }
           ],
           "default": 1000,
-          "title": "Advertise-intervalLeaf2"
+          "title": "Advertise Interval"
         },
         "authentication": {
           "anyOf": [
@@ -13636,13 +13435,15 @@
         },
         "state": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "StateLeaf2"
+          "title": "State"
         },
         "oper_state": {
           "anyOf": [
@@ -13653,8 +13454,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf8"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -13665,8 +13465,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf6"
+          "default": null
         },
         "owner": {
           "anyOf": [
@@ -13678,7 +13477,7 @@
             }
           ],
           "default": null,
-          "title": "OwnerLeaf2"
+          "title": "Owner"
         },
         "operational_priority": {
           "anyOf": [
@@ -13692,7 +13491,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-priorityLeaf2"
+          "title": "Operational Priority"
         },
         "master_inherit_interval": {
           "anyOf": [
@@ -13704,7 +13503,7 @@
             }
           ],
           "default": false,
-          "title": "Master-inherit-intervalLeaf2"
+          "title": "Master Inherit Interval"
         },
         "oper_interval": {
           "anyOf": [
@@ -13718,7 +13517,7 @@
             }
           ],
           "default": null,
-          "title": "Oper-intervalLeaf2"
+          "title": "Oper Interval"
         },
         "current_master": {
           "anyOf": [
@@ -13733,7 +13532,7 @@
             }
           ],
           "default": null,
-          "title": "Current-masterLeaf2"
+          "title": "Current Master"
         },
         "last_transition": {
           "anyOf": [
@@ -13746,7 +13545,7 @@
             }
           ],
           "default": null,
-          "title": "Last-transitionLeaf2"
+          "title": "Last Transition"
         },
         "statistics": {
           "anyOf": [
@@ -13763,7 +13562,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/VirtualAddressLeafList2"
               },
               "type": "array"
             },
@@ -13786,7 +13585,7 @@
             }
           ],
           "default": 3,
-          "title": "VersionLeaf2"
+          "title": "Version"
         },
         "virtual_link_local_address": {
           "anyOf": [
@@ -13799,9 +13598,12 @@
             }
           ],
           "default": null,
-          "title": "Virtual-link-local-addressLeaf"
+          "title": "Virtual Link Local Address"
         }
       },
+      "required": [
+        "virtual_router_id"
+      ],
       "title": "VrrpGroupListEntry2",
       "type": "object"
     },
@@ -13818,7 +13620,7 @@
             }
           ],
           "default": false,
-          "title": "TunnelLeaf3"
+          "title": "Tunnel"
         },
         "oper_rule": {
           "anyOf": [
@@ -13829,8 +13631,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-ruleLeaf3"
+          "default": null
         }
       },
       "title": "XstpContainer",

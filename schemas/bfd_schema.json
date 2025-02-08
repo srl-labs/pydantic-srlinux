@@ -14,7 +14,7 @@
             }
           ],
           "default": null,
-          "title": "Last-packet-transmittedLeaf"
+          "title": "Last Packet Transmitted"
         },
         "last_packet_received": {
           "anyOf": [
@@ -27,7 +27,7 @@
             }
           ],
           "default": null,
-          "title": "Last-packet-receivedLeaf"
+          "title": "Last Packet Received"
         },
         "transmitted_packets": {
           "anyOf": [
@@ -41,7 +41,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf"
+          "title": "Transmitted Packets"
         },
         "received_packets": {
           "anyOf": [
@@ -55,7 +55,7 @@
             }
           ],
           "default": 0,
-          "title": "Received-packetsLeaf"
+          "title": "Received Packets"
         },
         "up_transitions": {
           "anyOf": [
@@ -69,7 +69,7 @@
             }
           ],
           "default": 0,
-          "title": "Up-transitionsLeaf"
+          "title": "Up Transitions"
         },
         "received_errored_packets": {
           "anyOf": [
@@ -83,7 +83,7 @@
             }
           ],
           "default": 0,
-          "title": "Received-errored-packetsLeaf"
+          "title": "Received Errored Packets"
         },
         "last_clear": {
           "anyOf": [
@@ -96,7 +96,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf"
+          "title": "Last Clear"
         }
       },
       "title": "AsyncContainer",
@@ -116,7 +116,7 @@
             }
           ],
           "default": null,
-          "title": "Last-packet-transmittedLeaf2"
+          "title": "Last Packet Transmitted"
         },
         "last_packet_received": {
           "anyOf": [
@@ -129,7 +129,7 @@
             }
           ],
           "default": null,
-          "title": "Last-packet-receivedLeaf2"
+          "title": "Last Packet Received"
         },
         "transmitted_packets": {
           "anyOf": [
@@ -143,7 +143,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf2"
+          "title": "Transmitted Packets"
         },
         "received_packets": {
           "anyOf": [
@@ -157,7 +157,7 @@
             }
           ],
           "default": 0,
-          "title": "Received-packetsLeaf2"
+          "title": "Received Packets"
         },
         "up_transitions": {
           "anyOf": [
@@ -171,7 +171,7 @@
             }
           ],
           "default": 0,
-          "title": "Up-transitionsLeaf2"
+          "title": "Up Transitions"
         },
         "received_errored_packets": {
           "anyOf": [
@@ -185,7 +185,7 @@
             }
           ],
           "default": 0,
-          "title": "Received-errored-packetsLeaf2"
+          "title": "Received Errored Packets"
         },
         "last_clear": {
           "anyOf": [
@@ -198,7 +198,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf2"
+          "title": "Last Clear"
         }
       },
       "title": "AsyncContainer2",
@@ -249,7 +249,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-bfd-sessionsLeaf"
+          "title": "Total Bfd Sessions"
         },
         "total_unmatched_bfd_packets": {
           "anyOf": [
@@ -263,7 +263,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-unmatched-bfd-packetsLeaf"
+          "title": "Total Unmatched Bfd Packets"
         },
         "micro_bfd_sessions": {
           "anyOf": [
@@ -387,16 +387,8 @@
       "description": "List of interface references to associate a micro-BFD session config and state",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf2"
+          "title": "Name",
+          "type": "string"
         },
         "admin_state": {
           "anyOf": [
@@ -407,8 +399,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf2"
+          "default": "disable"
         },
         "local_address": {
           "anyOf": [
@@ -423,7 +414,7 @@
             }
           ],
           "default": null,
-          "title": "Local-addressLeaf2"
+          "title": "Local Address"
         },
         "remote_address": {
           "anyOf": [
@@ -438,7 +429,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-addressLeaf2"
+          "title": "Remote Address"
         },
         "desired_minimum_transmit_interval": {
           "anyOf": [
@@ -452,7 +443,7 @@
             }
           ],
           "default": 1000000,
-          "title": "Desired-minimum-transmit-intervalLeaf2"
+          "title": "Desired Minimum Transmit Interval"
         },
         "required_minimum_receive": {
           "anyOf": [
@@ -466,7 +457,7 @@
             }
           ],
           "default": 1000000,
-          "title": "Required-minimum-receiveLeaf2"
+          "title": "Required Minimum Receive"
         },
         "detection_multiplier": {
           "anyOf": [
@@ -480,7 +471,7 @@
             }
           ],
           "default": 3,
-          "title": "Detection-multiplierLeaf2"
+          "title": "Detection Multiplier"
         },
         "member_interface": {
           "anyOf": [
@@ -498,6 +489,9 @@
           "title": "Member Interface"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "LagInterfaceListEntry",
       "type": "object"
     },
@@ -505,16 +499,8 @@
       "description": "List of interface references to associate a micro-BFD session config and state",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf4"
+          "title": "Name",
+          "type": "string"
         },
         "session_state": {
           "anyOf": [
@@ -525,8 +511,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Session-stateLeaf2"
+          "default": null
         },
         "remote_session_state": {
           "anyOf": [
@@ -537,8 +522,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Remote-session-stateLeaf2"
+          "default": null
         },
         "last_state_transition": {
           "anyOf": [
@@ -551,7 +535,7 @@
             }
           ],
           "default": null,
-          "title": "Last-state-transitionLeaf2"
+          "title": "Last State Transition"
         },
         "last_failure_time": {
           "anyOf": [
@@ -564,7 +548,7 @@
             }
           ],
           "default": null,
-          "title": "Last-failure-timeLeaf2"
+          "title": "Last Failure Time"
         },
         "failure_transitions": {
           "anyOf": [
@@ -578,7 +562,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-transitionsLeaf2"
+          "title": "Failure Transitions"
         },
         "local_discriminator": {
           "anyOf": [
@@ -592,7 +576,7 @@
             }
           ],
           "default": null,
-          "title": "Local-discriminatorLeaf2"
+          "title": "Local Discriminator"
         },
         "remote_discriminator": {
           "anyOf": [
@@ -606,7 +590,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-discriminatorLeaf2"
+          "title": "Remote Discriminator"
         },
         "local_diagnostic_code": {
           "anyOf": [
@@ -617,8 +601,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Local-diagnostic-codeLeaf2"
+          "default": null
         },
         "remote_diagnostic_code": {
           "anyOf": [
@@ -629,8 +612,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Remote-diagnostic-codeLeaf2"
+          "default": null
         },
         "remote_minimum_receive_interval": {
           "anyOf": [
@@ -644,7 +626,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-minimum-receive-intervalLeaf2"
+          "title": "Remote Minimum Receive Interval"
         },
         "remote_control_plane_independent": {
           "anyOf": [
@@ -656,7 +638,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-control-plane-independentLeaf2"
+          "title": "Remote Control Plane Independent"
         },
         "active_transmit_interval": {
           "anyOf": [
@@ -670,7 +652,7 @@
             }
           ],
           "default": null,
-          "title": "Active-transmit-intervalLeaf2"
+          "title": "Active Transmit Interval"
         },
         "active_receive_interval": {
           "anyOf": [
@@ -684,7 +666,7 @@
             }
           ],
           "default": null,
-          "title": "Active-receive-intervalLeaf2"
+          "title": "Active Receive Interval"
         },
         "remote_multiplier": {
           "anyOf": [
@@ -698,7 +680,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-multiplierLeaf2"
+          "title": "Remote Multiplier"
         },
         "async_": {
           "anyOf": [
@@ -712,6 +694,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "MemberInterfaceListEntry",
       "type": "object"
     },
@@ -741,16 +726,8 @@
       "description": "network-instance context for BFD session.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf"
+          "title": "Name",
+          "type": "string"
         },
         "peer": {
           "anyOf": [
@@ -768,6 +745,9 @@
           "title": "Peer"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "NetworkInstanceListEntry",
       "type": "object"
     },
@@ -775,18 +755,10 @@
       "description": "BFD session state related to this peer",
       "properties": {
         "local_discriminator": {
-          "anyOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Local-discriminatorLeaf"
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Local Discriminator",
+          "type": "integer"
         },
         "oper_state": {
           "anyOf": [
@@ -797,8 +769,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf"
+          "default": null
         },
         "ipv6_link_local_interface": {
           "anyOf": [
@@ -810,7 +781,7 @@
             }
           ],
           "default": null,
-          "title": "Ipv6-link-local-interfaceLeaf"
+          "title": "Ipv6 Link Local Interface"
         },
         "ipv4_unnumbered_interface": {
           "anyOf": [
@@ -822,7 +793,7 @@
             }
           ],
           "default": null,
-          "title": "Ipv4-unnumbered-interfaceLeaf"
+          "title": "Ipv4 Unnumbered Interface"
         },
         "local_address": {
           "anyOf": [
@@ -837,7 +808,7 @@
             }
           ],
           "default": null,
-          "title": "Local-addressLeaf"
+          "title": "Local Address"
         },
         "remote_address": {
           "anyOf": [
@@ -852,7 +823,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-addressLeaf"
+          "title": "Remote Address"
         },
         "remote_discriminator": {
           "anyOf": [
@@ -866,7 +837,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-discriminatorLeaf"
+          "title": "Remote Discriminator"
         },
         "subscribed_protocols": {
           "anyOf": [
@@ -878,7 +849,7 @@
             }
           ],
           "default": null,
-          "title": "Subscribed-protocolsLeaf"
+          "title": "Subscribed Protocols"
         },
         "session_state": {
           "anyOf": [
@@ -889,8 +860,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Session-stateLeaf"
+          "default": null
         },
         "remote_session_state": {
           "anyOf": [
@@ -901,8 +871,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Remote-session-stateLeaf"
+          "default": null
         },
         "last_state_transition": {
           "anyOf": [
@@ -915,7 +884,7 @@
             }
           ],
           "default": null,
-          "title": "Last-state-transitionLeaf"
+          "title": "Last State Transition"
         },
         "last_failure_time": {
           "anyOf": [
@@ -928,7 +897,7 @@
             }
           ],
           "default": null,
-          "title": "Last-failure-timeLeaf"
+          "title": "Last Failure Time"
         },
         "failure_transitions": {
           "anyOf": [
@@ -942,7 +911,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-transitionsLeaf"
+          "title": "Failure Transitions"
         },
         "local_diagnostic_code": {
           "anyOf": [
@@ -953,8 +922,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Local-diagnostic-codeLeaf"
+          "default": null
         },
         "remote_diagnostic_code": {
           "anyOf": [
@@ -965,8 +933,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Remote-diagnostic-codeLeaf"
+          "default": null
         },
         "remote_minimum_receive_interval": {
           "anyOf": [
@@ -980,7 +947,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-minimum-receive-intervalLeaf"
+          "title": "Remote Minimum Receive Interval"
         },
         "remote_control_plane_independent": {
           "anyOf": [
@@ -992,7 +959,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-control-plane-independentLeaf"
+          "title": "Remote Control Plane Independent"
         },
         "active_transmit_interval": {
           "anyOf": [
@@ -1006,7 +973,7 @@
             }
           ],
           "default": null,
-          "title": "Active-transmit-intervalLeaf"
+          "title": "Active Transmit Interval"
         },
         "active_receive_interval": {
           "anyOf": [
@@ -1020,7 +987,7 @@
             }
           ],
           "default": null,
-          "title": "Active-receive-intervalLeaf"
+          "title": "Active Receive Interval"
         },
         "remote_multiplier": {
           "anyOf": [
@@ -1034,7 +1001,7 @@
             }
           ],
           "default": null,
-          "title": "Remote-multiplierLeaf"
+          "title": "Remote Multiplier"
         },
         "te_policy_name": {
           "anyOf": [
@@ -1046,7 +1013,7 @@
             }
           ],
           "default": null,
-          "title": "Te-policy-nameLeaf"
+          "title": "Te Policy Name"
         },
         "te_policy_type": {
           "anyOf": [
@@ -1057,8 +1024,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Te-policy-typeLeaf"
+          "default": null
         },
         "te_policy_segment_list_index": {
           "anyOf": [
@@ -1072,7 +1038,7 @@
             }
           ],
           "default": null,
-          "title": "Te-policy-segment-list-indexLeaf"
+          "title": "Te Policy Segment List Index"
         },
         "te_policy_protocol_origin": {
           "anyOf": [
@@ -1083,8 +1049,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Te-policy-protocol-originLeaf"
+          "default": null
         },
         "te_policy_segment_list_lsp_index": {
           "anyOf": [
@@ -1098,7 +1063,7 @@
             }
           ],
           "default": null,
-          "title": "Te-policy-segment-list-lsp-indexLeaf"
+          "title": "Te Policy Segment List Lsp Index"
         },
         "sr_policy_endpoint": {
           "anyOf": [
@@ -1113,7 +1078,7 @@
             }
           ],
           "default": null,
-          "title": "Sr-policy-endpointLeaf"
+          "title": "Sr Policy Endpoint"
         },
         "async_": {
           "anyOf": [
@@ -1127,6 +1092,9 @@
           "default": null
         }
       },
+      "required": [
+        "local_discriminator"
+      ],
       "title": "PeerListEntry",
       "type": "object"
     },
@@ -1134,16 +1102,8 @@
       "description": "List of subinterface references to associating BFD config and state",
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf"
+          "title": "Id",
+          "type": "string"
         },
         "admin_state": {
           "anyOf": [
@@ -1154,8 +1114,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf"
+          "default": "disable"
         },
         "desired_minimum_transmit_interval": {
           "anyOf": [
@@ -1169,7 +1128,7 @@
             }
           ],
           "default": 1000000,
-          "title": "Desired-minimum-transmit-intervalLeaf"
+          "title": "Desired Minimum Transmit Interval"
         },
         "required_minimum_receive": {
           "anyOf": [
@@ -1183,7 +1142,7 @@
             }
           ],
           "default": 1000000,
-          "title": "Required-minimum-receiveLeaf"
+          "title": "Required Minimum Receive"
         },
         "detection_multiplier": {
           "anyOf": [
@@ -1197,7 +1156,7 @@
             }
           ],
           "default": 3,
-          "title": "Detection-multiplierLeaf"
+          "title": "Detection Multiplier"
         },
         "minimum_echo_receive_interval": {
           "anyOf": [
@@ -1211,7 +1170,7 @@
             }
           ],
           "default": 0,
-          "title": "Minimum-echo-receive-intervalLeaf"
+          "title": "Minimum Echo Receive Interval"
         },
         "max_hop_count": {
           "anyOf": [
@@ -1225,9 +1184,12 @@
             }
           ],
           "default": 255,
-          "title": "Max-hop-countLeaf"
+          "title": "Max Hop Count"
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "SubinterfaceListEntry",
       "type": "object"
     }

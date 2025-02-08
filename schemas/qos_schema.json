@@ -33,8 +33,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Peak-rateLeaf"
+          "default": "closest"
         },
         "committed_rate": {
           "anyOf": [
@@ -45,8 +44,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Committed-rateLeaf"
+          "default": "closest"
         },
         "excess_rate": {
           "anyOf": [
@@ -57,8 +55,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Excess-rateLeaf"
+          "default": "closest"
         },
         "maximum_burst_size": {
           "anyOf": [
@@ -69,8 +66,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Maximum-burst-sizeLeaf"
+          "default": "closest"
         },
         "committed_burst_size": {
           "anyOf": [
@@ -81,8 +77,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Committed-burst-sizeLeaf"
+          "default": "closest"
         },
         "excess_burst_size": {
           "anyOf": [
@@ -93,8 +88,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Excess-burst-sizeLeaf"
+          "default": "closest"
         }
       },
       "title": "AdaptationRulesContainer",
@@ -114,7 +108,7 @@
             }
           ],
           "default": null,
-          "title": "AddLeaf"
+          "title": "Add"
         }
       },
       "title": "AddCase",
@@ -134,7 +128,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf2"
+          "title": "Last Clear"
         },
         "accepted_packets": {
           "anyOf": [
@@ -148,7 +142,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-packetsLeaf"
+          "title": "Accepted Packets"
         },
         "accepted_octets": {
           "anyOf": [
@@ -162,7 +156,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-octetsLeaf"
+          "title": "Accepted Octets"
         },
         "accepted_inplus_packets": {
           "anyOf": [
@@ -176,7 +170,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-inplus-packetsLeaf"
+          "title": "Accepted Inplus Packets"
         },
         "accepted_inplus_octets": {
           "anyOf": [
@@ -190,7 +184,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-inplus-octetsLeaf"
+          "title": "Accepted Inplus Octets"
         },
         "accepted_in_packets": {
           "anyOf": [
@@ -204,7 +198,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-in-packetsLeaf"
+          "title": "Accepted In Packets"
         },
         "accepted_in_octets": {
           "anyOf": [
@@ -218,7 +212,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-in-octetsLeaf"
+          "title": "Accepted In Octets"
         },
         "accepted_out_packets": {
           "anyOf": [
@@ -232,7 +226,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-out-packetsLeaf"
+          "title": "Accepted Out Packets"
         },
         "accepted_out_octets": {
           "anyOf": [
@@ -246,7 +240,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-out-octetsLeaf"
+          "title": "Accepted Out Octets"
         },
         "exceed_packets": {
           "anyOf": [
@@ -260,7 +254,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceed-packetsLeaf"
+          "title": "Exceed Packets"
         },
         "exceed_octets": {
           "anyOf": [
@@ -274,7 +268,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceed-octetsLeaf"
+          "title": "Exceed Octets"
         }
       },
       "title": "AggregateStatisticsContainer",
@@ -294,7 +288,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf4"
+          "title": "Last Clear"
         },
         "in_profile": {
           "anyOf": [
@@ -359,7 +353,7 @@
             }
           ],
           "default": 0,
-          "title": "Explicit-percentageLeaf"
+          "title": "Explicit Percentage"
         },
         "bw_proportional": {
           "anyOf": [
@@ -387,8 +381,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "InputsLeaf"
+          "default": null
         }
       },
       "title": "AutoInputCase",
@@ -405,8 +398,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "InputsLeaf2"
+          "default": null
         }
       },
       "title": "AutoInputCase2",
@@ -416,17 +408,9 @@
       "description": "The name of a buffer-allocation-profile",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "queues": {
           "anyOf": [
@@ -440,6 +424,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "BufferAllocationProfileListEntry",
       "type": "object"
     },
@@ -551,7 +538,7 @@
             }
           ],
           "default": null,
-          "title": "Rising-threshold-valueLeaf"
+          "title": "Rising Threshold Value"
         },
         "falling_threshold_value": {
           "anyOf": [
@@ -565,7 +552,7 @@
             }
           ],
           "default": null,
-          "title": "Falling-threshold-valueLeaf"
+          "title": "Falling Threshold Value"
         }
       },
       "title": "BufferSegmentContainer",
@@ -586,7 +573,7 @@
             }
           ],
           "default": 125,
-          "title": "Over-subscription-factorLeaf"
+          "title": "Over Subscription Factor"
         }
       },
       "title": "BwProportionalContainer",
@@ -605,7 +592,7 @@
             }
           ],
           "default": null,
-          "title": "Vxlan-defaultLeaf"
+          "title": "Vxlan Default"
         },
         "dscp_policy": {
           "anyOf": [
@@ -696,7 +683,7 @@
             }
           ],
           "default": null,
-          "title": "Ipv4-dscp-policyLeaf"
+          "title": "Ipv4 Dscp Policy"
         },
         "ipv6_dscp_policy": {
           "anyOf": [
@@ -709,7 +696,7 @@
             }
           ],
           "default": null,
-          "title": "Ipv6-dscp-policyLeaf"
+          "title": "Ipv6 Dscp Policy"
         },
         "dscp_policy": {
           "anyOf": [
@@ -722,7 +709,7 @@
             }
           ],
           "default": null,
-          "title": "Dscp-policyLeaf"
+          "title": "Dscp Policy"
         },
         "dot1p_policy": {
           "anyOf": [
@@ -735,7 +722,7 @@
             }
           ],
           "default": null,
-          "title": "Dot1p-policyLeaf"
+          "title": "Dot1P Policy"
         },
         "mpls_traffic_class_policy": {
           "anyOf": [
@@ -748,7 +735,7 @@
             }
           ],
           "default": null,
-          "title": "Mpls-traffic-class-policyLeaf"
+          "title": "Mpls Traffic Class Policy"
         },
         "ler_use_dscp": {
           "anyOf": [
@@ -760,7 +747,7 @@
             }
           ],
           "default": false,
-          "title": "Ler-use-dscpLeaf"
+          "title": "Ler Use Dscp"
         },
         "match_qinq_dot1p": {
           "anyOf": [
@@ -771,8 +758,7 @@
               "type": "null"
             }
           ],
-          "default": "outer",
-          "title": "Match-qinq-dot1pLeaf"
+          "default": "outer"
         },
         "tos_rewrite_state": {
           "anyOf": [
@@ -783,8 +769,7 @@
               "type": "null"
             }
           ],
-          "default": "trusted",
-          "title": "Tos-rewrite-stateLeaf"
+          "default": "trusted"
         }
       },
       "title": "ClassifiersContainer2",
@@ -805,7 +790,7 @@
             }
           ],
           "default": 0,
-          "title": "Alt-0Leaf"
+          "title": "Alt 0"
         },
         "alt_1": {
           "anyOf": [
@@ -819,7 +804,7 @@
             }
           ],
           "default": 0,
-          "title": "Alt-1Leaf"
+          "title": "Alt 1"
         },
         "alt_2": {
           "anyOf": [
@@ -833,7 +818,7 @@
             }
           ],
           "default": 0,
-          "title": "Alt-2Leaf"
+          "title": "Alt 2"
         },
         "alt_3": {
           "anyOf": [
@@ -847,7 +832,7 @@
             }
           ],
           "default": 0,
-          "title": "Alt-3Leaf"
+          "title": "Alt 3"
         }
       },
       "title": "CommittedBurstSizeTableContainer",
@@ -866,7 +851,7 @@
             }
           ],
           "default": false,
-          "title": "EnableLeaf"
+          "title": "Enable"
         },
         "detection_timer": {
           "anyOf": [
@@ -880,7 +865,7 @@
             }
           ],
           "default": 750,
-          "title": "Detection-timerLeaf"
+          "title": "Detection Timer"
         },
         "recovery_timer": {
           "anyOf": [
@@ -894,7 +879,7 @@
             }
           ],
           "default": 750,
-          "title": "Recovery-timerLeaf"
+          "title": "Recovery Timer"
         }
       },
       "title": "DeadlockContainer",
@@ -913,7 +898,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-classLeaf9"
+          "title": "Forwarding Class"
         },
         "drop_probability": {
           "anyOf": [
@@ -924,8 +909,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Drop-probabilityLeaf7"
+          "default": null
         },
         "profile": {
           "anyOf": [
@@ -936,28 +920,25 @@
               "type": "null"
             }
           ],
-          "default": "out",
-          "title": "ProfileLeaf9"
+          "default": "out"
         }
       },
       "title": "DefaultContainer",
       "type": "object"
     },
+    "Dot1pLeafList": {
+      "maximum": 7,
+      "minimum": 0,
+      "title": "Dot1pLeafList",
+      "type": "integer"
+    },
     "Dot1pListEntry": {
       "properties": {
         "value": {
-          "anyOf": [
-            {
-              "maximum": 7,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "ValueLeaf4"
+          "maximum": 7,
+          "minimum": 0,
+          "title": "Value",
+          "type": "integer"
         },
         "forwarding_class": {
           "anyOf": [
@@ -970,7 +951,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-classLeaf4"
+          "title": "Forwarding Class"
         },
         "drop_probability": {
           "anyOf": [
@@ -981,8 +962,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Drop-probabilityLeaf3"
+          "default": null
         },
         "profile": {
           "anyOf": [
@@ -993,8 +973,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ProfileLeaf4"
+          "default": null
         },
         "de_out_profile": {
           "anyOf": [
@@ -1006,7 +985,7 @@
             }
           ],
           "default": true,
-          "title": "De-out-profileLeaf3"
+          "title": "De Out Profile"
         },
         "ip_rewrite_policy": {
           "anyOf": [
@@ -1019,26 +998,21 @@
             }
           ],
           "default": null,
-          "title": "Ip-rewrite-policyLeaf3"
+          "title": "Ip Rewrite Policy"
         }
       },
+      "required": [
+        "value"
+      ],
       "title": "Dot1pListEntry",
       "type": "object"
     },
     "Dot1pPolicyListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "dot1p": {
           "anyOf": [
@@ -1056,23 +1030,18 @@
           "title": "Dot1P"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "Dot1pPolicyListEntry",
       "type": "object"
     },
     "Dot1pPolicyListEntry2": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "map": {
           "anyOf": [
@@ -1090,6 +1059,9 @@
           "title": "Map"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "Dot1pPolicyListEntry2",
       "type": "object"
     },
@@ -1119,16 +1091,7 @@
     "DropProbabilityListEntry": {
       "properties": {
         "drop_probability": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum9"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Drop-probabilityLeaf4"
+          "$ref": "#/$defs/EnumerationEnum9"
         },
         "dscp": {
           "anyOf": [
@@ -1139,10 +1102,11 @@
               "$ref": "#/$defs/EnumerationEnum3"
             }
           ],
-          "title": "DscpLeaf"
+          "title": "Dscp"
         }
       },
       "required": [
+        "drop_probability",
         "dscp"
       ],
       "title": "DropProbabilityListEntry",
@@ -1151,25 +1115,17 @@
     "DropProbabilityListEntry2": {
       "properties": {
         "drop_probability": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum9"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Drop-probabilityLeaf5"
+          "$ref": "#/$defs/EnumerationEnum9"
         },
         "traffic_class": {
           "maximum": 7,
           "minimum": 0,
-          "title": "Traffic-classLeaf",
+          "title": "Traffic Class",
           "type": "integer"
         }
       },
       "required": [
+        "drop_probability",
         "traffic_class"
       ],
       "title": "DropProbabilityListEntry2",
@@ -1178,25 +1134,17 @@
     "DropProbabilityListEntry3": {
       "properties": {
         "drop_probability": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum9"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Drop-probabilityLeaf6"
+          "$ref": "#/$defs/EnumerationEnum9"
         },
         "dot1p": {
           "maximum": 7,
           "minimum": 0,
-          "title": "Dot1pLeaf",
+          "title": "Dot1P",
           "type": "integer"
         }
       },
       "required": [
+        "drop_probability",
         "dot1p"
       ],
       "title": "DropProbabilityListEntry3",
@@ -1254,7 +1202,7 @@
             }
           ],
           "default": null,
-          "title": "DscpLeaf4"
+          "title": "Dscp"
         }
       },
       "title": "DscpCase",
@@ -1275,7 +1223,7 @@
             }
           ],
           "default": null,
-          "title": "DscpLeaf5"
+          "title": "Dscp"
         }
       },
       "title": "DscpCase2",
@@ -1296,7 +1244,7 @@
             }
           ],
           "default": null,
-          "title": "DscpLeaf6"
+          "title": "Dscp"
         }
       },
       "title": "DscpCase3",
@@ -1317,7 +1265,7 @@
             }
           ],
           "default": null,
-          "title": "DscpLeaf7"
+          "title": "Dscp"
         }
       },
       "title": "DscpCase4",
@@ -1332,13 +1280,9 @@
             },
             {
               "$ref": "#/$defs/EnumerationEnum3"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "ValueLeaf"
+          "title": "Value"
         },
         "forwarding_class": {
           "anyOf": [
@@ -1351,7 +1295,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-classLeaf"
+          "title": "Forwarding Class"
         },
         "profile": {
           "anyOf": [
@@ -1362,10 +1306,12 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ProfileLeaf"
+          "default": null
         }
       },
+      "required": [
+        "value"
+      ],
       "title": "DscpListEntry",
       "type": "object"
     },
@@ -1378,13 +1324,9 @@
             },
             {
               "$ref": "#/$defs/EnumerationEnum3"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "ValueLeaf2"
+          "title": "Value"
         },
         "forwarding_class": {
           "anyOf": [
@@ -1397,7 +1339,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-classLeaf2"
+          "title": "Forwarding Class"
         },
         "drop_probability": {
           "anyOf": [
@@ -1408,8 +1350,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Drop-probabilityLeaf"
+          "default": null
         },
         "profile": {
           "anyOf": [
@@ -1420,8 +1361,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ProfileLeaf2"
+          "default": null
         },
         "de_out_profile": {
           "anyOf": [
@@ -1433,7 +1373,7 @@
             }
           ],
           "default": true,
-          "title": "De-out-profileLeaf"
+          "title": "De Out Profile"
         },
         "ip_rewrite_policy": {
           "anyOf": [
@@ -1446,9 +1386,12 @@
             }
           ],
           "default": null,
-          "title": "Ip-rewrite-policyLeaf"
+          "title": "Ip Rewrite Policy"
         }
       },
+      "required": [
+        "value"
+      ],
       "title": "DscpListEntry2",
       "type": "object"
     },
@@ -1461,13 +1404,9 @@
             },
             {
               "$ref": "#/$defs/EnumerationEnum3"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "ValueLeaf5"
+          "title": "Value"
         },
         "forwarding_class": {
           "anyOf": [
@@ -1480,7 +1419,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-classLeaf5"
+          "title": "Forwarding Class"
         },
         "profile": {
           "anyOf": [
@@ -1491,27 +1430,21 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ProfileLeaf5"
+          "default": null
         }
       },
+      "required": [
+        "value"
+      ],
       "title": "DscpListEntry3",
       "type": "object"
     },
     "DscpPolicyListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "dscp": {
           "anyOf": [
@@ -1529,23 +1462,18 @@
           "title": "Dscp"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "DscpPolicyListEntry",
       "type": "object"
     },
     "DscpPolicyListEntry2": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "map": {
           "anyOf": [
@@ -1563,6 +1491,9 @@
           "title": "Map"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "DscpPolicyListEntry2",
       "type": "object"
     },
@@ -1570,17 +1501,9 @@
       "description": "Egress DSCP reclassification policy",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "dscp": {
           "anyOf": [
@@ -1598,6 +1521,9 @@
           "title": "Dscp"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "DscpReclassifyPolicyListEntry",
       "type": "object"
     },
@@ -1613,7 +1539,7 @@
             }
           ],
           "default": false,
-          "title": "Force-rewrite-trustedLeaf"
+          "title": "Force Rewrite Trusted"
         }
       },
       "title": "DscpRewriteContainer",
@@ -1886,8 +1812,7 @@
               "type": "null"
             }
           ],
-          "default": "medium",
-          "title": "Drop-probabilityLeaf10"
+          "default": "medium"
         }
       },
       "title": "ExceedActionContainer",
@@ -1929,7 +1854,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf4"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -1943,7 +1868,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf4"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -1957,7 +1882,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf4"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -1971,7 +1896,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf4"
+          "title": "Dropped Octets"
         }
       },
       "title": "ExceedProfileContainer",
@@ -1992,7 +1917,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf8"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -2006,7 +1931,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf8"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -2020,7 +1945,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf8"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -2034,7 +1959,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf8"
+          "title": "Dropped Octets"
         }
       },
       "title": "ExceedProfileContainer2",
@@ -2044,7 +1969,7 @@
       "properties": {
         "ecn_dscp_policy": {
           "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-          "title": "Ecn-dscp-policyLeaf",
+          "title": "Ecn Dscp Policy",
           "type": "string"
         }
       },
@@ -2054,25 +1979,27 @@
       "title": "ExplicitCongestionNotificationContainer",
       "type": "object"
     },
+    "ForwardingClassLeafList": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "ForwardingClassLeafList",
+      "type": "string"
+    },
+    "ForwardingClassLeafList2": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "ForwardingClassLeafList2",
+      "type": "string"
+    },
     "ForwardingClassListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "forwarding_class_index": {
           "maximum": 15,
           "minimum": 0,
-          "title": "Forwarding-class-indexLeaf",
+          "title": "Forwarding Class Index",
           "type": "integer"
         },
         "output": {
@@ -2088,6 +2015,7 @@
         }
       },
       "required": [
+        "name",
         "forwarding_class_index"
       ],
       "title": "ForwardingClassListEntry",
@@ -2097,17 +2025,9 @@
       "description": "User defined forwarding class",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf5"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "profile": {
           "anyOf": [
@@ -2125,23 +2045,18 @@
           "title": "Profile"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ForwardingClassListEntry2",
       "type": "object"
     },
     "ForwardingClassListEntry3": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf7"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "policers": {
           "anyOf": [
@@ -2155,23 +2070,18 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ForwardingClassListEntry3",
       "type": "object"
     },
     "ForwardingClassListEntry4": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf9"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "slope_policy": {
           "anyOf": [
@@ -2184,7 +2094,7 @@
             }
           ],
           "default": null,
-          "title": "Slope-policyLeaf2"
+          "title": "Slope Policy"
         },
         "queue": {
           "anyOf": [
@@ -2198,23 +2108,18 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ForwardingClassListEntry4",
       "type": "object"
     },
     "ForwardingClassListEntry5": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf26"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "forwarding_type": {
           "anyOf": [
@@ -2232,6 +2137,9 @@
           "title": "Forwarding Type"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ForwardingClassListEntry5",
       "type": "object"
     },
@@ -2239,17 +2147,9 @@
       "description": "The list of forwarding classes with traffic to be sent to the policer. If this list is not configured then all subinterface traffic is matched.",
       "properties": {
         "fc": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "FcLeaf"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Fc",
+          "type": "string"
         },
         "forwarding_type": {
           "anyOf": [
@@ -2267,6 +2167,9 @@
           "title": "Forwarding Type"
         }
       },
+      "required": [
+        "fc"
+      ],
       "title": "ForwardingClassListEntry6",
       "type": "object"
     },
@@ -2318,16 +2221,7 @@
       "description": "Forwarding complex on the card",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum19"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf27"
+          "$ref": "#/$defs/EnumerationEnum19"
         },
         "last_clear": {
           "anyOf": [
@@ -2340,7 +2234,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf3"
+          "title": "Last Clear"
         },
         "accepted_packets": {
           "anyOf": [
@@ -2354,7 +2248,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-packetsLeaf2"
+          "title": "Accepted Packets"
         },
         "accepted_octets": {
           "anyOf": [
@@ -2368,7 +2262,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-octetsLeaf2"
+          "title": "Accepted Octets"
         },
         "accepted_inplus_packets": {
           "anyOf": [
@@ -2382,7 +2276,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-inplus-packetsLeaf2"
+          "title": "Accepted Inplus Packets"
         },
         "accepted_inplus_octets": {
           "anyOf": [
@@ -2396,7 +2290,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-inplus-octetsLeaf2"
+          "title": "Accepted Inplus Octets"
         },
         "accepted_in_packets": {
           "anyOf": [
@@ -2410,7 +2304,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-in-packetsLeaf2"
+          "title": "Accepted In Packets"
         },
         "accepted_in_octets": {
           "anyOf": [
@@ -2424,7 +2318,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-in-octetsLeaf2"
+          "title": "Accepted In Octets"
         },
         "accepted_out_packets": {
           "anyOf": [
@@ -2438,7 +2332,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-out-packetsLeaf2"
+          "title": "Accepted Out Packets"
         },
         "accepted_out_octets": {
           "anyOf": [
@@ -2452,7 +2346,7 @@
             }
           ],
           "default": 0,
-          "title": "Accepted-out-octetsLeaf2"
+          "title": "Accepted Out Octets"
         },
         "exceed_packets": {
           "anyOf": [
@@ -2466,7 +2360,7 @@
             }
           ],
           "default": 0,
-          "title": "Exceed-packetsLeaf2"
+          "title": "Exceed Packets"
         },
         "exceed_octets": {
           "anyOf": [
@@ -2480,9 +2374,12 @@
             }
           ],
           "default": 0,
-          "title": "Exceed-octetsLeaf2"
+          "title": "Exceed Octets"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ForwardingComplexListEntry",
       "type": "object"
     },
@@ -2490,16 +2387,7 @@
       "description": "List of forwarding complexes on the card",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum24"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf32"
+          "$ref": "#/$defs/EnumerationEnum24"
         },
         "input": {
           "anyOf": [
@@ -2524,6 +2412,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ForwardingComplexListEntry2",
       "type": "object"
     },
@@ -2531,17 +2422,9 @@
       "description": "List of fp-pool-policies",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "system_reserve_percentage": {
           "anyOf": [
@@ -2555,7 +2438,7 @@
             }
           ],
           "default": 10,
-          "title": "System-reserve-percentageLeaf"
+          "title": "System Reserve Percentage"
         },
         "root_tier": {
           "anyOf": [
@@ -2580,6 +2463,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "FpPoolPolicyListEntry",
       "type": "object"
     },
@@ -2598,7 +2484,7 @@
             }
           ],
           "default": null,
-          "title": "Rising-threshold-valueLeaf3"
+          "title": "Rising Threshold Value"
         },
         "falling_threshold_value": {
           "anyOf": [
@@ -2612,7 +2498,7 @@
             }
           ],
           "default": null,
-          "title": "Falling-threshold-valueLeaf3"
+          "title": "Falling Threshold Value"
         }
       },
       "title": "HeaderBufferContainer",
@@ -2675,7 +2561,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf2"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -2689,7 +2575,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf2"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -2703,7 +2589,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf2"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -2717,7 +2603,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf2"
+          "title": "Dropped Octets"
         }
       },
       "title": "InPlusProfileContainer",
@@ -2738,7 +2624,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf6"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -2752,7 +2638,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf6"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -2766,7 +2652,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf6"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -2780,7 +2666,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf6"
+          "title": "Dropped Octets"
         }
       },
       "title": "InPlusProfileContainer2",
@@ -2801,7 +2687,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -2815,7 +2701,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -2829,7 +2715,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -2843,7 +2729,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf"
+          "title": "Dropped Octets"
         }
       },
       "title": "InProfileContainer",
@@ -2864,7 +2750,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf5"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -2878,7 +2764,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf5"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -2892,7 +2778,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf5"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -2906,7 +2792,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf5"
+          "title": "Dropped Octets"
         }
       },
       "title": "InProfileContainer2",
@@ -2915,17 +2801,9 @@
     "InputClassMapListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "forwarding_class": {
           "anyOf": [
@@ -2943,6 +2821,9 @@
           "title": "Forwarding Class"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "InputClassMapListEntry",
       "type": "object"
     },
@@ -2971,7 +2852,7 @@
             }
           ],
           "default": null,
-          "title": "Input-class-mapLeaf"
+          "title": "Input Class Map"
         },
         "policer_policies": {
           "anyOf": [
@@ -2995,7 +2876,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-buffer-allocation-profileLeaf"
+          "title": "Pfc Buffer Allocation Profile"
         },
         "policer_templates": {
           "anyOf": [
@@ -3027,7 +2908,7 @@
             }
           ],
           "default": 1,
-          "title": "Pfc-buffer-reservationLeaf"
+          "title": "Pfc Buffer Reservation"
         },
         "pfc_reserved_buffer_size": {
           "anyOf": [
@@ -3041,7 +2922,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-reserved-buffer-sizeLeaf"
+          "title": "Pfc Reserved Buffer Size"
         }
       },
       "title": "InputContainer2",
@@ -3051,16 +2932,8 @@
       "description": "List of input sources for the scheduler",
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf"
+          "title": "Id",
+          "type": "string"
         },
         "input_type": {
           "anyOf": [
@@ -3071,8 +2944,7 @@
               "type": "null"
             }
           ],
-          "default": "queue",
-          "title": "Input-typeLeaf"
+          "default": "queue"
         },
         "queue_name": {
           "anyOf": [
@@ -3085,7 +2957,7 @@
             }
           ],
           "default": null,
-          "title": "Queue-nameLeaf2"
+          "title": "Queue Name"
         },
         "peak_rate_percent": {
           "anyOf": [
@@ -3099,7 +2971,7 @@
             }
           ],
           "default": 100,
-          "title": "Peak-rate-percentLeaf"
+          "title": "Peak Rate Percent"
         },
         "weight": {
           "anyOf": [
@@ -3113,9 +2985,12 @@
             }
           ],
           "default": null,
-          "title": "WeightLeaf"
+          "title": "Weight"
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "InputListEntry",
       "type": "object"
     },
@@ -3123,16 +2998,7 @@
       "description": "Profile of the packet",
       "properties": {
         "input_profile": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum2"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Input-profileLeaf"
+          "$ref": "#/$defs/EnumerationEnum2"
         },
         "threshold_factor": {
           "anyOf": [
@@ -3146,9 +3012,12 @@
             }
           ],
           "default": null,
-          "title": "Threshold-factorLeaf"
+          "title": "Threshold Factor"
         }
       },
+      "required": [
+        "input_profile"
+      ],
       "title": "InputProfileListEntry",
       "type": "object"
     },
@@ -3222,16 +3091,8 @@
       "description": "List of interface instances",
       "properties": {
         "interface_name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Interface-nameLeaf"
+          "title": "Interface Name",
+          "type": "string"
         },
         "peak_rate_kbps": {
           "anyOf": [
@@ -3245,9 +3106,12 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-kbpsLeaf6"
+          "title": "Peak Rate Kbps"
         }
       },
+      "required": [
+        "interface_name"
+      ],
       "title": "InterfaceInstanceListEntry",
       "type": "object"
     },
@@ -3255,16 +3119,8 @@
       "description": "List of interface instances",
       "properties": {
         "interface_name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Interface-nameLeaf2"
+          "title": "Interface Name",
+          "type": "string"
         },
         "peak_rate_kbps": {
           "anyOf": [
@@ -3278,9 +3134,12 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-kbpsLeaf7"
+          "title": "Peak Rate Kbps"
         }
       },
+      "required": [
+        "interface_name"
+      ],
       "title": "InterfaceInstanceListEntry2",
       "type": "object"
     },
@@ -3288,16 +3147,8 @@
       "description": "List of interfaces and subinterfaces referenced by QoS policies",
       "properties": {
         "interface_id": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Interface-idLeaf"
+          "title": "Interface Id",
+          "type": "string"
         },
         "interface_ref": {
           "anyOf": [
@@ -3344,6 +3195,9 @@
           "default": null
         }
       },
+      "required": [
+        "interface_id"
+      ],
       "title": "InterfaceListEntry",
       "type": "object"
     },
@@ -3351,18 +3205,10 @@
       "description": "List of interface-pools associated with the base interface",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf5"
+          "maximum": 255,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "operational_size": {
           "anyOf": [
@@ -3376,7 +3222,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-sizeLeaf"
+          "title": "Operational Size"
         },
         "used": {
           "anyOf": [
@@ -3390,9 +3236,12 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf"
+          "title": "Used"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "InterfacePoolListEntry",
       "type": "object"
     },
@@ -3400,18 +3249,10 @@
       "description": "List of interface-pools.\nThe interface-pools are directly mapped to mid-pools in 1:1 fashion",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 7,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Index"
+          "maximum": 7,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "slope_policy": {
           "anyOf": [
@@ -3424,7 +3265,7 @@
             }
           ],
           "default": "default",
-          "title": "Slope-policyLeaf4"
+          "title": "Slope Policy"
         },
         "allocation_size": {
           "anyOf": [
@@ -3438,6 +3279,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "InterfacePoolListEntry2",
       "type": "object"
     },
@@ -3445,17 +3289,9 @@
       "description": "List of interface-pool policies",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "interface_pool": {
           "anyOf": [
@@ -3473,6 +3309,9 @@
           "title": "Interface Pool"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "InterfacePoolPolicyListEntry",
       "type": "object"
     },
@@ -3489,7 +3328,7 @@
             }
           ],
           "default": null,
-          "title": "InterfaceLeaf"
+          "title": "Interface"
         },
         "subinterface": {
           "anyOf": [
@@ -3503,7 +3342,7 @@
             }
           ],
           "default": null,
-          "title": "SubinterfaceLeaf"
+          "title": "Subinterface"
         }
       },
       "title": "InterfaceRefContainer",
@@ -3534,17 +3373,9 @@
     "IpRewritePolicyListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "in_plus": {
           "anyOf": [
@@ -3591,6 +3422,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "IpRewritePolicyListEntry",
       "type": "object"
     },
@@ -3598,18 +3432,10 @@
       "description": "Line-card within the system",
       "properties": {
         "slot": {
-          "anyOf": [
-            {
-              "maximum": 16,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SlotLeaf"
+          "maximum": 16,
+          "minimum": 1,
+          "title": "Slot",
+          "type": "integer"
         },
         "forwarding_complex": {
           "anyOf": [
@@ -3627,6 +3453,9 @@
           "title": "Forwarding Complex"
         }
       },
+      "required": [
+        "slot"
+      ],
       "title": "LinecardListEntry",
       "type": "object"
     },
@@ -3634,18 +3463,10 @@
       "description": "Container for QoS linecard configuration",
       "properties": {
         "slot": {
-          "anyOf": [
-            {
-              "maximum": 16,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SlotLeaf2"
+          "maximum": 16,
+          "minimum": 1,
+          "title": "Slot",
+          "type": "integer"
         },
         "forwarding_complex": {
           "anyOf": [
@@ -3663,23 +3484,18 @@
           "title": "Forwarding Complex"
         }
       },
+      "required": [
+        "slot"
+      ],
       "title": "LinecardListEntry2",
       "type": "object"
     },
     "MapListEntry": {
       "properties": {
         "forwarding_class": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Forwarding-classLeaf6"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Forwarding Class",
+          "type": "string"
         },
         "drop_probability": {
           "anyOf": [
@@ -3720,10 +3536,11 @@
               "$ref": "#/$defs/EnumerationEnum3"
             }
           ],
-          "title": "DscpLeaf3"
+          "title": "Dscp"
         }
       },
       "required": [
+        "forwarding_class",
         "dscp"
       ],
       "title": "MapListEntry",
@@ -3732,17 +3549,9 @@
     "MapListEntry2": {
       "properties": {
         "forwarding_class": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Forwarding-classLeaf7"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Forwarding Class",
+          "type": "string"
         },
         "drop_probability": {
           "anyOf": [
@@ -3777,11 +3586,12 @@
         "traffic_class": {
           "maximum": 7,
           "minimum": 0,
-          "title": "Traffic-classLeaf3",
+          "title": "Traffic Class",
           "type": "integer"
         }
       },
       "required": [
+        "forwarding_class",
         "traffic_class"
       ],
       "title": "MapListEntry2",
@@ -3790,17 +3600,9 @@
     "MapListEntry3": {
       "properties": {
         "forwarding_class": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Forwarding-classLeaf8"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Forwarding Class",
+          "type": "string"
         },
         "drop_probability": {
           "anyOf": [
@@ -3835,7 +3637,7 @@
         "dot1p": {
           "maximum": 7,
           "minimum": 0,
-          "title": "Dot1pLeaf2",
+          "title": "Dot1P",
           "type": "integer"
         },
         "inner_dot1p": {
@@ -3850,7 +3652,7 @@
             }
           ],
           "default": null,
-          "title": "Inner-dot1pLeaf2"
+          "title": "Inner Dot1P"
         },
         "outer_dot1p": {
           "anyOf": [
@@ -3864,7 +3666,7 @@
             }
           ],
           "default": null,
-          "title": "Outer-dot1pLeaf2"
+          "title": "Outer Dot1P"
         },
         "inner_de": {
           "anyOf": [
@@ -3876,7 +3678,7 @@
             }
           ],
           "default": false,
-          "title": "Inner-deLeaf2"
+          "title": "Inner De"
         },
         "outer_de": {
           "anyOf": [
@@ -3888,10 +3690,11 @@
             }
           ],
           "default": false,
-          "title": "Outer-deLeaf2"
+          "title": "Outer De"
         }
       },
       "required": [
+        "forwarding_class",
         "dot1p"
       ],
       "title": "MapListEntry3",
@@ -3900,16 +3703,8 @@
     "MemberInterfaceListEntry": {
       "properties": {
         "member_interface_name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Member-interface-nameLeaf"
+          "title": "Member Interface Name",
+          "type": "string"
         },
         "in_profile": {
           "anyOf": [
@@ -3956,6 +3751,9 @@
           "default": null
         }
       },
+      "required": [
+        "member_interface_name"
+      ],
       "title": "MemberInterfaceListEntry",
       "type": "object"
     },
@@ -3963,18 +3761,10 @@
       "description": "Mid-pool definition",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 7,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf9"
+          "maximum": 7,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "allocation_percentage_size": {
           "anyOf": [
@@ -3988,7 +3778,7 @@
             }
           ],
           "default": null,
-          "title": "Allocation-percentage-sizeLeaf"
+          "title": "Allocation Percentage Size"
         },
         "slope_policy": {
           "anyOf": [
@@ -4001,9 +3791,12 @@
             }
           ],
           "default": "default",
-          "title": "Slope-policyLeaf3"
+          "title": "Slope Policy"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "MidPoolListEntry",
       "type": "object"
     },
@@ -4011,20 +3804,15 @@
       "description": "Mid-pool member",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 7,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf8"
+          "maximum": 7,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "MidPoolMemberListEntry",
       "type": "object"
     },
@@ -4075,17 +3863,9 @@
     "MplsTrafficClassPolicyListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "traffic_class": {
           "anyOf": [
@@ -4103,23 +3883,18 @@
           "title": "Traffic Class"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "MplsTrafficClassPolicyListEntry",
       "type": "object"
     },
     "MplsTrafficClassPolicyListEntry2": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "map": {
           "anyOf": [
@@ -4137,24 +3912,19 @@
           "title": "Map"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "MplsTrafficClassPolicyListEntry2",
       "type": "object"
     },
     "MulticastPriorityListEntry": {
       "properties": {
         "resource_priority": {
-          "anyOf": [
-            {
-              "maximum": 3,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Resource-priorityLeaf2"
+          "maximum": 3,
+          "minimum": 0,
+          "title": "Resource Priority",
+          "type": "integer"
         },
         "buffer_segment_drop_zone": {
           "anyOf": [
@@ -4168,7 +3938,7 @@
             }
           ],
           "default": null,
-          "title": "Buffer-segment-drop-zoneLeaf2"
+          "title": "Buffer Segment Drop Zone"
         },
         "packet_id_drop_zone": {
           "anyOf": [
@@ -4182,7 +3952,7 @@
             }
           ],
           "default": null,
-          "title": "Packet-id-drop-zoneLeaf2"
+          "title": "Packet Id Drop Zone"
         },
         "header_buffer_drop_zone": {
           "anyOf": [
@@ -4196,25 +3966,19 @@
             }
           ],
           "default": null,
-          "title": "Header-buffer-drop-zoneLeaf2"
+          "title": "Header Buffer Drop Zone"
         }
       },
+      "required": [
+        "resource_priority"
+      ],
       "title": "MulticastPriorityListEntry",
       "type": "object"
     },
     "OperationalSeparationThresholdsListEntry": {
       "properties": {
         "input_profile": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum2"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Input-profileLeaf2"
+          "$ref": "#/$defs/EnumerationEnum2"
         },
         "eir_operational_separation_threshold": {
           "anyOf": [
@@ -4228,7 +3992,7 @@
             }
           ],
           "default": null,
-          "title": "Eir-operational-separation-thresholdLeaf"
+          "title": "Eir Operational Separation Threshold"
         },
         "pir_operational_separation_threshold": {
           "anyOf": [
@@ -4242,7 +4006,7 @@
             }
           ],
           "default": null,
-          "title": "Pir-operational-separation-thresholdLeaf"
+          "title": "Pir Operational Separation Threshold"
         },
         "cir_operational_separation_threshold": {
           "anyOf": [
@@ -4256,9 +4020,12 @@
             }
           ],
           "default": null,
-          "title": "Cir-operational-separation-thresholdLeaf"
+          "title": "Cir Operational Separation Threshold"
         }
       },
+      "required": [
+        "input_profile"
+      ],
       "title": "OperationalSeparationThresholdsListEntry",
       "type": "object"
     },
@@ -4298,7 +4065,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf3"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -4312,7 +4079,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf3"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -4326,7 +4093,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf3"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -4340,7 +4107,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf3"
+          "title": "Dropped Octets"
         }
       },
       "title": "OutProfileContainer",
@@ -4361,7 +4128,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-packetsLeaf7"
+          "title": "Transmitted Packets"
         },
         "transmitted_octets": {
           "anyOf": [
@@ -4375,7 +4142,7 @@
             }
           ],
           "default": 0,
-          "title": "Transmitted-octetsLeaf7"
+          "title": "Transmitted Octets"
         },
         "dropped_packets": {
           "anyOf": [
@@ -4389,7 +4156,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-packetsLeaf7"
+          "title": "Dropped Packets"
         },
         "dropped_octets": {
           "anyOf": [
@@ -4403,7 +4170,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-octetsLeaf7"
+          "title": "Dropped Octets"
         }
       },
       "title": "OutProfileContainer2",
@@ -4412,17 +4179,9 @@
     "OutputClassMapListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "forwarding_class": {
           "anyOf": [
@@ -4440,6 +4199,9 @@
           "title": "Forwarding Class"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "OutputClassMapListEntry",
       "type": "object"
     },
@@ -4456,16 +4218,16 @@
             }
           ],
           "default": null,
-          "title": "Slope-policyLeaf"
+          "title": "Slope Policy"
         },
         "queue": {
           "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-          "title": "QueueLeaf",
+          "title": "Queue",
           "type": "string"
         },
         "unicast_queue": {
           "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-          "title": "Unicast-queueLeaf",
+          "title": "Unicast Queue",
           "type": "string"
         },
         "multicast_queue": {
@@ -4479,7 +4241,7 @@
             }
           ],
           "default": null,
-          "title": "Multicast-queueLeaf"
+          "title": "Multicast Queue"
         }
       },
       "required": [
@@ -4503,7 +4265,7 @@
             }
           ],
           "default": null,
-          "title": "Interface-pool-policyLeaf"
+          "title": "Interface Pool Policy"
         },
         "queues": {
           "anyOf": [
@@ -4538,7 +4300,7 @@
             }
           ],
           "default": null,
-          "title": "Dscp-reclassify-policyLeaf"
+          "title": "Dscp Reclassify Policy"
         },
         "output_class_map": {
           "anyOf": [
@@ -4551,7 +4313,7 @@
             }
           ],
           "default": null,
-          "title": "Output-class-mapLeaf"
+          "title": "Output Class Map"
         },
         "rewrite_rules": {
           "anyOf": [
@@ -4590,7 +4352,7 @@
             }
           ],
           "default": null,
-          "title": "Buffer-allocation-profileLeaf"
+          "title": "Buffer Allocation Profile"
         },
         "interface_pool": {
           "anyOf": [
@@ -4625,7 +4387,7 @@
             }
           ],
           "default": "default",
-          "title": "Fp-pool-policyLeaf"
+          "title": "Fp Pool Policy"
         }
       },
       "title": "OutputContainer3",
@@ -4646,7 +4408,7 @@
             }
           ],
           "default": null,
-          "title": "Rising-threshold-valueLeaf2"
+          "title": "Rising Threshold Value"
         },
         "falling_threshold_value": {
           "anyOf": [
@@ -4660,7 +4422,7 @@
             }
           ],
           "default": null,
-          "title": "Falling-threshold-valueLeaf2"
+          "title": "Falling Threshold Value"
         }
       },
       "title": "PacketIdContainer",
@@ -4703,7 +4465,7 @@
             }
           ],
           "default": 0,
-          "title": "AddLeaf2"
+          "title": "Add"
         }
       },
       "title": "PacketLengthAdjustmentContainer2",
@@ -4723,7 +4485,7 @@
             }
           ],
           "default": null,
-          "title": "Parent-policer-threshold-policyLeaf"
+          "title": "Parent Policer Threshold Policy"
         },
         "rate": {
           "anyOf": [
@@ -4766,7 +4528,7 @@
             }
           ],
           "default": null,
-          "title": "Rate-kbpsLeaf"
+          "title": "Rate Kbps"
         },
         "burst_allowance": {
           "anyOf": [
@@ -4780,7 +4542,7 @@
             }
           ],
           "default": null,
-          "title": "Burst-allowanceLeaf4"
+          "title": "Burst Allowance"
         },
         "threshold_separation": {
           "anyOf": [
@@ -4794,7 +4556,7 @@
             }
           ],
           "default": null,
-          "title": "Threshold-separationLeaf4"
+          "title": "Threshold Separation"
         }
       },
       "title": "ParentPolicerContainer2",
@@ -4804,17 +4566,9 @@
       "description": "List of policies defining parent-policer-thresholds and related parameters",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "threshold_separation": {
           "anyOf": [
@@ -4828,9 +4582,12 @@
             }
           ],
           "default": 18000,
-          "title": "Threshold-separationLeaf"
+          "title": "Threshold Separation"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ParentPolicerThresholdPolicyListEntry",
       "type": "object"
     },
@@ -4848,7 +4605,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-kbpsLeaf3"
+          "title": "Peak Rate Kbps"
         }
       },
       "title": "PeakRateKbpsCase",
@@ -4868,7 +4625,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-kbpsLeaf4"
+          "title": "Peak Rate Kbps"
         }
       },
       "title": "PeakRateKbpsCase2",
@@ -4888,7 +4645,7 @@
             }
           ],
           "default": 100,
-          "title": "Peak-rate-percentageLeaf"
+          "title": "Peak Rate Percentage"
         }
       },
       "title": "PeakRatePercentageCase",
@@ -4908,7 +4665,7 @@
             }
           ],
           "default": 100,
-          "title": "Peak-rate-percentageLeaf2"
+          "title": "Peak Rate Percentage"
         }
       },
       "title": "PeakRatePercentageCase2",
@@ -4972,7 +4729,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-mapping-profileLeaf"
+          "title": "Pfc Mapping Profile"
         },
         "pfc_enable": {
           "anyOf": [
@@ -4984,7 +4741,7 @@
             }
           ],
           "default": false,
-          "title": "Pfc-enableLeaf"
+          "title": "Pfc Enable"
         },
         "statistics": {
           "anyOf": [
@@ -5008,7 +4765,7 @@
             }
           ],
           "default": null,
-          "title": "Source-pfc-macLeaf"
+          "title": "Source Pfc Mac"
         },
         "oper_state": {
           "anyOf": [
@@ -5019,8 +4776,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf"
+          "default": null
         },
         "deadlock_detection_timer": {
           "anyOf": [
@@ -5034,7 +4790,7 @@
             }
           ],
           "default": null,
-          "title": "Deadlock-detection-timerLeaf"
+          "title": "Deadlock Detection Timer"
         },
         "pfc_queue": {
           "anyOf": [
@@ -5058,17 +4814,9 @@
     "PfcMappingProfileListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "received_traffic": {
           "anyOf": [
@@ -5093,24 +4841,31 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PfcMappingProfileListEntry",
       "type": "object"
+    },
+    "PfcPauseFramePriorityLeafList": {
+      "maximum": 7,
+      "minimum": 0,
+      "title": "PfcPauseFramePriorityLeafList",
+      "type": "integer"
+    },
+    "PfcPauseFramePriorityLeafList2": {
+      "maximum": 7,
+      "minimum": 0,
+      "title": "PfcPauseFramePriorityLeafList2",
+      "type": "integer"
     },
     "PfcPriorityListEntry": {
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 7,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf4"
+          "maximum": 7,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "pfc_pause_frames_received": {
           "anyOf": [
@@ -5124,7 +4879,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-pause-frames-receivedLeaf"
+          "title": "Pfc Pause Frames Received"
         },
         "pfc_pause_frames_generated": {
           "anyOf": [
@@ -5138,7 +4893,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-pause-frames-generatedLeaf"
+          "title": "Pfc Pause Frames Generated"
         },
         "pfc_transitions": {
           "anyOf": [
@@ -5152,7 +4907,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-transitionsLeaf"
+          "title": "Pfc Transitions"
         },
         "deadlock_recovery_occurrences": {
           "anyOf": [
@@ -5166,9 +4921,12 @@
             }
           ],
           "default": null,
-          "title": "Deadlock-recovery-occurrencesLeaf"
+          "title": "Deadlock Recovery Occurrences"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "PfcPriorityListEntry",
       "type": "object"
     },
@@ -5176,26 +4934,19 @@
       "description": "List of pfc-queues",
       "properties": {
         "pfc_queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pfc Queue Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Pfc Queue Name",
+          "type": "string"
         },
         "queue_index": {
           "maximum": 7,
           "minimum": 0,
-          "title": "Queue-indexLeaf2",
+          "title": "Queue Index",
           "type": "integer"
         }
       },
       "required": [
+        "pfc_queue_name",
         "queue_index"
       ],
       "title": "PfcQueueListEntry",
@@ -5204,26 +4955,16 @@
     "PfcQueueListEntry2": {
       "properties": {
         "pfc_queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pfc-queue-nameLeaf2"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Pfc Queue Name",
+          "type": "string"
         },
         "dot1p": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/Dot1pLeafList"
               },
-              "le": 7,
               "type": "array"
             },
             {
@@ -5237,7 +4978,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/ForwardingClassLeafList"
               },
               "type": "array"
             },
@@ -5251,11 +4992,9 @@
         "pfc_pause_frame_priority": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/PfcPauseFramePriorityLeafList"
               },
-              "le": 7,
               "type": "array"
             },
             {
@@ -5275,9 +5014,12 @@
             }
           ],
           "default": false,
-          "title": "Enable-pfcLeaf"
+          "title": "Enable Pfc"
         }
       },
+      "required": [
+        "pfc_queue_name"
+      ],
       "title": "PfcQueueListEntry2",
       "type": "object"
     },
@@ -5285,23 +5027,15 @@
       "description": "List of pfc-queues",
       "properties": {
         "pfc_queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pfc-queue-nameLeaf3"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Pfc Queue Name",
+          "type": "string"
         },
         "forwarding_class": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/ForwardingClassLeafList2"
               },
               "type": "array"
             },
@@ -5324,7 +5058,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-on-threshold-bytesLeaf"
+          "title": "Pfc On Threshold Bytes"
         },
         "pfc_off_threshold_bytes": {
           "anyOf": [
@@ -5338,7 +5072,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-off-threshold-bytesLeaf"
+          "title": "Pfc Off Threshold Bytes"
         },
         "pfc_committed_burst_size": {
           "anyOf": [
@@ -5352,7 +5086,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-committed-burst-sizeLeaf"
+          "title": "Pfc Committed Burst Size"
         },
         "pfc_maximum_burst_size": {
           "anyOf": [
@@ -5366,7 +5100,7 @@
             }
           ],
           "default": null,
-          "title": "Pfc-maximum-burst-sizeLeaf"
+          "title": "Pfc Maximum Burst Size"
         },
         "pfc_maximum_pfc_reserved_share": {
           "anyOf": [
@@ -5380,9 +5114,12 @@
             }
           ],
           "default": null,
-          "title": "Pfc-maximum-pfc-reserved-shareLeaf"
+          "title": "Pfc Maximum Pfc Reserved Share"
         }
       },
+      "required": [
+        "pfc_queue_name"
+      ],
       "title": "PfcQueueListEntry3",
       "type": "object"
     },
@@ -5390,17 +5127,9 @@
       "description": "List of pfc-queues",
       "properties": {
         "pfc_queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Pfc-queue-nameLeaf4"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Pfc Queue Name",
+          "type": "string"
         },
         "maximum_burst_size": {
           "anyOf": [
@@ -5414,7 +5143,7 @@
             }
           ],
           "default": 51200,
-          "title": "Maximum-burst-sizeLeaf6"
+          "title": "Maximum Burst Size"
         },
         "committed_burst_size": {
           "anyOf": [
@@ -5428,7 +5157,7 @@
             }
           ],
           "default": 102400,
-          "title": "Committed-burst-sizeLeaf6"
+          "title": "Committed Burst Size"
         },
         "maximum_pfc_reserved_share_percentage": {
           "anyOf": [
@@ -5442,7 +5171,7 @@
             }
           ],
           "default": 10,
-          "title": "Maximum-pfc-reserved-share-percentageLeaf"
+          "title": "Maximum Pfc Reserved Share Percentage"
         },
         "maximum_pfc_reserved_share_bytes": {
           "anyOf": [
@@ -5456,7 +5185,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-pfc-reserved-share-bytesLeaf"
+          "title": "Maximum Pfc Reserved Share Bytes"
         },
         "pfc_on_threshold": {
           "anyOf": [
@@ -5470,7 +5199,7 @@
             }
           ],
           "default": 100,
-          "title": "Pfc-on-thresholdLeaf"
+          "title": "Pfc On Threshold"
         },
         "pfc_off_threshold": {
           "anyOf": [
@@ -5484,7 +5213,7 @@
             }
           ],
           "default": 80,
-          "title": "Pfc-off-thresholdLeaf"
+          "title": "Pfc Off Threshold"
         },
         "use_dynamic_allocation": {
           "anyOf": [
@@ -5496,9 +5225,12 @@
             }
           ],
           "default": null,
-          "title": "Use-dynamic-allocationLeaf"
+          "title": "Use Dynamic Allocation"
         }
       },
+      "required": [
+        "pfc_queue_name"
+      ],
       "title": "PfcQueueListEntry4",
       "type": "object"
     },
@@ -5515,7 +5247,7 @@
             }
           ],
           "default": false,
-          "title": "Inplus-separatedLeaf"
+          "title": "Inplus Separated"
         }
       },
       "title": "PirThresholdSeparationContainer",
@@ -5525,18 +5257,10 @@
       "description": "The list of policer belonging to the policer-policy",
       "properties": {
         "policer_id": {
-          "anyOf": [
-            {
-              "maximum": 31,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Policer Id"
+          "maximum": 31,
+          "minimum": 0,
+          "title": "Policer Id",
+          "type": "integer"
         },
         "algorithm_type": {
           "anyOf": [
@@ -5547,8 +5271,7 @@
               "type": "null"
             }
           ],
-          "default": "trtcm2",
-          "title": "Algorithm-typeLeaf"
+          "default": "trtcm2"
         },
         "adaptation_rules": {
           "anyOf": [
@@ -5595,7 +5318,7 @@
             }
           ],
           "default": 64,
-          "title": "Peak-rate-kbpsLeaf"
+          "title": "Peak Rate Kbps"
         },
         "committed_rate_kbps": {
           "anyOf": [
@@ -5609,7 +5332,7 @@
             }
           ],
           "default": 64,
-          "title": "Committed-rate-kbpsLeaf"
+          "title": "Committed Rate Kbps"
         },
         "excess_rate_kbps": {
           "anyOf": [
@@ -5623,7 +5346,7 @@
             }
           ],
           "default": 64,
-          "title": "Excess-rate-kbpsLeaf"
+          "title": "Excess Rate Kbps"
         },
         "maximum_burst_size": {
           "anyOf": [
@@ -5637,7 +5360,7 @@
             }
           ],
           "default": 40000,
-          "title": "Maximum-burst-sizeLeaf2"
+          "title": "Maximum Burst Size"
         },
         "committed_burst_size": {
           "anyOf": [
@@ -5651,7 +5374,7 @@
             }
           ],
           "default": 40000,
-          "title": "Committed-burst-sizeLeaf2"
+          "title": "Committed Burst Size"
         },
         "excess_burst_size": {
           "anyOf": [
@@ -5665,7 +5388,7 @@
             }
           ],
           "default": 40000,
-          "title": "Excess-burst-sizeLeaf2"
+          "title": "Excess Burst Size"
         },
         "violate_action": {
           "anyOf": [
@@ -5676,8 +5399,7 @@
               "type": "null"
             }
           ],
-          "default": "drop",
-          "title": "Violate-actionLeaf"
+          "default": "drop"
         },
         "statistics_mode": {
           "anyOf": [
@@ -5688,28 +5410,22 @@
               "type": "null"
             }
           ],
-          "default": "extended",
-          "title": "Statistics-modeLeaf"
+          "default": "extended"
         }
       },
+      "required": [
+        "policer_id"
+      ],
       "title": "PolicerListEntry",
       "type": "object"
     },
     "PolicerListEntry2": {
       "properties": {
         "policer_id": {
-          "anyOf": [
-            {
-              "maximum": 31,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Policer-idLeaf2"
+          "maximum": 31,
+          "minimum": 0,
+          "title": "Policer Id",
+          "type": "integer"
         },
         "priority_level": {
           "anyOf": [
@@ -5723,27 +5439,22 @@
             }
           ],
           "default": 0,
-          "title": "Priority-levelLeaf"
+          "title": "Priority Level"
         }
       },
+      "required": [
+        "policer_id"
+      ],
       "title": "PolicerListEntry2",
       "type": "object"
     },
     "PolicerListEntry3": {
       "properties": {
         "policer_id": {
-          "anyOf": [
-            {
-              "maximum": 31,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Policer-idLeaf3"
+          "maximum": 31,
+          "minimum": 0,
+          "title": "Policer Id",
+          "type": "integer"
         },
         "forwarding_class": {
           "anyOf": [
@@ -5770,7 +5481,7 @@
             }
           ],
           "default": null,
-          "title": "Eir-policer-threshold-separation-policyLeaf"
+          "title": "Eir Policer Threshold Separation Policy"
         },
         "pir_policer_threshold_separation_policy": {
           "anyOf": [
@@ -5782,7 +5493,7 @@
             }
           ],
           "default": null,
-          "title": "Pir-policer-threshold-separation-policyLeaf"
+          "title": "Pir Policer Threshold Separation Policy"
         },
         "cir_policer_threshold_separation_policy": {
           "anyOf": [
@@ -5794,7 +5505,7 @@
             }
           ],
           "default": null,
-          "title": "Cir-policer-threshold-separation-policyLeaf"
+          "title": "Cir Policer Threshold Separation Policy"
         },
         "operational_separation_thresholds": {
           "anyOf": [
@@ -5823,7 +5534,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-kbpsLeaf5"
+          "title": "Peak Rate Kbps"
         },
         "excess_rate_kbps": {
           "anyOf": [
@@ -5837,7 +5548,7 @@
             }
           ],
           "default": null,
-          "title": "Excess-rate-kbpsLeaf2"
+          "title": "Excess Rate Kbps"
         },
         "committed_rate_kbps": {
           "anyOf": [
@@ -5851,7 +5562,7 @@
             }
           ],
           "default": null,
-          "title": "Committed-rate-kbpsLeaf2"
+          "title": "Committed Rate Kbps"
         },
         "maximum_burst_size": {
           "anyOf": [
@@ -5865,7 +5576,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-burst-sizeLeaf3"
+          "title": "Maximum Burst Size"
         },
         "committed_burst_size": {
           "anyOf": [
@@ -5879,7 +5590,7 @@
             }
           ],
           "default": null,
-          "title": "Committed-burst-sizeLeaf3"
+          "title": "Committed Burst Size"
         },
         "excess_burst_size": {
           "anyOf": [
@@ -5893,7 +5604,7 @@
             }
           ],
           "default": null,
-          "title": "Excess-burst-sizeLeaf3"
+          "title": "Excess Burst Size"
         },
         "policer_statistics": {
           "anyOf": [
@@ -5907,6 +5618,9 @@
           "default": null
         }
       },
+      "required": [
+        "policer_id"
+      ],
       "title": "PolicerListEntry3",
       "type": "object"
     },
@@ -5914,18 +5628,10 @@
       "description": "The list of policer instances belonging to the template definition.",
       "properties": {
         "sequence_id": {
-          "anyOf": [
-            {
-              "maximum": 65535,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sequence-idLeaf5"
+          "maximum": 65535,
+          "minimum": 1,
+          "title": "Sequence Id",
+          "type": "integer"
         },
         "forwarding_class": {
           "anyOf": [
@@ -5945,25 +5651,25 @@
         "peak_rate_kbps": {
           "maximum": 4294967295,
           "minimum": 0,
-          "title": "Peak-rate-kbpsLeaf8",
+          "title": "Peak Rate Kbps",
           "type": "integer"
         },
         "committed_rate_kbps": {
           "maximum": 4294967295,
           "minimum": 0,
-          "title": "Committed-rate-kbpsLeaf3",
+          "title": "Committed Rate Kbps",
           "type": "integer"
         },
         "maximum_burst_size": {
           "maximum": 4294967295,
           "minimum": 0,
-          "title": "Maximum-burst-sizeLeaf7",
+          "title": "Maximum Burst Size",
           "type": "integer"
         },
         "committed_burst_size": {
           "maximum": 4294967295,
           "minimum": 0,
-          "title": "Committed-burst-sizeLeaf7",
+          "title": "Committed Burst Size",
           "type": "integer"
         },
         "exceed_action": {
@@ -5990,6 +5696,7 @@
         }
       },
       "required": [
+        "sequence_id",
         "peak_rate_kbps",
         "committed_rate_kbps",
         "maximum_burst_size",
@@ -6059,7 +5766,7 @@
             }
           ],
           "default": null,
-          "title": "Policer-policyLeaf"
+          "title": "Policer Policy"
         },
         "parent_policer": {
           "anyOf": [
@@ -6095,17 +5802,9 @@
       "description": "List of policer policies",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "policer": {
           "anyOf": [
@@ -6134,6 +5833,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PolicerPolicyListEntry",
       "type": "object"
     },
@@ -6170,17 +5872,9 @@
       "description": "List of policer templates.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf33"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "policer": {
           "anyOf": [
@@ -6206,10 +5900,12 @@
               "type": "null"
             }
           ],
-          "default": "violating-focus",
-          "title": "Statistics-modeLeaf2"
+          "default": "violating-focus"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PolicerTemplateListEntry",
       "type": "object"
     },
@@ -6255,7 +5951,7 @@
             }
           ],
           "default": null,
-          "title": "Unicast-policerLeaf"
+          "title": "Unicast Policer"
         },
         "multicast_policer": {
           "anyOf": [
@@ -6269,7 +5965,7 @@
             }
           ],
           "default": null,
-          "title": "Multicast-policerLeaf"
+          "title": "Multicast Policer"
         },
         "broadcast_policer": {
           "anyOf": [
@@ -6283,7 +5979,7 @@
             }
           ],
           "default": null,
-          "title": "Broadcast-policerLeaf"
+          "title": "Broadcast Policer"
         },
         "unknown_unicast_policer": {
           "anyOf": [
@@ -6297,7 +5993,7 @@
             }
           ],
           "default": null,
-          "title": "Unknown-unicast-policerLeaf"
+          "title": "Unknown Unicast Policer"
         }
       },
       "title": "PolicersContainer",
@@ -6317,7 +6013,7 @@
             }
           ],
           "default": null,
-          "title": "PrecedenceLeaf"
+          "title": "Precedence"
         }
       },
       "title": "PrecedenceCase",
@@ -6337,7 +6033,7 @@
             }
           ],
           "default": null,
-          "title": "PrecedenceLeaf2"
+          "title": "Precedence"
         }
       },
       "title": "PrecedenceCase2",
@@ -6357,7 +6053,7 @@
             }
           ],
           "default": null,
-          "title": "PrecedenceLeaf3"
+          "title": "Precedence"
         }
       },
       "title": "PrecedenceCase3",
@@ -6377,7 +6073,7 @@
             }
           ],
           "default": null,
-          "title": "PrecedenceLeaf4"
+          "title": "Precedence"
         }
       },
       "title": "PrecedenceCase4",
@@ -6387,16 +6083,7 @@
       "description": "User defined forwarding class",
       "properties": {
         "profile_name": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum2"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Profile-nameLeaf"
+          "$ref": "#/$defs/EnumerationEnum2"
         },
         "unicast_resource_priority": {
           "anyOf": [
@@ -6410,7 +6097,7 @@
             }
           ],
           "default": null,
-          "title": "Unicast-resource-priorityLeaf"
+          "title": "Unicast Resource Priority"
         },
         "multicast_resource_priority": {
           "anyOf": [
@@ -6424,25 +6111,19 @@
             }
           ],
           "default": null,
-          "title": "Multicast-resource-priorityLeaf"
+          "title": "Multicast Resource Priority"
         }
       },
+      "required": [
+        "profile_name"
+      ],
       "title": "ProfileListEntry",
       "type": "object"
     },
     "ProfileListEntry2": {
       "properties": {
         "profile": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum10"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "ProfileLeaf6"
+          "$ref": "#/$defs/EnumerationEnum10"
         },
         "dscp": {
           "anyOf": [
@@ -6453,10 +6134,11 @@
               "$ref": "#/$defs/EnumerationEnum3"
             }
           ],
-          "title": "DscpLeaf2"
+          "title": "Dscp"
         }
       },
       "required": [
+        "profile",
         "dscp"
       ],
       "title": "ProfileListEntry2",
@@ -6465,25 +6147,17 @@
     "ProfileListEntry3": {
       "properties": {
         "profile": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum10"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "ProfileLeaf7"
+          "$ref": "#/$defs/EnumerationEnum10"
         },
         "traffic_class": {
           "maximum": 7,
           "minimum": 0,
-          "title": "Traffic-classLeaf2",
+          "title": "Traffic Class",
           "type": "integer"
         }
       },
       "required": [
+        "profile",
         "traffic_class"
       ],
       "title": "ProfileListEntry3",
@@ -6492,16 +6166,7 @@
     "ProfileListEntry4": {
       "properties": {
         "profile": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum10"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "ProfileLeaf8"
+          "$ref": "#/$defs/EnumerationEnum10"
         },
         "inner_dot1p": {
           "anyOf": [
@@ -6515,7 +6180,7 @@
             }
           ],
           "default": null,
-          "title": "Inner-dot1pLeaf"
+          "title": "Inner Dot1P"
         },
         "outer_dot1p": {
           "anyOf": [
@@ -6529,7 +6194,7 @@
             }
           ],
           "default": null,
-          "title": "Outer-dot1pLeaf"
+          "title": "Outer Dot1P"
         },
         "inner_de": {
           "anyOf": [
@@ -6541,7 +6206,7 @@
             }
           ],
           "default": false,
-          "title": "Inner-deLeaf"
+          "title": "Inner De"
         },
         "outer_de": {
           "anyOf": [
@@ -6553,9 +6218,12 @@
             }
           ],
           "default": false,
-          "title": "Outer-deLeaf"
+          "title": "Outer De"
         }
       },
+      "required": [
+        "profile"
+      ],
       "title": "ProfileListEntry4",
       "type": "object"
     },
@@ -6716,7 +6384,7 @@
             }
           ],
           "default": null,
-          "title": "Preserve-dscpLeaf"
+          "title": "Preserve Dscp"
         },
         "interfaces": {
           "anyOf": [
@@ -6775,7 +6443,7 @@
       "properties": {
         "name": {
           "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-          "title": "NameLeaf10",
+          "title": "Name",
           "type": "string"
         },
         "re_direct_to": {
@@ -6787,8 +6455,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Re-direct-toLeaf"
+          "default": null
         }
       },
       "required": [
@@ -6811,7 +6478,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-burst-sizeLeaf4"
+          "title": "Maximum Burst Size"
         },
         "committed_burst_size": {
           "anyOf": [
@@ -6825,7 +6492,7 @@
             }
           ],
           "default": null,
-          "title": "Committed-burst-sizeLeaf4"
+          "title": "Committed Burst Size"
         },
         "last_high_threshold_time": {
           "anyOf": [
@@ -6838,7 +6505,7 @@
             }
           ],
           "default": null,
-          "title": "Last-high-threshold-timeLeaf"
+          "title": "Last High Threshold Time"
         },
         "high_threshold_bytes": {
           "anyOf": [
@@ -6852,7 +6519,7 @@
             }
           ],
           "default": null,
-          "title": "High-threshold-bytesLeaf"
+          "title": "High Threshold Bytes"
         },
         "average_1": {
           "anyOf": [
@@ -6866,7 +6533,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -6880,7 +6547,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -6894,7 +6561,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf"
+          "title": "Average 15"
         },
         "high_watermark_1": {
           "anyOf": [
@@ -6908,7 +6575,7 @@
             }
           ],
           "default": null,
-          "title": "High-watermark-1Leaf"
+          "title": "High Watermark 1"
         },
         "high_watermark_5": {
           "anyOf": [
@@ -6922,7 +6589,7 @@
             }
           ],
           "default": null,
-          "title": "High-watermark-5Leaf"
+          "title": "High Watermark 5"
         },
         "high_watermark_15": {
           "anyOf": [
@@ -6936,7 +6603,7 @@
             }
           ],
           "default": null,
-          "title": "High-watermark-15Leaf"
+          "title": "High Watermark 15"
         },
         "missed_polling_intervals": {
           "anyOf": [
@@ -6950,7 +6617,7 @@
             }
           ],
           "default": null,
-          "title": "Missed-polling-intervalsLeaf"
+          "title": "Missed Polling Intervals"
         }
       },
       "title": "QueueDepthContainer",
@@ -6968,8 +6635,7 @@
               "type": "null"
             }
           ],
-          "default": "disable",
-          "title": "Admin-stateLeaf"
+          "default": "disable"
         },
         "polling_interval": {
           "anyOf": [
@@ -6983,11 +6649,16 @@
             }
           ],
           "default": 1000,
-          "title": "Polling-intervalLeaf"
+          "title": "Polling Interval"
         }
       },
       "title": "QueueDepthSamplingContainer",
       "type": "object"
+    },
+    "QueueLeafList": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "QueueLeafList",
+      "type": "string"
     },
     "QueueListCase": {
       "properties": {
@@ -6995,7 +6666,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/QueueLeafList"
               },
               "type": "array"
             },
@@ -7014,26 +6685,19 @@
       "description": "List of user-defined queues",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "queue_index": {
           "maximum": 11,
           "minimum": 0,
-          "title": "Queue-indexLeaf",
+          "title": "Queue Index",
           "type": "integer"
         }
       },
       "required": [
+        "name",
         "queue_index"
       ],
       "title": "QueueListEntry",
@@ -7043,26 +6707,16 @@
       "description": "List of egress-queue which should react to PFC-pause-frames",
       "properties": {
         "queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Queue-nameLeaf"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Queue Name",
+          "type": "string"
         },
         "pfc_pause_frame_priority": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/PfcPauseFramePriorityLeafList2"
               },
-              "le": 7,
               "type": "array"
             },
             {
@@ -7082,9 +6736,12 @@
             }
           ],
           "default": false,
-          "title": "Enable-pfcLeaf2"
+          "title": "Enable Pfc"
         }
       },
+      "required": [
+        "queue_name"
+      ],
       "title": "QueueListEntry2",
       "type": "object"
     },
@@ -7092,17 +6749,9 @@
       "description": "The queue parameters that is the input to the scheduler",
       "properties": {
         "queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Queue-nameLeaf3"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Queue Name",
+          "type": "string"
         },
         "scheduling": {
           "anyOf": [
@@ -7116,6 +6765,9 @@
           "default": null
         }
       },
+      "required": [
+        "queue_name"
+      ],
       "title": "QueueListEntry3",
       "type": "object"
     },
@@ -7123,17 +6775,9 @@
       "description": "List of queues",
       "properties": {
         "queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Queue-nameLeaf4"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Queue Name",
+          "type": "string"
         },
         "queue_management_profile": {
           "anyOf": [
@@ -7146,7 +6790,7 @@
             }
           ],
           "default": null,
-          "title": "Queue-management-profileLeaf"
+          "title": "Queue Management Profile"
         },
         "forwarding_class": {
           "anyOf": [
@@ -7172,8 +6816,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Queue-typeLeaf"
+          "default": null
         },
         "active_queue_management": {
           "anyOf": [
@@ -7220,6 +6863,9 @@
           "default": null
         }
       },
+      "required": [
+        "queue_name"
+      ],
       "title": "QueueListEntry4",
       "type": "object"
     },
@@ -7227,17 +6873,9 @@
       "description": "List of queues",
       "properties": {
         "queue_name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Queue-nameLeaf5"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Queue Name",
+          "type": "string"
         },
         "maximum_burst_size": {
           "anyOf": [
@@ -7251,7 +6889,7 @@
             }
           ],
           "default": 0,
-          "title": "Maximum-burst-sizeLeaf5"
+          "title": "Maximum Burst Size"
         },
         "mbs_adaptation_rule": {
           "anyOf": [
@@ -7262,8 +6900,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Mbs-adaptation-ruleLeaf"
+          "default": "closest"
         },
         "committed_burst_size": {
           "anyOf": [
@@ -7277,7 +6914,7 @@
             }
           ],
           "default": null,
-          "title": "Committed-burst-sizeLeaf5"
+          "title": "Committed Burst Size"
         },
         "cbs_adaptation_rule": {
           "anyOf": [
@@ -7288,8 +6925,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Cbs-adaptation-ruleLeaf"
+          "default": "closest"
         },
         "high_threshold_bytes": {
           "anyOf": [
@@ -7303,7 +6939,7 @@
             }
           ],
           "default": 0,
-          "title": "High-threshold-bytesLeaf2"
+          "title": "High Threshold Bytes"
         },
         "interface_pool": {
           "anyOf": [
@@ -7317,9 +6953,12 @@
             }
           ],
           "default": null,
-          "title": "Interface-poolLeaf"
+          "title": "Interface Pool"
         }
       },
+      "required": [
+        "queue_name"
+      ],
       "title": "QueueListEntry5",
       "type": "object"
     },
@@ -7327,17 +6966,9 @@
       "description": "The name of a queue management profile",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "weight_factor": {
           "anyOf": [
@@ -7351,7 +6982,7 @@
             }
           ],
           "default": 0,
-          "title": "Weight-factorLeaf"
+          "title": "Weight Factor"
         },
         "wred": {
           "anyOf": [
@@ -7365,6 +6996,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "QueueManagementProfileListEntry",
       "type": "object"
     },
@@ -7372,18 +7006,10 @@
       "description": "List of queue-schedulers created at the interface",
       "properties": {
         "sequence_id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sequence-idLeaf3"
+          "maximum": 255,
+          "minimum": 0,
+          "title": "Sequence Id",
+          "type": "integer"
         },
         "queue_inputs": {
           "anyOf": [
@@ -7403,11 +7029,9 @@
         "scheduler_inputs": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/SchedulerInputsLeafList"
               },
-              "le": 4294967295,
               "type": "array"
             },
             {
@@ -7433,6 +7057,9 @@
           "title": "Interface Instance"
         }
       },
+      "required": [
+        "sequence_id"
+      ],
       "title": "QueueSchedulerListEntry",
       "type": "object"
     },
@@ -7440,17 +7067,9 @@
       "description": "Scheduling-policy defining scheduling at queue level",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "queue": {
           "anyOf": [
@@ -7483,6 +7102,9 @@
           "title": "Scheduler"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "QueueSchedulingPolicyListEntry",
       "type": "object"
     },
@@ -7636,7 +7258,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-kbpsLeaf2"
+          "title": "Peak Rate Kbps"
         },
         "adaptation_rule": {
           "anyOf": [
@@ -7647,8 +7269,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Adaptation-ruleLeaf"
+          "default": "closest"
         },
         "burst_allowance": {
           "anyOf": [
@@ -7662,7 +7283,7 @@
             }
           ],
           "default": 40000,
-          "title": "Burst-allowanceLeaf"
+          "title": "Burst Allowance"
         }
       },
       "title": "RateContainer",
@@ -7695,8 +7316,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Pir-adaptation-ruleLeaf"
+          "default": "closest"
         }
       },
       "title": "RateContainer2",
@@ -7729,8 +7349,7 @@
               "type": "null"
             }
           ],
-          "default": "closest",
-          "title": "Pir-adaptation-ruleLeaf2"
+          "default": "closest"
         }
       },
       "title": "RateContainer3",
@@ -7747,8 +7366,7 @@
               "type": "null"
             }
           ],
-          "default": "high",
-          "title": "Drop-probabilityLeaf11"
+          "default": "high"
         }
       },
       "title": "ReColorCase",
@@ -7879,7 +7497,7 @@
             }
           ],
           "default": null,
-          "title": "Vxlan-outer-header-dscp-policyLeaf"
+          "title": "Vxlan Outer Header Dscp Policy"
         },
         "dscp_policy": {
           "anyOf": [
@@ -7958,7 +7576,7 @@
             }
           ],
           "default": null,
-          "title": "Ipv4-dscp-policyLeaf2"
+          "title": "Ipv4 Dscp Policy"
         },
         "ipv6_dscp_policy": {
           "anyOf": [
@@ -7971,7 +7589,7 @@
             }
           ],
           "default": null,
-          "title": "Ipv6-dscp-policyLeaf2"
+          "title": "Ipv6 Dscp Policy"
         },
         "dscp_policy": {
           "anyOf": [
@@ -7984,7 +7602,7 @@
             }
           ],
           "default": null,
-          "title": "Dscp-policyLeaf2"
+          "title": "Dscp Policy"
         },
         "dot1p_policy": {
           "anyOf": [
@@ -7997,7 +7615,7 @@
             }
           ],
           "default": null,
-          "title": "Dot1p-policyLeaf2"
+          "title": "Dot1P Policy"
         },
         "mpls_traffic_class_policy": {
           "anyOf": [
@@ -8010,7 +7628,7 @@
             }
           ],
           "default": null,
-          "title": "Mpls-traffic-class-policyLeaf2"
+          "title": "Mpls Traffic Class Policy"
         },
         "dscp_rewrite": {
           "anyOf": [
@@ -8033,7 +7651,7 @@
             }
           ],
           "default": true,
-          "title": "Qinq-rewrite-outer-onlyLeaf"
+          "title": "Qinq Rewrite Outer Only"
         }
       },
       "title": "RewriteRulesContainer2",
@@ -8043,18 +7661,10 @@
       "description": "List of root-tier pools",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 4,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf7"
+          "maximum": 4,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "allocation_weight": {
           "anyOf": [
@@ -8068,7 +7678,7 @@
             }
           ],
           "default": null,
-          "title": "Allocation-weightLeaf"
+          "title": "Allocation Weight"
         },
         "mid_pool_members": {
           "anyOf": [
@@ -8082,6 +7692,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "RootPoolListEntry",
       "type": "object"
     },
@@ -8099,7 +7712,7 @@
             }
           ],
           "default": "default",
-          "title": "Default-slope-policyLeaf"
+          "title": "Default Slope Policy"
         },
         "root_pool": {
           "anyOf": [
@@ -8120,31 +7733,27 @@
       "title": "RootTierContainer",
       "type": "object"
     },
+    "SchedClassInputsLeafList": {
+      "maximum": 255,
+      "minimum": 0,
+      "title": "SchedClassInputsLeafList",
+      "type": "integer"
+    },
     "SchedClassSchedulerListEntry": {
       "description": "List of scheduling-class-schedulers created at the interface",
       "properties": {
         "sequence_id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sequence-idLeaf4"
+          "maximum": 255,
+          "minimum": 0,
+          "title": "Sequence Id",
+          "type": "integer"
         },
         "sched_class_inputs": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/SchedClassInputsLeafList"
               },
-              "le": 255,
               "type": "array"
             },
             {
@@ -8157,11 +7766,9 @@
         "scheduler_inputs": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/SchedulerInputsLeafList2"
               },
-              "le": 4294967295,
               "type": "array"
             },
             {
@@ -8187,6 +7794,9 @@
           "title": "Interface Instance"
         }
       },
+      "required": [
+        "sequence_id"
+      ],
       "title": "SchedClassSchedulerListEntry",
       "type": "object"
     },
@@ -8194,17 +7804,9 @@
       "description": "Scheduling-policy defining scheduling at scheduling-class level",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "scheduler": {
           "anyOf": [
@@ -8222,6 +7824,9 @@
           "title": "Scheduler"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "SchedClassSchedulingPolicyListEntry",
       "type": "object"
     },
@@ -8250,7 +7855,7 @@
             }
           ],
           "default": null,
-          "title": "Queue-scheduling-policyLeaf"
+          "title": "Queue Scheduling Policy"
         },
         "queue_scheduler": {
           "anyOf": [
@@ -8278,7 +7883,7 @@
             }
           ],
           "default": null,
-          "title": "Sched-class-scheduling-policyLeaf"
+          "title": "Sched Class Scheduling Policy"
         },
         "sched_class_scheduler": {
           "anyOf": [
@@ -8306,28 +7911,32 @@
             }
           ],
           "default": null,
-          "title": "Scheduler-policyLeaf"
+          "title": "Scheduler Policy"
         }
       },
       "title": "SchedulerContainer",
       "type": "object"
     },
+    "SchedulerInputsLeafList": {
+      "maximum": 4294967295,
+      "minimum": 0,
+      "title": "SchedulerInputsLeafList",
+      "type": "integer"
+    },
+    "SchedulerInputsLeafList2": {
+      "maximum": 4294967295,
+      "minimum": 0,
+      "title": "SchedulerInputsLeafList2",
+      "type": "integer"
+    },
     "SchedulerListEntry": {
       "description": "List of defined QoS traffic schedulers",
       "properties": {
         "sequence": {
-          "anyOf": [
-            {
-              "maximum": 1,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SequenceLeaf"
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Sequence",
+          "type": "integer"
         },
         "priority": {
           "anyOf": [
@@ -8338,8 +7947,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "PriorityLeaf"
+          "default": null
         },
         "input": {
           "anyOf": [
@@ -8357,6 +7965,9 @@
           "title": "Input"
         }
       },
+      "required": [
+        "sequence"
+      ],
       "title": "SchedulerListEntry",
       "type": "object"
     },
@@ -8364,18 +7975,10 @@
       "description": "Scheduling options for output traffic",
       "properties": {
         "sequence_id": {
-          "anyOf": [
-            {
-              "maximum": 16,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sequence-idLeaf"
+          "maximum": 16,
+          "minimum": 0,
+          "title": "Sequence Id",
+          "type": "integer"
         },
         "tier": {
           "anyOf": [
@@ -8389,7 +7992,7 @@
             }
           ],
           "default": 0,
-          "title": "TierLeaf"
+          "title": "Tier"
         },
         "output_weight": {
           "anyOf": [
@@ -8403,7 +8006,7 @@
             }
           ],
           "default": 1,
-          "title": "Output-weightLeaf"
+          "title": "Output Weight"
         },
         "burst_allowance": {
           "anyOf": [
@@ -8417,7 +8020,7 @@
             }
           ],
           "default": 9000,
-          "title": "Burst-allowanceLeaf2"
+          "title": "Burst Allowance"
         },
         "threshold_separation": {
           "anyOf": [
@@ -8431,7 +8034,7 @@
             }
           ],
           "default": 28672,
-          "title": "Threshold-separationLeaf2"
+          "title": "Threshold Separation"
         },
         "rate": {
           "anyOf": [
@@ -8456,6 +8059,9 @@
           "default": null
         }
       },
+      "required": [
+        "sequence_id"
+      ],
       "title": "SchedulerListEntry2",
       "type": "object"
     },
@@ -8463,18 +8069,10 @@
       "description": "Scheduling options for output traffic",
       "properties": {
         "sequence_id": {
-          "anyOf": [
-            {
-              "maximum": 8,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Sequence-idLeaf2"
+          "maximum": 8,
+          "minimum": 0,
+          "title": "Sequence Id",
+          "type": "integer"
         },
         "tier": {
           "anyOf": [
@@ -8488,7 +8086,7 @@
             }
           ],
           "default": 0,
-          "title": "TierLeaf2"
+          "title": "Tier"
         },
         "burst_allowance": {
           "anyOf": [
@@ -8502,7 +8100,7 @@
             }
           ],
           "default": 9000,
-          "title": "Burst-allowanceLeaf3"
+          "title": "Burst Allowance"
         },
         "threshold_separation": {
           "anyOf": [
@@ -8516,7 +8114,7 @@
             }
           ],
           "default": 28672,
-          "title": "Threshold-separationLeaf3"
+          "title": "Threshold Separation"
         },
         "rate": {
           "anyOf": [
@@ -8541,6 +8139,9 @@
           "default": null
         }
       },
+      "required": [
+        "sequence_id"
+      ],
       "title": "SchedulerListEntry3",
       "type": "object"
     },
@@ -8611,17 +8212,9 @@
       "description": "List of scheduler policies. A scheduler policy is a set of schedulers that are to be applied together. Each scheduler within a scheduler policy takes an input, and outputs it according to a scheduling discipline that is specified within it",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "scheduler": {
           "anyOf": [
@@ -8639,6 +8232,9 @@
           "title": "Scheduler"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "SchedulerPolicyListEntry",
       "type": "object"
     },
@@ -8647,11 +8243,9 @@
         "scheduling_class": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/SchedulingClassLeafList"
               },
-              "le": 6,
               "type": "array"
             },
             {
@@ -8665,22 +8259,20 @@
       "title": "SchedulingClassCase",
       "type": "object"
     },
+    "SchedulingClassLeafList": {
+      "maximum": 6,
+      "minimum": 0,
+      "title": "SchedulingClassLeafList",
+      "type": "integer"
+    },
     "SchedulingClassListEntry": {
       "description": "List of scheduling-classes",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 6,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf2"
+          "maximum": 6,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "scheduling_priority": {
           "anyOf": [
@@ -8694,9 +8286,12 @@
             }
           ],
           "default": null,
-          "title": "Scheduling-priorityLeaf"
+          "title": "Scheduling Priority"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "SchedulingClassListEntry",
       "type": "object"
     },
@@ -8715,7 +8310,7 @@
             }
           ],
           "default": 0,
-          "title": "Scheduling-classLeaf"
+          "title": "Scheduling Class"
         },
         "weight": {
           "anyOf": [
@@ -8729,7 +8324,7 @@
             }
           ],
           "default": 1,
-          "title": "WeightLeaf2"
+          "title": "Weight"
         },
         "packet_length_adjustment": {
           "anyOf": [
@@ -8761,7 +8356,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-percentLeaf2"
+          "title": "Peak Rate Percent"
         },
         "peak_rate_bps": {
           "anyOf": [
@@ -8775,7 +8370,7 @@
             }
           ],
           "default": null,
-          "title": "Peak-rate-bpsLeaf"
+          "title": "Peak Rate Bps"
         },
         "strict_priority": {
           "anyOf": [
@@ -8787,7 +8382,7 @@
             }
           ],
           "default": null,
-          "title": "Strict-priorityLeaf"
+          "title": "Strict Priority"
         },
         "weight": {
           "anyOf": [
@@ -8801,7 +8396,7 @@
             }
           ],
           "default": null,
-          "title": "WeightLeaf3"
+          "title": "Weight"
         },
         "scheduling_class": {
           "anyOf": [
@@ -8815,7 +8410,7 @@
             }
           ],
           "default": null,
-          "title": "Scheduling-classLeaf2"
+          "title": "Scheduling Class"
         }
       },
       "title": "SchedulingContainer2",
@@ -8858,7 +8453,7 @@
             }
           ],
           "default": null,
-          "title": "Resource-set-poolLeaf"
+          "title": "Resource Set Pool"
         },
         "interface_group_resource_pool": {
           "anyOf": [
@@ -8872,7 +8467,7 @@
             }
           ],
           "default": null,
-          "title": "Interface-group-resource-poolLeaf"
+          "title": "Interface Group Resource Pool"
         }
       },
       "title": "SchedulingResourcesPoolsContainer",
@@ -8882,17 +8477,9 @@
       "description": "List of slope-policies",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "wred_slope": {
           "anyOf": [
@@ -8910,6 +8497,9 @@
           "title": "Wred Slope"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "SlopePolicyListEntry",
       "type": "object"
     },
@@ -8927,7 +8517,7 @@
             }
           ],
           "default": null,
-          "title": "Last-clearLeaf"
+          "title": "Last Clear"
         },
         "total_pfc_pause_frames_received": {
           "anyOf": [
@@ -8941,7 +8531,7 @@
             }
           ],
           "default": null,
-          "title": "Total-pfc-pause-frames-receivedLeaf"
+          "title": "Total Pfc Pause Frames Received"
         },
         "total_pfc_pause_frames_generated": {
           "anyOf": [
@@ -8955,7 +8545,7 @@
             }
           ],
           "default": null,
-          "title": "Total-pfc-pause-frames-generatedLeaf"
+          "title": "Total Pfc Pause Frames Generated"
         },
         "total_packet_pfc_discards": {
           "anyOf": [
@@ -8969,7 +8559,7 @@
             }
           ],
           "default": null,
-          "title": "Total-packet-pfc-discardsLeaf"
+          "title": "Total Packet Pfc Discards"
         },
         "pfc_priority": {
           "anyOf": [
@@ -9004,7 +8594,7 @@
             }
           ],
           "default": null,
-          "title": "SubtractLeaf"
+          "title": "Subtract"
         }
       },
       "title": "SubtractCase",
@@ -9035,18 +8625,10 @@
     "ThresholdListEntry": {
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 3,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf"
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Index",
+          "type": "integer"
         },
         "buffer_segment": {
           "anyOf": [
@@ -9082,6 +8664,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "ThresholdListEntry",
       "type": "object"
     },
@@ -9111,17 +8696,9 @@
       "description": "Lists configuration of pre-defined threshold-separation policy",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf12"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "input_profile": {
           "anyOf": [
@@ -9139,24 +8716,19 @@
           "title": "Input Profile"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ThresholdSeparationPolicyListEntry",
       "type": "object"
     },
     "TrafficClassListEntry": {
       "properties": {
         "value": {
-          "anyOf": [
-            {
-              "maximum": 7,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "ValueLeaf3"
+          "maximum": 7,
+          "minimum": 0,
+          "title": "Value",
+          "type": "integer"
         },
         "forwarding_class": {
           "anyOf": [
@@ -9169,7 +8741,7 @@
             }
           ],
           "default": null,
-          "title": "Forwarding-classLeaf3"
+          "title": "Forwarding Class"
         },
         "drop_probability": {
           "anyOf": [
@@ -9180,8 +8752,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Drop-probabilityLeaf2"
+          "default": null
         },
         "profile": {
           "anyOf": [
@@ -9192,8 +8763,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ProfileLeaf3"
+          "default": null
         },
         "de_out_profile": {
           "anyOf": [
@@ -9205,7 +8775,7 @@
             }
           ],
           "default": true,
-          "title": "De-out-profileLeaf2"
+          "title": "De Out Profile"
         },
         "ip_rewrite_policy": {
           "anyOf": [
@@ -9218,9 +8788,12 @@
             }
           ],
           "default": null,
-          "title": "Ip-rewrite-policyLeaf2"
+          "title": "Ip Rewrite Policy"
         }
       },
+      "required": [
+        "value"
+      ],
       "title": "TrafficClassListEntry",
       "type": "object"
     },
@@ -9249,18 +8822,10 @@
     "UnicastPriorityListEntry": {
       "properties": {
         "resource_priority": {
-          "anyOf": [
-            {
-              "maximum": 3,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Resource-priorityLeaf"
+          "maximum": 3,
+          "minimum": 0,
+          "title": "Resource Priority",
+          "type": "integer"
         },
         "buffer_segment_drop_zone": {
           "anyOf": [
@@ -9274,7 +8839,7 @@
             }
           ],
           "default": null,
-          "title": "Buffer-segment-drop-zoneLeaf"
+          "title": "Buffer Segment Drop Zone"
         },
         "packet_id_drop_zone": {
           "anyOf": [
@@ -9288,7 +8853,7 @@
             }
           ],
           "default": null,
-          "title": "Packet-id-drop-zoneLeaf"
+          "title": "Packet Id Drop Zone"
         },
         "header_buffer_drop_zone": {
           "anyOf": [
@@ -9302,9 +8867,12 @@
             }
           ],
           "default": null,
-          "title": "Header-buffer-drop-zoneLeaf"
+          "title": "Header Buffer Drop Zone"
         }
       },
+      "required": [
+        "resource_priority"
+      ],
       "title": "UnicastPriorityListEntry",
       "type": "object"
     },
@@ -9356,28 +8924,10 @@
       "description": "List of WRED slopes",
       "properties": {
         "traffic_type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum21"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Traffic-typeLeaf"
+          "$ref": "#/$defs/EnumerationEnum21"
         },
         "drop_probability": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum22"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Drop-probabilityLeaf8"
+          "$ref": "#/$defs/EnumerationEnum22"
         },
         "drop": {
           "anyOf": [
@@ -9389,19 +8939,11 @@
             }
           ],
           "default": null,
-          "title": "DropLeaf"
+          "title": "Drop"
         },
         "enable_ecn": {
-          "anyOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Enable-ecnLeaf"
+          "title": "Enable Ecn",
+          "type": "boolean"
         },
         "min_threshold_bytes": {
           "anyOf": [
@@ -9415,7 +8957,7 @@
             }
           ],
           "default": null,
-          "title": "Min-threshold-bytesLeaf"
+          "title": "Min Threshold Bytes"
         },
         "max_threshold_bytes": {
           "anyOf": [
@@ -9429,7 +8971,7 @@
             }
           ],
           "default": null,
-          "title": "Max-threshold-bytesLeaf"
+          "title": "Max Threshold Bytes"
         },
         "max_probability": {
           "anyOf": [
@@ -9443,9 +8985,14 @@
             }
           ],
           "default": null,
-          "title": "Max-probabilityLeaf"
+          "title": "Max Probability"
         }
       },
+      "required": [
+        "traffic_type",
+        "drop_probability",
+        "enable_ecn"
+      ],
       "title": "WredSlopeListEntry",
       "type": "object"
     },
@@ -9453,40 +9000,14 @@
       "description": "List of WRED slopes",
       "properties": {
         "traffic_type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum21"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Traffic-typeLeaf2"
+          "$ref": "#/$defs/EnumerationEnum21"
         },
         "drop_probability": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum22"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Drop-probabilityLeaf9"
+          "$ref": "#/$defs/EnumerationEnum22"
         },
         "enable_ecn": {
-          "anyOf": [
-            {
-              "type": "boolean"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Enable-ecnLeaf2"
+          "title": "Enable Ecn",
+          "type": "boolean"
         },
         "min_threshold": {
           "anyOf": [
@@ -9500,7 +9021,7 @@
             }
           ],
           "default": null,
-          "title": "Min-thresholdLeaf"
+          "title": "Min Threshold"
         },
         "max_threshold": {
           "anyOf": [
@@ -9514,7 +9035,7 @@
             }
           ],
           "default": null,
-          "title": "Max-thresholdLeaf"
+          "title": "Max Threshold"
         },
         "min_threshold_percent": {
           "anyOf": [
@@ -9528,7 +9049,7 @@
             }
           ],
           "default": null,
-          "title": "Min-threshold-percentLeaf"
+          "title": "Min Threshold Percent"
         },
         "max_threshold_percent": {
           "anyOf": [
@@ -9542,7 +9063,7 @@
             }
           ],
           "default": null,
-          "title": "Max-threshold-percentLeaf"
+          "title": "Max Threshold Percent"
         },
         "slope_enabled": {
           "anyOf": [
@@ -9554,7 +9075,7 @@
             }
           ],
           "default": null,
-          "title": "Slope-enabledLeaf"
+          "title": "Slope Enabled"
         },
         "max_drop_probability_percent": {
           "anyOf": [
@@ -9568,7 +9089,7 @@
             }
           ],
           "default": null,
-          "title": "Max-drop-probability-percentLeaf"
+          "title": "Max Drop Probability Percent"
         },
         "weight_factor": {
           "anyOf": [
@@ -9582,25 +9103,21 @@
             }
           ],
           "default": null,
-          "title": "Weight-factorLeaf2"
+          "title": "Weight Factor"
         }
       },
+      "required": [
+        "traffic_type",
+        "drop_probability",
+        "enable_ecn"
+      ],
       "title": "WredSlopeListEntry2",
       "type": "object"
     },
     "WredSlopeListEntry3": {
       "properties": {
         "wred_profile": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum23"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Wred-profileLeaf"
+          "$ref": "#/$defs/EnumerationEnum23"
         },
         "slope_enabled": {
           "anyOf": [
@@ -9612,7 +9129,7 @@
             }
           ],
           "default": false,
-          "title": "Slope-enabledLeaf2"
+          "title": "Slope Enabled"
         },
         "min_threshold_percent": {
           "anyOf": [
@@ -9626,7 +9143,7 @@
             }
           ],
           "default": 85,
-          "title": "Min-threshold-percentLeaf2"
+          "title": "Min Threshold Percent"
         },
         "max_threshold_percent": {
           "anyOf": [
@@ -9640,7 +9157,7 @@
             }
           ],
           "default": 100,
-          "title": "Max-threshold-percentLeaf2"
+          "title": "Max Threshold Percent"
         },
         "max_probability": {
           "anyOf": [
@@ -9654,9 +9171,12 @@
             }
           ],
           "default": 80,
-          "title": "Max-probabilityLeaf2"
+          "title": "Max Probability"
         }
       },
+      "required": [
+        "wred_profile"
+      ],
       "title": "WredSlopeListEntry3",
       "type": "object"
     }

@@ -63,18 +63,10 @@
     "DestinationListEntry": {
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 65535,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf2"
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "admin_state": {
           "anyOf": [
@@ -85,8 +77,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf2"
+          "default": "enable"
         },
         "vni": {
           "anyOf": [
@@ -100,7 +91,7 @@
             }
           ],
           "default": null,
-          "title": "VniLeaf2"
+          "title": "Vni"
         },
         "inner_ethernet_header": {
           "anyOf": [
@@ -114,6 +105,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "DestinationListEntry",
       "type": "object"
     },
@@ -126,27 +120,15 @@
             },
             {
               "$ref": "#/$defs/Ipv6AddressType"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "VtepLeaf"
+          "title": "Vtep"
         },
         "vni": {
-          "anyOf": [
-            {
-              "maximum": 16777215,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "VniLeaf3"
+          "maximum": 16777215,
+          "minimum": 1,
+          "title": "Vni",
+          "type": "integer"
         },
         "destination_index": {
           "anyOf": [
@@ -160,7 +142,7 @@
             }
           ],
           "default": null,
-          "title": "Destination-indexLeaf"
+          "title": "Destination Index"
         },
         "statistics": {
           "anyOf": [
@@ -185,6 +167,10 @@
           "default": null
         }
       },
+      "required": [
+        "vtep",
+        "vni"
+      ],
       "title": "DestinationListEntry2",
       "type": "object"
     },
@@ -197,27 +183,15 @@
             },
             {
               "$ref": "#/$defs/Ipv6AddressType"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "VtepLeaf2"
+          "title": "Vtep"
         },
         "vni": {
-          "anyOf": [
-            {
-              "maximum": 16777215,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "VniLeaf5"
+          "maximum": 16777215,
+          "minimum": 1,
+          "title": "Vni",
+          "type": "integer"
         },
         "multicast_forwarding": {
           "anyOf": [
@@ -228,8 +202,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Multicast-forwardingLeaf"
+          "default": null
         },
         "destination_index": {
           "anyOf": [
@@ -243,7 +216,7 @@
             }
           ],
           "default": null,
-          "title": "Destination-indexLeaf3"
+          "title": "Destination Index"
         },
         "not_programmed_reason": {
           "anyOf": [
@@ -254,10 +227,13 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Not-programmed-reasonLeaf3"
+          "default": null
         }
       },
+      "required": [
+        "vtep",
+        "vni"
+      ],
       "title": "DestinationListEntry3",
       "type": "object"
     },
@@ -272,8 +248,7 @@
               "type": "null"
             }
           ],
-          "default": "use-system-ipv4-address",
-          "title": "Source-ipLeaf"
+          "default": "use-system-ipv4-address"
         },
         "inner_ethernet_header": {
           "anyOf": [
@@ -399,17 +374,9 @@
     "EsDestinationListEntry": {
       "properties": {
         "esi": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "EsiLeaf2"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$",
+          "title": "Esi",
+          "type": "string"
         },
         "destination_index": {
           "anyOf": [
@@ -423,7 +390,7 @@
             }
           ],
           "default": null,
-          "title": "Destination-indexLeaf2"
+          "title": "Destination Index"
         },
         "statistics": {
           "anyOf": [
@@ -463,24 +430,31 @@
           "title": "Vtep"
         }
       },
+      "required": [
+        "esi"
+      ],
       "title": "EsDestinationListEntry",
       "type": "object"
+    },
+    "FailedSlotsLeafList": {
+      "maximum": 16,
+      "minimum": 1,
+      "title": "FailedSlotsLeafList",
+      "type": "integer"
+    },
+    "FailedSlotsLeafList2": {
+      "maximum": 16,
+      "minimum": 1,
+      "title": "FailedSlotsLeafList2",
+      "type": "integer"
     },
     "GroupListEntry": {
       "description": "Specifies the destination group.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf2"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "admin_state": {
           "anyOf": [
@@ -491,8 +465,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf"
+          "default": "enable"
         },
         "esi": {
           "anyOf": [
@@ -505,7 +478,7 @@
             }
           ],
           "default": null,
-          "title": "EsiLeaf"
+          "title": "Esi"
         },
         "destination": {
           "anyOf": [
@@ -523,6 +496,9 @@
           "title": "Destination"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "GroupListEntry",
       "type": "object"
     },
@@ -531,7 +507,7 @@
         "vni": {
           "maximum": 16777215,
           "minimum": 1,
-          "title": "VniLeaf",
+          "title": "Vni",
           "type": "integer"
         }
       },
@@ -553,8 +529,7 @@
               "type": "null"
             }
           ],
-          "default": "use-system-mac",
-          "title": "Source-macLeaf"
+          "default": "use-system-mac"
         },
         "used_source_mac": {
           "anyOf": [
@@ -567,7 +542,7 @@
             }
           ],
           "default": null,
-          "title": "Used-source-macLeaf"
+          "title": "Used Source Mac"
         }
       },
       "title": "InnerEthernetHeaderContainer",
@@ -587,7 +562,7 @@
             }
           ],
           "default": null,
-          "title": "Destination-macLeaf"
+          "title": "Destination Mac"
         }
       },
       "title": "InnerEthernetHeaderContainer2",
@@ -607,17 +582,9 @@
       "description": "macs learnt on the bridging instance",
       "properties": {
         "address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "AddressLeaf"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+          "title": "Address",
+          "type": "string"
         },
         "type": {
           "anyOf": [
@@ -628,8 +595,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "TypeLeaf3"
+          "default": null
         },
         "last_update": {
           "anyOf": [
@@ -642,7 +608,7 @@
             }
           ],
           "default": null,
-          "title": "Last-updateLeaf"
+          "title": "Last Update"
         },
         "not_programmed_reason": {
           "anyOf": [
@@ -653,17 +619,14 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Not-programmed-reasonLeaf"
+          "default": null
         },
         "failed_slots": {
           "anyOf": [
             {
-              "ge": 1,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/FailedSlotsLeafList"
               },
-              "le": 16,
               "type": "array"
             },
             {
@@ -674,6 +637,9 @@
           "title": "Failed Slots"
         }
       },
+      "required": [
+        "address"
+      ],
       "title": "MacListEntry",
       "type": "object"
     },
@@ -681,17 +647,9 @@
       "description": "macs learnt on the bridging instance",
       "properties": {
         "address": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "AddressLeaf2"
+          "pattern": "^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$",
+          "title": "Address",
+          "type": "string"
         },
         "type": {
           "anyOf": [
@@ -702,8 +660,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "TypeLeaf5"
+          "default": null
         },
         "last_update": {
           "anyOf": [
@@ -716,7 +673,7 @@
             }
           ],
           "default": null,
-          "title": "Last-updateLeaf2"
+          "title": "Last Update"
         },
         "not_programmed_reason": {
           "anyOf": [
@@ -727,17 +684,14 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Not-programmed-reasonLeaf2"
+          "default": null
         },
         "failed_slots": {
           "anyOf": [
             {
-              "ge": 1,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/FailedSlotsLeafList2"
               },
-              "le": 16,
               "type": "array"
             },
             {
@@ -748,6 +702,9 @@
           "title": "Failed Slots"
         }
       },
+      "required": [
+        "address"
+      ],
       "title": "MacListEntry2",
       "type": "object"
     },
@@ -797,16 +754,7 @@
       "description": "the type of the mac on the sub-interface.",
       "properties": {
         "type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum6"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "TypeLeaf2"
+          "$ref": "#/$defs/EnumerationEnum6"
         },
         "active_entries": {
           "anyOf": [
@@ -820,7 +768,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf2"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -834,7 +782,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf2"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -848,9 +796,12 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf2"
+          "title": "Failed Entries"
         }
       },
+      "required": [
+        "type"
+      ],
       "title": "MacTypeListEntry",
       "type": "object"
     },
@@ -858,16 +809,7 @@
       "description": "the type of the mac on the sub-interface.",
       "properties": {
         "type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum6"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "TypeLeaf4"
+          "$ref": "#/$defs/EnumerationEnum6"
         },
         "active_entries": {
           "anyOf": [
@@ -881,7 +823,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf4"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -895,7 +837,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf4"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -909,9 +851,12 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf4"
+          "title": "Failed Entries"
         }
       },
+      "required": [
+        "type"
+      ],
       "title": "MacTypeListEntry2",
       "type": "object"
     },
@@ -919,16 +864,7 @@
       "description": "The type of the mac on the sub-interface.",
       "properties": {
         "type": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum6"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "TypeLeaf6"
+          "$ref": "#/$defs/EnumerationEnum6"
         },
         "active_entries": {
           "anyOf": [
@@ -942,7 +878,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf6"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -956,7 +892,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf6"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -970,9 +906,12 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf6"
+          "title": "Failed Entries"
         }
       },
+      "required": [
+        "type"
+      ],
       "title": "MacTypeListEntry3",
       "type": "object"
     },
@@ -1023,7 +962,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-entriesLeaf"
+          "title": "Maximum Entries"
         },
         "current_usage": {
           "anyOf": [
@@ -1037,7 +976,7 @@
             }
           ],
           "default": null,
-          "title": "Current-usageLeaf"
+          "title": "Current Usage"
         }
       },
       "title": "MulticastLimitContainer",
@@ -1057,7 +996,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -1071,7 +1010,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -1085,7 +1024,7 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf"
+          "title": "Failed Entries"
         },
         "mac_type": {
           "anyOf": [
@@ -1120,7 +1059,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf3"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -1134,7 +1073,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf3"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -1148,7 +1087,7 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf3"
+          "title": "Failed Entries"
         },
         "mac_type": {
           "anyOf": [
@@ -1183,7 +1122,7 @@
             }
           ],
           "default": 0,
-          "title": "Active-entriesLeaf5"
+          "title": "Active Entries"
         },
         "total_entries": {
           "anyOf": [
@@ -1197,7 +1136,7 @@
             }
           ],
           "default": 0,
-          "title": "Total-entriesLeaf5"
+          "title": "Total Entries"
         },
         "failed_entries": {
           "anyOf": [
@@ -1211,7 +1150,7 @@
             }
           ],
           "default": 0,
-          "title": "Failed-entriesLeaf5"
+          "title": "Failed Entries"
         },
         "mac_type": {
           "anyOf": [
@@ -1236,17 +1175,9 @@
       "description": "In the case that the interface is logical tunnel\ninterface, the parameters for the tunnel are\nspecified within this subtree. Tunnel interfaces\nhave only a single logical subinterface associated\nwith them.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^(vxlan(0|1[0-9][0-9]|2([0-4][0-9]|5[0-5])|[1-9][0-9]|[1-9]))$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf"
+          "pattern": "^(?=^(vxlan(0|1[0-9][0-9]|2([0-4][0-9]|5[0-5])|[1-9][0-9]|[1-9]))$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "vxlan_interface": {
           "anyOf": [
@@ -1264,6 +1195,9 @@
           "title": "Vxlan Interface"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "TunnelInterfaceListEntry",
       "type": "object"
     },
@@ -1312,29 +1246,21 @@
             },
             {
               "$ref": "#/$defs/Ipv6AddressType"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "AddressLeaf3"
+          "title": "Address"
         },
         "vni": {
-          "anyOf": [
-            {
-              "maximum": 16777215,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "VniLeaf4"
+          "maximum": 16777215,
+          "minimum": 1,
+          "title": "Vni",
+          "type": "integer"
         }
       },
+      "required": [
+        "address",
+        "vni"
+      ],
       "title": "VtepListEntry",
       "type": "object"
     },
@@ -1342,21 +1268,14 @@
       "description": "The list of vxlan-interfaces.",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 99999999,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf"
+          "maximum": 99999999,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "type": {
-          "title": "TypeLeaf"
+          "title": "Type",
+          "type": "string"
         },
         "oper_state": {
           "anyOf": [
@@ -1367,8 +1286,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf"
+          "default": null
         },
         "oper_down_reason": {
           "anyOf": [
@@ -1379,8 +1297,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-down-reasonLeaf"
+          "default": null
         },
         "ingress": {
           "anyOf": [
@@ -1417,6 +1334,7 @@
         }
       },
       "required": [
+        "index",
         "type"
       ],
       "title": "VxlanInterfaceListEntry",

@@ -12,8 +12,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Policy-resultLeaf2"
+          "default": null
         },
         "bgp": {
           "anyOf": [
@@ -82,16 +81,14 @@
             }
           ],
           "default": null,
-          "title": "RemoveLeaf"
+          "title": "Remove"
         },
         "replace": {
           "anyOf": [
             {
-              "ge": 1,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/ReplaceLeafList"
               },
-              "le": 4294967295,
               "type": "array"
             },
             {
@@ -129,7 +126,7 @@
             }
           ],
           "default": null,
-          "title": "As-path-setLeaf2"
+          "title": "As Path Set"
         },
         "match_set_options": {
           "anyOf": [
@@ -140,8 +137,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Match-set-optionsLeaf3"
+          "default": null
         }
       },
       "title": "AsPathContainer2",
@@ -160,16 +156,14 @@
             }
           ],
           "default": null,
-          "title": "RemoveLeaf3"
+          "title": "Remove"
         },
         "replace": {
           "anyOf": [
             {
-              "ge": 1,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/ReplaceLeafList2"
               },
-              "le": 4294967295,
               "type": "array"
             },
             {
@@ -209,7 +203,7 @@
             }
           ],
           "default": null,
-          "title": "ValueLeaf"
+          "title": "Value"
         },
         "operator": {
           "anyOf": [
@@ -220,8 +214,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OperatorLeaf"
+          "default": null
         },
         "unique": {
           "anyOf": [
@@ -233,7 +226,7 @@
             }
           ],
           "default": null,
-          "title": "UniqueLeaf"
+          "title": "Unique"
         }
       },
       "title": "AsPathLengthContainer",
@@ -243,17 +236,9 @@
       "description": "AS Path regular expressions for use in policy entries",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "expression": {
           "anyOf": [
@@ -267,16 +252,14 @@
             }
           ],
           "default": null,
-          "title": "ExpressionLeaf"
+          "title": "Expression"
         },
         "as_path_set_member": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/AsPathSetMemberLeafList"
               },
-              "maxItems": 65535,
-              "minItems": 1,
               "type": "array"
             },
             {
@@ -287,8 +270,17 @@
           "title": "As Path Set Member"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "AsPathSetListEntry",
       "type": "object"
+    },
+    "AsPathSetMemberLeafList": {
+      "maxLength": 65535,
+      "minLength": 1,
+      "title": "AsPathSetMemberLeafList",
+      "type": "string"
     },
     "BgpContainer": {
       "properties": {
@@ -346,7 +338,7 @@
             }
           ],
           "default": null,
-          "title": "Disable-ip-route-installLeaf"
+          "title": "Disable Ip Route Install"
         },
         "local_preference": {
           "anyOf": [
@@ -443,7 +435,7 @@
             }
           ],
           "default": null,
-          "title": "As-path-setLeaf"
+          "title": "As Path Set"
         },
         "as_path": {
           "anyOf": [
@@ -478,7 +470,7 @@
             }
           ],
           "default": null,
-          "title": "Community-setLeaf"
+          "title": "Community Set"
         },
         "standard_community": {
           "anyOf": [
@@ -573,7 +565,7 @@
             }
           ],
           "default": null,
-          "title": "Disable-ip-route-installLeaf2"
+          "title": "Disable Ip Route Install"
         },
         "local_preference": {
           "anyOf": [
@@ -786,6 +778,11 @@
       "title": "BgpStdCommunityTypeType",
       "type": "string"
     },
+    "CallPolicyLeafList": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "CallPolicyLeafList",
+      "type": "string"
+    },
     "CommunitiesContainer": {
       "description": "Modify BGP communities attached to routes",
       "properties": {
@@ -800,7 +797,7 @@
             }
           ],
           "default": null,
-          "title": "AddLeaf"
+          "title": "Add"
         },
         "remove": {
           "anyOf": [
@@ -813,7 +810,7 @@
             }
           ],
           "default": null,
-          "title": "RemoveLeaf2"
+          "title": "Remove"
         },
         "replace": {
           "anyOf": [
@@ -826,7 +823,7 @@
             }
           ],
           "default": null,
-          "title": "ReplaceLeaf"
+          "title": "Replace"
         }
       },
       "title": "CommunitiesContainer",
@@ -846,7 +843,7 @@
             }
           ],
           "default": null,
-          "title": "AddLeaf2"
+          "title": "Add"
         },
         "remove": {
           "anyOf": [
@@ -859,7 +856,7 @@
             }
           ],
           "default": null,
-          "title": "RemoveLeaf4"
+          "title": "Remove"
         },
         "replace": {
           "anyOf": [
@@ -872,7 +869,7 @@
             }
           ],
           "default": null,
-          "title": "ReplaceLeaf2"
+          "title": "Replace"
         }
       },
       "title": "CommunitiesContainer2",
@@ -882,17 +879,9 @@
       "description": "List of BGP community sets containing standard, extended and large BGP communities",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "member": {
           "anyOf": [
@@ -911,7 +900,9 @@
                   {
                     "$ref": "#/$defs/BgpStdCommunityRegexpTypeType"
                   },
-                  {},
+                  {
+                    "type": "string"
+                  },
                   {
                     "$ref": "#/$defs/BgpExtCommunityTypeType1"
                   },
@@ -962,10 +953,12 @@
               "type": "null"
             }
           ],
-          "default": "all",
-          "title": "Match-set-optionsLeaf"
+          "default": "all"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "CommunitySetListEntry",
       "type": "object"
     },
@@ -981,8 +974,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Policy-resultLeaf"
+          "default": null
         },
         "bgp": {
           "anyOf": [
@@ -1230,11 +1222,9 @@
         "route_type": {
           "anyOf": [
             {
-              "ge": 1,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/RouteTypeLeafList"
               },
-              "le": 8,
               "type": "array"
             },
             {
@@ -1259,14 +1249,13 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OperationLeaf2"
+          "default": null
         },
         "referenced_sets": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/ReferencedSetsLeafList2"
               },
               "type": "array"
             },
@@ -1286,8 +1275,7 @@
               "type": "null"
             }
           ],
-          "default": "reference",
-          "title": "MethodLeaf2"
+          "default": "reference"
         }
       },
       "title": "ExtendedCommunityContainer",
@@ -1306,7 +1294,7 @@
             }
           ],
           "default": null,
-          "title": "Extended-community-setLeaf"
+          "title": "Extended Community Set"
         },
         "match_set_options": {
           "anyOf": [
@@ -1317,8 +1305,7 @@
               "type": "null"
             }
           ],
-          "default": "any",
-          "title": "Match-set-optionsLeaf5"
+          "default": "any"
         }
       },
       "title": "ExtendedCommunityContainer2",
@@ -1335,14 +1322,13 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OperationLeaf4"
+          "default": null
         },
         "referenced_sets": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/ReferencedSetsLeafList4"
               },
               "type": "array"
             },
@@ -1362,8 +1348,7 @@
               "type": "null"
             }
           ],
-          "default": "reference",
-          "title": "MethodLeaf4"
+          "default": "reference"
         }
       },
       "title": "ExtendedCommunityContainer3",
@@ -1373,17 +1358,9 @@
       "description": "List of BGP extended community sets containing only extended BGP communities",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "member": {
           "anyOf": [
@@ -1438,6 +1415,9 @@
           "title": "Member"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ExtendedCommunitySetListEntry",
       "type": "object"
     },
@@ -1454,7 +1434,7 @@
             }
           ],
           "default": null,
-          "title": "Prefix-setLeaf3"
+          "title": "Prefix Set"
         }
       },
       "title": "GroupAddressContainer",
@@ -1472,7 +1452,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/SetTagSetLeafList"
               },
               "type": "array"
             },
@@ -1494,7 +1474,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/TagSetLeafList"
               },
               "type": "array"
             },
@@ -1514,8 +1494,7 @@
               "type": "null"
             }
           ],
-          "default": "any",
-          "title": "Match-set-optionsLeaf6"
+          "default": "any"
         }
       },
       "title": "InternalTagsContainer2",
@@ -1528,7 +1507,7 @@
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/SetTagSetLeafList2"
               },
               "type": "array"
             },
@@ -1577,7 +1556,7 @@
             }
           ],
           "default": null,
-          "title": "LevelLeaf"
+          "title": "Level"
         },
         "metric": {
           "anyOf": [
@@ -1609,7 +1588,7 @@
             }
           ],
           "default": null,
-          "title": "LevelLeaf2"
+          "title": "Level"
         },
         "route_type": {
           "anyOf": [
@@ -1620,8 +1599,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Route-typeLeaf"
+          "default": null
         }
       },
       "title": "IsisContainer2",
@@ -1641,7 +1619,7 @@
             }
           ],
           "default": null,
-          "title": "LevelLeaf3"
+          "title": "Level"
         },
         "metric": {
           "anyOf": [
@@ -1708,7 +1686,7 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf"
+          "title": "Set"
         }
       },
       "title": "LocalPreferenceContainer",
@@ -1728,7 +1706,7 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf6"
+          "title": "Set"
         }
       },
       "title": "LocalPreferenceContainer2",
@@ -1748,7 +1726,7 @@
             }
           ],
           "default": null,
-          "title": "Prefix-setLeaf"
+          "title": "Prefix Set"
         },
         "prefix": {
           "anyOf": [
@@ -1775,7 +1753,9 @@
         "family": {
           "anyOf": [
             {
-              "items": {},
+              "items": {
+                "type": "string"
+              },
               "type": "array"
             },
             {
@@ -1787,19 +1767,21 @@
         },
         "protocol": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "ProtocolLeaf"
+          "title": "Protocol"
         },
         "call_policy": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/CallPolicyLeafList"
               },
               "type": "array"
             },
@@ -1873,7 +1855,7 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf2"
+          "title": "Set"
         }
       },
       "title": "MedContainer",
@@ -1894,7 +1876,7 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf7"
+          "title": "Set"
         }
       },
       "title": "MedContainer2",
@@ -1912,8 +1894,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Set-typeLeaf"
+          "default": null
         },
         "set_style": {
           "anyOf": [
@@ -1924,8 +1905,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Set-styleLeaf"
+          "default": null
         },
         "set_value": {
           "anyOf": [
@@ -1939,7 +1919,7 @@
             }
           ],
           "default": null,
-          "title": "Set-valueLeaf"
+          "title": "Set Value"
         }
       },
       "title": "MetricContainer",
@@ -1957,8 +1937,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Set-typeLeaf2"
+          "default": null
         },
         "set_style": {
           "anyOf": [
@@ -1969,8 +1948,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Set-styleLeaf2"
+          "default": null
         },
         "set_value": {
           "anyOf": [
@@ -1984,7 +1962,7 @@
             }
           ],
           "default": null,
-          "title": "Set-valueLeaf2"
+          "title": "Set Value"
         }
       },
       "title": "MetricContainer2",
@@ -2037,7 +2015,7 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf3"
+          "title": "Set"
         }
       },
       "title": "NextHopContainer",
@@ -2062,7 +2040,7 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf8"
+          "title": "Set"
         }
       },
       "title": "NextHopContainer2",
@@ -2082,7 +2060,7 @@
             }
           ],
           "default": null,
-          "title": "Set-tag-setLeaf"
+          "title": "Set Tag Set"
         }
       },
       "title": "NextHopResolutionContainer",
@@ -2102,7 +2080,7 @@
             }
           ],
           "default": null,
-          "title": "Set-tag-setLeaf2"
+          "title": "Set Tag Set"
         }
       },
       "title": "NextHopResolutionContainer2",
@@ -2119,8 +2097,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "SetLeaf4"
+          "default": null
         }
       },
       "title": "OriginContainer",
@@ -2137,8 +2114,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "SetLeaf9"
+          "default": null
         }
       },
       "title": "OriginContainer2",
@@ -2158,17 +2134,19 @@
             }
           ],
           "default": null,
-          "title": "Area-idLeaf"
+          "title": "Area Id"
         },
         "route_type": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Route-typeLeaf2"
+          "title": "Route Type"
         },
         "instance_id": {
           "anyOf": [
@@ -2182,7 +2160,7 @@
             }
           ],
           "default": null,
-          "title": "Instance-idLeaf"
+          "title": "Instance Id"
         }
       },
       "title": "OspfContainer",
@@ -2192,17 +2170,9 @@
       "description": "List of policy definitions, keyed by unique name\nThese policy definitions are expected to be referenced (by name) in policy in import-policy and/or export-policy statements.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "default_action": {
           "anyOf": [
@@ -2231,6 +2201,9 @@
           "title": "Statement"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PolicyListEntry",
       "type": "object"
     },
@@ -2247,7 +2220,7 @@
             }
           ],
           "default": null,
-          "title": "Prefix-setLeaf2"
+          "title": "Prefix Set"
         },
         "match_set_options": {
           "anyOf": [
@@ -2258,8 +2231,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Match-set-optionsLeaf2"
+          "default": null
         }
       },
       "title": "PrefixContainer",
@@ -2275,28 +2247,20 @@
             },
             {
               "$ref": "#/$defs/Ipv6PrefixType"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "Ip-prefixLeaf"
+          "title": "Ip Prefix"
         },
         "mask_length_range": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^([0-9]+\\.\\.[0-9]+)|exact$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Mask-length-rangeLeaf"
+          "pattern": "^(?=^([0-9]+\\.\\.[0-9]+)|exact$).*$",
+          "title": "Mask Length Range",
+          "type": "string"
         }
       },
+      "required": [
+        "ip_prefix",
+        "mask_length_range"
+      ],
       "title": "PrefixListEntry",
       "type": "object"
     },
@@ -2304,17 +2268,9 @@
       "description": "List of defined prefix sets",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "prefix": {
           "anyOf": [
@@ -2332,6 +2288,9 @@
           "title": "Prefix"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PrefixSetListEntry",
       "type": "object"
     },
@@ -2382,7 +2341,7 @@
             }
           ],
           "default": null,
-          "title": "Reuse-igpLeaf"
+          "title": "Reuse Igp"
         }
       },
       "title": "PrefixSidContainer",
@@ -2401,7 +2360,7 @@
             }
           ],
           "default": null,
-          "title": "Reuse-igpLeaf2"
+          "title": "Reuse Igp"
         }
       },
       "title": "PrefixSidContainer2",
@@ -2423,7 +2382,7 @@
             }
           ],
           "default": null,
-          "title": "As-numberLeaf"
+          "title": "As Number"
         },
         "repeat_n": {
           "anyOf": [
@@ -2437,7 +2396,7 @@
             }
           ],
           "default": null,
-          "title": "Repeat-nLeaf"
+          "title": "Repeat N"
         }
       },
       "title": "PrependContainer",
@@ -2459,7 +2418,7 @@
             }
           ],
           "default": null,
-          "title": "As-numberLeaf2"
+          "title": "As Number"
         },
         "repeat_n": {
           "anyOf": [
@@ -2473,11 +2432,43 @@
             }
           ],
           "default": null,
-          "title": "Repeat-nLeaf2"
+          "title": "Repeat N"
         }
       },
       "title": "PrependContainer2",
       "type": "object"
+    },
+    "ReferencedSetsLeafList": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "ReferencedSetsLeafList",
+      "type": "string"
+    },
+    "ReferencedSetsLeafList2": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "ReferencedSetsLeafList2",
+      "type": "string"
+    },
+    "ReferencedSetsLeafList3": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "ReferencedSetsLeafList3",
+      "type": "string"
+    },
+    "ReferencedSetsLeafList4": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "ReferencedSetsLeafList4",
+      "type": "string"
+    },
+    "ReplaceLeafList": {
+      "maximum": 4294967295,
+      "minimum": 1,
+      "title": "ReplaceLeafList",
+      "type": "integer"
+    },
+    "ReplaceLeafList2": {
+      "maximum": 4294967295,
+      "minimum": 1,
+      "title": "ReplaceLeafList2",
+      "type": "integer"
     },
     "RoutePreferenceContainer": {
       "description": "Options for modifying route preference",
@@ -2494,7 +2485,7 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf5"
+          "title": "Set"
         }
       },
       "title": "RoutePreferenceContainer",
@@ -2515,11 +2506,17 @@
             }
           ],
           "default": null,
-          "title": "SetLeaf10"
+          "title": "Set"
         }
       },
       "title": "RoutePreferenceContainer2",
       "type": "object"
+    },
+    "RouteTypeLeafList": {
+      "maximum": 8,
+      "minimum": 1,
+      "title": "RouteTypeLeafList",
+      "type": "integer"
     },
     "RoutingPolicyContainer": {
       "description": "Top-level container for all routing policy configuration",
@@ -2645,6 +2642,16 @@
       "title": "SetLeaf71",
       "type": "integer"
     },
+    "SetTagSetLeafList": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "SetTagSetLeafList",
+      "type": "string"
+    },
+    "SetTagSetLeafList2": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "SetTagSetLeafList2",
+      "type": "string"
+    },
     "SourceAddressContainer": {
       "properties": {
         "prefix_set": {
@@ -2658,7 +2665,7 @@
             }
           ],
           "default": null,
-          "title": "Prefix-setLeaf4"
+          "title": "Prefix Set"
         }
       },
       "title": "SourceAddressContainer",
@@ -2675,14 +2682,13 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OperationLeaf"
+          "default": null
         },
         "referenced_sets": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/ReferencedSetsLeafList"
               },
               "type": "array"
             },
@@ -2702,8 +2708,7 @@
               "type": "null"
             }
           ],
-          "default": "reference",
-          "title": "MethodLeaf"
+          "default": "reference"
         }
       },
       "title": "StandardCommunityContainer",
@@ -2722,7 +2727,7 @@
             }
           ],
           "default": null,
-          "title": "Standard-community-setLeaf"
+          "title": "Standard Community Set"
         },
         "match_set_options": {
           "anyOf": [
@@ -2733,8 +2738,7 @@
               "type": "null"
             }
           ],
-          "default": "any",
-          "title": "Match-set-optionsLeaf4"
+          "default": "any"
         }
       },
       "title": "StandardCommunityContainer2",
@@ -2751,14 +2755,13 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "OperationLeaf3"
+          "default": null
         },
         "referenced_sets": {
           "anyOf": [
             {
               "items": {
-                "type": "string"
+                "$ref": "#/$defs/ReferencedSetsLeafList3"
               },
               "type": "array"
             },
@@ -2778,8 +2781,7 @@
               "type": "null"
             }
           ],
-          "default": "reference",
-          "title": "MethodLeaf3"
+          "default": "reference"
         }
       },
       "title": "StandardCommunityContainer3",
@@ -2789,17 +2791,9 @@
       "description": "List of BGP standard community sets containing only standard BGP communities",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "member": {
           "anyOf": [
@@ -2812,7 +2806,9 @@
                   {
                     "$ref": "#/$defs/BgpStdCommunityRegexpTypeType"
                   },
-                  {}
+                  {
+                    "type": "string"
+                  }
                 ]
               },
               "type": "array"
@@ -2825,6 +2821,9 @@
           "title": "Member"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "StandardCommunitySetListEntry",
       "type": "object"
     },
@@ -2832,17 +2831,9 @@
       "description": "Policy statements group conditions and actions within a policy definition.  They are evaluated in configuration order.",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf8"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "match": {
           "anyOf": [
@@ -2867,6 +2858,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "StatementListEntry",
       "type": "object"
     },
@@ -2883,7 +2877,7 @@
             }
           ],
           "default": null,
-          "title": "IngressLeaf"
+          "title": "Ingress"
         },
         "egress": {
           "anyOf": [
@@ -2895,7 +2889,7 @@
             }
           ],
           "default": null,
-          "title": "EgressLeaf"
+          "title": "Egress"
         }
       },
       "title": "StatisticsContainer",
@@ -2914,7 +2908,7 @@
             }
           ],
           "default": null,
-          "title": "IngressLeaf2"
+          "title": "Ingress"
         },
         "egress": {
           "anyOf": [
@@ -2926,27 +2920,24 @@
             }
           ],
           "default": null,
-          "title": "EgressLeaf2"
+          "title": "Egress"
         }
       },
       "title": "StatisticsContainer2",
       "type": "object"
     },
+    "TagSetLeafList": {
+      "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+      "title": "TagSetLeafList",
+      "type": "string"
+    },
     "TagSetListEntry": {
       "description": "List of administrative tag sets",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Name"
+          "pattern": "^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$",
+          "title": "Name",
+          "type": "string"
         },
         "tag_value": {
           "anyOf": [
@@ -2982,9 +2973,12 @@
             }
           ],
           "default": null,
-          "title": "Tag-set-indexLeaf"
+          "title": "Tag Set Index"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "TagSetListEntry",
       "type": "object"
     },

@@ -59,7 +59,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf4"
+          "title": "Used"
         },
         "free": {
           "anyOf": [
@@ -73,7 +73,7 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf4"
+          "title": "Free"
         },
         "reserved": {
           "anyOf": [
@@ -87,7 +87,7 @@
             }
           ],
           "default": null,
-          "title": "ReservedLeaf"
+          "title": "Reserved"
         },
         "sram": {
           "anyOf": [
@@ -145,18 +145,10 @@
       "description": "List of X.509 certificates",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf"
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "data": {
           "anyOf": [
@@ -170,9 +162,12 @@
             }
           ],
           "default": null,
-          "title": "DataLeaf"
+          "title": "Data"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "CertificateListEntry",
       "type": "object"
     },
@@ -180,16 +175,8 @@
       "description": "List of TPM certificates\nThree main types of certificates can be accessed via this statement, including Endorsement Key Certificate (EK), Attestation Key Certificate (AK), Device ID key Certificate (DevID)",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf"
+          "title": "Name",
+          "type": "string"
         },
         "nv_index": {
           "anyOf": [
@@ -203,7 +190,7 @@
             }
           ],
           "default": null,
-          "title": "Nv-indexLeaf"
+          "title": "Nv Index"
         },
         "data": {
           "anyOf": [
@@ -217,9 +204,12 @@
             }
           ],
           "default": null,
-          "title": "DataLeaf2"
+          "title": "Data"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "CertificatesListEntry",
       "type": "object"
     },
@@ -227,16 +217,8 @@
       "description": "List of cgroups present in the system",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf9"
+          "title": "Name",
+          "type": "string"
         },
         "memory_statistics": {
           "anyOf": [
@@ -261,6 +243,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "CgroupListEntry",
       "type": "object"
     },
@@ -278,7 +263,7 @@
             }
           ],
           "default": null,
-          "title": "Secondary-mac-addressLeaf"
+          "title": "Secondary Mac Address"
         },
         "id": {
           "anyOf": [
@@ -292,7 +277,7 @@
             }
           ],
           "default": null,
-          "title": "IdLeaf3"
+          "title": "Id"
         },
         "type": {
           "anyOf": [
@@ -304,7 +289,7 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf5"
+          "title": "Type"
         },
         "last_boot_type": {
           "anyOf": [
@@ -316,7 +301,7 @@
             }
           ],
           "default": null,
-          "title": "Last-boot-typeLeaf"
+          "title": "Last Boot Type"
         },
         "rebooting_at": {
           "anyOf": [
@@ -329,7 +314,7 @@
             }
           ],
           "default": null,
-          "title": "Rebooting-atLeaf3"
+          "title": "Rebooting At"
         },
         "hw_mac_address": {
           "anyOf": [
@@ -342,7 +327,7 @@
             }
           ],
           "default": null,
-          "title": "Hw-mac-addressLeaf"
+          "title": "Hw Mac Address"
         },
         "slots": {
           "anyOf": [
@@ -356,7 +341,7 @@
             }
           ],
           "default": null,
-          "title": "SlotsLeaf"
+          "title": "Slots"
         },
         "power": {
           "anyOf": [
@@ -378,8 +363,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf9"
+          "default": null
         },
         "last_booted": {
           "anyOf": [
@@ -392,17 +376,19 @@
             }
           ],
           "default": null,
-          "title": "Last-bootedLeaf4"
+          "title": "Last Booted"
         },
         "last_booted_reason": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Last-booted-reasonLeaf4"
+          "title": "Last Booted Reason"
         },
         "last_change": {
           "anyOf": [
@@ -415,7 +401,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf4"
+          "title": "Last Change"
         },
         "part_number": {
           "anyOf": [
@@ -427,7 +413,7 @@
             }
           ],
           "default": null,
-          "title": "Part-numberLeaf4"
+          "title": "Part Number"
         },
         "removable": {
           "anyOf": [
@@ -439,7 +425,7 @@
             }
           ],
           "default": null,
-          "title": "RemovableLeaf4"
+          "title": "Removable"
         },
         "failure_reason": {
           "anyOf": [
@@ -451,7 +437,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-reasonLeaf3"
+          "title": "Failure Reason"
         },
         "clei_code": {
           "anyOf": [
@@ -463,7 +449,7 @@
             }
           ],
           "default": null,
-          "title": "Clei-codeLeaf3"
+          "title": "Clei Code"
         },
         "serial_number": {
           "anyOf": [
@@ -475,7 +461,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf4"
+          "title": "Serial Number"
         },
         "manufactured_date": {
           "anyOf": [
@@ -488,7 +474,7 @@
             }
           ],
           "default": null,
-          "title": "Manufactured-dateLeaf3"
+          "title": "Manufactured Date"
         },
         "healthz": {
           "anyOf": [
@@ -512,7 +498,7 @@
             }
           ],
           "default": null,
-          "title": "UuidLeaf2"
+          "title": "Uuid"
         },
         "mac_address_allocation": {
           "anyOf": [
@@ -526,7 +512,7 @@
             }
           ],
           "default": 1024,
-          "title": "Mac-address-allocationLeaf"
+          "title": "Mac Address Allocation"
         },
         "mac_address": {
           "anyOf": [
@@ -539,7 +525,7 @@
             }
           ],
           "default": null,
-          "title": "Mac-addressLeaf"
+          "title": "Mac Address"
         }
       },
       "title": "ChassisContainer",
@@ -627,7 +613,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf5"
+          "title": "Allocated"
         },
         "required": {
           "anyOf": [
@@ -641,7 +627,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf5"
+          "title": "Required"
         },
         "used": {
           "anyOf": [
@@ -655,7 +641,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf15"
+          "title": "Used"
         },
         "peak": {
           "anyOf": [
@@ -669,7 +655,7 @@
             }
           ],
           "default": null,
-          "title": "PeakLeaf3"
+          "title": "Peak"
         }
       },
       "title": "ControlContainer",
@@ -679,17 +665,9 @@
       "description": "Secure Boot states related to control modules",
       "properties": {
         "slot": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^A|B$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SlotLeaf"
+          "pattern": "^(?=^A|B$).*$",
+          "title": "Slot",
+          "type": "string"
         },
         "oper_state": {
           "anyOf": [
@@ -700,8 +678,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf"
+          "default": null
         },
         "root_of_trust": {
           "anyOf": [
@@ -712,8 +689,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Root-of-trustLeaf"
+          "default": null
         },
         "uefi_variables_update": {
           "anyOf": [
@@ -742,6 +718,9 @@
           "title": "Uefi Variables"
         }
       },
+      "required": [
+        "slot"
+      ],
       "title": "ControlListEntry",
       "type": "object"
     },
@@ -749,17 +728,9 @@
       "description": "TPM status, PCR indexes and certificates per control module",
       "properties": {
         "slot": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^A|B$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SlotLeaf2"
+          "pattern": "^(?=^A|B$).*$",
+          "title": "Slot",
+          "type": "string"
         },
         "oper_state": {
           "anyOf": [
@@ -770,8 +741,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf2"
+          "default": null
         },
         "tpm20_pcr_bank": {
           "anyOf": [
@@ -804,6 +774,9 @@
           "title": "Certificates"
         }
       },
+      "required": [
+        "slot"
+      ],
       "title": "ControlListEntry2",
       "type": "object"
     },
@@ -811,17 +784,9 @@
       "description": "Top-level container for control module configuration and state",
       "properties": {
         "slot": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^A|B$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SlotLeaf4"
+          "pattern": "^(?=^A|B$).*$",
+          "title": "Slot",
+          "type": "string"
         },
         "type": {
           "anyOf": [
@@ -833,7 +798,7 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf2"
+          "title": "Type"
         },
         "role": {
           "anyOf": [
@@ -844,8 +809,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "RoleLeaf"
+          "default": null
         },
         "disk_encrypted": {
           "anyOf": [
@@ -857,7 +821,7 @@
             }
           ],
           "default": null,
-          "title": "Disk-encryptedLeaf"
+          "title": "Disk Encrypted"
         },
         "oper_state": {
           "anyOf": [
@@ -868,8 +832,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf7"
+          "default": null
         },
         "last_booted": {
           "anyOf": [
@@ -882,17 +845,19 @@
             }
           ],
           "default": null,
-          "title": "Last-bootedLeaf3"
+          "title": "Last Booted"
         },
         "last_booted_reason": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Last-booted-reasonLeaf3"
+          "title": "Last Booted Reason"
         },
         "last_change": {
           "anyOf": [
@@ -905,7 +870,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf3"
+          "title": "Last Change"
         },
         "part_number": {
           "anyOf": [
@@ -917,7 +882,7 @@
             }
           ],
           "default": null,
-          "title": "Part-numberLeaf3"
+          "title": "Part Number"
         },
         "removable": {
           "anyOf": [
@@ -929,7 +894,7 @@
             }
           ],
           "default": null,
-          "title": "RemovableLeaf3"
+          "title": "Removable"
         },
         "failure_reason": {
           "anyOf": [
@@ -941,7 +906,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-reasonLeaf2"
+          "title": "Failure Reason"
         },
         "clei_code": {
           "anyOf": [
@@ -953,7 +918,7 @@
             }
           ],
           "default": null,
-          "title": "Clei-codeLeaf2"
+          "title": "Clei Code"
         },
         "serial_number": {
           "anyOf": [
@@ -965,7 +930,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf2"
+          "title": "Serial Number"
         },
         "manufactured_date": {
           "anyOf": [
@@ -978,7 +943,7 @@
             }
           ],
           "default": null,
-          "title": "Manufactured-dateLeaf2"
+          "title": "Manufactured Date"
         },
         "interface": {
           "anyOf": [
@@ -1017,7 +982,7 @@
             }
           ],
           "default": null,
-          "title": "Rebooting-atLeaf2"
+          "title": "Rebooting At"
         },
         "software_version": {
           "anyOf": [
@@ -1029,7 +994,7 @@
             }
           ],
           "default": null,
-          "title": "Software-versionLeaf2"
+          "title": "Software Version"
         },
         "locator_state": {
           "anyOf": [
@@ -1040,8 +1005,7 @@
               "type": "null"
             }
           ],
-          "default": "inactive",
-          "title": "Locator-stateLeaf2"
+          "default": "inactive"
         },
         "power": {
           "anyOf": [
@@ -1159,6 +1123,9 @@
           "default": null
         }
       },
+      "required": [
+        "slot"
+      ],
       "title": "ControlListEntry3",
       "type": "object"
     },
@@ -1177,7 +1144,7 @@
             }
           ],
           "default": 0,
-          "title": "Queued-aggregateLeaf"
+          "title": "Queued Aggregate"
         },
         "queued_bytes_aggregate": {
           "anyOf": [
@@ -1191,7 +1158,7 @@
             }
           ],
           "default": 0,
-          "title": "Queued-bytes-aggregateLeaf"
+          "title": "Queued Bytes Aggregate"
         },
         "dropped_aggregate": {
           "anyOf": [
@@ -1205,7 +1172,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-aggregateLeaf"
+          "title": "Dropped Aggregate"
         },
         "dropped_bytes_aggregate": {
           "anyOf": [
@@ -1219,7 +1186,7 @@
             }
           ],
           "default": 0,
-          "title": "Dropped-bytes-aggregateLeaf"
+          "title": "Dropped Bytes Aggregate"
         }
       },
       "title": "ControlPlaneTrafficContainer",
@@ -1235,13 +1202,9 @@
             },
             {
               "$ref": "#/$defs/IndexLeaf121"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "IndexLeaf12"
+          "title": "Index"
         },
         "architecture": {
           "anyOf": [
@@ -1252,8 +1215,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "ArchitectureLeaf"
+          "default": null
         },
         "type": {
           "anyOf": [
@@ -1265,7 +1227,7 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf3"
+          "title": "Type"
         },
         "speed": {
           "anyOf": [
@@ -1279,7 +1241,7 @@
             }
           ],
           "default": null,
-          "title": "SpeedLeaf"
+          "title": "Speed"
         },
         "total": {
           "anyOf": [
@@ -1370,6 +1332,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "CpuListEntry",
       "type": "object"
     },
@@ -1377,18 +1342,10 @@
       "description": "State information relating to the list of CPUs pinned to vXDP threads",
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "maximum": 65535,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf7"
+          "maximum": 65535,
+          "minimum": 0,
+          "title": "Id",
+          "type": "integer"
         },
         "oper_state": {
           "anyOf": [
@@ -1399,8 +1356,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf13"
+          "default": null
         },
         "oper_reason": {
           "anyOf": [
@@ -1411,8 +1367,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-reasonLeaf3"
+          "default": null
         },
         "socket_id": {
           "anyOf": [
@@ -1426,7 +1381,7 @@
             }
           ],
           "default": null,
-          "title": "Socket-idLeaf"
+          "title": "Socket Id"
         },
         "core_id": {
           "anyOf": [
@@ -1440,7 +1395,7 @@
             }
           ],
           "default": null,
-          "title": "Core-idLeaf"
+          "title": "Core Id"
         },
         "sibling_id": {
           "anyOf": [
@@ -1454,11 +1409,20 @@
             }
           ],
           "default": null,
-          "title": "Sibling-idLeaf"
+          "title": "Sibling Id"
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "CpuListEntry2",
       "type": "object"
+    },
+    "CpuSetLeafList": {
+      "maximum": 1024,
+      "minimum": 0,
+      "title": "CpuSetLeafList",
+      "type": "integer"
     },
     "CpuacctStatisticsContainer": {
       "description": "Top-level container for cgroup cpuacct statistics",
@@ -1475,7 +1439,7 @@
             }
           ],
           "default": null,
-          "title": "UserLeaf"
+          "title": "User"
         },
         "system": {
           "anyOf": [
@@ -1489,7 +1453,7 @@
             }
           ],
           "default": null,
-          "title": "SystemLeaf"
+          "title": "System"
         }
       },
       "title": "CpuacctStatisticsContainer",
@@ -1575,16 +1539,8 @@
       "description": "List of disks present in the system",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf11"
+          "title": "Name",
+          "type": "string"
         },
         "model_number": {
           "anyOf": [
@@ -1596,7 +1552,7 @@
             }
           ],
           "default": null,
-          "title": "Model-numberLeaf"
+          "title": "Model Number"
         },
         "serial_number": {
           "anyOf": [
@@ -1608,7 +1564,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf3"
+          "title": "Serial Number"
         },
         "size": {
           "anyOf": [
@@ -1622,7 +1578,7 @@
             }
           ],
           "default": null,
-          "title": "SizeLeaf"
+          "title": "Size"
         },
         "type": {
           "anyOf": [
@@ -1633,8 +1589,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "TypeLeaf4"
+          "default": null
         },
         "encrypted": {
           "anyOf": [
@@ -1646,7 +1601,7 @@
             }
           ],
           "default": null,
-          "title": "EncryptedLeaf"
+          "title": "Encrypted"
         },
         "partition": {
           "anyOf": [
@@ -1675,6 +1630,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "DiskListEntry",
       "type": "object"
     },
@@ -1693,7 +1651,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf6"
+          "title": "Used"
         }
       },
       "title": "DramContainer",
@@ -1714,7 +1672,7 @@
             }
           ],
           "default": 0,
-          "title": "Adverse-aggregateLeaf"
+          "title": "Adverse Aggregate"
         },
         "congestion_aggregate": {
           "anyOf": [
@@ -1728,7 +1686,7 @@
             }
           ],
           "default": 0,
-          "title": "Congestion-aggregateLeaf"
+          "title": "Congestion Aggregate"
         },
         "packet_processing_aggregate": {
           "anyOf": [
@@ -1742,7 +1700,7 @@
             }
           ],
           "default": 0,
-          "title": "Packet-processing-aggregateLeaf"
+          "title": "Packet Processing Aggregate"
         },
         "no_route": {
           "anyOf": [
@@ -1756,7 +1714,7 @@
             }
           ],
           "default": 0,
-          "title": "No-routeLeaf"
+          "title": "No Route"
         }
       },
       "title": "DropCountersContainer",
@@ -2019,14 +1977,8 @@
       "description": "List of extraction reasons that are possible for the pipeline",
       "properties": {
         "reason": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "ReasonLeaf"
+          "title": "Reason",
+          "type": "string"
         },
         "extracted_packets": {
           "anyOf": [
@@ -2040,7 +1992,7 @@
             }
           ],
           "default": 0,
-          "title": "Extracted-packetsLeaf2"
+          "title": "Extracted Packets"
         },
         "extracted_octets": {
           "anyOf": [
@@ -2054,9 +2006,12 @@
             }
           ],
           "default": 0,
-          "title": "Extracted-octetsLeaf2"
+          "title": "Extracted Octets"
         }
       },
+      "required": [
+        "reason"
+      ],
       "title": "ExtractionReasonListEntry",
       "type": "object"
     },
@@ -2075,7 +2030,7 @@
             }
           ],
           "default": null,
-          "title": "AvailabilityLeaf"
+          "title": "Availability"
         },
         "total_capacity": {
           "anyOf": [
@@ -2089,7 +2044,7 @@
             }
           ],
           "default": null,
-          "title": "Total-capacityLeaf"
+          "title": "Total Capacity"
         },
         "operational_capacity": {
           "anyOf": [
@@ -2103,7 +2058,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-capacityLeaf"
+          "title": "Operational Capacity"
         },
         "consumed_capacity": {
           "anyOf": [
@@ -2117,7 +2072,7 @@
             }
           ],
           "default": null,
-          "title": "Consumed-capacityLeaf"
+          "title": "Consumed Capacity"
         },
         "utilization_ingress": {
           "anyOf": [
@@ -2131,7 +2086,7 @@
             }
           ],
           "default": null,
-          "title": "Utilization-ingressLeaf"
+          "title": "Utilization Ingress"
         },
         "utilization_egress": {
           "anyOf": [
@@ -2145,7 +2100,7 @@
             }
           ],
           "default": null,
-          "title": "Utilization-egressLeaf"
+          "title": "Utilization Egress"
         }
       },
       "title": "FabricContainer",
@@ -2166,7 +2121,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf7"
+          "title": "Allocated"
         },
         "required": {
           "anyOf": [
@@ -2180,7 +2135,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf7"
+          "title": "Required"
         },
         "used": {
           "anyOf": [
@@ -2194,7 +2149,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf17"
+          "title": "Used"
         },
         "peak": {
           "anyOf": [
@@ -2208,7 +2163,7 @@
             }
           ],
           "default": null,
-          "title": "PeakLeaf5"
+          "title": "Peak"
         }
       },
       "title": "FabricContainer2",
@@ -2218,18 +2173,10 @@
       "description": "Top-level container for fabric configuration and state",
       "properties": {
         "slot": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SlotLeaf5"
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Slot",
+          "type": "integer"
         },
         "type": {
           "anyOf": [
@@ -2241,7 +2188,7 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf6"
+          "title": "Type"
         },
         "admin_state": {
           "anyOf": [
@@ -2252,8 +2199,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf3"
+          "default": "enable"
         },
         "oper_state": {
           "anyOf": [
@@ -2264,8 +2210,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf10"
+          "default": null
         },
         "last_booted": {
           "anyOf": [
@@ -2278,17 +2223,19 @@
             }
           ],
           "default": null,
-          "title": "Last-bootedLeaf5"
+          "title": "Last Booted"
         },
         "last_booted_reason": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Last-booted-reasonLeaf5"
+          "title": "Last Booted Reason"
         },
         "last_change": {
           "anyOf": [
@@ -2301,7 +2248,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf5"
+          "title": "Last Change"
         },
         "part_number": {
           "anyOf": [
@@ -2313,7 +2260,7 @@
             }
           ],
           "default": null,
-          "title": "Part-numberLeaf5"
+          "title": "Part Number"
         },
         "removable": {
           "anyOf": [
@@ -2325,7 +2272,7 @@
             }
           ],
           "default": null,
-          "title": "RemovableLeaf5"
+          "title": "Removable"
         },
         "failure_reason": {
           "anyOf": [
@@ -2337,7 +2284,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-reasonLeaf4"
+          "title": "Failure Reason"
         },
         "clei_code": {
           "anyOf": [
@@ -2349,7 +2296,7 @@
             }
           ],
           "default": null,
-          "title": "Clei-codeLeaf4"
+          "title": "Clei Code"
         },
         "serial_number": {
           "anyOf": [
@@ -2361,7 +2308,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf5"
+          "title": "Serial Number"
         },
         "manufactured_date": {
           "anyOf": [
@@ -2374,7 +2321,7 @@
             }
           ],
           "default": null,
-          "title": "Manufactured-dateLeaf4"
+          "title": "Manufactured Date"
         },
         "rebooting_at": {
           "anyOf": [
@@ -2387,7 +2334,7 @@
             }
           ],
           "default": null,
-          "title": "Rebooting-atLeaf4"
+          "title": "Rebooting At"
         },
         "locator_state": {
           "anyOf": [
@@ -2398,8 +2345,7 @@
               "type": "null"
             }
           ],
-          "default": "inactive",
-          "title": "Locator-stateLeaf3"
+          "default": "inactive"
         },
         "power": {
           "anyOf": [
@@ -2435,6 +2381,9 @@
           "default": null
         }
       },
+      "required": [
+        "slot"
+      ],
       "title": "FabricListEntry",
       "type": "object"
     },
@@ -2453,7 +2402,7 @@
             }
           ],
           "default": null,
-          "title": "SpeedLeaf3"
+          "title": "Speed"
         },
         "speed_rpm": {
           "anyOf": [
@@ -2467,7 +2416,7 @@
             }
           ],
           "default": null,
-          "title": "Speed-rpmLeaf2"
+          "title": "Speed Rpm"
         }
       },
       "title": "FanContainer",
@@ -2488,7 +2437,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf4"
+          "title": "Allocated"
         },
         "required": {
           "anyOf": [
@@ -2502,7 +2451,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf4"
+          "title": "Required"
         },
         "used": {
           "anyOf": [
@@ -2516,7 +2465,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf14"
+          "title": "Used"
         },
         "peak": {
           "anyOf": [
@@ -2530,7 +2479,7 @@
             }
           ],
           "default": null,
-          "title": "PeakLeaf2"
+          "title": "Peak"
         }
       },
       "title": "FanTrayContainer",
@@ -2540,18 +2489,10 @@
       "description": "Top-level container for fan module configuration and state",
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf4"
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Id",
+          "type": "integer"
         },
         "type": {
           "anyOf": [
@@ -2563,7 +2504,7 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf7"
+          "title": "Type"
         },
         "speed": {
           "anyOf": [
@@ -2577,7 +2518,7 @@
             }
           ],
           "default": null,
-          "title": "SpeedLeaf2"
+          "title": "Speed"
         },
         "speed_rpm": {
           "anyOf": [
@@ -2591,7 +2532,7 @@
             }
           ],
           "default": null,
-          "title": "Speed-rpmLeaf"
+          "title": "Speed Rpm"
         },
         "oper_reason": {
           "anyOf": [
@@ -2602,8 +2543,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-reasonLeaf"
+          "default": null
         },
         "oper_state": {
           "anyOf": [
@@ -2614,8 +2554,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf11"
+          "default": null
         },
         "last_booted": {
           "anyOf": [
@@ -2628,17 +2567,19 @@
             }
           ],
           "default": null,
-          "title": "Last-bootedLeaf6"
+          "title": "Last Booted"
         },
         "last_booted_reason": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Last-booted-reasonLeaf6"
+          "title": "Last Booted Reason"
         },
         "last_change": {
           "anyOf": [
@@ -2651,7 +2592,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf6"
+          "title": "Last Change"
         },
         "part_number": {
           "anyOf": [
@@ -2663,7 +2604,7 @@
             }
           ],
           "default": null,
-          "title": "Part-numberLeaf6"
+          "title": "Part Number"
         },
         "removable": {
           "anyOf": [
@@ -2675,7 +2616,7 @@
             }
           ],
           "default": null,
-          "title": "RemovableLeaf6"
+          "title": "Removable"
         },
         "failure_reason": {
           "anyOf": [
@@ -2687,7 +2628,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-reasonLeaf5"
+          "title": "Failure Reason"
         },
         "clei_code": {
           "anyOf": [
@@ -2699,7 +2640,7 @@
             }
           ],
           "default": null,
-          "title": "Clei-codeLeaf5"
+          "title": "Clei Code"
         },
         "serial_number": {
           "anyOf": [
@@ -2711,7 +2652,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf6"
+          "title": "Serial Number"
         },
         "manufactured_date": {
           "anyOf": [
@@ -2724,7 +2665,7 @@
             }
           ],
           "default": null,
-          "title": "Manufactured-dateLeaf5"
+          "title": "Manufactured Date"
         },
         "locator_state": {
           "anyOf": [
@@ -2735,8 +2676,7 @@
               "type": "null"
             }
           ],
-          "default": "inactive",
-          "title": "Locator-stateLeaf4"
+          "default": "inactive"
         },
         "power": {
           "anyOf": [
@@ -2761,6 +2701,9 @@
           "default": null
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "FanTrayListEntry",
       "type": "object"
     },
@@ -2768,18 +2711,10 @@
       "description": "List of feeds on this power-supply",
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf6"
+          "maximum": 255,
+          "minimum": 0,
+          "title": "Id",
+          "type": "integer"
         },
         "voltage": {
           "anyOf": [
@@ -2793,7 +2728,7 @@
             }
           ],
           "default": null,
-          "title": "VoltageLeaf3"
+          "title": "Voltage"
         },
         "current": {
           "anyOf": [
@@ -2807,9 +2742,12 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf4"
+          "title": "Current"
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "FeedListEntry",
       "type": "object"
     },
@@ -2878,7 +2816,7 @@
             }
           ],
           "default": null,
-          "title": "IdleLeaf2"
+          "title": "Idle"
         },
         "instant": {
           "anyOf": [
@@ -2892,7 +2830,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf14"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -2906,7 +2844,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf10"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -2920,7 +2858,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf10"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -2934,7 +2872,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf10"
+          "title": "Average 15"
         }
       },
       "title": "ForwarderContainer",
@@ -2944,16 +2882,7 @@
       "description": "List of forwarding complexes on the linecard",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "$ref": "#/$defs/EnumerationEnum6"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf2"
+          "$ref": "#/$defs/EnumerationEnum6"
         },
         "interfaces": {
           "anyOf": [
@@ -2979,8 +2908,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf4"
+          "default": null
         },
         "last_booted": {
           "anyOf": [
@@ -2993,17 +2921,19 @@
             }
           ],
           "default": null,
-          "title": "Last-bootedLeaf2"
+          "title": "Last Booted"
         },
         "last_booted_reason": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Last-booted-reasonLeaf2"
+          "title": "Last Booted Reason"
         },
         "last_change": {
           "anyOf": [
@@ -3016,7 +2946,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf2"
+          "title": "Last Change"
         },
         "part_number": {
           "anyOf": [
@@ -3028,7 +2958,7 @@
             }
           ],
           "default": null,
-          "title": "Part-numberLeaf2"
+          "title": "Part Number"
         },
         "removable": {
           "anyOf": [
@@ -3040,7 +2970,7 @@
             }
           ],
           "default": null,
-          "title": "RemovableLeaf2"
+          "title": "Removable"
         },
         "fabric": {
           "anyOf": [
@@ -3157,6 +3087,9 @@
           "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ForwardingComplexListEntry",
       "type": "object"
     },
@@ -3193,7 +3126,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf9"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -3207,7 +3140,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf7"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -3221,7 +3154,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf7"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -3235,7 +3168,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf7"
+          "title": "Average 15"
         }
       },
       "title": "HardwareInterruptContainer",
@@ -3253,8 +3186,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf"
+          "default": null
         },
         "last_unhealthy": {
           "anyOf": [
@@ -3267,7 +3199,7 @@
             }
           ],
           "default": null,
-          "title": "Last-unhealthyLeaf"
+          "title": "Last Unhealthy"
         },
         "unhealthy_count": {
           "anyOf": [
@@ -3281,7 +3213,7 @@
             }
           ],
           "default": 0,
-          "title": "Unhealthy-countLeaf"
+          "title": "Unhealthy Count"
         }
       },
       "title": "HealthzContainer",
@@ -3299,8 +3231,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf2"
+          "default": null
         },
         "last_unhealthy": {
           "anyOf": [
@@ -3313,7 +3244,7 @@
             }
           ],
           "default": null,
-          "title": "Last-unhealthyLeaf2"
+          "title": "Last Unhealthy"
         },
         "unhealthy_count": {
           "anyOf": [
@@ -3327,7 +3258,7 @@
             }
           ],
           "default": 0,
-          "title": "Unhealthy-countLeaf2"
+          "title": "Unhealthy Count"
         }
       },
       "title": "HealthzContainer2",
@@ -3345,8 +3276,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf4"
+          "default": null
         },
         "last_unhealthy": {
           "anyOf": [
@@ -3359,7 +3289,7 @@
             }
           ],
           "default": null,
-          "title": "Last-unhealthyLeaf3"
+          "title": "Last Unhealthy"
         },
         "unhealthy_count": {
           "anyOf": [
@@ -3373,7 +3303,7 @@
             }
           ],
           "default": 0,
-          "title": "Unhealthy-countLeaf3"
+          "title": "Unhealthy Count"
         }
       },
       "title": "HealthzContainer3",
@@ -3391,8 +3321,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf5"
+          "default": null
         },
         "last_unhealthy": {
           "anyOf": [
@@ -3405,7 +3334,7 @@
             }
           ],
           "default": null,
-          "title": "Last-unhealthyLeaf4"
+          "title": "Last Unhealthy"
         },
         "unhealthy_count": {
           "anyOf": [
@@ -3419,7 +3348,7 @@
             }
           ],
           "default": 0,
-          "title": "Unhealthy-countLeaf4"
+          "title": "Unhealthy Count"
         }
       },
       "title": "HealthzContainer4",
@@ -3437,8 +3366,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf6"
+          "default": null
         },
         "last_unhealthy": {
           "anyOf": [
@@ -3451,7 +3379,7 @@
             }
           ],
           "default": null,
-          "title": "Last-unhealthyLeaf5"
+          "title": "Last Unhealthy"
         },
         "unhealthy_count": {
           "anyOf": [
@@ -3465,7 +3393,7 @@
             }
           ],
           "default": 0,
-          "title": "Unhealthy-countLeaf5"
+          "title": "Unhealthy Count"
         }
       },
       "title": "HealthzContainer5",
@@ -3483,8 +3411,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf7"
+          "default": null
         },
         "last_unhealthy": {
           "anyOf": [
@@ -3497,7 +3424,7 @@
             }
           ],
           "default": null,
-          "title": "Last-unhealthyLeaf6"
+          "title": "Last Unhealthy"
         },
         "unhealthy_count": {
           "anyOf": [
@@ -3511,7 +3438,7 @@
             }
           ],
           "default": 0,
-          "title": "Unhealthy-countLeaf6"
+          "title": "Unhealthy Count"
         }
       },
       "title": "HealthzContainer6",
@@ -3550,7 +3477,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf7"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -3564,7 +3491,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf5"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -3578,7 +3505,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf5"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -3592,7 +3519,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf5"
+          "title": "Average 15"
         }
       },
       "title": "IdleContainer",
@@ -3625,7 +3552,7 @@
             }
           ],
           "default": null,
-          "title": "VoltageLeaf"
+          "title": "Voltage"
         },
         "current": {
           "anyOf": [
@@ -3639,7 +3566,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf2"
+          "title": "Current"
         },
         "power": {
           "anyOf": [
@@ -3653,7 +3580,7 @@
             }
           ],
           "default": null,
-          "title": "PowerLeaf"
+          "title": "Power"
         }
       },
       "title": "InputContainer",
@@ -3663,18 +3590,10 @@
       "description": "Interface-group-resource-pool resources for the given resource-set-pool\n\nContains the resource-groups which have been allocated to this interface-group-resource-pool.",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 15,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf8"
+          "maximum": 15,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "resource_group": {
           "anyOf": [
@@ -3692,20 +3611,17 @@
           "title": "Resource Group"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "InterfaceGroupResourcePoolListEntry",
       "type": "object"
     },
     "InterfaceListEntry": {
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf8"
+          "title": "Name",
+          "type": "string"
         },
         "admin_state": {
           "anyOf": [
@@ -3716,8 +3632,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Admin-stateLeaf2"
+          "default": null
         },
         "oper_state": {
           "anyOf": [
@@ -3728,10 +3643,12 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf8"
+          "default": null
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "InterfaceListEntry",
       "type": "object"
     },
@@ -3750,7 +3667,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf8"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -3764,7 +3681,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf6"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -3778,7 +3695,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf6"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -3792,7 +3709,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf6"
+          "title": "Average 15"
         }
       },
       "title": "IowaitContainer",
@@ -3813,7 +3730,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-addLeaf"
+          "title": "Entries Remaining To Add"
         },
         "entries_remaining_to_modify": {
           "anyOf": [
@@ -3827,7 +3744,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-modifyLeaf"
+          "title": "Entries Remaining To Modify"
         },
         "last_sync_time": {
           "anyOf": [
@@ -3840,7 +3757,7 @@
             }
           ],
           "default": null,
-          "title": "Last-sync-timeLeaf"
+          "title": "Last Sync Time"
         }
       },
       "title": "IpRoutesContainer",
@@ -3861,7 +3778,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-addLeaf3"
+          "title": "Entries Remaining To Add"
         },
         "entries_remaining_to_modify": {
           "anyOf": [
@@ -3875,7 +3792,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-modifyLeaf3"
+          "title": "Entries Remaining To Modify"
         },
         "last_sync_time": {
           "anyOf": [
@@ -3888,7 +3805,7 @@
             }
           ],
           "default": null,
-          "title": "Last-sync-timeLeaf3"
+          "title": "Last Sync Time"
         }
       },
       "title": "IpRoutesContainer2",
@@ -3899,13 +3816,15 @@
       "properties": {
         "trigger": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "TriggerLeaf"
+          "title": "Trigger"
         },
         "details": {
           "anyOf": [
@@ -3917,7 +3836,7 @@
             }
           ],
           "default": null,
-          "title": "DetailsLeaf"
+          "title": "Details"
         }
       },
       "title": "LastSwitchoverReasonContainer",
@@ -3938,7 +3857,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf6"
+          "title": "Allocated"
         },
         "required": {
           "anyOf": [
@@ -3952,7 +3871,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf6"
+          "title": "Required"
         },
         "used": {
           "anyOf": [
@@ -3966,7 +3885,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf16"
+          "title": "Used"
         },
         "peak": {
           "anyOf": [
@@ -3980,7 +3899,7 @@
             }
           ],
           "default": null,
-          "title": "PeakLeaf4"
+          "title": "Peak"
         }
       },
       "title": "LinecardContainer",
@@ -3990,18 +3909,10 @@
       "description": "Top-level container for linecard configuration and state",
       "properties": {
         "slot": {
-          "anyOf": [
-            {
-              "maximum": 16,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "SlotLeaf3"
+          "maximum": 16,
+          "minimum": 1,
+          "title": "Slot",
+          "type": "integer"
         },
         "admin_state": {
           "anyOf": [
@@ -4012,8 +3923,7 @@
               "type": "null"
             }
           ],
-          "default": "enable",
-          "title": "Admin-stateLeaf"
+          "default": "enable"
         },
         "oper_state": {
           "anyOf": [
@@ -4024,8 +3934,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf3"
+          "default": null
         },
         "last_booted": {
           "anyOf": [
@@ -4038,17 +3947,19 @@
             }
           ],
           "default": null,
-          "title": "Last-bootedLeaf"
+          "title": "Last Booted"
         },
         "last_booted_reason": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Last-booted-reasonLeaf"
+          "title": "Last Booted Reason"
         },
         "last_change": {
           "anyOf": [
@@ -4061,7 +3972,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf"
+          "title": "Last Change"
         },
         "part_number": {
           "anyOf": [
@@ -4073,7 +3984,7 @@
             }
           ],
           "default": null,
-          "title": "Part-numberLeaf"
+          "title": "Part Number"
         },
         "removable": {
           "anyOf": [
@@ -4085,7 +3996,7 @@
             }
           ],
           "default": null,
-          "title": "RemovableLeaf"
+          "title": "Removable"
         },
         "failure_reason": {
           "anyOf": [
@@ -4097,7 +4008,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-reasonLeaf"
+          "title": "Failure Reason"
         },
         "clei_code": {
           "anyOf": [
@@ -4109,7 +4020,7 @@
             }
           ],
           "default": null,
-          "title": "Clei-codeLeaf"
+          "title": "Clei Code"
         },
         "serial_number": {
           "anyOf": [
@@ -4121,7 +4032,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf"
+          "title": "Serial Number"
         },
         "manufactured_date": {
           "anyOf": [
@@ -4134,7 +4045,7 @@
             }
           ],
           "default": null,
-          "title": "Manufactured-dateLeaf"
+          "title": "Manufactured Date"
         },
         "rebooting_at": {
           "anyOf": [
@@ -4147,7 +4058,7 @@
             }
           ],
           "default": null,
-          "title": "Rebooting-atLeaf"
+          "title": "Rebooting At"
         },
         "type": {
           "anyOf": [
@@ -4159,7 +4070,7 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf"
+          "title": "Type"
         },
         "forwarding_complex": {
           "anyOf": [
@@ -4186,7 +4097,7 @@
             }
           ],
           "default": null,
-          "title": "Software-versionLeaf"
+          "title": "Software Version"
         },
         "locator_state": {
           "anyOf": [
@@ -4197,8 +4108,7 @@
               "type": "null"
             }
           ],
-          "default": "inactive",
-          "title": "Locator-stateLeaf"
+          "default": "inactive"
         },
         "power": {
           "anyOf": [
@@ -4234,6 +4144,9 @@
           "default": null
         }
       },
+      "required": [
+        "slot"
+      ],
       "title": "LinecardListEntry",
       "type": "object"
     },
@@ -4252,7 +4165,7 @@
             }
           ],
           "default": null,
-          "title": "PhysicalLeaf"
+          "title": "Physical"
         },
         "reserved": {
           "anyOf": [
@@ -4266,7 +4179,7 @@
             }
           ],
           "default": null,
-          "title": "ReservedLeaf2"
+          "title": "Reserved"
         },
         "free": {
           "anyOf": [
@@ -4280,7 +4193,7 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf8"
+          "title": "Free"
         },
         "utilization": {
           "anyOf": [
@@ -4294,7 +4207,7 @@
             }
           ],
           "default": null,
-          "title": "UtilizationLeaf2"
+          "title": "Utilization"
         }
       },
       "title": "MemoryContainer",
@@ -4315,7 +4228,7 @@
             }
           ],
           "default": null,
-          "title": "LowLeaf"
+          "title": "Low"
         },
         "high": {
           "anyOf": [
@@ -4329,7 +4242,7 @@
             }
           ],
           "default": null,
-          "title": "HighLeaf"
+          "title": "High"
         },
         "max": {
           "anyOf": [
@@ -4343,7 +4256,7 @@
             }
           ],
           "default": null,
-          "title": "MaxLeaf"
+          "title": "Max"
         },
         "oom": {
           "anyOf": [
@@ -4357,7 +4270,7 @@
             }
           ],
           "default": null,
-          "title": "OomLeaf"
+          "title": "Oom"
         },
         "oom_kill": {
           "anyOf": [
@@ -4371,7 +4284,7 @@
             }
           ],
           "default": null,
-          "title": "Oom-killLeaf"
+          "title": "Oom Kill"
         }
       },
       "title": "MemoryEventsContainer",
@@ -4392,7 +4305,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf"
+          "title": "Current"
         },
         "current_swap": {
           "anyOf": [
@@ -4406,7 +4319,7 @@
             }
           ],
           "default": null,
-          "title": "Current-swapLeaf"
+          "title": "Current Swap"
         },
         "anon": {
           "anyOf": [
@@ -4420,7 +4333,7 @@
             }
           ],
           "default": null,
-          "title": "AnonLeaf"
+          "title": "Anon"
         },
         "kernel_stack": {
           "anyOf": [
@@ -4434,7 +4347,7 @@
             }
           ],
           "default": null,
-          "title": "Kernel-stackLeaf"
+          "title": "Kernel Stack"
         },
         "slab": {
           "anyOf": [
@@ -4448,7 +4361,7 @@
             }
           ],
           "default": null,
-          "title": "SlabLeaf"
+          "title": "Slab"
         },
         "sock": {
           "anyOf": [
@@ -4462,7 +4375,7 @@
             }
           ],
           "default": null,
-          "title": "SockLeaf"
+          "title": "Sock"
         },
         "anon_thp": {
           "anyOf": [
@@ -4476,7 +4389,7 @@
             }
           ],
           "default": null,
-          "title": "Anon-thpLeaf"
+          "title": "Anon Thp"
         },
         "file": {
           "anyOf": [
@@ -4490,7 +4403,7 @@
             }
           ],
           "default": null,
-          "title": "FileLeaf"
+          "title": "File"
         },
         "file_writeback": {
           "anyOf": [
@@ -4504,7 +4417,7 @@
             }
           ],
           "default": null,
-          "title": "File-writebackLeaf"
+          "title": "File Writeback"
         },
         "file_dirty": {
           "anyOf": [
@@ -4518,7 +4431,7 @@
             }
           ],
           "default": null,
-          "title": "File-dirtyLeaf"
+          "title": "File Dirty"
         },
         "memory_events": {
           "anyOf": [
@@ -4538,18 +4451,10 @@
     "MidPoolListEntry": {
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf11"
+          "maximum": 255,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "operational_size": {
           "anyOf": [
@@ -4563,7 +4468,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-sizeLeaf3"
+          "title": "Operational Size"
         },
         "used": {
           "anyOf": [
@@ -4577,9 +4482,12 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf8"
+          "title": "Used"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "MidPoolListEntry",
       "type": "object"
     },
@@ -4629,18 +4537,10 @@
       "description": "List of next hop groups (NHGs) in the FIB table",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 18446744073709551615,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Index"
+          "maximum": 18446744073709551615,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "oper_state": {
           "anyOf": [
@@ -4651,8 +4551,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf5"
+          "default": null
         },
         "backup_next_hop_group": {
           "anyOf": [
@@ -4666,7 +4565,7 @@
             }
           ],
           "default": null,
-          "title": "Backup-next-hop-groupLeaf"
+          "title": "Backup Next Hop Group"
         },
         "backup_active": {
           "anyOf": [
@@ -4678,7 +4577,7 @@
             }
           ],
           "default": null,
-          "title": "Backup-activeLeaf"
+          "title": "Backup Active"
         },
         "next_hop": {
           "anyOf": [
@@ -4696,6 +4595,9 @@
           "title": "Next Hop"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "NextHopGroupListEntry",
       "type": "object"
     },
@@ -4714,7 +4616,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-addLeaf2"
+          "title": "Entries Remaining To Add"
         },
         "entries_remaining_to_modify": {
           "anyOf": [
@@ -4728,7 +4630,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-modifyLeaf2"
+          "title": "Entries Remaining To Modify"
         },
         "last_sync_time": {
           "anyOf": [
@@ -4741,7 +4643,7 @@
             }
           ],
           "default": null,
-          "title": "Last-sync-timeLeaf2"
+          "title": "Last Sync Time"
         }
       },
       "title": "NextHopGroupsContainer",
@@ -4762,7 +4664,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-addLeaf4"
+          "title": "Entries Remaining To Add"
         },
         "entries_remaining_to_modify": {
           "anyOf": [
@@ -4776,7 +4678,7 @@
             }
           ],
           "default": null,
-          "title": "Entries-remaining-to-modifyLeaf4"
+          "title": "Entries Remaining To Modify"
         },
         "last_sync_time": {
           "anyOf": [
@@ -4789,7 +4691,7 @@
             }
           ],
           "default": null,
-          "title": "Last-sync-timeLeaf4"
+          "title": "Last Sync Time"
         }
       },
       "title": "NextHopGroupsContainer2",
@@ -4798,18 +4700,10 @@
     "NextHopListEntry": {
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "maximum": 1023,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf"
+          "maximum": 1023,
+          "minimum": 0,
+          "title": "Id",
+          "type": "integer"
         },
         "next_hop": {
           "anyOf": [
@@ -4823,7 +4717,7 @@
             }
           ],
           "default": null,
-          "title": "Next-hopLeaf"
+          "title": "Next Hop"
         },
         "oper_state": {
           "anyOf": [
@@ -4834,8 +4728,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf6"
+          "default": null
         },
         "normalized_weight": {
           "anyOf": [
@@ -4849,9 +4742,12 @@
             }
           ],
           "default": null,
-          "title": "Normalized-weightLeaf"
+          "title": "Normalized Weight"
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "NextHopListEntry",
       "type": "object"
     },
@@ -4870,7 +4766,7 @@
             }
           ],
           "default": null,
-          "title": "IdleLeaf"
+          "title": "Idle"
         },
         "instant": {
           "anyOf": [
@@ -4884,7 +4780,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf13"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -4898,7 +4794,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf9"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -4912,7 +4808,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf9"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -4926,7 +4822,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf9"
+          "title": "Average 15"
         }
       },
       "title": "NicContainer",
@@ -4947,7 +4843,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf6"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -4961,7 +4857,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf4"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -4975,7 +4871,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf4"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -4989,7 +4885,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf4"
+          "title": "Average 15"
         }
       },
       "title": "NiceContainer",
@@ -5010,7 +4906,7 @@
             }
           ],
           "default": null,
-          "title": "VoltageLeaf2"
+          "title": "Voltage"
         },
         "current": {
           "anyOf": [
@@ -5024,7 +4920,7 @@
             }
           ],
           "default": null,
-          "title": "CurrentLeaf3"
+          "title": "Current"
         },
         "power": {
           "anyOf": [
@@ -5038,7 +4934,7 @@
             }
           ],
           "default": null,
-          "title": "PowerLeaf2"
+          "title": "Power"
         }
       },
       "title": "OutputContainer",
@@ -5059,7 +4955,7 @@
             }
           ],
           "default": 60,
-          "title": "Synchronization-frequencyLeaf"
+          "title": "Synchronization Frequency"
         },
         "last_synchronization": {
           "anyOf": [
@@ -5072,7 +4968,7 @@
             }
           ],
           "default": null,
-          "title": "Last-synchronizationLeaf2"
+          "title": "Last Synchronization"
         },
         "next_synchronization": {
           "anyOf": [
@@ -5085,7 +4981,7 @@
             }
           ],
           "default": null,
-          "title": "Next-synchronizationLeaf"
+          "title": "Next Synchronization"
         }
       },
       "title": "OverlayContainer",
@@ -5097,7 +4993,7 @@
         "id": {
           "maximum": 18446744073709551615,
           "minimum": 1,
-          "title": "IdLeaf2",
+          "title": "Id",
           "type": "integer"
         }
       },
@@ -5122,7 +5018,7 @@
             }
           ],
           "default": 0,
-          "title": "Extracted-packetsLeaf"
+          "title": "Extracted Packets"
         },
         "extracted_octets": {
           "anyOf": [
@@ -5136,7 +5032,7 @@
             }
           ],
           "default": 0,
-          "title": "Extracted-octetsLeaf"
+          "title": "Extracted Octets"
         },
         "extraction_reason": {
           "anyOf": [
@@ -5161,16 +5057,8 @@
       "description": "List of partitions available on this disk",
       "properties": {
         "name": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf12"
+          "title": "Name",
+          "type": "string"
         },
         "uuid": {
           "anyOf": [
@@ -5182,7 +5070,7 @@
             }
           ],
           "default": null,
-          "title": "UuidLeaf"
+          "title": "Uuid"
         },
         "mount_point": {
           "anyOf": [
@@ -5194,7 +5082,7 @@
             }
           ],
           "default": null,
-          "title": "Mount-pointLeaf"
+          "title": "Mount Point"
         },
         "mount_status": {
           "anyOf": [
@@ -5205,8 +5093,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Mount-statusLeaf"
+          "default": null
         },
         "size": {
           "anyOf": [
@@ -5220,7 +5107,7 @@
             }
           ],
           "default": null,
-          "title": "SizeLeaf2"
+          "title": "Size"
         },
         "used": {
           "anyOf": [
@@ -5234,7 +5121,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf12"
+          "title": "Used"
         },
         "free": {
           "anyOf": [
@@ -5248,7 +5135,7 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf7"
+          "title": "Free"
         },
         "percent_used": {
           "anyOf": [
@@ -5262,7 +5149,7 @@
             }
           ],
           "default": null,
-          "title": "Percent-usedLeaf"
+          "title": "Percent Used"
         },
         "encrypted": {
           "anyOf": [
@@ -5274,11 +5161,20 @@
             }
           ],
           "default": null,
-          "title": "EncryptedLeaf2"
+          "title": "Encrypted"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "PartitionListEntry",
       "type": "object"
+    },
+    "PcrIndexLeafList": {
+      "maximum": 31,
+      "minimum": 0,
+      "title": "PcrIndexLeafList",
+      "type": "integer"
     },
     "PipelineCountersContainer": {
       "description": "Top-level container for the packet counters associated with the different NPU sub-blocks.",
@@ -5308,13 +5204,9 @@
             },
             {
               "$ref": "#/$defs/EnumerationEnum7"
-            },
-            {
-              "type": "null"
             }
           ],
-          "default": null,
-          "title": "IndexLeaf5"
+          "title": "Index"
         },
         "pipeline_counters": {
           "anyOf": [
@@ -5339,6 +5231,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "PipelineListEntry",
       "type": "object"
     },
@@ -5505,7 +5400,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf"
+          "title": "Allocated"
         },
         "used": {
           "anyOf": [
@@ -5519,7 +5414,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf10"
+          "title": "Used"
         },
         "required": {
           "anyOf": [
@@ -5533,7 +5428,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf"
+          "title": "Required"
         }
       },
       "title": "PowerContainer",
@@ -5554,7 +5449,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf2"
+          "title": "Allocated"
         },
         "used": {
           "anyOf": [
@@ -5568,7 +5463,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf11"
+          "title": "Used"
         },
         "required": {
           "anyOf": [
@@ -5582,7 +5477,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf2"
+          "title": "Required"
         }
       },
       "title": "PowerContainer2",
@@ -5676,7 +5571,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf8"
+          "title": "Allocated"
         },
         "used": {
           "anyOf": [
@@ -5690,7 +5585,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf18"
+          "title": "Used"
         },
         "required": {
           "anyOf": [
@@ -5704,7 +5599,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf8"
+          "title": "Required"
         }
       },
       "title": "PowerContainer4",
@@ -5725,7 +5620,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf9"
+          "title": "Allocated"
         },
         "used": {
           "anyOf": [
@@ -5739,7 +5634,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf19"
+          "title": "Used"
         },
         "required": {
           "anyOf": [
@@ -5753,7 +5648,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf9"
+          "title": "Required"
         }
       },
       "title": "PowerContainer5",
@@ -5763,18 +5658,10 @@
       "description": "Top-level container for power supply module configuration and state",
       "properties": {
         "id": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 1,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IdLeaf5"
+          "maximum": 255,
+          "minimum": 1,
+          "title": "Id",
+          "type": "integer"
         },
         "type": {
           "anyOf": [
@@ -5786,7 +5673,7 @@
             }
           ],
           "default": null,
-          "title": "TypeLeaf8"
+          "title": "Type"
         },
         "capacity": {
           "anyOf": [
@@ -5800,7 +5687,7 @@
             }
           ],
           "default": null,
-          "title": "CapacityLeaf2"
+          "title": "Capacity"
         },
         "fan": {
           "anyOf": [
@@ -5859,8 +5746,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-reasonLeaf2"
+          "default": null
         },
         "oper_state": {
           "anyOf": [
@@ -5871,8 +5757,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Oper-stateLeaf12"
+          "default": null
         },
         "last_booted": {
           "anyOf": [
@@ -5885,17 +5770,19 @@
             }
           ],
           "default": null,
-          "title": "Last-bootedLeaf7"
+          "title": "Last Booted"
         },
         "last_booted_reason": {
           "anyOf": [
-            {},
+            {
+              "type": "string"
+            },
             {
               "type": "null"
             }
           ],
           "default": null,
-          "title": "Last-booted-reasonLeaf7"
+          "title": "Last Booted Reason"
         },
         "last_change": {
           "anyOf": [
@@ -5908,7 +5795,7 @@
             }
           ],
           "default": null,
-          "title": "Last-changeLeaf7"
+          "title": "Last Change"
         },
         "part_number": {
           "anyOf": [
@@ -5920,7 +5807,7 @@
             }
           ],
           "default": null,
-          "title": "Part-numberLeaf7"
+          "title": "Part Number"
         },
         "removable": {
           "anyOf": [
@@ -5932,7 +5819,7 @@
             }
           ],
           "default": null,
-          "title": "RemovableLeaf7"
+          "title": "Removable"
         },
         "failure_reason": {
           "anyOf": [
@@ -5944,7 +5831,7 @@
             }
           ],
           "default": null,
-          "title": "Failure-reasonLeaf6"
+          "title": "Failure Reason"
         },
         "clei_code": {
           "anyOf": [
@@ -5956,7 +5843,7 @@
             }
           ],
           "default": null,
-          "title": "Clei-codeLeaf6"
+          "title": "Clei Code"
         },
         "serial_number": {
           "anyOf": [
@@ -5968,7 +5855,7 @@
             }
           ],
           "default": null,
-          "title": "Serial-numberLeaf7"
+          "title": "Serial Number"
         },
         "manufactured_date": {
           "anyOf": [
@@ -5981,7 +5868,7 @@
             }
           ],
           "default": null,
-          "title": "Manufactured-dateLeaf6"
+          "title": "Manufactured Date"
         },
         "temperature": {
           "anyOf": [
@@ -6006,6 +5893,9 @@
           "default": null
         }
       },
+      "required": [
+        "id"
+      ],
       "title": "PowerSupplyListEntry",
       "type": "object"
     },
@@ -6013,18 +5903,10 @@
       "description": "List of system processes",
       "properties": {
         "pid": {
-          "anyOf": [
-            {
-              "maximum": 18446744073709551615,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "PidLeaf"
+          "maximum": 18446744073709551615,
+          "minimum": 0,
+          "title": "Pid",
+          "type": "integer"
         },
         "name": {
           "anyOf": [
@@ -6036,7 +5918,7 @@
             }
           ],
           "default": null,
-          "title": "NameLeaf10"
+          "title": "Name"
         },
         "args": {
           "anyOf": [
@@ -6064,7 +5946,7 @@
             }
           ],
           "default": null,
-          "title": "Start-timeLeaf"
+          "title": "Start Time"
         },
         "cpu_utilization": {
           "anyOf": [
@@ -6078,7 +5960,7 @@
             }
           ],
           "default": null,
-          "title": "Cpu-utilizationLeaf"
+          "title": "Cpu Utilization"
         },
         "memory_usage": {
           "anyOf": [
@@ -6092,7 +5974,7 @@
             }
           ],
           "default": null,
-          "title": "Memory-usageLeaf"
+          "title": "Memory Usage"
         },
         "memory_utilization": {
           "anyOf": [
@@ -6106,9 +5988,12 @@
             }
           ],
           "default": null,
-          "title": "Memory-utilizationLeaf"
+          "title": "Memory Utilization"
         }
       },
+      "required": [
+        "pid"
+      ],
       "title": "ProcessListEntry",
       "type": "object"
     },
@@ -6239,8 +6124,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "Active-moduleLeaf"
+          "default": null
         },
         "failover_time": {
           "anyOf": [
@@ -6253,7 +6137,7 @@
             }
           ],
           "default": null,
-          "title": "Failover-timeLeaf"
+          "title": "Failover Time"
         },
         "synchronization": {
           "anyOf": [
@@ -6282,8 +6166,7 @@
               "type": "null"
             }
           ],
-          "default": "none",
-          "title": "ModeLeaf"
+          "default": "none"
         },
         "status": {
           "anyOf": [
@@ -6294,8 +6177,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StatusLeaf3"
+          "default": null
         }
       },
       "title": "RedundancyContainer2",
@@ -6305,18 +6187,10 @@
       "description": "Resource-group resources for the given interface-group-resource-pool\n\nDescribes the number of resource-sets used and free within the resource-group.\nA resource-set consists of 16 output-queues, 16 tier-0 queue-schedulers and 1 tier-1 queue-scheduler, which is allocated to every configured subinterface.",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 61,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf9"
+          "maximum": 61,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "resource_sets": {
           "anyOf": [
@@ -6330,6 +6204,9 @@
           "default": null
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "ResourceGroupListEntry",
       "type": "object"
     },
@@ -6347,7 +6224,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf2"
+          "title": "Used"
         },
         "free": {
           "anyOf": [
@@ -6361,7 +6238,7 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf2"
+          "title": "Free"
         }
       },
       "title": "ResourceGroupsContainer",
@@ -6371,14 +6248,8 @@
       "description": "List of generic datapath resources.",
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf3"
+          "title": "Name",
+          "type": "string"
         },
         "used_percent": {
           "anyOf": [
@@ -6392,7 +6263,7 @@
             }
           ],
           "default": null,
-          "title": "Used-percentLeaf"
+          "title": "Used Percent"
         },
         "used_entries": {
           "anyOf": [
@@ -6406,7 +6277,7 @@
             }
           ],
           "default": null,
-          "title": "Used-entriesLeaf"
+          "title": "Used Entries"
         },
         "free_entries": {
           "anyOf": [
@@ -6420,23 +6291,20 @@
             }
           ],
           "default": null,
-          "title": "Free-entriesLeaf"
+          "title": "Free Entries"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry",
       "type": "object"
     },
     "ResourceListEntry2": {
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf4"
+          "title": "Name",
+          "type": "string"
         },
         "used": {
           "anyOf": [
@@ -6450,7 +6318,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf"
+          "title": "Used"
         },
         "free": {
           "anyOf": [
@@ -6464,23 +6332,20 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf"
+          "title": "Free"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry2",
       "type": "object"
     },
     "ResourceListEntry3": {
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf5"
+          "title": "Name",
+          "type": "string"
         },
         "used": {
           "anyOf": [
@@ -6494,7 +6359,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf9"
+          "title": "Used"
         },
         "free": {
           "anyOf": [
@@ -6508,9 +6373,12 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf6"
+          "title": "Free"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry3",
       "type": "object"
     },
@@ -6518,14 +6386,8 @@
       "description": "List of generic datapath resources.",
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf6"
+          "title": "Name",
+          "type": "string"
         },
         "used_percent": {
           "anyOf": [
@@ -6539,7 +6401,7 @@
             }
           ],
           "default": null,
-          "title": "Used-percentLeaf2"
+          "title": "Used Percent"
         },
         "used_entries": {
           "anyOf": [
@@ -6553,7 +6415,7 @@
             }
           ],
           "default": null,
-          "title": "Used-entriesLeaf2"
+          "title": "Used Entries"
         },
         "free_entries": {
           "anyOf": [
@@ -6567,7 +6429,7 @@
             }
           ],
           "default": null,
-          "title": "Free-entriesLeaf2"
+          "title": "Free Entries"
         },
         "used_high_watermark": {
           "anyOf": [
@@ -6581,7 +6443,7 @@
             }
           ],
           "default": null,
-          "title": "Used-high-watermarkLeaf"
+          "title": "Used High Watermark"
         },
         "used_last_high_watermark_time": {
           "anyOf": [
@@ -6594,7 +6456,7 @@
             }
           ],
           "default": null,
-          "title": "Used-last-high-watermark-timeLeaf"
+          "title": "Used Last High Watermark Time"
         },
         "used_upper_threshold_exceeded": {
           "anyOf": [
@@ -6606,9 +6468,12 @@
             }
           ],
           "default": null,
-          "title": "Used-upper-threshold-exceededLeaf"
+          "title": "Used Upper Threshold Exceeded"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry4",
       "type": "object"
     },
@@ -6616,14 +6481,8 @@
       "description": "List of ASIC-specific datapath resources.",
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf7"
+          "title": "Name",
+          "type": "string"
         },
         "used_percent": {
           "anyOf": [
@@ -6637,7 +6496,7 @@
             }
           ],
           "default": null,
-          "title": "Used-percentLeaf3"
+          "title": "Used Percent"
         },
         "used_entries": {
           "anyOf": [
@@ -6651,7 +6510,7 @@
             }
           ],
           "default": null,
-          "title": "Used-entriesLeaf3"
+          "title": "Used Entries"
         },
         "free_entries": {
           "anyOf": [
@@ -6665,7 +6524,7 @@
             }
           ],
           "default": null,
-          "title": "Free-entriesLeaf3"
+          "title": "Free Entries"
         },
         "used_high_watermark": {
           "anyOf": [
@@ -6679,7 +6538,7 @@
             }
           ],
           "default": null,
-          "title": "Used-high-watermarkLeaf2"
+          "title": "Used High Watermark"
         },
         "used_last_high_watermark_time": {
           "anyOf": [
@@ -6692,7 +6551,7 @@
             }
           ],
           "default": null,
-          "title": "Used-last-high-watermark-timeLeaf2"
+          "title": "Used Last High Watermark Time"
         },
         "used_upper_threshold_exceeded": {
           "anyOf": [
@@ -6704,23 +6563,20 @@
             }
           ],
           "default": null,
-          "title": "Used-upper-threshold-exceededLeaf2"
+          "title": "Used Upper Threshold Exceeded"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry5",
       "type": "object"
     },
     "ResourceListEntry6": {
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf13"
+          "title": "Name",
+          "type": "string"
         },
         "rising_threshold_log": {
           "anyOf": [
@@ -6734,7 +6590,7 @@
             }
           ],
           "default": 90,
-          "title": "Rising-threshold-logLeaf"
+          "title": "Rising Threshold Log"
         },
         "falling_threshold_log": {
           "anyOf": [
@@ -6748,23 +6604,20 @@
             }
           ],
           "default": 70,
-          "title": "Falling-threshold-logLeaf"
+          "title": "Falling Threshold Log"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry6",
       "type": "object"
     },
     "ResourceListEntry7": {
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf14"
+          "title": "Name",
+          "type": "string"
         },
         "rising_threshold_log": {
           "anyOf": [
@@ -6778,7 +6631,7 @@
             }
           ],
           "default": 90,
-          "title": "Rising-threshold-logLeaf2"
+          "title": "Rising Threshold Log"
         },
         "falling_threshold_log": {
           "anyOf": [
@@ -6792,9 +6645,12 @@
             }
           ],
           "default": 70,
-          "title": "Falling-threshold-logLeaf2"
+          "title": "Falling Threshold Log"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry7",
       "type": "object"
     },
@@ -6802,14 +6658,8 @@
       "description": "List of generic datapath resources",
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf15"
+          "title": "Name",
+          "type": "string"
         },
         "upper_threshold_set": {
           "anyOf": [
@@ -6823,7 +6673,7 @@
             }
           ],
           "default": 90,
-          "title": "Upper-threshold-setLeaf"
+          "title": "Upper Threshold Set"
         },
         "upper_threshold_clear": {
           "anyOf": [
@@ -6837,9 +6687,12 @@
             }
           ],
           "default": 70,
-          "title": "Upper-threshold-clearLeaf"
+          "title": "Upper Threshold Clear"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry8",
       "type": "object"
     },
@@ -6847,14 +6700,8 @@
       "description": "List of ASIC-specific datapath resources",
       "properties": {
         "name": {
-          "anyOf": [
-            {},
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "NameLeaf16"
+          "title": "Name",
+          "type": "string"
         },
         "upper_threshold_set": {
           "anyOf": [
@@ -6868,7 +6715,7 @@
             }
           ],
           "default": 90,
-          "title": "Upper-threshold-setLeaf2"
+          "title": "Upper Threshold Set"
         },
         "upper_threshold_clear": {
           "anyOf": [
@@ -6882,9 +6729,12 @@
             }
           ],
           "default": 70,
-          "title": "Upper-threshold-clearLeaf2"
+          "title": "Upper Threshold Clear"
         }
       },
+      "required": [
+        "name"
+      ],
       "title": "ResourceListEntry9",
       "type": "object"
     },
@@ -6959,18 +6809,10 @@
     "ResourceSetPoolListEntry": {
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 1,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf7"
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "resource_groups": {
           "anyOf": [
@@ -6999,6 +6841,9 @@
           "title": "Interface Group Resource Pool"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "ResourceSetPoolListEntry",
       "type": "object"
     },
@@ -7016,7 +6861,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf3"
+          "title": "Used"
         },
         "free": {
           "anyOf": [
@@ -7030,7 +6875,7 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf3"
+          "title": "Free"
         }
       },
       "title": "ResourceSetsContainer",
@@ -7039,18 +6884,10 @@
     "RootPoolListEntry": {
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 255,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf10"
+          "maximum": 255,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "operational_size": {
           "anyOf": [
@@ -7064,7 +6901,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-sizeLeaf2"
+          "title": "Operational Size"
         },
         "used": {
           "anyOf": [
@@ -7078,7 +6915,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf7"
+          "title": "Used"
         },
         "mid_pool": {
           "anyOf": [
@@ -7096,6 +6933,9 @@
           "title": "Mid Pool"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "RootPoolListEntry",
       "type": "object"
     },
@@ -7125,18 +6965,10 @@
       "description": "List of SHA-1 hash digests",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf2"
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "digest_value": {
           "anyOf": [
@@ -7150,9 +6982,12 @@
             }
           ],
           "default": null,
-          "title": "Digest-valueLeaf"
+          "title": "Digest Value"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "Sha1HashListEntry",
       "type": "object"
     },
@@ -7160,18 +6995,10 @@
       "description": "List of SHA-256 hash digests of X.509 certificates",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf4"
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "digest_value": {
           "anyOf": [
@@ -7185,7 +7012,7 @@
             }
           ],
           "default": null,
-          "title": "Digest-valueLeaf3"
+          "title": "Digest Value"
         },
         "revocation_time": {
           "anyOf": [
@@ -7197,9 +7024,12 @@
             }
           ],
           "default": null,
-          "title": "Revocation-timeLeaf"
+          "title": "Revocation Time"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "Sha256HashCertListEntry",
       "type": "object"
     },
@@ -7207,18 +7037,10 @@
       "description": "List of SHA-256 hash digests",
       "properties": {
         "index": {
-          "anyOf": [
-            {
-              "maximum": 4294967295,
-              "minimum": 0,
-              "type": "integer"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "IndexLeaf3"
+          "maximum": 4294967295,
+          "minimum": 0,
+          "title": "Index",
+          "type": "integer"
         },
         "digest_value": {
           "anyOf": [
@@ -7232,9 +7054,12 @@
             }
           ],
           "default": null,
-          "title": "Digest-valueLeaf2"
+          "title": "Digest Value"
         }
       },
+      "required": [
+        "index"
+      ],
       "title": "Sha256HashListEntry",
       "type": "object"
     },
@@ -7253,7 +7078,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf10"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -7267,7 +7092,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf8"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -7281,7 +7106,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf8"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -7295,7 +7120,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf8"
+          "title": "Average 15"
         }
       },
       "title": "SoftwareInterruptContainer",
@@ -7316,7 +7141,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf5"
+          "title": "Used"
         },
         "free": {
           "anyOf": [
@@ -7330,7 +7155,7 @@
             }
           ],
           "default": null,
-          "title": "FreeLeaf5"
+          "title": "Free"
         }
       },
       "title": "SramContainer",
@@ -7351,7 +7176,7 @@
             }
           ],
           "default": null,
-          "title": "UtilizationLeaf"
+          "title": "Utilization"
         },
         "transfers_per_second": {
           "anyOf": [
@@ -7365,7 +7190,7 @@
             }
           ],
           "default": null,
-          "title": "Transfers-per-secondLeaf"
+          "title": "Transfers Per Second"
         },
         "read_per_second": {
           "anyOf": [
@@ -7379,7 +7204,7 @@
             }
           ],
           "default": null,
-          "title": "Read-per-secondLeaf"
+          "title": "Read Per Second"
         },
         "written_per_second": {
           "anyOf": [
@@ -7393,7 +7218,7 @@
             }
           ],
           "default": null,
-          "title": "Written-per-secondLeaf"
+          "title": "Written Per Second"
         },
         "io_errors": {
           "anyOf": [
@@ -7407,7 +7232,7 @@
             }
           ],
           "default": null,
-          "title": "Io-errorsLeaf"
+          "title": "Io Errors"
         },
         "max_erase_count": {
           "anyOf": [
@@ -7421,7 +7246,7 @@
             }
           ],
           "default": null,
-          "title": "Max-erase-countLeaf"
+          "title": "Max Erase Count"
         }
       },
       "title": "StatisticsContainer",
@@ -7468,8 +7293,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "StateLeaf"
+          "default": null
         },
         "state_reason": {
           "anyOf": [
@@ -7481,7 +7305,7 @@
             }
           ],
           "default": null,
-          "title": "State-reasonLeaf"
+          "title": "State Reason"
         },
         "last_synchronization": {
           "anyOf": [
@@ -7494,7 +7318,7 @@
             }
           ],
           "default": null,
-          "title": "Last-synchronizationLeaf"
+          "title": "Last Synchronization"
         },
         "overlay": {
           "anyOf": [
@@ -7526,7 +7350,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf5"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -7540,7 +7364,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf3"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -7554,7 +7378,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf3"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -7568,7 +7392,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf3"
+          "title": "Average 15"
         }
       },
       "title": "SystemContainer",
@@ -7589,7 +7413,7 @@
             }
           ],
           "default": null,
-          "title": "Operational-sizeLeaf"
+          "title": "Operational Size"
         }
       },
       "title": "SystemReservedPoolContainer",
@@ -7616,7 +7440,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf"
+          "title": "Instant"
         },
         "maximum": {
           "anyOf": [
@@ -7630,7 +7454,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf"
+          "title": "Maximum"
         },
         "maximum_time": {
           "anyOf": [
@@ -7643,7 +7467,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-timeLeaf"
+          "title": "Maximum Time"
         },
         "alarm_status": {
           "anyOf": [
@@ -7655,7 +7479,7 @@
             }
           ],
           "default": null,
-          "title": "Alarm-statusLeaf"
+          "title": "Alarm Status"
         },
         "margin": {
           "anyOf": [
@@ -7669,7 +7493,7 @@
             }
           ],
           "default": null,
-          "title": "MarginLeaf"
+          "title": "Margin"
         }
       },
       "title": "TemperatureContainer",
@@ -7690,7 +7514,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf2"
+          "title": "Instant"
         },
         "maximum": {
           "anyOf": [
@@ -7704,7 +7528,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf2"
+          "title": "Maximum"
         },
         "maximum_time": {
           "anyOf": [
@@ -7717,7 +7541,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-timeLeaf2"
+          "title": "Maximum Time"
         },
         "alarm_status": {
           "anyOf": [
@@ -7729,7 +7553,7 @@
             }
           ],
           "default": null,
-          "title": "Alarm-statusLeaf2"
+          "title": "Alarm Status"
         },
         "margin": {
           "anyOf": [
@@ -7743,7 +7567,7 @@
             }
           ],
           "default": null,
-          "title": "MarginLeaf2"
+          "title": "Margin"
         }
       },
       "title": "TemperatureContainer2",
@@ -7764,7 +7588,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf11"
+          "title": "Instant"
         },
         "maximum": {
           "anyOf": [
@@ -7778,7 +7602,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf3"
+          "title": "Maximum"
         },
         "maximum_time": {
           "anyOf": [
@@ -7791,7 +7615,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-timeLeaf3"
+          "title": "Maximum Time"
         },
         "alarm_status": {
           "anyOf": [
@@ -7803,7 +7627,7 @@
             }
           ],
           "default": null,
-          "title": "Alarm-statusLeaf3"
+          "title": "Alarm Status"
         },
         "margin": {
           "anyOf": [
@@ -7817,7 +7641,7 @@
             }
           ],
           "default": null,
-          "title": "MarginLeaf3"
+          "title": "Margin"
         }
       },
       "title": "TemperatureContainer3",
@@ -7838,7 +7662,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf12"
+          "title": "Instant"
         },
         "maximum": {
           "anyOf": [
@@ -7852,7 +7676,7 @@
             }
           ],
           "default": null,
-          "title": "MaximumLeaf4"
+          "title": "Maximum"
         },
         "maximum_time": {
           "anyOf": [
@@ -7865,7 +7689,7 @@
             }
           ],
           "default": null,
-          "title": "Maximum-timeLeaf4"
+          "title": "Maximum Time"
         },
         "alarm_status": {
           "anyOf": [
@@ -7877,7 +7701,7 @@
             }
           ],
           "default": null,
-          "title": "Alarm-statusLeaf4"
+          "title": "Alarm Status"
         }
       },
       "title": "TemperatureContainer4",
@@ -7898,7 +7722,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf3"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -7912,7 +7736,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -7926,7 +7750,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -7940,7 +7764,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf"
+          "title": "Average 15"
         }
       },
       "title": "TotalContainer",
@@ -7961,7 +7785,7 @@
             }
           ],
           "default": null,
-          "title": "CapacityLeaf"
+          "title": "Capacity"
         },
         "allocated": {
           "anyOf": [
@@ -7975,7 +7799,7 @@
             }
           ],
           "default": null,
-          "title": "AllocatedLeaf3"
+          "title": "Allocated"
         },
         "required": {
           "anyOf": [
@@ -7989,7 +7813,7 @@
             }
           ],
           "default": null,
-          "title": "RequiredLeaf3"
+          "title": "Required"
         },
         "used": {
           "anyOf": [
@@ -8003,7 +7827,7 @@
             }
           ],
           "default": null,
-          "title": "UsedLeaf13"
+          "title": "Used"
         },
         "peak": {
           "anyOf": [
@@ -8017,7 +7841,7 @@
             }
           ],
           "default": null,
-          "title": "PeakLeaf"
+          "title": "Peak"
         }
       },
       "title": "TotalContainer2",
@@ -8027,26 +7851,16 @@
       "description": "Specifies the list of PCRs that may be extracted for a specific Hash Algorithm\nA TPM2.0 bank is a set of PCRs which are extended using a particular hash algorithm",
       "properties": {
         "tpm20_hash_algo": {
-          "anyOf": [
-            {
-              "pattern": "^(?=^sha1|sha256$).*$",
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "Tpm20-hash-algoLeaf"
+          "pattern": "^(?=^sha1|sha256$).*$",
+          "title": "Tpm20 Hash Algo",
+          "type": "string"
         },
         "pcr_index": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/PcrIndexLeafList"
               },
-              "le": 31,
               "type": "array"
             },
             {
@@ -8057,6 +7871,9 @@
           "title": "Pcr Index"
         }
       },
+      "required": [
+        "tpm20_hash_algo"
+      ],
       "title": "Tpm20PcrBankListEntry",
       "type": "object"
     },
@@ -8114,16 +7931,8 @@
       "description": "Content of the UEFI Secure Boot variables programmed in the control module",
       "properties": {
         "variable": {
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": null,
-          "title": "VariableLeaf"
+          "title": "Variable",
+          "type": "string"
         },
         "contents": {
           "anyOf": [
@@ -8137,6 +7946,9 @@
           "default": null
         }
       },
+      "required": [
+        "variable"
+      ],
       "title": "UefiVariablesListEntry",
       "type": "object"
     },
@@ -8153,7 +7965,7 @@
             }
           ],
           "default": null,
-          "title": "Modification-dataset-presentLeaf"
+          "title": "Modification Dataset Present"
         },
         "modification_dataset_valid": {
           "anyOf": [
@@ -8165,7 +7977,7 @@
             }
           ],
           "default": null,
-          "title": "Modification-dataset-validLeaf"
+          "title": "Modification Dataset Valid"
         },
         "up_to_date": {
           "anyOf": [
@@ -8177,7 +7989,7 @@
             }
           ],
           "default": null,
-          "title": "Up-to-dateLeaf"
+          "title": "Up To Date"
         },
         "dbx_update_required": {
           "anyOf": [
@@ -8189,7 +8001,7 @@
             }
           ],
           "default": null,
-          "title": "Dbx-update-requiredLeaf"
+          "title": "Dbx Update Required"
         },
         "db_update_required": {
           "anyOf": [
@@ -8201,7 +8013,7 @@
             }
           ],
           "default": null,
-          "title": "Db-update-requiredLeaf"
+          "title": "Db Update Required"
         },
         "pk_update_required": {
           "anyOf": [
@@ -8213,7 +8025,7 @@
             }
           ],
           "default": null,
-          "title": "Pk-update-requiredLeaf"
+          "title": "Pk Update Required"
         },
         "kek_update_required": {
           "anyOf": [
@@ -8225,7 +8037,7 @@
             }
           ],
           "default": null,
-          "title": "Kek-update-requiredLeaf"
+          "title": "Kek Update Required"
         },
         "modification_dataset_db_conflict": {
           "anyOf": [
@@ -8237,7 +8049,7 @@
             }
           ],
           "default": null,
-          "title": "Modification-dataset-db-conflictLeaf"
+          "title": "Modification Dataset Db Conflict"
         },
         "modification_dataset_dbx_conflict": {
           "anyOf": [
@@ -8249,7 +8061,7 @@
             }
           ],
           "default": null,
-          "title": "Modification-dataset-dbx-conflictLeaf"
+          "title": "Modification Dataset Dbx Conflict"
         },
         "modification_dataset_digest": {
           "anyOf": [
@@ -8263,7 +8075,7 @@
             }
           ],
           "default": null,
-          "title": "Modification-dataset-digestLeaf"
+          "title": "Modification Dataset Digest"
         }
       },
       "title": "UefiVariablesUpdateContainer",
@@ -8282,7 +8094,7 @@
             }
           ],
           "default": null,
-          "title": "Xdp-restart-requiredLeaf"
+          "title": "Xdp Restart Required"
         },
         "alpm": {
           "anyOf": [
@@ -8293,8 +8105,7 @@
               "type": "null"
             }
           ],
-          "default": null,
-          "title": "AlpmLeaf"
+          "default": null
         },
         "requested_extra_ip_host_entries": {
           "anyOf": [
@@ -8308,7 +8119,7 @@
             }
           ],
           "default": null,
-          "title": "Requested-extra-ip-host-entriesLeaf"
+          "title": "Requested Extra Ip Host Entries"
         },
         "allocated_extra_ip_host_entries": {
           "anyOf": [
@@ -8322,7 +8133,7 @@
             }
           ],
           "default": null,
-          "title": "Allocated-extra-ip-host-entriesLeaf"
+          "title": "Allocated Extra Ip Host Entries"
         },
         "allocated_extra_mac_entries": {
           "anyOf": [
@@ -8336,7 +8147,7 @@
             }
           ],
           "default": null,
-          "title": "Allocated-extra-mac-entriesLeaf"
+          "title": "Allocated Extra Mac Entries"
         },
         "ipv6_128bit_lpm_entries": {
           "anyOf": [
@@ -8350,7 +8161,7 @@
             }
           ],
           "default": null,
-          "title": "Ipv6-128bit-lpm-entriesLeaf"
+          "title": "Ipv6 128Bit Lpm Entries"
         }
       },
       "title": "UnifiedForwardingResourcesContainer",
@@ -8371,7 +8182,7 @@
             }
           ],
           "default": null,
-          "title": "InstantLeaf4"
+          "title": "Instant"
         },
         "average_1": {
           "anyOf": [
@@ -8385,7 +8196,7 @@
             }
           ],
           "default": null,
-          "title": "Average-1Leaf2"
+          "title": "Average 1"
         },
         "average_5": {
           "anyOf": [
@@ -8399,7 +8210,7 @@
             }
           ],
           "default": null,
-          "title": "Average-5Leaf2"
+          "title": "Average 5"
         },
         "average_15": {
           "anyOf": [
@@ -8413,7 +8224,7 @@
             }
           ],
           "default": null,
-          "title": "Average-15Leaf2"
+          "title": "Average 15"
         }
       },
       "title": "UserContainer",
@@ -8425,11 +8236,9 @@
         "cpu_set": {
           "anyOf": [
             {
-              "ge": 0,
               "items": {
-                "type": "integer"
+                "$ref": "#/$defs/CpuSetLeafList"
               },
-              "le": 1024,
               "type": "array"
             },
             {
