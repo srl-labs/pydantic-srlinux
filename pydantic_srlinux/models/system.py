@@ -768,9 +768,8 @@ class UserListEntry2(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-mpls-label-management:index', ge=0, le=255),
-    ] = None
+        int, Field(alias='srl_nokia-mpls-label-management:index', ge=0, le=255)
+    ]
     """
     Index number used to enumerate the clients
     """
@@ -792,9 +791,8 @@ class UserListEntry3(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-mpls-label-management:index', ge=0, le=255),
-    ] = None
+        int, Field(alias='srl_nokia-mpls-label-management:index', ge=0, le=255)
+    ]
     """
     Index number used to enumerate the clients
     """
@@ -2119,7 +2117,7 @@ class CapabilityListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-lldp:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-lldp:name')]
     """
     Name of the system capability advertised by the neighbor
 
@@ -2291,13 +2289,13 @@ class CustomTlvListEntry(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[int], Field(alias='srl_nokia-lldp:type', ge=-2147483648, le=2147483647)
-    ] = None
+        int, Field(alias='srl_nokia-lldp:type', ge=-2147483648, le=2147483647)
+    ]
     """
     The integer value identifying the type of information
     contained in the value field.
     """
-    oui: Annotated[Optional[str], Field(alias='srl_nokia-lldp:oui')] = None
+    oui: Annotated[str, Field(alias='srl_nokia-lldp:oui')]
     """
     The organizationally unique identifier field from the custom TLV
 
@@ -2307,9 +2305,7 @@ class CustomTlvListEntry(BaseModel):
     Code of the Vendor in network byte order, as defined in the
     'Assigned Numbers' RFC [RFC3232].
     """
-    oui_subtype: Annotated[Optional[str], Field(alias='srl_nokia-lldp:oui-subtype')] = (
-        None
-    )
+    oui_subtype: Annotated[str, Field(alias='srl_nokia-lldp:oui-subtype')]
     """
     The subtype value defined by the OUI for this custom TLV
 
@@ -2537,7 +2533,7 @@ class EventListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    event_type: Annotated[Optional[str], Field(alias='srl_nokia-aaa:event-type')] = None
+    event_type: Annotated[str, Field(alias='srl_nokia-aaa:event-type')]
     """
     The type of activity to record at the accounting server
     """
@@ -2557,13 +2553,13 @@ class EviListEntry(BaseModel):
         regex_engine="python-re",
     )
     start: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:start',
             ge=1,
             le=65535,
         ),
-    ] = None
+    ]
     """
     start of the evi-range for this ethernet-segment
     """
@@ -2764,8 +2760,8 @@ class InstanceListEntry4(BaseModel):
         regex_engine="python-re",
     )
     instance_number: Annotated[
-        Optional[int], Field(alias='srl_nokia-sync:instance-number', ge=0, le=255)
-    ] = None
+        int, Field(alias='srl_nokia-sync:instance-number', ge=0, le=255)
+    ]
     """
     Information regarding each SV (Space Vehicle)
     """
@@ -3199,15 +3195,14 @@ class NeighborListListEntry(BaseModel):
         regex_engine="python-re",
     )
     clock_identity: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-sync:clock-identity', max_length=8, min_length=8),
-    ] = None
+        str, Field(alias='srl_nokia-sync:clock-identity', max_length=8, min_length=8)
+    ]
     """
     The clockIdentity of this neighbor clock
     """
     port_number: Annotated[
-        Optional[int], Field(alias='srl_nokia-sync:port-number', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-sync:port-number', ge=0, le=65535)
+    ]
     """
     The port number of this neighbor clock
     """
@@ -3486,9 +3481,7 @@ class PathsListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[int], Field(alias='srl_nokia-grpc:id', ge=0, le=65535)] = (
-        None
-    )
+    id: Annotated[int, Field(alias='srl_nokia-grpc:id', ge=0, le=65535)]
     """
     System generated ID for the subscribed path (within subscription)
     """
@@ -3600,13 +3593,13 @@ class PrimaryEviRangeListEntry(BaseModel):
         regex_engine="python-re",
     )
     start_evi: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:start-evi',
             ge=1,
             le=65535,
         ),
-    ] = None
+    ]
     """
     start of the evi-range for this ethernet-segment
     """
@@ -3953,7 +3946,7 @@ class RpcListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-gnsi-authz:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-gnsi-authz:name')]
     """
     The name of the RPC the counters were collected
     for.
@@ -4012,7 +4005,7 @@ class RpcListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-grpc:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-grpc:name')]
     """
     The name of the RPC the counters were collected
     for.
@@ -4088,9 +4081,8 @@ class ServerListEntry2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[Union[Ipv4Type, Ipv6Type, DomainNameType]],
-        Field(alias='srl_nokia-ntp:address'),
-    ] = None
+        Union[Ipv4Type, Ipv6Type, DomainNameType], Field(alias='srl_nokia-ntp:address')
+    ]
     """
     Domain or IP address of the NTP server
 
@@ -4175,9 +4167,7 @@ class SessionListEntry(BaseModel):
     """
     Username linked to the session
     """
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-aaa:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-aaa:id', ge=0, le=4294967295)]
     """
     System generated session ID
     """
@@ -5940,9 +5930,7 @@ class TypeListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[EnumerationEnum8], Field(alias='srl_nokia-ssh:type')] = (
-        None
-    )
+    type: Annotated[EnumerationEnum8, Field(alias='srl_nokia-ssh:type')]
     """
     Type of generated host key
     """
@@ -6246,9 +6234,8 @@ class BgpInstanceListEntry3(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-system-network-instance-bgp-vpn:id', ge=1, le=2),
-    ] = None
+        int, Field(alias='srl_nokia-system-network-instance-bgp-vpn:id', ge=1, le=2)
+    ]
     """
     The index of the bgp-vpn instance
     """
@@ -6290,12 +6277,12 @@ class CandidateListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-configuration:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name of the configuration candidate
     """
@@ -6336,9 +6323,7 @@ class CommitListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-configuration:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-configuration:id', ge=0, le=4294967295)]
     """
     System identifier for the commit
     """
@@ -6801,12 +6786,12 @@ class DynamicListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mpls-label-management:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the dynamic label block
     """
@@ -6964,8 +6949,8 @@ class EntryListEntry(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-mirroring:sequence-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-mirroring:sequence-id', ge=0, le=65535)
+    ]
     """
     A number to indicate the relative evaluation order of the different entries; lower numbered entries are evaluated before higher numbered entries
     """
@@ -7244,7 +7229,7 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-mirroring:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-mirroring:name')]
     """
     Reference type to a specific subinterface of the form <interface-name>
     """
@@ -7262,11 +7247,11 @@ class InterfaceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ethernet_interface: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:ethernet-interface'
         ),
-    ] = None
+    ]
     """
     Interface associated with the ethernet segment.
     """
@@ -7565,12 +7550,12 @@ class LicenseListEntry(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-license:id',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Unique identifier for this license
     """
@@ -7724,8 +7709,8 @@ class MacTypeListEntry(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum30], Field(alias='srl_nokia-system-bridge-table:type')
-    ] = None
+        EnumerationEnum30, Field(alias='srl_nokia-system-bridge-table:type')
+    ]
     """
     type of mac addresses in the system
     """
@@ -7835,9 +7820,7 @@ class ManagementAddressListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    subinterface: Annotated[
-        Optional[str], Field(alias='srl_nokia-lldp:subinterface')
-    ] = None
+    subinterface: Annotated[str, Field(alias='srl_nokia-lldp:subinterface')]
     """
     Reference to the subinterface to source management addresses
     """
@@ -7863,7 +7846,7 @@ class ManagementAddressListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    address: Annotated[Optional[str], Field(alias='srl_nokia-lldp:address')] = None
+    address: Annotated[str, Field(alias='srl_nokia-lldp:address')]
     """
     The management address received from the remote LLDP neighbor
 
@@ -7907,9 +7890,7 @@ class MulticastIdUserTypeListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    user: Annotated[
-        Optional[EnumerationEnum65], Field(alias='srl_nokia-system-multicast:user')
-    ] = None
+    user: Annotated[EnumerationEnum65, Field(alias='srl_nokia-system-multicast:user')]
     """
     type of multicast ids users in the system
     """
@@ -7947,9 +7928,8 @@ class NeighborOriginListEntry(BaseModel):
         regex_engine="python-re",
     )
     origin: Annotated[
-        Optional[EnumerationEnum31],
-        Field(alias='srl_nokia-system-bridge-table-proxy-arp:origin'),
-    ] = None
+        EnumerationEnum31, Field(alias='srl_nokia-system-bridge-table-proxy-arp:origin')
+    ]
     """
     The origin of the neighbor entry.
     """
@@ -8009,9 +7989,8 @@ class NeighborOriginListEntry2(BaseModel):
         regex_engine="python-re",
     )
     origin: Annotated[
-        Optional[EnumerationEnum31],
-        Field(alias='srl_nokia-system-bridge-table-proxy-arp:origin'),
-    ] = None
+        EnumerationEnum31, Field(alias='srl_nokia-system-bridge-table-proxy-arp:origin')
+    ]
     """
     The origin of the neighbor entry.
     """
@@ -8122,12 +8101,12 @@ class NetworkInstanceListEntry4(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-maintenance-mode:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique name identifying the network instance
     """
@@ -8159,11 +8138,11 @@ class NextHopListEntry(BaseModel):
         regex_engine="python-re",
     )
     l3_next_hop: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:l3-next-hop'
         ),
-    ] = None
+    ]
     """
     Layer-3 next-hop associated with the ethernet segment.
     """
@@ -8216,12 +8195,12 @@ class ObjectListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-event-handler:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of this object
     """
@@ -8583,7 +8562,7 @@ class PathListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-gnsi-pathz:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-gnsi-pathz:name')]
     """
     A schema path the counters were collected for.
 
@@ -8607,12 +8586,12 @@ class RaGuardPolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ra_guard:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     RA Guard Policy name
     """
@@ -8714,9 +8693,7 @@ class ReceiverListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    gnss_id: Annotated[
-        Optional[EnumerationEnum94], Field(alias='srl_nokia-sync:gnss-id')
-    ] = None
+    gnss_id: Annotated[EnumerationEnum94, Field(alias='srl_nokia-sync:gnss-id')]
     admin_state: Annotated[
         Optional[EnumerationEnum2], Field(alias='srl_nokia-sync:admin-state')
     ] = 'disable'
@@ -8852,9 +8829,7 @@ class ResourceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-system-utilization:name')] = (
-        None
-    )
+    name: Annotated[str, Field(alias='srl_nokia-system-utilization:name')]
     """
     The name of the resource
     """
@@ -8933,12 +8908,12 @@ class RoleListEntry(BaseModel):
         regex_engine="python-re",
     )
     rolename: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-aaa:rolename',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Assigned rolename for this role
     """
@@ -9009,12 +8984,12 @@ class RuleListEntry(BaseModel):
         regex_engine="python-re",
     )
     path_reference: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-configuration-role:path-reference',
             pattern='^(?=^[A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?\\-{}*\\\\\\\\"\\[\\]]+$).*$',
         ),
-    ] = None
+    ]
     """
     Reference to a valid YANG path, in CLI notation
 
@@ -9328,9 +9303,8 @@ class SessionListEntry2(BaseModel):
         regex_engine="python-re",
     )
     session_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-netconf-server:session-id', ge=1, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-netconf-server:session-id', ge=1, le=4294967295)
+    ]
     process_id: Annotated[
         Optional[int],
         Field(alias='srl_nokia-netconf-server:process-id', ge=0, le=4294967295),
@@ -9546,9 +9520,7 @@ class SessionListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-configuration:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-configuration:id', ge=0, le=4294967295)]
     """
     System generated ID for the configuration session
     """
@@ -9610,12 +9582,12 @@ class StaticListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mpls-label-management:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the static label block
     """
@@ -10704,7 +10676,7 @@ class SubinterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-mirroring:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-mirroring:name')]
     """
     Reference type to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -10738,12 +10710,12 @@ class SubscriberListEntry(BaseModel):
         regex_engine="python-re",
     )
     subscriber_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-lawful-intercept:subscriber-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Specify the LI target is a wireline subscriber and is identified by the subscriber name/id
     """
@@ -10883,9 +10855,9 @@ class TepListEntry(BaseModel):
         regex_engine="python-re",
     )
     tep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-system-bridge-table-evpn-mpls-multicast-tep:tep'),
-    ] = None
+    ]
     """
     The IP address that identifies the remote BGP-EVPN MPLS multicast Termination Endpoint (TEP)
     """
@@ -11377,13 +11349,11 @@ class AclFilterListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-acl:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-acl:name')]
     """
     Referencence to the ACL Filter policy name
     """
-    type: Annotated[Optional[EnumerationEnum5], Field(alias='srl_nokia-acl:type')] = (
-        None
-    )
+    type: Annotated[EnumerationEnum5, Field(alias='srl_nokia-acl:type')]
     """
     Referencence to the ACL Filter policy type
     """
@@ -11398,13 +11368,11 @@ class AclFilterListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-mirroring:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-mirroring:name')]
     """
     ACL Filter policy name
     """
-    type: Annotated[
-        Optional[EnumerationEnum5], Field(alias='srl_nokia-mirroring:type')
-    ] = None
+    type: Annotated[EnumerationEnum5, Field(alias='srl_nokia-mirroring:type')]
     """
     Reference to the ACL filter policy type
     """
@@ -11484,7 +11452,7 @@ class ApplicationListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-app-mgmt:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-app-mgmt:name')]
     """
     Unique name of this application instance
     """
@@ -12161,9 +12129,7 @@ class CheckpointListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-configuration:id', ge=0, le=255)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-configuration:id', ge=0, le=255)]
     """
     System generated ID for the checkpoint
     """
@@ -12228,9 +12194,7 @@ class ClientListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-grpc:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-grpc:id', ge=0, le=4294967295)]
     """
     System generated ID for for the client
     """
@@ -12436,11 +12400,11 @@ class DesignatedForwarderCandidateListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:address'
         ),
-    ] = None
+    ]
     """
     An IPv4 or IPv6 address with no prefix specified.
     """
@@ -12761,12 +12725,12 @@ class HostEntryListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-dns:name',
             pattern='^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$',
         ),
-    ] = None
+    ]
     """
     Name of host entry
     """
@@ -12802,12 +12766,12 @@ class HostListEntry(BaseModel):
         regex_engine="python-re",
     )
     mac: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-dhcp-server:mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -12840,12 +12804,12 @@ class HostListEntry2(BaseModel):
         regex_engine="python-re",
     )
     mac: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-dhcp-server:mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -13002,12 +12966,12 @@ class InstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-event-handler:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A user-defined name for this event handler instance
     """
@@ -13192,9 +13156,7 @@ class KeyListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-keychains:index', ge=0, le=255)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-keychains:index', ge=0, le=255)]
     """
     Each key in a keychain requires a unique identifier, the index value specifies this identifier
     """
@@ -13233,12 +13195,12 @@ class KeychainListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-keychains:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The user configured name for the keychain
     """
@@ -13600,26 +13562,26 @@ class MulticastRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     network_instance: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-system-multicast-mfib-table:network-instance',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Indicates that the MFIB entry is associated to this network instance
     """
     source: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-system-multicast-mfib-table:source'),
-    ] = None
+    ]
     """
     Source IP address of the MFIB entry
     """
     group: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-system-multicast-mfib-table:group'),
-    ] = None
+    ]
     """
     Multicast group address of the MFIB entry
     """
@@ -13675,7 +13637,7 @@ class NeighborListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[str], Field(alias='srl_nokia-lldp:id')] = None
+    id: Annotated[str, Field(alias='srl_nokia-lldp:id')]
     """
     System generated identifier for the remote neighbor
     """
@@ -13805,12 +13767,12 @@ class NetconfServerListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-netconf-server:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     NETCONF service instance name
     """
@@ -13872,12 +13834,12 @@ class NetworkInstanceListEntry3(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-json-rpc:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Reference to a configured network-instance
     """
@@ -14030,8 +13992,8 @@ class PolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     instance: Annotated[
-        Optional[EnumerationEnum55], Field(alias='srl_nokia-configuration:instance')
-    ] = None
+        EnumerationEnum55, Field(alias='srl_nokia-configuration:instance')
+    ]
     version: Annotated[
         Optional[str], Field(alias='srl_nokia-configuration:version')
     ] = None
@@ -14070,9 +14032,7 @@ class PortDsCfgIpListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    port_index: Annotated[
-        Optional[int], Field(alias='srl_nokia-sync:port-index', ge=1, le=999)
-    ] = None
+    port_index: Annotated[int, Field(alias='srl_nokia-sync:port-index', ge=1, le=999)]
     """
     Index into the port-ds list
 
@@ -14277,9 +14237,7 @@ class PortDsDscIpListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    port_index: Annotated[
-        Optional[int], Field(alias='srl_nokia-sync:port-index', ge=0, le=65535)
-    ] = None
+    port_index: Annotated[int, Field(alias='srl_nokia-sync:port-index', ge=0, le=65535)]
     """
     Index into the port-ds list
 
@@ -14452,12 +14410,12 @@ class ProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-packet-link-qual:name',
             pattern="^(?=^[<>A-Za-z0-9!@#$%^&()|+=`~.,'/_:;?-][<>A-Za-z0-9 !@#$%^&()|+=`~.,'/_:;?-]*$).*$",
         ),
-    ] = None
+    ]
     """
     Name of the Packet Link Qualification profile
     """
@@ -14476,12 +14434,12 @@ class ProfileListEntry2(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-maintenance-mode:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name of the maintenance profile
     """
@@ -14603,12 +14561,12 @@ class RoleListEntry2(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-configuration-role:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Assigned rolename for this role
     """
@@ -14627,12 +14585,12 @@ class ServerProfileListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tls:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name of the TLS server-profile
     """
@@ -14724,9 +14682,8 @@ class ServerListEntry(BaseModel):
     User defined name assigned to the server
     """
     address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-aaa:address'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-aaa:address')
+    ]
     """
     Address used to reach the server
     """
@@ -14787,12 +14744,12 @@ class SshServerListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ssh:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-provided name of this server instance
     """
@@ -15022,12 +14979,12 @@ class UserListEntry(BaseModel):
         regex_engine="python-re",
     )
     username: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-aaa:username',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Assigned username for this user
     """
@@ -15698,12 +15655,12 @@ class GroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-maintenance-mode:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name of the maintenance group.
     """
@@ -15736,12 +15693,12 @@ class GrpcServerListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-grpc:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User-provided name of this server instance
     """
@@ -15870,8 +15827,8 @@ class InstanceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     instance_number: Annotated[
-        Optional[int], Field(alias='srl_nokia-sync:instance-number', ge=1, le=5)
-    ] = None
+        int, Field(alias='srl_nokia-sync:instance-number', ge=1, le=5)
+    ]
     """
     The instance number of the each line reference
     """
@@ -15936,7 +15893,7 @@ class InterfaceListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-lldp:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-lldp:name')]
     """
     Reference to the LLDP Ethernet interface
     """
@@ -16201,12 +16158,12 @@ class NetworkInstanceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-dhcp-server:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Reference to a configured network instance
     """
@@ -16367,9 +16324,7 @@ class PortDsInterfaceListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    port_index: Annotated[
-        Optional[int], Field(alias='srl_nokia-sync:port-index', ge=1, le=999)
-    ] = None
+    port_index: Annotated[int, Field(alias='srl_nokia-sync:port-index', ge=1, le=999)]
     """
     Index into the port-ds list
 
@@ -16548,12 +16503,12 @@ class ServerGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-aaa:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     User defined name for the server group
     """
@@ -16613,13 +16568,13 @@ class BgpInstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     instance: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:instance',
             ge=0,
             le=4294967295,
         ),
-    ] = None
+    ]
     designated_forwarder_role_last_change: Annotated[
         Optional[str],
         Field(
@@ -16818,8 +16773,8 @@ class InstanceListEntry3(BaseModel):
         regex_engine="python-re",
     )
     instance_index: Annotated[
-        Optional[int], Field(alias='srl_nokia-sync:instance-index', ge=1, le=2)
-    ] = None
+        int, Field(alias='srl_nokia-sync:instance-index', ge=1, le=2)
+    ]
     """
     The instance index of the current PTP instance
 
@@ -16888,12 +16843,12 @@ class MirroringInstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mirroring:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique name identifying the mirroring instance
     """
@@ -16957,11 +16912,11 @@ class NetworkInstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:name'
         ),
-    ] = None
+    ]
     bgp_instance: Annotated[
         Optional[List[BgpInstanceListEntry]],
         Field(
@@ -17043,12 +16998,12 @@ class EthernetSegmentListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique name identifying the ethernet segment.
     """
@@ -17200,13 +17155,13 @@ class BgpInstanceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-system-network-instance-bgp-evpn-ethernet-segments:id',
             ge=1,
             le=2,
         ),
-    ] = None
+    ]
     """
     The index of the bgp-vpn instance
     """

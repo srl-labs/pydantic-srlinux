@@ -861,9 +861,7 @@ class VlanListListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    vlan_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ra_guard:vlan-id', ge=0, le=4095)
-    ] = None
+    vlan_id: Annotated[int, Field(alias='srl_nokia-ra_guard:vlan-id', ge=0, le=4095)]
 
 
 class VoltageContainer(BaseModel):
@@ -1786,9 +1784,7 @@ class ChannelListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-interfaces:index', ge=1, le=10)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-interfaces:index', ge=1, le=10)]
     """
     Index of the physical channel or lane
     """
@@ -2175,12 +2171,12 @@ class MacAddressListEntry(BaseModel):
         regex_engine="python-re",
     )
     mac: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-dot1x:mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     Source MAC address of a host that is authorized to use this interface
     """
@@ -2223,12 +2219,12 @@ class MacListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-learning-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -2265,12 +2261,12 @@ class MacListEntry2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-duplication-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -5786,9 +5782,8 @@ class LowVlanIdListEntry(BaseModel):
         regex_engine="python-re",
     )
     range_low_vlan_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces-vlans:range-low-vlan-id', ge=1, le=4094),
-    ] = None
+        int, Field(alias='srl_nokia-interfaces-vlans:range-low-vlan-id', ge=1, le=4094)
+    ]
     """
     The low-value VLAN identifier in a range for single-tagged packets
     The range is matched inclusively.
@@ -5873,9 +5868,9 @@ class MacTypeListEntry(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum77],
+        EnumerationEnum77,
         Field(alias='srl_nokia-interfaces-bridge-table-statistics:type'),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -5924,12 +5919,12 @@ class MacListEntry3(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-bridge-table-mac-table:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -5996,13 +5991,13 @@ class MstInstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     mst_instance: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-interfaces-bridge-table-stp:mst-instance',
             ge=0,
             le=4294967295,
         ),
-    ] = None
+    ]
     """
     Name of the subinterface bound to this mstp-policy
     """
@@ -6049,12 +6044,12 @@ class NeighborListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-nbr:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 address resolved by the ARP entry
 
@@ -6104,12 +6099,12 @@ class NeighborListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ipv6_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-nbr:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 address resolved by the ND cache entry
 
@@ -6171,9 +6166,7 @@ class OpticalChannelListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-interfaces-dco:index', ge=1, le=1)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-interfaces-dco:index', ge=1, le=1)]
     """
     Index of the optical channel
     """
@@ -6476,8 +6469,8 @@ class PopulateListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_type: Annotated[
-        Optional[EnumerationEnum47], Field(alias='srl_nokia-interfaces-nbr:route-type')
-    ] = None
+        EnumerationEnum47, Field(alias='srl_nokia-interfaces-nbr:route-type')
+    ]
     """
     Controls what type of ARP or ND entries generate a host route.
     """
@@ -6499,8 +6492,8 @@ class PopulateListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_type: Annotated[
-        Optional[EnumerationEnum59], Field(alias='srl_nokia-interfaces-nbr:route-type')
-    ] = None
+        EnumerationEnum59, Field(alias='srl_nokia-interfaces-nbr:route-type')
+    ]
     """
     Controls what type of ARP or ND entries generate a host route.
     """
@@ -6526,12 +6519,12 @@ class PrefixListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv6_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-router-adv:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     An IPv6 global unicast address prefix.
     """
@@ -6569,12 +6562,12 @@ class ResultListEntry(BaseModel):
         regex_engine="python-re",
     )
     id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-packet-link-qual:id',
             pattern="^(?=^[<>A-Za-z0-9!@#$%^&()|+=`~.,'/_:;?-][<>A-Za-z0-9 !@#$%^&()|+=`~.,'/_:;?-]*$).*$",
         ),
-    ] = None
+    ]
     """
     Packet link qualification test ID
     """
@@ -6808,12 +6801,12 @@ class ServerListEntry(BaseModel):
         regex_engine="python-re",
     )
     domain: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:domain',
             pattern='^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$',
         ),
-    ] = None
+    ]
     """
     The server domain name
     """
@@ -6848,12 +6841,12 @@ class ServerListEntry2(BaseModel):
         regex_engine="python-re",
     )
     domain: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-ip-dhcp-relay:domain',
             pattern='^(?=^((([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.)*([a-zA-Z0-9_]([a-zA-Z0-9\\-_]){0,61})?[a-zA-Z0-9]\\.?)|\\.$).*$',
         ),
-    ] = None
+    ]
     """
     The server domain name
     """
@@ -7415,9 +7408,7 @@ class TrackInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface: Annotated[
-        Optional[str], Field(alias='srl_nokia-interfaces-ip-vrrp:interface')
-    ] = None
+    interface: Annotated[str, Field(alias='srl_nokia-interfaces-ip-vrrp:interface')]
     """
     Interface to track
     """
@@ -7441,9 +7432,7 @@ class TrackInterfaceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface: Annotated[
-        Optional[str], Field(alias='srl_nokia-interfaces-ip-vrrp:interface')
-    ] = None
+    interface: Annotated[str, Field(alias='srl_nokia-interfaces-ip-vrrp:interface')]
     """
     Interface to track
     """
@@ -7722,12 +7711,12 @@ class AddressListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ipv4_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The virtual IPv4 address.
     """
@@ -7783,12 +7772,12 @@ class AddressListEntry4(BaseModel):
         regex_engine="python-re",
     )
     ipv6_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces-nbr-virtual-ip-discovery:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     The virtual IPv6 address.
     """
@@ -7840,9 +7829,8 @@ class AdvertiseListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_type: Annotated[
-        Optional[EnumerationEnum49],
-        Field(alias='srl_nokia-interfaces-nbr-evpn:route-type'),
-    ] = None
+        EnumerationEnum49, Field(alias='srl_nokia-interfaces-nbr-evpn:route-type')
+    ]
     """
     Controls what type of ARP or ND entries to advertise.
     """
@@ -7858,9 +7846,8 @@ class AdvertiseListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_type: Annotated[
-        Optional[EnumerationEnum61],
-        Field(alias='srl_nokia-interfaces-nbr-evpn:route-type'),
-    ] = None
+        EnumerationEnum61, Field(alias='srl_nokia-interfaces-nbr-evpn:route-type')
+    ]
     """
     Controls what type of ARP or ND entries to advertise.
     """
@@ -7880,12 +7867,12 @@ class AuthenticatedSessionListEntry(BaseModel):
         regex_engine="python-re",
     )
     mac: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-dot1x:mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     Authenticated device source MAC address
     """
@@ -8546,7 +8533,7 @@ class MemberListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-interfaces-lag:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-interfaces-lag:name')]
     """
     The name of the interface
 
@@ -8732,9 +8719,8 @@ class VrrpGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     virtual_router_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id', ge=1, le=255),
-    ] = None
+        int, Field(alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id', ge=1, le=255)
+    ]
     """
     VRRP Group Index
     """
@@ -8906,9 +8892,8 @@ class VrrpGroupListEntry2(BaseModel):
         regex_engine="python-re",
     )
     virtual_router_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id', ge=1, le=255),
-    ] = None
+        int, Field(alias='srl_nokia-interfaces-ip-vrrp:virtual-router-id', ge=1, le=255)
+    ]
     """
     VRRP Group Index
     """
@@ -9122,12 +9107,12 @@ class AddressListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces:ip-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv4 address and prefix length in CIDR notation
 
@@ -9175,12 +9160,12 @@ class AddressListEntry3(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-interfaces:ip-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv6 address and prefix-length in CIDR notation
 
@@ -10051,9 +10036,7 @@ class SubinterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-interfaces:index', ge=0, le=9999)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-interfaces:index', ge=0, le=9999)]
     """
     The index of the subinterface, or logical interface number
     """
@@ -10244,7 +10227,7 @@ class InterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-interfaces:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-interfaces:name')]
     """
     The name of the interface
 

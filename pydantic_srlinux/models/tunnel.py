@@ -283,9 +283,9 @@ class VtepListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-vxlan-tunnel-vtep:address'),
-    ] = None
+    ]
     """
     The IP address that identifies the remote VXLAN Termination Endpoint (VTEP).
     """
@@ -336,12 +336,12 @@ class TunnelListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-pw-tunnel:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name that identifies the remote system
     """

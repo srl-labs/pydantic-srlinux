@@ -2128,12 +2128,12 @@ class MstVlanRangeListEntry(BaseModel):
         regex_engine="python-re",
     )
     mst_vlan_range: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-stp:mst-vlan-range',
             pattern='^(?=^([0-9]+\\-[0-9]+)|exact$).*$',
         ),
-    ] = None
+    ]
     """
     Range of VLANs managed by this Multiple Spanning Tree instance.
     If no VLAN-ranges are defined in any mst-instances, then all
@@ -2358,11 +2358,11 @@ class OutgoingInterfaceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-multicast-mfib-tables:index', ge=0, le=18446744073709551615
         ),
-    ] = None
+    ]
     """
     network instance allocated sub interface index
     """
@@ -2384,11 +2384,11 @@ class OutgoingNextHopGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-multicast-mfib-tables:index', ge=0, le=18446744073709551615
         ),
-    ] = None
+    ]
     """
     Next-hop-group allocated index
     """
@@ -2680,8 +2680,8 @@ class RouteTypeListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_route_type_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
-    ] = None
+        str, Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
+    ]
     """
     IP route type
     """
@@ -2700,8 +2700,8 @@ class RouteTypeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ip_route_type_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
-    ] = None
+        str, Field(alias='srl_nokia-ip-route-tables:ip-route-type-name')
+    ]
     """
     IP route type
     """
@@ -2954,12 +2954,12 @@ class SourceMacListEntry(BaseModel):
         regex_engine="python-re",
     )
     source_mac: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:source-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -2979,12 +2979,12 @@ class SourceMacListEntry2(BaseModel):
         regex_engine="python-re",
     )
     source_mac: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:source-mac',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -3085,15 +3085,12 @@ class SrgbDescriptorListEntry2(BaseModel):
         regex_engine="python-re",
     )
     sr_index_or_label: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295)
+    ]
     """
     An index representing the first value of the SRGB. The meaning (index or label) is determined from the length of the sub-tlv.
     """
-    range: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:range', ge=1, le=16777215)
-    ] = None
+    range: Annotated[int, Field(alias='srl_nokia-isis:range', ge=1, le=16777215)]
     """
     The number of SRGB elements
     """
@@ -3120,15 +3117,12 @@ class SrlbDescriptorListEntry(BaseModel):
         regex_engine="python-re",
     )
     sr_index_or_label: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295)
+    ]
     """
     An index representing the first value of the SRLB. The meaning (index or label) is determined from the length of the sub-tlv.
     """
-    range: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:range', ge=1, le=16777215)
-    ] = None
+    range: Annotated[int, Field(alias='srl_nokia-isis:range', ge=1, le=16777215)]
     """
     The number of SRLB elements
     """
@@ -3867,9 +3861,7 @@ class TopologyListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    mt_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)
-    ] = None
+    mt_id: Annotated[int, Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)]
     """
     A multi-topology ID.
     """
@@ -4071,9 +4063,8 @@ class UnknownAttributeListEntry(BaseModel):
         regex_engine="python-re",
     )
     unknown_attr_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:unknown-attr-index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:unknown-attr-index', ge=0, le=4294967295)
+    ]
     """
     RIB attribute unknown attribute index
     """
@@ -4146,8 +4137,8 @@ class UsersListEntry(BaseModel):
         regex_engine="python-re",
     )
     application: Annotated[
-        Optional[str], Field(alias='srl_nokia-bridge-table-reserved-macs:application')
-    ] = None
+        str, Field(alias='srl_nokia-bridge-table-reserved-macs:application')
+    ]
 
 
 class WeightLeaf1(RootModel[int]):
@@ -7972,7 +7963,7 @@ class AfiSafiListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-bgp:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-bgp:name')]
     forwarding_preserved: Annotated[
         Optional[bool], Field(alias='srl_nokia-bgp:forwarding-preserved')
     ] = None
@@ -8523,8 +8514,8 @@ class ConstraintListEntry(BaseModel):
         regex_engine="python-re",
     )
     constraint_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
+    ]
     """
     Unique reference for the bandwidth constraint level. BC0 is indicated by this leaf being set to zero, with BCN represented by this leaf being set to N.
     """
@@ -8547,8 +8538,8 @@ class ConstraintListEntry2(BaseModel):
         regex_engine="python-re",
     )
     constraint_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
+    ]
     """
     Unique reference for the bandwidth constraint level. BC0 is indicated by this leaf being set to zero, with BCN represented by this leaf being set to N.
     """
@@ -8571,8 +8562,8 @@ class ConstraintListEntry3(BaseModel):
         regex_engine="python-re",
     )
     constraint_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
+    ]
     """
     Unique reference for the bandwidth constraint level. BC0 is indicated by this leaf being set to zero, with BCN represented by this leaf being set to N.
     """
@@ -8595,8 +8586,8 @@ class ConstraintListEntry4(BaseModel):
         regex_engine="python-re",
     )
     constraint_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-isis:constraint-id', ge=0, le=4294967295)
+    ]
     """
     Unique reference for the bandwidth constraint level. BC0 is indicated by this leaf being set to zero, with BCN represented by this leaf being set to N.
     """
@@ -9306,8 +9297,8 @@ class ForwardingComplexListEntry(BaseModel):
         regex_engine="python-re",
     )
     complex_identifier: Annotated[
-        Optional[str], Field(alias='srl_nokia-policy-forwarding:complex-identifier')
-    ] = None
+        str, Field(alias='srl_nokia-policy-forwarding:complex-identifier')
+    ]
     """
     A forwarding complex in the format (slot-number,complex-number).
     """
@@ -9840,8 +9831,8 @@ class InstanceIdListEntry(BaseModel):
         regex_engine="python-re",
     )
     instance_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:instance-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-isis:instance-id', ge=0, le=65535)
+    ]
     """
     An Instance Identifier (IID) to uniquely identify an IS-IS instance. When the IID = 0, the list of supported ITIDs MUST NOT be present. An IID-TLV with IID = 0 MUST NOT appear in an SNP or LSP. When the TLV appears (with a non-zero IID) in an SNP or LSP, exactly one ITID. MUST be present indicating the topology with which the PDU is associated. If no ITIDs or multiple ITIDs are present or the IID is zero, then the PDU MUST be ignored.
     """
@@ -11211,9 +11202,8 @@ class Ipv4SrlgListEntry(BaseModel):
         regex_engine="python-re",
     )
     instance_number: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:instance-number', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:instance-number', ge=0, le=4294967295)
+    ]
     """
     An arbitrary unsigned 32-bit integer used to disambiguate the instance of TLV 138. The instance identifier is synthesised by the system and may be renumbered for the same SRLG definition in subsequent advertised LSPs if (and only if) the entire list of SRLGs is replaced.
     """
@@ -11277,12 +11267,12 @@ class Ipv4SrlgListEntry2(BaseModel):
         regex_engine="python-re",
     )
     neighbor: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:neighbor',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{2}$).*$',
         ),
-    ] = None
+    ]
     """
     A neighbor, identified by its System ID and one octet to indicate the pseudonode number
     """
@@ -11416,9 +11406,8 @@ class Ipv6SrlgListEntry(BaseModel):
         regex_engine="python-re",
     )
     instance_number: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:instance-number', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:instance-number', ge=0, le=4294967295)
+    ]
     """
     An arbitrary unsigned 32-bit integer used to disambiguate the instance of TLV 138. The instance identifier is synthesised by the system and may be renumbered for the same SRLG definition in subsequent advertised LSPs if (and only if) the entire list of SRLGs is replaced.
     """
@@ -11482,12 +11471,12 @@ class Ipv6SrlgListEntry2(BaseModel):
         regex_engine="python-re",
     )
     neighbor: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:neighbor',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{2}$).*$',
         ),
-    ] = None
+    ]
     """
     A neighbor, identified by its System ID and one octet to indicate the pseudonode number
     """
@@ -11612,12 +11601,12 @@ class IsReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     neighbor: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:neighbor',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{2}$).*$',
         ),
-    ] = None
+    ]
     """
     An adjacent IS neighbor
     """
@@ -11661,9 +11650,7 @@ class LanAdjacencySidListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     LAN Adjacency-SID value.
     """
@@ -11700,9 +11687,7 @@ class LanAdjacencySidListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     LAN Adjacency-SID value.
     """
@@ -11739,9 +11724,7 @@ class LanAdjacencySidListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     LAN Adjacency-SID value.
     """
@@ -11778,9 +11761,7 @@ class LanAdjacencySidListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     LAN Adjacency-SID value.
     """
@@ -12667,12 +12648,12 @@ class MacListEntry3(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-mac-learning-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -12716,12 +12697,12 @@ class MacListEntry7(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-reserved-macs:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -12745,12 +12726,12 @@ class MacListEntry8(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-connection-point-bridge-table-mac-learning-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -12789,12 +12770,12 @@ class MacListEntry9(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-connection-point-bridge-table-mac-duplication-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -13178,12 +13159,12 @@ class NeighborListEntry3(BaseModel):
         regex_engine="python-re",
     )
     system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     The neighbor router's system ID.
     """
@@ -13231,8 +13212,8 @@ class NextHopListEntry5(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int], Field(alias='srl_nokia-aft:index', ge=0, le=18446744073709551615)
-    ] = None
+        int, Field(alias='srl_nokia-aft:index', ge=0, le=18446744073709551615)
+    ]
     """
     A reference to the identifier for the next-hop to which the entry in the next-hop group corresponds
     """
@@ -14837,9 +14818,7 @@ class PrefixSidListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     IGP Prefix-SID value.
     """
@@ -14866,9 +14845,7 @@ class PrefixSidListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     IGP Prefix-SID value.
     """
@@ -14895,9 +14872,7 @@ class PrefixSidListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     IGP Prefix-SID value.
     """
@@ -14924,9 +14899,7 @@ class PrefixSidListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     IGP Prefix-SID value.
     """
@@ -15010,9 +14983,8 @@ class PrefixesListEntry(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-ospf:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-ospf:prefix')
+    ]
     """
     LSA Prefix.
     """
@@ -15031,9 +15003,8 @@ class PrefixesListEntry2(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-ospf:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-ospf:prefix')
+    ]
     """
     LSA Prefix.
     """
@@ -16578,22 +16549,21 @@ class RouteListEntry20(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -16616,22 +16586,21 @@ class RouteListEntry22(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -16654,22 +16623,21 @@ class RouteListEntry24(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -16699,29 +16667,29 @@ class RouteListEntry27(BaseModel):
         regex_engine="python-re",
     )
     origin_as: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:origin-as', ge=1, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:origin-as', ge=1, le=4294967295)
+    ]
     """
     The origin AS of the RTC route
     """
     route_target_prefix: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:route-target-prefix')
-    ] = None
+        str, Field(alias='srl_nokia-rib-bgp:route-target-prefix')
+    ]
     """
     The RTC prefix in the format number1:number2/length, where number1 is an IPv4 address or a 2-byte ASN or a 4-byte ASN, number2 is a 2-byte or 4-byte administrative value and length is a number of bits between 0 and 96
 
     The default RTC prefix is represented by 0:0/0
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -16744,29 +16712,29 @@ class RouteListEntry29(BaseModel):
         regex_engine="python-re",
     )
     origin_as: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:origin-as', ge=1, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:origin-as', ge=1, le=4294967295)
+    ]
     """
     The origin AS of the RTC route
     """
     route_target_prefix: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:route-target-prefix')
-    ] = None
+        str, Field(alias='srl_nokia-rib-bgp:route-target-prefix')
+    ]
     """
     The RTC prefix in the format number1:number2/length, where number1 is an IPv4 address or a 2-byte ASN or a 4-byte ASN, number2 is a 2-byte or 4-byte administrative value and length is a number of bits between 0 and 96
 
     The default RTC prefix is represented by 0:0/0
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -16789,22 +16757,21 @@ class RouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -16827,22 +16794,21 @@ class RouteListEntry6(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -16866,22 +16832,21 @@ class RouteListEntry8(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -17107,9 +17072,8 @@ class SegmentRoutingAdjacencySidListEntry(BaseModel):
         regex_engine="python-re",
     )
     sr_index_or_label: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295)
+    ]
     """
     An index representing an offset in the SID/label space advertised by the router or else a direct encoding of an MPLS label value.
     """
@@ -17159,9 +17123,8 @@ class SegmentRoutingAdjacencySidListEntry2(BaseModel):
         regex_engine="python-re",
     )
     sr_index_or_label: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295)
+    ]
     """
     An index representing an offset in the SID/label space advertised by the router or else a direct encoding of an MPLS label value.
     """
@@ -17228,9 +17191,8 @@ class SegmentRoutingLanAdjacencySidListEntry(BaseModel):
         regex_engine="python-re",
     )
     sr_index_or_label: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295)
+    ]
     """
     An index representing an offset in the SID/label space advertised by the router or else a direct encoding of an MPLS label value.
     """
@@ -17290,9 +17252,8 @@ class SegmentRoutingLanAdjacencySidListEntry2(BaseModel):
         regex_engine="python-re",
     )
     sr_index_or_label: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:sr-index-or-label', ge=0, le=4294967295)
+    ]
     """
     An index representing an offset in the SID/label space advertised by the router or else a direct encoding of an MPLS label value.
     """
@@ -17872,9 +17833,7 @@ class SetupPriorityListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    priority: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:priority', ge=0, le=7)
-    ] = None
+    priority: Annotated[int, Field(alias='srl_nokia-isis:priority', ge=0, le=7)]
     """
     Setup priority level of 0 through 7 to be used by Unreserved Bandwidth sub-TLV 11.
     """
@@ -17892,9 +17851,7 @@ class SetupPriorityListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    priority: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:priority', ge=0, le=7)
-    ] = None
+    priority: Annotated[int, Field(alias='srl_nokia-isis:priority', ge=0, le=7)]
     """
     Setup priority level of 0 through 7 to be used by Unreserved Bandwidth sub-TLV 11.
     """
@@ -17912,9 +17869,7 @@ class SetupPriorityListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    priority: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:priority', ge=0, le=7)
-    ] = None
+    priority: Annotated[int, Field(alias='srl_nokia-isis:priority', ge=0, le=7)]
     """
     Setup priority level of 0 through 7 to be used by Unreserved Bandwidth sub-TLV 11.
     """
@@ -17932,9 +17887,7 @@ class SetupPriorityListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    priority: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:priority', ge=0, le=7)
-    ] = None
+    priority: Annotated[int, Field(alias='srl_nokia-isis:priority', ge=0, le=7)]
     """
     Setup priority level of 0 through 7 to be used by Unreserved Bandwidth sub-TLV 11.
     """
@@ -17957,18 +17910,16 @@ class SourceRouterListEntry(BaseModel):
         regex_engine="python-re",
     )
     system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     The system-id of an ISIS router that originated or redistributed the prefix SID
     """
-    level_number: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:level-number', ge=1, le=2)
-    ] = None
+    level_number: Annotated[int, Field(alias='srl_nokia-isis:level-number', ge=1, le=2)]
     """
     The level of the LSP that advertises the prefix SID
     """
@@ -17993,12 +17944,12 @@ class SourceListEntry(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address
     """
@@ -18014,12 +17965,12 @@ class SourceListEntry13(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address.
     """
@@ -18035,12 +17986,12 @@ class SourceListEntry16(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address
     """
@@ -18056,12 +18007,12 @@ class SourceListEntry18(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address
     """
@@ -18077,12 +18028,12 @@ class SourceListEntry19(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address
     """
@@ -18098,12 +18049,12 @@ class SourceListEntry3(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address
     """
@@ -18119,12 +18070,12 @@ class SourceListEntry4(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address
     """
@@ -18140,12 +18091,12 @@ class SourceListEntry8(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast source address.
     """
@@ -18161,12 +18112,12 @@ class SplitHorizonGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-network-instance:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Split-horizon-group created in the network-instance
 
@@ -18228,9 +18179,7 @@ class SrgbDescriptorListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    range: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:range', ge=0, le=4294967295)
-    ] = None
+    range: Annotated[int, Field(alias='srl_nokia-isis:range', ge=0, le=4294967295)]
     """
     Number of SRGB elements. The range value MUST be greater than 0.
     """
@@ -19299,12 +19248,12 @@ class SystemIdListEntry(BaseModel):
         regex_engine="python-re",
     )
     host_system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:host-system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     The system ID
     """
@@ -19323,9 +19272,7 @@ class TableListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    address_family: Annotated[
-        Optional[str], Field(alias='srl_nokia-bgp:address-family')
-    ] = None
+    address_family: Annotated[str, Field(alias='srl_nokia-bgp:address-family')]
     """
     BGP address family
     """
@@ -19646,7 +19593,7 @@ class TlvListEntry14(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-rib-bgp:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-rib-bgp:type')]
     """
     The type of TLV being described. The type of TLV is expressed as a canonical name.
     """
@@ -19668,9 +19615,7 @@ class TopologyListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    mt_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)
-    ] = None
+    mt_id: Annotated[int, Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)]
     """
     Multi-topology ID.
     """
@@ -20346,7 +20291,7 @@ class TunnelTypeListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-tunnel-tables:type')]
     """
     Tunneling encapsulation format
     """
@@ -20380,7 +20325,7 @@ class TunnelTypeListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-tunnel-tables:type')]
     """
     Tunneling encapsulation format
     """
@@ -20418,9 +20363,7 @@ class TypeOfServiceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    tos: Annotated[Optional[int], Field(alias='srl_nokia-ospf:tos', ge=0, le=255)] = (
-        None
-    )
+    tos: Annotated[int, Field(alias='srl_nokia-ospf:tos', ge=0, le=255)]
     """
     OSPF encoding of the type of service referred to by this
     LSA. Encoding for OSPF TOS are described in RFC2328.
@@ -20444,9 +20387,7 @@ class TypeOfServiceListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    tos: Annotated[Optional[int], Field(alias='srl_nokia-ospf:tos', ge=0, le=255)] = (
-        None
-    )
+    tos: Annotated[int, Field(alias='srl_nokia-ospf:tos', ge=0, le=255)]
     """
     OSPF encoding of the type of service referred to by this
     LSA. Encoding for OSPF TOS are described in RFC2328.
@@ -20466,9 +20407,7 @@ class TypeListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[EnumerationEnum10], Field(alias='srl_nokia-network-instance:name')
-    ] = None
+    name: Annotated[EnumerationEnum10, Field(alias='srl_nokia-network-instance:name')]
     in_packets: Annotated[
         Optional[int],
         Field(
@@ -20507,9 +20446,7 @@ class TypeListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[
-        Optional[EnumerationEnum11], Field(alias='srl_nokia-network-instance:name')
-    ] = None
+    name: Annotated[EnumerationEnum11, Field(alias='srl_nokia-network-instance:name')]
     in_packets: Annotated[
         Optional[int],
         Field(
@@ -20584,9 +20521,7 @@ class UndefinedSubtlvListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20614,9 +20549,7 @@ class UndefinedSubtlvListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20644,9 +20577,7 @@ class UndefinedSubtlvListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20674,9 +20605,7 @@ class UndefinedSubtlvListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20704,9 +20633,7 @@ class UndefinedSubtlvListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20734,9 +20661,7 @@ class UndefinedSubtlvListEntry6(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20764,9 +20689,7 @@ class UndefinedSubtlvListEntry7(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20794,9 +20717,7 @@ class UndefinedSubtlvListEntry8(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -20944,9 +20865,7 @@ class UndefinedTlvListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[int], Field(alias='srl_nokia-isis:type', ge=0, le=255)] = (
-        None
-    )
+    type: Annotated[int, Field(alias='srl_nokia-isis:type', ge=0, le=255)]
     """
     TLV Type.
     """
@@ -22013,9 +21932,7 @@ class AdjacencySidListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     Adjacency-SID value.
     """
@@ -22042,9 +21959,7 @@ class AdjacencySidListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     Adjacency-SID value.
     """
@@ -22071,9 +21986,7 @@ class AdjacencySidListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     Adjacency-SID value.
     """
@@ -22100,9 +22013,7 @@ class AdjacencySidListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)
-    ] = None
+    value: Annotated[int, Field(alias='srl_nokia-isis:value', ge=0, le=4294967295)]
     """
     Adjacency-SID value.
     """
@@ -22457,12 +22368,12 @@ class ApplicationSpecificSrlgListEntry(BaseModel):
         regex_engine="python-re",
     )
     neighbor: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:neighbor',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{2}$).*$',
         ),
-    ] = None
+    ]
     """
     A neighbor, identified by its System ID and one octet to indicate the pseudonode number
     """
@@ -22747,9 +22658,7 @@ class BackupNextHopListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=1023)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=1023)]
     """
     A unique identifier of a next-hop member (system allocated).
     """
@@ -22879,9 +22788,7 @@ class BandwidthConstraintListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    model_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:model-id', ge=0, le=255)
-    ] = None
+    model_id: Annotated[int, Field(alias='srl_nokia-isis:model-id', ge=0, le=255)]
     """
     Identifier for the Bandwidth Constraints  Model currently in use by the LSR initiating the IGP advertisement.
     """
@@ -22899,9 +22806,7 @@ class BandwidthConstraintListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    model_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:model-id', ge=0, le=255)
-    ] = None
+    model_id: Annotated[int, Field(alias='srl_nokia-isis:model-id', ge=0, le=255)]
     """
     Identifier for the Bandwidth Constraints  Model currently in use by the LSR initiating the IGP advertisement.
     """
@@ -22919,9 +22824,7 @@ class BandwidthConstraintListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    model_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:model-id', ge=0, le=255)
-    ] = None
+    model_id: Annotated[int, Field(alias='srl_nokia-isis:model-id', ge=0, le=255)]
     """
     Identifier for the Bandwidth Constraints  Model currently in use by the LSR initiating the IGP advertisement.
     """
@@ -22939,9 +22842,7 @@ class BandwidthConstraintListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    model_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:model-id', ge=0, le=255)
-    ] = None
+    model_id: Annotated[int, Field(alias='srl_nokia-isis:model-id', ge=0, le=255)]
     """
     Identifier for the Bandwidth Constraints  Model currently in use by the LSR initiating the IGP advertisement.
     """
@@ -24672,12 +24573,12 @@ class ExtendedIpv4ReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     An IPv4 prefix that is reachable to the router.
     """
@@ -24753,9 +24654,7 @@ class FlagListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[EnumerationEnum42], Field(alias='srl_nokia-bgp:name')] = (
-        None
-    )
+    name: Annotated[EnumerationEnum42, Field(alias='srl_nokia-bgp:name')]
     modifier: Annotated[
         Optional[EnumerationEnum43], Field(alias='srl_nokia-bgp:modifier')
     ] = None
@@ -24770,9 +24669,7 @@ class FlagListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[EnumerationEnum48], Field(alias='srl_nokia-bgp:name')] = (
-        None
-    )
+    name: Annotated[EnumerationEnum48, Field(alias='srl_nokia-bgp:name')]
     modifier: Annotated[
         Optional[EnumerationEnum49], Field(alias='srl_nokia-bgp:modifier')
     ] = None
@@ -24787,9 +24684,7 @@ class FlagListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[EnumerationEnum56], Field(alias='srl_nokia-bgp:name')] = (
-        None
-    )
+    name: Annotated[EnumerationEnum56, Field(alias='srl_nokia-bgp:name')]
     modifier: Annotated[
         Optional[EnumerationEnum57], Field(alias='srl_nokia-bgp:modifier')
     ] = None
@@ -24805,9 +24700,8 @@ class FlagListEntry4(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[EnumerationEnum275],
-        Field(alias='srl_nokia-bridge-table-proxy-arp-nd:name'),
-    ] = None
+        EnumerationEnum275, Field(alias='srl_nokia-bridge-table-proxy-arp-nd:name')
+    ]
     modifier: Annotated[
         EnumerationEnum276, Field(alias='srl_nokia-bridge-table-proxy-arp-nd:modifier')
     ]
@@ -24823,9 +24717,8 @@ class FlagListEntry5(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[EnumerationEnum286],
-        Field(alias='srl_nokia-bridge-table-proxy-arp-nd:name'),
-    ] = None
+        EnumerationEnum286, Field(alias='srl_nokia-bridge-table-proxy-arp-nd:name')
+    ]
     modifier: Annotated[
         EnumerationEnum287, Field(alias='srl_nokia-bridge-table-proxy-arp-nd:modifier')
     ]
@@ -25753,22 +25646,22 @@ class GroupRangeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     start: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:start',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     start of the group range
     """
     end: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:end',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     end of the group range
     """
@@ -25792,22 +25685,22 @@ class GroupRangeListEntry3(BaseModel):
         regex_engine="python-re",
     )
     start: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:start',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     start of the group range
     """
     end: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:end',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     end of the group range
     """
@@ -25831,22 +25724,22 @@ class GroupRangeListEntry5(BaseModel):
         regex_engine="python-re",
     )
     start: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:start',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Start of the group range.
     """
     end: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:end',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     End of the group range.
     """
@@ -25870,22 +25763,22 @@ class GroupRangeListEntry6(BaseModel):
         regex_engine="python-re",
     )
     start: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:start',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Start of the group range.
     """
     end: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:end',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     End of the group range.
     """
@@ -25906,9 +25799,9 @@ class GroupRangeListEntry8(BaseModel):
         regex_engine="python-re",
     )
     group_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-mvpn-l3:group-prefix'),
-    ] = None
+    ]
     """
     A multicast IP v4 or v6 prefix for a group range
     """
@@ -25933,12 +25826,12 @@ class GroupListEntry20(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-traffic-engineering:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the admin group
     """
@@ -25962,12 +25855,12 @@ class GroupListEntry21(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-traffic-engineering:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the shared risk link group
     """
@@ -25989,9 +25882,8 @@ class GroupListEntry4(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-pim:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-pim:prefix')
+    ]
     """
     IP prefix of the multicast group
     """
@@ -26007,9 +25899,8 @@ class GroupListEntry5(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-pim:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-pim:prefix')
+    ]
     """
     IP prefix of the multicast group
     """
@@ -26716,9 +26607,7 @@ class InterfaceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-bgp:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-bgp:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
 
@@ -26765,8 +26654,8 @@ class InterfaceListEntry7(BaseModel):
         regex_engine="python-re",
     )
     interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-igmp-snooping:interface-name')
-    ] = None
+        str, Field(alias='srl_nokia-igmp-snooping:interface-name')
+    ]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -26781,9 +26670,7 @@ class InterfaceListEntry9(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-mld-snooping:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-mld-snooping:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -26966,12 +26853,12 @@ class Ipv4EntryListEntry(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-aft:prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv4 destination prefix that should be matched to utilise the AFT entry
     """
@@ -27032,12 +26919,12 @@ class Ipv4ExternalReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     An IPv4 prefix that is reachable to the router.
     """
@@ -27154,12 +27041,12 @@ class Ipv4InternalReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     An IPv4 prefix that is reachable to the router.
     """
@@ -27736,12 +27623,12 @@ class Ipv6EntryListEntry(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-aft:prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv6 destination prefix that should be matched to utilise the AFT entry
     """
@@ -28072,12 +27959,12 @@ class Ipv6ReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv6_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     An IPv6 prefix that is reachable to the router.
     """
@@ -28727,9 +28614,8 @@ class LabelEntryListEntry(BaseModel):
         regex_engine="python-re",
     )
     label_value: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-mpls-route-tables:label-value', ge=16, le=1048575),
-    ] = None
+        int, Field(alias='srl_nokia-mpls-route-tables:label-value', ge=16, le=1048575)
+    ]
     """
     The MPLS label value
     """
@@ -29818,8 +29704,8 @@ class LinkListEntry(BaseModel):
         regex_engine="python-re",
     )
     interface_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ospf:interface-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-ospf:interface-id', ge=0, le=4294967295)
+    ]
     """
     Interface ID for link.
     """
@@ -29862,12 +29748,12 @@ class LinksListEntry(BaseModel):
     The sub-type of the Router LSA.
     """
     link_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:link-id',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The identifier for the link specified. The value of the link
     identifier is dependent upon the type of the LSA. The value is
@@ -29922,12 +29808,12 @@ class LocalAttachmentCircuitListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bgp-evpn:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The list of local attachment circuits in the network instance
     """
@@ -29973,9 +29859,8 @@ class LocalPrefixSidListEntry(BaseModel):
         regex_engine="python-re",
     )
     prefix_sid_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-segment-routing:prefix-sid-index', ge=1, le=4),
-    ] = None
+        int, Field(alias='srl_nokia-segment-routing:prefix-sid-index', ge=1, le=4)
+    ]
     """
     An index to enumerate the different prefix sids
     """
@@ -30223,11 +30108,11 @@ class MacTypeListEntry(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum17],
+        EnumerationEnum17,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-statistics:type'
         ),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -30276,11 +30161,11 @@ class MacTypeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum17],
+        EnumerationEnum17,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:type'
         ),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -30329,11 +30214,11 @@ class MacTypeListEntry3(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum17],
+        EnumerationEnum17,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:type'
         ),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -30382,9 +30267,8 @@ class MacTypeListEntry4(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum17],
-        Field(alias='srl_nokia-bridge-table-mac-table:type'),
-    ] = None
+        EnumerationEnum17, Field(alias='srl_nokia-bridge-table-mac-table:type')
+    ]
     """
     type of mac addresses in the system
     """
@@ -30433,9 +30317,9 @@ class MacTypeListEntry5(BaseModel):
         regex_engine="python-re",
     )
     type: Annotated[
-        Optional[EnumerationEnum17],
+        EnumerationEnum17,
         Field(alias='srl_nokia-connection-point-bridge-table-statistics:type'),
-    ] = None
+    ]
     """
     type of mac addresses in the system
     """
@@ -30484,12 +30368,12 @@ class MacListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -30546,12 +30430,12 @@ class MacListEntry10(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-connection-point-bridge-table-mac-table:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -30604,12 +30488,12 @@ class MacListEntry2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -30666,12 +30550,12 @@ class MacListEntry4(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-mac-duplication-entries:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -30735,12 +30619,12 @@ class MacListEntry5(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-static-mac:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -30771,12 +30655,12 @@ class MacListEntry6(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-mac-table:address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The mac-address type represents an IEEE 802 MAC address.
     The canonical representation uses lowercase characters.
@@ -30918,9 +30802,8 @@ class MatchListEntry(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-bgp:prefix')
+    ]
     """
     The IP prefix used to match an incoming dynamic BGP session to a group.
     """
@@ -31066,15 +30949,12 @@ class MsdInfoListEntry(BaseModel):
         regex_engine="python-re",
     )
     msd_type: Annotated[
-        Optional[Union[EnumerationEnum197, MsdTypeLeaf1]],
-        Field(alias='srl_nokia-isis:msd-type'),
-    ] = None
+        Union[EnumerationEnum197, MsdTypeLeaf1], Field(alias='srl_nokia-isis:msd-type')
+    ]
     """
     MSD type
     """
-    msd_value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:msd-value', ge=0, le=255)
-    ] = None
+    msd_value: Annotated[int, Field(alias='srl_nokia-isis:msd-value', ge=0, le=255)]
     """
     A number in the range of 0-255 representing the maximum SID depth; for all MSD-Types, 0 represents the lack of ability to support a SID stack of any depth
     """
@@ -31090,15 +30970,12 @@ class MsdInfoListEntry2(BaseModel):
         regex_engine="python-re",
     )
     msd_type: Annotated[
-        Optional[Union[EnumerationEnum201, MsdTypeLeaf21]],
-        Field(alias='srl_nokia-isis:msd-type'),
-    ] = None
+        Union[EnumerationEnum201, MsdTypeLeaf21], Field(alias='srl_nokia-isis:msd-type')
+    ]
     """
     MSD type
     """
-    msd_value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:msd-value', ge=0, le=255)
-    ] = None
+    msd_value: Annotated[int, Field(alias='srl_nokia-isis:msd-value', ge=0, le=255)]
     """
     A number in the range of 0-255 representing the maximum SID depth; for all MSD-Types, 0 represents the lack of ability to support a SID stack of any depth
     """
@@ -31114,15 +30991,12 @@ class MsdInfoListEntry3(BaseModel):
         regex_engine="python-re",
     )
     msd_type: Annotated[
-        Optional[Union[EnumerationEnum204, MsdTypeLeaf31]],
-        Field(alias='srl_nokia-isis:msd-type'),
-    ] = None
+        Union[EnumerationEnum204, MsdTypeLeaf31], Field(alias='srl_nokia-isis:msd-type')
+    ]
     """
     MSD type
     """
-    msd_value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:msd-value', ge=0, le=255)
-    ] = None
+    msd_value: Annotated[int, Field(alias='srl_nokia-isis:msd-value', ge=0, le=255)]
     """
     A number in the range of 0-255 representing the maximum SID depth; for all MSD-Types, 0 represents the lack of ability to support a SID stack of any depth
     """
@@ -31138,8 +31012,8 @@ class MstInstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     mst_instance: Annotated[
-        Optional[int], Field(alias='srl_nokia-stp:mst-instance', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-stp:mst-instance', ge=0, le=4294967295)
+    ]
     """
     Key of type uint32
     """
@@ -31167,12 +31041,12 @@ class MtIpv4ReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     An IPv4 prefix that is reachable to the router.
     """
@@ -31207,12 +31081,12 @@ class MtIpv6ReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv6_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     An IPv6 prefix that is reachable to the router.
     """
@@ -31275,12 +31149,12 @@ class MulticastRoutersListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The source IP address used by queries sent out by this multicast router
     """
@@ -31329,12 +31203,12 @@ class MulticastRoutersListEntry2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     The source IP address used by queries sent out by this multicast router
     """
@@ -31536,9 +31410,7 @@ class NdkLabelBlockListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    application_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-mpls:application-name')
-    ] = None
+    application_name: Annotated[str, Field(alias='srl_nokia-mpls:application-name')]
     static_label_block: Annotated[
         Optional[str],
         Field(
@@ -31570,9 +31442,8 @@ class NeighborOriginListEntry(BaseModel):
         regex_engine="python-re",
     )
     origin: Annotated[
-        Optional[EnumerationEnum280],
-        Field(alias='srl_nokia-bridge-table-proxy-arp-nd:origin'),
-    ] = None
+        EnumerationEnum280, Field(alias='srl_nokia-bridge-table-proxy-arp-nd:origin')
+    ]
     """
     The origin of the neighbor entry.
     """
@@ -31632,9 +31503,8 @@ class NeighborOriginListEntry2(BaseModel):
         regex_engine="python-re",
     )
     origin: Annotated[
-        Optional[EnumerationEnum280],
-        Field(alias='srl_nokia-bridge-table-proxy-arp-nd:origin'),
-    ] = None
+        EnumerationEnum280, Field(alias='srl_nokia-bridge-table-proxy-arp-nd:origin')
+    ]
     """
     The origin of the neighbor entry.
     """
@@ -31696,12 +31566,12 @@ class NeighborListEntry10(BaseModel):
         regex_engine="python-re",
     )
     ipv4_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 address resolved by the proxy ARP entry
 
@@ -31754,12 +31624,12 @@ class NeighborListEntry11(BaseModel):
         regex_engine="python-re",
     )
     ipv4_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 address of the proxy ARP entry
     """
@@ -31815,12 +31685,12 @@ class NeighborListEntry12(BaseModel):
         regex_engine="python-re",
     )
     ipv4_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 address of the proxy ARP entry
     """
@@ -31876,12 +31746,12 @@ class NeighborListEntry13(BaseModel):
         regex_engine="python-re",
     )
     ipv4_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 address resolved by the proxy ARP entry
     """
@@ -31937,12 +31807,12 @@ class NeighborListEntry14(BaseModel):
         regex_engine="python-re",
     )
     ipv4_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv4-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 address of the proxy ARP entry
     """
@@ -31993,12 +31863,12 @@ class NeighborListEntry15(BaseModel):
         regex_engine="python-re",
     )
     ipv6_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 address resolved by the proxy ND entry
 
@@ -32064,12 +31934,12 @@ class NeighborListEntry16(BaseModel):
         regex_engine="python-re",
     )
     ipv6_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 address of the proxy ND entry
     """
@@ -32138,12 +32008,12 @@ class NeighborListEntry17(BaseModel):
         regex_engine="python-re",
     )
     ipv6_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 address of the proxy ND entry
     """
@@ -32212,12 +32082,12 @@ class NeighborListEntry18(BaseModel):
         regex_engine="python-re",
     )
     ipv6_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 address resolved by the proxy ND entry
     """
@@ -32286,12 +32156,12 @@ class NeighborListEntry19(BaseModel):
         regex_engine="python-re",
     )
     ipv6_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bridge-table-proxy-arp-nd:ipv6-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 address of the proxy ND entry
     """
@@ -32349,9 +32219,9 @@ class NeighborListEntry2(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-pim:address'),
-    ] = None
+    ]
     """
     IP address of a neighbor router
     """
@@ -32460,12 +32330,12 @@ class NeighborListEntry9(BaseModel):
         regex_engine="python-re",
     )
     router_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:router-id',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The router-id advertised by the neighbor
     """
@@ -32628,9 +32498,7 @@ class NextHopGroupListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-aft:id', ge=0, le=18446744073709551615)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-aft:id', ge=0, le=18446744073709551615)]
     """
     A unique identifier for the next-hop-group
 
@@ -32742,9 +32610,7 @@ class NextHopListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:index', ge=0, le=4294967295)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-ldp:index', ge=0, le=4294967295)]
     """
     Label ID index entry
     """
@@ -32783,9 +32649,7 @@ class NextHopListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:index', ge=0, le=4294967295)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-ldp:index', ge=0, le=4294967295)]
     """
     Label ID index entry
     """
@@ -32824,9 +32688,7 @@ class NextHopListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=1023)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=1023)]
     """
     A unique identifier of a next-hop member (system allocated).
     """
@@ -33094,7 +32956,7 @@ class OutgoingInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-pim:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-pim:name')]
     """
     Router interface name
     """
@@ -33276,9 +33138,7 @@ class PduListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    pdu_name: Annotated[
-        Optional[EnumerationEnum139], Field(alias='srl_nokia-isis:pdu-name')
-    ] = None
+    pdu_name: Annotated[EnumerationEnum139, Field(alias='srl_nokia-isis:pdu-name')]
     """
     The PDU type that was processed
     """
@@ -33317,9 +33177,7 @@ class PduListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    pdu_name: Annotated[
-        Optional[EnumerationEnum139], Field(alias='srl_nokia-isis:pdu-name')
-    ] = None
+    pdu_name: Annotated[EnumerationEnum139, Field(alias='srl_nokia-isis:pdu-name')]
     """
     The PDU type that was processed
     """
@@ -33355,12 +33213,12 @@ class PolicyListEntry3(BaseModel):
         regex_engine="python-re",
     )
     maintenance_policy_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-maintenance-policies:maintenance-policy-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique identifying name for the maintenance policy
     """
@@ -33405,27 +33263,24 @@ class PrefixSidListEntry(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-isis:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-isis:prefix')
+    ]
     """
     The IPv4 or IPv6 prefix associated with the SID.
     """
     sid_label_value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:sid-label-value', ge=16, le=1048575)
-    ] = None
+        int, Field(alias='srl_nokia-isis:sid-label-value', ge=16, le=1048575)
+    ]
     """
     The MPLS label value associated with the SID.
     """
     multi_topology_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:multi-topology-id', ge=0, le=4095)
-    ] = None
+        int, Field(alias='srl_nokia-isis:multi-topology-id', ge=0, le=4095)
+    ]
     """
     The multi-topology ID that provided the prefix SID
     """
-    algorithm: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:algorithm', ge=0, le=255)
-    ] = None
+    algorithm: Annotated[int, Field(alias='srl_nokia-isis:algorithm', ge=0, le=255)]
     """
     Contains the identifier of the algorithm the router uses to compute the reachability of the prefix to which the Prefix-SID is associated
     """
@@ -33471,42 +33326,40 @@ class PrefixSidListEntry6(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-segment-routing:prefix'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 prefix associated with the SID.
     """
     sid_label_value: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-segment-routing:sid-label-value', ge=16, le=1048575),
-    ] = None
+        int, Field(alias='srl_nokia-segment-routing:sid-label-value', ge=16, le=1048575)
+    ]
     """
     The MPLS label value associated with the SID.
     """
     protocol: Annotated[
-        Optional[EnumerationEnum313], Field(alias='srl_nokia-segment-routing:protocol')
-    ] = None
+        EnumerationEnum313, Field(alias='srl_nokia-segment-routing:protocol')
+    ]
     """
     The protocol that provided the prefix SID
     """
     protocol_instance: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-segment-routing:protocol-instance', ge=0, le=255),
-    ] = None
+        int, Field(alias='srl_nokia-segment-routing:protocol-instance', ge=0, le=255)
+    ]
     """
     The instance ID that provided the prefix SID
     """
     protocol_multi_topology: Annotated[
-        Optional[int],
+        int,
         Field(alias='srl_nokia-segment-routing:protocol-multi-topology', ge=0, le=4095),
-    ] = None
+    ]
     """
     The multi-topology ID that provided the prefix SID
     """
     algorithm: Annotated[
-        Optional[int], Field(alias='srl_nokia-segment-routing:algorithm', ge=0, le=255)
-    ] = None
+        int, Field(alias='srl_nokia-segment-routing:algorithm', ge=0, le=255)
+    ]
     """
     Contains the identifier of the algorithm the router uses to compute the reachability of the prefix to which the Prefix-SID is associated
     """
@@ -33542,8 +33395,8 @@ class ProgrammedSidsListEntry(BaseModel):
         regex_engine="python-re",
     )
     label_value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:label-value', ge=16, le=1048575)
-    ] = None
+        int, Field(alias='srl_nokia-isis:label-value', ge=16, le=1048575)
+    ]
     """
     The adjacency SID represented by the MPLS label value.
     """
@@ -33577,8 +33430,8 @@ class ProgrammedSidsListEntry2(BaseModel):
         regex_engine="python-re",
     )
     label_value: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:label-value', ge=16, le=1048575)
-    ] = None
+        int, Field(alias='srl_nokia-isis:label-value', ge=16, le=1048575)
+    ]
     """
     The adjacency SID represented by the MPLS label value.
     """
@@ -34931,12 +34784,12 @@ class ReflectorListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-seamless-bfd:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name for the local seamless-bfd reflector agent
     """
@@ -35001,9 +34854,9 @@ class ResilientHashPrefixListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-network-instance:ip-prefix'),
-    ] = None
+    ]
     """
     IPv4 or IPv6 prefix. Active routes in the FIB that exactly match this prefix or that are longer matches of this prefix are provided with resilient-hash programming.
     """
@@ -35423,22 +35276,21 @@ class RouteListEntry10(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -35468,36 +35320,33 @@ class RouteListEntry11(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -35606,36 +35455,33 @@ class RouteListEntry12(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -35672,36 +35518,33 @@ class RouteListEntry13(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -35822,36 +35665,33 @@ class RouteListEntry14(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -35881,36 +35721,33 @@ class RouteListEntry15(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36019,36 +35856,33 @@ class RouteListEntry16(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36085,36 +35919,33 @@ class RouteListEntry17(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36235,36 +36066,33 @@ class RouteListEntry18(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI.
     """
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36294,28 +36122,25 @@ class RouteListEntry19(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
-    origin_protocol: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
-    ] = None
+    origin_protocol: Annotated[str, Field(alias='srl_nokia-rib-bgp:origin-protocol')]
     """
     If the route was imported from another protocol, this is the protocol name.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36410,22 +36235,21 @@ class RouteListEntry21(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36531,28 +36355,25 @@ class RouteListEntry23(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
-    origin_protocol: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
-    ] = None
+    origin_protocol: Annotated[str, Field(alias='srl_nokia-rib-bgp:origin-protocol')]
     """
     If the route was imported from another protocol, this is the protocol name.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36654,22 +36475,21 @@ class RouteListEntry25(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36782,22 +36602,21 @@ class RouteListEntry26(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36827,29 +36646,29 @@ class RouteListEntry28(BaseModel):
         regex_engine="python-re",
     )
     origin_as: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:origin-as', ge=1, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:origin-as', ge=1, le=4294967295)
+    ]
     """
     The origin AS of the RTC route
     """
     route_target_prefix: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:route-target-prefix')
-    ] = None
+        str, Field(alias='srl_nokia-rib-bgp:route-target-prefix')
+    ]
     """
     The RTC prefix in the format number1:number2/length, where number1 is an IPv4 address or a 2-byte ASN or a 4-byte ASN, number2 is a 2-byte or 4-byte administrative value and length is a number of bits between 0 and 96
 
     The default RTC prefix is represented by 0:0/0
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -36956,28 +36775,25 @@ class RouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
-    origin_protocol: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
-    ] = None
+    origin_protocol: Annotated[str, Field(alias='srl_nokia-rib-bgp:origin-protocol')]
     """
     If the route was imported from another protocol, this is the protocol name.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -37068,9 +36884,9 @@ class RouteListEntry30(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-aggregate-routes:prefix'),
-    ] = None
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
@@ -37117,9 +36933,9 @@ class RouteListEntry31(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-static-routes:prefix'),
-    ] = None
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
@@ -37190,22 +37006,21 @@ class RouteListEntry5(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -37311,28 +37126,25 @@ class RouteListEntry7(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
-    origin_protocol: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:origin-protocol')
-    ] = None
+    origin_protocol: Annotated[str, Field(alias='srl_nokia-rib-bgp:origin-protocol')]
     """
     If the route was imported from another protocol, this is the protocol name.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -37434,22 +37246,21 @@ class RouteListEntry9(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-rib-bgp:prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-rib-bgp:prefix')
+    ]
     """
     An IPv4 or IPv6 prefix.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor.
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -37628,9 +37439,8 @@ class SegmentListEntry(BaseModel):
         regex_engine="python-re",
     )
     as_path_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:as-path-index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:as-path-index', ge=0, le=4294967295)
+    ]
     """
     RIB attribute AS Path index
     """
@@ -37944,60 +37754,55 @@ class SmetRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -38005,15 +37810,15 @@ class SmetRouteListEntry(BaseModel):
         Optional[FlagsContainer6], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -38126,60 +37931,55 @@ class SmetRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -38187,15 +37987,15 @@ class SmetRouteListEntry2(BaseModel):
         Optional[FlagsContainer9], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -38218,60 +38018,55 @@ class SmetRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -38279,15 +38074,15 @@ class SmetRouteListEntry3(BaseModel):
         Optional[FlagsContainer12], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -38393,60 +38188,55 @@ class SmetRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -38454,15 +38244,15 @@ class SmetRouteListEntry4(BaseModel):
         Optional[FlagsContainer15], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -38532,12 +38322,12 @@ class SourceListEntry10(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38583,12 +38373,12 @@ class SourceListEntry11(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38614,12 +38404,12 @@ class SourceListEntry12(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38645,12 +38435,12 @@ class SourceListEntry14(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38696,12 +38486,12 @@ class SourceListEntry15(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38747,12 +38537,12 @@ class SourceListEntry20(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38796,12 +38586,12 @@ class SourceListEntry5(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38845,12 +38635,12 @@ class SourceListEntry6(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38876,12 +38666,12 @@ class SourceListEntry7(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -38907,12 +38697,12 @@ class SourceListEntry9(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -39140,14 +38930,12 @@ class StaticEntryListEntry(BaseModel):
         regex_engine="python-re",
     )
     top_label: Annotated[
-        Optional[int], Field(alias='srl_nokia-mpls:top-label', ge=16, le=1048575)
-    ] = None
+        int, Field(alias='srl_nokia-mpls:top-label', ge=16, le=1048575)
+    ]
     """
     A received MPLS packet, received on any subinterface, matches this static entry if its top label stack entry contains the label value specified by this leaf.
     """
-    preference: Annotated[
-        Optional[int], Field(alias='srl_nokia-mpls:preference', ge=0, le=255)
-    ] = None
+    preference: Annotated[int, Field(alias='srl_nokia-mpls:preference', ge=0, le=255)]
     """
     For a given top label value the entry with the lowest preference is selected as the active entry
     """
@@ -39206,9 +38994,8 @@ class StaticFecListEntry(BaseModel):
         regex_engine="python-re",
     )
     fec_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-ldp:fec-prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-ldp:fec-prefix')
+    ]
     """
     Static FEC IP prefix
     """
@@ -40770,7 +40557,7 @@ class SubtlvListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -40800,7 +40587,7 @@ class SubtlvListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -40909,7 +40696,7 @@ class SubtlvListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -40942,7 +40729,7 @@ class SubtlvListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -40975,7 +40762,7 @@ class SubtlvListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -41081,7 +40868,7 @@ class SubtlvListEntry6(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -41191,7 +40978,7 @@ class SubtlvListEntry7(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -41301,7 +41088,7 @@ class SubtlvListEntry8(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -41334,7 +41121,7 @@ class SubtlvListEntry9(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of subTLV being described. The type of subTLV is expressed as a canonical name.
     """
@@ -41494,9 +41281,8 @@ class SummaryAddressListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-isis:ip-prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-isis:ip-prefix')
+    ]
     """
     An IP prefix advertised into L2 that summarizes one or more L1 prefixes and causes them to be suppressed
     """
@@ -41594,23 +41380,22 @@ class TableConnectionListEntry(BaseModel):
         regex_engine="python-re",
     )
     source_protocol: Annotated[
-        Optional[str], Field(alias='srl_nokia-table-connections:source-protocol')
-    ] = None
+        str, Field(alias='srl_nokia-table-connections:source-protocol')
+    ]
     """
     The source protocol for the table connection
     """
     address_family: Annotated[
-        Optional[EnumerationEnum410],
-        Field(alias='srl_nokia-table-connections:address-family'),
-    ] = None
+        EnumerationEnum410, Field(alias='srl_nokia-table-connections:address-family')
+    ]
     """
     The address family associated with the connection
 
     The target address family is implicitly the same as the address family specified for the source protocol.
     """
     destination_protocol: Annotated[
-        Optional[str], Field(alias='srl_nokia-table-connections:destination-protocol')
-    ] = None
+        str, Field(alias='srl_nokia-table-connections:destination-protocol')
+    ]
     """
     The destination protocol for the table connection
     """
@@ -41705,7 +41490,7 @@ class TargetListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[str], Field(alias='srl_nokia-policy-forwarding:id')] = None
+    id: Annotated[str, Field(alias='srl_nokia-policy-forwarding:id')]
     """
     A unique identifier for the target.
     """
@@ -41780,9 +41565,8 @@ class TerminationSubnetListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-ni-gre:ip-prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-ni-gre:ip-prefix')
+    ]
     """
     IP prefix to match for decapsulation
     """
@@ -42977,9 +42761,7 @@ class TypeOfServiceListEntry(BaseModel):
     An opaque tag that set by the LSA originator to carry
     information relating to the external route
     """
-    tos: Annotated[Optional[int], Field(alias='srl_nokia-ospf:tos', ge=0, le=255)] = (
-        None
-    )
+    tos: Annotated[int, Field(alias='srl_nokia-ospf:tos', ge=0, le=255)]
     """
     OSPF encoding of the type of service referred to by this
     LSA. Encoding for OSPF TOS are described in RFC2328.
@@ -43023,9 +42805,7 @@ class TypeOfServiceListEntry4(BaseModel):
     An opaque tag that set by the LSA originator to carry
     information relating to the external route
     """
-    tos: Annotated[Optional[int], Field(alias='srl_nokia-ospf:tos', ge=0, le=255)] = (
-        None
-    )
+    tos: Annotated[int, Field(alias='srl_nokia-ospf:tos', ge=0, le=255)]
     """
     OSPF encoding of the type of service referred to by this
     LSA. Encoding for OSPF TOS are described in RFC2328.
@@ -43082,12 +42862,12 @@ class VxlanInterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-network-instance:name',
             pattern='^(?=^(vxlan(0|1[0-9][0-9]|2([0-4][0-9]|5[0-5])|[1-9][0-9]|[1-9])\\.(0|[1-9](\\d){0,8}))$).*$',
         ),
-    ] = None
+    ]
     """
     Identifier of vxlan-interface used in this network-instance
     """
@@ -43325,19 +43105,19 @@ class AdjacencyListEntry5(BaseModel):
         regex_engine="python-re",
     )
     neighbor_system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:neighbor-system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     The neighbor router's system ID.
     """
     adjacency_level: Annotated[
-        Optional[str],
+        str,
         Field(alias='srl_nokia-isis:adjacency-level', pattern='^(?=^L1|L2|L1L2$).*$'),
-    ] = None
+    ]
     """
     The level of the adjacency that is formed.
     """
@@ -43647,9 +43427,7 @@ class AfiSafiListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    afi_safi_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-bgp:afi-safi-name')
-    ] = None
+    afi_safi_name: Annotated[str, Field(alias='srl_nokia-bgp:afi-safi-name')]
     """
     The name of a BGP address family, which translates to a specific AFI value and a specific SAFI value
     """
@@ -43843,9 +43621,9 @@ class AreaRangeListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix_mask: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-ospf:ip-prefix-mask'),
-    ] = None
+    ]
     """
     ip-prefix with host bits set to  0
     """
@@ -43865,9 +43643,9 @@ class AreaRangeListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix_mask: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-ospf:ip-prefix-mask'),
-    ] = None
+    ]
     """
     ip-prefix with host bits set to  0
     """
@@ -44057,7 +43835,7 @@ class BgpInstanceListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[int], Field(alias='srl_nokia-bgp-vpn:id', ge=1, le=2)] = None
+    id: Annotated[int, Field(alias='srl_nokia-bgp-vpn:id', ge=1, le=2)]
     """
     The index of the bgp-vpn instance
     """
@@ -44101,7 +43879,7 @@ class BgpInstanceListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[int], Field(alias='srl_nokia-mvpn-l3:id', ge=1, le=2)] = None
+    id: Annotated[int, Field(alias='srl_nokia-mvpn-l3:id', ge=1, le=2)]
     """
     The index of the bgp-vpn instance
     """
@@ -44193,9 +43971,7 @@ class BlockedInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-mld:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-mld:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -44206,9 +43982,7 @@ class BlockedInterfaceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-igmp:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-igmp:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -44275,9 +44049,8 @@ class CapabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     instance_number: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-isis:instance-number', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-isis:instance-number', ge=0, le=4294967295)
+    ]
     """
     A unique instance number for the instance of the router capabilities TLV. The instance number should be autogenerated by the producer of the data and may be renumbered if the entire LSP contents are replaced in subsequent advertisements.
     """
@@ -44312,28 +44085,28 @@ class ConnectionListEntry(BaseModel):
         regex_engine="python-re",
     )
     local_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-tcp-udp:local-address'),
-    ] = None
+    ]
     """
     The local IP address for this TCP connection.
     """
     local_port: Annotated[
-        Optional[int], Field(alias='srl_nokia-tcp-udp:local-port', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-tcp-udp:local-port', ge=0, le=65535)
+    ]
     """
     The local port number for this TCP connection.
     """
     remote_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-tcp-udp:remote-address'),
-    ] = None
+    ]
     """
     The remote IP address for this TCP connection.
     """
     remote_port: Annotated[
-        Optional[int], Field(alias='srl_nokia-tcp-udp:remote-port', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-tcp-udp:remote-port', ge=0, le=65535)
+    ]
     """
     The remote port number for this TCP connection.
     """
@@ -44447,31 +44220,31 @@ class DestinationListEntry(BaseModel):
         regex_engine="python-re",
     )
     tep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:tep'),
-    ] = None
+    ]
     """
     The IP address that identifies the remote EVPN Termination Endpoint (TEP).
     """
     evi_label: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:evi-label',
             ge=16,
             le=1048575,
         ),
-    ] = None
+    ]
     """
     EVI label of the destination.
     """
     tunnel_id: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:tunnel-id',
             ge=0,
             le=18446744073709551615,
         ),
-    ] = None
+    ]
     """
     tunnel identitier of the destination.
     """
@@ -44503,31 +44276,31 @@ class DestinationListEntry2(BaseModel):
         regex_engine="python-re",
     )
     tep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:tep'),
-    ] = None
+    ]
     """
     The IP address that identifies the remote EVPN Termination Endpoint (TEP).
     """
     evi_label: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:evi-label',
             ge=16,
             le=1048575,
         ),
-    ] = None
+    ]
     """
     EVI label of this next-hop.
     """
     tunnel_id: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:tunnel-id',
             ge=0,
             le=18446744073709551615,
         ),
-    ] = None
+    ]
     """
     tunnel identitier of this next-hop.
     """
@@ -44539,33 +44312,33 @@ class DestinationListEntry3(BaseModel):
         regex_engine="python-re",
     )
     tep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations:tep'
         ),
-    ] = None
+    ]
     """
     The IP address that identifies the remote EVPN Termination Endpoint (TEP).
     """
     evi_label: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations:evi-label',
             ge=16,
             le=1048575,
         ),
-    ] = None
+    ]
     """
     EVI label of the destination.
     """
     tunnel_id: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-multicast-destinations:tunnel-id',
             ge=0,
             le=18446744073709551615,
         ),
-    ] = None
+    ]
     """
     tunnel identitier of the destination.
     """
@@ -44606,33 +44379,33 @@ class DestinationListEntry5(BaseModel):
         regex_engine="python-re",
     )
     tep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:tep'
         ),
-    ] = None
+    ]
     """
     The IP address that identifies the remote EVPN Termination Endpoint (TEP).
     """
     evi_label: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:evi-label',
             ge=16,
             le=1048575,
         ),
-    ] = None
+    ]
     """
     EVI label of this next-hop.
     """
     tunnel_id: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:tunnel-id',
             ge=0,
             le=18446744073709551615,
         ),
-    ] = None
+    ]
     """
     tunnel identitier of the next-hop.
     """
@@ -44900,12 +44673,12 @@ class EsDestinationListEntry(BaseModel):
         regex_engine="python-re",
     )
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-vpws-destinations-remote-ac:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The 10-byte Ethernet Segment Identifier of the ethernet segment.
     ESI-0 or MAX-ESI values are not allowed.
@@ -44948,46 +44721,43 @@ class EthernetAdRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -45103,46 +44873,43 @@ class EthernetAdRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -45168,46 +44935,43 @@ class EthernetAdRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -45316,46 +45080,43 @@ class EthernetAdRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -45388,46 +45149,44 @@ class EthernetSegmentRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -45533,46 +45292,44 @@ class EthernetSegmentRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -45595,46 +45352,44 @@ class EthernetSegmentRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -45740,46 +45495,44 @@ class EthernetSegmentRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -46519,9 +46272,7 @@ class ForwardingInterfaceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-mld:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-mld:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -46532,9 +46283,7 @@ class ForwardingInterfaceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-igmp:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-igmp:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -46686,9 +46435,8 @@ class GroupRangeListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
-        Field(alias='srl_nokia-pim:ip-prefix'),
-    ] = None
+        Union[Ipv4PrefixType, Ipv6PrefixType], Field(alias='srl_nokia-pim:ip-prefix')
+    ]
     """
     A multicast IP prefix for SSM group range
     """
@@ -46700,22 +46448,22 @@ class GroupRangeListEntry4(BaseModel):
         regex_engine="python-re",
     )
     start: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:start',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     start of the group range
     """
     end: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:end',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     end of the group range
     """
@@ -46730,22 +46478,22 @@ class GroupRangeListEntry7(BaseModel):
         regex_engine="python-re",
     )
     start: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:start',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Start of the group range.
     """
     end: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:end',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     End of the group range.
     """
@@ -46760,12 +46508,12 @@ class GroupListEntry10(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:group',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     group address.
     """
@@ -46785,12 +46533,12 @@ class GroupListEntry11(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:group',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address.
     """
@@ -46861,12 +46609,12 @@ class GroupListEntry12(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:group',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address.
     """
@@ -46937,12 +46685,12 @@ class GroupListEntry13(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:group',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address.
     """
@@ -46977,12 +46725,12 @@ class GroupListEntry14(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:group',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -47025,12 +46773,12 @@ class GroupListEntry15(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:group',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     group address.
     """
@@ -47050,12 +46798,12 @@ class GroupListEntry16(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:group',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -47118,12 +46866,12 @@ class GroupListEntry17(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld-snooping:group',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -47186,12 +46934,12 @@ class GroupListEntry19(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:group',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -47260,16 +47008,14 @@ class GroupListEntry2(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-pim:group'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-pim:group')
+    ]
     """
     Multicast group IP address
     """
     source: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-pim:source'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-pim:source')
+    ]
     """
     Source IP address
     """
@@ -47435,12 +47181,12 @@ class GroupListEntry23(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ni-gre:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique identifier for the decapsulation group
     """
@@ -47463,16 +47209,14 @@ class GroupListEntry3(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-pim:group'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-pim:group')
+    ]
     """
     Multicast group IP address
     """
     source: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-pim:source'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-pim:source')
+    ]
     """
     Source IP address
     """
@@ -47774,12 +47518,12 @@ class GroupListEntry7(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:group',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -47847,12 +47591,12 @@ class GroupListEntry8(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:group',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -47887,12 +47631,12 @@ class GroupListEntry9(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp-snooping:group',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -48001,43 +47745,40 @@ class ImetRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -48150,43 +47891,40 @@ class ImetRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -48209,43 +47947,40 @@ class ImetRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -48351,43 +48086,40 @@ class ImetRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -48460,9 +48192,7 @@ class InstanceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)]
     """
     Unique identifier for the instance of the TLV for the IS neighbor. The instance ID is not required to be consistent across across readvertisements of the LSP.
     """
@@ -48490,9 +48220,7 @@ class InstanceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)]
     """
     Unique identifier for the instance of the TLV for the IS neighbor. The instance ID is not required to be consistent across across readvertisements of the LSP.
     """
@@ -48526,9 +48254,7 @@ class InstanceListEntry3(BaseModel):
     """
     ISIS metric value.
     """
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)]
     """
     Unique identifier for the TLV instance for the neighbor. The ID is not required to be consistent across readvertisements of the LSP.
     """
@@ -48556,9 +48282,7 @@ class InstanceListEntry4(BaseModel):
     """
     ISIS metric value.
     """
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-isis:id', ge=0, le=18446744073709551615)]
     """
     Unique identifier for the TLV instance for the neighbor. The ID is not required to be consistent across readvertisements of the LSP.
     """
@@ -48802,9 +48526,9 @@ class InterfaceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(alias='srl_nokia-network-instance:name', max_length=255, min_length=1),
-    ] = None
+    ]
     """
     Name of the subinterface bound to this network-instance
     """
@@ -48858,13 +48582,13 @@ class InterfaceListEntry15(BaseModel):
         regex_engine="python-re",
     )
     subinterface: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-policy-forwarding:subinterface',
             max_length=255,
             min_length=1,
         ),
-    ] = None
+    ]
     """
     Name of the subinterface.
     """
@@ -48894,13 +48618,13 @@ class InterfaceListEntry16(BaseModel):
         regex_engine="python-re",
     )
     interface_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-traffic-engineering:interface-name',
             max_length=255,
             min_length=1,
         ),
-    ] = None
+    ]
     """
     Name of a subinterface
     """
@@ -49050,49 +48774,46 @@ class IpPrefixRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     ip_prefix_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
+    ]
     """
     IP prefix length
     """
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-rib-bgp:ip-prefix'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 prefix
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -49225,49 +48946,46 @@ class IpPrefixRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     ip_prefix_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
+    ]
     """
     IP prefix length
     """
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-rib-bgp:ip-prefix'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 prefix
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -49310,49 +49028,46 @@ class IpPrefixRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     ip_prefix_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
+    ]
     """
     IP prefix length
     """
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-rib-bgp:ip-prefix'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 prefix
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -49478,49 +49193,46 @@ class IpPrefixRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain
     """
     ip_prefix_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ip-prefix-length', ge=0, le=128)
+    ]
     """
     IP prefix length
     """
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-rib-bgp:ip-prefix'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 prefix
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -50149,15 +49861,15 @@ class ListeningApplicationListEntry(BaseModel):
         regex_engine="python-re",
     )
     local_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-tcp-udp:local-address'),
-    ] = None
+    ]
     """
     The local IP address accepted by the application. An all-zeroes value for the ipv4-address means that any IPv4 address is accepted. An all-zeroes value for the ipv6-address means that any IPv6 address is accepted.
     """
     local_port: Annotated[
-        Optional[int], Field(alias='srl_nokia-tcp-udp:local-port', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-tcp-udp:local-port', ge=0, le=65535)
+    ]
     """
     The local port number accepted by the application.
     """
@@ -50179,15 +49891,15 @@ class ListeningApplicationListEntry2(BaseModel):
         regex_engine="python-re",
     )
     local_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-tcp-udp:local-address'),
-    ] = None
+    ]
     """
     The local IP address accepted by the application. An all-zeroes value for the ipv4-address means that any IPv4 address is accepted. An all-zeroes value for the ipv6-address means that any IPv6 address is accepted.
     """
     local_port: Annotated[
-        Optional[int], Field(alias='srl_nokia-tcp-udp:local-port', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-tcp-udp:local-port', ge=0, le=65535)
+    ]
     """
     The local port number accepted by the application.
     """
@@ -50401,59 +50113,54 @@ class MacIpRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
-    mac_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)
-    ] = None
+    mac_length: Annotated[int, Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)]
     """
     MAC address length
     """
     mac_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The MAC address
     """
     ip_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:ip-address'),
-    ] = None
+    ]
     """
     The IP host address
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -50582,59 +50289,54 @@ class MacIpRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
-    mac_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)
-    ] = None
+    mac_length: Annotated[int, Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)]
     """
     MAC address length
     """
     mac_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The MAC address
     """
     ip_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:ip-address'),
-    ] = None
+    ]
     """
     The IP host address
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -50673,59 +50375,54 @@ class MacIpRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
-    mac_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)
-    ] = None
+    mac_length: Annotated[int, Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)]
     """
     MAC address length
     """
     mac_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The MAC address
     """
     ip_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:ip-address'),
-    ] = None
+    ]
     """
     The IP host address
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -50847,59 +50544,54 @@ class MacIpRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
-    mac_length: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)
-    ] = None
+    mac_length: Annotated[int, Field(alias='srl_nokia-rib-bgp:mac-length', ge=0, le=48)]
     """
     MAC address length
     """
     mac_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:mac-address',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){5}$).*$',
         ),
-    ] = None
+    ]
     """
     The MAC address
     """
     ip_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:ip-address'),
-    ] = None
+    ]
     """
     The IP host address
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI. The Ethernet Tag ID identifies a broadcast domain.
     """
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -51441,70 +51133,65 @@ class MulticastLeaveSynchRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -51519,15 +51206,15 @@ class MulticastLeaveSynchRouteListEntry(BaseModel):
         Optional[FlagsContainer8], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -51640,70 +51327,65 @@ class MulticastLeaveSynchRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -51718,15 +51400,15 @@ class MulticastLeaveSynchRouteListEntry2(BaseModel):
         Optional[FlagsContainer11], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -51749,70 +51431,65 @@ class MulticastLeaveSynchRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -51827,15 +51504,15 @@ class MulticastLeaveSynchRouteListEntry3(BaseModel):
         Optional[FlagsContainer14], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -51941,70 +51618,65 @@ class MulticastLeaveSynchRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -52019,15 +51691,15 @@ class MulticastLeaveSynchRouteListEntry4(BaseModel):
         Optional[FlagsContainer17], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -52057,70 +51729,65 @@ class MulticastMembershipReportSynchRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -52128,15 +51795,15 @@ class MulticastMembershipReportSynchRouteListEntry(BaseModel):
         Optional[FlagsContainer7], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -52249,70 +51916,65 @@ class MulticastMembershipReportSynchRouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -52320,15 +51982,15 @@ class MulticastMembershipReportSynchRouteListEntry2(BaseModel):
         Optional[FlagsContainer10], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -52351,70 +52013,65 @@ class MulticastMembershipReportSynchRouteListEntry3(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -52422,15 +52079,15 @@ class MulticastMembershipReportSynchRouteListEntry3(BaseModel):
         Optional[FlagsContainer13], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -52536,70 +52193,65 @@ class MulticastMembershipReportSynchRouteListEntry4(BaseModel):
         regex_engine="python-re",
     )
     route_distinguisher: Annotated[
-        Optional[
-            Union[
-                RouteDistinguisherType0Type,
-                RouteDistinguisherType1Type,
-                RouteDistinguisherType2Type,
-                RouteDistinguisherType2bType,
-            ]
+        Union[
+            RouteDistinguisherType0Type,
+            RouteDistinguisherType1Type,
+            RouteDistinguisherType2Type,
+            RouteDistinguisherType2bType,
         ],
         Field(alias='srl_nokia-rib-bgp:route-distinguisher'),
-    ] = None
+    ]
     """
     The route distinguisher encoded in the NLRI
     """
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-rib-bgp:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The Ethernet Segment Identifier
     """
     ethernet_tag_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:ethernet-tag-id', ge=0, le=4294967295)
+    ]
     """
     The 32-bit Ethernet Tag ID encoded in the NLRI
 
     The Ethernet Tag ID identifies a broadcast domain.
     """
     multicast_source_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-source-length', ge=0, le=128)
+    ]
     """
     The multicast source address length
     """
     multicast_source_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-source-address'),
-    ] = None
+    ]
     """
     The multicast source IP address
     """
     multicast_group_length: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:multicast-group-length', ge=0, le=128)
+    ]
     """
     The multicast group address length
     """
     multicast_group_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:multicast-group-address'),
-    ] = None
+    ]
     """
     The multicast group IP address
     """
     originating_router: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-rib-bgp:originating-router'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 address of the originating router
     """
@@ -52607,15 +52259,15 @@ class MulticastMembershipReportSynchRouteListEntry4(BaseModel):
         Optional[FlagsContainer16], Field(alias='srl_nokia-rib-bgp:flags')
     ] = None
     neighbor: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-rib-bgp:neighbor'),
-    ] = None
+    ]
     """
     If the route was learned from a BGP neighbor, this is the IPv4 or IPv6 address of that neighbor
     """
     path_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:path-id', ge=0, le=4294967295)
+    ]
     """
     Path identifier of the BGP route
     """
@@ -52645,16 +52297,16 @@ class MulticastRouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-multicast-mfib-tables:source'),
-    ] = None
+    ]
     """
     Source IP address of the MFIB entry
     """
     group: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-multicast-mfib-tables:group'),
-    ] = None
+    ]
     """
     Multicast group address of the MFIB entry
     """
@@ -52772,9 +52424,9 @@ class NeighborListEntry(BaseModel):
         regex_engine="python-re",
     )
     peer_address: Annotated[
-        Optional[Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType]],
+        Union[Ipv4AddressWithZoneType, Ipv6AddressWithZoneType],
         Field(alias='srl_nokia-bgp:peer-address'),
-    ] = None
+    ]
     """
     The transport address of the BGP peer
 
@@ -53055,12 +52707,12 @@ class NeighborListEntry4(BaseModel):
         regex_engine="python-re",
     )
     system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     System-ID of IS neighbor.
     """
@@ -53088,12 +52740,12 @@ class NeighborListEntry5(BaseModel):
         regex_engine="python-re",
     )
     system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     System-id of the neighbor.
     """
@@ -53112,12 +52764,12 @@ class NeighborListEntry6(BaseModel):
         regex_engine="python-re",
     )
     system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     System-id of the neighbor.
     """
@@ -53135,19 +52787,17 @@ class NeighborListEntry7(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    mt_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)
-    ] = None
+    mt_id: Annotated[int, Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)]
     """
     Identifier of a topology being announced.
     """
     system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     System-id of the IS neighbor.
     """
@@ -53165,19 +52815,17 @@ class NeighborListEntry8(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    mt_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)
-    ] = None
+    mt_id: Annotated[int, Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)]
     """
     Identifier of a topology being announced.
     """
     system_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:system-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}$).*$',
         ),
-    ] = None
+    ]
     """
     System-id of the IS neighbor.
     """
@@ -53262,9 +52910,9 @@ class NextHopGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
+        int,
         Field(alias='srl_nokia-ip-route-tables:index', ge=0, le=18446744073709551615),
-    ] = None
+    ]
     """
     A system-wide unique identifier of a next-hop-group indirection object (system allocated).
     """
@@ -53384,9 +53032,9 @@ class NextHopListEntry4(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
+        int,
         Field(alias='srl_nokia-ip-route-tables:index', ge=0, le=18446744073709551615),
-    ] = None
+    ]
     """
     A system-wide unique identifier of a next-hop object (system allocated).
     """
@@ -53716,9 +53364,9 @@ class PeerListEntry7(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-seamless-bfd:address'),
-    ] = None
+    ]
     """
     An IPv4 or IPv6 address of the farend seamless-bfd descriminator binding
     """
@@ -53771,12 +53419,12 @@ class PrefixListEntry(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 prefix contained within reachability TLVs.
     """
@@ -53810,12 +53458,12 @@ class PrefixListEntry2(BaseModel):
         regex_engine="python-re",
     )
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 prefix contained within reachability TLVs.
     """
@@ -53857,12 +53505,12 @@ class PrefixListEntry3(BaseModel):
     The Sub-TLV present bit. If UNSET, the octets of Sub-TLVs are not present. Otherwise, the bit is set and the octet following the prefix will contain the length of the Sub-TLV portion of the structure.
     """
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 prefix contained within extended reachability TLVs.
     """
@@ -53903,12 +53551,12 @@ class PrefixListEntry4(BaseModel):
     The sub-tlv present bit. If UNSET, the octets of Sub-TLVs are not present. Otherwise, the bit is set and the octet following the prefix will contain the length of the Sub-TLV portion of the structure.
     """
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 prefix contained within extended reachability TLVs.
     """
@@ -53945,12 +53593,12 @@ class PrefixListEntry5(BaseModel):
     The Sub-TLV present bit. If UNSET, the octets of Sub-TLVs are not present. Otherwise, the bit is set and the octet following the prefix will contain the length of the Sub-TLV portion of the structure.
     """
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv4 prefix contained within extended reachability TLVs.
     """
@@ -53960,9 +53608,7 @@ class PrefixListEntry5(BaseModel):
     """
     ISIS metric value.
     """
-    mt_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)
-    ] = None
+    mt_id: Annotated[int, Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)]
     """
     Multi-topology ID
     """
@@ -53997,12 +53643,12 @@ class PrefixListEntry6(BaseModel):
     The sub-tlv present bit. If UNSET, the octets of Sub-TLVs are not present. Otherwise, the bit is set and the octet following the prefix will contain the length of the Sub-TLV portion of the structure.
     """
     prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     IPv6 prefix contained within extended reachability TLVs.
     """
@@ -54012,9 +53658,7 @@ class PrefixListEntry6(BaseModel):
     """
     ISIS metric value.
     """
-    mt_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)
-    ] = None
+    mt_id: Annotated[int, Field(alias='srl_nokia-isis:mt-id', ge=0, le=4095)]
     """
     Multi-topology ID
     """
@@ -54447,9 +54091,8 @@ class RendezvousPointListEntry(BaseModel):
         regex_engine="python-re",
     )
     address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-pim:address'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-pim:address')
+    ]
     """
     IP address of the rendezvous point
     """
@@ -54782,40 +54425,34 @@ class RouteListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ip-route-tables:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv4 prefix associated with the route.
     """
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=4294967295)]
     """
     An owner-assigned index value that is unique for each of the routes for a given prefix.
     """
-    route_type: Annotated[
-        Optional[str], Field(alias='srl_nokia-ip-route-tables:route-type')
-    ] = None
+    route_type: Annotated[str, Field(alias='srl_nokia-ip-route-tables:route-type')]
     """
     The type of the IP route
     """
-    route_owner: Annotated[
-        Optional[str], Field(alias='srl_nokia-ip-route-tables:route-owner')
-    ] = None
+    route_owner: Annotated[str, Field(alias='srl_nokia-ip-route-tables:route-owner')]
     """
     The application name of the owner of the IP route
     """
     origin_network_instance: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ip-route-tables:origin-network-instance',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Origin network instance of the route (where it was originally learned or configured)
 
@@ -54922,40 +54559,34 @@ class RouteListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ipv6_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ip-route-tables:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv6 prefix associated with the route.
     """
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-ip-route-tables:id', ge=0, le=4294967295)]
     """
     An owner-assigned index value that is unique for each of the routes for a given prefix.
     """
-    route_type: Annotated[
-        Optional[str], Field(alias='srl_nokia-ip-route-tables:route-type')
-    ] = None
+    route_type: Annotated[str, Field(alias='srl_nokia-ip-route-tables:route-type')]
     """
     The type of the IP route
     """
-    route_owner: Annotated[
-        Optional[str], Field(alias='srl_nokia-ip-route-tables:route-owner')
-    ] = None
+    route_owner: Annotated[str, Field(alias='srl_nokia-ip-route-tables:route-owner')]
     """
     The application name of the owner of the IP route
     """
     origin_network_instance: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ip-route-tables:origin-network-instance',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Origin network instance of the route (where it was originally learned or configured)
 
@@ -55223,22 +54854,22 @@ class ServiceFec128ListEntry(BaseModel):
         regex_engine="python-re",
     )
     virtual_circuit_type: Annotated[
-        Optional[EnumerationEnum100], Field(alias='srl_nokia-ldp:virtual-circuit-type')
-    ] = None
+        EnumerationEnum100, Field(alias='srl_nokia-ldp:virtual-circuit-type')
+    ]
     """
     The virtual circuit (VC) type of the pseudowire
     """
     virtual_circuit_identifier: Annotated[
-        Optional[int],
+        int,
         Field(alias='srl_nokia-ldp:virtual-circuit-identifier', ge=1, le=4294967295),
-    ] = None
+    ]
     """
     The virtual circuit identifier of the pseudowire
     """
     peer_lsr_id: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-ldp:peer-lsr-id'),
-    ] = None
+    ]
     """
     Peer IP address, LSR-id
     """
@@ -55273,22 +54904,22 @@ class ServiceFec128ListEntry2(BaseModel):
         regex_engine="python-re",
     )
     virtual_circuit_type: Annotated[
-        Optional[EnumerationEnum100], Field(alias='srl_nokia-ldp:virtual-circuit-type')
-    ] = None
+        EnumerationEnum100, Field(alias='srl_nokia-ldp:virtual-circuit-type')
+    ]
     """
     The virtual circuit (VC) type of the pseudowire
     """
     virtual_circuit_identifier: Annotated[
-        Optional[int],
+        int,
         Field(alias='srl_nokia-ldp:virtual-circuit-identifier', ge=1, le=4294967295),
-    ] = None
+    ]
     """
     The virtual circuit identifier of the pseudowire
     """
     peer_lsr_id: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-ldp:peer-lsr-id'),
-    ] = None
+    ]
     """
     Peer IP address, LSR-id
     """
@@ -55323,12 +54954,12 @@ class SourceListEntry17(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:source',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -55352,12 +54983,12 @@ class SourceListEntry2(BaseModel):
         regex_engine="python-re",
     )
     source: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:source',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Source address of multicast
     """
@@ -56016,15 +55647,13 @@ class VxlanDestinationListEntry(BaseModel):
         regex_engine="python-re",
     )
     vtep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-igmp-snooping:vtep'),
-    ] = None
+    ]
     """
     The IP address that identifies the remote VXLAN Termination Endpoint (VTEP).
     """
-    vni: Annotated[
-        Optional[int], Field(alias='srl_nokia-igmp-snooping:vni', ge=1, le=16777215)
-    ] = None
+    vni: Annotated[int, Field(alias='srl_nokia-igmp-snooping:vni', ge=1, le=16777215)]
     """
     VXLAN Network Identifier of the destination.
     """
@@ -56078,15 +55707,13 @@ class VxlanDestinationListEntry2(BaseModel):
         regex_engine="python-re",
     )
     vtep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-mld-snooping:vtep'),
-    ] = None
+    ]
     """
     The IP address that identifies the remote VXLAN Termination Endpoint (VTEP).
     """
-    vni: Annotated[
-        Optional[int], Field(alias='srl_nokia-mld-snooping:vni', ge=1, le=16777215)
-    ] = None
+    vni: Annotated[int, Field(alias='srl_nokia-mld-snooping:vni', ge=1, le=16777215)]
     """
     VXLAN Network Identifier of the destination.
     """
@@ -56278,9 +55905,7 @@ class AfiSafiListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    afi_safi_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-bgp:afi-safi-name')
-    ] = None
+    afi_safi_name: Annotated[str, Field(alias='srl_nokia-bgp:afi-safi-name')]
     """
     The name of a BGP address family, which translates to a specific AFI value and a specific SAFI value
     """
@@ -56463,9 +56088,8 @@ class AttrSetListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-rib-bgp:index', ge=0, le=18446744073709551615),
-    ] = None
+        int, Field(alias='srl_nokia-rib-bgp:index', ge=0, le=18446744073709551615)
+    ]
     """
     A unique internal identifier of the attribute set.
     """
@@ -56686,9 +56310,7 @@ class BgpInstanceListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[int], Field(alias='srl_nokia-bgp-ipvpn:id', ge=1, le=2)] = (
-        None
-    )
+    id: Annotated[int, Field(alias='srl_nokia-bgp-ipvpn:id', ge=1, le=2)]
     """
     The index of the bgp-vpn instance
     """
@@ -56941,16 +56563,14 @@ class CustomerSourceGroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-pim:group'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-pim:group')
+    ]
     """
     Multicast group IP address
     """
     source: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
-        Field(alias='srl_nokia-pim:source'),
-    ] = None
+        Union[Ipv4AddressType, Ipv6AddressType], Field(alias='srl_nokia-pim:source')
+    ]
     """
     Source IP address
     """
@@ -57111,33 +56731,33 @@ class DestinationListEntry4(BaseModel):
         regex_engine="python-re",
     )
     tep: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:tep'
         ),
-    ] = None
+    ]
     """
     The IP address that identifies the remote EVPN Termination Endpoint (TEP).
     """
     evi_label: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:evi-label',
             ge=16,
             le=1048575,
         ),
-    ] = None
+    ]
     """
     EVI label of the destination.
     """
     tunnel_id: Annotated[
-        Optional[int],
+        int,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:tunnel-id',
             ge=0,
             le=18446744073709551615,
         ),
-    ] = None
+    ]
     """
     tunnel identitier of the destination.
     """
@@ -57192,12 +56812,12 @@ class EsDestinationListEntry2(BaseModel):
         regex_engine="python-re",
     )
     esi: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bgp-evpn-bgp-instance-mpls-bridge-table-unicast-destinations:esi',
             pattern='^(?=^[0-9a-fA-F]{2}(:[0-9a-fA-F]{2}){9}$).*$',
         ),
-    ] = None
+    ]
     """
     The 10-byte Ethernet Segment Identifier of the ethernet segment.
     ESI-0 or MAX-ESI values are not allowed.
@@ -57373,12 +56993,12 @@ class ExtendedIsReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     neighbor: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:neighbor',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{2}$).*$',
         ),
-    ] = None
+    ]
     """
     An adjacent IS neighbor
     """
@@ -57428,12 +57048,12 @@ class GroupListEntry(BaseModel):
         regex_engine="python-re",
     )
     group_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bgp:group-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The configured name of the peer group
     """
@@ -57578,12 +57198,12 @@ class GroupListEntry18(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-igmp:group',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -57602,12 +57222,12 @@ class GroupListEntry6(BaseModel):
         regex_engine="python-re",
     )
     group: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-mld:group',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Multicast address
     """
@@ -57753,9 +57373,7 @@ class InterfaceListEntry10(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-mld-snooping:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-mld-snooping:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -57919,9 +57537,7 @@ class InterfaceListEntry12(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-igmp:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-igmp:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -58049,7 +57665,7 @@ class InterfaceListEntry13(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-mvpn-l3:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-mvpn-l3:name')]
     """
     Provider Tunnel Interface name
     """
@@ -58079,7 +57695,7 @@ class InterfaceListEntry14(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-mvpn-l3:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-mvpn-l3:name')]
     """
     Provider Tunnel Interface name
     """
@@ -58109,9 +57725,7 @@ class InterfaceListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-pim:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-pim:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -58203,9 +57817,7 @@ class InterfaceListEntry4(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-mld:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-mld:interface-name')]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -58324,8 +57936,8 @@ class InterfaceListEntry8(BaseModel):
         regex_engine="python-re",
     )
     interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-igmp-snooping:interface-name')
-    ] = None
+        str, Field(alias='srl_nokia-igmp-snooping:interface-name')
+    ]
     """
     Reference to a specific subinterface of the form <interface-name>.<subinterface-index>
     """
@@ -58723,9 +58335,7 @@ class LevelListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    level_number: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:level-number', ge=1, le=2)
-    ] = None
+    level_number: Annotated[int, Field(alias='srl_nokia-isis:level-number', ge=1, le=2)]
     """
     Specifies the IS-IS protocol level to which these attributes are applied.
     """
@@ -58969,15 +58579,13 @@ class MldpListEntry(BaseModel):
         regex_engine="python-re",
     )
     root_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-pim:root-address'),
-    ] = None
+    ]
     """
     The extended tunnel address for the PMSI
     """
-    lsp_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-pim:lsp-id', ge=0, le=4294967295)
-    ] = None
+    lsp_id: Annotated[int, Field(alias='srl_nokia-pim:lsp-id', ge=0, le=4294967295)]
     """
     LSP Identifier for the S-PMSI
     """
@@ -59037,12 +58645,12 @@ class MtIsReachabilityListEntry(BaseModel):
         regex_engine="python-re",
     )
     neighbor: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:neighbor',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{2}$).*$',
         ),
-    ] = None
+    ]
     """
     An adjacent IS neighbor
     """
@@ -59108,8 +58716,8 @@ class NexthopListEntry(BaseModel):
         regex_engine="python-re",
     )
     index: Annotated[
-        Optional[int], Field(alias='srl_nokia-next-hop-groups:index', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-next-hop-groups:index', ge=0, le=65535)
+    ]
     """
     Numerical index of the next-hop member
     """
@@ -59338,15 +58946,15 @@ class PeerListEntry2(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -59368,15 +58976,15 @@ class PeerListEntry3(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -59398,15 +59006,15 @@ class PeerListEntry4(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -59428,15 +59036,15 @@ class PeerListEntry5(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, to identify the globally unique LSR. This leaf is used together with the leaf 'label-space-id' to form the LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, to identify a specific label space within the LSR. This is the last two octets of the LDP ID. This leaf is used together with the leaf 'lsr-id' to form the LDP ID
     """
@@ -59547,9 +59155,9 @@ class PeerListEntry6(BaseModel):
         regex_engine="python-re",
     )
     ip_address: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-pcep:ip-address'),
-    ] = None
+    ]
     """
     The address of the PCE peer
     """
@@ -59700,25 +59308,25 @@ class PrefixFecListEntry(BaseModel):
         regex_engine="python-re",
     )
     fec: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ldp:fec',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     The prefix FEC value in the FEC-label binding, learned in a Label Mapping message received from a peer
     """
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -59768,12 +59376,12 @@ class PrefixFecListEntry2(BaseModel):
         regex_engine="python-re",
     )
     fec: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ldp:fec',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     The prefix FEC value in the FEC-label binding, advertised in a Label Mapping message sent to a peer
     """
@@ -59784,15 +59392,15 @@ class PrefixFecListEntry2(BaseModel):
     When set true, the router is the egress LSR for the FEC (the FEC is locally originated)
     """
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -59852,12 +59460,12 @@ class RemoteAttachmentCircuitListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-bgp-evpn:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The list of remote attachment circuits in the network instance
     """
@@ -60140,9 +59748,8 @@ class RuleListEntry(BaseModel):
         regex_engine="python-re",
     )
     sequence_id: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-policy-forwarding:sequence-id', ge=0, le=128),
-    ] = None
+        int, Field(alias='srl_nokia-policy-forwarding:sequence-id', ge=0, le=128)
+    ]
     """
     A number to indicate the relative evaluation order of the different entries; lower numbered entries are evaluated before higher numbered entries
     """
@@ -60189,8 +59796,8 @@ class SegmentListEntry2(BaseModel):
         regex_engine="python-re",
     )
     segment_index: Annotated[
-        Optional[int], Field(alias='srl_nokia-te-policies:segment-index', ge=0, le=255)
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:segment-index', ge=0, le=255)
+    ]
     """
     Index to enumerate the different segments in a segment-list
     """
@@ -60244,8 +59851,8 @@ class SegmentListEntry3(BaseModel):
         regex_engine="python-re",
     )
     segment_index: Annotated[
-        Optional[int], Field(alias='srl_nokia-te-policies:segment-index', ge=0, le=255)
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:segment-index', ge=0, le=255)
+    ]
     """
     Index to enumerate the different segments in a segment-list
     """
@@ -60354,7 +59961,7 @@ class TlvListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-isis:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-isis:type')]
     """
     The type of TLV being described. The type of TLV is expressed as a canonical name.
     """
@@ -60523,26 +60130,24 @@ class TunnelListEntry(BaseModel):
         regex_engine="python-re",
     )
     ipv4_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tunnel-tables:ipv4-prefix',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])/(([0-9])|([1-2][0-9])|(3[0-2]))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv4 prefix associated with the endpoint of the tunnel.
     """
-    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-tunnel-tables:type')]
     """
     The tunnel (encapsulation) type
     """
-    owner: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:owner')] = None
+    owner: Annotated[str, Field(alias='srl_nokia-tunnel-tables:owner')]
     """
     The name of the application that submitted the tunnel to TTM
     """
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-tunnel-tables:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-tunnel-tables:id', ge=0, le=4294967295)]
     """
     An owner-assigned index value that is unique for each of the tunnels terminating at a particular prefix.
     """
@@ -60616,26 +60221,24 @@ class TunnelListEntry2(BaseModel):
         regex_engine="python-re",
     )
     ipv6_prefix: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-tunnel-tables:ipv6-prefix',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     The IPv6 prefix associated with the endpoint of the tunnel.
     """
-    type: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-tunnel-tables:type')]
     """
     The tunnel (encapsulation) type
     """
-    owner: Annotated[Optional[str], Field(alias='srl_nokia-tunnel-tables:owner')] = None
+    owner: Annotated[str, Field(alias='srl_nokia-tunnel-tables:owner')]
     """
     The name of the application that submitted the tunnel to TTM
     """
-    id: Annotated[
-        Optional[int], Field(alias='srl_nokia-tunnel-tables:id', ge=0, le=4294967295)
-    ] = None
+    id: Annotated[int, Field(alias='srl_nokia-tunnel-tables:id', ge=0, le=4294967295)]
     """
     An owner-assigned index value that is unique for each of the tunnels terminating at a particular prefix.
     """
@@ -60774,9 +60377,7 @@ class AfiSafiListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    afi_safi_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-bgp:afi-safi-name')
-    ] = None
+    afi_safi_name: Annotated[str, Field(alias='srl_nokia-bgp:afi-safi-name')]
     """
     The name of a BGP address family, which translates to a specific AFI value and a specific SAFI value
     """
@@ -61260,12 +60861,12 @@ class DiversityListEntry(BaseModel):
         regex_engine="python-re",
     )
     association_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-pcep:association-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Association name
     """
@@ -61344,9 +60945,8 @@ class ExplicitRouteObjectsListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_object_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-pcep:route-object-index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-pcep:route-object-index', ge=0, le=4294967295)
+    ]
     """
     The unique identifier for RRO/ERO entries
     """
@@ -61428,12 +61028,12 @@ class GroupListEntry22(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-next-hop-groups:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Specifies the next hop group name
     """
@@ -61457,9 +61057,7 @@ class HopListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    index: Annotated[
-        Optional[int], Field(alias='srl_nokia-te-policies:index', ge=0, le=255)
-    ] = None
+    index: Annotated[int, Field(alias='srl_nokia-te-policies:index', ge=0, le=255)]
     """
     The index number of the hop. Hops are processed in ascending sequence.
     """
@@ -61612,9 +61210,8 @@ class InterfaceListEntry6(BaseModel):
         regex_engine="python-re",
     )
     interface_name: Annotated[
-        Optional[str],
-        Field(alias='srl_nokia-isis:interface-name', max_length=255, min_length=1),
-    ] = None
+        str, Field(alias='srl_nokia-isis:interface-name', max_length=255, min_length=1)
+    ]
     """
     Name of the IS-IS interface
     """
@@ -61857,19 +61454,17 @@ class LevelDatabaseListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    level_number: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:level-number', ge=1, le=2)
-    ] = None
+    level_number: Annotated[int, Field(alias='srl_nokia-isis:level-number', ge=1, le=2)]
     """
     Specifies the IS-IS protocol level to which these attributes are applied.
     """
     lsp_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:lsp-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f][0-9A-Fa-f]-[0-9A-Fa-f][0-9A-Fa-f]$).*$',
         ),
-    ] = None
+    ]
     """
     The value specifies the LSP Id and is given in the format as 6 octets of adjacency system-id followed by 1 octet Lan-ID and 1 octet LSP Number.
     """
@@ -61964,22 +61559,22 @@ class LsaListEntry(BaseModel):
         regex_engine="python-re",
     )
     advertising_router: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:advertising-router',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The router ID of the router that originated the LSA
     """
     link_state_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:link-state-id',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The Link State ID for the specified LSA type. The exact
     defined value of the Link State ID is dependent on the LSA
@@ -62046,22 +61641,22 @@ class LsaListEntry2(BaseModel):
         regex_engine="python-re",
     )
     advertising_router: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:advertising-router',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The router ID of the router that originated the LSA
     """
     link_state_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:link-state-id',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The Link State ID for the specified LSA type. The exact
      defined value of the Link State ID is dependent on the LSA
@@ -62124,22 +61719,22 @@ class LsaListEntry3(BaseModel):
         regex_engine="python-re",
     )
     advertising_router: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:advertising-router',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The router ID of the router that originated the LSA
     """
     link_state_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:link-state-id',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     The Link State ID for the specified LSA type. The exact
     defined value of the Link State ID is dependent on the LSA
@@ -62280,12 +61875,12 @@ class LspListEntry(BaseModel):
         regex_engine="python-re",
     )
     lsp_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:lsp-id',
             pattern='^(?=^[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f]{4}\\.[0-9A-Fa-f][0-9A-Fa-f]-[0-9A-Fa-f][0-9A-Fa-f]$).*$',
         ),
-    ] = None
+    ]
     """
     The value specifies the LSP Id and is given in the format as 6 octets of adjacency system-id followed by 1 octet Lan-ID and 1 octet LSP Number.
     """
@@ -62451,8 +62046,8 @@ class PathRequestListEntry(BaseModel):
         regex_engine="python-re",
     )
     request_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-pcep:request-id', ge=1, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-pcep:request-id', ge=1, le=4294967295)
+    ]
     """
     The unique path computation request identifier represented in PCReq message
     """
@@ -62677,12 +62272,12 @@ class PathListEntry(BaseModel):
         regex_engine="python-re",
     )
     explicit_path_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-te-policies:explicit-path-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique name to identify the explicit path
     """
@@ -62701,15 +62296,15 @@ class PeerListEntry(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -62731,12 +62326,12 @@ class PolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     association_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-pcep:association-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Association name
     """
@@ -62765,12 +62360,12 @@ class PolicyListEntry2(BaseModel):
         regex_engine="python-re",
     )
     policy_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-policy-forwarding:policy-id',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique name identifying the forwarding policy. This name is used when applying the policy to a particular interface.
     """
@@ -62806,25 +62401,25 @@ class PrefixFecListEntry3(BaseModel):
         regex_engine="python-re",
     )
     fec: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ldp:fec',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     The prefix FEC value in the FEC-label binding, learned in a Label Mapping message received from a peer
     """
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -62874,12 +62469,12 @@ class PrefixFecListEntry4(BaseModel):
         regex_engine="python-re",
     )
     fec: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ldp:fec',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))(/(([0-9])|([0-9]{2})|(1[0-1][0-9])|(12[0-8])))$).*$',
         ),
-    ] = None
+    ]
     """
     The prefix FEC value in the FEC-label binding, advertised in a Label Mapping message sent to a peer
     """
@@ -62890,15 +62485,15 @@ class PrefixFecListEntry4(BaseModel):
     When set true, the router is the egress LSR for the FEC (the FEC is locally originated)
     """
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -62950,12 +62545,12 @@ class PseudowireListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-network-instance:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The identifier for the pseudowire
     """
@@ -63091,9 +62686,8 @@ class RecordRouteObjectsListEntry(BaseModel):
         regex_engine="python-re",
     )
     route_object_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-pcep:route-object-index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-pcep:route-object-index', ge=0, le=4294967295)
+    ]
     """
     The unique identifier for RRO/ERO entries
     """
@@ -63427,15 +63021,15 @@ class AdjacencyListEntry(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -63488,15 +63082,15 @@ class AdjacencyListEntry2(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -63549,15 +63143,15 @@ class AdjacencyListEntry3(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -63610,15 +63204,15 @@ class AdjacencyListEntry4(BaseModel):
         regex_engine="python-re",
     )
     lsr_id: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-ldp:lsr-id'),
-    ] = None
+    ]
     """
     The LSR ID of the peer, as a portion of the peer LDP ID
     """
     label_space_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
-    ] = None
+        int, Field(alias='srl_nokia-ldp:label-space-id', ge=0, le=65535)
+    ]
     """
     The Label Space ID of the peer, as a portion of the peer LDP ID
     """
@@ -63680,9 +63274,7 @@ class AfiSafiListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    afi_safi_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-rib-bgp:afi-safi-name')
-    ] = None
+    afi_safi_name: Annotated[str, Field(alias='srl_nokia-rib-bgp:afi-safi-name')]
     """
     The name of the address family
     """
@@ -63726,9 +63318,8 @@ class AssociationDetailListEntry(BaseModel):
         regex_engine="python-re",
     )
     association_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-pcep:association-index', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-pcep:association-index', ge=0, le=4294967295)
+    ]
     """
     The unique identifier for association entries
     """
@@ -63780,9 +63371,7 @@ class BgpInstanceListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    id: Annotated[Optional[int], Field(alias='srl_nokia-bgp-evpn:id', ge=1, le=2)] = (
-        None
-    )
+    id: Annotated[int, Field(alias='srl_nokia-bgp-evpn:id', ge=1, le=2)]
     """
     The index of the bgp-vpn instance
     """
@@ -63944,12 +63533,12 @@ class ConnectionPointListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-network-instance:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique name identifying the connection-point
     """
@@ -64422,7 +64011,7 @@ class LsaTypeListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-ospf:type')]
     """
     The type of LSA being described. The type of the LSA is
     expressed as a canonical name.
@@ -64440,7 +64029,7 @@ class LsaTypeListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-ospf:type')]
     """
     The type of LSA being described. The type of the LSA is
     expressed as a canonical name.
@@ -64458,7 +64047,7 @@ class LsaTypeListEntry3(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    type: Annotated[Optional[str], Field(alias='srl_nokia-ospf:type')] = None
+    type: Annotated[str, Field(alias='srl_nokia-ospf:type')]
     """
     The type of LSA being described. The type of the LSA is
     expressed as a canonical name.
@@ -64678,9 +64267,7 @@ class PathDetailListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    path_type: Annotated[
-        Optional[EnumerationEnum253], Field(alias='srl_nokia-pcep:path-type')
-    ] = None
+    path_type: Annotated[EnumerationEnum253, Field(alias='srl_nokia-pcep:path-type')]
     """
     LSP paths types
     """
@@ -64818,9 +64405,8 @@ class SegmentListListEntry(BaseModel):
         regex_engine="python-re",
     )
     segment_list_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-te-policies:segment-list-index', ge=1, le=32),
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:segment-list-index', ge=1, le=32)
+    ]
     """
     Index to enumerate the different segment lists of a TE policy.
     """
@@ -64942,9 +64528,8 @@ class SegmentListListEntry2(BaseModel):
         regex_engine="python-re",
     )
     segment_list_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-te-policies:segment-list-index', ge=1, le=32),
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:segment-list-index', ge=1, le=32)
+    ]
     """
     Index to enumerate the different segment lists.
     """
@@ -65172,9 +64757,8 @@ class SegmentListListEntry3(BaseModel):
         regex_engine="python-re",
     )
     segment_list_index: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-te-policies:segment-list-index', ge=1, le=32),
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:segment-list-index', ge=1, le=32)
+    ]
     """
     Index to enumerate the different segment lists.
     """
@@ -65413,12 +64997,12 @@ class TargetListEntry(BaseModel):
     Reason for the targeted LDP adjacency being down
     """
     remote_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ldp:remote-address',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     Configuration of neighbor address of the targeted LDP adjacency
     """
@@ -65505,12 +65089,12 @@ class TargetListEntry2(BaseModel):
     Reason for the targeted LDP adjacency being down
     """
     remote_address: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ldp:remote-address',
             pattern='^(?=^((:|[0-9a-fA-F]{0,4}):)([0-9a-fA-F]{0,4}:){0,5}((([0-9a-fA-F]{0,4}:)?(:|[0-9a-fA-F]{0,4}))|(((25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])))$).*$',
         ),
-    ] = None
+    ]
     """
     Configuration of IPv6 neighbor address of the targeted LDP adjacency
     """
@@ -65622,30 +65206,27 @@ class CandidatePathListEntry(BaseModel):
         regex_engine="python-re",
     )
     protocol_origin: Annotated[
-        Optional[EnumerationEnum389],
-        Field(alias='srl_nokia-te-policies:protocol-origin'),
-    ] = None
+        EnumerationEnum389, Field(alias='srl_nokia-te-policies:protocol-origin')
+    ]
     """
     Instantiation mechanism used to create the candidate path
     """
     originator_asn: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-te-policies:originator-asn', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:originator-asn', ge=0, le=4294967295)
+    ]
     """
     Autonomous System (ASN) Identifier of the node that signalled/instantiated the candidate path on headend
     """
     originator_address: Annotated[
-        Optional[Union[Ipv4AddressType, Ipv6AddressType]],
+        Union[Ipv4AddressType, Ipv6AddressType],
         Field(alias='srl_nokia-te-policies:originator-address'),
-    ] = None
+    ]
     """
     IP address Identifier of the node that signalled/instantiated the candidate path on headend
     """
     discriminator: Annotated[
-        Optional[int],
-        Field(alias='srl_nokia-te-policies:discriminator', ge=0, le=4294967295),
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:discriminator', ge=0, le=4294967295)
+    ]
     """
     Candidate path discriminator
     """
@@ -65726,9 +65307,7 @@ class InterfaceListEntry11(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    interface_name: Annotated[
-        Optional[str], Field(alias='srl_nokia-ospf:interface-name')
-    ] = None
+    interface_name: Annotated[str, Field(alias='srl_nokia-ospf:interface-name')]
     """
     Router logical interface name.
     """
@@ -65934,7 +65513,7 @@ class InterfaceListEntry5(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    name: Annotated[Optional[str], Field(alias='srl_nokia-ldp:name')] = None
+    name: Annotated[str, Field(alias='srl_nokia-ldp:name')]
     """
     Reference to a specific subinterface that is bound to the network instance
     """
@@ -66018,9 +65597,7 @@ class LevelListEntry2(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    level_number: Annotated[
-        Optional[int], Field(alias='srl_nokia-isis:level-number', ge=1, le=2)
-    ] = None
+    level_number: Annotated[int, Field(alias='srl_nokia-isis:level-number', ge=1, le=2)]
     """
     Specifies the IS-IS protocol level to which these attributes are applied.
     """
@@ -66070,9 +65647,7 @@ class LspUpdateListEntry(BaseModel):
         populate_by_name=True,
         regex_engine="python-re",
     )
-    pce_id: Annotated[
-        Optional[int], Field(alias='srl_nokia-pcep:pce-id', ge=1, le=4294967295)
-    ] = None
+    pce_id: Annotated[int, Field(alias='srl_nokia-pcep:pce-id', ge=1, le=4294967295)]
     """
     The unique identifier for PCE
     """
@@ -66309,12 +65884,12 @@ class PolicyListEntry4(BaseModel):
         regex_engine="python-re",
     )
     policy_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-te-policies:policy-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the traffic engineering policy
     """
@@ -66464,15 +66039,15 @@ class PolicyListEntry5(BaseModel):
         regex_engine="python-re",
     )
     color: Annotated[
-        Optional[int], Field(alias='srl_nokia-te-policies:color', ge=0, le=4294967295)
-    ] = None
+        int, Field(alias='srl_nokia-te-policies:color', ge=0, le=4294967295)
+    ]
     """
     Color associated with the SR MPLS (colored) policy
     """
     endpoint: Annotated[
-        Optional[Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType]],
+        Union[Ipv4AddressUnicastType, Ipv6AddressUnicastWithoutLocalType],
         Field(alias='srl_nokia-te-policies:endpoint'),
-    ] = None
+    ]
     """
     Policy endpoint IP address
     """
@@ -66492,19 +66067,18 @@ class PolicyListEntry6(BaseModel):
         regex_engine="python-re",
     )
     policy_name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-te-policies:policy-name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name of Uncolored Traffic Engineering Policy
     """
     protocol_origin: Annotated[
-        Optional[EnumerationEnum389],
-        Field(alias='srl_nokia-te-policies:protocol-origin'),
-    ] = None
+        EnumerationEnum389, Field(alias='srl_nokia-te-policies:protocol-origin')
+    ]
     """
     Uncolored Traffic Engrineering Policy, origination source. The method Policy path is computed. This list includes Path Computation Engine, explicitly configured paths, etc.
     """
@@ -66703,12 +66277,12 @@ class AreaListEntry(BaseModel):
         regex_engine="python-re",
     )
     area_id: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:area-id',
             pattern='^(?=^(([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])$).*$',
         ),
-    ] = None
+    ]
     """
     the area identifier as a dotted-quad.
     """
@@ -66826,12 +66400,12 @@ class InstanceListEntry5(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-isis:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the IS-IS instance
     """
@@ -67023,12 +66597,12 @@ class InstanceListEntry6(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-ospf:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     The name of the OSPF instance
     """
@@ -67710,12 +67284,12 @@ class NetworkInstanceListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-network-instance:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A unique name identifying the network instance
     """

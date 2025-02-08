@@ -1270,12 +1270,12 @@ class StandardCommunitySetListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name used to identify the community set
     """
@@ -1388,12 +1388,12 @@ class TagSetListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name used to identify the tag set
     """
@@ -1452,12 +1452,12 @@ class AsPathSetListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name used to identify the AS path regular expression
     """
@@ -1677,12 +1677,12 @@ class CommunitySetListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name used to identify the community set
     """
@@ -1735,12 +1735,12 @@ class ExtendedCommunitySetListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name used to identify the community set
     """
@@ -2155,19 +2155,19 @@ class PrefixListEntry(BaseModel):
         regex_engine="python-re",
     )
     ip_prefix: Annotated[
-        Optional[Union[Ipv4PrefixType, Ipv6PrefixType]],
+        Union[Ipv4PrefixType, Ipv6PrefixType],
         Field(alias='srl_nokia-routing-policy:ip-prefix'),
-    ] = None
+    ]
     """
     The IPv4 or IPv6 prefix in CIDR notation
     """
     mask_length_range: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:mask-length-range',
             pattern='^(?=^([0-9]+\\.\\.[0-9]+)|exact$).*$',
         ),
-    ] = None
+    ]
     """
     The range of prefix lengths to match
 
@@ -2366,12 +2366,12 @@ class PrefixSetListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name used to identify the prefix set
     """
@@ -2598,12 +2598,12 @@ class StatementListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     Name given to the policy statement (rule).
     """
@@ -2626,12 +2626,12 @@ class PolicyListEntry(BaseModel):
         regex_engine="python-re",
     )
     name: Annotated[
-        Optional[str],
+        str,
         Field(
             alias='srl_nokia-routing-policy:name',
             pattern='^(?=^[A-Za-z0-9!@#$%^&()|+=`~.,/_:;?-][A-Za-z0-9 !@#$%^&()|+=`~.,/_:;?-]*$).*$',
         ),
-    ] = None
+    ]
     """
     A name used to identify the policy
     """
