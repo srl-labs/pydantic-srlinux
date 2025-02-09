@@ -5,7 +5,7 @@
 Run the module as:
 
 ```
-python -m example.interface_v3
+python example/interface_v3.py
 ```
 
 Run tests as:
@@ -14,7 +14,7 @@ Run tests as:
 pytest example/tests/test_interface_v3.py -v
 ```
 
-manually sent payload:
+## Manually send a payload
 
 ```bash
 curl 'http://admin:NokiaSrl1!@srl/jsonrpc' -d @- <<EOF | jq
