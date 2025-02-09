@@ -1,7 +1,6 @@
-from client import Action, SRLClient
-from log import setup_logging
-
 import pydantic_srlinux.models.interfaces as srl_if
+from example.client import Action, SRLClient
+from example.log import setup_logging
 
 setup_logging()
 
@@ -36,9 +35,9 @@ e1_1 = srl_if.InterfaceListEntry(
 )
 
 with SRLClient(host="srl") as client:
-    client.add_command(
+    client.add_set_command(
         action=Action.UPDATE,
         path="/interface[name=ethernet-1/1]",
         value=e1_1,
     )
-    client.send_request()
+    client.send_set_request()

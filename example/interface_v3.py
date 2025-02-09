@@ -2,9 +2,7 @@ from pydantic import BaseModel
 
 import pydantic_srlinux.models.interfaces as srl_if
 from example.client import Action, SRLClient
-from example.log import setup_logging
-
-logger = setup_logging()
+from example.log import logger
 
 
 class Common(BaseModel):
@@ -71,17 +69,18 @@ def main():
     )
     e1_1.add_subif(subif=sub_if_100)
 
-    logger.info(e1_1.to_json(by_alias=False))
-    logger.debug(e1_1.path)
+    logger.debug(
+        f"ethernet-1/1 path = {e1_1.path}; payload:\n{e1_1.to_json(by_alias=False)}"
+    )
 
     # Deploy configuration on a device
     with SRLClient(host="srl") as client:
-        client.add_command(
+        client.add_set_command(
             action=Action.UPDATE,
             path=e1_1.path,
             value=e1_1,
         )
-        client.send_request()
+        client.send_set_request()
 
 
 if __name__ == "__main__":
