@@ -747,7 +747,7 @@ requires-dist = [{ name = "pydantic", specifier = ">=2.10.6" }]
 [package.metadata.requires-dev]
 dev = [
     { name = "httpx", specifier = ">=0.28.1" },
-    { name = "pydantify", git = "https://github.com/pydantify/pydantify?rev=9b185c4" },
+    { name = "pydantify", specifier = ">=0.8.0" },
     { name = "pytest", specifier = ">=8.3.4" },
     { name = "pytest-cov", specifier = ">=6.0.0" },
     { name = "pyyaml", specifier = ">=6.0.2" },
@@ -757,8 +757,8 @@ dev = [
 
 [[package]]
 name = "pydantify"
-version = "0.7.2"
-source = { git = "https://github.com/pydantify/pydantify?rev=9b185c4#9b185c4f9010c51658f8f4582c264ca329335138" }
+version = "0.8.0"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "datamodel-code-generator" },
     { name = "psutil" },
@@ -767,6 +767,10 @@ dependencies = [
     { name = "requests" },
     { name = "setuptools" },
     { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ac/9e/e7b01d9b94f5ac580ad47f03a9cbf673126fc9df713f5b3ff5decdda129b/pydantify-0.8.0.tar.gz", hash = "sha256:1c601e2acfed5e016f01805027b1be7950f6d2f578f0e8e7ae6104bf6d7c99fb", size = 66192 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/10/e7/c1dfe19dd673e67f6641d01bd17e04040905d059e227408abc9958b2d76a/pydantify-0.8.0-py3-none-any.whl", hash = "sha256:0a0db3692991a21ae098a9eccb008dbe73f55563181c70487bec63578f97ef13", size = 23245 },
 ]
 
 [[package]]
