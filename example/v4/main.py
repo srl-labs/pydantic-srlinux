@@ -53,7 +53,11 @@ def configure_node(task: Task) -> Result:
         )
         resp = client.send_set_request()
 
-    return Result(failed=resp.status_code != 200, host=task.host, result=interface)
+    return Result(
+        failed=resp.status_code != 200,
+        host=task.host,
+        result=interface.to_json(by_alias=False),
+    )
 
 
 def main():
