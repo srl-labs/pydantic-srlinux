@@ -28,6 +28,22 @@ Run tests as:
 pytest example/v3/tests/test_interface.py -v
 ```
 
+## Example 4: Concurrent configuration with Nornir
+
+Taking it one step further, we can use Nornir to configure the nodes concurrently, while enjoying the full python experience.
+
+```
+bash example/revert.sh
+```
+
+To apply the configuration, run:
+
+```
+python example/v4/main.py
+```
+
+You will find the nornir inventory in the `example/v4/hosts.yaml` file.
+
 ## Manually send a payload
 
 > For demo purposes.
