@@ -64,10 +64,9 @@ class Interface(srl_if.InterfaceListEntry, Common):
 def main():
     # Create interface and add subinterface
     e1_1 = Interface(name="ethernet-1/1")
-    sub_if_100 = Subinterface(index=100, type="bridged").set_vlan(
-        vlan=Vlan(vlan_id=100)
-    )
-    e1_1.add_subif(subif=sub_if_100)
+    subif_100 = Subinterface(index=100, type="bridged")
+    subif_100.set_vlan(vlan=Vlan(vlan_id=100))
+    e1_1.add_subif(subif=subif_100)
 
     logger.debug(
         f"ethernet-1/1 path = {e1_1.path}; payload:\n{e1_1.to_json(by_alias=False)}"

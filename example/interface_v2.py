@@ -6,7 +6,7 @@ setup_logging()
 
 
 # creates a single tagged vlan
-def st_vlan(vlan_id: int) -> srl_if.VlanContainer:
+def vlan(vlan_id: int) -> srl_if.VlanContainer:
     return srl_if.VlanContainer(
         encap=srl_if.EncapContainer(
             single_tagged=srl_if.SingleTaggedContainer(
@@ -21,7 +21,7 @@ def subif(index: int, type: str) -> srl_if.SubinterfaceListEntry:
         index=index,
         type=type,
         admin_state=srl_if.EnumerationEnum.enable,
-        vlan=st_vlan(vlan_id=index),
+        vlan=vlan(vlan_id=index),
     )
 
 
@@ -40,4 +40,5 @@ with SRLClient(host="srl") as client:
         path="/interface[name=ethernet-1/1]",
         value=e1_1,
     )
+
     client.send_set_request()
