@@ -1,12 +1,9 @@
-from typing import Optional
-
 from nornir import InitNornir
 from nornir.core import Nornir
 from nornir.core.task import Result, Task
 from nornir_rich.functions import print_result
 
 from example.client import Action, SRLClient
-from example.log import logger
 from example.v4.interface import Interface, Subinterface, Vlan
 
 
@@ -33,8 +30,8 @@ def init_nornir() -> Nornir:
     return nr
 
 
-def configure_nodes(task: Task) -> Result:
-    """Configure nodes"""
+def configure_node(task: Task) -> Result:
+    """Configure node task"""
     interface_name = task.host.get("interface_name")
     vlan_id = task.host.get("vlan")
 
@@ -46,7 +43,7 @@ def configure_nodes(task: Task) -> Result:
 
     # Deploy configuration on a device
     if task.host.hostname is None:
-        raise ValueError("hostname must not be None")
+        raise ValueError("hostname must be set")
 
     with SRLClient(host=task.host.hostname) as client:
         client.add_set_command(
@@ -62,18 +59,8 @@ def configure_nodes(task: Task) -> Result:
 def main():
     nr = init_nornir()
 
-    result = nr.run(configure_nodes)
+    result = nr.run(configure_node)
     print_result(result)
-
-    # # Create interface and add subinterface
-    # e1_1 = Interface(name="ethernet-1/1")
-    # subif_100 = Subinterface(index=100, type="bridged")
-    # subif_100.set_vlan(vlan=Vlan(vlan_id=100))
-    # e1_1.add_subif(subif=subif_100)
-
-    # logger.debug(
-    #     f"ethernet-1/1 path = {e1_1.path}; payload:\n{e1_1.to_json(by_alias=False)}"
-    # )
 
 
 if __name__ == "__main__":
