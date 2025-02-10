@@ -73,7 +73,7 @@ def main():
     )
 
     # Deploy configuration on a device
-    with SRLClient(host="srl") as client:
+    with SRLClient(host="clab-vlan-srl1") as client:
         client.add_set_command(
             action=Action.UPDATE,
             path=e1_1.path,

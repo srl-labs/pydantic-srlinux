@@ -1,20 +1,36 @@
-# Example
+# Examples
+
+Deploy the lab with two SR Linux nodes connected to each other with their `ethernet-1/1` interfaces:
+
+```
+SRL_VERSION=24.10.2 clab dep -c -t srlinux.dev/clab-srl2
+```
+
+You will get nodes `srl1` and `srl2` with no custom configuration deployed. We will use these two nodes throughout the examples.
 
 ## Example 3: Abstractions
 
-Run the module as:
+Revert any changes made to the nodes:
 
 ```
-python example/interface_v3.py
+bash example/revert.sh
+```
+
+To apply the configuration, run:
+
+```
+python example/v3/interface.py
 ```
 
 Run tests as:
 
 ```
-pytest example/tests/test_interface_v3.py -v
+pytest example/v3/tests/test_interface.py -v
 ```
 
 ## Manually send a payload
+
+> For demo purposes.
 
 ```bash
 curl 'http://admin:NokiaSrl1!@srl/jsonrpc' -d @- <<EOF | jq

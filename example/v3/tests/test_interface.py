@@ -3,7 +3,7 @@ import json
 import pytest
 from pydantic import ValidationError
 
-from example.interface_v3 import Vlan
+from example.v3.interface import Vlan
 
 
 @pytest.mark.parametrize("vlan_id", [1, 100, 4094])
