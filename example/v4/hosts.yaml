@@ -1,0 +1,12 @@
+srl1:
+  hostname: srl1
+  password: NokiaSrl1!
+  data:
+    interface_name: ethernet-1/1
+    vlan: 100
+srl2:
+  hostname: srl2
+  password: NokiaSrl1!
+  data:
+    interface_name: ethernet-1/1
+    vlan: 100

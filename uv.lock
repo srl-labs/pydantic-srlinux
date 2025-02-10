@@ -539,6 +539,32 @@ wheels = [
 ]
 
 [[package]]
+name = "nornir"
+version = "3.5.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "ruamel-yaml" },
+    { name = "setuptools" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/1a/e9/deda49010c698dc97f66fa93828686546c08127866b6c00a94078d4ef547/nornir-3.5.0.tar.gz", hash = "sha256:f0d212999a37bc5962534738c47099b3e11a45d8f7dc8bc855530f7fb73d2f64", size = 28730 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/5b/5b/2555603edbd02226c037822234830f6de837da53e1c0cd6018fc944c1d50/nornir-3.5.0-py3-none-any.whl", hash = "sha256:7e273d7b2aa519fa84b4fbbeb74ac5df3595d80105009049f0157c72a345b0b2", size = 30592 },
+]
+
+[[package]]
+name = "nornir-rich"
+version = "0.2.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "nornir" },
+    { name = "rich" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/cd/3f/988a534d7893d29d53e935c8407d080509889bcf061a5f3911077cc25cce/nornir_rich-0.2.0.tar.gz", hash = "sha256:28835cb4fbbda36596661bbf07bfa58cc6f6fc27cff022c583ec593563d56224", size = 4852 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f6/41/343c6e5c59921d14f656ca5aca5c700dcd7ab40e4b9c9cf24f8aa349adfd/nornir_rich-0.2.0-py3-none-any.whl", hash = "sha256:19c48ec3c8ea0cb47c84a1bcb65a4a380f814265cbaec809dfd064c220e68b07", size = 5656 },
+]
+
+[[package]]
 name = "openapi-schema-validator"
 version = "0.6.3"
 source = { registry = "https://pypi.org/simple" }
@@ -731,6 +757,10 @@ dependencies = [
 ]
 
 [package.dev-dependencies]
+demo = [
+    { name = "nornir" },
+    { name = "nornir-rich" },
+]
 dev = [
     { name = "httpx" },
     { name = "pydantify" },
@@ -745,6 +775,10 @@ dev = [
 requires-dist = [{ name = "pydantic", specifier = ">=2.10.6" }]
 
 [package.metadata.requires-dev]
+demo = [
+    { name = "nornir", specifier = ">=3.5.0" },
+    { name = "nornir-rich", specifier = ">=0.2.0" },
+]
 dev = [
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "pydantify", specifier = ">=0.8.0" },

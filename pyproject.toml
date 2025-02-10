@@ -16,6 +16,10 @@ dev = [
     "pytest>=8.3.4",
     "pytest-cov>=6.0.0",
 ]
+demo = [
+    "nornir>=3.5.0",
+    "nornir-rich>=0.2.0",
+]
 
 [build-system]
 requires = ["hatchling"]
