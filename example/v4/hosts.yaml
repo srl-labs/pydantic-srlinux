@@ -2,11 +2,23 @@ srl1:
   hostname: srl1
   password: NokiaSrl1!
   data:
-    interface_name: ethernet-1/1
-    vlan: 100
+    p2p_interface:
+      name: ethernet-1/1
+      ip: 10.1.2.1/30
+    loopback:
+      name: system0
+      ip: 10.0.0.1/32
+    isis:
+      net: 49.0001.0000.0000.0001.00
 srl2:
   hostname: srl2
   password: NokiaSrl1!
   data:
-    interface_name: ethernet-1/1
-    vlan: 100
+    p2p_interface:
+      name: ethernet-1/1
+      ip: 10.1.2.2/30
+    loopback:
+      name: system0
+      ip: 10.0.0.2/32
+    isis:
+      net: 49.0001.0000.0000.0002.00
