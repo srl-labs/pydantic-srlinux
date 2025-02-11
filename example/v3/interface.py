@@ -5,7 +5,7 @@ from example.client import Action, SRLClient
 from example.log import logger
 
 
-class Common(BaseModel):
+class ConfigObj(BaseModel):
     """Class with the common methods for SR Linux models"""
 
     def to_json(self, by_alias: bool) -> str:
@@ -17,7 +17,7 @@ class Common(BaseModel):
         )
 
 
-class Vlan(srl_if.VlanContainer, Common):
+class Vlan(srl_if.VlanContainer, ConfigObj):
     def __init__(self, vlan_id: int):
         super().__init__(
             encap=srl_if.EncapContainer(
@@ -28,7 +28,7 @@ class Vlan(srl_if.VlanContainer, Common):
         )
 
 
-class Subinterface(srl_if.SubinterfaceListEntry, Common):
+class Subinterface(srl_if.SubinterfaceListEntry, ConfigObj):
     def __init__(self, index: int, type: str):
         super().__init__(
             index=index,
@@ -43,7 +43,7 @@ class Subinterface(srl_if.SubinterfaceListEntry, Common):
         return self
 
 
-class Interface(srl_if.InterfaceListEntry, Common):
+class Interface(srl_if.InterfaceListEntry, ConfigObj):
     def __init__(self, name: str):
         super().__init__(
             name=name,
