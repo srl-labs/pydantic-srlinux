@@ -24,7 +24,7 @@ e1_1 = srl_if.InterfaceListEntry(
     ],
 )
 
-with SRLClient(host="srl") as client:
+with SRLClient(host="srl1") as client:
     client.add_set_command(
         action=Action.UPDATE,
         path="/interface[name=ethernet-1/1]",
