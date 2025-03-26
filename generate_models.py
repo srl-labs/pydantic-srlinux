@@ -21,6 +21,14 @@ def main() -> None:
     parser.add_argument(
         "--module", required=True, help="Module name to process", type=str
     )
+    parser.add_argument(
+        "--data-type",
+        action="store",
+        dest="data_type",
+        choices=["config", "state"],
+        help="Limit output to config or state only. Default is config and state combined.",
+        default=None,
+    )
     args = parser.parse_args()
 
     # exit if ${SRL_REPO_PATH} is not set
@@ -58,6 +66,8 @@ def main() -> None:
     relay_args.extend(["-p", expanded_repo_path + "/srlinux-yang-models/srl_nokia"])
     relay_args.extend(["-p", expandvars(repo.base_modules["iana"])])
     relay_args.extend(["-p", expandvars(repo.base_modules["ietf"])])
+    if args.data_type:
+        relay_args.extend(["--data-type", args.data_type])
 
     relay_args.extend(["-o", "pydantic_srlinux/models"])
     relay_args.extend(
