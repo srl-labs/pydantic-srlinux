@@ -5,7 +5,7 @@
 >
 > Limitations:
 >
-> - models are generated without if-features flag set, this means all if-features are implicitly enabled. Note, that this will render models for features that your hardware might not have.
+> - By default, models are generated without if-features flag set, this means all if-features are implicitly enabled. Note, that this will render models for features that your hardware might not have. Use the --platform flag to render models that respect feature flags.
 > - if you found additional limitations, please open an issue or reach out in [Discord](https://discord.gg/tZvgjQ6PZf).
 
 ## Installation
@@ -108,6 +108,13 @@ To manually regenerate the Pydantic models for a given module, run the following
 ```bash
 # generate_models.py --module <model name>
 ./generate_models.py --module srl_nokia-acl
+```
+
+This can optionally be scoped to a specific platform from the yang map:
+
+```bash
+# generate_models.py --module <model name> --platform <platform name>
+./generate_models.py --module srl_nokia-acl --platform 7250-IXR-X1B
 ```
 
 The full list of the top level modules:
