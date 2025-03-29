@@ -22,6 +22,12 @@ def main() -> None:
         "--module", required=True, help="Module name to process", type=str
     )
     parser.add_argument(
+        "--platform",
+        required=False,
+        help="Platform name to determine enabled features (e.g. 7250-IXR-X1B). If unspecified, all features will be enabled",
+        type=str,
+    )
+    parser.add_argument(
         "--data-type",
         action="store",
         dest="data_type",
@@ -73,6 +79,16 @@ def main() -> None:
     relay_args.extend(
         ["-f", args.module.replace("srl_nokia-", "").replace("-", "_") + ".py"]
     )
+
+    if args.platform:
+        platform = collection.platforms.get(args.platform)
+        if not platform:
+            print(f"Platform '{args.platform}' not found in yang_map.yml")
+            return
+        features_string = ""
+        for feature in platform.features:
+            features_string += feature + ","
+        relay_args.extend(["-F", f"srl_nokia-features:{features_string}"])
 
     # For each augmented module, add its path as a deviation
     for augmented_module in yang_module.augmented_by:
